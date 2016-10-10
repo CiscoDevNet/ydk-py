@@ -36,19 +36,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('absolute-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                Absolute timeout in minutes
                 ''',
                 'absolute_timeout',
                 'Cisco-IOS-XR-man-netconf-cfg', False),
             _MetaInfoClassMember('idle-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                Non-active session lifetime
                 ''',
                 'idle_timeout',
                 'Cisco-IOS-XR-man-netconf-cfg', False),
             _MetaInfoClassMember('limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1024)], [], 
+                [('1', '50')], [], 
                 '''                Count of allowable concurrent netconf-yang
                 sessions
                 ''',
@@ -66,7 +66,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('rate-limit', ATTRIBUTE, 'int' , None, None, 
-                [(4096, 4294967295)], [], 
+                [('4096', '4294967295')], [], 
                 '''                Number of bytes to process per sec
                 ''',
                 'rate_limit',

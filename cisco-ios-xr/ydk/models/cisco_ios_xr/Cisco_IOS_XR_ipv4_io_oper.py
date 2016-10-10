@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv4\-network\: IPv4 network operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,8 +23,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper import Ipv4MaOperLineStateEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper import RpfModeEnum
 
 class Ipv4MaOperLineStateEnum(Enum):
     """
@@ -306,7 +304,7 @@ class Ipv4Network(object):
                                 	The name of the interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: line_state
                                 
@@ -437,7 +435,7 @@ class Ipv4Network(object):
                                 	The name of the interface
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: acl
                                 
@@ -1652,6 +1650,13 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -1669,6 +1674,7 @@ class Ipv4Network(object):
                         def __init__(self):
                             self.parent = None
                             self.ip_assigned = None
+                            self.ip_unassigned = None
                             self.ip_unnumbered = None
 
                         @property
@@ -1686,6 +1692,9 @@ class Ipv4Network(object):
                             if not self.is_config():
                                 return False
                             if self.ip_assigned is not None:
+                                return True
+
+                            if self.ip_unassigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
@@ -1710,6 +1719,13 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -1727,6 +1743,7 @@ class Ipv4Network(object):
                         def __init__(self):
                             self.parent = None
                             self.ip_assigned = None
+                            self.ip_unassigned = None
                             self.ip_unnumbered = None
 
                         @property
@@ -1744,6 +1761,9 @@ class Ipv4Network(object):
                             if not self.is_config():
                                 return False
                             if self.ip_assigned is not None:
+                                return True
+
+                            if self.ip_unassigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
@@ -1768,6 +1788,13 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -1785,6 +1812,7 @@ class Ipv4Network(object):
                         def __init__(self):
                             self.parent = None
                             self.ip_assigned = None
+                            self.ip_unassigned = None
                             self.ip_unnumbered = None
 
                         @property
@@ -1802,6 +1830,9 @@ class Ipv4Network(object):
                             if not self.is_config():
                                 return False
                             if self.ip_assigned is not None:
+                                return True
+
+                            if self.ip_unassigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
@@ -1826,6 +1857,13 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: ip_unassigned
+                        
+                        	Number of unassigned interfaces with explicit addresses
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: ip_unnumbered
                         
                         	Number of unnumbered interfaces with explicit addresses
@@ -1843,6 +1881,7 @@ class Ipv4Network(object):
                         def __init__(self):
                             self.parent = None
                             self.ip_assigned = None
+                            self.ip_unassigned = None
                             self.ip_unnumbered = None
 
                         @property
@@ -1860,6 +1899,9 @@ class Ipv4Network(object):
                             if not self.is_config():
                                 return False
                             if self.ip_assigned is not None:
+                                return True
+
+                            if self.ip_unassigned is not None:
                                 return True
 
                             if self.ip_unnumbered is not None:
@@ -2055,7 +2097,7 @@ class Ipv4Network(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: encapsultion_failed
+                        .. attribute:: encapsulation_failed
                         
                         	Encapsulation Failed
                         	**type**\:  int
@@ -2325,7 +2367,7 @@ class Ipv4Network(object):
                             self.broadcast_in = None
                             self.broadcast_out = None
                             self.cipso_option = None
-                            self.encapsultion_failed = None
+                            self.encapsulation_failed = None
                             self.end_option = None
                             self.extended_security_option = None
                             self.format_errors = None
@@ -2403,7 +2445,7 @@ class Ipv4Network(object):
                             if self.cipso_option is not None:
                                 return True
 
-                            if self.encapsultion_failed is not None:
+                            if self.encapsulation_failed is not None:
                                 return True
 
                             if self.end_option is not None:
@@ -3099,7 +3141,7 @@ class Ipv4Network(object):
             	The name of the interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: vrfs
             

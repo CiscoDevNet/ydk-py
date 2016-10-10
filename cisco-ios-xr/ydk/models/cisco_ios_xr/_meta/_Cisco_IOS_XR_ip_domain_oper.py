@@ -157,7 +157,7 @@ _meta_table = {
                 'af_name',
                 'Cisco-IOS-XR-ip-domain-oper', False),
             _MetaInfoClassMember('age', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Age in hours
                 ''',
                 'age',

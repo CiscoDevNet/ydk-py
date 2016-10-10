@@ -36,7 +36,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bcdl-client', ATTRIBUTE, 'int' , None, None, 
-                [(10, 2000000)], [], 
+                [('10', '2000000')], [], 
                 '''                Maximum BCDL redistribution history size.
                 ''',
                 'bcdl_client',
@@ -48,7 +48,7 @@ _meta_table = {
                 'keep',
                 'Cisco-IOS-XR-ip-rib-cfg', False),
             _MetaInfoClassMember('protocol-client', ATTRIBUTE, 'int' , None, None, 
-                [(10, 250000)], [], 
+                [('10', '250000')], [], 
                 '''                Maximum protocol redistribution history size.
                 ''',
                 'protocol_client',
@@ -105,7 +105,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bcdl-client', ATTRIBUTE, 'int' , None, None, 
-                [(10, 2000000)], [], 
+                [('10', '2000000')], [], 
                 '''                Maximum BCDL redistribution history size.
                 ''',
                 'bcdl_client',
@@ -117,7 +117,7 @@ _meta_table = {
                 'keep',
                 'Cisco-IOS-XR-ip-rib-cfg', False),
             _MetaInfoClassMember('protocol-client', ATTRIBUTE, 'int' , None, None, 
-                [(10, 250000)], [], 
+                [('10', '250000')], [], 
                 '''                Maximum protocol redistribution history size.
                 ''',
                 'protocol_client',
@@ -186,7 +186,7 @@ _meta_table = {
                 'af',
                 'Cisco-IOS-XR-ip-rib-cfg', False),
             _MetaInfoClassMember('max-recursion-depth', ATTRIBUTE, 'int' , None, None, 
-                [(5, 16)], [], 
+                [('5', '16')], [], 
                 '''                Set maximum depth for route recursion check
                 ''',
                 'max_recursion_depth',

@@ -68,6 +68,82 @@ _meta_table = {
             'mirror-interval8k':'MIRROR_INTERVAL8K',
             'mirror-interval16k':'MIRROR_INTERVAL16K',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-oper', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper']),
+    'SpanMonitorSession.Global.Statistics.Statistic' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.Statistics.Statistic',
+            False, 
+            [
+            _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface
+                ''',
+                'interface',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', True),
+            _MetaInfoClassMember('session', ATTRIBUTE, 'str' , None, None, 
+                [(0, 79)], [], 
+                '''                Session Name
+                ''',
+                'session',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', True),
+            _MetaInfoClassMember('octets-not-mirrored', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Octets Not Mirrored
+                ''',
+                'octets_not_mirrored',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('packets-not-mirrored', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Packets Not Mirrored
+                ''',
+                'packets_not_mirrored',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('rx-octets-mirrored', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                RX Octets Mirrored
+                ''',
+                'rx_octets_mirrored',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('rx-packets-mirrored', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                RX Packets Mirrored
+                ''',
+                'rx_packets_mirrored',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('tx-octets-mirrored', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                TX Octets Mirrored
+                ''',
+                'tx_octets_mirrored',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('tx-packets-mirrored', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                TX Packets Mirrored
+                ''',
+                'tx_packets_mirrored',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            ],
+            'Cisco-IOS-XR-Ethernet-SPAN-oper',
+            'statistic',
+            _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
+        ),
+    },
+    'SpanMonitorSession.Global.Statistics' : {
+        'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.Statistics',
+            False, 
+            [
+            _MetaInfoClassMember('statistic', REFERENCE_LIST, 'Statistic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.Statistics.Statistic', 
+                [], [], 
+                '''                Statistics for a particular source interface
+                ''',
+                'statistic',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            ],
+            'Cisco-IOS-XR-Ethernet-SPAN-oper',
+            'statistics',
+            _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper'
+        ),
+    },
     'SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData' : {
         'meta_info' : _MetaInfoClass('SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData',
             False, 
@@ -189,7 +265,7 @@ _meta_table = {
                 'interface_data',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
@@ -276,13 +352,13 @@ _meta_table = {
                 'destination_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
@@ -300,7 +376,7 @@ _meta_table = {
                 'ipv6_address_and_vrf',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Pseudowire XCID
                 ''',
                 'pseudowire_id',
@@ -329,7 +405,7 @@ _meta_table = {
                 'destination_data',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last error observed for the destination 
                 ''',
                 'destination_error',
@@ -341,7 +417,7 @@ _meta_table = {
                 'destination_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Destination interface handle (deprecated by
                 DestinationID, invalid for pseudowires)
                 ''',
@@ -355,13 +431,13 @@ _meta_table = {
                 'destination_interface_name',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Numerical ID assigned to session
                 ''',
                 'id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('interface-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last error observed for the destination
                 interface (deprecated by DestinationError)
                 ''',
@@ -414,6 +490,12 @@ _meta_table = {
                 ''',
                 'global_sessions',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SpanMonitorSession.Global.Statistics', 
+                [], [], 
+                '''                Table of statistics for source interfaces
+                ''',
+                'statistics',
+                'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             ],
             'Cisco-IOS-XR-Ethernet-SPAN-oper',
             'global',
@@ -432,7 +514,7 @@ _meta_table = {
                 'is_acl_enabled',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('mirror-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of bytes to mirror
                 ''',
                 'mirror_bytes',
@@ -519,13 +601,13 @@ _meta_table = {
                 'destination_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
@@ -543,7 +625,7 @@ _meta_table = {
                 'ipv6_address_and_vrf',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Pseudowire XCID
                 ''',
                 'pseudowire_id',
@@ -560,7 +642,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -584,7 +666,7 @@ _meta_table = {
                 'destination_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Destination interface (deprecated by
                 DestinationID, invalid for pseudowires)
                 ''',
@@ -597,7 +679,7 @@ _meta_table = {
                 'global_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Numerical ID assigned to session
                 ''',
                 'id',
@@ -615,7 +697,7 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('pfi-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last error returned from PFI for this interface
                 ''',
                 'pfi_error',
@@ -627,7 +709,7 @@ _meta_table = {
                 'session_is_configured',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Source interface
                 ''',
                 'source_interface',
@@ -734,13 +816,13 @@ _meta_table = {
                 'destination_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
@@ -758,7 +840,7 @@ _meta_table = {
                 'ipv6_address_and_vrf',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Pseudowire XCID
                 ''',
                 'pseudowire_id',
@@ -781,14 +863,14 @@ _meta_table = {
                 'destination_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Destination interface (deprecated by
                 DestinationID, invalid for pseudowires)
                 ''',
                 'destination_interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Assigned numerical ID for this session
                 ''',
                 'id',
@@ -800,7 +882,7 @@ _meta_table = {
                 'name',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('platform-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last error observed for this session while
                 programming the hardware
                 ''',
@@ -819,7 +901,7 @@ _meta_table = {
                 'session_class_xr',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('session-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Session ID
                 ''',
                 'session_id',
@@ -906,13 +988,13 @@ _meta_table = {
                 'destination_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
@@ -930,7 +1012,7 @@ _meta_table = {
                 'ipv6_address_and_vrf',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Pseudowire XCID
                 ''',
                 'pseudowire_id',
@@ -953,7 +1035,7 @@ _meta_table = {
                 'is_acl_enabled',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('mirror-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of bytes to mirror
                 ''',
                 'mirror_bytes',
@@ -1040,13 +1122,13 @@ _meta_table = {
                 'destination_class',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Handle
                 ''',
                 'interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('invalid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Invalid Parameter
                 ''',
                 'invalid_value',
@@ -1064,7 +1146,7 @@ _meta_table = {
                 'ipv6_address_and_vrf',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('pseudowire-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Pseudowire XCID
                 ''',
                 'pseudowire_id',
@@ -1087,7 +1169,7 @@ _meta_table = {
                 'is_acl_enabled',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('mirror-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of bytes to mirror
                 ''',
                 'mirror_bytes',
@@ -1151,7 +1233,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -1169,20 +1251,20 @@ _meta_table = {
                 'destination_id',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('destination-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Destination interface (deprecated by Attachment)
                 ''',
                 'destination_interface',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('platform-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last error observed for this interface while
                 programming the hardware
                 ''',
                 'platform_error',
                 'Cisco-IOS-XR-Ethernet-SPAN-oper', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Source interface
                 ''',
                 'source_interface',
@@ -1310,6 +1392,7 @@ _meta_table = {
         ),
     },
 }
+_meta_table['SpanMonitorSession.Global.Statistics.Statistic']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.Statistics']['meta_info']
 _meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info']
 _meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info']
 _meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info']
@@ -1319,6 +1402,7 @@ _meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationI
 _meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession']['meta_info']
 _meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession']['meta_info']
 _meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession']['meta_info'].parent =_meta_table['SpanMonitorSession.Global.GlobalSessions']['meta_info']
+_meta_table['SpanMonitorSession.Global.Statistics']['meta_info'].parent =_meta_table['SpanMonitorSession.Global']['meta_info']
 _meta_table['SpanMonitorSession.Global.GlobalSessions']['meta_info'].parent =_meta_table['SpanMonitorSession.Global']['meta_info']
 _meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf']['meta_info'].parent =_meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId']['meta_info']
 _meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf']['meta_info'].parent =_meta_table['SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId']['meta_info']

@@ -13,7 +13,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-rgmgr\-cfg,
 modules with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -74,6 +74,13 @@ class NvSatellites(object):
         	Satellite User
         	**type**\:  :py:class:`ConnectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg.NvSatellites.NvSatellite.ConnectionInfo>`
         
+        .. attribute:: delayed_switchback
+        
+        	Timer (in seconds) for delaying switchback in a dual home setup
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
         .. attribute:: description
         
         	Satellite Description
@@ -130,6 +137,13 @@ class NvSatellites(object):
         	Satellite Serial Number
         	**type**\:  str
         
+        .. attribute:: timeout_warning
+        
+        	Discovery timeout warning for the satellite
+        	**type**\:  int
+        
+        	**range:** 0..4294967295
+        
         .. attribute:: type
         
         	Satellite Type
@@ -161,6 +175,7 @@ class NvSatellites(object):
             self.candidate_fabric_ports.parent = self
             self.connection_info = NvSatellites.NvSatellite.ConnectionInfo()
             self.connection_info.parent = self
+            self.delayed_switchback = None
             self.description = None
             self.device_name = None
             self.disc_timeout = None
@@ -170,6 +185,7 @@ class NvSatellites(object):
             self.redundancy.parent = self
             self.secret = None
             self.serial_number = None
+            self.timeout_warning = None
             self.type = None
             self.upgrade_on_connect = None
             self.vrf = None
@@ -437,6 +453,9 @@ class NvSatellites(object):
             if self.connection_info is not None and self.connection_info._has_data():
                 return True
 
+            if self.delayed_switchback is not None:
+                return True
+
             if self.description is not None:
                 return True
 
@@ -459,6 +478,9 @@ class NvSatellites(object):
                 return True
 
             if self.serial_number is not None:
+                return True
+
+            if self.timeout_warning is not None:
                 return True
 
             if self.type is not None:

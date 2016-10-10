@@ -8,7 +8,7 @@ for the following management objects\:
   platform\: Platform information
   platform\-inventory\: platform inventory
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -2325,14 +2325,14 @@ class PlatformInventory(object):
                                     .. attribute:: main_memory_size
                                     
                                     	Memory size in bytes
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     
                                     .. attribute:: nvram_size
                                     
                                     	NVRAM size in bytes
-                                    	**type**\:  long
+                                    	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
                                     

@@ -19,7 +19,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                Timeout in minutes
                 ''',
                 'timeout',
@@ -36,13 +36,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('memory', ATTRIBUTE, 'int' , None, None, 
-                [(100, 600)], [], 
+                [('100', '600')], [], 
                 '''                Size of memory usage, in MBytes, per session.
                 ''',
                 'memory',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('process-rate', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 30000)], [], 
+                [('1000', '30000')], [], 
                 '''                Process rate in number of XML tags per second
                 ''',
                 'process_rate',
@@ -136,7 +136,7 @@ _meta_table = {
                 'ipv6_enable',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('iteration-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100000)], [], 
+                [('0', '100000')], [], 
                 '''                Iterator size, in KBytes, of the XML response.
                 Specify 0 to turn off the XML response iterator.
                 ''',
@@ -149,7 +149,7 @@ _meta_table = {
                 'session',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('streaming-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100000)], [], 
+                [('1', '100000')], [], 
                 '''                Streaming size, in KBytes, of the XML response.
                 ''',
                 'streaming_size',
@@ -178,7 +178,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                Timeout in minutes
                 ''',
                 'timeout',
@@ -195,13 +195,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('memory', ATTRIBUTE, 'int' , None, None, 
-                [(100, 600)], [], 
+                [('100', '600')], [], 
                 '''                Size of memory usage, in MBytes, per session.
                 ''',
                 'memory',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('process-rate', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 30000)], [], 
+                [('1000', '30000')], [], 
                 '''                Process rate in number of XML tags per second
                 ''',
                 'process_rate',
@@ -224,7 +224,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('iteration-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100000)], [], 
+                [('0', '100000')], [], 
                 '''                Iterator size, in KBytes, of the XML response.
                 Specify 0 to turn off the XML response iterator.
                 ''',
@@ -237,7 +237,7 @@ _meta_table = {
                 'session',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('streaming-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100000)], [], 
+                [('1', '100000')], [], 
                 '''                Streaming size, in KBytes, of the XML response.
                 ''',
                 'streaming_size',
@@ -260,7 +260,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                Timeout in minutes
                 ''',
                 'timeout',
@@ -277,13 +277,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('memory', ATTRIBUTE, 'int' , None, None, 
-                [(100, 600)], [], 
+                [('100', '600')], [], 
                 '''                Size of memory usage, in MBytes, per session.
                 ''',
                 'memory',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('process-rate', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 30000)], [], 
+                [('1000', '30000')], [], 
                 '''                Process rate in number of XML tags per second
                 ''',
                 'process_rate',
@@ -365,7 +365,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('iteration-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100000)], [], 
+                [('0', '100000')], [], 
                 '''                Iterator size, in KBytes, of the XML response.
                 Specify 0 to turn off the XML response iterator.
                 ''',
@@ -378,7 +378,7 @@ _meta_table = {
                 'session',
                 'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
             _MetaInfoClassMember('streaming-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100000)], [], 
+                [('1', '100000')], [], 
                 '''                Streaming size, in KBytes, of the XML response.
                 ''',
                 'streaming_size',
@@ -448,6 +448,115 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg'
         ),
     },
+    'Netconf.Agent.Tty.Throttle' : {
+        'meta_info' : _MetaInfoClass('Netconf.Agent.Tty.Throttle',
+            False, 
+            [
+            _MetaInfoClassMember('memory', ATTRIBUTE, 'int' , None, None, 
+                [('100', '600')], [], 
+                '''                Size of memory usage, in MBytes, per session.
+                ''',
+                'memory',
+                'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
+            _MetaInfoClassMember('offload-memory', ATTRIBUTE, 'int' , None, None, 
+                [('0', '12000')], [], 
+                '''                Size of memory usage, in MBytes, per session.
+                ''',
+                'offload_memory',
+                'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
+            _MetaInfoClassMember('process-rate', ATTRIBUTE, 'int' , None, None, 
+                [('1000', '30000')], [], 
+                '''                Process rate in number of XML tags per second
+                ''',
+                'process_rate',
+                'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
+            ],
+            'Cisco-IOS-XR-man-xml-ttyagent-cfg',
+            'throttle',
+            _yang_ns._namespaces['Cisco-IOS-XR-man-xml-ttyagent-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg'
+        ),
+    },
+    'Netconf.Agent.Tty.Session' : {
+        'meta_info' : _MetaInfoClass('Netconf.Agent.Tty.Session',
+            False, 
+            [
+            _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
+                [('1', '1440')], [], 
+                '''                Timeout in minutes
+                ''',
+                'timeout',
+                'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
+            ],
+            'Cisco-IOS-XR-man-xml-ttyagent-cfg',
+            'session',
+            _yang_ns._namespaces['Cisco-IOS-XR-man-xml-ttyagent-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg'
+        ),
+    },
+    'Netconf.Agent.Tty' : {
+        'meta_info' : _MetaInfoClass('Netconf.Agent.Tty',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable specified NETCONF agent
+                ''',
+                'enable',
+                'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
+            _MetaInfoClassMember('session', REFERENCE_CLASS, 'Session' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg', 'Netconf.Agent.Tty.Session', 
+                [], [], 
+                '''                Session attributes
+                ''',
+                'session',
+                'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
+            _MetaInfoClassMember('throttle', REFERENCE_CLASS, 'Throttle' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg', 'Netconf.Agent.Tty.Throttle', 
+                [], [], 
+                '''                NETCONF agent throttling
+                ''',
+                'throttle',
+                'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
+            ],
+            'Cisco-IOS-XR-man-xml-ttyagent-cfg',
+            'tty',
+            _yang_ns._namespaces['Cisco-IOS-XR-man-xml-ttyagent-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg'
+        ),
+    },
+    'Netconf.Agent' : {
+        'meta_info' : _MetaInfoClass('Netconf.Agent',
+            False, 
+            [
+            _MetaInfoClassMember('tty', REFERENCE_CLASS, 'Tty' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg', 'Netconf.Agent.Tty', 
+                [], [], 
+                '''                NETCONF agent over TTY
+                ''',
+                'tty',
+                'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
+            ],
+            'Cisco-IOS-XR-man-xml-ttyagent-cfg',
+            'agent',
+            _yang_ns._namespaces['Cisco-IOS-XR-man-xml-ttyagent-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg'
+        ),
+    },
+    'Netconf' : {
+        'meta_info' : _MetaInfoClass('Netconf',
+            False, 
+            [
+            _MetaInfoClassMember('agent', REFERENCE_CLASS, 'Agent' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg', 'Netconf.Agent', 
+                [], [], 
+                '''                XML agent
+                ''',
+                'agent',
+                'Cisco-IOS-XR-man-xml-ttyagent-cfg', False),
+            ],
+            'Cisco-IOS-XR-man-xml-ttyagent-cfg',
+            'netconf',
+            _yang_ns._namespaces['Cisco-IOS-XR-man-xml-ttyagent-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg'
+        ),
+    },
 }
 _meta_table['XrXml.Agent.Default.Vrfs.Vrf']['meta_info'].parent =_meta_table['XrXml.Agent.Default.Vrfs']['meta_info']
 _meta_table['XrXml.Agent.Default.Session']['meta_info'].parent =_meta_table['XrXml.Agent.Default']['meta_info']
@@ -463,3 +572,7 @@ _meta_table['XrXml.Agent.Default']['meta_info'].parent =_meta_table['XrXml.Agent
 _meta_table['XrXml.Agent.Tty']['meta_info'].parent =_meta_table['XrXml.Agent']['meta_info']
 _meta_table['XrXml.Agent.Ssl']['meta_info'].parent =_meta_table['XrXml.Agent']['meta_info']
 _meta_table['XrXml.Agent']['meta_info'].parent =_meta_table['XrXml']['meta_info']
+_meta_table['Netconf.Agent.Tty.Throttle']['meta_info'].parent =_meta_table['Netconf.Agent.Tty']['meta_info']
+_meta_table['Netconf.Agent.Tty.Session']['meta_info'].parent =_meta_table['Netconf.Agent.Tty']['meta_info']
+_meta_table['Netconf.Agent.Tty']['meta_info'].parent =_meta_table['Netconf.Agent']['meta_info']
+_meta_table['Netconf.Agent']['meta_info'].parent =_meta_table['Netconf']['meta_info']

@@ -19,19 +19,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
+                [('3', '40')], [], 
                 '''                Threshold, Range(3, severe)
                 ''',
                 'critical',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
-                [(5, 40)], [], 
+                [('5', '40')], [], 
                 '''                Threshold, Range(5, 40)
                 ''',
                 'minor',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('severe', ATTRIBUTE, 'int' , None, None, 
-                [(4, 40)], [], 
+                [('4', '40')], [], 
                 '''                Threshold, Range(4, minor)
                 ''',
                 'severe',
@@ -48,20 +48,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('monitor-cpuhog-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(10, 3600)], [], 
+                [('10', '3600')], [], 
                 '''                Watchdog monitor cpu-hog persistent timeout
                 configuration
                 ''',
                 'monitor_cpuhog_timeout',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('monitor-procnto-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(60, 3600)], [], 
+                [('60', '3600')], [], 
                 '''                Watchdog monitor procnto timeout configuration
                 ''',
                 'monitor_procnto_timeout',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('monitor-qnet-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(10, 3600)], [], 
+                [('10', '3600')], [], 
                 '''                Watchdog monitor transport qnet timeout
                 ''',
                 'monitor_qnet_timeout',
@@ -73,7 +73,7 @@ _meta_table = {
                 'overload_notification',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('overload-throttle-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(5, 120)], [], 
+                [('5', '120')], [], 
                 '''                Watchdog overload throttle timeout configuration
                 ''',
                 'overload_throttle_timeout',
@@ -103,7 +103,7 @@ _meta_table = {
                 'threshold_memory',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('threshold-memory-switchover', ATTRIBUTE, 'int' , None, None, 
-                [(2, 4)], [], 
+                [('2', '4')], [], 
                 '''                switchover the RP at configured memory state
                 ''',
                 'threshold_memory_switchover',

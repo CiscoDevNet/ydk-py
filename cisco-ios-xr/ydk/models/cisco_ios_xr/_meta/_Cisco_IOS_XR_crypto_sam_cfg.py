@@ -30,7 +30,7 @@ _meta_table = {
                 'action',
                 'Cisco-IOS-XR-crypto-sam-cfg', False),
             _MetaInfoClassMember('prompt-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 300)], [], 
+                [('0', '300')], [], 
                 '''                Prompt time from 0 - 300 seconds
                 ''',
                 'prompt_time',
@@ -70,7 +70,7 @@ _meta_table = {
                 'client_vrf',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
+                [('0', '63')], [], 
                 '''                Cisco sshd DSCP value
                 ''',
                 'dscp',
@@ -82,7 +82,7 @@ _meta_table = {
                 'host_public_key',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Source interface for ssh client sessions
                 ''',
                 'source_interface',
@@ -203,7 +203,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dscp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
+                [('0', '63')], [], 
                 '''                Cisco sshd DSCP value
                 ''',
                 'dscp',
@@ -215,7 +215,7 @@ _meta_table = {
                 'logging',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('netconf', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                port number on which ssh service to be started
                 for netconf
                 ''',
@@ -228,19 +228,19 @@ _meta_table = {
                 'netconf_vrf_table',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('rate-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 600)], [], 
+                [('1', '600')], [], 
                 '''                Cisco sshd rate-limit of service requests
                 ''',
                 'rate_limit',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('session-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1024)], [], 
+                [('1', '1024')], [], 
                 '''                Cisco sshd session-limit of service requests
                 ''',
                 'session_limit',
                 'Cisco-IOS-XR-crypto-ssh-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(5, 120)], [], 
+                [('5', '120')], [], 
                 '''                Timeout value between 5-120 seconds defalut 30
                 ''',
                 'timeout',

@@ -16,6 +16,7 @@
 
 """Setup for YDK
 """
+from __future__ import print_function
 import os
 '''import shutil
 import platform
@@ -32,7 +33,7 @@ NMSP_PKG_DEPENDENCIES = ["$DEPENDENCY$"]
 # Define and modify version number and package name here,
 # Namespace packages are share same prefix: "ydk-models"
 NAME = 'ydk'
-VERSION = '0.5.0'
+VERSION = '0.5.1'
 INSTALL_REQUIREMENTS = ['ecdsa==0.13',
                         'enum34==1.1.3',
                         'lxml==3.4.4',
@@ -83,7 +84,7 @@ def _build_ydk_client_using_prebuilt_libnetconf():
 if platform.system() != 'Windows':
     libnetconf_path=here + '/.libs/libnetconf/'
     if os.listdir(libnetconf_path) == []:
-        print 'Checking out libnetconf'
+        print('Checking out libnetconf')
         repo = Repo.clone_from("https://github.com/abhikeshav/libnetconf.git", libnetconf_path)
         repo.git.checkout('57f44ce2425bfb17d231a111995d6537ae4dd7cb')
     exit_status = subprocess.call(['cd ' + here + '/.libs/libnetconf/ && ./configure > /dev/null && make > /dev/null && cp .libs/libnetconf.a .. '], shell=True)

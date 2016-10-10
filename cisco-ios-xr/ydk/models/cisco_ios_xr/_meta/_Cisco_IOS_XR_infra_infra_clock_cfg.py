@@ -39,13 +39,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('end-hour', ATTRIBUTE, 'int' , None, None, 
-                [(0, 23)], [], 
+                [('0', '23')], [], 
                 '''                Hour to end 
                 ''',
                 'end_hour',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('end-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 59)], [], 
+                [('0', '59')], [], 
                 '''                Minute to end 
                 ''',
                 'end_minute',
@@ -57,7 +57,7 @@ _meta_table = {
                 'end_month',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('end-week-number-or-end-date', ATTRIBUTE, 'int' , None, None, 
-                [(1, 31)], [], 
+                [('1', '31')], [], 
                 '''                If Mode is set to 'Recurring' specify Week
                 number of the Month to end (first and last
                 strings are not allowed as they are in CLI), if
@@ -66,7 +66,7 @@ _meta_table = {
                 'end_week_number_or_end_date',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('end-weekday-or-end-year', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2035)], [], 
+                [('0', '2035')], [], 
                 '''                If Mode is set to 'Recurring' specify Weekday
                 to end , if Mode is set to 'Date' specify Year
                 to end
@@ -80,19 +80,19 @@ _meta_table = {
                 'mode',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('offset', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                Offset to add in minutes 
                 ''',
                 'offset',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('start-hour', ATTRIBUTE, 'int' , None, None, 
-                [(0, 23)], [], 
+                [('0', '23')], [], 
                 '''                Hour to start 
                 ''',
                 'start_hour',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('start-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 59)], [], 
+                [('0', '59')], [], 
                 '''                Minute to start 
                 ''',
                 'start_minute',
@@ -104,7 +104,7 @@ _meta_table = {
                 'start_month',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('start-week-number-or-start-date', ATTRIBUTE, 'int' , None, None, 
-                [(1, 31)], [], 
+                [('1', '31')], [], 
                 '''                 If Mode is set to 'Recurring' specify Week
                 number of the Month to start (first and last
                 strings are not allowed as they are in CLI) ,
@@ -113,7 +113,7 @@ _meta_table = {
                 'start_week_number_or_start_date',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('start-weekday-or-start-year', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2035)], [], 
+                [('0', '2035')], [], 
                 '''                 If Mode is set to 'Recurring' specify Weekday
                 to start , if Mode is set to 'Date' specify
                 Year to start 
@@ -138,13 +138,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hour-offset', ATTRIBUTE, 'int' , None, None, 
-                [(-23, 23)], [], 
+                [('-23', '23')], [], 
                 '''                Hours offset from UTC
                 ''',
                 'hour_offset',
                 'Cisco-IOS-XR-infra-infra-clock-cfg', False),
             _MetaInfoClassMember('minute-offset', ATTRIBUTE, 'int' , None, None, 
-                [(0, 59)], [], 
+                [('0', '59')], [], 
                 '''                Minutes offset from UTC
                 ''',
                 'minute_offset',

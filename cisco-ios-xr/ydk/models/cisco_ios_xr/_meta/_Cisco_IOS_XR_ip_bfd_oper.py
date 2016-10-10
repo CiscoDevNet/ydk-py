@@ -92,26 +92,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -129,19 +129,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -181,13 +181,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -205,7 +205,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Flags
                 ''',
                 'session_flags',
@@ -264,25 +264,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -316,7 +316,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -328,25 +328,25 @@ _meta_table = {
                 'display_type',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets received
                 ''',
                 'echo_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets transmitted
                 ''',
                 'echo_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos received
                 ''',
                 'hello_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos transmitted
                 ''',
                 'hello_transmit_count',
@@ -397,7 +397,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -409,25 +409,25 @@ _meta_table = {
                 'display_type',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets received
                 ''',
                 'echo_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets transmitted
                 ''',
                 'echo_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos received
                 ''',
                 'hello_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos transmitted
                 ''',
                 'hello_transmit_count',
@@ -490,7 +490,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions created by this client
                 ''',
                 'session_count',
@@ -507,13 +507,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('is-recreate-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Client is in Recreate State
                 ''',
                 'is_recreate_state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('is-zombie-state', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Client is in Zombie State
                 ''',
                 'is_zombie_state',
@@ -548,7 +548,7 @@ _meta_table = {
                 'flags',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('recreate-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recreate Time in Seconds
                 ''',
                 'recreate_time',
@@ -582,25 +582,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -634,25 +634,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -686,25 +686,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label_xr',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -722,7 +722,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'session_interface_name',
@@ -774,7 +774,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -803,28 +803,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('days', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of days since last session state
                 transition
                 ''',
                 'days',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hours', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of hours since last session state
                 transition
                 ''',
                 'hours',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of mins since last session state
                 transition
                 ''',
                 'minutes',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of seconds since last session state
                 transition
                 ''',
@@ -842,33 +842,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -880,43 +880,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -928,13 +928,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -951,33 +951,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -989,43 +989,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -1037,13 +1037,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -1060,26 +1060,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -1097,19 +1097,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -1149,35 +1149,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -1195,35 +1195,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -1241,35 +1241,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -1287,35 +1287,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -1347,7 +1347,7 @@ _meta_table = {
                 'async_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-echo-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum echo transmit interval in
                 milli-seconds
                 ''',
@@ -1368,7 +1368,7 @@ _meta_table = {
                 'echo_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('internal-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal Label
                 ''',
                 'internal_label',
@@ -1380,32 +1380,32 @@ _meta_table = {
                 'last_state_change',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average value of Latency (in micro-seconds)
                 ''',
                 'latency_average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum value of Latency (in micro-seconds)
                 ''',
                 'latency_maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum value of Latency (in micro-seconds)
                 ''',
                 'latency_minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Latency Samples. Time between Transmit
                 and Receive
                 ''',
                 'latency_number',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -1423,13 +1423,13 @@ _meta_table = {
                 'receive_packet',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Remote discriminator
                 ''',
                 'remote_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-negotiated-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Negotiated Interval in milli-seconds
                 ''',
                 'remote_negotiated_interval',
@@ -1465,7 +1465,7 @@ _meta_table = {
                 'status_brief_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('to-up-state-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times session state went to UP
                 ''',
                 'to_up_state_count',
@@ -1488,13 +1488,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -1534,13 +1534,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -1557,13 +1557,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -1580,13 +1580,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -1603,19 +1603,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsp-ping-rx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping numer of times received
                 ''',
                 'lsp_ping_rx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Code
                 ''',
                 'lsp_ping_rx_last_code',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-discr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Rx last received discriminator
                 ''',
                 'lsp_ping_rx_last_discr',
@@ -1627,7 +1627,7 @@ _meta_table = {
                 'lsp_ping_rx_last_output',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-subcode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Subcode
                 ''',
                 'lsp_ping_rx_last_subcode',
@@ -1639,13 +1639,13 @@ _meta_table = {
                 'lsp_ping_rx_last_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx count
                 ''',
                 'lsp_ping_tx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx error count
                 ''',
                 'lsp_ping_tx_error_count',
@@ -1686,28 +1686,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -1737,7 +1737,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -1772,7 +1772,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -1836,13 +1836,13 @@ _meta_table = {
                 's2l_fec_extended_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP ID
                 ''',
                 's2l_fec_lsp_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                P2MP ID
                 ''',
                 's2l_fec_p2mp_id',
@@ -1854,7 +1854,7 @@ _meta_table = {
                 's2l_fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                sub-LSP subgroup ID
                 ''',
                 's2l_fec_subgroup_id',
@@ -1866,7 +1866,7 @@ _meta_table = {
                 's2l_fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 's2l_fec_tunnel_id',
@@ -1913,6 +1913,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress',
+            False, 
+            [
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'BfdAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfIdEnum', 
+                [], [], 
+                '''                AFI
+                ''',
+                'afi',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                No Address
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address type
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address type
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'target-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey' : {
         'meta_info' : _MetaInfoClass('Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey',
             False, 
@@ -1924,7 +1959,7 @@ _meta_table = {
                 'bfdfec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -1947,11 +1982,29 @@ _meta_table = {
                 ''',
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-enabled', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                SBFD enable flag
+                ''',
+                'sbfd_enabled',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-target-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SBFD target type
+                ''',
+                'sbfd_target_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-key-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Key Type
                 ''',
                 'session_key_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('target-address', REFERENCE_CLASS, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress', 
+                [], [], 
+                '''                sbfd target address
+                ''',
+                'target_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 120)], [], 
@@ -1971,28 +2024,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -2016,7 +2069,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -2166,7 +2219,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -2195,28 +2248,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('days', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of days since last session state
                 transition
                 ''',
                 'days',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hours', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of hours since last session state
                 transition
                 ''',
                 'hours',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of mins since last session state
                 transition
                 ''',
                 'minutes',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of seconds since last session state
                 transition
                 ''',
@@ -2234,33 +2287,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -2272,43 +2325,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -2320,13 +2373,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -2343,33 +2396,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -2381,43 +2434,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -2429,13 +2482,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -2452,26 +2505,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -2489,19 +2542,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -2541,35 +2594,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -2587,35 +2640,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -2633,35 +2686,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -2679,35 +2732,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -2739,7 +2792,7 @@ _meta_table = {
                 'async_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-echo-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum echo transmit interval in
                 milli-seconds
                 ''',
@@ -2760,7 +2813,7 @@ _meta_table = {
                 'echo_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('internal-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal Label
                 ''',
                 'internal_label',
@@ -2772,32 +2825,32 @@ _meta_table = {
                 'last_state_change',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average value of Latency (in micro-seconds)
                 ''',
                 'latency_average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum value of Latency (in micro-seconds)
                 ''',
                 'latency_maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum value of Latency (in micro-seconds)
                 ''',
                 'latency_minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Latency Samples. Time between Transmit
                 and Receive
                 ''',
                 'latency_number',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -2815,13 +2868,13 @@ _meta_table = {
                 'receive_packet',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Remote discriminator
                 ''',
                 'remote_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-negotiated-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Negotiated Interval in milli-seconds
                 ''',
                 'remote_negotiated_interval',
@@ -2857,7 +2910,7 @@ _meta_table = {
                 'status_brief_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('to-up-state-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times session state went to UP
                 ''',
                 'to_up_state_count',
@@ -2880,13 +2933,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -2926,13 +2979,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -2949,13 +3002,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -2972,13 +3025,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -2995,19 +3048,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsp-ping-rx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping numer of times received
                 ''',
                 'lsp_ping_rx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Code
                 ''',
                 'lsp_ping_rx_last_code',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-discr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Rx last received discriminator
                 ''',
                 'lsp_ping_rx_last_discr',
@@ -3019,7 +3072,7 @@ _meta_table = {
                 'lsp_ping_rx_last_output',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-subcode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Subcode
                 ''',
                 'lsp_ping_rx_last_subcode',
@@ -3031,13 +3084,13 @@ _meta_table = {
                 'lsp_ping_rx_last_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx count
                 ''',
                 'lsp_ping_tx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx error count
                 ''',
                 'lsp_ping_tx_error_count',
@@ -3078,28 +3131,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -3129,7 +3182,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -3164,7 +3217,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -3228,13 +3281,13 @@ _meta_table = {
                 's2l_fec_extended_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP ID
                 ''',
                 's2l_fec_lsp_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                P2MP ID
                 ''',
                 's2l_fec_p2mp_id',
@@ -3246,7 +3299,7 @@ _meta_table = {
                 's2l_fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                sub-LSP subgroup ID
                 ''',
                 's2l_fec_subgroup_id',
@@ -3258,7 +3311,7 @@ _meta_table = {
                 's2l_fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 's2l_fec_tunnel_id',
@@ -3305,6 +3358,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress',
+            False, 
+            [
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'BfdAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfIdEnum', 
+                [], [], 
+                '''                AFI
+                ''',
+                'afi',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                No Address
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address type
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address type
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'target-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey' : {
         'meta_info' : _MetaInfoClass('Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey',
             False, 
@@ -3316,7 +3404,7 @@ _meta_table = {
                 'bfdfec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -3339,11 +3427,29 @@ _meta_table = {
                 ''',
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-enabled', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                SBFD enable flag
+                ''',
+                'sbfd_enabled',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-target-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SBFD target type
+                ''',
+                'sbfd_target_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-key-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Key Type
                 ''',
                 'session_key_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('target-address', REFERENCE_CLASS, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress', 
+                [], [], 
+                '''                sbfd target address
+                ''',
+                'target_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 120)], [], 
@@ -3363,28 +3469,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -3408,7 +3514,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -3455,7 +3561,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -3520,26 +3626,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -3557,19 +3663,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -3627,7 +3733,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Flags
                 ''',
                 'session_flags',
@@ -3704,13 +3810,13 @@ _meta_table = {
                 'location',
                 'Cisco-IOS-XR-ip-bfd-oper', True),
             _MetaInfoClassMember('max-session-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max Session Number
                 ''',
                 'max_session_number',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('mp-session-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MP Session Number
                 ''',
                 'mp_session_number',
@@ -3722,31 +3828,31 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('pps-allocated-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Allocated PPS value
                 ''',
                 'pps_allocated_value',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('pps-max-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max PPS value
                 ''',
                 'pps_max_value',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ppsmp-allocated-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Allocated MP PPS value
                 ''',
                 'ppsmp_allocated_value',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ppsmp-max-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max MP PPS value
                 ''',
                 'ppsmp_max_value',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-session-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total Session Number
                 ''',
                 'total_session_number',
@@ -3780,26 +3886,39 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath',
             False, 
             [
-            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+            _MetaInfoClassMember('destination-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
                 '''                Destination address
                 ''',
                 'destination_address',
-                'Cisco-IOS-XR-ip-bfd-oper', False),
+                'Cisco-IOS-XR-ip-bfd-oper', False, [
+                    _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Destination address
+                        ''',
+                        'destination_address',
+                        'Cisco-IOS-XR-ip-bfd-oper', False),
+                    _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Destination address
+                        ''',
+                        'destination_address',
+                        'Cisco-IOS-XR-ip-bfd-oper', False),
+                ]),
             _MetaInfoClassMember('incoming-label-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label_xr',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -3817,7 +3936,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'session_interface_name',
@@ -3863,37 +3982,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in retry state
                 ''',
                 'retry_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('standby-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in standby state
                 ''',
                 'standby_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -3951,25 +4070,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -4003,26 +4122,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -4040,19 +4159,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -4092,13 +4211,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('fe-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Type
                 ''',
                 'fe_ctype',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC C Type
                 ''',
                 'fec_ctype',
@@ -4122,7 +4241,7 @@ _meta_table = {
                 'fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Subgroup ID
                 ''',
                 'fec_subgroup_id',
@@ -4134,31 +4253,31 @@ _meta_table = {
                 'fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Tunnel ID
                 ''',
                 'fec_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('feclspid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC LSP ID
                 ''',
                 'feclspid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fecp2mpid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC P2MP ID
                 ''',
                 'fecp2mpid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -4176,7 +4295,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Flags
                 ''',
                 'session_flags',
@@ -4247,7 +4366,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -4276,28 +4395,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('days', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of days since last session state
                 transition
                 ''',
                 'days',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hours', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of hours since last session state
                 transition
                 ''',
                 'hours',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of mins since last session state
                 transition
                 ''',
                 'minutes',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of seconds since last session state
                 transition
                 ''',
@@ -4315,33 +4434,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -4353,43 +4472,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -4401,13 +4520,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -4424,33 +4543,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -4462,43 +4581,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -4510,13 +4629,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -4533,26 +4652,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -4570,19 +4689,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -4622,35 +4741,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -4668,35 +4787,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -4714,35 +4833,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -4760,35 +4879,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -4820,7 +4939,7 @@ _meta_table = {
                 'async_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-echo-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum echo transmit interval in
                 milli-seconds
                 ''',
@@ -4841,7 +4960,7 @@ _meta_table = {
                 'echo_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('internal-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal Label
                 ''',
                 'internal_label',
@@ -4853,32 +4972,32 @@ _meta_table = {
                 'last_state_change',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average value of Latency (in micro-seconds)
                 ''',
                 'latency_average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum value of Latency (in micro-seconds)
                 ''',
                 'latency_maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum value of Latency (in micro-seconds)
                 ''',
                 'latency_minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Latency Samples. Time between Transmit
                 and Receive
                 ''',
                 'latency_number',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -4896,13 +5015,13 @@ _meta_table = {
                 'receive_packet',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Remote discriminator
                 ''',
                 'remote_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-negotiated-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Negotiated Interval in milli-seconds
                 ''',
                 'remote_negotiated_interval',
@@ -4938,7 +5057,7 @@ _meta_table = {
                 'status_brief_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('to-up-state-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times session state went to UP
                 ''',
                 'to_up_state_count',
@@ -4961,13 +5080,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -5007,13 +5126,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -5030,13 +5149,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -5053,13 +5172,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -5076,19 +5195,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsp-ping-rx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping numer of times received
                 ''',
                 'lsp_ping_rx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Code
                 ''',
                 'lsp_ping_rx_last_code',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-discr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Rx last received discriminator
                 ''',
                 'lsp_ping_rx_last_discr',
@@ -5100,7 +5219,7 @@ _meta_table = {
                 'lsp_ping_rx_last_output',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-subcode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Subcode
                 ''',
                 'lsp_ping_rx_last_subcode',
@@ -5112,13 +5231,13 @@ _meta_table = {
                 'lsp_ping_rx_last_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx count
                 ''',
                 'lsp_ping_tx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx error count
                 ''',
                 'lsp_ping_tx_error_count',
@@ -5159,28 +5278,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -5210,7 +5329,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -5245,7 +5364,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -5309,13 +5428,13 @@ _meta_table = {
                 's2l_fec_extended_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP ID
                 ''',
                 's2l_fec_lsp_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                P2MP ID
                 ''',
                 's2l_fec_p2mp_id',
@@ -5327,7 +5446,7 @@ _meta_table = {
                 's2l_fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                sub-LSP subgroup ID
                 ''',
                 's2l_fec_subgroup_id',
@@ -5339,7 +5458,7 @@ _meta_table = {
                 's2l_fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 's2l_fec_tunnel_id',
@@ -5386,6 +5505,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.TargetAddress',
+            False, 
+            [
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'BfdAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfIdEnum', 
+                [], [], 
+                '''                AFI
+                ''',
+                'afi',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                No Address
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address type
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address type
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'target-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey' : {
         'meta_info' : _MetaInfoClass('Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey',
             False, 
@@ -5397,7 +5551,7 @@ _meta_table = {
                 'bfdfec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -5420,11 +5574,29 @@ _meta_table = {
                 ''',
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-enabled', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                SBFD enable flag
+                ''',
+                'sbfd_enabled',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-target-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SBFD target type
+                ''',
+                'sbfd_target_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-key-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Key Type
                 ''',
                 'session_key_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('target-address', REFERENCE_CLASS, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.TargetAddress', 
+                [], [], 
+                '''                sbfd target address
+                ''',
+                'target_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 120)], [], 
@@ -5444,28 +5616,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -5489,7 +5661,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -5530,13 +5702,13 @@ _meta_table = {
                 'association_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fe-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Type
                 ''',
                 'fe_ctype',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC C Type
                 ''',
                 'fec_ctype',
@@ -5560,7 +5732,7 @@ _meta_table = {
                 'fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Subgroup ID
                 ''',
                 'fec_subgroup_id',
@@ -5572,25 +5744,25 @@ _meta_table = {
                 'fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Tunnel ID
                 ''',
                 'fec_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('feclspid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC LSP ID
                 ''',
                 'feclspid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fecp2mpid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC P2MP ID
                 ''',
                 'fecp2mpid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -5661,37 +5833,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in retry state
                 ''',
                 'retry_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('standby-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in standby state
                 ''',
                 'standby_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -5749,26 +5921,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -5786,19 +5958,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -5838,13 +6010,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('fe-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Type
                 ''',
                 'fe_ctype',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC C Type
                 ''',
                 'fec_ctype',
@@ -5868,7 +6040,7 @@ _meta_table = {
                 'fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Subgroup ID
                 ''',
                 'fec_subgroup_id',
@@ -5880,25 +6052,25 @@ _meta_table = {
                 'fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Tunnel ID
                 ''',
                 'fec_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('feclspid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC LSP ID
                 ''',
                 'feclspid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fecp2mpid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC P2MP ID
                 ''',
                 'fecp2mpid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -5916,7 +6088,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Flags
                 ''',
                 'session_flags',
@@ -5981,37 +6153,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in retry state
                 ''',
                 'retry_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('standby-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in standby state
                 ''',
                 'standby_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -6069,25 +6241,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -6121,7 +6293,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -6133,25 +6305,25 @@ _meta_table = {
                 'display_type',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets received
                 ''',
                 'echo_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets transmitted
                 ''',
                 'echo_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos received
                 ''',
                 'hello_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos transmitted
                 ''',
                 'hello_transmit_count',
@@ -6208,7 +6380,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -6237,28 +6409,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('days', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of days since last session state
                 transition
                 ''',
                 'days',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hours', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of hours since last session state
                 transition
                 ''',
                 'hours',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of mins since last session state
                 transition
                 ''',
                 'minutes',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of seconds since last session state
                 transition
                 ''',
@@ -6276,33 +6448,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -6314,43 +6486,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -6362,13 +6534,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -6385,33 +6557,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -6423,43 +6595,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -6471,13 +6643,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -6494,26 +6666,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -6531,19 +6703,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -6583,35 +6755,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -6629,35 +6801,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -6675,35 +6847,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -6721,35 +6893,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -6781,7 +6953,7 @@ _meta_table = {
                 'async_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-echo-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum echo transmit interval in
                 milli-seconds
                 ''',
@@ -6802,7 +6974,7 @@ _meta_table = {
                 'echo_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('internal-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal Label
                 ''',
                 'internal_label',
@@ -6814,32 +6986,32 @@ _meta_table = {
                 'last_state_change',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average value of Latency (in micro-seconds)
                 ''',
                 'latency_average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum value of Latency (in micro-seconds)
                 ''',
                 'latency_maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum value of Latency (in micro-seconds)
                 ''',
                 'latency_minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Latency Samples. Time between Transmit
                 and Receive
                 ''',
                 'latency_number',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -6857,13 +7029,13 @@ _meta_table = {
                 'receive_packet',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Remote discriminator
                 ''',
                 'remote_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-negotiated-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Negotiated Interval in milli-seconds
                 ''',
                 'remote_negotiated_interval',
@@ -6899,7 +7071,7 @@ _meta_table = {
                 'status_brief_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('to-up-state-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times session state went to UP
                 ''',
                 'to_up_state_count',
@@ -6922,13 +7094,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -6968,13 +7140,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -6991,13 +7163,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -7014,13 +7186,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -7037,19 +7209,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsp-ping-rx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping numer of times received
                 ''',
                 'lsp_ping_rx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Code
                 ''',
                 'lsp_ping_rx_last_code',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-discr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Rx last received discriminator
                 ''',
                 'lsp_ping_rx_last_discr',
@@ -7061,7 +7233,7 @@ _meta_table = {
                 'lsp_ping_rx_last_output',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-subcode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Subcode
                 ''',
                 'lsp_ping_rx_last_subcode',
@@ -7073,13 +7245,13 @@ _meta_table = {
                 'lsp_ping_rx_last_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx count
                 ''',
                 'lsp_ping_tx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx error count
                 ''',
                 'lsp_ping_tx_error_count',
@@ -7120,28 +7292,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -7171,7 +7343,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -7206,7 +7378,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -7270,13 +7442,13 @@ _meta_table = {
                 's2l_fec_extended_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP ID
                 ''',
                 's2l_fec_lsp_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                P2MP ID
                 ''',
                 's2l_fec_p2mp_id',
@@ -7288,7 +7460,7 @@ _meta_table = {
                 's2l_fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                sub-LSP subgroup ID
                 ''',
                 's2l_fec_subgroup_id',
@@ -7300,7 +7472,7 @@ _meta_table = {
                 's2l_fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 's2l_fec_tunnel_id',
@@ -7347,6 +7519,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress',
+            False, 
+            [
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'BfdAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfIdEnum', 
+                [], [], 
+                '''                AFI
+                ''',
+                'afi',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                No Address
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address type
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address type
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'target-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey' : {
         'meta_info' : _MetaInfoClass('Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey',
             False, 
@@ -7358,7 +7565,7 @@ _meta_table = {
                 'bfdfec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -7381,11 +7588,29 @@ _meta_table = {
                 ''',
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-enabled', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                SBFD enable flag
+                ''',
+                'sbfd_enabled',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-target-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SBFD target type
+                ''',
+                'sbfd_target_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-key-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Key Type
                 ''',
                 'session_key_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('target-address', REFERENCE_CLASS, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress', 
+                [], [], 
+                '''                sbfd target address
+                ''',
+                'target_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 120)], [], 
@@ -7405,28 +7630,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -7450,7 +7675,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -7613,13 +7838,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ip-bfd-oper', False),
                 ]),
             _MetaInfoClassMember('incoming-label-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label_xr',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -7637,7 +7862,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'session_interface_name',
@@ -7714,31 +7939,31 @@ _meta_table = {
                 'display_type',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets received
                 ''',
                 'echo_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets transmitted
                 ''',
                 'echo_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos received
                 ''',
                 'hello_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos transmitted
                 ''',
                 'hello_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -7802,7 +8027,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -7831,13 +8056,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Sesison Discr 
                 ''',
                 'discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', True),
             _MetaInfoClassMember('desired-min-tx-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired Min TX Interval
                 ''',
                 'desired_min_tx_interval',
@@ -7849,13 +8074,13 @@ _meta_table = {
                 'dest_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('int-handle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Interface Handle
                 ''',
                 'int_handle',
@@ -7873,91 +8098,91 @@ _meta_table = {
                 'last_down_diag',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last-down-time-nsec', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last Session Down Time (nanoseconds)
                 ''',
                 'last_down_time_nsec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
-            _MetaInfoClassMember('last-down-time-sec', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('last-down-time-sec', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Last Session Down Time (seconds)
                 ''',
                 'last_down_time_sec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
-            _MetaInfoClassMember('last-time-cached', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('last-time-cached', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Last Time Session Info Queried
                 ''',
                 'last_time_cached',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last-up-time-nsec', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last Session Up Time (nanoseconds)
                 ''',
                 'last_up_time_nsec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
-            _MetaInfoClassMember('last-up-time-sec', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('last-up-time-sec', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Last Session Up Time (seconds)
                 ''',
                 'last_up_time_sec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sessions' Local Discriminator
                 ''',
                 'local_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
-            _MetaInfoClassMember('pkt-in', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pkt-in', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Packet In Counter
                 ''',
                 'pkt_in',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
-            _MetaInfoClassMember('pkt-out', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('pkt-out', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Packet Out Counter
                 ''',
                 'pkt_out',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sessions' Remote Discriminator
                 ''',
                 'remote_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-min-rx-echo-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required Min RX Echo Interval
                 ''',
                 'required_min_rx_echo_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-min-rx-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required Min RX Interval
                 ''',
                 'required_min_rx_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session State
                 ''',
                 'session_state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('sessionversion', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session BFD Version
                 ''',
                 'sessionversion',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('trap-bitmap', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Trap Generator Bitmap
                 ''',
                 'trap_bitmap',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-counter', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Up Count
                 ''',
                 'up_counter',
@@ -7991,25 +8216,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -8043,37 +8268,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in retry state
                 ''',
                 'retry_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('standby-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in standby state
                 ''',
                 'standby_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -8130,26 +8355,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -8167,19 +8392,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -8250,7 +8475,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Flags
                 ''',
                 'session_flags',
@@ -8334,26 +8559,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -8371,19 +8596,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -8429,7 +8654,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -8447,7 +8672,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Flags
                 ''',
                 'session_flags',
@@ -8506,37 +8731,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in retry state
                 ''',
                 'retry_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('standby-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in standby state
                 ''',
                 'standby_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -8594,25 +8819,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -8646,37 +8871,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in retry state
                 ''',
                 'retry_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('standby-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in standby state
                 ''',
                 'standby_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -8733,37 +8958,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in retry state
                 ''',
                 'retry_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('standby-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in standby state
                 ''',
                 'standby_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -8821,37 +9046,37 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in retry state
                 ''',
                 'retry_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('standby-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in standby state
                 ''',
                 'standby_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -8914,7 +9139,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -8943,28 +9168,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('days', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of days since last session state
                 transition
                 ''',
                 'days',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hours', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of hours since last session state
                 transition
                 ''',
                 'hours',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of mins since last session state
                 transition
                 ''',
                 'minutes',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of seconds since last session state
                 transition
                 ''',
@@ -8982,33 +9207,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -9020,43 +9245,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -9068,13 +9293,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -9091,33 +9316,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -9129,43 +9354,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -9177,13 +9402,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -9200,26 +9425,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -9237,19 +9462,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -9289,35 +9514,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -9335,35 +9560,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -9381,35 +9606,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -9427,35 +9652,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -9487,7 +9712,7 @@ _meta_table = {
                 'async_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-echo-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum echo transmit interval in
                 milli-seconds
                 ''',
@@ -9508,7 +9733,7 @@ _meta_table = {
                 'echo_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('internal-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal Label
                 ''',
                 'internal_label',
@@ -9520,32 +9745,32 @@ _meta_table = {
                 'last_state_change',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average value of Latency (in micro-seconds)
                 ''',
                 'latency_average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum value of Latency (in micro-seconds)
                 ''',
                 'latency_maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum value of Latency (in micro-seconds)
                 ''',
                 'latency_minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Latency Samples. Time between Transmit
                 and Receive
                 ''',
                 'latency_number',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -9563,13 +9788,13 @@ _meta_table = {
                 'receive_packet',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Remote discriminator
                 ''',
                 'remote_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-negotiated-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Negotiated Interval in milli-seconds
                 ''',
                 'remote_negotiated_interval',
@@ -9605,7 +9830,7 @@ _meta_table = {
                 'status_brief_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('to-up-state-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times session state went to UP
                 ''',
                 'to_up_state_count',
@@ -9628,13 +9853,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -9674,13 +9899,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -9697,13 +9922,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -9720,13 +9945,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -9743,19 +9968,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsp-ping-rx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping numer of times received
                 ''',
                 'lsp_ping_rx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Code
                 ''',
                 'lsp_ping_rx_last_code',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-discr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Rx last received discriminator
                 ''',
                 'lsp_ping_rx_last_discr',
@@ -9767,7 +9992,7 @@ _meta_table = {
                 'lsp_ping_rx_last_output',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-subcode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Subcode
                 ''',
                 'lsp_ping_rx_last_subcode',
@@ -9779,13 +10004,13 @@ _meta_table = {
                 'lsp_ping_rx_last_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx count
                 ''',
                 'lsp_ping_tx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx error count
                 ''',
                 'lsp_ping_tx_error_count',
@@ -9826,28 +10051,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -9877,7 +10102,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -9912,7 +10137,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -9976,13 +10201,13 @@ _meta_table = {
                 's2l_fec_extended_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP ID
                 ''',
                 's2l_fec_lsp_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                P2MP ID
                 ''',
                 's2l_fec_p2mp_id',
@@ -9994,7 +10219,7 @@ _meta_table = {
                 's2l_fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                sub-LSP subgroup ID
                 ''',
                 's2l_fec_subgroup_id',
@@ -10006,7 +10231,7 @@ _meta_table = {
                 's2l_fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 's2l_fec_tunnel_id',
@@ -10053,6 +10278,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.TargetAddress',
+            False, 
+            [
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'BfdAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfIdEnum', 
+                [], [], 
+                '''                AFI
+                ''',
+                'afi',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                No Address
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address type
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address type
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'target-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey' : {
         'meta_info' : _MetaInfoClass('Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey',
             False, 
@@ -10064,7 +10324,7 @@ _meta_table = {
                 'bfdfec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -10087,11 +10347,29 @@ _meta_table = {
                 ''',
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-enabled', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                SBFD enable flag
+                ''',
+                'sbfd_enabled',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-target-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SBFD target type
+                ''',
+                'sbfd_target_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-key-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Key Type
                 ''',
                 'session_key_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('target-address', REFERENCE_CLASS, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.TargetAddress', 
+                [], [], 
+                '''                sbfd target address
+                ''',
+                'target_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 120)], [], 
@@ -10111,28 +10389,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -10156,7 +10434,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -10197,13 +10475,13 @@ _meta_table = {
                 'association_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -10273,7 +10551,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -10302,28 +10580,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('days', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of days since last session state
                 transition
                 ''',
                 'days',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hours', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of hours since last session state
                 transition
                 ''',
                 'hours',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of mins since last session state
                 transition
                 ''',
                 'minutes',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of seconds since last session state
                 transition
                 ''',
@@ -10341,33 +10619,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -10379,43 +10657,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -10427,13 +10705,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -10450,33 +10728,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -10488,43 +10766,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -10536,13 +10814,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -10559,26 +10837,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -10596,19 +10874,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -10648,35 +10926,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -10694,35 +10972,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -10740,35 +11018,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -10786,35 +11064,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -10846,7 +11124,7 @@ _meta_table = {
                 'async_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-echo-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum echo transmit interval in
                 milli-seconds
                 ''',
@@ -10867,7 +11145,7 @@ _meta_table = {
                 'echo_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('internal-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal Label
                 ''',
                 'internal_label',
@@ -10879,32 +11157,32 @@ _meta_table = {
                 'last_state_change',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average value of Latency (in micro-seconds)
                 ''',
                 'latency_average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum value of Latency (in micro-seconds)
                 ''',
                 'latency_maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum value of Latency (in micro-seconds)
                 ''',
                 'latency_minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Latency Samples. Time between Transmit
                 and Receive
                 ''',
                 'latency_number',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -10922,13 +11200,13 @@ _meta_table = {
                 'receive_packet',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Remote discriminator
                 ''',
                 'remote_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-negotiated-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Negotiated Interval in milli-seconds
                 ''',
                 'remote_negotiated_interval',
@@ -10964,7 +11242,7 @@ _meta_table = {
                 'status_brief_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('to-up-state-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times session state went to UP
                 ''',
                 'to_up_state_count',
@@ -10987,13 +11265,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -11033,13 +11311,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -11056,13 +11334,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -11079,13 +11357,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -11102,19 +11380,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsp-ping-rx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping numer of times received
                 ''',
                 'lsp_ping_rx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Code
                 ''',
                 'lsp_ping_rx_last_code',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-discr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Rx last received discriminator
                 ''',
                 'lsp_ping_rx_last_discr',
@@ -11126,7 +11404,7 @@ _meta_table = {
                 'lsp_ping_rx_last_output',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-subcode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Subcode
                 ''',
                 'lsp_ping_rx_last_subcode',
@@ -11138,13 +11416,13 @@ _meta_table = {
                 'lsp_ping_rx_last_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx count
                 ''',
                 'lsp_ping_tx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx error count
                 ''',
                 'lsp_ping_tx_error_count',
@@ -11185,28 +11463,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -11236,7 +11514,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -11271,7 +11549,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -11335,13 +11613,13 @@ _meta_table = {
                 's2l_fec_extended_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP ID
                 ''',
                 's2l_fec_lsp_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                P2MP ID
                 ''',
                 's2l_fec_p2mp_id',
@@ -11353,7 +11631,7 @@ _meta_table = {
                 's2l_fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                sub-LSP subgroup ID
                 ''',
                 's2l_fec_subgroup_id',
@@ -11365,7 +11643,7 @@ _meta_table = {
                 's2l_fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 's2l_fec_tunnel_id',
@@ -11412,6 +11690,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress',
+            False, 
+            [
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'BfdAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfIdEnum', 
+                [], [], 
+                '''                AFI
+                ''',
+                'afi',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                No Address
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address type
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address type
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'target-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey' : {
         'meta_info' : _MetaInfoClass('Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey',
             False, 
@@ -11423,7 +11736,7 @@ _meta_table = {
                 'bfdfec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -11446,11 +11759,29 @@ _meta_table = {
                 ''',
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-enabled', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                SBFD enable flag
+                ''',
+                'sbfd_enabled',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-target-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SBFD target type
+                ''',
+                'sbfd_target_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-key-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Key Type
                 ''',
                 'session_key_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('target-address', REFERENCE_CLASS, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress', 
+                [], [], 
+                '''                sbfd target address
+                ''',
+                'target_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 120)], [], 
@@ -11470,28 +11801,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -11515,7 +11846,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -11575,7 +11906,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ip-bfd-oper', False),
                 ]),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -11665,25 +11996,25 @@ _meta_table = {
                 'display_type',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets received
                 ''',
                 'echo_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets transmitted
                 ''',
                 'echo_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos received
                 ''',
                 'hello_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos transmitted
                 ''',
                 'hello_transmit_count',
@@ -11771,7 +12102,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -11800,28 +12131,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('days', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of days since last session state
                 transition
                 ''',
                 'days',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hours', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of hours since last session state
                 transition
                 ''',
                 'hours',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of mins since last session state
                 transition
                 ''',
                 'minutes',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of seconds since last session state
                 transition
                 ''',
@@ -11839,33 +12170,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -11877,43 +12208,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -11925,13 +12256,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -11948,33 +12279,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -11986,43 +12317,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -12034,13 +12365,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -12057,26 +12388,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -12094,19 +12425,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -12146,35 +12477,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -12192,35 +12523,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -12238,35 +12569,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -12284,35 +12615,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -12344,7 +12675,7 @@ _meta_table = {
                 'async_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-echo-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum echo transmit interval in
                 milli-seconds
                 ''',
@@ -12365,7 +12696,7 @@ _meta_table = {
                 'echo_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('internal-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal Label
                 ''',
                 'internal_label',
@@ -12377,32 +12708,32 @@ _meta_table = {
                 'last_state_change',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average value of Latency (in micro-seconds)
                 ''',
                 'latency_average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum value of Latency (in micro-seconds)
                 ''',
                 'latency_maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum value of Latency (in micro-seconds)
                 ''',
                 'latency_minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Latency Samples. Time between Transmit
                 and Receive
                 ''',
                 'latency_number',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -12420,13 +12751,13 @@ _meta_table = {
                 'receive_packet',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Remote discriminator
                 ''',
                 'remote_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-negotiated-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Negotiated Interval in milli-seconds
                 ''',
                 'remote_negotiated_interval',
@@ -12462,7 +12793,7 @@ _meta_table = {
                 'status_brief_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('to-up-state-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times session state went to UP
                 ''',
                 'to_up_state_count',
@@ -12485,13 +12816,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -12531,13 +12862,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -12554,13 +12885,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -12577,13 +12908,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -12600,19 +12931,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsp-ping-rx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping numer of times received
                 ''',
                 'lsp_ping_rx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Code
                 ''',
                 'lsp_ping_rx_last_code',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-discr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Rx last received discriminator
                 ''',
                 'lsp_ping_rx_last_discr',
@@ -12624,7 +12955,7 @@ _meta_table = {
                 'lsp_ping_rx_last_output',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-subcode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Subcode
                 ''',
                 'lsp_ping_rx_last_subcode',
@@ -12636,13 +12967,13 @@ _meta_table = {
                 'lsp_ping_rx_last_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx count
                 ''',
                 'lsp_ping_tx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx error count
                 ''',
                 'lsp_ping_tx_error_count',
@@ -12683,28 +13014,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -12734,7 +13065,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -12769,7 +13100,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -12833,13 +13164,13 @@ _meta_table = {
                 's2l_fec_extended_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP ID
                 ''',
                 's2l_fec_lsp_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                P2MP ID
                 ''',
                 's2l_fec_p2mp_id',
@@ -12851,7 +13182,7 @@ _meta_table = {
                 's2l_fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                sub-LSP subgroup ID
                 ''',
                 's2l_fec_subgroup_id',
@@ -12863,7 +13194,7 @@ _meta_table = {
                 's2l_fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 's2l_fec_tunnel_id',
@@ -12910,6 +13241,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.TargetAddress',
+            False, 
+            [
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'BfdAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfIdEnum', 
+                [], [], 
+                '''                AFI
+                ''',
+                'afi',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                No Address
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address type
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address type
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'target-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey' : {
         'meta_info' : _MetaInfoClass('Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey',
             False, 
@@ -12921,7 +13287,7 @@ _meta_table = {
                 'bfdfec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -12944,11 +13310,29 @@ _meta_table = {
                 ''',
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-enabled', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                SBFD enable flag
+                ''',
+                'sbfd_enabled',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-target-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SBFD target type
+                ''',
+                'sbfd_target_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-key-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Key Type
                 ''',
                 'session_key_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('target-address', REFERENCE_CLASS, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.TargetAddress', 
+                [], [], 
+                '''                sbfd target address
+                ''',
+                'target_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 120)], [], 
@@ -12968,28 +13352,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -13013,7 +13397,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -13060,7 +13444,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -13131,19 +13515,19 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label_xr',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -13161,7 +13545,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'session_interface_name',
@@ -13207,26 +13591,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -13244,19 +13628,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -13302,7 +13686,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -13320,7 +13704,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Flags
                 ''',
                 'session_flags',
@@ -13374,42 +13758,167 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter' : {
+        'meta_info' : _MetaInfoClass('Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter',
+            False, 
+            [
+            _MetaInfoClassMember('destination-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Destination Address
+                ''',
+                'destination_address',
+                'Cisco-IOS-XR-ip-bfd-oper', False, [
+                    _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Destination Address
+                        ''',
+                        'destination_address',
+                        'Cisco-IOS-XR-ip-bfd-oper', False),
+                    _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Destination Address
+                        ''',
+                        'destination_address',
+                        'Cisco-IOS-XR-ip-bfd-oper', False),
+                ]),
+            _MetaInfoClassMember('display-type', REFERENCE_ENUM_CLASS, 'BfdMgmtPktDisplayEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtPktDisplayEnum', 
+                [], [], 
+                '''                Packet Display Type
+                ''',
+                'display_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('echo-receive-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of echo packets received
+                ''',
+                'echo_receive_count',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('echo-transmit-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of echo packets transmitted
+                ''',
+                'echo_transmit_count',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('hello-receive-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of Hellos received
+                ''',
+                'hello_receive_count',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('hello-transmit-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of Hellos transmitted
+                ''',
+                'hello_transmit_count',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('location', ATTRIBUTE, 'str' , None, None, 
+                [], ['([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'], 
+                '''                Location
+                ''',
+                'location',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Source Address
+                ''',
+                'source_address',
+                'Cisco-IOS-XR-ip-bfd-oper', False, [
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Source Address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ip-bfd-oper', False),
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Source Address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ip-bfd-oper', False),
+                ]),
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                VRF name
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'ipv6-multi-hop-packet-counter',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
+    'Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters' : {
+        'meta_info' : _MetaInfoClass('Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters',
+            False, 
+            [
+            _MetaInfoClassMember('ipv6-multi-hop-packet-counter', REFERENCE_LIST, 'Ipv6MultiHopPacketCounter' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter', 
+                [], [], 
+                '''                IPv4 multiple hop Packet counters
+                ''',
+                'ipv6_multi_hop_packet_counter',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'ipv6-multi-hop-packet-counters',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
+    'Bfd.Ipv6MultiHopCounters' : {
+        'meta_info' : _MetaInfoClass('Bfd.Ipv6MultiHopCounters',
+            False, 
+            [
+            _MetaInfoClassMember('ipv6-multi-hop-packet-counters', REFERENCE_CLASS, 'Ipv6MultiHopPacketCounters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters', 
+                [], [], 
+                '''                Table of IPv6 multiple hop Packet counters
+                ''',
+                'ipv6_multi_hop_packet_counters',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'ipv6-multi-hop-counters',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState' : {
         'meta_info' : _MetaInfoClass('Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState',
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('retry-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in retry state
                 ''',
                 'retry_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('standby-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in standby state
                 ''',
                 'standby_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -13473,31 +13982,31 @@ _meta_table = {
                 'display_type',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets received
                 ''',
                 'echo_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets transmitted
                 ''',
                 'echo_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos received
                 ''',
                 'hello_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos transmitted
                 ''',
                 'hello_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -13560,7 +14069,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -13589,28 +14098,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('days', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of days since last session state
                 transition
                 ''',
                 'days',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hours', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of hours since last session state
                 transition
                 ''',
                 'hours',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of mins since last session state
                 transition
                 ''',
                 'minutes',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of seconds since last session state
                 transition
                 ''',
@@ -13628,33 +14137,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -13666,43 +14175,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -13714,13 +14223,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -13737,33 +14246,33 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-present', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Requesting authentication for the session
                 ''',
                 'authentication_present',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('control-plane-independent', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                BFD implementation does not share fate with its
                 control plane
                 ''',
                 'control_plane_independent',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('demand', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Demand mode
                 ''',
                 'demand',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum transmit interval in
                 micro-seconds
                 ''',
                 'desired_minimum_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
@@ -13775,43 +14284,43 @@ _meta_table = {
                 'diagnostic',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('final', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Final bit
                 ''',
                 'final',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ihear-you', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                I Hear You (v0)
                 ''',
                 'ihear_you',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Length
                 ''',
                 'length',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('my-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                My Discriminator
                 ''',
                 'my_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('poll', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Poll bit
                 ''',
                 'poll',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-echo-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required echo receive interval in micro-seconds
                 ''',
                 'required_minimum_echo_receive_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('required-minimum-receive-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Required receive interval in micro-seconds
                 ''',
                 'required_minimum_receive_interval',
@@ -13823,13 +14332,13 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Version
                 ''',
                 'version',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('your-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Your Discriminator
                 ''',
                 'your_discriminator',
@@ -13846,26 +14355,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -13883,19 +14392,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -13935,35 +14444,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -13981,35 +14490,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -14027,35 +14536,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -14073,35 +14582,35 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('last', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time since last Transmit/Receive (in
                 milli-seconds)
                 ''',
                 'last',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum of Transmit/Receive Interval (in
                 milli-seconds)
                 ''',
                 'minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interval Samples between Packets
                 sent/received
                 ''',
@@ -14133,7 +14642,7 @@ _meta_table = {
                 'async_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('desired-minimum-echo-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Desired minimum echo transmit interval in
                 milli-seconds
                 ''',
@@ -14154,7 +14663,7 @@ _meta_table = {
                 'echo_transmit_statistics',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('internal-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Internal Label
                 ''',
                 'internal_label',
@@ -14166,32 +14675,32 @@ _meta_table = {
                 'last_state_change',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-average', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average value of Latency (in micro-seconds)
                 ''',
                 'latency_average',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-maximum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum value of Latency (in micro-seconds)
                 ''',
                 'latency_maximum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-minimum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum value of Latency (in micro-seconds)
                 ''',
                 'latency_minimum',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('latency-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Latency Samples. Time between Transmit
                 and Receive
                 ''',
                 'latency_number',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -14209,13 +14718,13 @@ _meta_table = {
                 'receive_packet',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Remote discriminator
                 ''',
                 'remote_discriminator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('remote-negotiated-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remote Negotiated Interval in milli-seconds
                 ''',
                 'remote_negotiated_interval',
@@ -14251,7 +14760,7 @@ _meta_table = {
                 'status_brief_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('to-up-state-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times session state went to UP
                 ''',
                 'to_up_state_count',
@@ -14274,13 +14783,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -14320,13 +14829,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -14343,13 +14852,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -14366,13 +14875,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '18446744073709551615')], [], 
                 '''                seconds
                 ''',
                 'seconds',
@@ -14389,19 +14898,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('lsp-ping-rx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping numer of times received
                 ''',
                 'lsp_ping_rx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Code
                 ''',
                 'lsp_ping_rx_last_code',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-discr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Rx last received discriminator
                 ''',
                 'lsp_ping_rx_last_discr',
@@ -14413,7 +14922,7 @@ _meta_table = {
                 'lsp_ping_rx_last_output',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-rx-last-subcode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP Ping Rx Last Subcode
                 ''',
                 'lsp_ping_rx_last_subcode',
@@ -14425,13 +14934,13 @@ _meta_table = {
                 'lsp_ping_rx_last_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx count
                 ''',
                 'lsp_ping_tx_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('lsp-ping-tx-error-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Ping Tx error count
                 ''',
                 'lsp_ping_tx_error_count',
@@ -14472,28 +14981,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -14523,7 +15032,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -14558,7 +15067,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -14622,13 +15131,13 @@ _meta_table = {
                 's2l_fec_extended_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP ID
                 ''',
                 's2l_fec_lsp_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                P2MP ID
                 ''',
                 's2l_fec_p2mp_id',
@@ -14640,7 +15149,7 @@ _meta_table = {
                 's2l_fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                sub-LSP subgroup ID
                 ''',
                 's2l_fec_subgroup_id',
@@ -14652,7 +15161,7 @@ _meta_table = {
                 's2l_fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 's2l_fec_tunnel_id',
@@ -14699,6 +15208,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.TargetAddress',
+            False, 
+            [
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'BfdAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfIdEnum', 
+                [], [], 
+                '''                AFI
+                ''',
+                'afi',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                No Address
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address type
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address type
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'target-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey' : {
         'meta_info' : _MetaInfoClass('Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey',
             False, 
@@ -14710,7 +15254,7 @@ _meta_table = {
                 'bfdfec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -14733,11 +15277,29 @@ _meta_table = {
                 ''',
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-enabled', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                SBFD enable flag
+                ''',
+                'sbfd_enabled',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-target-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SBFD target type
+                ''',
+                'sbfd_target_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-key-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Key Type
                 ''',
                 'session_key_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('target-address', REFERENCE_CLASS, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.TargetAddress', 
+                [], [], 
+                '''                sbfd target address
+                ''',
+                'target_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 120)], [], 
@@ -14757,28 +15319,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -14802,7 +15364,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -14843,13 +15405,13 @@ _meta_table = {
                 'association_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fe-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Type
                 ''',
                 'fe_ctype',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC C Type
                 ''',
                 'fec_ctype',
@@ -14873,7 +15435,7 @@ _meta_table = {
                 'fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Subgroup ID
                 ''',
                 'fec_subgroup_id',
@@ -14885,31 +15447,31 @@ _meta_table = {
                 'fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Tunnel ID
                 ''',
                 'fec_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('feclspid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC LSP ID
                 ''',
                 'feclspid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fecp2mpid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC P2MP ID
                 ''',
                 'fecp2mpid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -15022,7 +15584,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ip-bfd-oper', False),
                 ]),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -15087,7 +15649,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions created by this client
                 ''',
                 'session_count',
@@ -15121,13 +15683,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('fe-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Type
                 ''',
                 'fe_ctype',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC C Type
                 ''',
                 'fec_ctype',
@@ -15151,7 +15713,7 @@ _meta_table = {
                 'fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Subgroup ID
                 ''',
                 'fec_subgroup_id',
@@ -15163,43 +15725,43 @@ _meta_table = {
                 'fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Tunnel ID
                 ''',
                 'fec_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('feclspid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC LSP ID
                 ''',
                 'feclspid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fecp2mpid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC P2MP ID
                 ''',
                 'fecp2mpid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label_xr',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -15217,7 +15779,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'session_interface_name',
@@ -15275,7 +15837,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -15304,7 +15866,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -15339,7 +15901,7 @@ _meta_table = {
                 'afi',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                No Address
                 ''',
                 'dummy',
@@ -15403,13 +15965,13 @@ _meta_table = {
                 's2l_fec_extended_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP ID
                 ''',
                 's2l_fec_lsp_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                P2MP ID
                 ''',
                 's2l_fec_p2mp_id',
@@ -15421,7 +15983,7 @@ _meta_table = {
                 's2l_fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                sub-LSP subgroup ID
                 ''',
                 's2l_fec_subgroup_id',
@@ -15433,7 +15995,7 @@ _meta_table = {
                 's2l_fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('s2l-fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 's2l_fec_tunnel_id',
@@ -15480,6 +16042,41 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
         ),
     },
+    'Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.TargetAddress' : {
+        'meta_info' : _MetaInfoClass('Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.TargetAddress',
+            False, 
+            [
+            _MetaInfoClassMember('afi', REFERENCE_ENUM_CLASS, 'BfdAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfIdEnum', 
+                [], [], 
+                '''                AFI
+                ''',
+                'afi',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                No Address
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address type
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address type
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-bfd-oper',
+            'target-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper'
+        ),
+    },
     'Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey' : {
         'meta_info' : _MetaInfoClass('Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey',
             False, 
@@ -15491,7 +16088,7 @@ _meta_table = {
                 'bfdfec',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -15514,11 +16111,29 @@ _meta_table = {
                 ''',
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-enabled', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                SBFD enable flag
+                ''',
+                'sbfd_enabled',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('sbfd-target-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SBFD target type
+                ''',
+                'sbfd_target_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-key-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Key Type
                 ''',
                 'session_key_type',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('target-address', REFERENCE_CLASS, 'TargetAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.TargetAddress', 
+                [], [], 
+                '''                sbfd target address
+                ''',
+                'target_address',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 120)], [], 
@@ -15538,28 +16153,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjusted-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted detection multiplier to compute
                 detection time
                 ''',
                 'adjusted_detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('adjusted-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjusted minimum transmit interval in
                 milli-seconds
                 ''',
                 'adjusted_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified detection multiplier to compute
                 detection time
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Client specified minimum transmit interval in
                 micro-seconds
                 ''',
@@ -15583,7 +16198,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -15643,7 +16258,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ip-bfd-oper', False),
                 ]),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -15655,7 +16270,7 @@ _meta_table = {
                 'link_information',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -15702,25 +16317,25 @@ _meta_table = {
                 'display_type',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets received
                 ''',
                 'echo_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('echo-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of echo packets transmitted
                 ''',
                 'echo_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fe-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Type
                 ''',
                 'fe_ctype',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC C Type
                 ''',
                 'fec_ctype',
@@ -15744,7 +16359,7 @@ _meta_table = {
                 'fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Subgroup ID
                 ''',
                 'fec_subgroup_id',
@@ -15756,37 +16371,37 @@ _meta_table = {
                 'fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Tunnel ID
                 ''',
                 'fec_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('feclspid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC LSP ID
                 ''',
                 'feclspid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fecp2mpid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC P2MP ID
                 ''',
                 'fecp2mpid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos received
                 ''',
                 'hello_receive_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('hello-transmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Hellos transmitted
                 ''',
                 'hello_transmit_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
@@ -15850,26 +16465,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-local-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated local transmit interval in
                 micro-seconds
                 ''',
                 'negotiated_local_transmit_interval',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-remote-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated remote transmit interval in
                 micro-seconds
                 ''',
@@ -15887,19 +16502,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection Multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('detection-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Detection time in micro-seconds
                 ''',
                 'detection_time',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('negotiated-transmit-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Negotiated transmit interval in micro-seconds
                 ''',
                 'negotiated_transmit_interval',
@@ -15958,7 +16573,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ip-bfd-oper', False),
                 ]),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -15976,7 +16591,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session Flags
                 ''',
                 'session_flags',
@@ -16035,13 +16650,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('fe-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Type
                 ''',
                 'fe_ctype',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-ctype', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC C Type
                 ''',
                 'fec_ctype',
@@ -16065,7 +16680,7 @@ _meta_table = {
                 'fec_source',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-subgroup-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Subgroup ID
                 ''',
                 'fec_subgroup_id',
@@ -16077,37 +16692,37 @@ _meta_table = {
                 'fec_subgroup_originator',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fec-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC Tunnel ID
                 ''',
                 'fec_tunnel_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('feclspid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC LSP ID
                 ''',
                 'feclspid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('fecp2mpid', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                FEC P2MP ID
                 ''',
                 'fecp2mpid',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('incoming-label-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label_xr',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -16125,7 +16740,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'session_interface_name',
@@ -16196,13 +16811,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ip-bfd-oper', False),
                 ]),
             _MetaInfoClassMember('incoming-label-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incoming Label
                 ''',
                 'incoming_label_xr',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('local-discriminator', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Session's Local discriminator
                 ''',
                 'local_discriminator',
@@ -16220,7 +16835,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('session-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'session_interface_name',
@@ -16291,25 +16906,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in down state
                 ''',
                 'down_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in database
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('unknown-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in unknown state
                 ''',
                 'unknown_count',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions in up state
                 ''',
                 'up_count',
@@ -16533,6 +17148,12 @@ _meta_table = {
                 ''',
                 'ipv4bfd_mplste_tail_node_summaries',
                 'Cisco-IOS-XR-ip-bfd-oper', False),
+            _MetaInfoClassMember('ipv6-multi-hop-counters', REFERENCE_CLASS, 'Ipv6MultiHopCounters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv6MultiHopCounters', 
+                [], [], 
+                '''                IPv6 multiple hop Counters
+                ''',
+                'ipv6_multi_hop_counters',
+                'Cisco-IOS-XR-ip-bfd-oper', False),
             _MetaInfoClassMember('ipv6-multi-hop-multi-paths', REFERENCE_CLASS, 'Ipv6MultiHopMultiPaths' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'Bfd.Ipv6MultiHopMultiPaths', 
                 [], [], 
                 '''                IPv6 multi hop multipath
@@ -16737,6 +17358,7 @@ _meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.Associatio
 _meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info'].parent =_meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
+_meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info'].parent =_meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation']['meta_info'].parent =_meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation']['meta_info'].parent =_meta_table['Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail']['meta_info']
@@ -16765,6 +17387,7 @@ _meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.Associat
 _meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
+_meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail']['meta_info']
@@ -16806,6 +17429,7 @@ _meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetai
 _meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.IpSourceAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey']['meta_info']
+_meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.SessionKey']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail.StatusInformation']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteTailSessionDetails.Ipv4BfDoMplsteTailSessionDetail']['meta_info']
@@ -16845,6 +17469,7 @@ _meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.Associatio
 _meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress']['meta_info'].parent =_meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress']['meta_info'].parent =_meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info'].parent =_meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
+_meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info'].parent =_meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.SessionKey']['meta_info'].parent =_meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation']['meta_info'].parent =_meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation']['meta_info'].parent =_meta_table['Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail']['meta_info']
@@ -16898,6 +17523,7 @@ _meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.S
 _meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress']['meta_info'].parent =_meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.IpSourceAddress']['meta_info'].parent =_meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info'].parent =_meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey']['meta_info']
+_meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info'].parent =_meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.SessionKey']['meta_info'].parent =_meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation']['meta_info'].parent =_meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation']['meta_info'].parent =_meta_table['Bfd.LabelSessionDetails.LabelSessionDetail']['meta_info']
@@ -16926,6 +17552,7 @@ _meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.Associat
 _meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress']['meta_info'].parent =_meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.IpSourceAddress']['meta_info'].parent =_meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info'].parent =_meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
+_meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info'].parent =_meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.SessionKey']['meta_info'].parent =_meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation']['meta_info'].parent =_meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation']['meta_info'].parent =_meta_table['Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail']['meta_info']
@@ -16956,6 +17583,7 @@ _meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.
 _meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.IpDestinationAddress']['meta_info'].parent =_meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.IpSourceAddress']['meta_info'].parent =_meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info'].parent =_meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey']['meta_info']
+_meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info'].parent =_meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.SessionKey']['meta_info'].parent =_meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation']['meta_info'].parent =_meta_table['Bfd.SessionDetails.SessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.SessionDetails.SessionDetail.StatusInformation']['meta_info'].parent =_meta_table['Bfd.SessionDetails.SessionDetail']['meta_info']
@@ -16969,6 +17597,8 @@ _meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBrie
 _meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation']['meta_info']
 _meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief']['meta_info']
 _meta_table['Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief']['meta_info'].parent =_meta_table['Bfd.Ipv4SingleHopSessionBriefs']['meta_info']
+_meta_table['Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter']['meta_info'].parent =_meta_table['Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters']['meta_info']
+_meta_table['Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters']['meta_info'].parent =_meta_table['Bfd.Ipv6MultiHopCounters']['meta_info']
 _meta_table['Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState']['meta_info'].parent =_meta_table['Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary']['meta_info']
 _meta_table['Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary']['meta_info'].parent =_meta_table['Bfd.Ipv6SingleHopLocationSummaries']['meta_info']
 _meta_table['Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter']['meta_info'].parent =_meta_table['Bfd.LabelCounters.LabelPacketCounters']['meta_info']
@@ -16993,6 +17623,7 @@ _meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetai
 _meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.IpDestinationAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.IpSourceAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey']['meta_info']
+_meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.SessionKey']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail.StatusInformation']['meta_info'].parent =_meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails.Ipv4BfDoMplsteHeadSessionDetail']['meta_info']
@@ -17010,6 +17641,7 @@ _meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKe
 _meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.IpDestinationAddress']['meta_info'].parent =_meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.IpSourceAddress']['meta_info'].parent =_meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.Bfdfec']['meta_info'].parent =_meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey']['meta_info']
+_meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey.TargetAddress']['meta_info'].parent =_meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey']['meta_info']
 _meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.SessionKey']['meta_info'].parent =_meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation']['meta_info'].parent =_meta_table['Bfd.RelationDetails.RelationDetail.AssociationInformation']['meta_info']
 _meta_table['Bfd.RelationDetails.RelationDetail.LinkInformation']['meta_info'].parent =_meta_table['Bfd.RelationDetails.RelationDetail']['meta_info']
@@ -17065,6 +17697,7 @@ _meta_table['Bfd.Ipv4MultiHopCounters']['meta_info'].parent =_meta_table['Bfd'][
 _meta_table['Bfd.SessionDetails']['meta_info'].parent =_meta_table['Bfd']['meta_info']
 _meta_table['Bfd.Ipv4SingleHopMultiPaths']['meta_info'].parent =_meta_table['Bfd']['meta_info']
 _meta_table['Bfd.Ipv4SingleHopSessionBriefs']['meta_info'].parent =_meta_table['Bfd']['meta_info']
+_meta_table['Bfd.Ipv6MultiHopCounters']['meta_info'].parent =_meta_table['Bfd']['meta_info']
 _meta_table['Bfd.Ipv6SingleHopLocationSummaries']['meta_info'].parent =_meta_table['Bfd']['meta_info']
 _meta_table['Bfd.LabelCounters']['meta_info'].parent =_meta_table['Bfd']['meta_info']
 _meta_table['Bfd.Ipv4BfDoMplsteHeadSessionDetails']['meta_info'].parent =_meta_table['Bfd']['meta_info']

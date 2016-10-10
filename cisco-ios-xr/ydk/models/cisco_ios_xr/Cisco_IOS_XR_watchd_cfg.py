@@ -10,10 +10,9 @@ for the following management objects\:
 
 This YANG module augments the
   Cisco\-IOS\-XR\-config\-mda\-cfg
-  Cisco\-IOS\-XR\-config\-mda\-cfg
-modules with configuration data.
+module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """

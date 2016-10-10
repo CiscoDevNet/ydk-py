@@ -285,7 +285,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('denied-data-writes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times since the server last restarted that a
                 protocol operation request to alter
                 a configuration datastore was denied.
@@ -293,7 +293,7 @@ _meta_table = {
                 'denied_data_writes',
                 'ietf-netconf-acm', False),
             _MetaInfoClassMember('denied-notifications', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times since the server last restarted that
                 a notification was dropped for a subscription because
                 access to the event type was denied.
@@ -301,7 +301,7 @@ _meta_table = {
                 'denied_notifications',
                 'ietf-netconf-acm', False),
             _MetaInfoClassMember('denied-operations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times since the server last restarted that a
                 protocol operation request was denied.
                 ''',

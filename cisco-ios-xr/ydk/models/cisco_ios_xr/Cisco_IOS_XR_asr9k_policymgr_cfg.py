@@ -3,7 +3,7 @@
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR ASR9k policy manager configuration.
 
-Copyright (c) 2013, 2015 by Cisco Systems, Inc.
+Copyright (c) 2013, 2015\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -528,6 +528,13 @@ class PolicyManager(object):
                 
                 	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                 
+                .. attribute:: ethertype
+                
+                	Match Ethertype
+                	**type**\:  list of str
+                
+                	**pattern:** ((153[6\-9]\|15[4\-9][0\-9]\|1[6\-9][0\-9][0\-9]\|[2\-9][0\-9][0\-9][0\-9])\|([1\-5][0\-9][0\-9][0\-9][0\-9]\|6[0\-4][0\-9][0\-9][0\-9])\|(65[0\-4][0\-9][0\-9]\|655[0\-2][0\-9]\|6553[0\-5]))\|((arp)\|(ipv4)\|(ipv6))
+                
                 .. attribute:: flow
                 
                 	Match flow
@@ -542,7 +549,7 @@ class PolicyManager(object):
                 
                 .. attribute:: fr_de
                 
-                	Match FrameRelay DE bit
+                	Set FrameRelay DE bit
                 	**type**\:  int
                 
                 	**range:** 0..1
@@ -740,10 +747,10 @@ class PolicyManager(object):
                 
                 .. attribute:: qos_group
                 
-                	Match QoS group
-                	**type**\:  list of int
+                	Match QoS group. Should be value 0..512 or range
+                	**type**\:  list of str
                 
-                	**range:** 0..512
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: service_name
                 
@@ -861,6 +868,9 @@ class PolicyManager(object):
                     self.dscp = YLeafList()
                     self.dscp.parent = self
                     self.dscp.name = 'dscp'
+                    self.ethertype = YLeafList()
+                    self.ethertype.parent = self
+                    self.ethertype.name = 'ethertype'
                     self.flow = PolicyManager.ClassMaps.ClassMap.Match.Flow()
                     self.flow.parent = self
                     self.flow_tag = YLeafList()
@@ -1314,10 +1324,20 @@ class PolicyManager(object):
                         .. attribute:: idle_timeout
                         
                         	Maximum time of inactivity for a flow
+                        	**type**\: one of the below types:
+                        
                         	**type**\:  int
                         
-                        	**range:** 1..65534
+                        	**range:** 10..2550
                         
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**pattern:** (None)\|(none)
+                        
+                        
+                        ----
                         
 
                         """
@@ -1446,6 +1466,11 @@ class PolicyManager(object):
 
                     if self.dscp is not None:
                         for child in self.dscp:
+                            if child is not None:
+                                return True
+
+                    if self.ethertype is not None:
+                        for child in self.ethertype:
                             if child is not None:
                                 return True
 
@@ -1647,16 +1672,6 @@ class PolicyManager(object):
                 
                 	**pattern:** (authenticated)\|(unauthenticated)
                 
-                .. attribute:: cac_admit
-                
-                	Match CAC admitted
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-                
-                .. attribute:: cac_unadmit
-                
-                	Match CAC unadmitted
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-                
                 .. attribute:: cos
                 
                 	Match CoS
@@ -1700,12 +1715,26 @@ class PolicyManager(object):
                 
                 	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                 
+                .. attribute:: ethertype
+                
+                	Match Ethertype
+                	**type**\:  list of str
+                
+                	**pattern:** ((153[6\-9]\|15[4\-9][0\-9]\|1[6\-9][0\-9][0\-9]\|[2\-9][0\-9][0\-9][0\-9])\|([1\-5][0\-9][0\-9][0\-9][0\-9]\|6[0\-4][0\-9][0\-9][0\-9])\|(65[0\-4][0\-9][0\-9]\|655[0\-2][0\-9]\|6553[0\-5]))\|((arp)\|(ipv4)\|(ipv6))
+                
                 .. attribute:: flow_tag
                 
                 	Match flow\-tag. Should be value 1..63 or range
                 	**type**\:  list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: fr_de
+                
+                	Set FrameRelay DE bit
+                	**type**\:  int
+                
+                	**range:** 0..1
                 
                 .. attribute:: fragment_type
                 
@@ -1755,6 +1784,13 @@ class PolicyManager(object):
                 	**type**\:  list of int
                 
                 	**range:** 0..7
+                
+                .. attribute:: inner_vlan
+                
+                	Match inner VLAN ID
+                	**type**\:  list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: ipv4_acl
                 
@@ -1893,10 +1929,10 @@ class PolicyManager(object):
                 
                 .. attribute:: qos_group
                 
-                	Match QoS group
-                	**type**\:  list of int
+                	Match QoS group. Should be value 0..512 or range
+                	**type**\:  list of str
                 
-                	**range:** 0..512
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
                 
                 .. attribute:: service_name
                 
@@ -1981,8 +2017,6 @@ class PolicyManager(object):
                 def __init__(self):
                     self.parent = None
                     self.authen_status = None
-                    self.cac_admit = None
-                    self.cac_unadmit = None
                     self.cos = YLeafList()
                     self.cos.parent = self
                     self.cos.name = 'cos'
@@ -2004,9 +2038,13 @@ class PolicyManager(object):
                     self.dscp = YLeafList()
                     self.dscp.parent = self
                     self.dscp.name = 'dscp'
+                    self.ethertype = YLeafList()
+                    self.ethertype.parent = self
+                    self.ethertype.name = 'ethertype'
                     self.flow_tag = YLeafList()
                     self.flow_tag.parent = self
                     self.flow_tag.name = 'flow_tag'
+                    self.fr_de = None
                     self.fragment_type = YLeafList()
                     self.fragment_type.parent = self
                     self.fragment_type.name = 'fragment_type'
@@ -2028,6 +2066,9 @@ class PolicyManager(object):
                     self.inner_cos = YLeafList()
                     self.inner_cos.parent = self
                     self.inner_cos.name = 'inner_cos'
+                    self.inner_vlan = YLeafList()
+                    self.inner_vlan.parent = self
+                    self.inner_vlan.name = 'inner_vlan'
                     self.ipv4_acl = None
                     self.ipv4_dscp = YLeafList()
                     self.ipv4_dscp.parent = self
@@ -2427,12 +2468,6 @@ class PolicyManager(object):
                     if self.authen_status is not None:
                         return True
 
-                    if self.cac_admit is not None:
-                        return True
-
-                    if self.cac_unadmit is not None:
-                        return True
-
                     if self.cos is not None:
                         for child in self.cos:
                             if child is not None:
@@ -2468,10 +2503,18 @@ class PolicyManager(object):
                             if child is not None:
                                 return True
 
+                    if self.ethertype is not None:
+                        for child in self.ethertype:
+                            if child is not None:
+                                return True
+
                     if self.flow_tag is not None:
                         for child in self.flow_tag:
                             if child is not None:
                                 return True
+
+                    if self.fr_de is not None:
+                        return True
 
                     if self.fragment_type is not None:
                         for child in self.fragment_type:
@@ -2505,6 +2548,11 @@ class PolicyManager(object):
 
                     if self.inner_cos is not None:
                         for child in self.inner_cos:
+                            if child is not None:
+                                return True
+
+                    if self.inner_vlan is not None:
+                        for child in self.inner_vlan:
                             if child is not None:
                                 return True
 
@@ -2802,7 +2850,7 @@ class PolicyManager(object):
                 	Execute all the matched classes
                 	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                 
-                .. attribute:: event_modematch_first
+                .. attribute:: event_mode_match_first
                 
                 	Execute only the first matched class
                 	**type**\:  :py:class:`Empty <ydk.types.Empty>`
@@ -2821,7 +2869,7 @@ class PolicyManager(object):
                     self.class_.parent = self
                     self.class_.name = 'class_'
                     self.event_mode_match_all = None
-                    self.event_modematch_first = None
+                    self.event_mode_match_first = None
 
 
                 class Class(object):
@@ -3434,7 +3482,7 @@ class PolicyManager(object):
                     if self.event_mode_match_all is not None:
                         return True
 
-                    if self.event_modematch_first is not None:
+                    if self.event_mode_match_first is not None:
                         return True
 
                     return False
@@ -3474,6 +3522,11 @@ class PolicyManager(object):
                 .. attribute:: default_red
                 
                 	Default random early detection
+                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                
+                .. attribute:: ecn_red
+                
+                	ECN based random early detection
                 	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                 
                 .. attribute:: flow_params
@@ -3564,6 +3617,7 @@ class PolicyManager(object):
                     self.cac_local = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal()
                     self.cac_local.parent = self
                     self.default_red = None
+                    self.ecn_red = None
                     self.flow_params = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams()
                     self.flow_params.parent = self
                     self.fragment = None
@@ -3596,19 +3650,15 @@ class PolicyManager(object):
                     """
                     Policy action shape.
                     
-                    .. attribute:: unit
+                    .. attribute:: burst
                     
-                    	Shape bandwidth units
-                    	**type**\:  str
+                    	Burst size configuration
+                    	**type**\:  :py:class:`Burst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst>`
                     
-                    	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(percent)\|(per\-million)\|(per\-thousand)
+                    .. attribute:: rate
                     
-                    .. attribute:: value
-                    
-                    	Shape bandwidth value
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
+                    	Rate configuration
+                    	**type**\:  :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate>`
                     
                     
 
@@ -3619,8 +3669,126 @@ class PolicyManager(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.unit = None
-                        self.value = None
+                        self.burst = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst()
+                        self.burst.parent = self
+                        self.rate = PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate()
+                        self.rate.parent = self
+
+
+                    class Rate(object):
+                        """
+                        Rate configuration.
+                        
+                        .. attribute:: unit
+                        
+                        	Shape bandwidth units
+                        	**type**\:  str
+                        
+                        	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(percent)\|(per\-million)\|(per\-thousand)
+                        
+                        .. attribute:: value
+                        
+                        	Shape bandwidth value
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'asr9k-policymgr-cfg'
+                        _revision = '2015-05-18'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.unit = None
+                            self.value = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-policymgr-cfg:rate'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.unit is not None:
+                                return True
+
+                            if self.value is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate']['meta_info']
+
+
+                    class Burst(object):
+                        """
+                        Burst size configuration.
+                        
+                        .. attribute:: units
+                        
+                        	Burst size units
+                        	**type**\:  str
+                        
+                        	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
+                        
+                        .. attribute:: value
+                        
+                        	Burst size value
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'asr9k-policymgr-cfg'
+                        _revision = '2015-05-18'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.units = None
+                            self.value = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-asr9k-policymgr-cfg:burst'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.units is not None:
+                                return True
+
+                            if self.value is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_policymgr_cfg as meta
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3636,10 +3804,10 @@ class PolicyManager(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.unit is not None:
+                        if self.burst is not None and self.burst._has_data():
                             return True
 
-                        if self.value is not None:
+                        if self.rate is not None and self.rate._has_data():
                             return True
 
                         return False
@@ -3717,7 +3885,7 @@ class PolicyManager(object):
                     	Remaining bandwidth units
                     	**type**\:  str
                     
-                    	**pattern:** (bps)\|(kbps)\|(mbps)\|(gbps)\|(percent)\|(per\-million)\|(per\-thousand)
+                    	**pattern:** (percent)\|(ratio)
                     
                     .. attribute:: value
                     
@@ -3886,11 +4054,6 @@ class PolicyManager(object):
                     
                     	**pattern:** ([0\-9]\|[1\-5][0\-9]\|6[0\-3])\|(([0\-9]\|[1\-5][0\-9]\|6[0\-3])\-([0\-9]\|[1\-5][0\-9]\|6[0\-3]))\|(af11)\|(af12)\|(af13)\|(af21)\|(af22)\|(af23)\|(af31)\|(af32)\|(af33)\|(af41)\|(af42)\|(af43)\|(ef)\|(default)\|(cs1)\|(cs2)\|(cs3)\|(cs4)\|(cs5)\|(cs6)\|(cs7)
                     
-                    .. attribute:: ecn
-                    
-                    	ECN based WRED
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-                    
                     .. attribute:: mpls_exp
                     
                     	MPLS Experimental value based WRED
@@ -3938,7 +4101,6 @@ class PolicyManager(object):
                         self.dscp = YLeafList()
                         self.dscp.parent = self
                         self.dscp.name = 'dscp'
-                        self.ecn = None
                         self.mpls_exp = YLeafList()
                         self.mpls_exp.parent = self
                         self.mpls_exp.name = 'mpls_exp'
@@ -3997,9 +4159,6 @@ class PolicyManager(object):
                             for child in self.dscp:
                                 if child is not None:
                                     return True
-
-                        if self.ecn is not None:
-                            return True
 
                         if self.mpls_exp is not None:
                             for child in self.mpls_exp:
@@ -4065,6 +4224,13 @@ class PolicyManager(object):
                     
                     	**range:** 0..1
                     
+                    .. attribute:: inner_cos
+                    
+                    	Set inner cos
+                    	**type**\:  int
+                    
+                    	**range:** 0..7
+                    
                     .. attribute:: mpls_experimental_imposition
                     
                     	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
@@ -4082,10 +4248,37 @@ class PolicyManager(object):
                     .. attribute:: precedence
                     
                     	Sets the precedence value in the IP header
+                    	**type**\: one of the below types:
+                    
                     	**type**\:  int
                     
                     	**range:** 0..7
                     
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                    
+                    
+                    ----
+                    .. attribute:: precedence_tunnel
+                    
+                    	Sets the precedence tunnel value for ipsec
+                    	**type**\: one of the below types:
+                    
+                    	**type**\:  int
+                    
+                    	**range:** 0..7
+                    
+                    
+                    ----
+                    	**type**\:  str
+                    
+                    	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                    
+                    
+                    ----
                     .. attribute:: qos_group
                     
                     	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
@@ -4115,9 +4308,11 @@ class PolicyManager(object):
                         self.dscp = None
                         self.forward_class = None
                         self.fr_de = None
+                        self.inner_cos = None
                         self.mpls_experimental_imposition = None
                         self.mpls_experimental_top_most = None
                         self.precedence = None
+                        self.precedence_tunnel = None
                         self.qos_group = None
                         self.srp_priority = None
 
@@ -4153,6 +4348,9 @@ class PolicyManager(object):
                         if self.fr_de is not None:
                             return True
 
+                        if self.inner_cos is not None:
+                            return True
+
                         if self.mpls_experimental_imposition is not None:
                             return True
 
@@ -4160,6 +4358,9 @@ class PolicyManager(object):
                             return True
 
                         if self.precedence is not None:
+                            return True
+
+                        if self.precedence_tunnel is not None:
                             return True
 
                         if self.qos_group is not None:
@@ -4553,6 +4754,13 @@ class PolicyManager(object):
                             
                             	**range:** 0..1
                             
+                            .. attribute:: inner_cos
+                            
+                            	Set inner cos
+                            	**type**\:  int
+                            
+                            	**range:** 0..7
+                            
                             .. attribute:: mpls_experimental_imposition
                             
                             	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
@@ -4570,10 +4778,37 @@ class PolicyManager(object):
                             .. attribute:: precedence
                             
                             	Sets the precedence value in the IP header
+                            	**type**\: one of the below types:
+                            
                             	**type**\:  int
                             
                             	**range:** 0..7
                             
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                            
+                            
+                            ----
+                            .. attribute:: precedence_tunnel
+                            
+                            	Sets the precedence tunnel value for ipsec
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  int
+                            
+                            	**range:** 0..7
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                            
+                            
+                            ----
                             .. attribute:: qos_group
                             
                             	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
@@ -4603,9 +4838,11 @@ class PolicyManager(object):
                                 self.dscp = None
                                 self.forward_class = None
                                 self.fr_de = None
+                                self.inner_cos = None
                                 self.mpls_experimental_imposition = None
                                 self.mpls_experimental_top_most = None
                                 self.precedence = None
+                                self.precedence_tunnel = None
                                 self.qos_group = None
                                 self.srp_priority = None
 
@@ -4641,6 +4878,9 @@ class PolicyManager(object):
                                 if self.fr_de is not None:
                                     return True
 
+                                if self.inner_cos is not None:
+                                    return True
+
                                 if self.mpls_experimental_imposition is not None:
                                     return True
 
@@ -4648,6 +4888,9 @@ class PolicyManager(object):
                                     return True
 
                                 if self.precedence is not None:
+                                    return True
+
+                                if self.precedence_tunnel is not None:
                                     return True
 
                                 if self.qos_group is not None:
@@ -4775,6 +5018,13 @@ class PolicyManager(object):
                             
                             	**range:** 0..1
                             
+                            .. attribute:: inner_cos
+                            
+                            	Set inner cos
+                            	**type**\:  int
+                            
+                            	**range:** 0..7
+                            
                             .. attribute:: mpls_experimental_imposition
                             
                             	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
@@ -4792,10 +5042,37 @@ class PolicyManager(object):
                             .. attribute:: precedence
                             
                             	Sets the precedence value in the IP header
+                            	**type**\: one of the below types:
+                            
                             	**type**\:  int
                             
                             	**range:** 0..7
                             
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                            
+                            
+                            ----
+                            .. attribute:: precedence_tunnel
+                            
+                            	Sets the precedence tunnel value for ipsec
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  int
+                            
+                            	**range:** 0..7
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                            
+                            
+                            ----
                             .. attribute:: qos_group
                             
                             	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
@@ -4825,9 +5102,11 @@ class PolicyManager(object):
                                 self.dscp = None
                                 self.forward_class = None
                                 self.fr_de = None
+                                self.inner_cos = None
                                 self.mpls_experimental_imposition = None
                                 self.mpls_experimental_top_most = None
                                 self.precedence = None
+                                self.precedence_tunnel = None
                                 self.qos_group = None
                                 self.srp_priority = None
 
@@ -4863,6 +5142,9 @@ class PolicyManager(object):
                                 if self.fr_de is not None:
                                     return True
 
+                                if self.inner_cos is not None:
+                                    return True
+
                                 if self.mpls_experimental_imposition is not None:
                                     return True
 
@@ -4870,6 +5152,9 @@ class PolicyManager(object):
                                     return True
 
                                 if self.precedence is not None:
+                                    return True
+
+                                if self.precedence_tunnel is not None:
                                     return True
 
                                 if self.qos_group is not None:
@@ -4997,6 +5282,13 @@ class PolicyManager(object):
                             
                             	**range:** 0..1
                             
+                            .. attribute:: inner_cos
+                            
+                            	Set inner cos
+                            	**type**\:  int
+                            
+                            	**range:** 0..7
+                            
                             .. attribute:: mpls_experimental_imposition
                             
                             	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
@@ -5014,10 +5306,37 @@ class PolicyManager(object):
                             .. attribute:: precedence
                             
                             	Sets the precedence value in the IP header
+                            	**type**\: one of the below types:
+                            
                             	**type**\:  int
                             
                             	**range:** 0..7
                             
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                            
+                            
+                            ----
+                            .. attribute:: precedence_tunnel
+                            
+                            	Sets the precedence tunnel value for ipsec
+                            	**type**\: one of the below types:
+                            
+                            	**type**\:  int
+                            
+                            	**range:** 0..7
+                            
+                            
+                            ----
+                            	**type**\:  str
+                            
+                            	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                            
+                            
+                            ----
                             .. attribute:: qos_group
                             
                             	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
@@ -5047,9 +5366,11 @@ class PolicyManager(object):
                                 self.dscp = None
                                 self.forward_class = None
                                 self.fr_de = None
+                                self.inner_cos = None
                                 self.mpls_experimental_imposition = None
                                 self.mpls_experimental_top_most = None
                                 self.precedence = None
+                                self.precedence_tunnel = None
                                 self.qos_group = None
                                 self.srp_priority = None
 
@@ -5085,6 +5406,9 @@ class PolicyManager(object):
                                 if self.fr_de is not None:
                                     return True
 
+                                if self.inner_cos is not None:
+                                    return True
+
                                 if self.mpls_experimental_imposition is not None:
                                     return True
 
@@ -5092,6 +5416,9 @@ class PolicyManager(object):
                                     return True
 
                                 if self.precedence is not None:
+                                    return True
+
+                                if self.precedence_tunnel is not None:
                                     return True
 
                                 if self.qos_group is not None:
@@ -5256,7 +5583,7 @@ class PolicyManager(object):
                     ----
                     	**type**\:  str
                     
-                    	**pattern:** None
+                    	**pattern:** (None)\|(none)
                     
                     
                     ----
@@ -6408,6 +6735,13 @@ class PolicyManager(object):
                         
                         	**range:** 0..1
                         
+                        .. attribute:: inner_cos
+                        
+                        	Set inner cos
+                        	**type**\:  int
+                        
+                        	**range:** 0..7
+                        
                         .. attribute:: mpls_experimental_imposition
                         
                         	Sets the experimental value of the MPLS packet  imposition labels. Imposition can be used only in service policies that  are attached in the ingress policy
@@ -6425,10 +6759,37 @@ class PolicyManager(object):
                         .. attribute:: precedence
                         
                         	Sets the precedence value in the IP header
+                        	**type**\: one of the below types:
+                        
                         	**type**\:  int
                         
                         	**range:** 0..7
                         
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                        
+                        
+                        ----
+                        .. attribute:: precedence_tunnel
+                        
+                        	Sets the precedence tunnel value for ipsec
+                        	**type**\: one of the below types:
+                        
+                        	**type**\:  int
+                        
+                        	**range:** 0..7
+                        
+                        
+                        ----
+                        	**type**\:  str
+                        
+                        	**pattern:** (critical)\|(flash)\|(flash\-override)\|(immediate)\|(internet)\|(network)\|(priority)\|(routine)
+                        
+                        
+                        ----
                         .. attribute:: qos_group
                         
                         	Sets the QoS group identifiers on IPv4 or MPLS packets. The set qos\-group is supported only on an ingress policy
@@ -6458,9 +6819,11 @@ class PolicyManager(object):
                             self.dscp = None
                             self.forward_class = None
                             self.fr_de = None
+                            self.inner_cos = None
                             self.mpls_experimental_imposition = None
                             self.mpls_experimental_top_most = None
                             self.precedence = None
+                            self.precedence_tunnel = None
                             self.qos_group = None
                             self.srp_priority = None
 
@@ -6496,6 +6859,9 @@ class PolicyManager(object):
                             if self.fr_de is not None:
                                 return True
 
+                            if self.inner_cos is not None:
+                                return True
+
                             if self.mpls_experimental_imposition is not None:
                                 return True
 
@@ -6503,6 +6869,9 @@ class PolicyManager(object):
                                 return True
 
                             if self.precedence is not None:
+                                return True
+
+                            if self.precedence_tunnel is not None:
                                 return True
 
                             if self.qos_group is not None:
@@ -6585,6 +6954,9 @@ class PolicyManager(object):
                         return True
 
                     if self.default_red is not None:
+                        return True
+
+                    if self.ecn_red is not None:
                         return True
 
                     if self.flow_params is not None and self.flow_params._has_data():

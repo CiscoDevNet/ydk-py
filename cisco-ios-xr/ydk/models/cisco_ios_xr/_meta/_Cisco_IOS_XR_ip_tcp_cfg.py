@@ -25,13 +25,13 @@ _meta_table = {
                 'directoryname',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('max-debug-files', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
+                [('1', '10000')], [], 
                 '''                Set number of Debug files
                 ''',
                 'max_debug_files',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('max-file-size-files', ATTRIBUTE, 'int' , None, None, 
-                [(1024, 4294967295)], [], 
+                [('1024', '4294967295')], [], 
                 '''                Set size of debug files in bytes
                 ''',
                 'max_file_size_files',
@@ -48,13 +48,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tcpmaxthrottle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                Max throttle
                 ''',
                 'tcpmaxthrottle',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('tcpmin-throttle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                Min throttle
                 ''',
                 'tcpmin_throttle',
@@ -71,13 +71,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tcp-in-q-threads', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16)], [], 
+                [('1', '16')], [], 
                 '''                InQ Threads
                 ''',
                 'tcp_in_q_threads',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('tcp-out-q-threads', ATTRIBUTE, 'int' , None, None, 
-                [(1, 16)], [], 
+                [('1', '16')], [], 
                 '''                OutQ Threads
                 ''',
                 'tcp_out_q_threads',
@@ -94,7 +94,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('accept-rate', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                TCP connection accept rate
                 ''',
                 'accept_rate',
@@ -106,7 +106,7 @@ _meta_table = {
                 'directory',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('maximum-segment-size', ATTRIBUTE, 'int' , None, None, 
-                [(68, 10000)], [], 
+                [('68', '10000')], [], 
                 '''                TCP initial maximum segment size
                 ''',
                 'maximum_segment_size',
@@ -118,13 +118,13 @@ _meta_table = {
                 'num_thread',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('path-mtu-discovery', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Aging time; 0 for infinite, and range be (10,30)
                 ''',
                 'path_mtu_discovery',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('receive-q', ATTRIBUTE, 'int' , None, None, 
-                [(40, 800)], [], 
+                [('40', '800')], [], 
                 '''                TCP receive Queue Size
                 ''',
                 'receive_q',
@@ -136,7 +136,7 @@ _meta_table = {
                 'selective_ack',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('syn-wait-time', ATTRIBUTE, 'int' , None, None, 
-                [(5, 30)], [], 
+                [('5', '30')], [], 
                 '''                Time to wait on new TCP connections in seconds
                 ''',
                 'syn_wait_time',
@@ -154,7 +154,7 @@ _meta_table = {
                 'timestamp',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('window-size', ATTRIBUTE, 'int' , None, None, 
-                [(2048, 65535)], [], 
+                [('2048', '65535')], [], 
                 '''                TCP receive window size (bytes)
                 ''',
                 'window_size',
@@ -177,7 +177,7 @@ _meta_table = {
                 'access_control_list_name',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('small-server', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Set number of allowable TCP small servers,
                 specify 0 for no-limit
                 ''',
@@ -201,7 +201,7 @@ _meta_table = {
                 'access_control_list_name',
                 'Cisco-IOS-XR-ip-udp-cfg', False),
             _MetaInfoClassMember('small-server', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                Set number of allowable small servers, specify
                 0 for no-limit
                 ''',
@@ -266,7 +266,7 @@ _meta_table = {
                 'access_list_name',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('maximum-server', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Set number of allowable servers
                 ''',
                 'maximum_server',
@@ -306,7 +306,7 @@ _meta_table = {
                 'access_list_name',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('dscp-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Set IP DSCP (DiffServ CodePoint) for TFTP
                 Server Packets
                 ''',
@@ -320,7 +320,7 @@ _meta_table = {
                 'home_directory',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('maximum-server', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                Set number of allowable servers, 0 for
                 no-limit
                 ''',
@@ -384,7 +384,7 @@ _meta_table = {
                 'access_list_name',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('maximum-server', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Set number of allowable servers
                 ''',
                 'maximum_server',
@@ -424,7 +424,7 @@ _meta_table = {
                 'access_list_name',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('dscp-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Set IP DSCP (DiffServ CodePoint) for TFTP
                 Server Packets
                 ''',
@@ -438,7 +438,7 @@ _meta_table = {
                 'home_directory',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('maximum-server', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                Set number of allowable servers, 0 for
                 no-limit
                 ''',
@@ -548,7 +548,7 @@ _meta_table = {
                 'access_control_list_name',
                 'Cisco-IOS-XR-ip-tcp-cfg', False),
             _MetaInfoClassMember('small-server', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Set number of allowable TCP small servers,
                 specify 0 for no-limit
                 ''',
@@ -647,7 +647,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('port-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Port number
                 ''',
                 'port_id',

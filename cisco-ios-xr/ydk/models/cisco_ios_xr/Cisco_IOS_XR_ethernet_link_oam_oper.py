@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ether\-link\-oam\: Ethernet Link OAM operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -462,7 +462,7 @@ class EtherLinkOam(object):
             	Member Interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: local_evaluating
             
@@ -594,6 +594,20 @@ class EtherLinkOam(object):
             
             	Has this value been received successfully?
             	**type**\:  bool
+            
+            .. attribute:: received_at_risk_notification_time_remaining
+            
+            	Number of seconds remaining that the peer has indicated it will be At Risk
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: received_at_risk_notification_timestamp
+            
+            	Timestamp of when the last At Risk notification was received (in seconds since the UNIX epoch), or 0 if the peer is not currently at risk
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
             
             .. attribute:: remote_event
             
@@ -752,6 +766,8 @@ class EtherLinkOam(object):
                 self.name = None
                 self.operational_status = None
                 self.operational_status_valid = None
+                self.received_at_risk_notification_time_remaining = None
+                self.received_at_risk_notification_timestamp = None
                 self.remote_event = None
                 self.remote_event_valid = None
                 self.remote_loopback = None
@@ -865,6 +881,12 @@ class EtherLinkOam(object):
                     return True
 
                 if self.operational_status_valid is not None:
+                    return True
+
+                if self.received_at_risk_notification_time_remaining is not None:
+                    return True
+
+                if self.received_at_risk_notification_timestamp is not None:
                     return True
 
                 if self.remote_event is not None:
@@ -999,7 +1021,7 @@ class EtherLinkOam(object):
             	Member Interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: efd_triggers
             
@@ -1381,7 +1403,7 @@ class EtherLinkOam(object):
             	Member Interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: capabilities_conflict_action
             
@@ -1686,7 +1708,7 @@ class EtherLinkOam(object):
             .. attribute:: symbol_period_threshold_high
             
             	High symbol period event threshold
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -1698,7 +1720,7 @@ class EtherLinkOam(object):
             .. attribute:: symbol_period_threshold_low
             
             	Low symbol period event threshold
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -2138,7 +2160,7 @@ class EtherLinkOam(object):
                 .. attribute:: events
                 
                 	The number of events recorded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -2159,28 +2181,28 @@ class EtherLinkOam(object):
                 .. attribute:: local_events
                 
                 	The number of local events recorded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: local_frame
                 
                 	The mumber of local frame error events recorded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: local_frame_period
                 
                 	The number of local frame period events recorded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: local_frame_seconds
                 
                 	The number of local frame second events recoded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -2194,7 +2216,7 @@ class EtherLinkOam(object):
                 .. attribute:: local_symbol_period
                 
                 	The number of local symbol period events recorded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -2236,28 +2258,28 @@ class EtherLinkOam(object):
                 .. attribute:: remote_events
                 
                 	The number of remote events recorded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: remote_frame
                 
                 	The mumber of remote frame error events recorded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: remote_frame_period
                 
                 	The number of remote frame period events recorded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: remote_frame_seconds
                 
                 	The number of remote frame second events recoded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -2271,7 +2293,7 @@ class EtherLinkOam(object):
                 .. attribute:: remote_symbol_period
                 
                 	The number of remote symbol period events recorded
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -2480,7 +2502,7 @@ class EtherLinkOam(object):
             	Member Interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: event_log_entry_indexes
             
@@ -2554,7 +2576,7 @@ class EtherLinkOam(object):
                     	Interface handle for this log entry
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: index
                     
@@ -2566,7 +2588,14 @@ class EtherLinkOam(object):
                     .. attribute:: local_high_threshold
                     
                     	Size of the local high threshold (If applicable) . For remote threshold events this is scaled for comparison with the Breaching Value. This is to account for different local and remote window sizes
-                    	**type**\:  long
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: local_high_threshold_config_units
+                    
+                    	The local high threshold in configuration units
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2585,21 +2614,28 @@ class EtherLinkOam(object):
                     .. attribute:: running_total
                     
                     	The running total number of errors seen since OAM was enabled on the interface(If applicable)
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: threshold
                     
                     	Size of the threshold (If applicable)
-                    	**type**\:  long
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: threshold_config_units
+                    
+                    	The threshold in configuration units
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: timestamp
                     
                     	Timestamp in hundredths of a second since unix epoch for when the event occurred
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2611,14 +2647,28 @@ class EtherLinkOam(object):
                     .. attribute:: value
                     
                     	Breaching value (If applicable)
-                    	**type**\:  long
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: value_config_units
+                    
+                    	The breaching value in configuration units
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: window
                     
                     	Size of the window (If applicable)
-                    	**type**\:  long
+                    	**type**\:  int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: window_config_units
+                    
+                    	The window in configuration units
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2637,14 +2687,18 @@ class EtherLinkOam(object):
                         self.handle = None
                         self.index = None
                         self.local_high_threshold = None
+                        self.local_high_threshold_config_units = None
                         self.location = None
                         self.oui = None
                         self.running_total = None
                         self.threshold = None
+                        self.threshold_config_units = None
                         self.timestamp = None
                         self.type = None
                         self.value = None
+                        self.value_config_units = None
                         self.window = None
+                        self.window_config_units = None
 
                     @property
                     def _common_path(self):
@@ -2680,6 +2734,9 @@ class EtherLinkOam(object):
                         if self.local_high_threshold is not None:
                             return True
 
+                        if self.local_high_threshold_config_units is not None:
+                            return True
+
                         if self.location is not None:
                             return True
 
@@ -2692,6 +2749,9 @@ class EtherLinkOam(object):
                         if self.threshold is not None:
                             return True
 
+                        if self.threshold_config_units is not None:
+                            return True
+
                         if self.timestamp is not None:
                             return True
 
@@ -2701,7 +2761,13 @@ class EtherLinkOam(object):
                         if self.value is not None:
                             return True
 
+                        if self.value_config_units is not None:
+                            return True
+
                         if self.window is not None:
+                            return True
+
+                        if self.window_config_units is not None:
                             return True
 
                         return False
@@ -2822,7 +2888,7 @@ class EtherLinkOam(object):
             	Member Interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: duplicate_event_notification_rx
             

@@ -51,6 +51,7 @@ _meta_table = {
             'icpe-oper-install-state-transferring':'ICPE_OPER_INSTALL_STATE_TRANSFERRING',
             'icpe-oper-install-state-transferred':'ICPE_OPER_INSTALL_STATE_TRANSFERRED',
             'icpe-oper-install-state-installing':'ICPE_OPER_INSTALL_STATE_INSTALLING',
+            'icpe-oper-install-state-in-progress':'ICPE_OPER_INSTALL_STATE_IN_PROGRESS',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
     'IcpeOpmTransportStateEnum' : _MetaInfoEnum('IcpeOpmTransportStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper',
         {
@@ -69,6 +70,15 @@ _meta_table = {
             'icpe-oper-discd-link-state-probing':'ICPE_OPER_DISCD_LINK_STATE_PROBING',
             'icpe-oper-discd-link-state-configuring':'ICPE_OPER_DISCD_LINK_STATE_CONFIGURING',
             'icpe-oper-discd-link-state-ready':'ICPE_OPER_DISCD_LINK_STATE_READY',
+        }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
+    'IcpeOperTopoRemoteSourceEnum' : _MetaInfoEnum('IcpeOperTopoRemoteSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper',
+        {
+            'icpe-oper-topo-remote-source-unknown':'ICPE_OPER_TOPO_REMOTE_SOURCE_UNKNOWN',
+            'icpe-oper-topo-remote-source-remote-icl-id':'ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_ICL_ID',
+            'icpe-oper-topo-remote-source-remote-satellite-mac':'ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_SATELLITE_MAC',
+            'icpe-oper-topo-remote-source-remote-host-mac':'ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_HOST_MAC',
+            'icpe-oper-topo-remote-source-direct-satellite':'ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_SATELLITE',
+            'icpe-oper-topo-remote-source-direct-host':'ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_HOST',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
     'IcpeOperConflictEnum' : _MetaInfoEnum('IcpeOperConflictEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper',
         {
@@ -178,6 +188,76 @@ _meta_table = {
             'icpe-opm-sess-state-waiting-for-resyncs':'ICPE_OPM_SESS_STATE_WAITING_FOR_RESYNCS',
             'icpe-opm-sess-state-connected':'ICPE_OPM_SESS_STATE_CONNECTED',
         }, 'Cisco-IOS-XR-icpe-infra-oper', _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper']),
+    'NvSatellite.ReloadOpStatuses.ReloadOpStatus' : {
+        'meta_info' : _MetaInfoClass('NvSatellite.ReloadOpStatuses.ReloadOpStatus',
+            False, 
+            [
+            _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Operation ID
+                ''',
+                'operation_id',
+                'Cisco-IOS-XR-icpe-infra-oper', True),
+            _MetaInfoClassMember('operation-id-xr', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Operation ID
+                ''',
+                'operation_id_xr',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('satellite-range', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Satellite range
+                ''',
+                'satellite_range',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-not-initiated', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats not initiated
+                ''',
+                'sats_not_initiated',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-reload-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats reload failed
+                ''',
+                'sats_reload_failed',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-reloaded', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats reloaded
+                ''',
+                'sats_reloaded',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-reloading', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats reloading
+                ''',
+                'sats_reloading',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            ],
+            'Cisco-IOS-XR-icpe-infra-oper',
+            'reload-op-status',
+            _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper'
+        ),
+    },
+    'NvSatellite.ReloadOpStatuses' : {
+        'meta_info' : _MetaInfoClass('NvSatellite.ReloadOpStatuses',
+            False, 
+            [
+            _MetaInfoClassMember('reload-op-status', REFERENCE_LIST, 'ReloadOpStatus' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper', 'NvSatellite.ReloadOpStatuses.ReloadOpStatus', 
+                [], [], 
+                '''                Detailed breakdown of reload status
+                ''',
+                'reload_op_status',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            ],
+            'Cisco-IOS-XR-icpe-infra-oper',
+            'reload-op-statuses',
+            _yang_ns._namespaces['Cisco-IOS-XR-icpe-infra-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper'
+        ),
+    },
     'NvSatellite.InstallStatuses.InstallStatus' : {
         'meta_info' : _MetaInfoClass('NvSatellite.InstallStatuses.InstallStatus',
             False, 
@@ -189,7 +269,7 @@ _meta_table = {
                 'satellite_range',
                 'Cisco-IOS-XR-icpe-infra-oper', True),
             _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Operation ID
                 ''',
                 'operation_id',
@@ -201,55 +281,91 @@ _meta_table = {
                 'satellite_range_xr',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-activate-aborted', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats activate aborted
                 ''',
                 'sats_activate_aborted',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-activate-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats activate failed
                 ''',
                 'sats_activate_failed',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-activating', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats activating
                 ''',
                 'sats_activating',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-completed', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats completed
                 ''',
                 'sats_completed',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-deactivate-aborted', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats deactivate aborted
+                ''',
+                'sats_deactivate_aborted',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-deactivate-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats deactivate failed
+                ''',
+                'sats_deactivate_failed',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-deactivating', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats deactivating
+                ''',
+                'sats_deactivating',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-no-operation', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats no operation
                 ''',
                 'sats_no_operation',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-not-initiated', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats not initiated
                 ''',
                 'sats_not_initiated',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-remove-aborted', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats remove aborted
+                ''',
+                'sats_remove_aborted',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-remove-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats remove failed
+                ''',
+                'sats_remove_failed',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-removing', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats removing
+                ''',
+                'sats_removing',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-transfer-aborted', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats transfer aborted
                 ''',
                 'sats_transfer_aborted',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-transfer-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats transfer failed
                 ''',
                 'sats_transfer_failed',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-transferring', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats transferring
                 ''',
                 'sats_transferring',
@@ -283,13 +399,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Seconds
                 ''',
                 'seconds',
@@ -306,13 +422,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Seconds
                 ''',
                 'seconds',
@@ -329,13 +445,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Seconds
                 ''',
                 'seconds',
@@ -358,7 +474,7 @@ _meta_table = {
                 'chan_state',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('channel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Channel ID
                 ''',
                 'channel_id',
@@ -369,26 +485,26 @@ _meta_table = {
                 ''',
                 'channel_state_timestamp',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('control-messages-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('control-messages-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Control messages received
                 ''',
                 'control_messages_received',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('control-messages-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('control-messages-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Control messages sent
                 ''',
                 'control_messages_sent',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('normal-messages-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('normal-messages-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Normal messages received
                 ''',
                 'normal_messages_received',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
-            _MetaInfoClassMember('normal-messages-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('normal-messages-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Normal messages sent
                 ''',
                 'normal_messages_sent',
@@ -417,7 +533,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('iccp-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ICCP group
                 ''',
                 'iccp_group',
@@ -441,7 +557,7 @@ _meta_table = {
                 'channel',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('iccp-group-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ICCP group
                 ''',
                 'iccp_group_xr',
@@ -517,7 +633,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Port
                 ''',
                 'port',
@@ -529,13 +645,13 @@ _meta_table = {
                 'port_type',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('slot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Slot
                 ''',
                 'slot',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('subslot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Subslot
                 ''',
                 'subslot',
@@ -564,7 +680,7 @@ _meta_table = {
                 'permanent',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Port
                 ''',
                 'port',
@@ -582,13 +698,13 @@ _meta_table = {
                 'requested',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('slot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Slot
                 ''',
                 'slot',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('subslot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Subslot
                 ''',
                 'subslot',
@@ -693,13 +809,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Nanoseconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Seconds
                 ''',
                 'seconds',
@@ -728,13 +844,13 @@ _meta_table = {
                 'conflict_reason',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('high-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High port
                 ''',
                 'high_port',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('low-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low port
                 ''',
                 'low_port',
@@ -746,13 +862,13 @@ _meta_table = {
                 'port_type',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('slot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Slot
                 ''',
                 'slot',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('subslot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Subslot
                 ''',
                 'subslot',
@@ -781,7 +897,7 @@ _meta_table = {
                 'conflict_reason',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'interface_handle',
@@ -822,7 +938,7 @@ _meta_table = {
                 'discovered_link',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'interface_handle',
@@ -846,13 +962,13 @@ _meta_table = {
                 'min_links_satisfied',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('minimum-preferred-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum preferred links
                 ''',
                 'minimum_preferred_links',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('number-active-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number active links
                 ''',
                 'number_active_links',
@@ -864,7 +980,7 @@ _meta_table = {
                 'port_range',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('vrf-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRF ID
                 ''',
                 'vrf_id',
@@ -887,7 +1003,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('satellite-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Satellite ID
                 ''',
                 'satellite_id',
@@ -899,7 +1015,7 @@ _meta_table = {
                 'candidate_fabric_ports',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('cfgd-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cfgd timeout
                 ''',
                 'cfgd_timeout',
@@ -1048,8 +1164,14 @@ _meta_table = {
                 ''',
                 'received_serial_number_present',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('recovery-delay-time-left', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Recovery delay time left
+                ''',
+                'recovery_delay_time_left',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('redundancy-iccp-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Redundancy ICCP group
                 ''',
                 'redundancy_iccp_group',
@@ -1073,7 +1195,7 @@ _meta_table = {
                 'remote_version_present',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('satellite-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Satellite ID
                 ''',
                 'satellite_id_xr',
@@ -1096,6 +1218,12 @@ _meta_table = {
                 ''',
                 'sdacp_session_state',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('timeout-warning', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Timeout warning
+                ''',
+                'timeout_warning',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Type
@@ -1115,7 +1243,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('vrfid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VRFID
                 ''',
                 'vrfid',
@@ -1155,7 +1283,7 @@ _meta_table = {
                 'discovery_running',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'interface_handle',
@@ -1178,13 +1306,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('icl-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ICL ID
                 ''',
                 'icl_id',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'interface_handle',
@@ -1213,6 +1341,12 @@ _meta_table = {
                 ''',
                 'remote_is_satellite',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('source', REFERENCE_ENUM_CLASS, 'IcpeOperTopoRemoteSourceEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper', 'IcpeOperTopoRemoteSourceEnum', 
+                [], [], 
+                '''                Source
+                ''',
+                'source',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
             ],
             'Cisco-IOS-XR-icpe-infra-oper',
             'remote-device',
@@ -1237,7 +1371,7 @@ _meta_table = {
                 'display_name',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('icl-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ICL ID
                 ''',
                 'icl_id',
@@ -1314,7 +1448,7 @@ _meta_table = {
                 'mac_address',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('num-hops', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Num hops
                 ''',
                 'num_hops',
@@ -1332,7 +1466,7 @@ _meta_table = {
                 'received_serial_number_present',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('satellite-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Satellite ID
                 ''',
                 'satellite_id',
@@ -1344,7 +1478,7 @@ _meta_table = {
                 'type',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN ID
                 ''',
                 'vlan_id',
@@ -1373,7 +1507,7 @@ _meta_table = {
                 'discovered_link',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface handle
                 ''',
                 'interface_handle',
@@ -1391,7 +1525,7 @@ _meta_table = {
                 'is_physical',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('redundancy-iccp-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Redundancy ICCP group
                 ''',
                 'redundancy_iccp_group',
@@ -1437,19 +1571,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('progress-percentage', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                Progress percentage
                 ''',
                 'progress_percentage',
                 'Cisco-IOS-XR-icpe-infra-oper', True),
             _MetaInfoClassMember('progress-percentage-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Progress percentage
                 ''',
                 'progress_percentage_xr',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('satellite-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Satellite count
                 ''',
                 'satellite_count',
@@ -1495,25 +1629,25 @@ _meta_table = {
                 'satellite_range_xr',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-not-initiated', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats not initiated
                 ''',
                 'sats_not_initiated',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-reload-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats reload failed
                 ''',
                 'sats_reload_failed',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-reloaded', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats reloaded
                 ''',
                 'sats_reloaded',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-reloading', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats reloading
                 ''',
                 'sats_reloading',
@@ -1547,13 +1681,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('operation-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Operation ID
                 ''',
                 'operation_id',
                 'Cisco-IOS-XR-icpe-infra-oper', True),
             _MetaInfoClassMember('operation-id-xr', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Operation ID
                 ''',
                 'operation_id_xr',
@@ -1565,55 +1699,91 @@ _meta_table = {
                 'satellite_range',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-activate-aborted', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats activate aborted
                 ''',
                 'sats_activate_aborted',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-activate-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats activate failed
                 ''',
                 'sats_activate_failed',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-activating', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats activating
                 ''',
                 'sats_activating',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-completed', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats completed
                 ''',
                 'sats_completed',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-deactivate-aborted', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats deactivate aborted
+                ''',
+                'sats_deactivate_aborted',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-deactivate-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats deactivate failed
+                ''',
+                'sats_deactivate_failed',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-deactivating', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats deactivating
+                ''',
+                'sats_deactivating',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-no-operation', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats no operation
                 ''',
                 'sats_no_operation',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-not-initiated', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats not initiated
                 ''',
                 'sats_not_initiated',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-remove-aborted', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats remove aborted
+                ''',
+                'sats_remove_aborted',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-remove-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats remove failed
+                ''',
+                'sats_remove_failed',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('sats-removing', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Sats removing
+                ''',
+                'sats_removing',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-transfer-aborted', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats transfer aborted
                 ''',
                 'sats_transfer_aborted',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-transfer-failed', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats transfer failed
                 ''',
                 'sats_transfer_failed',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('sats-transferring', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Sats transferring
                 ''',
                 'sats_transferring',
@@ -1664,6 +1834,12 @@ _meta_table = {
                 ''',
                 'install_statuses',
                 'Cisco-IOS-XR-icpe-infra-oper', False),
+            _MetaInfoClassMember('reload-op-statuses', REFERENCE_CLASS, 'ReloadOpStatuses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper', 'NvSatellite.ReloadOpStatuses', 
+                [], [], 
+                '''                Detailed breakdown of reload status table
+                ''',
+                'reload_op_statuses',
+                'Cisco-IOS-XR-icpe-infra-oper', False),
             _MetaInfoClassMember('reload-statuses', REFERENCE_CLASS, 'ReloadStatuses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper', 'NvSatellite.ReloadStatuses', 
                 [], [], 
                 '''                Detailed breakdown of reload status table
@@ -1697,6 +1873,7 @@ _meta_table = {
         ),
     },
 }
+_meta_table['NvSatellite.ReloadOpStatuses.ReloadOpStatus']['meta_info'].parent =_meta_table['NvSatellite.ReloadOpStatuses']['meta_info']
 _meta_table['NvSatellite.InstallStatuses.InstallStatus']['meta_info'].parent =_meta_table['NvSatellite.InstallStatuses']['meta_info']
 _meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ChannelStateTimestamp']['meta_info'].parent =_meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel']['meta_info']
 _meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel.ResyncStateTimestamp']['meta_info'].parent =_meta_table['NvSatellite.SdacpRedundancies.SdacpRedundancy.Channel']['meta_info']
@@ -1721,6 +1898,7 @@ _meta_table['NvSatellite.SatelliteTopologies.SatelliteTopology']['meta_info'].pa
 _meta_table['NvSatellite.InstallProgresses.InstallProgress']['meta_info'].parent =_meta_table['NvSatellite.InstallProgresses']['meta_info']
 _meta_table['NvSatellite.ReloadStatuses.ReloadStatus']['meta_info'].parent =_meta_table['NvSatellite.ReloadStatuses']['meta_info']
 _meta_table['NvSatellite.InstallOpStatuses.InstallOpStatus']['meta_info'].parent =_meta_table['NvSatellite.InstallOpStatuses']['meta_info']
+_meta_table['NvSatellite.ReloadOpStatuses']['meta_info'].parent =_meta_table['NvSatellite']['meta_info']
 _meta_table['NvSatellite.InstallStatuses']['meta_info'].parent =_meta_table['NvSatellite']['meta_info']
 _meta_table['NvSatellite.SdacpRedundancies']['meta_info'].parent =_meta_table['NvSatellite']['meta_info']
 _meta_table['NvSatellite.SatelliteStatuses']['meta_info'].parent =_meta_table['NvSatellite']['meta_info']

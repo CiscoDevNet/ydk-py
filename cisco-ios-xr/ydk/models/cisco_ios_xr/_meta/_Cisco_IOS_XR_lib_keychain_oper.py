@@ -28,7 +28,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Duration of the key in seconds. value 0xffffffff
                 reflects infinite, never expires, is configured 
                 ''',
@@ -75,7 +75,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Duration of the key in seconds. value 0xffffffff
                 reflects infinite, never expires, is configured 
                 ''',
@@ -133,8 +133,8 @@ _meta_table = {
                 ''',
                 'cryptographic_algorithm',
                 'Cisco-IOS-XR-lib-keychain-oper', False),
-            _MetaInfoClassMember('key-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('key-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Key ID
                 ''',
                 'key_id',
@@ -186,7 +186,7 @@ _meta_table = {
                 'key_name',
                 'Cisco-IOS-XR-lib-keychain-oper', True),
             _MetaInfoClassMember('accept-tolerance', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Accept tolerance is infinite if value is
                 0xffffffff
                 ''',

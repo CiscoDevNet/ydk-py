@@ -37,7 +37,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('index-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Index number
                 ''',
                 'index_number',
@@ -49,7 +49,7 @@ _meta_table = {
                 'hop_type',
                 'Cisco-IOS-XR-ip-iep-cfg', False),
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Ifindex value
                 ''',
                 'if_index',
@@ -61,7 +61,7 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-ip-iep-cfg', False),
             _MetaInfoClassMember('mpls-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                MPLS Label
                 ''',
                 'mpls_label',
@@ -130,7 +130,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('index-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Index number
                 ''',
                 'index_number',
@@ -142,7 +142,7 @@ _meta_table = {
                 'hop_type',
                 'Cisco-IOS-XR-ip-iep-cfg', False),
             _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Ifindex value
                 ''',
                 'if_index',
@@ -154,7 +154,7 @@ _meta_table = {
                 'ip_address',
                 'Cisco-IOS-XR-ip-iep-cfg', False),
             _MetaInfoClassMember('mpls-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                MPLS Label
                 ''',
                 'mpls_label',
@@ -194,7 +194,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Path identifier
                 ''',
                 'id',

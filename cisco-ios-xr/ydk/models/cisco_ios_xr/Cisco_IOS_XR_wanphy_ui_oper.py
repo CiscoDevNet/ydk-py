@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   wanphy\: WANPHY operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -132,7 +132,7 @@ class Wanphy(object):
             	Controller name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: info
             
@@ -172,14 +172,14 @@ class Wanphy(object):
                 .. attribute:: line_bip
                 
                 	Line BIP(B2) 
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: line_febe
                 
                 	Line FEBE
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -205,14 +205,14 @@ class Wanphy(object):
                 .. attribute:: path_bip
                 
                 	Path BIP(B3)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: path_febe
                 
                 	Path FEBE
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -369,7 +369,7 @@ class Wanphy(object):
                 .. attribute:: section_bip
                 
                 	Section BIP(B1)
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -399,6 +399,13 @@ class Wanphy(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: wanphy_poll_timer
+                
+                	wanphy poll timer
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: wis_alarms_feaisp
                 
                 	WIS Alarms FEAISP
@@ -416,14 +423,14 @@ class Wanphy(object):
                 .. attribute:: wis_alarms_lfebip
                 
                 	WIS Alarms LFEBIP
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: wis_alarms_pbec
                 
                 	WIS Alarms PBEC
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -500,6 +507,7 @@ class Wanphy(object):
                     self.section_los = None
                     self.sf_ber_report = None
                     self.sf_ber_threshold = None
+                    self.wanphy_poll_timer = None
                     self.wis_alarms_feaisp = None
                     self.wis_alarms_felcdp = None
                     self.wis_alarms_lfebip = None
@@ -629,6 +637,9 @@ class Wanphy(object):
                         return True
 
                     if self.sf_ber_threshold is not None:
+                        return True
+
+                    if self.wanphy_poll_timer is not None:
                         return True
 
                     if self.wis_alarms_feaisp is not None:

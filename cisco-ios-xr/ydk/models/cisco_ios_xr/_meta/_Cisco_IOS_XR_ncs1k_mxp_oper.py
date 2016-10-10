@@ -21,11 +21,18 @@ _meta_table = {
             'provisioned':'PROVISIONED',
             'provisioning-failed':'PROVISIONING_FAILED',
             'provisioning-scheduled':'PROVISIONING_SCHEDULED',
+            'reprovisioning-aborted':'REPROVISIONING_ABORTED',
         }, 'Cisco-IOS-XR-ncs1k-mxp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-oper']),
     'HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort' : {
         'meta_info' : _MetaInfoClass('HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort',
             False, 
             [
+            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                IfIndex
+                ''',
+                'if_index',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('percentage', ATTRIBUTE, 'str' , None, None, 
                 [(0, 8)], [], 
                 '''                Percentage
@@ -55,6 +62,12 @@ _meta_table = {
                 ''',
                 'client_name',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                IfIndex
+                ''',
+                'if_index',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('trunk-port', REFERENCE_LIST, 'TrunkPort' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort', 
                 [], [], 
                 '''                trunk port
@@ -79,16 +92,28 @@ _meta_table = {
                 'client_port',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('client-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ClientRate
                 ''',
                 'client_rate',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
-            _MetaInfoClassMember('dp-fpg-ver', ATTRIBUTE, 'str' , None, None, 
-                [(0, 16)], [], 
-                '''                DpFpgVer
+            _MetaInfoClassMember('dp-fpga-fw-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 10)], [], 
+                '''                DpFpgaFwType
                 ''',
-                'dp_fpg_ver',
+                'dp_fpga_fw_type',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('dp-fpga-fw-ver', ATTRIBUTE, 'str' , None, None, 
+                [(0, 10)], [], 
+                '''                DpFpgaFwVer
+                ''',
+                'dp_fpga_fw_ver',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('encryption-supported', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                EncryptionSupported
+                ''',
+                'encryption_supported',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('hardware-status', REFERENCE_ENUM_CLASS, 'HwModuleSliceStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatusEnum', 
                 [], [], 
@@ -96,14 +121,20 @@ _meta_table = {
                 ''',
                 'hardware_status',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('need-upg', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                NeedUpg
+                ''',
+                'need_upg',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('slice-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SliceId
                 ''',
                 'slice_id',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('trunk-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TrunkRate
                 ''',
                 'trunk_rate',
@@ -120,7 +151,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('slice-num', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Details associated with a particular slice
                 number
                 ''',
@@ -160,6 +191,12 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort',
             False, 
             [
+            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                IfIndex
+                ''',
+                'if_index',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('percentage', ATTRIBUTE, 'str' , None, None, 
                 [(0, 8)], [], 
                 '''                Percentage
@@ -189,6 +226,12 @@ _meta_table = {
                 ''',
                 'client_name',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('if-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                IfIndex
+                ''',
+                'if_index',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('trunk-port', REFERENCE_LIST, 'TrunkPort' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort', 
                 [], [], 
                 '''                trunk port
@@ -213,16 +256,28 @@ _meta_table = {
                 'client_port',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('client-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ClientRate
                 ''',
                 'client_rate',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
-            _MetaInfoClassMember('dp-fpg-ver', ATTRIBUTE, 'str' , None, None, 
-                [(0, 16)], [], 
-                '''                DpFpgVer
+            _MetaInfoClassMember('dp-fpga-fw-type', ATTRIBUTE, 'str' , None, None, 
+                [(0, 10)], [], 
+                '''                DpFpgaFwType
                 ''',
-                'dp_fpg_ver',
+                'dp_fpga_fw_type',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('dp-fpga-fw-ver', ATTRIBUTE, 'str' , None, None, 
+                [(0, 10)], [], 
+                '''                DpFpgaFwVer
+                ''',
+                'dp_fpga_fw_ver',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('encryption-supported', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                EncryptionSupported
+                ''',
+                'encryption_supported',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('hardware-status', REFERENCE_ENUM_CLASS, 'HwModuleSliceStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper', 'HwModuleSliceStatusEnum', 
                 [], [], 
@@ -230,14 +285,20 @@ _meta_table = {
                 ''',
                 'hardware_status',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('need-upg', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                NeedUpg
+                ''',
+                'need_upg',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('slice-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SliceId
                 ''',
                 'slice_id',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('trunk-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TrunkRate
                 ''',
                 'trunk_rate',

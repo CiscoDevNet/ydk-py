@@ -14,15 +14,24 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
+    'MplsTeBackupBandwidthClassEnum' : _MetaInfoEnum('MplsTeBackupBandwidthClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+        {
+            'class0':'CLASS0',
+            'class1':'CLASS1',
+            'any-class':'ANY_CLASS',
+        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'SrPrependEnum' : _MetaInfoEnum('SrPrependEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
             'none-type':'NONE_TYPE',
             'next-label':'NEXT_LABEL',
             'bgp-n-hop':'BGP_N_HOP',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'OtnDestinationEnum' : _MetaInfoEnum('OtnDestinationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTePathComputationMethodEnum' : _MetaInfoEnum('MplsTePathComputationMethodEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
-            'un-number-ed':'UN_NUMBER_ED',
+            'not-set':'NOT_SET',
+            'dynamic':'DYNAMIC',
+            'pce':'PCE',
+            'explicit':'EXPLICIT',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeSwitchingCapEnum' : _MetaInfoEnum('MplsTeSwitchingCapEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
@@ -40,12 +49,11 @@ _meta_table = {
             'route-priority-role-head-primary':'ROUTE_PRIORITY_ROLE_HEAD_PRIMARY',
             'route-priority-role-middle':'ROUTE_PRIORITY_ROLE_MIDDLE',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeSwitchingEncodeEnum' : _MetaInfoEnum('MplsTeSwitchingEncodeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+    'MplsTebfdSessionEnum' : _MetaInfoEnum('MplsTebfdSessionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
-            'none':'NONE',
-            'packet':'PACKET',
-            'ethernet':'ETHERNET',
-            'sondet-sdh':'SONDET_SDH',
+            'regular-bfd':'REGULAR_BFD',
+            'sbfd':'SBFD',
+            'redundant-sbfd':'REDUNDANT_SBFD',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeLogFrrProtectionEnum' : _MetaInfoEnum('MplsTeLogFrrProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
@@ -91,7 +99,6 @@ _meta_table = {
             '1plus1-unidir-no-aps':'Y_1PLUS1_UNIDIR_NO_APS',
             '1plus1-unidir-aps':'Y_1PLUS1_UNIDIR_APS',
             '1plus1-bdir-aps':'Y_1PLUS1_BDIR_APS',
-            '1plus1plus-r-bidir-aps':'Y_1PLUS1PLUS_R_BIDIR_APS',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeSwitchingEncodingEnum' : _MetaInfoEnum('MplsTeSwitchingEncodingEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
@@ -105,22 +112,20 @@ _meta_table = {
             'address':'ADDRESS',
             'name':'NAME',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeBackupBandwidthClassEnum' : _MetaInfoEnum('MplsTeBackupBandwidthClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+    'OtnProtectionSwitchLockoutEnum' : _MetaInfoEnum('OtnProtectionSwitchLockoutEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
-            'class0':'CLASS0',
-            'class1':'CLASS1',
-            'any-class':'ANY_CLASS',
+            'none':'NONE',
+            'working':'WORKING',
+        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
+    'MplsTeTunnelIdEnum' : _MetaInfoEnum('MplsTeTunnelIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+        {
+            'auto':'AUTO',
+            'explicit':'EXPLICIT',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeAffinityValueEnum' : _MetaInfoEnum('MplsTeAffinityValueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
             'hex-value':'HEX_VALUE',
             'bit-position':'BIT_POSITION',
-        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'OtnStaticUniEnum' : _MetaInfoEnum('OtnStaticUniEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
-        {
-            'unknown':'UNKNOWN',
-            'xc':'XC',
-            'termination':'TERMINATION',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeOtnSncModeEnum' : _MetaInfoEnum('MplsTeOtnSncModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
@@ -201,12 +206,6 @@ _meta_table = {
             'preferred':'PREFERRED',
             'weighted':'WEIGHTED',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
-    'MplsTeBackupBandwidthPoolEnum' : _MetaInfoEnum('MplsTeBackupBandwidthPoolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
-        {
-            'any-pool':'ANY_POOL',
-            'global-pool':'GLOBAL_POOL',
-            'sub-pool':'SUB_POOL',
-        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeSignaledLabelEnum' : _MetaInfoEnum('MplsTeSignaledLabelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
             'not-set':'NOT_SET',
@@ -216,10 +215,18 @@ _meta_table = {
         {
             'bandwidth-constraint-maximum-allocation-model':'BANDWIDTH_CONSTRAINT_MAXIMUM_ALLOCATION_MODEL',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
+    'MplsTeSwitchingEncodeEnum' : _MetaInfoEnum('MplsTeSwitchingEncodeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+        {
+            'none':'NONE',
+            'packet':'PACKET',
+            'ethernet':'ETHERNET',
+            'sondet-sdh':'SONDET_SDH',
+        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTePathSelectionMetricEnum' : _MetaInfoEnum('MplsTePathSelectionMetricEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
             'igp':'IGP',
             'te':'TE',
+            'delay':'DELAY',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTePathOptionProtectionEnum' : _MetaInfoEnum('MplsTePathOptionProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
@@ -252,6 +259,15 @@ _meta_table = {
         {
             'ospf':'OSPF',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
+    'BfdReversePathEnum' : _MetaInfoEnum('BfdReversePathEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+        {
+            'bfd-reverse-path-binding-label':'BFD_REVERSE_PATH_BINDING_LABEL',
+        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
+    'MplsTeOtnApsRestorationStyleEnum' : _MetaInfoEnum('MplsTeOtnApsRestorationStyleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+        {
+            'keep-failed-lsp':'KEEP_FAILED_LSP',
+            'delete-failed-lsp':'DELETE_FAILED_LSP',
+        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeBandwidthDsteEnum' : _MetaInfoEnum('MplsTeBandwidthDsteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
             'standard-dste':'STANDARD_DSTE',
@@ -262,6 +278,12 @@ _meta_table = {
             'strict':'STRICT',
             'best-effort':'BEST_EFFORT',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
+    'MplsTeBackupBandwidthPoolEnum' : _MetaInfoEnum('MplsTeBackupBandwidthPoolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+        {
+            'any-pool':'ANY_POOL',
+            'global-pool':'GLOBAL_POOL',
+            'sub-pool':'SUB_POOL',
+        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTeOtnApsProtectionModeEnum' : _MetaInfoEnum('MplsTeOtnApsProtectionModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
         {
             'revertive':'REVERTIVE',
@@ -271,24 +293,29 @@ _meta_table = {
         {
             'link':'LINK',
         }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
+    'MplsTeConfigTunnelEnum' : _MetaInfoEnum('MplsTeConfigTunnelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg',
+        {
+            'p2p':'P2P',
+            'p2mp':'P2MP',
+        }, 'Cisco-IOS-XR-mpls-te-cfg', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg']),
     'MplsTe.DiffServTrafficEngineering.Classes.Class' : {
         'meta_info' : _MetaInfoClass('MplsTe.DiffServTrafficEngineering.Classes.Class',
             False, 
             [
             _MetaInfoClassMember('class-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                DS-TE class number
                 ''',
                 'class_number',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('class-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Class-type priority
                 ''',
                 'class_priority',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('class-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Class type number
                 ''',
                 'class_type',
@@ -354,18 +381,1476 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation',
+            False, 
+            [
+            _MetaInfoClassMember('explicit-path-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Explicit Path Name
+                ''',
+                'explicit_path_name',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-computation-method', REFERENCE_ENUM_CLASS, 'MplsTePathComputationMethodEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathComputationMethodEnum', 
+                [], [], 
+                '''                Path computation method
+                ''',
+                'path_computation_method',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-computation-server', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Path Computation Server Address
+                ''',
+                'path_computation_server',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'path-computation',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup',
+            False, 
+            [
+            _MetaInfoClassMember('path-setup-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Path Name
+                ''',
+                'path_setup_name',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Always set to true
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-computation', REFERENCE_CLASS, 'PathComputation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation', 
+                [], [], 
+                '''                Path computation method
+                ''',
+                'path_computation',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Path preference level
+                ''',
+                'preference',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'path-setup',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups',
+            False, 
+            [
+            _MetaInfoClassMember('path-setup', REFERENCE_LIST, 'PathSetup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup', 
+                [], [], 
+                '''                Tunnel path setup
+                ''',
+                'path_setup',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'path-setups',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation',
+            False, 
+            [
+            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
+                [], [], 
+                '''                Path Invalidation Action
+                ''',
+                'path_invalidation_action',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-invalidation-timeout', ATTRIBUTE, 'int' , None, None, 
+                [('0', '60000')], [], 
+                '''                Path Invalidation Timeout
+                ''',
+                'path_invalidation_timeout',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'invalidation',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection',
+            False, 
+            [
+            _MetaInfoClassMember('invalidation', REFERENCE_CLASS, 'Invalidation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation', 
+                [], [], 
+                '''                Path invalidation configuration for this
+                specific tunnel
+                ''',
+                'invalidation',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection-cost-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Path selection cost limit configuration for this
+                specific tunnel
+                ''',
+                'path_selection_cost_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection-hop-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '255')], [], 
+                '''                Path selection hop limit configuration for this
+                specific tunnel
+                ''',
+                'path_selection_hop_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tiebreaker', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionTiebreakerEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionTiebreakerEnum', 
+                [], [], 
+                '''                CSPF tiebreaker to use in path calculation
+                ''',
+                'tiebreaker',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'tunnel-path-selection',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow',
+            False, 
+            [
+            _MetaInfoClassMember('underflow-threshold-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '10')], [], 
+                '''                Number of consecutive collections exceeding
+                threshold
+                ''',
+                'underflow_threshold_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('underflow-threshold-percent', ATTRIBUTE, 'int' , None, None, 
+                [('1', '100')], [], 
+                '''                Bandwidth change percent to trigger an
+                underflow
+                ''',
+                'underflow_threshold_percent',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('underflow-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('10', '4294967295')], [], 
+                '''                Bandwidth change value to trigger an underflow
+                (kbps)
+                ''',
+                'underflow_threshold_value',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'underflow',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow',
+            False, 
+            [
+            _MetaInfoClassMember('overflow-threshold-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '10')], [], 
+                '''                Number of consecutive collections exceeding
+                threshold
+                ''',
+                'overflow_threshold_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('overflow-threshold-percent', ATTRIBUTE, 'int' , None, None, 
+                [('1', '100')], [], 
+                '''                Bandwidth change percent to trigger an
+                overflow
+                ''',
+                'overflow_threshold_percent',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('overflow-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('10', '4294967295')], [], 
+                '''                Bandwidth change value to trigger an overflow
+                (kbps)
+                ''',
+                'overflow_threshold_value',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'overflow',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits',
+            False, 
+            [
+            _MetaInfoClassMember('bandwidth-max-limit', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Set maximum bandwidth auto-bw can apply on a
+                tunnel
+                ''',
+                'bandwidth_max_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bandwidth-min-limit', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Set minimum bandwidth auto-bw can apply on a
+                tunnel
+                ''',
+                'bandwidth_min_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'bandwidth-limits',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('adjustment-threshold-percent', ATTRIBUTE, 'int' , None, None, 
+                [('1', '100')], [], 
+                '''                Bandwidth change percent to trigger adjustment
+                ''',
+                'adjustment_threshold_percent',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('adjustment-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('10', '4294967295')], [], 
+                '''                Bandwidth change value to trigger adjustment
+                (kbps)
+                ''',
+                'adjustment_threshold_value',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'adjustment-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth',
+            False, 
+            [
+            _MetaInfoClassMember('adjustment-threshold', REFERENCE_CLASS, 'AdjustmentThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold', 
+                [], [], 
+                '''                Set the bandwidth change threshold to trigger
+                adjustment
+                ''',
+                'adjustment_threshold',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('application-frequency', ATTRIBUTE, 'int' , None, None, 
+                [('5', '10080')], [], 
+                '''                Set the tunnel auto-bw application frequency in
+                minutes
+                ''',
+                'application_frequency',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bandwidth-limits', REFERENCE_CLASS, 'BandwidthLimits' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits', 
+                [], [], 
+                '''                Set min/max bandwidth auto-bw can apply on a
+                tunnel
+                ''',
+                'bandwidth_limits',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('collection-only', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable bandwidth collection only, no auto-bw
+                adjustment
+                ''',
+                'collection_only',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                This object is only valid for tunnel interfaces
+                and it controls whether that interface has
+                auto-bw enabled on it or not.The object must be
+                set before any other auto-bw configuration is
+                supplied for the interface, and must be the
+                last auto-bw configuration object to be removed
+                .
+                ''',
+                'enabled',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('overflow', REFERENCE_CLASS, 'Overflow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow', 
+                [], [], 
+                '''                Configuring the tunnel overflow detection
+                ''',
+                'overflow',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('overflow-enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable auto bandwidth overflow detection
+                ''',
+                'overflow_enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('underflow', REFERENCE_CLASS, 'Underflow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow', 
+                [], [], 
+                '''                Configuring the tunnel underflow detection
+                ''',
+                'underflow',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('underflow-enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable auto bandwidth underflow detection
+                ''',
+                'underflow_enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'auto-bandwidth',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority',
+            False, 
+            [
+            _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                Hold Priority
+                ''',
+                'hold_priority',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                Setup Priority
+                ''',
+                'setup_priority',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'priority',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging',
+            False, 
+            [
+            _MetaInfoClassMember('all', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log all events for a tunnel
+                ''',
+                'all',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bandwidth-change-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log tunnel messages for bandwidth change
+                ''',
+                'bandwidth_change_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bfd-state-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable BFD session state change alarm
+                ''',
+                'bfd_state_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('insufficient-bw-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log tunnel messages for insufficient bandwidth
+                ''',
+                'insufficient_bw_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('lsp-switch-over-change-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log tunnel messages for bandwidth change
+                ''',
+                'lsp_switch_over_change_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('pcalc-failure-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable logging for path-calculation failures
+                ''',
+                'pcalc_failure_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('record-route-messsage', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log tunnel record-route messages
+                ''',
+                'record_route_messsage',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('reoptimize-attempts-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log tunnel reoptimization attempts messages
+                ''',
+                'reoptimize_attempts_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('reoptimized-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log tunnel reoptimized messages
+                ''',
+                'reoptimized_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('reroute-messsage', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log tunnel rereoute messages
+                ''',
+                'reroute_messsage',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('state-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log tunnel state messages
+                ''',
+                'state_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'logging',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth',
+            False, 
+            [
+            _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                The value of the bandwidth reserved by this
+                tunnel in kbps
+                ''',
+                'bandwidth',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('class-or-pool-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '1')], [], 
+                '''                Class type for the bandwith allocation
+                ''',
+                'class_or_pool_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('dste-type', REFERENCE_ENUM_CLASS, 'MplsTeBandwidthDsteEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDsteEnum', 
+                [], [], 
+                '''                DSTE-standard flag
+                ''',
+                'dste_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'bandwidth',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Metric' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Metric',
+            False, 
+            [
+            _MetaInfoClassMember('absolute-metric', ATTRIBUTE, 'int' , None, None, 
+                [('1', '2147483647')], [], 
+                '''                The absolute metric value
+                ''',
+                'absolute_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('constant-metric', ATTRIBUTE, 'int' , None, None, 
+                [('1', '2147483647')], [], 
+                '''                The constant metric value
+                ''',
+                'constant_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetricEnum', 
+                [], [], 
+                '''                Autoroute tunnel metric type
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('relative-metric', ATTRIBUTE, 'int' , None, None, 
+                [('-10', '10')], [], 
+                '''                The value of the adjustment
+                ''',
+                'relative_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'metric',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric',
+            False, 
+            [
+            _MetaInfoClassMember('absolute-metric', ATTRIBUTE, 'int' , None, None, 
+                [('1', '2147483647')], [], 
+                '''                The absolute metric value
+                ''',
+                'absolute_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('constant-metric', ATTRIBUTE, 'int' , None, None, 
+                [('1', '2147483647')], [], 
+                '''                The constant metric value
+                ''',
+                'constant_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetricEnum', 
+                [], [], 
+                '''                Autoroute tunnel metric type
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('relative-metric', ATTRIBUTE, 'int' , None, None, 
+                [('-10', '10')], [], 
+                '''                The value of the adjustment
+                ''',
+                'relative_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'metric',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable autoroute announce
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('include-ipv6', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Specify that the tunnel should be an IPv6
+                autoroute announce also
+                ''',
+                'include_ipv6',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('metric', REFERENCE_CLASS, 'Metric' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric', 
+                [], [], 
+                '''                Specify MPLS tunnel metric
+                ''',
+                'metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'autoroute-announce',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr.Destination' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr.Destination',
+            False, 
+            [
+            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IP address of destination
+                ''',
+                'destination_address',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'destination',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr',
+            False, 
+            [
+            _MetaInfoClassMember('destination', REFERENCE_LIST, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr.Destination', 
+                [], [], 
+                '''                Destination address to add in RIB
+                ''',
+                'destination',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'destination-xr',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute',
+            False, 
+            [
+            _MetaInfoClassMember('autoroute-announce', REFERENCE_CLASS, 'AutorouteAnnounce' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce', 
+                [], [], 
+                '''                Announce tunnel to IGP
+                ''',
+                'autoroute_announce',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Deprecated: do NOT use
+                ''',
+                'destination',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('destination-xr', REFERENCE_CLASS, 'DestinationXr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr', 
+                [], [], 
+                '''                Tunnel Autoroute Destination(s)
+                ''',
+                'destination_xr',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('metric', REFERENCE_CLASS, 'Metric' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Metric', 
+                [], [], 
+                '''                Specify MPLS tunnel metric
+                ''',
+                'metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'autoroute',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType',
+            False, 
+            [
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity9', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the nineth affinity
+                ''',
+                'affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity10', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the tenth affinity
+                ''',
+                'affinity10',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity9', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the nineth affinity
+                ''',
+                'affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes',
+            False, 
+            [
+            _MetaInfoClassMember('new-style-affinity-affinity-type', REFERENCE_LIST, 'NewStyleAffinityAffinityType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-types',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute',
+            False, 
+            [
+            _MetaInfoClassMember('bandwidth-protection', ATTRIBUTE, 'int' , None, None, 
+                [('0', '1')], [], 
+                '''                Bandwidth Protection
+                ''',
+                'bandwidth_protection',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('node-protection', ATTRIBUTE, 'int' , None, None, 
+                [('0', '1')], [], 
+                '''                Node Protection
+                ''',
+                'node_protection',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'fast-reroute',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes',
+            False, 
+            [
+            _MetaInfoClassMember('auto-bandwidth', REFERENCE_CLASS, 'AutoBandwidth' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth', 
+                [], [], 
+                '''                Tunnel Interface Auto-bandwidth configuration
+                data
+                ''',
+                'auto_bandwidth',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('autoroute', REFERENCE_CLASS, 'Autoroute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute', 
+                [], [], 
+                '''                Parameters for IGP routing over tunnel
+                ''',
+                'autoroute',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bandwidth', REFERENCE_CLASS, 'Bandwidth' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth', 
+                [], [], 
+                '''                Tunnel bandwidth requirement
+                ''',
+                'bandwidth',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Set the destination of the tunnel
+                ''',
+                'destination',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('fast-reroute', REFERENCE_CLASS, 'FastReroute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute', 
+                [], [], 
+                '''                Specify MPLS tunnel can be fast-rerouted
+                ''',
+                'fast_reroute',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
+                [('1', '7')], [], 
+                '''                Forward class value
+                ''',
+                'forward_class',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('load-share', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Tunnel loadsharing metric
+                ''',
+                'load_share',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('logging', REFERENCE_CLASS, 'Logging' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging', 
+                [], [], 
+                '''                Log tunnel LSP messages
+                ''',
+                'logging',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-types', REFERENCE_CLASS, 'NewStyleAffinityAffinityTypes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes', 
+                [], [], 
+                '''                Tunnel new style affinity attributes table
+                ''',
+                'new_style_affinity_affinity_types',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
+                [], [], 
+                '''                Path selection metric to use in path calculation
+                ''',
+                'path_selection_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-setups', REFERENCE_CLASS, 'PathSetups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups', 
+                [], [], 
+                '''                Tunnel path setup table
+                ''',
+                'path_setups',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('priority', REFERENCE_CLASS, 'Priority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority', 
+                [], [], 
+                '''                Tunnel Setup and Hold Priorities
+                ''',
+                'priority',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('record-route', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Record the route used by the tunnel
+                ''',
+                'record_route',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('shutdown', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                shutdown the tunnel
+                ''',
+                'shutdown',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('soft-preemption', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable the soft-preemption feature on the tunnel
+                ''',
+                'soft_preemption',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tunnel-path-selection', REFERENCE_CLASS, 'TunnelPathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection', 
+                [], [], 
+                '''                Configure path selection properties
+                ''',
+                'tunnel_path_selection',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'tunnel-attributes',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId',
+            False, 
+            [
+            _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Tunnel ID
+                ''',
+                'tunnel_id',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tunnel-id-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelIdEnum', 
+                [], [], 
+                '''                Tunnel ID Type
+                ''',
+                'tunnel_id_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'tunnel-id',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels.Tunnel' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels.Tunnel',
+            False, 
+            [
+            _MetaInfoClassMember('tunnel-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 59)], [], 
+                '''                Tunnel name
+                ''',
+                'tunnel_name',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('tunnel-type', REFERENCE_ENUM_CLASS, 'MplsTeConfigTunnelEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeConfigTunnelEnum', 
+                [], [], 
+                '''                Tunnel Type
+                ''',
+                'tunnel_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Always set to true
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tunnel-attributes', REFERENCE_CLASS, 'TunnelAttributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes', 
+                [], [], 
+                '''                MPLS tunnel attributes
+                ''',
+                'tunnel_attributes',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tunnel-id', REFERENCE_CLASS, 'TunnelId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId', 
+                [], [], 
+                '''                Set the tunnel ID
+                ''',
+                'tunnel_id',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'tunnel',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels.Tunnels' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels.Tunnels',
+            False, 
+            [
+            _MetaInfoClassMember('tunnel', REFERENCE_LIST, 'Tunnel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels.Tunnel', 
+                [], [], 
+                '''                Configure a MPLS TE tunnel
+                ''',
+                'tunnel',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'tunnels',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.NamedTunnels' : {
+        'meta_info' : _MetaInfoClass('MplsTe.NamedTunnels',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable Named Tunnels
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tunnels', REFERENCE_CLASS, 'Tunnels' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels.Tunnels', 
+                [], [], 
+                '''                Configure MPLS TE tunnel
+                ''',
+                'tunnels',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'named-tunnels',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
     'MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown' : {
         'meta_info' : _MetaInfoClass('MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown',
             False, 
             [
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(5, 3600)], [], 
+                [('5', '3600')], [], 
                 '''                Maximum holddown (seconds)
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(5, 3600)], [], 
+                [('5', '3600')], [], 
                 '''                Minimum holddown (seconds)
                 ''',
                 'minimum',
@@ -452,13 +1937,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('preference-level', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Preference level for this path option
                 ''',
                 'preference_level',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('dwdm-channel', ATTRIBUTE, 'int' , None, None, 
-                [(1, 89)], [], 
+                [('1', '89')], [], 
                 '''                DWDM channel number
                 ''',
                 'dwdm_channel',
@@ -470,7 +1955,7 @@ _meta_table = {
                 'lockdown',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                The ID of the explicit path associated
                 with this option
                 ''',
@@ -578,13 +2063,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Hold Priority
                 ''',
                 'hold_priority',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -650,7 +2135,7 @@ _meta_table = {
                 'signalled_name',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                GMPLS-UNI head tunnel-id
                 ''',
                 'tunnel_id',
@@ -667,7 +2152,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Controller name
                 ''',
                 'controller_name',
@@ -744,65 +2229,18 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.PathSelectionLooseAffinities.PathSelectionLooseAffinity' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelectionLooseAffinities.PathSelectionLooseAffinity',
-            False, 
-            [
-            _MetaInfoClassMember('class-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Path Selection class Type
-                ''',
-                'class_type',
-                'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('affinity', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
-                '''                Affinity flags
-                ''',
-                'affinity',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
-                '''                Affinity mask
-                ''',
-                'mask',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'path-selection-loose-affinity',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
-        ),
-    },
-    'MplsTe.GlobalAttributes.PathSelectionLooseAffinities' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelectionLooseAffinities',
-            False, 
-            [
-            _MetaInfoClassMember('path-selection-loose-affinity', REFERENCE_LIST, 'PathSelectionLooseAffinity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelectionLooseAffinities.PathSelectionLooseAffinity', 
-                [], [], 
-                '''                Path selection Loose ERO Affinity
-                configuration
-                ''',
-                'path_selection_loose_affinity',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'path-selection-loose-affinities',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
-        ),
-    },
     'MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange' : {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange',
             False, 
             [
             _MetaInfoClassMember('max-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum tunnel ID for auto-tunnels
                 ''',
                 'max_tunnel_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('min-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Minimum tunnel ID for auto-tunnels
                 ''',
                 'min_tunnel_id',
@@ -837,13 +2275,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('max-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum tunnel ID for auto-tunnels
                 ''',
                 'max_tunnel_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('min-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Minimum tunnel ID for auto-tunnels
                 ''',
                 'min_tunnel_id',
@@ -878,7 +2316,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unused', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10080)], [], 
+                [('0', '10080')], [], 
                 '''                Auto-tunnel backup unused timeout in minutes
                 (0=never timeout)
                 ''',
@@ -914,13 +2352,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('max-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum tunnel ID for auto-tunnels
                 ''',
                 'max_tunnel_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('min-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Minimum tunnel ID for auto-tunnels
                 ''',
                 'min_tunnel_id',
@@ -968,7 +2406,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('mesh-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Mesh group ID
                 ''',
                 'mesh_group_id',
@@ -1038,7 +2476,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unused', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10080)], [], 
+                [('0', '10080')], [], 
                 '''                Auto-tunnel backup unused timeout in minutes
                 (0=never timeout)
                 ''',
@@ -1074,13 +2512,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('max-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum tunnel ID for auto-tunnels
                 ''',
                 'max_tunnel_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('min-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Minimum tunnel ID for auto-tunnels
                 ''',
                 'min_tunnel_id',
@@ -1127,13 +2565,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('max-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Maximum tunnel ID for auto-tunnels
                 ''',
                 'max_tunnel_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('min-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Minimum tunnel ID for auto-tunnels
                 ''',
                 'min_tunnel_id',
@@ -1205,6 +2643,182 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
+    'MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState',
+            False, 
+            [
+            _MetaInfoClassMember('oor-accept-lsp-min-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Only accept LSPs with at least the specified
+                bandwidth (in kbps).
+                ''',
+                'oor_accept_lsp_min_bandwidth',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-accept-reopt-lsp', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow the setup of reoptimized LSPs over the
+                link in this OOR State
+                ''',
+                'oor_accept_reopt_lsp',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-available-bandwidth-percentage', ATTRIBUTE, 'int' , None, None, 
+                [('0', '100')], [], 
+                '''                Flood a specific percentage of the available
+                bandwidth
+                ''',
+                'oor_available_bandwidth_percentage',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-metric-te-penalty', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Penalty applied to the TE metric of a link in
+                OOR state
+                ''',
+                'oor_metric_te_penalty',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-node-protection-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable FRR node-protection when the link is in
+                this OOR State
+                ''',
+                'oor_node_protection_disable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'oor-red-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState',
+            False, 
+            [
+            _MetaInfoClassMember('oor-accept-lsp-min-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Only accept LSPs with at least the specified
+                bandwidth (in kbps).
+                ''',
+                'oor_accept_lsp_min_bandwidth',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-accept-reopt-lsp', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow the setup of reoptimized LSPs over the
+                link in this OOR State
+                ''',
+                'oor_accept_reopt_lsp',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-available-bandwidth-percentage', ATTRIBUTE, 'int' , None, None, 
+                [('0', '100')], [], 
+                '''                Flood a specific percentage of the available
+                bandwidth
+                ''',
+                'oor_available_bandwidth_percentage',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-metric-te-penalty', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Penalty applied to the TE metric of a link in
+                OOR state
+                ''',
+                'oor_metric_te_penalty',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-node-protection-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable FRR node-protection when the link is in
+                this OOR State
+                ''',
+                'oor_node_protection_disable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'oor-yellow-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState',
+            False, 
+            [
+            _MetaInfoClassMember('oor-accept-lsp-min-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Only accept LSPs with at least the specified
+                bandwidth (in kbps).
+                ''',
+                'oor_accept_lsp_min_bandwidth',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-accept-reopt-lsp', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Allow the setup of reoptimized LSPs over the
+                link in this OOR State
+                ''',
+                'oor_accept_reopt_lsp',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-available-bandwidth-percentage', ATTRIBUTE, 'int' , None, None, 
+                [('0', '100')], [], 
+                '''                Flood a specific percentage of the available
+                bandwidth
+                ''',
+                'oor_available_bandwidth_percentage',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-metric-te-penalty', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Penalty applied to the TE metric of a link in
+                OOR state
+                ''',
+                'oor_metric_te_penalty',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-node-protection-disable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Disable FRR node-protection when the link is in
+                this OOR State
+                ''',
+                'oor_node_protection_disable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-recovery-duration', ATTRIBUTE, 'int' , None, None, 
+                [('0', '10080')], [], 
+                '''                Period of time (minutes) during which the
+                action in Green state are applied. After this
+                period, the processing in TE goes back to
+                normal state
+                ''',
+                'oor_recovery_duration',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'oor-green-state',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.HardwareOutOfResource' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.HardwareOutOfResource',
+            False, 
+            [
+            _MetaInfoClassMember('oor-green-state', REFERENCE_CLASS, 'OorGreenState' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState', 
+                [], [], 
+                '''                Configuration for HW OOR Green State
+                ''',
+                'oor_green_state',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-red-state', REFERENCE_CLASS, 'OorRedState' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState', 
+                [], [], 
+                '''                Configuration for HW OOR Red State
+                ''',
+                'oor_red_state',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('oor-yellow-state', REFERENCE_CLASS, 'OorYellowState' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState', 
+                [], [], 
+                '''                Configuration for HW OOR Yellow State
+                ''',
+                'oor_yellow_state',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'hardware-out-of-resource',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
     'MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId' : {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId',
             False, 
@@ -1239,6 +2853,46 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
+    'MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember',
+            False, 
+            [
+            _MetaInfoClassMember('from-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                From address
+                ''',
+                'from_address',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('to-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                To Addres
+                ''',
+                'to_address',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'static-srlg-member',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers',
+            False, 
+            [
+            _MetaInfoClassMember('static-srlg-member', REFERENCE_LIST, 'StaticSrlgMember' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember', 
+                [], [], 
+                '''                A mapping of the local static SRLG member
+                ''',
+                'static_srlg_member',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'static-srlg-members',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
     'MplsTe.GlobalAttributes.Srlg.Names.Name' : {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.Srlg.Names.Name',
             False, 
@@ -1250,10 +2904,16 @@ _meta_table = {
                 'srlg_name',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('admin-weight', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Administrative weight for the SRLG value
                 ''',
                 'admin_weight',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('static-srlg-members', REFERENCE_CLASS, 'StaticSrlgMembers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers', 
+                [], [], 
+                '''                Configure static SRLG members list
+                ''',
+                'static_srlg_members',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
@@ -1325,13 +2985,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG membership number
                 ''',
                 'srlg_number',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('admin-weight', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Administrative weight for the SRLG value
                 ''',
                 'admin_weight',
@@ -1372,7 +3032,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('default-admin-weight', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Default Admin weight any SRLG value that does
                 not have one
                 ''',
@@ -1414,7 +3074,7 @@ _meta_table = {
                 'role',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 12)], [], 
+                [('0', '12')], [], 
                 '''                Route priority queue value
                 ''',
                 'value',
@@ -1443,46 +3103,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.PathSelectionLooseMetrics.PathSelectionLooseMetric' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelectionLooseMetrics.PathSelectionLooseMetric',
-            False, 
-            [
-            _MetaInfoClassMember('class-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
-                '''                Path Selection class Type
-                ''',
-                'class_type',
-                'Cisco-IOS-XR-mpls-te-cfg', True),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
-                [], [], 
-                '''                Metric to use for ERO Expansion
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'path-selection-loose-metric',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
-        ),
-    },
-    'MplsTe.GlobalAttributes.PathSelectionLooseMetrics' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelectionLooseMetrics',
-            False, 
-            [
-            _MetaInfoClassMember('path-selection-loose-metric', REFERENCE_LIST, 'PathSelectionLooseMetric' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelectionLooseMetrics.PathSelectionLooseMetric', 
-                [], [], 
-                '''                Path selection Loose ERO Metric configuration
-                ''',
-                'path_selection_loose_metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'path-selection-loose-metrics',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
-        ),
-    },
     'MplsTe.GlobalAttributes.Mib' : {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.Mib',
             False, 
@@ -1497,6 +3117,171 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'mib',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath',
+            False, 
+            [
+            _MetaInfoClassMember('bfd-reverse-path-type', REFERENCE_ENUM_CLASS, 'BfdReversePathEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'BfdReversePathEnum', 
+                [], [], 
+                '''                BFD reverse path type
+                ''',
+                'bfd_reverse_path_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('binding-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '1048575')], [], 
+                '''                BFD reverse path binding label
+                ''',
+                'binding_label',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'bfd-reverse-path',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation',
+            False, 
+            [
+            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
+                [], [], 
+                '''                Path Invalidation Action
+                ''',
+                'path_invalidation_action',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-invalidation-timeout', ATTRIBUTE, 'int' , None, None, 
+                [('0', '60000')], [], 
+                '''                Path Invalidation Timeout
+                ''',
+                'path_invalidation_timeout',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'invalidation',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enter path selection configuration
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('invalidation', REFERENCE_CLASS, 'Invalidation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation', 
+                [], [], 
+                '''                Path invalidation configuration for this
+                specific tunnel
+                ''',
+                'invalidation',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection-cost-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Path selection cost limit configuration for this
+                specific tunnel
+                ''',
+                'path_selection_cost_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection-exclude-list', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Path selection exclude list name
+                configuration
+                ''',
+                'path_selection_exclude_list',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'att-path-option-path-selection',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional',
+            False, 
+            [
+            _MetaInfoClassMember('bd-group-id', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Bidirectional Group ID
+                ''',
+                'bd_group_id',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bd-source-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Bidirectional Source IP Address
+                ''',
+                'bd_source_address',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'bidirectional',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath',
+            False, 
+            [
+            _MetaInfoClassMember('dp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Disjoint Path Group ID
+                ''',
+                'dp_group_id',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('dp-source-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Disjoint Path Source IP Address
+                ''',
+                'dp_source_address',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('dp-type', ATTRIBUTE, 'int' , None, None, 
+                [('1', '3')], [], 
+                '''                Disjoint Path Type
+                ''',
+                'dp_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'disjoint-path',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce',
+            False, 
+            [
+            _MetaInfoClassMember('bidirectional', REFERENCE_CLASS, 'Bidirectional' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional', 
+                [], [], 
+                '''                Bidirectional parameters
+                ''',
+                'bidirectional',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('disjoint-path', REFERENCE_CLASS, 'DisjointPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath', 
+                [], [], 
+                '''                Disjoint path parameters
+                ''',
+                'disjoint_path',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Always set to true
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'pce',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -1529,14 +3314,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The value of the bandwidth reserved by this
                 tunnel in kbps
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('class-or-pool-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Class type for the bandwith allocation
                 ''',
                 'class_or_pool_type',
@@ -1554,8 +3339,448 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities.NewStyleAffinity' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities.NewStyleAffinity',
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType',
+            False, 
+            [
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity9', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the nineth affinity
+                ''',
+                'affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10',
             False, 
             [
             _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
@@ -1626,47 +3851,84 @@ _meta_table = {
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinity',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities',
+    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes',
             False, 
             [
-            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities.NewStyleAffinity', 
+            _MetaInfoClassMember('new-style-affinity-affinity-type', REFERENCE_LIST, 'NewStyleAffinityAffinityType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType', 
                 [], [], 
                 '''                Tunnel new style affinity attribute
                 ''',
-                'new_style_affinity',
+                'new_style_affinity_affinity_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinities',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
-        ),
-    },
-    'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation',
-            False, 
-            [
-            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1', 
                 [], [], 
-                '''                Path Invalidation Action
+                '''                Tunnel new style affinity attribute
                 ''',
-                'path_invalidation_action',
+                'new_style_affinity_affinity_type_affinity1',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-invalidation-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60000)], [], 
-                '''                Path Invalidation Timeout
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
                 ''',
-                'path_invalidation_timeout',
+                'new_style_affinity_affinity_type_affinity1_affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'path-invalidation',
+            'new-style-affinity-affinity-types',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -1687,11 +3949,23 @@ _meta_table = {
                 ''',
                 'affinity_mask',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('att-path-option-path-selection', REFERENCE_CLASS, 'AttPathOptionPathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection', 
+                [], [], 
+                '''                Configure path selection properties
+                ''',
+                'att_path_option_path_selection',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('bandwidth', REFERENCE_CLASS, 'Bandwidth' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth', 
                 [], [], 
                 '''                Tunnel bandwidth requirement
                 ''',
                 'bandwidth',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bfd-reverse-path', REFERENCE_CLASS, 'BfdReversePath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath', 
+                [], [], 
+                '''                Configure BFD reverse path
+                ''',
+                'bfd_reverse_path',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -1702,32 +3976,17 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities', 
+            _MetaInfoClassMember('new-style-affinity-affinity-types', REFERENCE_CLASS, 'NewStyleAffinityAffinityTypes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes', 
                 [], [], 
                 '''                Tunnel new style affinity attributes table
                 ''',
-                'new_style_affinities',
+                'new_style_affinity_affinity_types',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-invalidation', REFERENCE_CLASS, 'PathInvalidation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation', 
+            _MetaInfoClassMember('pce', REFERENCE_CLASS, 'Pce' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce', 
                 [], [], 
-                '''                Path invalidation configuration for this
-                specific tunnel
+                '''                Configure pce properties
                 ''',
-                'path_invalidation',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-cost-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Path selection cost limit configuration for this
-                specific tunnel
-                ''',
-                'path_selection_cost_limit',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-exclude-list', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                Path selection exclude list name
-                configuration
-                ''',
-                'path_selection_exclude_list',
+                'pce',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
@@ -1758,13 +4017,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Hold Priority
                 ''',
                 'hold_priority',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -1804,14 +4063,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The value of the bandwidth reserved by this
                 tunnel in kbps
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('class-or-pool-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Class type for the bandwith allocation
                 ''',
                 'class_or_pool_type',
@@ -1829,8 +4088,465 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable path selection
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'path-selection',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType',
+            False, 
+            [
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity9', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the nineth affinity
+                ''',
+                'affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10',
             False, 
             [
             _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
@@ -1901,24 +4617,84 @@ _meta_table = {
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinity',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities',
+    'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes',
             False, 
             [
-            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity', 
+            _MetaInfoClassMember('new-style-affinity-affinity-type', REFERENCE_LIST, 'NewStyleAffinityAffinityType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType', 
                 [], [], 
                 '''                Tunnel new style affinity attribute
                 ''',
-                'new_style_affinity',
+                'new_style_affinity_affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinities',
+            'new-style-affinity-affinity-types',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -1928,13 +4704,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth-protection', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Bandwidth Protection
                 ''',
                 'bandwidth_protection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('node-protection', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Node Protection
                 ''',
                 'node_protection',
@@ -2049,7 +4825,7 @@ _meta_table = {
                 'fast_reroute',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('interface-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The bandwidth of the interface in kbps
                 ''',
                 'interface_bandwidth',
@@ -2060,11 +4836,17 @@ _meta_table = {
                 ''',
                 'logging',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities', 
+            _MetaInfoClassMember('new-style-affinity-affinity-types', REFERENCE_CLASS, 'NewStyleAffinityAffinityTypes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes', 
                 [], [], 
                 '''                Tunnel new style affinity attributes table
                 ''',
-                'new_style_affinities',
+                'new_style_affinity_affinity_types',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection', REFERENCE_CLASS, 'PathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection', 
+                [], [], 
+                '''                Configure path selection properties
+                ''',
+                'path_selection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('priority', REFERENCE_CLASS, 'Priority' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority', 
                 [], [], 
@@ -2107,13 +4889,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('index-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
+                [('1', '10')], [], 
                 '''                Index number
                 ''',
                 'index_number',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('mpls-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                MPLS Label
                 ''',
                 'mpls_label',
@@ -2172,12 +4954,12 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation',
             False, 
             [
             _MetaInfoClassMember('invalidation-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60000)], [], 
+                [('0', '60000')], [], 
                 '''                Path selection invalidation timer value
                 (milliseconds)
                 ''',
@@ -2192,7 +4974,7 @@ _meta_table = {
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'path-selection-invalidation',
+            'invalidation',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -2207,11 +4989,11 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-invalidation', REFERENCE_CLASS, 'PathSelectionInvalidation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation', 
+            _MetaInfoClassMember('invalidation', REFERENCE_CLASS, 'Invalidation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation', 
                 [], [], 
                 '''                Path selection invalidation configuration
                 ''',
-                'path_selection_invalidation',
+                'invalidation',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
                 [], [], 
@@ -2237,6 +5019,110 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'path-selection',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional',
+            False, 
+            [
+            _MetaInfoClassMember('bd-group-id', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Bidirectional Group ID
+                ''',
+                'bd_group_id',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bd-source-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Bidirectional Source IP Address
+                ''',
+                'bd_source_address',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'bidirectional',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath',
+            False, 
+            [
+            _MetaInfoClassMember('dp-group-id', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Disjoint Path Group ID
+                ''',
+                'dp_group_id',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('dp-source-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                Disjoint Path Source IP Address
+                ''',
+                'dp_source_address',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('dp-type', ATTRIBUTE, 'int' , None, None, 
+                [('1', '3')], [], 
+                '''                Disjoint Path Type
+                ''',
+                'dp_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'disjoint-path',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce',
+            False, 
+            [
+            _MetaInfoClassMember('bidirectional', REFERENCE_CLASS, 'Bidirectional' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional', 
+                [], [], 
+                '''                Bidirectional parameters
+                ''',
+                'bidirectional',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('disjoint-path', REFERENCE_CLASS, 'DisjointPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath', 
+                [], [], 
+                '''                Disjoint path parameters
+                ''',
+                'disjoint_path',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Always set to true
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'pce',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask',
+            False, 
+            [
+            _MetaInfoClassMember('affinity', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                Affinity flags
+                ''',
+                'affinity',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('mask', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                Affinity mask
+                ''',
+                'mask',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'affinity-mask',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -2318,31 +5204,448 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType',
             False, 
             [
-            _MetaInfoClassMember('affinity', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
-                '''                Affinity flags
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
                 ''',
-                'affinity',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('mask', ATTRIBUTE, 'str' , None, None, 
-                [], ['[0-9a-fA-F]{1,8}'], 
-                '''                Affinity mask
-                ''',
-                'mask',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'affinity-mask',
+            'new-style-affinity-affinity-type',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity9', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the nineth affinity
+                ''',
+                'affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10',
             False, 
             [
             _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
@@ -2413,24 +5716,84 @@ _meta_table = {
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinity',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities',
+    'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes',
             False, 
             [
-            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity', 
+            _MetaInfoClassMember('new-style-affinity-affinity-type', REFERENCE_LIST, 'NewStyleAffinityAffinityType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType', 
                 [], [], 
                 '''                Tunnel new style affinity attribute
                 ''',
-                'new_style_affinity',
+                'new_style_affinity_affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinities',
+            'new-style-affinity-affinity-types',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -2466,17 +5829,23 @@ _meta_table = {
                 ''',
                 'logging',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities', 
+            _MetaInfoClassMember('new-style-affinity-affinity-types', REFERENCE_CLASS, 'NewStyleAffinityAffinityTypes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes', 
                 [], [], 
                 '''                Tunnel new style affinity attributes table
                 ''',
-                'new_style_affinities',
+                'new_style_affinity_affinity_types',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-selection', REFERENCE_CLASS, 'PathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection', 
                 [], [], 
                 '''                Configure path selection properties
                 ''',
                 'path_selection',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('pce', REFERENCE_CLASS, 'Pce' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce', 
+                [], [], 
+                '''                Configure pce properties
+                ''',
+                'pce',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
@@ -2578,13 +5947,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Hold Priority
                 ''',
                 'hold_priority',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -2619,12 +5988,29 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable path selection
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'path-selection',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
     'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses' : {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses',
             False, 
             [
             _MetaInfoClassMember('policy-class', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(1, 8)], [], 
+                [('1', '8')], [], 
                 '''                Array of Policy class
                 ''',
                 'policy_class',
@@ -2636,8 +6022,448 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities.NewStyleAffinity' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities.NewStyleAffinity',
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType',
+            False, 
+            [
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity9', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the nineth affinity
+                ''',
+                'affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10',
             False, 
             [
             _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
@@ -2708,24 +6534,84 @@ _meta_table = {
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinity',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities',
+    'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes',
             False, 
             [
-            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities.NewStyleAffinity', 
+            _MetaInfoClassMember('new-style-affinity-affinity-type', REFERENCE_LIST, 'NewStyleAffinityAffinityType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType', 
                 [], [], 
                 '''                Tunnel new style affinity attribute
                 ''',
-                'new_style_affinity',
+                'new_style_affinity_affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinities',
+            'new-style-affinity-affinity-types',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -2761,11 +6647,17 @@ _meta_table = {
                 ''',
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities', 
+            _MetaInfoClassMember('new-style-affinity-affinity-types', REFERENCE_CLASS, 'NewStyleAffinityAffinityTypes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes', 
                 [], [], 
                 '''                Tunnel new style affinity attributes table
                 ''',
-                'new_style_affinities',
+                'new_style_affinity_affinity_types',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection', REFERENCE_CLASS, 'PathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection', 
+                [], [], 
+                '''                Configure path selection properties
+                ''',
+                'path_selection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('policy-classes', REFERENCE_CLASS, 'PolicyClasses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses', 
                 [], [], 
@@ -2815,6 +6707,135 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
+    'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration',
+            False, 
+            [
+            _MetaInfoClassMember('hour', ATTRIBUTE, 'int' , None, None, 
+                [('0', '167')], [], 
+                '''                Hour of day
+                ''',
+                'hour',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '59')], [], 
+                '''                Minute of the hour
+                ''',
+                'minutes',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'schedule-duration',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate',
+            False, 
+            [
+            _MetaInfoClassMember('day', ATTRIBUTE, 'int' , None, None, 
+                [('1', '31')], [], 
+                '''                Day of the month
+                ''',
+                'day',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('hour', ATTRIBUTE, 'int' , None, None, 
+                [('0', '23')], [], 
+                '''                Hour of day
+                ''',
+                'hour',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '59')], [], 
+                '''                Minute of the hour
+                ''',
+                'minutes',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('month', ATTRIBUTE, 'int' , None, None, 
+                [('0', '11')], [], 
+                '''                Month of the year
+                ''',
+                'month',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('year', ATTRIBUTE, 'int' , None, None, 
+                [('2015', '2035')], [], 
+                '''                Year
+                ''',
+                'year',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'schedule-date',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName',
+            False, 
+            [
+            _MetaInfoClassMember('schedule-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 254)], [], 
+                '''                Enter 64 characters for revert schedule
+                name
+                ''',
+                'schedule_name',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('revert-schedule-frequency', ATTRIBUTE, 'int' , None, None, 
+                [('1', '3')], [], 
+                '''                Frequency set as Once, Daily, Weekly
+                ''',
+                'revert_schedule_frequency',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('revert-schedule-max-tries', ATTRIBUTE, 'int' , None, None, 
+                [('1', '2016')], [], 
+                '''                Revert Schedule Max tries
+                ''',
+                'revert_schedule_max_tries',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('sch-name-enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Schedule name enable object
+                ''',
+                'sch_name_enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('schedule-date', REFERENCE_CLASS, 'ScheduleDate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate', 
+                [], [], 
+                '''                Set date in format hh:mm MMM DD YYYY
+                ''',
+                'schedule_date',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('schedule-duration', REFERENCE_CLASS, 'ScheduleDuration' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration', 
+                [], [], 
+                '''                Set duration in format hh:mm
+                ''',
+                'schedule_duration',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'revert-schedule-name',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames',
+            False, 
+            [
+            _MetaInfoClassMember('revert-schedule-name', REFERENCE_LIST, 'RevertScheduleName' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName', 
+                [], [], 
+                '''                Name Identifier for revert schedule
+                ''',
+                'revert_schedule_name',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'revert-schedule-names',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
     'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode' : {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode',
             False, 
@@ -2826,7 +6847,7 @@ _meta_table = {
                 'connection_mode',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('connection-monitoring-mode', ATTRIBUTE, 'int' , None, None, 
-                [(1, 6)], [], 
+                [('1', '6')], [], 
                 '''                Tandem Connection Monitoring ID for the
                 interface
                 ''',
@@ -2844,14 +6865,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('aps-hold-off', ATTRIBUTE, 'int' , None, None, 
-                [(100, 10000)], [], 
+                [('100', '10000')], [], 
                 '''                G.709 OTN path protection hold-off timer in
                 milliseconds
                 ''',
                 'aps_hold_off',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('aps-wait-to-restore', ATTRIBUTE, 'int' , None, None, 
-                [(0, 720)], [], 
+                [('0', '720')], [], 
                 '''                G.709 OTN path protection wait to restore
                 timer in seconds
                 ''',
@@ -2860,6 +6881,23 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'timers',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable path selection
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'path-selection',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -2886,6 +6924,12 @@ _meta_table = {
                 ''',
                 'aps_protection_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('aps-restoration-style', REFERENCE_ENUM_CLASS, 'MplsTeOtnApsRestorationStyleEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsRestorationStyleEnum', 
+                [], [], 
+                '''                The APS restoration style
+                ''',
+                'aps_restoration_style',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Attribute-set enable object that controls
@@ -2894,6 +6938,18 @@ _meta_table = {
                 configuration supplied for this attribute-set
                 ''',
                 'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection', REFERENCE_CLASS, 'PathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection', 
+                [], [], 
+                '''                Configure path selection properties
+                ''',
+                'path_selection',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('revert-schedule-names', REFERENCE_CLASS, 'RevertScheduleNames' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames', 
+                [], [], 
+                '''                Specify APS revert schedule
+                ''',
+                'revert_schedule_names',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('sub-network-connection-mode', REFERENCE_CLASS, 'SubNetworkConnectionMode' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode', 
                 [], [], 
@@ -2989,13 +7045,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Hold Priority
                 ''',
                 'hold_priority',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -3035,14 +7091,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The value of the bandwidth reserved by this
                 tunnel in kbps
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('class-or-pool-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Class type for the bandwith allocation
                 ''',
                 'class_or_pool_type',
@@ -3060,12 +7116,29 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable path selection
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'path-selection',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
     'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses' : {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses',
             False, 
             [
             _MetaInfoClassMember('policy-class', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(1, 8)], [], 
+                [('1', '8')], [], 
                 '''                Array of Policy class
                 ''',
                 'policy_class',
@@ -3077,8 +7150,448 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities.NewStyleAffinity' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities.NewStyleAffinity',
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType',
+            False, 
+            [
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity9', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the nineth affinity
+                ''',
+                'affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10',
             False, 
             [
             _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
@@ -3149,24 +7662,84 @@ _meta_table = {
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinity',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities',
+    'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes',
             False, 
             [
-            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities.NewStyleAffinity', 
+            _MetaInfoClassMember('new-style-affinity-affinity-type', REFERENCE_LIST, 'NewStyleAffinityAffinityType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType', 
                 [], [], 
                 '''                Tunnel new style affinity attribute
                 ''',
-                'new_style_affinity',
+                'new_style_affinity_affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinities',
+            'new-style-affinity-affinity-types',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -3176,13 +7749,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth-protection', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Bandwidth Protection
                 ''',
                 'bandwidth_protection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('node-protection', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Node Protection
                 ''',
                 'node_protection',
@@ -3251,28 +7824,34 @@ _meta_table = {
                 'fast_reroute',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
-                [(1, 7)], [], 
+                [('1', '7')], [], 
                 '''                Forward class value
                 ''',
                 'forward_class',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('interface-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The bandwidth of the interface in kbps
                 ''',
                 'interface_bandwidth',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('load-share', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Tunnel loadsharing metric
                 ''',
                 'load_share',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities', 
+            _MetaInfoClassMember('new-style-affinity-affinity-types', REFERENCE_CLASS, 'NewStyleAffinityAffinityTypes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes', 
                 [], [], 
                 '''                Tunnel new style affinity attributes table
                 ''',
-                'new_style_affinities',
+                'new_style_affinity_affinity_types',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection', REFERENCE_CLASS, 'PathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection', 
+                [], [], 
+                '''                Configure path selection properties
+                ''',
+                'path_selection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('policy-classes', REFERENCE_CLASS, 'PolicyClasses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses', 
                 [], [], 
@@ -3327,7 +7906,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG
                 ''',
                 'srlg',
@@ -3379,7 +7958,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP id
                 ''',
                 'lsp_id',
@@ -3391,7 +7970,7 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel id
                 ''',
                 'tunnel_id',
@@ -3467,6 +8046,23 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
+    'MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable path selection
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'path-selection',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
     'MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute' : {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute',
             False, 
@@ -3491,6 +8087,12 @@ _meta_table = {
                 '''                Path diversity
                 ''',
                 'path_diversity',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection', REFERENCE_CLASS, 'PathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection', 
+                [], [], 
+                '''                Configure path selection properties
+                ''',
+                'path_selection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
@@ -3574,13 +8176,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('minimum-interval', ATTRIBUTE, 'int' , None, None, 
-                [(100, 30000)], [], 
+                [('50', '30000')], [], 
                 '''                Specify BFD over LSP tail minimum interval
                 ''',
                 'minimum_interval',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(3, 10)], [], 
+                [('3', '10')], [], 
                 '''                Specify BFD over LSP tail multiplier
                 ''',
                 'multiplier',
@@ -3603,7 +8205,7 @@ _meta_table = {
                 'down_action',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('reopt-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(120, 4294967295)], [], 
+                [('120', '4294967295')], [], 
                 '''                BFD session down reopt timeout
                 ''',
                 'reopt_timeout',
@@ -3643,14 +8245,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('redelegation-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
+                [('0', '3600')], [], 
                 '''                Timer for static tunnel redelegation in
                 seconds, default is 180 seconds
                 ''',
                 'redelegation_timeout',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('state-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
+                [('0', '3600')], [], 
                 '''                State timeout for LSPs without delegation in
                 seconds, zero means immediate removal,
                 default is 180 seconds
@@ -3760,7 +8362,7 @@ _meta_table = {
                 'password',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Precedence order
                 ''',
                 'precedence',
@@ -3834,19 +8436,19 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('deadtimer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Deadtimer interval in seconds
                 ''',
                 'deadtimer',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('keepalive', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Keepalive interval in seconds
                 ''',
                 'keepalive',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('keepalive-tolerance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Keepalive interval tolerance in seconds
                 ''',
                 'keepalive_tolerance',
@@ -3889,22 +8491,28 @@ _meta_table = {
                 'peers',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('precedence', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Precedence order
                 ''',
                 'precedence',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('reoptimize-period', ATTRIBUTE, 'int' , None, None, 
-                [(60, 604800)], [], 
+                [('60', '604800')], [], 
                 '''                PCE reoptimization period for PCE-based paths
                 ''',
                 'reoptimize_period',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('request-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(5, 100)], [], 
+                [('5', '100')], [], 
                 '''                Request timeout value in seconds
                 ''',
                 'request_timeout',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('segment-routing', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                PCE segment routing capability
+                ''',
+                'segment_routing',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('speaker-entity-id', ATTRIBUTE, 'str' , None, None, 
                 [(0, 256)], [], 
@@ -3930,7 +8538,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.SoftPreemption',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                This object controls whether soft preemption
                 is enabled. This object must be set before
@@ -3947,7 +8555,7 @@ _meta_table = {
                 'frr_rewrite',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 300)], [], 
+                [('1', '300')], [], 
                 '''                This object sets the timeout in seconds before
                 hard preemption is triggered.
                 ''',
@@ -3960,42 +8568,19 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.PathInvalidation' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathInvalidation',
-            False, 
-            [
-            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
-                [], [], 
-                '''                Path Invalidation Action
-                ''',
-                'path_invalidation_action',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-invalidation-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60000)], [], 
-                '''                Path Invalidation Timeout
-                ''',
-                'path_invalidation_timeout',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'path-invalidation',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
-        ),
-    },
     'MplsTe.GlobalAttributes.FastReroute.Timers' : {
         'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.FastReroute.Timers',
             False, 
             [
             _MetaInfoClassMember('hold-backup', ATTRIBUTE, 'int' , None, None, 
-                [(0, 604800)], [], 
+                [('0', '604800')], [], 
                 '''                Seconds before backup declared UP (0 disables
                 hold-timer)
                 ''',
                 'hold_backup',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('promotion', ATTRIBUTE, 'int' , None, None, 
-                [(0, 604800)], [], 
+                [('0', '604800')], [], 
                 '''                The value of the promotion timer in seconds
                 ''',
                 'promotion',
@@ -4024,8 +8609,71 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole',
+    'MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric',
+            False, 
+            [
+            _MetaInfoClassMember('class-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                Path Selection class Type
+                ''',
+                'class_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
+                [], [], 
+                '''                Metric to use for ERO Expansion
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'loose-metric',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.PathSelection.LooseMetrics' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelection.LooseMetrics',
+            False, 
+            [
+            _MetaInfoClassMember('loose-metric', REFERENCE_LIST, 'LooseMetric' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric', 
+                [], [], 
+                '''                Path selection Loose ERO Metric configuration
+                ''',
+                'loose_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'loose-metrics',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.PathSelection.Invalidation' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelection.Invalidation',
+            False, 
+            [
+            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
+                [], [], 
+                '''                Path Invalidation Action
+                ''',
+                'path_invalidation_action',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-invalidation-timeout', ATTRIBUTE, 'int' , None, None, 
+                [('0', '60000')], [], 
+                '''                Path Invalidation Timeout
+                ''',
+                'path_invalidation_timeout',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'invalidation',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole',
             False, 
             [
             _MetaInfoClassMember('head', ATTRIBUTE, 'bool' , None, None, 
@@ -4051,7 +8699,119 @@ _meta_table = {
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'path-selection-ignore-overload-role',
+            'ignore-overload-role',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity',
+            False, 
+            [
+            _MetaInfoClassMember('class-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                Path Selection class Type
+                ''',
+                'class_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                Affinity flags
+                ''',
+                'affinity',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('mask', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{1,8}'], 
+                '''                Affinity mask
+                ''',
+                'mask',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'loose-affinity',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.PathSelection.LooseAffinities' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelection.LooseAffinities',
+            False, 
+            [
+            _MetaInfoClassMember('loose-affinity', REFERENCE_LIST, 'LooseAffinity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity', 
+                [], [], 
+                '''                Path selection Loose ERO Affinity
+                configuration
+                ''',
+                'loose_affinity',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'loose-affinities',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.GlobalAttributes.PathSelection' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GlobalAttributes.PathSelection',
+            False, 
+            [
+            _MetaInfoClassMember('cost-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Path selection cost limit configuration for
+                all tunnels
+                ''',
+                'cost_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('ignore-overload-role', REFERENCE_CLASS, 'IgnoreOverloadRole' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole', 
+                [], [], 
+                '''                Path selection to ignore overload node during
+                CSPF
+                ''',
+                'ignore_overload_role',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('invalidation', REFERENCE_CLASS, 'Invalidation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelection.Invalidation', 
+                [], [], 
+                '''                Path invalidation configuration for all
+                tunnels
+                ''',
+                'invalidation',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('loose-affinities', REFERENCE_CLASS, 'LooseAffinities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelection.LooseAffinities', 
+                [], [], 
+                '''                Path selection Loose ERO Affinity Class
+                configuration
+                ''',
+                'loose_affinities',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('loose-domain-match', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Use only the IGP instance of the incoming
+                interface
+                ''',
+                'loose_domain_match',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('loose-metrics', REFERENCE_CLASS, 'LooseMetrics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelection.LooseMetrics', 
+                [], [], 
+                '''                Path selection Loose ERO Metric Class
+                configuration
+                ''',
+                'loose_metrics',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
+                [], [], 
+                '''                Metric to use in path calculation
+                ''',
+                'metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tiebreaker', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionTiebreakerEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionTiebreakerEnum', 
+                [], [], 
+                '''                CSPF tiebreaker to use in path calculation
+                ''',
+                'tiebreaker',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'path-selection',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -4126,7 +8886,7 @@ _meta_table = {
                 'attribute_set',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('auto-bandwidth-collect-frequency', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10080)], [], 
+                [('1', '10080')], [], 
                 '''                Auto-bandwidth global collection frequency in
                 minutes
                 ''',
@@ -4177,8 +8937,14 @@ _meta_table = {
                 ''',
                 'graceful_preemption_on_bandwidth_reduction',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('hardware-out-of-resource', REFERENCE_CLASS, 'HardwareOutOfResource' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.HardwareOutOfResource', 
+                [], [], 
+                '''                Configure HW OOR processing in MPLS-TE
+                ''',
+                'hardware_out_of_resource',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('link-holddown-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 300)], [], 
+                [('0', '300')], [], 
                 '''                Holddown time for links which had Path Errors
                 in seconds
                 ''',
@@ -4233,14 +8999,14 @@ _meta_table = {
                 'log_tail',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('loose-path-retry-period', ATTRIBUTE, 'int' , None, None, 
-                [(30, 600)], [], 
+                [('30', '600')], [], 
                 '''                Signalling retry for tunnels terminating
                 outside the headend area
                 ''',
                 'loose_path_retry_period',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('maximum-tunnels', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65536)], [], 
+                [('1', '65536')], [], 
                 '''                The maximum number of tunnel heads that will be
                 allowed.
                 ''',
@@ -4252,57 +9018,17 @@ _meta_table = {
                 ''',
                 'mib',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-invalidation', REFERENCE_CLASS, 'PathInvalidation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathInvalidation', 
+            _MetaInfoClassMember('path-selection', REFERENCE_CLASS, 'PathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelection', 
                 [], [], 
-                '''                Path invalidation configuration for all tunnels
+                '''                Path selection configuration
                 ''',
-                'path_invalidation',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-cost-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Path selection cost limit configuration for all
-                tunnels
-                ''',
-                'path_selection_cost_limit',
+                'path_selection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-selection-ignore-overload', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Deprecated - do not use
                 ''',
                 'path_selection_ignore_overload',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-ignore-overload-role', REFERENCE_CLASS, 'PathSelectionIgnoreOverloadRole' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole', 
-                [], [], 
-                '''                Path selection to ignore overload node during
-                CSPF
-                ''',
-                'path_selection_ignore_overload_role',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-loose-affinities', REFERENCE_CLASS, 'PathSelectionLooseAffinities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelectionLooseAffinities', 
-                [], [], 
-                '''                Path selection Loose ERO Affinity Class
-                configuration
-                ''',
-                'path_selection_loose_affinities',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-loose-metrics', REFERENCE_CLASS, 'PathSelectionLooseMetrics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PathSelectionLooseMetrics', 
-                [], [], 
-                '''                Path selection Loose ERO Metric Class
-                configuration
-                ''',
-                'path_selection_loose_metrics',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
-                [], [], 
-                '''                Metric to use in path calculation
-                ''',
-                'path_selection_metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-tiebreaker', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionTiebreakerEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionTiebreakerEnum', 
-                [], [], 
-                '''                CSPF tiebreaker to use in path calculation
-                ''',
-                'path_selection_tiebreaker',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('pce-attributes', REFERENCE_CLASS, 'PceAttributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GlobalAttributes.PceAttributes', 
                 [], [], 
@@ -4317,33 +9043,33 @@ _meta_table = {
                 'queues',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('reopt-delay-path-protect-switchover-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 604800)], [], 
+                [('0', '604800')], [], 
                 '''                Seconds between path protect switchover and
                 tunnel re-optimization. Set to 0 to disable
                 ''',
                 'reopt_delay_path_protect_switchover_timer',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('reoptimize-delay-after-affinity-failure-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 604800)], [], 
+                [('1', '604800')], [], 
                 '''                Delay reoptimizing current LSP after affinity
                 failures
                 ''',
                 'reoptimize_delay_after_affinity_failure_timer',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('reoptimize-delay-after-frr-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 120)], [], 
+                [('0', '120')], [], 
                 '''                Reoptimization Delay After FRR Value (seconds)
                 ''',
                 'reoptimize_delay_after_frr_timer',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('reoptimize-delay-cleanup-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 300)], [], 
+                [('0', '300')], [], 
                 '''                Reoptimization Delay Cleanup Value (seconds)
                 ''',
                 'reoptimize_delay_cleanup_timer',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('reoptimize-delay-install-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
+                [('0', '3600')], [], 
                 '''                Reoptimization Delay Install Value (seconds)
                 ''',
                 'reoptimize_delay_install_timer',
@@ -4361,7 +9087,7 @@ _meta_table = {
                 'reoptimize_load_balancing',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('reoptimize-timer-frequency', ATTRIBUTE, 'int' , None, None, 
-                [(0, 604800)], [], 
+                [('0', '604800')], [], 
                 '''                Reoptimize timers period in seconds
                 ''',
                 'reoptimize_timer_frequency',
@@ -4467,14 +9193,14 @@ _meta_table = {
                 'protection_trigger',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 20)], [], 
+                [('1', '20')], [], 
                 '''                Periodic refresh interval for fault OAM
                 messages
                 ''',
                 'refresh_interval',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('wait-to-restore-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                Waiting time before restoring working LSP
                 ''',
                 'wait_to_restore_interval',
@@ -4514,7 +9240,7 @@ _meta_table = {
                 'enable_alarm',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('soak-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 10)], [], 
+                [('0', '10')], [], 
                 '''                Duration of soaking alarms
                 ''',
                 'soak_time',
@@ -4537,13 +9263,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interval-standby-ms', ATTRIBUTE, 'int' , None, None, 
-                [(3, 5000)], [], 
+                [('3', '5000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval_standby_ms',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('interval-standby-us', ATTRIBUTE, 'int' , None, None, 
-                [(3000, 5000000)], [], 
+                [('3000', '5000000')], [], 
                 '''                Hello interval in micro-seconds
                 ''',
                 'interval_standby_us',
@@ -4560,13 +9286,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interval-ms', ATTRIBUTE, 'int' , None, None, 
-                [(3, 5000)], [], 
+                [('3', '5000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval_ms',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('interval-us', ATTRIBUTE, 'int' , None, None, 
-                [(3000, 5000000)], [], 
+                [('3000', '5000000')], [], 
                 '''                Hello interval in micro-seconds
                 ''',
                 'interval_us',
@@ -4583,13 +9309,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 10)], [], 
+                [('2', '10')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('detection-multiplier-standby', ATTRIBUTE, 'int' , None, None, 
-                [(2, 10)], [], 
+                [('2', '10')], [], 
                 '''                Detect multiplier for standby transport
                 profile LSP
                 ''',
@@ -4622,7 +9348,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('global-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Global identifier in numeric value
                 ''',
                 'global_id',
@@ -4634,7 +9360,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel identifier in numeric value
                 ''',
                 'tunnel_id',
@@ -4651,7 +9377,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('global-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Global identifier in numeric value
                 ''',
                 'global_id',
@@ -4663,7 +9389,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel identifier in numeric value
                 ''',
                 'tunnel_id',
@@ -4680,19 +9406,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('in-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 4015)], [], 
+                [('16', '4015')], [], 
                 '''                MPLS label
                 ''',
                 'in_label',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                Outgoing MPLS label
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('out-link', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Transport profile identifier of outgoing
                 link
                 ''',
@@ -4710,7 +9436,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('forward-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bandwidth of forward transport profile LSP
                 ''',
                 'forward_bandwidth',
@@ -4734,19 +9460,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('in-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 4015)], [], 
+                [('16', '4015')], [], 
                 '''                MPLS label
                 ''',
                 'in_label',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                Outgoing MPLS label
                 ''',
                 'out_label',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('out-link', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Transport profile identifier of outgoing
                 link
                 ''',
@@ -4764,7 +9490,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('reverse-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bandwidth of reverse transport profile LSP
                 ''',
                 'reverse_bandwidth',
@@ -4808,7 +9534,7 @@ _meta_table = {
                 'forward_lsp',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Numeric identifier
                 ''',
                 'lsp_id',
@@ -4886,7 +9612,7 @@ _meta_table = {
                 'fault',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('global-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Transport profile global identifier
                 ''',
                 'global_id',
@@ -4915,7 +9641,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('link-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Numeric link identifier
                 ''',
                 'link_id',
@@ -4990,7 +9716,7 @@ _meta_table = {
                         'switching_id',
                         'Cisco-IOS-XR-mpls-te-cfg', True),
                     _MetaInfoClassMember('switching-id', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 255)], [], 
+                        [('1', '255')], [], 
                         '''                        Switching index
                         ''',
                         'switching_id',
@@ -5037,7 +9763,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('area-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Area ID
                 ''',
                 'area_id',
@@ -5083,7 +9809,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('affinity-index', ATTRIBUTE, 'int' , None, None, 
-                [(1, 9)], [], 
+                [('1', '9')], [], 
                 '''                Specify the entry index
                 ''',
                 'affinity_index',
@@ -5123,7 +9849,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srlg-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG membership number
                 ''',
                 'srlg_number',
@@ -5157,7 +9883,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('up-threshold', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                Array of up threshold percentage
                 ''',
                 'up_threshold',
@@ -5174,7 +9900,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-threshold', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                Array of down threshold percentage
                 ''',
                 'down_threshold',
@@ -5191,7 +9917,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('admin-weight', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Set administrative weight for the interface
                 ''',
                 'admin_weight',
@@ -5274,6 +10000,40 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
+    'MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel' : {
+        'meta_info' : _MetaInfoClass('MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel',
+            False, 
+            [
+            _MetaInfoClassMember('tunnel-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 59)], [], 
+                '''                Tunnel name
+                ''',
+                'tunnel_name',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'backup-tunnel',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
+    'MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels' : {
+        'meta_info' : _MetaInfoClass('MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels',
+            False, 
+            [
+            _MetaInfoClassMember('backup-tunnel', REFERENCE_LIST, 'BackupTunnel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel', 
+                [], [], 
+                '''                Tunnel name
+                ''',
+                'backup_tunnel',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'backup-tunnels',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
+        ),
+    },
     'MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude' : {
         'meta_info' : _MetaInfoClass('MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude',
             False, 
@@ -5351,7 +10111,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tunnel-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel interface number
                 ''',
                 'tunnel_number',
@@ -5397,6 +10157,13 @@ _meta_table = {
                 ''',
                 'backup_paths',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('backup-tunnels', REFERENCE_CLASS, 'BackupTunnels' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels', 
+                [], [], 
+                '''                Configure MPLS TE backup tunnels for this
+                interface
+                ''',
+                'backup_tunnels',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'global-attributes',
@@ -5409,7 +10176,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -5461,7 +10228,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tcmid', ATTRIBUTE, 'int' , None, None, 
-                [(1, 6)], [], 
+                [('1', '6')], [], 
                 '''                Tandem Connection Monitoring ID for the
                 interface
                 ''',
@@ -5485,17 +10252,23 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Controller name
                 ''',
                 'controller_name',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('admin-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Set administrative weight for the
                 interface
                 ''',
                 'admin_weight',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('delay', ATTRIBUTE, 'int' , None, None, 
+                [('1', '16777215')], [], 
+                '''                Set link delay for the interface
+                ''',
+                'delay',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -5539,7 +10312,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('igp-area', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                IGP area
                 ''',
                 'igp_area',
@@ -5562,7 +10335,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tcmid', ATTRIBUTE, 'int' , None, None, 
-                [(1, 6)], [], 
+                [('1', '6')], [], 
                 '''                Tandem Connection Monitoring ID for the
                 interface
                 ''',
@@ -5586,17 +10359,23 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Controller name
                 ''',
                 'controller_name',
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             _MetaInfoClassMember('admin-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Set administrative weight for the
                 interface
                 ''',
                 'admin_weight',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('delay', ATTRIBUTE, 'int' , None, None, 
+                [('1', '16777215')], [], 
+                '''                Set link delay for the interface
+                ''',
+                'delay',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -5721,7 +10500,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bitrate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Bitrate value in Kbps for ODUflex framing
                 type
                 ''',
@@ -5746,32 +10525,20 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
     },
-    'MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination' : {
-        'meta_info' : _MetaInfoClass('MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination',
+    'MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching' : {
+        'meta_info' : _MetaInfoClass('MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching',
             False, 
             [
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IPV4 tunnel destination
-                ''',
-                'destination',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('destination-type', REFERENCE_ENUM_CLASS, 'OtnDestinationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnDestinationEnum', 
+            _MetaInfoClassMember('lockout', REFERENCE_ENUM_CLASS, 'OtnProtectionSwitchLockoutEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnProtectionSwitchLockoutEnum', 
                 [], [], 
-                '''                Destination type whether it is unicast or
-                unnumbered
+                '''                The configuration is used to prevent switch
+                over for a particular path type in tunnel
                 ''',
-                'destination_type',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('interface-if-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Interface index of port
-                ''',
-                'interface_if_index',
+                'lockout',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'destination',
+            'protection-switching',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg'
         ),
@@ -5787,12 +10554,26 @@ _meta_table = {
                 ''',
                 'active_lsp_message',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('homepath-state-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log all messages for changes in state of
+                Homepath of Working LSP
+                ''',
+                'homepath_state_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('insufficient-bw-message', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Log tunnel messages for insufficient
                 bandwidth
                 ''',
                 'insufficient_bw_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-change-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log all tunnel messages for changes in
+                path-change
+                ''',
+                'path_change_message',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('signalling-state-message', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -5807,6 +10588,13 @@ _meta_table = {
                 ''',
                 'static_cross_connect_message',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tunnel-state-message', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Log all tunnel messages for changes in
+                tunnel-state
+                ''',
+                'tunnel_state_message',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'logging',
@@ -5819,7 +10607,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('preference-level', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Preference level for this path option
                 ''',
                 'preference_level',
@@ -5831,7 +10619,7 @@ _meta_table = {
                 'lockdown',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                The ID of the IP explicit path associated
                 with this option
                 ''',
@@ -5851,17 +10639,30 @@ _meta_table = {
                 'path_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('protected-by-preference-level', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1001)], [], 
+                [('1', '1001')], [], 
                 '''                Preference level of the protecting explicit
                 path. 
                 ''',
                 'protected_by_preference_level',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('restore-by-preference-level', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Preference level of the restore path. 
                 ''',
                 'restore_by_preference_level',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('xro-attribute-set-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                The name of the XRO attribute set to be
+                used for this path-option
+                ''',
+                'xro_attribute_set_name',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('xro-type', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                The route-exclusion type
+                ''',
+                'xro_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
@@ -5894,30 +10695,16 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('egress-controller-if-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Interface index of Egress controller
                 ''',
                 'egress_controller_if_index',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('egress-type', REFERENCE_ENUM_CLASS, 'OtnStaticUniEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUniEnum', 
-                [], [], 
-                '''                Egress type whether it is xconnect or
-                terminated
-                ''',
-                'egress_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('ingress-controller-name', ATTRIBUTE, 'str' , None, None, 
                 [(0, 255)], [], 
                 '''                Name of  ingress controller
                 ''',
                 'ingress_controller_name',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('ingress-type', REFERENCE_ENUM_CLASS, 'OtnStaticUniEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUniEnum', 
-                [], [], 
-                '''                Ingress type whether it is xconnect or
-                terminated
-                ''',
-                'ingress_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
@@ -5931,7 +10718,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tunnel ID
                 ''',
                 'tunnel_id',
@@ -5943,8 +10730,8 @@ _meta_table = {
                 ''',
                 'current_lsp_shutdown',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('destination', REFERENCE_CLASS, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination', 
-                [], [], 
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                The existence of this configuration indicates
                 the destination has been set for the tunnel
                 ''',
@@ -5976,12 +10763,26 @@ _meta_table = {
                 ''',
                 'path_protection_attribute_set_profile',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
+                [], [], 
+                '''                Path selection configuration for this
+                specific tunnel
+                ''',
+                'path_selection_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('payload', REFERENCE_ENUM_CLASS, 'OtnPayloadEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnPayloadEnum', 
                 [], [], 
                 '''                The existence of this configuration indicates
                 the Payload type have been set for the tunnel
                 ''',
                 'payload',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('protection-switching', REFERENCE_CLASS, 'ProtectionSwitching' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching', 
+                [], [], 
+                '''                The configuration for a GMPLS NNI tunnel
+                protection switch
+                ''',
+                'protection_switching',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('record-route', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
@@ -6068,6 +10869,13 @@ _meta_table = {
                 ''',
                 'enable_gmpls_nni',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
+                [], [], 
+                '''                Path selection configuration for all gmpls nni
+                tunnels
+                ''',
+                'path_selection_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('topology-instances', REFERENCE_CLASS, 'TopologyInstances' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.GmplsNni.TopologyInstances', 
                 [], [], 
                 '''                GMPLS-NNI topology instance table
@@ -6092,14 +10900,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 10)], [], 
+                [('2', '10')], [], 
                 '''                Detection multiplier for BFD sessions created
                 by TE
                 ''',
                 'detection_multiplier',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(15, 200)], [], 
+                [('15', '200')], [], 
                 '''                Hello interval for BFD sessions created by TE
                 ''',
                 'interval',
@@ -6116,14 +10924,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('down-stream', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                Downward flooding Threshold in percentages of
                 total bandwidth
                 ''',
                 'down_stream',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('up-stream', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                Upward flooding Threshold in percentages of
                 total bandwidth
                 ''',
@@ -6141,7 +10949,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth-hold-timer', ATTRIBUTE, 'int' , None, None, 
-                [(1, 300)], [], 
+                [('1', '300')], [], 
                 '''                Bandwidth hold timer value (seconds)
                 ''',
                 'bandwidth_hold_timer',
@@ -6153,7 +10961,7 @@ _meta_table = {
                 'bfd',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('delay-preempt-bundle-capacity-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 300)], [], 
+                [('0', '300')], [], 
                 '''                Bundle capacity preemption timer value
                 (seconds)
                 ''',
@@ -6167,7 +10975,7 @@ _meta_table = {
                 'flooding_threshold',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('periodic-flooding-timer', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600)], [], 
+                [('0', '3600')], [], 
                 '''                Periodic flooding value (seconds)
                 ''',
                 'periodic_flooding_timer',
@@ -6225,6 +11033,12 @@ _meta_table = {
                 ''',
                 'lcac',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('named-tunnels', REFERENCE_CLASS, 'NamedTunnels' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.NamedTunnels', 
+                [], [], 
+                '''                Configure MPLS TE tunnel
+                ''',
+                'named_tunnels',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('transport-profile', REFERENCE_CLASS, 'TransportProfile' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTe.TransportProfile', 
                 [], [], 
                 '''                MPLS transport profile configuration data
@@ -6241,6 +11055,42 @@ _meta_table = {
 }
 _meta_table['MplsTe.DiffServTrafficEngineering.Classes.Class']['meta_info'].parent =_meta_table['MplsTe.DiffServTrafficEngineering.Classes']['meta_info']
 _meta_table['MplsTe.DiffServTrafficEngineering.Classes']['meta_info'].parent =_meta_table['MplsTe.DiffServTrafficEngineering']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr.Destination']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Metric']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.DestinationXr']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels.Tunnel']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels.Tunnels']['meta_info']
+_meta_table['MplsTe.NamedTunnels.Tunnels']['meta_info'].parent =_meta_table['MplsTe.NamedTunnels']['meta_info']
 _meta_table['MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown']['meta_info'].parent =_meta_table['MplsTe.GmplsUni.Timers.PathOptionTimers']['meta_info']
 _meta_table['MplsTe.GmplsUni.Timers.PathOptionTimers']['meta_info'].parent =_meta_table['MplsTe.GmplsUni.Timers']['meta_info']
 _meta_table['MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption']['meta_info'].parent =_meta_table['MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions']['meta_info']
@@ -6254,7 +11104,6 @@ _meta_table['MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead']['meta_i
 _meta_table['MplsTe.GmplsUni.Controllers.Controller']['meta_info'].parent =_meta_table['MplsTe.GmplsUni.Controllers']['meta_info']
 _meta_table['MplsTe.GmplsUni.Timers']['meta_info'].parent =_meta_table['MplsTe.GmplsUni']['meta_info']
 _meta_table['MplsTe.GmplsUni.Controllers']['meta_info'].parent =_meta_table['MplsTe.GmplsUni']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.PathSelectionLooseAffinities.PathSelectionLooseAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelectionLooseAffinities']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.Pcc']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel.TunnelRange']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers']['meta_info']
@@ -6271,7 +11120,12 @@ _meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2PAutoTunnel']['meta_info'].par
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Backup']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.Mesh']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel.P2MpAutoTunnel']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.SecondaryRouterIds']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.Srlg.Names.Name']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.Srlg.Names']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.Srlg.Values.Value.Ipv4AddressMaps.Ipv4AddressMap']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.Srlg.Values.Value.Ipv4AddressMaps']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.Srlg.Values.Value.Ipv4AddressMaps']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.Srlg.Values.Value']['meta_info']
@@ -6279,49 +11133,114 @@ _meta_table['MplsTe.GlobalAttributes.Srlg.Values.Value']['meta_info'].parent =_m
 _meta_table['MplsTe.GlobalAttributes.Srlg.Names']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.Srlg']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.Srlg.Values']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.Srlg']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.Queues.Queue']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.Queues']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.PathSelectionLooseMetrics.PathSelectionLooseMetric']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelectionLooseMetrics']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.PathInvalidation']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Priority']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Bandwidth']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.NewStyleAffinityAffinityTypes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.FastReroute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute.Logging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes.P2MpteAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.SegmentRoutingPrepend']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.PathSelectionInvalidation']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection.Invalidation']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.Bidirectional']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce.DisjointPath']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Pce']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.Logging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute.NewStyleAffinityAffinityTypes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes.P2PTeAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.P2PTeAttributes']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs']['meta_info']
@@ -6330,6 +11249,7 @@ _meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.Pat
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet.XroAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet.P2MpteAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info']
@@ -6348,21 +11268,25 @@ _meta_table['MplsTe.GlobalAttributes.PceAttributes.Timer']['meta_info'].parent =
 _meta_table['MplsTe.GlobalAttributes.PceAttributes.Peers']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PceAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.PceAttributes.Logging']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PceAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.FastReroute.Timers']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.FastReroute']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelection.LooseMetrics']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelection.LooseAffinities']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.PathSelection.LooseMetrics']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelection']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.PathSelection.Invalidation']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelection']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelection']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.PathSelection.LooseAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.PathSelection']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes.AffinityMappings']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.PathSelectionLooseAffinities']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AutoTunnel']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.HardwareOutOfResource']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.SecondaryRouterIds']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.Srlg']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.Queues']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.PathSelectionLooseMetrics']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.Mib']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AttributeSet']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.BfdOverLsp']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.PceAttributes']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.SoftPreemption']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.PathInvalidation']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.FastReroute']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
-_meta_table['MplsTe.GlobalAttributes.PathSelectionIgnoreOverloadRole']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
+_meta_table['MplsTe.GlobalAttributes.PathSelection']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.GlobalAttributes.AffinityMappings']['meta_info'].parent =_meta_table['MplsTe.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi']['meta_info'].parent =_meta_table['MplsTe.TransportProfile.Fault.ProtectionTrigger']['meta_info']
 _meta_table['MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr']['meta_info'].parent =_meta_table['MplsTe.TransportProfile.Fault.ProtectionTrigger']['meta_info']
@@ -6393,9 +11317,11 @@ _meta_table['MplsTe.Interfaces.Interface.Lcac.AttributeNames']['meta_info'].pare
 _meta_table['MplsTe.Interfaces.Interface.Lcac.Srlgs']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.Lcac']['meta_info']
 _meta_table['MplsTe.Interfaces.Interface.Lcac.UpThresholds']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.Lcac']['meta_info']
 _meta_table['MplsTe.Interfaces.Interface.Lcac.DownThresholds']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.Lcac']['meta_info']
+_meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels']['meta_info']
 _meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup']['meta_info']
 _meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel']['meta_info']
 _meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths']['meta_info']
+_meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface.GlobalAttributes']['meta_info']
 _meta_table['MplsTe.Interfaces.Interface.TransportProfileLink']['meta_info'].parent =_meta_table['MplsTe.Interfaces.Interface']['meta_info']
@@ -6413,7 +11339,7 @@ _meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr']['me
 _meta_table['MplsTe.GmplsNni.TopologyInstances.TopologyInstance']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TopologyInstances']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
-_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
+_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
 _meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni']['meta_info'].parent =_meta_table['MplsTe.GmplsNni.TunnelHeads.TunnelHead']['meta_info']
@@ -6423,6 +11349,7 @@ _meta_table['MplsTe.GmplsNni.TunnelHeads']['meta_info'].parent =_meta_table['Mpl
 _meta_table['MplsTe.Lcac.Bfd']['meta_info'].parent =_meta_table['MplsTe.Lcac']['meta_info']
 _meta_table['MplsTe.Lcac.FloodingThreshold']['meta_info'].parent =_meta_table['MplsTe.Lcac']['meta_info']
 _meta_table['MplsTe.DiffServTrafficEngineering']['meta_info'].parent =_meta_table['MplsTe']['meta_info']
+_meta_table['MplsTe.NamedTunnels']['meta_info'].parent =_meta_table['MplsTe']['meta_info']
 _meta_table['MplsTe.GmplsUni']['meta_info'].parent =_meta_table['MplsTe']['meta_info']
 _meta_table['MplsTe.GlobalAttributes']['meta_info'].parent =_meta_table['MplsTe']['meta_info']
 _meta_table['MplsTe.TransportProfile']['meta_info'].parent =_meta_table['MplsTe']['meta_info']

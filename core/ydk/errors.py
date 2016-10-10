@@ -58,7 +58,7 @@ class YPYError(Exception):
             if self.message is not None:
                 ret = [ret]
                 parser = etree.XMLParser(remove_blank_text=True)
-                root = etree.XML(self.message, parser)
+                root = etree.XML(self.message.encode('utf-8'), parser)
                 for r in root.iter():
                     tag = r.tag[r.tag.rfind('}') + 1:]
                     if r.text is not None:

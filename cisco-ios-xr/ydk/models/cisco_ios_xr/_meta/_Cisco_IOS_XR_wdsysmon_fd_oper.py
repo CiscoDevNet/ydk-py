@@ -19,28 +19,28 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('process-cpu-fifteen-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Process CPU utilization in percent for past 15
                 minute
                 ''',
                 'process_cpu_fifteen_minute',
                 'Cisco-IOS-XR-wdsysmon-fd-oper', False),
             _MetaInfoClassMember('process-cpu-five-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Process CPU utilization in percent for past 5
                 minute
                 ''',
                 'process_cpu_five_minute',
                 'Cisco-IOS-XR-wdsysmon-fd-oper', False),
             _MetaInfoClassMember('process-cpu-one-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Process CPU utilization in percent for past 1
                 minute
                 ''',
                 'process_cpu_one_minute',
                 'Cisco-IOS-XR-wdsysmon-fd-oper', False),
             _MetaInfoClassMember('process-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Process ID
                 ''',
                 'process_id',
@@ -75,19 +75,19 @@ _meta_table = {
                 'process_cpu',
                 'Cisco-IOS-XR-wdsysmon-fd-oper', False),
             _MetaInfoClassMember('total-cpu-fifteen-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total CPU utilization in past 15 minute
                 ''',
                 'total_cpu_fifteen_minute',
                 'Cisco-IOS-XR-wdsysmon-fd-oper', False),
             _MetaInfoClassMember('total-cpu-five-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total CPU utilization in past 5 minute
                 ''',
                 'total_cpu_five_minute',
                 'Cisco-IOS-XR-wdsysmon-fd-oper', False),
             _MetaInfoClassMember('total-cpu-one-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total CPU utilization in past 1 minute
                 ''',
                 'total_cpu_one_minute',

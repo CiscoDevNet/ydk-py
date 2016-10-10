@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv4\-acl\-and\-prefix\-list\: Root class of IPv4 Oper schema tree
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,7 +23,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes import AclUsageAppIdEnumEnum
 
 class AclAce1Enum(Enum):
     """
@@ -403,6 +402,51 @@ class AclTcpflagsOperatorEnum(Enum):
         return meta._meta_table['AclTcpflagsOperatorEnum']
 
 
+class BagAclNhAtStatusEnum(Enum):
+    """
+    BagAclNhAtStatusEnum
+
+    Bag acl nh at status
+
+    .. data:: UNKNOWN = 0
+
+    	AT State Unknown
+
+    .. data:: UP = 1
+
+    	AT State UP
+
+    .. data:: DOWN = 2
+
+    	AT State DOWN
+
+    .. data:: NOT_PRESENT = 3
+
+    	AT State Not Present
+
+    .. data:: MAX = 4
+
+    	invalid status
+
+    """
+
+    UNKNOWN = 0
+
+    UP = 1
+
+    DOWN = 2
+
+    NOT_PRESENT = 3
+
+    MAX = 4
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_acl_oper as meta
+        return meta._meta_table['BagAclNhAtStatusEnum']
+
+
 class BagAclNhEnum(Enum):
     """
     BagAclNhEnum
@@ -458,6 +502,10 @@ class BagAclNhStatusEnum(Enum):
 
     	State UP
 
+    .. data:: MAX = 4
+
+    	invalid status
+
     """
 
     NOT_PRESENT = 0
@@ -467,6 +515,8 @@ class BagAclNhStatusEnum(Enum):
     DOWN = 2
 
     UP = 3
+
+    MAX = 4
 
 
     @staticmethod
@@ -1043,7 +1093,7 @@ class Ipv4AclAndPrefixList(object):
                         .. attribute:: hits
                         
                         	Number of hits
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1131,6 +1181,11 @@ class Ipv4AclAndPrefixList(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: sequence_str
+                        
+                        	Sequence String
+                        	**type**\:  str
                         
                         .. attribute:: sorce_operator
                         
@@ -1278,6 +1333,7 @@ class Ipv4AclAndPrefixList(object):
                             self.protocol = None
                             self.remark = None
                             self.sequence = None
+                            self.sequence_str = None
                             self.sorce_operator = None
                             self.sorce_port1 = None
                             self.sorce_port2 = None
@@ -1367,6 +1423,11 @@ class Ipv4AclAndPrefixList(object):
                             """
                             Next hop info
                             
+                            .. attribute:: at_status
+                            
+                            	The next hop at status
+                            	**type**\:  :py:class:`BagAclNhAtStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper.BagAclNhAtStatusEnum>`
+                            
                             .. attribute:: is_acl_next_hop_exist
                             
                             	The nexthop exist
@@ -1398,6 +1459,7 @@ class Ipv4AclAndPrefixList(object):
 
                             def __init__(self):
                                 self.parent = None
+                                self.at_status = None
                                 self.is_acl_next_hop_exist = None
                                 self.next_hop = None
                                 self.status = None
@@ -1417,6 +1479,9 @@ class Ipv4AclAndPrefixList(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
+                                if self.at_status is not None:
+                                    return True
+
                                 if self.is_acl_next_hop_exist is not None:
                                     return True
 
@@ -1554,6 +1619,9 @@ class Ipv4AclAndPrefixList(object):
                                 return True
 
                             if self.sequence is not None:
+                                return True
+
+                            if self.sequence_str is not None:
                                 return True
 
                             if self.sorce_operator is not None:

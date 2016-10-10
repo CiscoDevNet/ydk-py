@@ -19,19 +19,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
+                [('3', '40')], [], 
                 '''                Threshold, Range (3, severe)
                 ''',
                 'critical',
                 'Cisco-IOS-XR-watchd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
-                [(5, 40)], [], 
+                [('5', '40')], [], 
                 '''                Threshold, Range (5, 40)
                 ''',
                 'minor',
                 'Cisco-IOS-XR-watchd-cfg', False),
             _MetaInfoClassMember('severe', ATTRIBUTE, 'int' , None, None, 
-                [(4, 40)], [], 
+                [('4', '40')], [], 
                 '''                Threshold, Range (4, minor)
                 ''',
                 'severe',
@@ -54,7 +54,7 @@ _meta_table = {
                 'overload_notification',
                 'Cisco-IOS-XR-watchd-cfg', False),
             _MetaInfoClassMember('overload-throttle-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(5, 120)], [], 
+                [('5', '120')], [], 
                 '''                Watchdog overload throttle timeout configuration
                 ''',
                 'overload_throttle_timeout',
@@ -89,7 +89,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
+                [('1', '10')], [], 
                 '''                Length of timeout in seconds
                 ''',
                 'timeout',

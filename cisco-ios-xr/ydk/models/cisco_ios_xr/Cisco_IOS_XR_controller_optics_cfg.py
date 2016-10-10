@@ -7,7 +7,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -82,6 +82,39 @@ class OpticsDwdmCarrierParamEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
         return meta._meta_table['OpticsDwdmCarrierParamEnum']
+
+
+class OpticsFecEnum(Enum):
+    """
+    OpticsFecEnum
+
+    Optics fec
+
+    .. data:: FEC_NONE = 0
+
+    	No Fec
+
+    .. data:: FEC_H15 = 1
+
+    	Enhanced H15
+
+    .. data:: FEC_H25 = 2
+
+    	Enhanced H25
+
+    """
+
+    FEC_NONE = 0
+
+    FEC_H15 = 1
+
+    FEC_H25 = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_optics_cfg as meta
+        return meta._meta_table['OpticsFecEnum']
 
 
 class OpticsLoopbackEnum(Enum):

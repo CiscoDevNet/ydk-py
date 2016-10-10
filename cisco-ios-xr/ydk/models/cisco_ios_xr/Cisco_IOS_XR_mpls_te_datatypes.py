@@ -3,7 +3,7 @@
 This module contains a collection of generally useful
 derived YANG data types.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,27 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 
 from ydk.errors import YPYError, YPYModelError
 
+
+
+class BfdReversePathEnum(Enum):
+    """
+    BfdReversePathEnum
+
+    Bfd reverse path
+
+    .. data:: BFD_REVERSE_PATH_BINDING_LABEL = 1
+
+    	BindingLabel
+
+    """
+
+    BFD_REVERSE_PATH_BINDING_LABEL = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
+        return meta._meta_table['BfdReversePathEnum']
 
 
 class CtypeEnum(Enum):
@@ -476,10 +497,6 @@ class MplsTeOtnApsProtectionEnum(Enum):
 
     	1PLUS1 BIDIR APS
 
-    .. data:: Y_1PLUS1PLUS_R_BIDIR_APS = 32
-
-    	1PLUS1PLUS R BIDIR APS
-
     """
 
     Y_1PLUS1_UNIDIR_NO_APS = 4
@@ -487,8 +504,6 @@ class MplsTeOtnApsProtectionEnum(Enum):
     Y_1PLUS1_UNIDIR_APS = 8
 
     Y_1PLUS1_BDIR_APS = 16
-
-    Y_1PLUS1PLUS_R_BIDIR_APS = 32
 
 
     @staticmethod
@@ -522,6 +537,33 @@ class MplsTeOtnApsProtectionModeEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
         return meta._meta_table['MplsTeOtnApsProtectionModeEnum']
+
+
+class MplsTeOtnApsRestorationStyleEnum(Enum):
+    """
+    MplsTeOtnApsRestorationStyleEnum
+
+    Mpls te otn aps restoration style
+
+    .. data:: KEEP_FAILED_LSP = 1
+
+    	Keep Failed Lsp
+
+    .. data:: DELETE_FAILED_LSP = 2
+
+    	Delete Failed Lsp
+
+    """
+
+    KEEP_FAILED_LSP = 1
+
+    DELETE_FAILED_LSP = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_te_datatypes as meta
+        return meta._meta_table['MplsTeOtnApsRestorationStyleEnum']
 
 
 class MplsTeOtnSncModeEnum(Enum):
@@ -750,11 +792,17 @@ class MplsTePathSelectionMetricEnum(Enum):
 
     	TE Metric
 
+    .. data:: DELAY = 4
+
+    	DELAY Metric
+
     """
 
     IGP = 1
 
     TE = 2
+
+    DELAY = 4
 
 
     @staticmethod

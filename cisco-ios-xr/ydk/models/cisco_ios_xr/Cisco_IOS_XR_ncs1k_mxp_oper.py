@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   hw\-module\: mxp hw\-module command chain
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -50,6 +50,10 @@ class HwModuleSliceStatusEnum(Enum):
 
     	Provisioning Scheduled
 
+    .. data:: REPROVISIONING_ABORTED = 5
+
+    	Reprovisioning Aborted
+
     """
 
     NOT_PROVISIONED = 0
@@ -61,6 +65,8 @@ class HwModuleSliceStatusEnum(Enum):
     PROVISIONING_FAILED = 3
 
     PROVISIONING_SCHEDULED = 4
+
+    REPROVISIONING_ABORTED = 5
 
 
     @staticmethod
@@ -168,17 +174,36 @@ class HwModule(object):
                 
                 	**range:** 0..4294967295
                 
-                .. attribute:: dp_fpg_ver
+                .. attribute:: dp_fpga_fw_type
                 
-                	DpFpgVer
+                	DpFpgaFwType
                 	**type**\:  str
                 
-                	**range:** 0..16
+                	**range:** 0..10
+                
+                .. attribute:: dp_fpga_fw_ver
+                
+                	DpFpgaFwVer
+                	**type**\:  str
+                
+                	**range:** 0..10
+                
+                .. attribute:: encryption_supported
+                
+                	EncryptionSupported
+                	**type**\:  bool
                 
                 .. attribute:: hardware_status
                 
                 	HardwareStatus
                 	**type**\:  :py:class:`HwModuleSliceStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+                
+                .. attribute:: need_upg
+                
+                	NeedUpg
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: slice_id
                 
@@ -207,8 +232,11 @@ class HwModule(object):
                     self.client_port.parent = self
                     self.client_port.name = 'client_port'
                     self.client_rate = None
-                    self.dp_fpg_ver = None
+                    self.dp_fpga_fw_type = None
+                    self.dp_fpga_fw_ver = None
+                    self.encryption_supported = None
                     self.hardware_status = None
+                    self.need_upg = None
                     self.slice_id = None
                     self.trunk_rate = None
 
@@ -223,6 +251,13 @@ class HwModule(object):
                     	**type**\:  str
                     
                     	**range:** 0..64
+                    
+                    .. attribute:: if_index
+                    
+                    	IfIndex
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: trunk_port
                     
@@ -239,6 +274,7 @@ class HwModule(object):
                     def __init__(self):
                         self.parent = None
                         self.client_name = None
+                        self.if_index = None
                         self.trunk_port = YList()
                         self.trunk_port.parent = self
                         self.trunk_port.name = 'trunk_port'
@@ -247,6 +283,13 @@ class HwModule(object):
                     class TrunkPort(object):
                         """
                         trunk port
+                        
+                        .. attribute:: if_index
+                        
+                        	IfIndex
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percentage
                         
@@ -271,6 +314,7 @@ class HwModule(object):
 
                         def __init__(self):
                             self.parent = None
+                            self.if_index = None
                             self.percentage = None
                             self.trunk_name = None
 
@@ -288,6 +332,9 @@ class HwModule(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
+                            if self.if_index is not None:
+                                return True
+
                             if self.percentage is not None:
                                 return True
 
@@ -316,6 +363,9 @@ class HwModule(object):
                         if not self.is_config():
                             return False
                         if self.client_name is not None:
+                            return True
+
+                        if self.if_index is not None:
                             return True
 
                         if self.trunk_port is not None:
@@ -352,10 +402,19 @@ class HwModule(object):
                     if self.client_rate is not None:
                         return True
 
-                    if self.dp_fpg_ver is not None:
+                    if self.dp_fpga_fw_type is not None:
+                        return True
+
+                    if self.dp_fpga_fw_ver is not None:
+                        return True
+
+                    if self.encryption_supported is not None:
                         return True
 
                     if self.hardware_status is not None:
+                        return True
+
+                    if self.need_upg is not None:
                         return True
 
                     if self.slice_id is not None:
@@ -464,17 +523,36 @@ class HwModule(object):
             
             	**range:** 0..4294967295
             
-            .. attribute:: dp_fpg_ver
+            .. attribute:: dp_fpga_fw_type
             
-            	DpFpgVer
+            	DpFpgaFwType
             	**type**\:  str
             
-            	**range:** 0..16
+            	**range:** 0..10
+            
+            .. attribute:: dp_fpga_fw_ver
+            
+            	DpFpgaFwVer
+            	**type**\:  str
+            
+            	**range:** 0..10
+            
+            .. attribute:: encryption_supported
+            
+            	EncryptionSupported
+            	**type**\:  bool
             
             .. attribute:: hardware_status
             
             	HardwareStatus
             	**type**\:  :py:class:`HwModuleSliceStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+            
+            .. attribute:: need_upg
+            
+            	NeedUpg
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             .. attribute:: slice_id
             
@@ -503,8 +581,11 @@ class HwModule(object):
                 self.client_port.parent = self
                 self.client_port.name = 'client_port'
                 self.client_rate = None
-                self.dp_fpg_ver = None
+                self.dp_fpga_fw_type = None
+                self.dp_fpga_fw_ver = None
+                self.encryption_supported = None
                 self.hardware_status = None
+                self.need_upg = None
                 self.slice_id = None
                 self.trunk_rate = None
 
@@ -519,6 +600,13 @@ class HwModule(object):
                 	**type**\:  str
                 
                 	**range:** 0..64
+                
+                .. attribute:: if_index
+                
+                	IfIndex
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
                 
                 .. attribute:: trunk_port
                 
@@ -535,6 +623,7 @@ class HwModule(object):
                 def __init__(self):
                     self.parent = None
                     self.client_name = None
+                    self.if_index = None
                     self.trunk_port = YList()
                     self.trunk_port.parent = self
                     self.trunk_port.name = 'trunk_port'
@@ -543,6 +632,13 @@ class HwModule(object):
                 class TrunkPort(object):
                     """
                     trunk port
+                    
+                    .. attribute:: if_index
+                    
+                    	IfIndex
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: percentage
                     
@@ -567,6 +663,7 @@ class HwModule(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.if_index = None
                         self.percentage = None
                         self.trunk_name = None
 
@@ -582,6 +679,9 @@ class HwModule(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.if_index is not None:
+                            return True
+
                         if self.percentage is not None:
                             return True
 
@@ -608,6 +708,9 @@ class HwModule(object):
                     if not self.is_config():
                         return False
                     if self.client_name is not None:
+                        return True
+
+                    if self.if_index is not None:
                         return True
 
                     if self.trunk_port is not None:
@@ -642,10 +745,19 @@ class HwModule(object):
                 if self.client_rate is not None:
                     return True
 
-                if self.dp_fpg_ver is not None:
+                if self.dp_fpga_fw_type is not None:
+                    return True
+
+                if self.dp_fpga_fw_ver is not None:
+                    return True
+
+                if self.encryption_supported is not None:
                     return True
 
                 if self.hardware_status is not None:
+                    return True
+
+                if self.need_upg is not None:
                     return True
 
                 if self.slice_id is not None:

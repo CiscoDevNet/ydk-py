@@ -66,31 +66,31 @@ _meta_table = {
                 'args',
                 'Cisco-IOS-XR-ifmgr-cfg', False),
             _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
-                [(1, 45)], [], 
+                [('1', '45')], [], 
                 '''                Decay half life (in minutes)
                 ''',
                 'half_life',
                 'Cisco-IOS-XR-ifmgr-cfg', False),
             _MetaInfoClassMember('restart-penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 20000)], [], 
+                [('0', '20000')], [], 
                 '''                Restart penalty
                 ''',
                 'restart_penalty',
                 'Cisco-IOS-XR-ifmgr-cfg', False),
             _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 20000)], [], 
+                [('1', '20000')], [], 
                 '''                Reuse threshold
                 ''',
                 'reuse_threshold',
                 'Cisco-IOS-XR-ifmgr-cfg', False),
             _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 20000)], [], 
+                [('1', '20000')], [], 
                 '''                Suppress threshold
                 ''',
                 'suppress_threshold',
                 'Cisco-IOS-XR-ifmgr-cfg', False),
             _MetaInfoClassMember('suppress-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                Max suppress time (in minutes)
                 ''',
                 'suppress_time',
@@ -114,7 +114,7 @@ _meta_table = {
                 'owner',
                 'Cisco-IOS-XR-ifmgr-cfg', True),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(64, 65535)], [], 
+                [('64', '65535')], [], 
                 '''                The MTU value
                 ''',
                 'mtu',
@@ -148,7 +148,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('capsulation-options', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                The options for this capsulation, usually '0'
                 ''',
                 'capsulation_options',
@@ -166,6 +166,75 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit',
+            False, 
+            [
+            _MetaInfoClassMember('pid', REFERENCE_ENUM_CLASS, 'PermitPluggablePidEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg', 'PermitPluggablePidEnum', 
+                [], [], 
+                '''                Permit pluggable PID (Product ID) all
+                ''',
+                'pid',
+                'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', False),
+            _MetaInfoClassMember('type', REFERENCE_ENUM_CLASS, 'PermitPluggableEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg', 'PermitPluggableEnum', 
+                [], [], 
+                '''                Permit pluggable type all
+                ''',
+                'type',
+                'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', False),
+            ],
+            'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg',
+            'permit',
+            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-lc-ethctrl-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver',
+            False, 
+            [
+            _MetaInfoClassMember('permit', REFERENCE_CLASS, 'Permit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit', 
+                [], [], 
+                '''                Permit
+                ''',
+                'permit',
+                'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', False),
+            ],
+            'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg',
+            'transceiver',
+            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-lc-ethctrl-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.EthernetControl' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.EthernetControl',
+            False, 
+            [
+            _MetaInfoClassMember('small-frame-padding', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable small frame padding on an interface
+                ''',
+                'small_frame_padding',
+                'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', False),
+            _MetaInfoClassMember('transceiver', REFERENCE_CLASS, 'Transceiver' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver', 
+                [], [], 
+                '''                Transceiver
+                ''',
+                'transceiver',
+                'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', False),
+            _MetaInfoClassMember('transport-mode', REFERENCE_ENUM_CLASS, 'EtherCtrlTransportModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg', 'EtherCtrlTransportModeEnum', 
+                [], [], 
+                '''                Set the transport mode on an interface
+                ''',
+                'transport_mode',
+                'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', False),
+            ],
+            'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg',
+            'ethernet-control',
+            _yang_ns._namespaces['Cisco-IOS-XR-asr9k-lc-ethctrl-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.PseudowireEther' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PseudowireEther',
             False, 
@@ -177,7 +246,7 @@ _meta_table = {
                 'generic_interface_list',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('l2-overhead', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                PW Ether L2 overhead requirement
                 ''',
                 'l2_overhead',
@@ -200,7 +269,7 @@ _meta_table = {
                 'generic_interface_list',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
             _MetaInfoClassMember('l2-overhead', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                L2 overhead size in bytes
                 ''',
                 'l2_overhead',
@@ -217,13 +286,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cell-packing-timer-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3)], [], 
+                [('1', '3')], [], 
                 '''                Which cell packing timer to use
                 ''',
                 'cell_packing_timer_id',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('maximum-cells-packed', ATTRIBUTE, 'int' , None, None, 
-                [(2, 255)], [], 
+                [('2', '255')], [], 
                 '''                Maximum number of cells to be packed in a
                 packet
                 ''',
@@ -271,7 +340,7 @@ _meta_table = {
                 'mode',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('mpls-exp-bits-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                The value to set the MPLS Exp bits to within
                 the PW.This value may be specified if the mode
                 is forward or tunnel and must not be specified
@@ -380,7 +449,7 @@ _meta_table = {
                 'attachment',
                 'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
             _MetaInfoClassMember('mirror-first', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
+                [('1', '10000')], [], 
                 '''                Mirror a specified number of bytes from start of
                 packet
                 ''',
@@ -417,6 +486,366 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output.ServicePolicy',
+            False, 
+            [
+            _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Name of policy-map
+                ''',
+                'service_policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', True),
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
+                [], [], 
+                '''                Turn off L2 or L3 accounting.
+                ''',
+                'account_type',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('l1-user-defined', ATTRIBUTE, 'int' , None, None, 
+                [('-63', '63')], [], 
+                '''                User specified value
+                ''',
+                'l1_user_defined',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('resource-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '3')], [], 
+                '''                Resource ID value
+                ''',
+                'resource_id',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('service-fragment-parent-policy', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                service-fragment-parent-policy
+                ''',
+                'service_fragment_parent_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('subscriber-parent-policy', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE if service-policy applied on svlan.
+                ''',
+                'subscriber_parent_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'service-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output',
+            False, 
+            [
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output.ServicePolicy', 
+                [], [], 
+                '''                Service policy details
+                ''',
+                'service_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'output',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input.ServicePolicy',
+            False, 
+            [
+            _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Name of policy-map
+                ''',
+                'service_policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', True),
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
+                [], [], 
+                '''                Turn off L2 or L3 accounting.
+                ''',
+                'account_type',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('l1-user-defined', ATTRIBUTE, 'int' , None, None, 
+                [('-63', '63')], [], 
+                '''                User specified value
+                ''',
+                'l1_user_defined',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('resource-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '3')], [], 
+                '''                Resource ID value
+                ''',
+                'resource_id',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('service-fragment-parent-policy', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                service-fragment-parent-policy
+                ''',
+                'service_fragment_parent_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('subscriber-parent-policy', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE if service-policy applied on svlan.
+                ''',
+                'subscriber_parent_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'service-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input',
+            False, 
+            [
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input.ServicePolicy', 
+                [], [], 
+                '''                Service policy details
+                ''',
+                'service_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'input',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input', 
+                [], [], 
+                '''                Ingress service policy
+                ''',
+                'input',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output', 
+                [], [], 
+                '''                Egress service policy
+                ''',
+                'output',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'qos',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac',
+            False, 
+            [
+            _MetaInfoClassMember('qos', REFERENCE_CLASS, 'Qos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos', 
+                [], [], 
+                '''                Interface QOS configuration
+                ''',
+                'qos',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'pac',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output.ServicePolicy',
+            False, 
+            [
+            _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Name of policy-map
+                ''',
+                'service_policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', True),
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
+                [], [], 
+                '''                Turn off L2 or L3 accounting.
+                ''',
+                'account_type',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('l1-user-defined', ATTRIBUTE, 'int' , None, None, 
+                [('-63', '63')], [], 
+                '''                User specified value
+                ''',
+                'l1_user_defined',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('resource-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '3')], [], 
+                '''                Resource ID value
+                ''',
+                'resource_id',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('service-fragment-parent-policy', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                service-fragment-parent-policy
+                ''',
+                'service_fragment_parent_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('subscriber-parent-policy', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE if service-policy applied on svlan.
+                ''',
+                'subscriber_parent_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'service-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output',
+            False, 
+            [
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output.ServicePolicy', 
+                [], [], 
+                '''                Service policy details
+                ''',
+                'service_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'output',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input.ServicePolicy',
+            False, 
+            [
+            _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Name of policy-map
+                ''',
+                'service_policy_name',
+                'Cisco-IOS-XR-qos-ma-cfg', True),
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
+                [], [], 
+                '''                Turn off L2 or L3 accounting.
+                ''',
+                'account_type',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('l1-user-defined', ATTRIBUTE, 'int' , None, None, 
+                [('-63', '63')], [], 
+                '''                User specified value
+                ''',
+                'l1_user_defined',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('resource-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '3')], [], 
+                '''                Resource ID value
+                ''',
+                'resource_id',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('service-fragment-parent-policy', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                service-fragment-parent-policy
+                ''',
+                'service_fragment_parent_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of the SPI
+                ''',
+                'spi_name',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('subscriber-parent-policy', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                TRUE if service-policy applied on svlan.
+                ''',
+                'subscriber_parent_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'service-policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input',
+            False, 
+            [
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input.ServicePolicy', 
+                [], [], 
+                '''                Service policy details
+                ''',
+                'service_policy',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'input',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos',
+            False, 
+            [
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input', 
+                [], [], 
+                '''                Ingress service policy
+                ''',
+                'input',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output', 
+                [], [], 
+                '''                Egress service policy
+                ''',
+                'output',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'qos',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac',
+            False, 
+            [
+            _MetaInfoClassMember('qos', REFERENCE_CLASS, 'Qos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos', 
+                [], [], 
+                '''                Interface QOS configuration
+                ''',
+                'qos',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            ],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'cac',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.L2Transport' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.L2Transport',
             False, 
@@ -428,6 +857,12 @@ _meta_table = {
                 ''',
                 'atm_port_mode_parameters',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
+            _MetaInfoClassMember('cac', REFERENCE_CLASS, 'Cac' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac', 
+                [], [], 
+                '''                Connection Attachment Circuit configuration.
+                ''',
+                'cac',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                This object is only valid on physical
@@ -455,6 +890,12 @@ _meta_table = {
                 ''',
                 'l2_protocols',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
+            _MetaInfoClassMember('pac', REFERENCE_CLASS, 'Pac' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac', 
+                [], [], 
+                '''                Port Attachment Circuit configuration.
+                ''',
+                'pac',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('propagate-remote-status', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable propagation of the remote
@@ -482,19 +923,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('burst-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8192)], [], 
+                [('1', '8192')], [], 
                 '''                Burst size in cells
                 ''',
                 'burst_size',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(8, 622080)], [], 
+                [('8', '622080')], [], 
                 '''                Peak cell rate (kbps)
                 ''',
                 'peak_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(8, 622080)], [], 
+                [('8', '622080')], [], 
                 '''                Sustained cell rate (kbps)
                 ''',
                 'sustained_cell_rate',
@@ -517,13 +958,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cell-packing-timer-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3)], [], 
+                [('1', '3')], [], 
                 '''                Which cell packing timer to use
                 ''',
                 'cell_packing_timer_id',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('maximum-cells-packed', ATTRIBUTE, 'int' , None, None, 
-                [(2, 255)], [], 
+                [('2', '255')], [], 
                 '''                Maximum number of cells to be packed in a
                 packet
                 ''',
@@ -541,7 +982,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4095)], [], 
+                [('0', '4095')], [], 
                 '''                VPI value
                 ''',
                 'vpi',
@@ -606,19 +1047,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('burst-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8192)], [], 
+                [('1', '8192')], [], 
                 '''                Burst size in cells
                 ''',
                 'burst_size',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(8, 622080)], [], 
+                [('8', '622080')], [], 
                 '''                Peak cell rate (kbps)
                 ''',
                 'peak_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(8, 622080)], [], 
+                [('8', '622080')], [], 
                 '''                Sustained cell rate (kbps)
                 ''',
                 'sustained_cell_rate',
@@ -641,7 +1082,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ais-transmit-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60)], [], 
+                [('0', '60')], [], 
                 '''                AIS cell transmit rate (1 per x seconds)
                 ''',
                 'ais_transmit_rate',
@@ -664,13 +1105,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cell-packing-timer-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3)], [], 
+                [('1', '3')], [], 
                 '''                Which cell packing timer to use
                 ''',
                 'cell_packing_timer_id',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('maximum-cells-packed', ATTRIBUTE, 'int' , None, None, 
-                [(2, 255)], [], 
+                [('2', '255')], [], 
                 '''                Maximum number of cells to be packed in a
                 packet
                 ''',
@@ -694,13 +1135,13 @@ _meta_table = {
                 'pv_ctype',
                 'Cisco-IOS-XR-atm-vcm-cfg', True),
             _MetaInfoClassMember('vci', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                VCI value
                 ''',
                 'vci',
                 'Cisco-IOS-XR-atm-vcm-cfg', True),
             _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4095)], [], 
+                [('0', '4095')], [], 
                 '''                VPI value
                 ''',
                 'vpi',
@@ -783,19 +1224,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cell-packing-timer1', ATTRIBUTE, 'int' , None, None, 
-                [(50, 4095)], [], 
+                [('50', '4095')], [], 
                 '''                Cell-packing timer1 (micro seconds)
                 ''',
                 'cell_packing_timer1',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('cell-packing-timer2', ATTRIBUTE, 'int' , None, None, 
-                [(50, 4095)], [], 
+                [('50', '4095')], [], 
                 '''                Cell-packing timer2 (micro seconds)
                 ''',
                 'cell_packing_timer2',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('cell-packing-timer3', ATTRIBUTE, 'int' , None, None, 
-                [(50, 4095)], [], 
+                [('50', '4095')], [], 
                 '''                Cell-packing timer3 (micro seconds)
                 ''',
                 'cell_packing_timer3',
@@ -812,19 +1253,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('burst-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8192)], [], 
+                [('1', '8192')], [], 
                 '''                Burst size in cells
                 ''',
                 'burst_size',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('peak-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(8, 622080)], [], 
+                [('8', '622080')], [], 
                 '''                Peak cell rate (kbps)
                 ''',
                 'peak_cell_rate',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('sustained-cell-rate', ATTRIBUTE, 'int' , None, None, 
-                [(8, 622080)], [], 
+                [('8', '622080')], [], 
                 '''                Sustained cell rate (kbps)
                 ''',
                 'sustained_cell_rate',
@@ -847,7 +1288,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vpi', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4095)], [], 
+                [('0', '4095')], [], 
                 '''                VPI value
                 ''',
                 'vpi',
@@ -948,12 +1389,81 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6.Ipv6Timers' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6.Ipv6Timers',
+            False, 
+            [
+            _MetaInfoClassMember('ipv6-nbor-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
+                [('60', '3600')], [], 
+                '''                IPv6 Timer associated with aggressiveness on
+                BFD session peer being unconfigured
+                ''',
+                'ipv6_nbor_unconfig_timer',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('ipv6-start-timer', ATTRIBUTE, 'int' , None, None, 
+                [('60', '3600')], [], 
+                '''                IPv6 Timer associated with aggressiveness on
+                BFD session creation
+                ''',
+                'ipv6_start_timer',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            ],
+            'Cisco-IOS-XR-bundlemgr-cfg',
+            'ipv6-timers',
+            _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6',
+            False, 
+            [
+            _MetaInfoClassMember('ipv6-destination-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                IPv6 Destination address for BFD sessions
+                created by bundlemgr
+                ''',
+                'ipv6_destination_address',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('ipv6-detection-multiplier', ATTRIBUTE, 'int' , None, None, 
+                [('2', '50')], [], 
+                '''                IPv6 Detection multiplier for BFD sessions
+                created by bundlemgr
+                ''',
+                'ipv6_detection_multiplier',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('ipv6-fast-detect', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configure to enable BFD over bundle members
+                ''',
+                'ipv6_fast_detect',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('ipv6-interval', ATTRIBUTE, 'int' , None, None, 
+                [('3', '30000')], [], 
+                '''                IPV6 Hello interval for BFD sessions created
+                by bundlemgr
+                ''',
+                'ipv6_interval',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('ipv6-timers', REFERENCE_CLASS, 'Ipv6Timers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6.Ipv6Timers', 
+                [], [], 
+                '''                Timers associated with BFDoBM
+                ''',
+                'ipv6_timers',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            ],
+            'Cisco-IOS-XR-bundlemgr-cfg',
+            'ipv6',
+            _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Echo' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Echo',
             False, 
             [
             _MetaInfoClassMember('min-interval', ATTRIBUTE, 'int' , None, None, 
-                [(15, 2000)], [], 
+                [('15', '2000')], [], 
                 '''                Configure echo min-interval for bundle
                 interface
                 ''',
@@ -971,14 +1481,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nbor-unconfig-timer', ATTRIBUTE, 'int' , None, None, 
-                [(60, 3600)], [], 
+                [('60', '3600')], [], 
                 '''                Timer associated with aggressiveness on BFD
                 session peer being unconfigured
                 ''',
                 'nbor_unconfig_timer',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('start-timer', ATTRIBUTE, 'int' , None, None, 
-                [(60, 3600)], [], 
+                [('60', '3600')], [], 
                 '''                Timer associated with aggressiveness on BFD
                 session creation
                 ''',
@@ -1003,7 +1513,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 50)], [], 
+                [('2', '50')], [], 
                 '''                Detection multiplier for BFD sessions created
                 by bundlemgr
                 ''',
@@ -1022,7 +1532,7 @@ _meta_table = {
                 'fast_detect',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Hello interval for BFD sessions created by
                 bundlemgr
                 ''',
@@ -1051,6 +1561,13 @@ _meta_table = {
                 family
                 ''',
                 'ipv4',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('ipv6', REFERENCE_CLASS, 'Ipv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6', 
+                [], [], 
+                '''                Configuration of BFDoBM for IPv6 address
+                family
+                ''',
+                'ipv6',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             ],
             'Cisco-IOS-XR-bundlemgr-cfg',
@@ -1094,7 +1611,7 @@ _meta_table = {
                 'hash_type',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('hash-value', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                The loadbalance hash value selected. For
                 non-EFP Value methods, this value must be set
                 to 1.
@@ -1119,7 +1636,7 @@ _meta_table = {
                 'hash_function',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('localize-links', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Set thresholds for forwarding bundle traffic
                 within a rack
                 ''',
@@ -1137,14 +1654,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Bandwidth (in kbps) needed to bring up a
                 bundle
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('links', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Number of active links needed to bring up a
                 bundle
                 ''',
@@ -1162,7 +1679,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('links', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Number of active links
                 ''',
                 'links',
@@ -1207,6 +1724,13 @@ _meta_table = {
                 ''',
                 'bundle_load_balancing',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('lacp-delay', ATTRIBUTE, 'int' , None, None, 
+                [('1000', '15000')], [], 
+                '''                Set the lacp-delay timeout for members of this
+                bundle
+                ''',
+                'lacp_delay',
+                'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('maximum-active', REFERENCE_CLASS, 'MaximumActive' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Bundle.MaximumActive', 
                 [], [], 
                 '''                Set a limit on the number of links that can be
@@ -1228,7 +1752,7 @@ _meta_table = {
                 'shutdown',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('wait-while', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2000)], [], 
+                [('0', '2000')], [], 
                 '''                Set the wait-while timeout for members of this
                 bundle
                 ''',
@@ -1269,21 +1793,21 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('actor-churn', ATTRIBUTE, 'int' , None, None, 
-                [(0, 120)], [], 
+                [('0', '120')], [], 
                 '''                The time in milliseconds for which to run the
                 timer
                 ''',
                 'actor_churn',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('partner-churn', ATTRIBUTE, 'int' , None, None, 
-                [(0, 120)], [], 
+                [('0', '120')], [], 
                 '''                Set the timeout to use before declaring
                 partner churn
                 ''',
                 'partner_churn',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('rx-default', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3000)], [], 
+                [('0', '3000')], [], 
                 '''                Set the timeout between expired and defaulted
                 states
                 ''',
@@ -1314,7 +1838,7 @@ _meta_table = {
                 'cisco_extensions',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('collector-max-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Collector Max Delay value to signal to the LACP
                 partner
                 ''',
@@ -1351,7 +1875,7 @@ _meta_table = {
                         'period_short',
                         'Cisco-IOS-XR-bundlemgr-cfg', False),
                     _MetaInfoClassMember('period-short', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 1000)], [], 
+                        [('1', '1000')], [], 
                         '''                        LACP period to request from the partner (LACP
                         standard short period, or rate in milliseconds
                         for use with Cisco-specific extensions).
@@ -1361,7 +1885,7 @@ _meta_table = {
                         'Cisco-IOS-XR-bundlemgr-cfg', False),
                 ]),
             _MetaInfoClassMember('suppress-flaps', ATTRIBUTE, 'int' , None, None, 
-                [(100, 65535)], [], 
+                [('100', '65535')], [], 
                 '''                Suppress flaps on switchover for the specified
                 period (in ms)
                 ''',
@@ -1374,7 +1898,7 @@ _meta_table = {
                 'system_mac',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                System priority for this bundle. Lower value is
                 higher priority.
                 ''',
@@ -1398,7 +1922,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bundle-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Identifier of the bundle to add the port to.
                 ''',
                 'bundle_id',
@@ -1427,7 +1951,7 @@ _meta_table = {
                 'id',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Priority for this port. Lower value is higher
                 priority.
                 ''',
@@ -1445,7 +1969,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The bandwidth (in kbps) below which to switch
                 to the peer if it has more bandwidth available
                 . Only applicable if maximizing by bandwidth.
@@ -1454,7 +1978,7 @@ _meta_table = {
                 'bandwidth_threshold',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('link-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 64)], [], 
+                [('0', '64')], [], 
                 '''                The number of links below which to switch to
                 the peer if it has more links available. Only
                 applicable if maximizing by links. If 0, no
@@ -1480,7 +2004,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('iccp-group', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Specify an ICCP Group in which this bundle
                 should operate
                 ''',
@@ -1494,14 +2018,14 @@ _meta_table = {
                 'maximize',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('port-priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                The LACP port priority (lower value is higher
                 priority)
                 ''',
                 'port_priority',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('recovery-delay', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Set the delay before the bundle becomes active
                 after recovery from failure
                 ''',
@@ -1549,7 +2073,7 @@ _meta_table = {
                 'rx_threshold_type',
                 'Cisco-IOS-XR-controller-optics-cfg', True),
             _MetaInfoClassMember('rx-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(-400, 300)], [], 
+                [('-400', '300')], [], 
                 '''                Select power level (in units of 0.1dBm)
                 ''',
                 'rx_threshold',
@@ -1583,43 +2107,43 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 17)], [], 
+                [('1', '17')], [], 
                 '''                Set index
                 ''',
                 'set_id',
                 'Cisco-IOS-XR-controller-optics-cfg', True),
             _MetaInfoClassMember('srlg1', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                none
                 ''',
                 'srlg1',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('srlg2', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                none
                 ''',
                 'srlg2',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('srlg3', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                none
                 ''',
                 'srlg3',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('srlg4', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                none
                 ''',
                 'srlg4',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('srlg5', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                none
                 ''',
                 'srlg5',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('srlg6', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                none
                 ''',
                 'srlg6',
@@ -1666,7 +2190,7 @@ _meta_table = {
                 'param_type',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('param-value', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1961000)], [], 
+                [('1', '1961000')], [], 
                 '''                Type ITU-Channel Range 1-100, Frequency Range
                 19115-19610, Wavelength Range 1528773-1568362,
                 100MHz Frequency Range 1911500-1961000
@@ -1691,7 +2215,7 @@ _meta_table = {
                 'tx_threshold_type',
                 'Cisco-IOS-XR-controller-optics-cfg', True),
             _MetaInfoClassMember('tx-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(-400, 300)], [], 
+                [('-400', '300')], [], 
                 '''                Select power level (in units of 0.1dBm)
                 ''',
                 'tx_threshold',
@@ -1724,29 +2248,35 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Optics',
             False, 
             [
+            _MetaInfoClassMember('breakout', ATTRIBUTE, 'str' , None, None, 
+                [], ['(4x10)|(4x25)'], 
+                '''                breakout mode configuration
+                ''',
+                'breakout',
+                'Cisco-IOS-XR-optics-driver-cfg', False),
             _MetaInfoClassMember('optics-cd-high-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(-70000, 70000)], [], 
+                [('-70000', '70000')], [], 
                 '''                Select chromatic dispersion high threshold(in
                 units of ps/nm)
                 ''',
                 'optics_cd_high_threshold',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('optics-cd-low-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(-70000, 70000)], [], 
+                [('-70000', '70000')], [], 
                 '''                Select chromatic dispersion low threshold(in
                 units of ps/nm)
                 ''',
                 'optics_cd_low_threshold',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('optics-cd-max', ATTRIBUTE, 'int' , None, None, 
-                [(-70000, 70000)], [], 
+                [('-70000', '70000')], [], 
                 '''                Select max chromatic dispersion (in units of
                 ps/nm)
                 ''',
                 'optics_cd_max',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('optics-cd-min', ATTRIBUTE, 'int' , None, None, 
-                [(-70000, 70000)], [], 
+                [('-70000', '70000')], [], 
                 '''                Select min chromatic dispersion (in units of
                 ps/nm)
                 ''',
@@ -1759,7 +2289,7 @@ _meta_table = {
                 'optics_description',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('optics-dgd-high-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 18000)], [], 
+                [('0', '18000')], [], 
                 '''                Select DGD high threshold(in units of 0.1ps)
                 ''',
                 'optics_dgd_high_threshold',
@@ -1770,8 +2300,14 @@ _meta_table = {
                 ''',
                 'optics_dwdm_carrier',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
+            _MetaInfoClassMember('optics-fec', REFERENCE_ENUM_CLASS, 'OpticsFecEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_cfg', 'OpticsFecEnum', 
+                [], [], 
+                '''                Configure optics fec 
+                ''',
+                'optics_fec',
+                'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('optics-lbc-high-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                Select power level (in units of percentage)
                 ''',
                 'optics_lbc_high_threshold',
@@ -1789,7 +2325,7 @@ _meta_table = {
                 'optics_network_srlgs',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('optics-osnr-low-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4000)], [], 
+                [('0', '4000')], [], 
                 '''                Select OSNR low threshold(in units of 0.01db)
                 ''',
                 'optics_osnr_low_threshold',
@@ -1802,7 +2338,7 @@ _meta_table = {
                 'optics_performance_monitoring',
                 'Cisco-IOS-XR-controller-optics-cfg', False),
             _MetaInfoClassMember('optics-transmit-power', ATTRIBUTE, 'int' , None, None, 
-                [(-190, 15)], [], 
+                [('-190', '15')], [], 
                 '''                Select power level (in units of 0.1dBm)
                 ''',
                 'optics_transmit_power',
@@ -1918,7 +2454,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('coefficient', ATTRIBUTE, 'int' , None, None, 
-                [(1, 9)], [], 
+                [('1', '9')], [], 
                 '''                Bit error rate coefficient
                 ''',
                 'coefficient',
@@ -1930,7 +2466,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('power', ATTRIBUTE, 'int' , None, None, 
-                [(3, 9)], [], 
+                [('3', '9')], [], 
                 '''                Bit error rate power
                 ''',
                 'power',
@@ -1953,7 +2489,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(2000, 10000)], [], 
+                [('2000', '10000')], [], 
                 '''                Integration window for FRR trigger in MS
                 ''',
                 'value',
@@ -1976,7 +2512,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(10, 10000)], [], 
+                [('10', '10000')], [], 
                 '''                Integration window for FRR trigger in MS
                 ''',
                 'value',
@@ -1993,7 +2529,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('coefficient', ATTRIBUTE, 'int' , None, None, 
-                [(1, 9)], [], 
+                [('1', '9')], [], 
                 '''                Bit error rate coefficient
                 ''',
                 'coefficient',
@@ -2005,7 +2541,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('power', ATTRIBUTE, 'int' , None, None, 
-                [(4, 10)], [], 
+                [('4', '10')], [], 
                 '''                Bit error rate power
                 ''',
                 'power',
@@ -2063,43 +2599,43 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('set-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 17)], [], 
+                [('1', '17')], [], 
                 '''                Set index
                 ''',
                 'set_id',
                 'Cisco-IOS-XR-controller-otu-cfg', True),
             _MetaInfoClassMember('srlg1', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                First value for Network SRLG
                 ''',
                 'srlg1',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('srlg2', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                Second value for Network SRLG
                 ''',
                 'srlg2',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('srlg3', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                Third value for Network SRLG
                 ''',
                 'srlg3',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('srlg4', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                Forth value for Network SRLG
                 ''',
                 'srlg4',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('srlg5', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                Fifth value for Network SRLG
                 ''',
                 'srlg5',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('srlg6', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967294)], [], 
+                [('0', '4294967294')], [], 
                 '''                Sixth value for Network SRLG
                 ''',
                 'srlg6',
@@ -2365,7 +2901,7 @@ _meta_table = {
                 'proactive_protection',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('sd', ATTRIBUTE, 'int' , None, None, 
-                [(5, 9)], [], 
+                [('5', '9')], [], 
                 '''                Signal degrade threshold
                 ''',
                 'sd',
@@ -2377,7 +2913,7 @@ _meta_table = {
                 'secondary_admin_state',
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('sf', ATTRIBUTE, 'int' , None, None, 
-                [(5, 9)], [], 
+                [('5', '9')], [], 
                 '''                Signal failure threshold
                 ''',
                 'sf',
@@ -2386,6 +2922,46 @@ _meta_table = {
             'Cisco-IOS-XR-controller-otu-cfg',
             'otu',
             _yang_ns._namespaces['Cisco-IOS-XR-controller-otu-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Macsec.PskKeyChain' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Macsec.PskKeyChain',
+            False, 
+            [
+            _MetaInfoClassMember('key-chain-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of KeyChainName
+                ''',
+                'key_chain_name',
+                'Cisco-IOS-XR-crypto-macsec-mka-if-cfg', False),
+            _MetaInfoClassMember('policy-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Name of Policy
+                ''',
+                'policy_name',
+                'Cisco-IOS-XR-crypto-macsec-mka-if-cfg', False),
+            ],
+            'Cisco-IOS-XR-crypto-macsec-mka-if-cfg',
+            'psk-key-chain',
+            _yang_ns._namespaces['Cisco-IOS-XR-crypto-macsec-mka-if-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Macsec' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Macsec',
+            False, 
+            [
+            _MetaInfoClassMember('psk-key-chain', REFERENCE_CLASS, 'PskKeyChain' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Macsec.PskKeyChain', 
+                [], [], 
+                '''                MACSec MKA Configuration on Interface
+                ''',
+                'psk_key_chain',
+                'Cisco-IOS-XR-crypto-macsec-mka-if-cfg', False),
+            ],
+            'Cisco-IOS-XR-crypto-macsec-mka-if-cfg',
+            'macsec',
+            _yang_ns._namespaces['Cisco-IOS-XR-crypto-macsec-mka-if-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
@@ -2401,7 +2977,7 @@ _meta_table = {
                 'signal_fail_report_disable',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
             _MetaInfoClassMember('signal-fail-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(4, 12)], [], 
+                [('4', '12')], [], 
                 '''                Set the Signal Fail bit error rate threshold
                 on an interface to a value of 10e-x, where x
                 is the value passed in here
@@ -2435,7 +3011,7 @@ _meta_table = {
                 'signal_degrade_report',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
             _MetaInfoClassMember('signal-degrade-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(3, 12)], [], 
+                [('3', '12')], [], 
                 '''                Set the Signal Degrade bit error rate
                 threshold on an interface to a value of 10e-x,
                 where x is the value passed in here
@@ -2454,13 +3030,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('carrier-delay-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                Carrier Delay (down) in msecs
                 ''',
                 'carrier_delay_down',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
             _MetaInfoClassMember('carrier-delay-up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 2147483647)], [], 
+                [('0', '2147483647')], [], 
                 '''                Carrier Delay (up) in msecs
                 ''',
                 'carrier_delay_up',
@@ -2519,6 +3095,12 @@ _meta_table = {
                 ''',
                 'loopback',
                 'Cisco-IOS-XR-drivers-media-eth-cfg', False),
+            _MetaInfoClassMember('priority-flow-control', REFERENCE_ENUM_CLASS, 'EthernetPfcEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_cfg', 'EthernetPfcEnum', 
+                [], [], 
+                '''                Configure priority flow-control mode
+                ''',
+                'priority_flow_control',
+                'Cisco-IOS-XR-drivers-media-eth-cfg', False),
             _MetaInfoClassMember('signal-degrade-bit-error-rate', REFERENCE_CLASS, 'SignalDegradeBitErrorRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalDegradeBitErrorRate', 
                 [], [], 
                 '''                Signal Degrade Bit Error Rate handling options
@@ -2544,12 +3126,794 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs.NetworkSrlg' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs.NetworkSrlg',
+            False, 
+            [
+            _MetaInfoClassMember('set-id', ATTRIBUTE, 'int' , None, None, 
+                [('1', '17')], [], 
+                '''                Set index
+                ''',
+                'set_id',
+                'Cisco-IOS-XR-dwdm-ui-cfg', True),
+            _MetaInfoClassMember('srlg1', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967294')], [], 
+                '''                none
+                ''',
+                'srlg1',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('srlg2', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967294')], [], 
+                '''                none
+                ''',
+                'srlg2',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('srlg3', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967294')], [], 
+                '''                none
+                ''',
+                'srlg3',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('srlg4', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967294')], [], 
+                '''                none
+                ''',
+                'srlg4',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('srlg5', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967294')], [], 
+                '''                none
+                ''',
+                'srlg5',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('srlg6', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967294')], [], 
+                '''                none
+                ''',
+                'srlg6',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'network-srlg',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs',
+            False, 
+            [
+            _MetaInfoClassMember('network-srlg', REFERENCE_LIST, 'NetworkSrlg' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs.NetworkSrlg', 
+                [], [], 
+                '''                Configure network srlg sets
+                ''',
+                'network_srlg',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'network-srlgs',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports.OduReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports.OduReport',
+            False, 
+            [
+            _MetaInfoClassMember('alarm', REFERENCE_ENUM_CLASS, 'OduAlarmEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'OduAlarmEnum', 
+                [], [], 
+                '''                ODU alarm type
+                ''',
+                'alarm',
+                'Cisco-IOS-XR-dwdm-ui-cfg', True),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'odu-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports',
+            False, 
+            [
+            _MetaInfoClassMember('odu-report', REFERENCE_LIST, 'OduReport' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports.OduReport', 
+                [], [], 
+                '''                none
+                ''',
+                'odu_report',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'odu-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds.OduThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds.OduThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('threshold', REFERENCE_ENUM_CLASS, 'OduThresholdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'OduThresholdEnum', 
+                [], [], 
+                '''                ODU Threshold type
+                ''',
+                'threshold',
+                'Cisco-IOS-XR-dwdm-ui-cfg', True),
+            _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('1', '9')], [], 
+                '''                Bit error rate (10 to the minus n)
+                ''',
+                'threshold_value',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'odu-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds',
+            False, 
+            [
+            _MetaInfoClassMember('odu-threshold', REFERENCE_LIST, 'OduThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds.OduThreshold', 
+                [], [], 
+                '''                none
+                ''',
+                'odu_threshold',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'odu-thresholds',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduExpectedTti' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduExpectedTti',
+            False, 
+            [
+            _MetaInfoClassMember('ascii-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                ASCII text (Max 64 characters)
+                ''',
+                'ascii_string',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('hex-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 128)], [], 
+                '''                Hex nibbles (Max 128- The string length
+                should be an even number)
+                ''',
+                'hex_string',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'ExpectedTtiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'ExpectedTtiEnum', 
+                [], [], 
+                '''                TTI string type (ascii or hex format)
+                ''',
+                'string_type',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'odu-expected-tti',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduTxTti' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduTxTti',
+            False, 
+            [
+            _MetaInfoClassMember('ascii-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                ASCII text (Max 64 characters)
+                ''',
+                'ascii_string',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('hex-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 128)], [], 
+                '''                Hex nibbles (Max 128- The string length
+                should be an even number)
+                ''',
+                'hex_string',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'TxTtiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'TxTtiEnum', 
+                [], [], 
+                '''                TTI string type (ascii or hex format)
+                ''',
+                'string_type',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'odu-tx-tti',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu',
+            False, 
+            [
+            _MetaInfoClassMember('odu-expected-tti', REFERENCE_CLASS, 'OduExpectedTti' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduExpectedTti', 
+                [], [], 
+                '''                Configure ODU Expected TTI value
+                ''',
+                'odu_expected_tti',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('odu-reports', REFERENCE_CLASS, 'OduReports' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports', 
+                [], [], 
+                '''                Configure ODU alarm reporting
+                ''',
+                'odu_reports',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('odu-thresholds', REFERENCE_CLASS, 'OduThresholds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds', 
+                [], [], 
+                '''                Configure ODU threshold value
+                ''',
+                'odu_thresholds',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('odu-tx-tti', REFERENCE_CLASS, 'OduTxTti' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduTxTti', 
+                [], [], 
+                '''                Configure ODU TTI value
+                ''',
+                'odu_tx_tti',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'odu',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuExpectedTti' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuExpectedTti',
+            False, 
+            [
+            _MetaInfoClassMember('ascii-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                ASCII text (Max 64 characters)
+                ''',
+                'ascii_string',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('hex-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 128)], [], 
+                '''                Hex nibbles (Max 128- The string length
+                should be an even number)
+                ''',
+                'hex_string',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'ExpectedTtiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'ExpectedTtiEnum', 
+                [], [], 
+                '''                TTI string type (ascii or hex format)
+                ''',
+                'string_type',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'otu-expected-tti',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds.OtuThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds.OtuThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('threshold', REFERENCE_ENUM_CLASS, 'OtuThresholdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'OtuThresholdEnum', 
+                [], [], 
+                '''                OTU Threshold type
+                ''',
+                'threshold',
+                'Cisco-IOS-XR-dwdm-ui-cfg', True),
+            _MetaInfoClassMember('threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('1', '9')], [], 
+                '''                Bit error rate (10 to the minus n)
+                ''',
+                'threshold_value',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'otu-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds',
+            False, 
+            [
+            _MetaInfoClassMember('otu-threshold', REFERENCE_LIST, 'OtuThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds.OtuThreshold', 
+                [], [], 
+                '''                none
+                ''',
+                'otu_threshold',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'otu-thresholds',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerWindow' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerWindow',
+            False, 
+            [
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '2')], [], 
+                '''                Just a Dummy for window for FRR revert in
+                MS
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
+                [('10', '10000')], [], 
+                '''                Integration window for FRR trigger in MS
+                ''',
+                'window',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'trigger-window',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('ber-base', ATTRIBUTE, 'int' , None, None, 
+                [('1', '9')], [], 
+                '''                Bit error rate base (x of xE-y)
+                ''',
+                'ber_base',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('ber-power', ATTRIBUTE, 'int' , None, None, 
+                [('3', '10')], [], 
+                '''                Bit error rate power (y of xE-y)
+                ''',
+                'ber_power',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'revert-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('ber-base', ATTRIBUTE, 'int' , None, None, 
+                [('1', '9')], [], 
+                '''                Bit error rate base (x of xE-y)
+                ''',
+                'ber_base',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('ber-power', ATTRIBUTE, 'int' , None, None, 
+                [('2', '9')], [], 
+                '''                Bit error rate power (y of xE-y)
+                ''',
+                'ber_power',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'trigger-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertWindow' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertWindow',
+            False, 
+            [
+            _MetaInfoClassMember('dummy', ATTRIBUTE, 'int' , None, None, 
+                [('0', '2')], [], 
+                '''                Just a Dummy for window for FRR revert in
+                MS
+                ''',
+                'dummy',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
+                [('500', '100000')], [], 
+                '''                Integration window for FRR revert in MS
+                ''',
+                'window',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'revert-window',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr',
+            False, 
+            [
+            _MetaInfoClassMember('revert-threshold', REFERENCE_CLASS, 'RevertThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertThreshold', 
+                [], [], 
+                '''                Configure proactive protection revert
+                threshold
+                ''',
+                'revert_threshold',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('revert-window', REFERENCE_CLASS, 'RevertWindow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertWindow', 
+                [], [], 
+                '''                Configure FRR revert window
+                ''',
+                'revert_window',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('trigger-threshold', REFERENCE_CLASS, 'TriggerThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerThreshold', 
+                [], [], 
+                '''                Configure proactive protection trigger
+                threshold
+                ''',
+                'trigger_threshold',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('trigger-window', REFERENCE_CLASS, 'TriggerWindow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerWindow', 
+                [], [], 
+                '''                Configure FRR trigger window
+                ''',
+                'trigger_window',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'frr',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports.OtuReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports.OtuReport',
+            False, 
+            [
+            _MetaInfoClassMember('alarm', REFERENCE_ENUM_CLASS, 'OtuAlarmEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'OtuAlarmEnum', 
+                [], [], 
+                '''                OTU alarm type
+                ''',
+                'alarm',
+                'Cisco-IOS-XR-dwdm-ui-cfg', True),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'otu-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports',
+            False, 
+            [
+            _MetaInfoClassMember('otu-report', REFERENCE_LIST, 'OtuReport' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports.OtuReport', 
+                [], [], 
+                '''                none
+                ''',
+                'otu_report',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'otu-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuTxTti' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuTxTti',
+            False, 
+            [
+            _MetaInfoClassMember('ascii-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                ASCII text (Max 64 characters)
+                ''',
+                'ascii_string',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('hex-string', ATTRIBUTE, 'str' , None, None, 
+                [(0, 128)], [], 
+                '''                Hex nibbles (Max 128- The string length
+                should be an even number)
+                ''',
+                'hex_string',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('string-type', REFERENCE_ENUM_CLASS, 'TxTtiEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'TxTtiEnum', 
+                [], [], 
+                '''                TTI string type (ascii or hex format)
+                ''',
+                'string_type',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'otu-tx-tti',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu',
+            False, 
+            [
+            _MetaInfoClassMember('frr', REFERENCE_CLASS, 'Frr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr', 
+                [], [], 
+                '''                Configure FRR thresholds and Window for
+                trigger and revert
+                ''',
+                'frr',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('otu-expected-tti', REFERENCE_CLASS, 'OtuExpectedTti' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuExpectedTti', 
+                [], [], 
+                '''                Configure OTU Expected TTI value
+                ''',
+                'otu_expected_tti',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('otu-reports', REFERENCE_CLASS, 'OtuReports' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports', 
+                [], [], 
+                '''                Configure OTU alarm reporting
+                ''',
+                'otu_reports',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('otu-thresholds', REFERENCE_CLASS, 'OtuThresholds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds', 
+                [], [], 
+                '''                Configure OTU threshold value
+                ''',
+                'otu_thresholds',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('otu-tx-tti', REFERENCE_CLASS, 'OtuTxTti' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuTxTti', 
+                [], [], 
+                '''                Configure OTU TTI value
+                ''',
+                'otu_tx_tti',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'otu',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Prbs' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Prbs',
+            False, 
+            [
+            _MetaInfoClassMember('prbs-mode', REFERENCE_ENUM_CLASS, 'PrbsModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'PrbsModeEnum', 
+                [], [], 
+                '''                Enable PRBS with mode
+                ''',
+                'prbs_mode',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('prbs-pattern', REFERENCE_ENUM_CLASS, 'PrbsPatternEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'PrbsPatternEnum', 
+                [], [], 
+                '''                Enable prbs test with pattern
+                ''',
+                'prbs_pattern',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'prbs',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Fec' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Fec',
+            False, 
+            [
+            _MetaInfoClassMember('efec-mode', REFERENCE_ENUM_CLASS, 'EfecEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'EfecEnum', 
+                [], [], 
+                '''                Enhanced FECMode to use i.4, i.7, Other
+                FECMode to use None
+                ''',
+                'efec_mode',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('fec-mode', REFERENCE_ENUM_CLASS, 'FecEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'FecEnum', 
+                [], [], 
+                '''                None, Standard, Enhanced, High-Gain,
+                Long-Haul, Ci-BCH
+                ''',
+                'fec_mode',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'fec',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709',
+            False, 
+            [
+            _MetaInfoClassMember('bdi-to-gais', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable GAIS insertion
+                ''',
+                'bdi_to_gais',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Disable or Enable g709 framing
+                ''',
+                'enable',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('fec', REFERENCE_CLASS, 'Fec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Fec', 
+                [], [], 
+                '''                Configure FEC mode
+                ''',
+                'fec',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('framing', REFERENCE_ENUM_CLASS, 'FramingEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'FramingEnum', 
+                [], [], 
+                '''                Over clocking mode for client signal bw
+                compatibility
+                ''',
+                'framing',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('odu', REFERENCE_CLASS, 'Odu' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu', 
+                [], [], 
+                '''                Configure ODU parameters
+                ''',
+                'odu',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('otu', REFERENCE_CLASS, 'Otu' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu', 
+                [], [], 
+                '''                Configure OTU parameters
+                ''',
+                'otu',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('prbs', REFERENCE_CLASS, 'Prbs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Prbs', 
+                [], [], 
+                '''                Configure PRBS mode and pattern
+                ''',
+                'prbs',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('proactive', REFERENCE_ENUM_CLASS, 'ProactiveEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'ProactiveEnum', 
+                [], [], 
+                '''                Enable proactive protectioni Graceful or
+                Default mode
+                ''',
+                'proactive',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('proactive-logging-file', ATTRIBUTE, 'str' , None, None, 
+                [(0, 128)], [], 
+                '''                Configure proactive protection log file
+                ''',
+                'proactive_logging_file',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('tim-to-gais', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configure Trace Identifier Mismatch alarm
+                consequence
+                ''',
+                'tim_to_gais',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('tti-processing', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configure Trail Trace Identifier  processing
+                ''',
+                'tti_processing',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'g709',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm.Wavelength' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm.Wavelength',
+            False, 
+            [
+            _MetaInfoClassMember('prog-frequency', ATTRIBUTE, 'str' , None, None, 
+                [(0, 128)], [], 
+                '''                Enter Frequency Data in THz
+                ''',
+                'prog_frequency',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('wave-channel', ATTRIBUTE, 'int' , None, None, 
+                [('1', '1568362')], [], 
+                '''                Select a ITU channel number,channel range for
+                C-band: 1~82,L-band:106~185,spacing:50GHZ or
+                100MHz
+                ''',
+                'wave_channel',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('wave-channel-number', REFERENCE_ENUM_CLASS, 'WaveChannelNumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'WaveChannelNumEnum', 
+                [], [], 
+                '''                Wave Channel Number
+                ''',
+                'wave_channel_number',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'wavelength',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Dwdm' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Dwdm',
+            False, 
+            [
+            _MetaInfoClassMember('enable-vtxp', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Disable or Enable VTXP configuration
+                ''',
+                'enable_vtxp',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('g709', REFERENCE_CLASS, 'G709' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709', 
+                [], [], 
+                '''                Configure G709 parameters
+                ''',
+                'g709',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('laser', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Configure laser off/on
+                ''',
+                'laser',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('loopback', REFERENCE_ENUM_CLASS, 'DwdmLoopbackEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'DwdmLoopbackEnum', 
+                [], [], 
+                '''                Configure loopback mode 
+                ''',
+                'loopback',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('network-connection-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Configure network connection id
+                ''',
+                'network_connection_id',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('network-port-id', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Configure network port id
+                ''',
+                'network_port_id',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('network-srlgs', REFERENCE_CLASS, 'NetworkSrlgs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs', 
+                [], [], 
+                '''                Configure Network srlgs
+                ''',
+                'network_srlgs',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('rx-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('-350', '50')], [], 
+                '''                Select power level (in units of 0.1dBm)
+                ''',
+                'rx_threshold',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('transmit-power', ATTRIBUTE, 'int' , None, None, 
+                [('-190', '10')], [], 
+                '''                Select power level (in units of 0.1dBm)
+                ''',
+                'transmit_power',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('transport-admin-state', REFERENCE_ENUM_CLASS, 'DwdmAdminStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_cfg', 'DwdmAdminStateEnum', 
+                [], [], 
+                '''                Configure transport admin state
+                ''',
+                'transport_admin_state',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            _MetaInfoClassMember('wavelength', REFERENCE_CLASS, 'Wavelength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm.Wavelength', 
+                [], [], 
+                '''                Configure transponder wavelength
+                ''',
+                'wavelength',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
+            ],
+            'Cisco-IOS-XR-dwdm-ui-cfg',
+            'dwdm',
+            _yang_ns._namespaces['Cisco-IOS-XR-dwdm-ui-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration.VlanIdentifier' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration.VlanIdentifier',
             False, 
             [
             _MetaInfoClassMember('first-tag', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                First (outermost) VLAN tag value
                 ''',
                 'first_tag',
@@ -2569,7 +3933,7 @@ _meta_table = {
                         'second_tag',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('second-tag', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 4094)], [], 
+                        [('0', '4094')], [], 
                         '''                        Second VLAN tag value. The any value may only
                         be used for Layer 2 subinterfaces
                         ''',
@@ -2612,7 +3976,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('inner-vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                Optional VLAN Id for inner Dot1Q tag
                 ''',
                 'inner_vlan_id',
@@ -2624,7 +3988,7 @@ _meta_table = {
                 'outer_tag_type',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('outer-vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                VLAN id for outer tag
                 ''',
                 'outer_vlan_id',
@@ -2641,7 +4005,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('additional-range1-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of first additional range for tag
                 match
                 ''',
@@ -2662,7 +4026,7 @@ _meta_table = {
                         'additional_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range1-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of first additional range for tag
                         match
                         ''',
@@ -2670,7 +4034,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range2-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of second additional range for tag
                 match
                 ''',
@@ -2691,7 +4055,7 @@ _meta_table = {
                         'additional_range2_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range2-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of second additional range for tag
                         match
                         ''',
@@ -2699,7 +4063,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range3-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of third additional range for tag
                 match
                 ''',
@@ -2720,7 +4084,7 @@ _meta_table = {
                         'additional_range3_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range3-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of third additional range for tag
                         match
                         ''',
@@ -2728,7 +4092,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range4-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of forth additional range for tag
                 match
                 ''',
@@ -2749,7 +4113,7 @@ _meta_table = {
                         'additional_range4_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range4-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of forth additional range for tag
                         match
                         ''',
@@ -2757,7 +4121,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range5-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of fifth additional range for tag
                 match
                 ''',
@@ -2778,7 +4142,7 @@ _meta_table = {
                         'additional_range5_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range5-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of fifth additional range for tag
                         match
                         ''',
@@ -2786,7 +4150,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range6-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of sixth additional range for tag
                 match
                 ''',
@@ -2807,7 +4171,7 @@ _meta_table = {
                         'additional_range6_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range6-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of sixth additional range for tag
                         match
                         ''',
@@ -2815,7 +4179,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range7-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of seventh additional range for tag
                 match
                 ''',
@@ -2836,7 +4200,7 @@ _meta_table = {
                         'additional_range7_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range7-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of seventh additional range for tag
                         match
                         ''',
@@ -2844,7 +4208,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range8-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of eighth additional range for tag
                 match
                 ''',
@@ -2865,7 +4229,7 @@ _meta_table = {
                         'additional_range8_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range8-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of eighth additional range for tag
                         match
                         ''',
@@ -2892,14 +4256,14 @@ _meta_table = {
                 'ingress_source_mac',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('inner-class-of-service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Value to match against Class Of Service bits
                 for inner tag
                 ''',
                 'inner_class_of_service',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('inner-range1-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of first range for inner tag match
                 ''',
                 'inner_range1_high',
@@ -2917,7 +4281,7 @@ _meta_table = {
                         'inner_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('inner-range1-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 4096)], [], 
+                        [('1', '4096')], [], 
                         '''                        Low value of first range for inner tag match
                         ''',
                         'inner_range1_low',
@@ -2930,7 +4294,7 @@ _meta_table = {
                 'inner_tag_type',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('outer-class-of-service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Value to match against Class Of Service bits
                 for outer tag
                 ''',
@@ -2949,7 +4313,7 @@ _meta_table = {
                         'outer_range1_high',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('outer-range1-high', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65535)], [], 
+                        [('1', '65535')], [], 
                         '''                        High value of first range for outer tag match
                         ''',
                         'outer_range1_high',
@@ -2968,7 +4332,7 @@ _meta_table = {
                         'outer_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('outer-range1-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 4096)], [], 
+                        [('1', '4096')], [], 
                         '''                        Low value of first range for outer tag match
                         ''',
                         'outer_range1_low',
@@ -3007,7 +4371,7 @@ _meta_table = {
                 'inner_tag_type',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('inner-tag-value', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                VLAN Id of innermost tag to be pushed
                 ''',
                 'inner_tag_value',
@@ -3019,7 +4383,7 @@ _meta_table = {
                 'outer_tag_type',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('outer-tag-value', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                VLAN Id of outermost tag to be pushed
                 ''',
                 'outer_tag_value',
@@ -3072,7 +4436,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('additional-range1-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of first additional range for tag
                 match
                 ''',
@@ -3093,7 +4457,7 @@ _meta_table = {
                         'additional_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range1-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of first additional range for tag
                         match
                         ''',
@@ -3101,7 +4465,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range2-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of second additional range for tag
                 match
                 ''',
@@ -3122,7 +4486,7 @@ _meta_table = {
                         'additional_range2_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range2-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of second additional range for tag
                         match
                         ''',
@@ -3130,7 +4494,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range3-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of third additional range for tag
                 match
                 ''',
@@ -3151,7 +4515,7 @@ _meta_table = {
                         'additional_range3_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range3-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of third additional range for tag
                         match
                         ''',
@@ -3159,7 +4523,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range4-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of forth additional range for tag
                 match
                 ''',
@@ -3180,7 +4544,7 @@ _meta_table = {
                         'additional_range4_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range4-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of forth additional range for tag
                         match
                         ''',
@@ -3188,7 +4552,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range5-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of fifth additional range for tag
                 match
                 ''',
@@ -3209,7 +4573,7 @@ _meta_table = {
                         'additional_range5_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range5-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of fifth additional range for tag
                         match
                         ''',
@@ -3217,7 +4581,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range6-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of sixth additional range for tag
                 match
                 ''',
@@ -3238,7 +4602,7 @@ _meta_table = {
                         'additional_range6_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range6-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of sixth additional range for tag
                         match
                         ''',
@@ -3246,7 +4610,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range7-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of seventh additional range for tag
                 match
                 ''',
@@ -3267,7 +4631,7 @@ _meta_table = {
                         'additional_range7_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range7-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of seventh additional range for tag
                         match
                         ''',
@@ -3275,7 +4639,7 @@ _meta_table = {
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                 ]),
             _MetaInfoClassMember('additional-range8-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of eighth additional range for tag
                 match
                 ''',
@@ -3296,7 +4660,7 @@ _meta_table = {
                         'additional_range8_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('additional-range8-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65534)], [], 
+                        [('1', '65534')], [], 
                         '''                        Low value of eighth additional range for tag
                         match
                         ''',
@@ -3323,14 +4687,14 @@ _meta_table = {
                 'ingress_source_mac',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('inner-class-of-service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Value to match against Class Of Service bits
                 for inner tag
                 ''',
                 'inner_class_of_service',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('inner-range1-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                High value of first range for inner tag match
                 ''',
                 'inner_range1_high',
@@ -3348,7 +4712,7 @@ _meta_table = {
                         'inner_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('inner-range1-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 4096)], [], 
+                        [('1', '4096')], [], 
                         '''                        Low value of first range for inner tag match
                         ''',
                         'inner_range1_low',
@@ -3361,7 +4725,7 @@ _meta_table = {
                 'inner_tag_type',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('outer-class-of-service', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Value to match against Class Of Service bits
                 for outer tag
                 ''',
@@ -3380,7 +4744,7 @@ _meta_table = {
                         'outer_range1_high',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('outer-range1-high', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 65535)], [], 
+                        [('1', '65535')], [], 
                         '''                        High value of first range for outer tag match
                         ''',
                         'outer_range1_high',
@@ -3399,7 +4763,7 @@ _meta_table = {
                         'outer_range1_low',
                         'Cisco-IOS-XR-l2-eth-infra-cfg', False),
                     _MetaInfoClassMember('outer-range1-low', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 4096)], [], 
+                        [('1', '4096')], [], 
                         '''                        Low value of first range for outer tag match
                         ''',
                         'outer_range1_low',
@@ -3478,7 +4842,7 @@ _meta_table = {
                 'profile',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', True),
             _MetaInfoClassMember('target-mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
+                [('1', '8191')], [], 
                 '''                Target MEP-ID
                 ''',
                 'target_mep_id',
@@ -3543,13 +4907,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('mep-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 8191)], [], 
+                [('1', '8191')], [], 
                 '''                MEP ID
                 ''',
                 'mep_id',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('service', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(0, 79)], [], 
                 '''                Service (Maintenance Association)
                 ''',
                 'service',
@@ -3572,51 +4936,51 @@ _meta_table = {
                 'cfg_type',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('cos0', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                CoS bits for per-CoS counters - start of
                 range or list item
                 ''',
                 'cos0',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('cos1', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                CoS bits for per-CoS counters - end of
                 range or list item
                 ''',
                 'cos1',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('cos2', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                CoS bits for per-CoS counters - list item
                 ''',
                 'cos2',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('cos3', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                CoS bits for per-CoS counters - list item
                 ''',
                 'cos3',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('cos4', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                CoS bits for per-CoS counters - list item
                 ''',
                 'cos4',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('cos5', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                CoS bits for per-CoS counters - list item
                 ''',
                 'cos5',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('cos6', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                CoS bits for per-CoS counters - list item
                 ''',
                 'cos6',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('cos7', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                CoS bits for per-CoS counters - list item
                 ''',
                 'cos7',
@@ -3633,7 +4997,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                The Class of Service bits for this MEP
                 ''',
                 'cos',
@@ -3668,7 +5032,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('domain', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
+                [(0, 79)], [], 
                 '''                Maintenance Domain
                 ''',
                 'domain',
@@ -3715,7 +5079,7 @@ _meta_table = {
                 'ais_interval',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('cos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Class of Service bits
                 ''',
                 'cos',
@@ -3772,13 +5136,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000000)], [], 
+                [('1', '1000000')], [], 
                 '''                The high threshold for frame-period events
                 ''',
                 'threshold_high',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000000)], [], 
+                [('1', '1000000')], [], 
                 '''                The low threshold for frame-period events
                 ''',
                 'threshold_low',
@@ -3801,7 +5165,7 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
-                [(100, 60000)], [], 
+                [('100', '60000')], [], 
                 '''                Window size configuration for frame-period
                 events
                 ''',
@@ -3819,13 +5183,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 60000000)], [], 
+                [('1', '60000000')], [], 
                 '''                The high threshold for symbol-period
                 ''',
                 'threshold_high',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [(1, 60000000)], [], 
+                [('1', '60000000')], [], 
                 '''                The low threshold for symbol-period
                 ''',
                 'threshold_low',
@@ -3849,7 +5213,7 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 60000)], [], 
+                [('1000', '60000')], [], 
                 '''                Window size configuration for symbol-period
                 events
                 ''',
@@ -3867,13 +5231,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 12000000)], [], 
+                [('1', '12000000')], [], 
                 '''                The high threshold for frame events
                 ''',
                 'threshold_high',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [(1, 12000000)], [], 
+                [('1', '12000000')], [], 
                 '''                The low threshold for frame events
                 ''',
                 'threshold_low',
@@ -3896,7 +5260,7 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 60000)], [], 
+                [('1000', '60000')], [], 
                 '''                Window size configuration for frame events
                 ''',
                 'window',
@@ -3913,13 +5277,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('threshold-high', ATTRIBUTE, 'int' , None, None, 
-                [(1, 900)], [], 
+                [('1', '900')], [], 
                 '''                The high threshold for frame-seconds
                 ''',
                 'threshold_high',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('threshold-low', ATTRIBUTE, 'int' , None, None, 
-                [(1, 900)], [], 
+                [('1', '900')], [], 
                 '''                The low threshold for frame-seconds
                 ''',
                 'threshold_low',
@@ -3942,7 +5306,7 @@ _meta_table = {
                 'threshold',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('window', ATTRIBUTE, 'int' , None, None, 
-                [(10000, 900000)], [], 
+                [('10000', '900000')], [], 
                 '''                Window size configuration for frame-seconds
                 events
                 ''',
@@ -4163,7 +5527,7 @@ _meta_table = {
                 'require_remote',
                 'Cisco-IOS-XR-ethernet-link-oam-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(2, 30)], [], 
+                [('2', '30')], [], 
                 '''                Connection timeout period in number of lost
                 heartbeats
                 ''',
@@ -4218,12 +5582,35 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.CarrierDelay' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CarrierDelay',
+            False, 
+            [
+            _MetaInfoClassMember('carrier-delay-down', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Carrier Delay down in msecs, must be set to 0
+                ''',
+                'carrier_delay_down',
+                'Cisco-IOS-XR-l2-eth-infra-cfg', False),
+            _MetaInfoClassMember('carrier-delay-up', ATTRIBUTE, 'int' , None, None, 
+                [('1', '65535')], [], 
+                '''                Carrier Delay (up) in msecs
+                ''',
+                'carrier_delay_up',
+                'Cisco-IOS-XR-l2-eth-infra-cfg', False),
+            ],
+            'Cisco-IOS-XR-l2-eth-infra-cfg',
+            'carrier-delay',
+            _yang_ns._namespaces['Cisco-IOS-XR-l2-eth-infra-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.NativeVlanIdentifier' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration.NativeVlanIdentifier',
             False, 
             [
             _MetaInfoClassMember('vlan-identifier', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                VLAN identifier
                 ''',
                 'vlan_identifier',
@@ -4287,14 +5674,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('iccp-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Links the satellite fabric to the given ICCP
                 group
                 ''',
                 'iccp_group',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('minimum-preferred-links', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Mininum number of active links preferred
                 ''',
                 'minimum_preferred_links',
@@ -4317,13 +5704,13 @@ _meta_table = {
                 'port_type',
                 'Cisco-IOS-XR-icpe-infra-cfg', True),
             _MetaInfoClassMember('slot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 8)], [], 
+                [('0', '8')], [], 
                 '''                Slot
                 ''',
                 'slot',
                 'Cisco-IOS-XR-icpe-infra-cfg', True),
             _MetaInfoClassMember('sub-slot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 8)], [], 
+                [('0', '8')], [], 
                 '''                Sub slot
                 ''',
                 'sub_slot',
@@ -4367,23 +5754,23 @@ _meta_table = {
                 '''                Continuity-Check Interval
                 ''',
                 'continuity_check_interval',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+                'Cisco-IOS-XR-ethernet-cfm-sat-cfg', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable CFM on Satellite
                 ''',
                 'enable',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+                'Cisco-IOS-XR-ethernet-cfm-sat-cfg', False),
             _MetaInfoClassMember('level', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Maintenance Domain Level
                 ''',
                 'level',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+                'Cisco-IOS-XR-ethernet-cfm-sat-cfg', False),
             ],
-            'Cisco-IOS-XR-ethernet-cfm-cfg',
+            'Cisco-IOS-XR-ethernet-cfm-sat-cfg',
             'cfm',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-cfg'],
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-sat-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
@@ -4396,11 +5783,11 @@ _meta_table = {
                 '''                CFM Satellite configuration
                 ''',
                 'cfm',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+                'Cisco-IOS-XR-ethernet-cfm-sat-cfg', False),
             ],
-            'Cisco-IOS-XR-ethernet-cfm-cfg',
+            'Cisco-IOS-XR-ethernet-cfm-sat-cfg',
             'ethernet-features',
-            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-cfg'],
+            _yang_ns._namespaces['Cisco-IOS-XR-ethernet-cfm-sat-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
@@ -4413,7 +5800,7 @@ _meta_table = {
                 '''                Ethernet Satellite configuration
                 ''',
                 'ethernet_features',
-                'Cisco-IOS-XR-ethernet-cfm-cfg', False),
+                'Cisco-IOS-XR-ethernet-cfm-sat-cfg', False),
             _MetaInfoClassMember('redundancy', REFERENCE_CLASS, 'Redundancy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink.Redundancy', 
                 [], [], 
                 '''                Redundancy submode
@@ -4427,7 +5814,7 @@ _meta_table = {
                 'remote_ports',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('satellite', ATTRIBUTE, 'int' , None, None, 
-                [(100, 65534)], [], 
+                [('100', '65534')], [], 
                 '''                Hub & Spoke connection to a single Satellite
                 ''',
                 'satellite',
@@ -4450,13 +5837,13 @@ _meta_table = {
                 'port_type',
                 'Cisco-IOS-XR-icpe-infra-cfg', True),
             _MetaInfoClassMember('slot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 8)], [], 
+                [('0', '8')], [], 
                 '''                Slot
                 ''',
                 'slot',
                 'Cisco-IOS-XR-icpe-infra-cfg', True),
             _MetaInfoClassMember('sub-slot', ATTRIBUTE, 'int' , None, None, 
-                [(0, 8)], [], 
+                [('0', '8')], [], 
                 '''                Sub slot
                 ''',
                 'sub_slot',
@@ -4496,7 +5883,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('satellite-id', ATTRIBUTE, 'int' , None, None, 
-                [(100, 65534)], [], 
+                [('100', '65534')], [], 
                 '''                Satellite ID
                 ''',
                 'satellite_id',
@@ -4542,14 +5929,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('iccp-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Links the satellite fabric to the given ICCP
                 group
                 ''',
                 'iccp_group',
                 'Cisco-IOS-XR-icpe-infra-cfg', False),
             _MetaInfoClassMember('minimum-preferred-links', ATTRIBUTE, 'int' , None, None, 
-                [(1, 64)], [], 
+                [('1', '64')], [], 
                 '''                Mininum number of active links preferred
                 ''',
                 'minimum_preferred_links',
@@ -4706,7 +6093,7 @@ _meta_table = {
                 'attachment',
                 'Cisco-IOS-XR-Ethernet-SPAN-cfg', False),
             _MetaInfoClassMember('mirror-first', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
+                [('1', '10000')], [], 
                 '''                Mirror a specified number of bytes from start of
                 packet
                 ''',
@@ -4740,6 +6127,24 @@ _meta_table = {
             'Cisco-IOS-XR-Ethernet-SPAN-cfg',
             'span-monitor-sessions',
             _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.ControlSubscriber' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.ControlSubscriber',
+            False, 
+            [
+            _MetaInfoClassMember('service-policy', ATTRIBUTE, 'str' , None, None, 
+                [(0, 63)], [], 
+                '''                Service policy to be applied to access
+                interface  for subscribers
+                ''',
+                'service_policy',
+                'Cisco-IOS-XR-iedge4710-cfg', False),
+            ],
+            'Cisco-IOS-XR-iedge4710-cfg',
+            'control-subscriber',
+            _yang_ns._namespaces['Cisco-IOS-XR-iedge4710-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
@@ -4827,7 +6232,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('load-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600)], [], 
+                [('0', '600')], [], 
                 '''                Specify interval for load calculation for an
                 interface
                 ''',
@@ -4863,7 +6268,7 @@ _meta_table = {
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-cfg', False),
             _MetaInfoClassMember('compression-level', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3)], [], 
+                [('0', '3')], [], 
                 '''                The level of compression applied to the ACL on
                 this interface. The range is 0 to 3 with
                 default being no compression (0).
@@ -4916,7 +6321,7 @@ _meta_table = {
                 'acl_name_array',
                 'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('compression-level', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3)], [], 
+                [('0', '3')], [], 
                 '''                The level of compression applied to the ACL on
                 this interface. The range is 0 to 3 with
                 default being no compression (0).
@@ -5021,7 +6426,7 @@ _meta_table = {
                 'acl_name_array',
                 'Cisco-IOS-XR-ip-pfilter-cfg', False, max_elements=5),
             _MetaInfoClassMember('compression-level', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3)], [], 
+                [('0', '3')], [], 
                 '''                The level of compression applied to the ACL on
                 this interface. The range is 0 to 3 with
                 default being no compression (0).
@@ -5097,7 +6502,7 @@ _meta_table = {
                 'common_acl_name',
                 'Cisco-IOS-XR-ip-pfilter-cfg', False),
             _MetaInfoClassMember('compression-level', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3)], [], 
+                [('0', '3')], [], 
                 '''                The level of compression applied to the ACL on
                 this interface. The range is 0 to 3 with
                 default being no compression (0).
@@ -5177,13 +6582,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('metric-norm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 256)], [], 
+                [('0', '256')], [], 
                 '''                Normal Route Metric
                 ''',
                 'metric_norm',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('metric-prio', ATTRIBUTE, 'int' , None, None, 
-                [(0, 256)], [], 
+                [('0', '256')], [], 
                 '''                Priority Route Metric
                 ''',
                 'metric_prio',
@@ -5200,13 +6605,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('query-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
+                [('1', '10000')], [], 
                 '''                Query Timeout
                 ''',
                 'query_time',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('sby-time', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
+                [('1', '10000')], [], 
                 '''                Standby Query Timeout
                 ''',
                 'sby_time',
@@ -5223,13 +6628,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dist-norm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 256)], [], 
+                [('0', '256')], [], 
                 '''                Normal Route Distance
                 ''',
                 'dist_norm',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('dist-prio', ATTRIBUTE, 'int' , None, None, 
-                [(0, 256)], [], 
+                [('0', '256')], [], 
                 '''                Priority Route Distance
                 ''',
                 'dist_prio',
@@ -5258,7 +6663,7 @@ _meta_table = {
                 'metric',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('priority-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
+                [('1', '10000')], [], 
                 '''                Priority Timeout value
                 ''',
                 'priority_timeout',
@@ -5360,14 +6765,14 @@ _meta_table = {
                 'proxy_arp',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('purge-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Time to delay purging arp entries when the
                 interface goes down
                 ''',
                 'purge_delay',
                 'Cisco-IOS-XR-ipv4-arp-cfg', False),
             _MetaInfoClassMember('timeout', ATTRIBUTE, 'int' , None, None, 
-                [(30, 2144448000)], [], 
+                [('30', '2144448000')], [], 
                 '''                Number of seconds for ARP cache timeout
                 ''',
                 'timeout',
@@ -5602,7 +7007,7 @@ _meta_table = {
                 'netmask',
                 'Cisco-IOS-XR-ipv4-io-cfg', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('1', '4294967295')], [], 
                 '''                RouteTag
                 ''',
                 'route_tag',
@@ -5648,7 +7053,7 @@ _meta_table = {
                 'netmask',
                 'Cisco-IOS-XR-ipv4-io-cfg', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('1', '4294967295')], [], 
                 '''                RouteTag
                 ''',
                 'route_tag',
@@ -5683,7 +7088,7 @@ _meta_table = {
                 'secondaries',
                 'Cisco-IOS-XR-ipv4-io-cfg', False),
             _MetaInfoClassMember('unnumbered', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Enable IP processing without an explicit
                 address
                 ''',
@@ -5773,7 +7178,7 @@ _meta_table = {
                 'icmp_mask_reply',
                 'Cisco-IOS-XR-ipv4-io-cfg', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(68, 65535)], [], 
+                [('68', '65535')], [], 
                 '''                The IP Maximum Transmission Unit
                 ''',
                 'mtu',
@@ -5995,7 +7400,7 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv6-ma-cfg', False),
                 ]),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                RouteTag
                 ''',
                 'route_tag',
@@ -6037,13 +7442,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv6-ma-cfg', True),
                 ]),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-cfg', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                RouteTag
                 ''',
                 'route_tag',
@@ -6102,13 +7507,13 @@ _meta_table = {
                         'Cisco-IOS-XR-ipv6-ma-cfg', True),
                 ]),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-cfg', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                RouteTag
                 ''',
                 'route_tag',
@@ -6272,7 +7677,7 @@ _meta_table = {
                 'mac_address_filters',
                 'Cisco-IOS-XR-ipv6-ma-cfg', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(1280, 65535)], [], 
+                [('1280', '65535')], [], 
                 '''                MTU Setting of Interface
                 ''',
                 'mtu',
@@ -6290,7 +7695,7 @@ _meta_table = {
                 'ttl_propagate_disable',
                 'Cisco-IOS-XR-ipv6-ma-cfg', False),
             _MetaInfoClassMember('unnumbered', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Enable IPv6 processing without an explicit
                 address
                 ''',
@@ -6315,12 +7720,64 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS.RaspecificRoute' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS.RaspecificRoute',
+            False, 
+            [
+            _MetaInfoClassMember('specific-route', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 Address
+                ''',
+                'specific_route',
+                'Cisco-IOS-XR-ipv6-nd-cfg', True),
+            _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Lifetime (seconds)
+                ''',
+                'lifetime',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            _MetaInfoClassMember('preference', REFERENCE_ENUM_CLASS, 'Ipv6NdRouterPrefEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6NdRouterPrefEnum', 
+                [], [], 
+                '''                Preference
+                ''',
+                'preference',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
+                [('0', '128')], [], 
+                '''                Prefix mask length
+                ''',
+                'prefix_length',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-nd-cfg',
+            'raspecific-route',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS',
+            False, 
+            [
+            _MetaInfoClassMember('raspecific-route', REFERENCE_LIST, 'RaspecificRoute' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS.RaspecificRoute', 
+                [], [], 
+                '''                IPv6 Router Advertisement (RA) Specific Route
+                ''',
+                'raspecific_route',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-nd-cfg',
+            'raspecific-route-s',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection',
             False, 
             [
             _MetaInfoClassMember('attempts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 600)], [], 
+                [('0', '600')], [], 
                 '''                Set IPv6 duplicate address detection transmits
                 ''',
                 'attempts',
@@ -6332,18 +7789,98 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches.RadnsSearch' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches.RadnsSearch',
+            False, 
+            [
+            _MetaInfoClassMember('dns-search-list', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Search List
+                ''',
+                'dns_search_list',
+                'Cisco-IOS-XR-ipv6-nd-cfg', True),
+            _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
+                [('4', '3600')], [], 
+                '''                Lifetime value in seconds
+                ''',
+                'lifetime',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-nd-cfg',
+            'radns-search',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches',
+            False, 
+            [
+            _MetaInfoClassMember('radns-search', REFERENCE_LIST, 'RadnsSearch' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches.RadnsSearch', 
+                [], [], 
+                '''                IPv6 Router Advertisement (RA) DNS Search List
+                ''',
+                'radns_search',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-nd-cfg',
+            'radns-searches',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers.RadnsServer' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers.RadnsServer',
+            False, 
+            [
+            _MetaInfoClassMember('dns-server', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 Address
+                ''',
+                'dns_server',
+                'Cisco-IOS-XR-ipv6-nd-cfg', True),
+            _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
+                [('4', '3600')], [], 
+                '''                Lifetime value in seconds
+                ''',
+                'lifetime',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-nd-cfg',
+            'radns-server',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers',
+            False, 
+            [
+            _MetaInfoClassMember('radns-server', REFERENCE_LIST, 'RadnsServer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers.RadnsServer', 
+                [], [], 
+                '''                IPv6 Router Advertisement (RA) DNS Servre
+                ''',
+                'radns_server',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-nd-cfg',
+            'radns-servers',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-nd-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaInterval' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaInterval',
             False, 
             [
             _MetaInfoClassMember('maximum', ATTRIBUTE, 'int' , None, None, 
-                [(4, 1800)], [], 
+                [('4', '1800')], [], 
                 '''                Maximum RA interval in seconds
                 ''',
                 'maximum',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('minimum', ATTRIBUTE, 'int' , None, None, 
-                [(3, 1800)], [], 
+                [('3', '1800')], [], 
                 '''                Minimum RA interval in seconds
                 ''',
                 'minimum',
@@ -6366,19 +7903,19 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-ipv6-nd-cfg', True),
             _MetaInfoClassMember('expiry-date', ATTRIBUTE, 'int' , None, None, 
-                [(1, 31)], [], 
+                [('1', '31')], [], 
                 '''                Date to expire valid lifetime
                 ''',
                 'expiry_date',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('expiry-hour', ATTRIBUTE, 'int' , None, None, 
-                [(0, 23)], [], 
+                [('0', '23')], [], 
                 '''                Hour to expire valid lifetime
                 ''',
                 'expiry_hour',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('expiry-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 59)], [], 
+                [('0', '59')], [], 
                 '''                Minute to expire valid lifetime
                 ''',
                 'expiry_minute',
@@ -6390,7 +7927,7 @@ _meta_table = {
                 'expiry_month',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('expiry-year', ATTRIBUTE, 'int' , None, None, 
-                [(2003, 2035)], [], 
+                [('2003', '2035')], [], 
                 '''                Year to expire valid lifetime
                 ''',
                 'expiry_year',
@@ -6416,19 +7953,19 @@ _meta_table = {
                 'off_link',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('pref-expiry-date', ATTRIBUTE, 'int' , None, None, 
-                [(1, 31)], [], 
+                [('1', '31')], [], 
                 '''                Date to expire preferred lifetime
                 ''',
                 'pref_expiry_date',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('pref-expiry-hour', ATTRIBUTE, 'int' , None, None, 
-                [(0, 23)], [], 
+                [('0', '23')], [], 
                 '''                Hour to expire preferred lifetime
                 ''',
                 'pref_expiry_hour',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('pref-expiry-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 59)], [], 
+                [('0', '59')], [], 
                 '''                Minute to expire preferred lifetime
                 ''',
                 'pref_expiry_minute',
@@ -6440,20 +7977,20 @@ _meta_table = {
                 'pref_expiry_month',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('pref-expiry-year', ATTRIBUTE, 'int' , None, None, 
-                [(2003, 2035)], [], 
+                [('2003', '2035')], [], 
                 '''                Year to expire preferred lifetime
                 ''',
                 'pref_expiry_year',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('preferred-lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Preferred Lifetime (seconds) must be <= Valid
                 Lifetime
                 ''',
                 'preferred_lifetime',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                Prefix mask length
                 ''',
                 'prefix_length',
@@ -6465,7 +8002,7 @@ _meta_table = {
                 'prefix_zone',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('valid-lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Valid Lifetime (seconds)
                 ''',
                 'valid_lifetime',
@@ -6499,7 +8036,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cache-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128000)], [], 
+                [('0', '128000')], [], 
                 '''                Set the cache limit for neighbor entries
                 ''',
                 'cache_limit',
@@ -6524,7 +8061,7 @@ _meta_table = {
                 'managed_config',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('ns-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1000, 4294967295)], [], 
+                [('1000', '4294967295')], [], 
                 '''                Set advertised NS retransmission interval in
                 milliseconds
                 ''',
@@ -6545,7 +8082,7 @@ _meta_table = {
                 'ra_interval',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('ra-lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 9000)], [], 
+                [('0', '9000')], [], 
                 '''                Set IPv6 Router Advertisement (RA) lifetime in
                 seconds
                 ''',
@@ -6564,6 +8101,18 @@ _meta_table = {
                 ''',
                 'ra_unspecify_hoplimit',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            _MetaInfoClassMember('radns-searches', REFERENCE_CLASS, 'RadnsSearches' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches', 
+                [], [], 
+                '''                IPv6 Router Advertisement (RA) DNS Search List
+                ''',
+                'radns_searches',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            _MetaInfoClassMember('radns-servers', REFERENCE_CLASS, 'RadnsServers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers', 
+                [], [], 
+                '''                IPv6 Router Advertisement (RA) DNS Servre
+                ''',
+                'radns_servers',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('ramtu-suppress', ATTRIBUTE, 'Empty' , None, None, 
                 [], [], 
                 '''                Enable suppress MTU in IPv6 router
@@ -6571,8 +8120,14 @@ _meta_table = {
                 ''',
                 'ramtu_suppress',
                 'Cisco-IOS-XR-ipv6-nd-cfg', False),
+            _MetaInfoClassMember('raspecific-route-s', REFERENCE_CLASS, 'RaspecificRouteS' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS', 
+                [], [], 
+                '''                IPv6 Router Advertisement (RA) Specific Route
+                ''',
+                'raspecific_route_s',
+                'Cisco-IOS-XR-ipv6-nd-cfg', False),
             _MetaInfoClassMember('reachable-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3600000)], [], 
+                [('0', '3600000')], [], 
                 '''                Set advertised reachability time in
                 milliseconds
                 ''',
@@ -6614,7 +8169,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Backup bandwidth requested by this tunnel in
                 kbps. Ignored if bandwidth limit type is
                 unlimited.
@@ -6659,26 +8214,26 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bringup-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(60, 3600)], [], 
+                [('10', '3600')], [], 
                 '''                Wait for session to come up in seconds
                 (default 60)
                 ''',
                 'bringup_timeout',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('dampening-initial-wait', ATTRIBUTE, 'int' , None, None, 
-                [(1, 518400000)], [], 
+                [('1', '518400000')], [], 
                 '''                Initial delay in milliseconds (default 16000)
                 ''',
                 'dampening_initial_wait',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('dampening-maximum-wait', ATTRIBUTE, 'int' , None, None, 
-                [(1, 518400000)], [], 
+                [('1', '518400000')], [], 
                 '''                Maximum delay in milliseconds (default 600000)
                 ''',
                 'dampening_maximum_wait',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('dampening-secondary-wait', ATTRIBUTE, 'int' , None, None, 
-                [(1, 518400000)], [], 
+                [('1', '518400000')], [], 
                 '''                Secondary delay in milliseconds (default
                 20000)
                 ''',
@@ -6691,26 +8246,26 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('encap-mode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Specify BFD Encap Mode on the tunnel
                 ''',
                 'encap_mode',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('fast-detect', ATTRIBUTE, 'Empty' , None, None, 
+            _MetaInfoClassMember('fast-detect', REFERENCE_ENUM_CLASS, 'MplsTebfdSessionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTebfdSessionEnum', 
                 [], [], 
                 '''                Enable BFD Fast Detect On the tunnel
                 ''',
                 'fast_detect',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('minimum-interval', ATTRIBUTE, 'int' , None, None, 
-                [(3, 30000)], [], 
+                [('3', '30000')], [], 
                 '''                Specify the minimum interval for BFD failure
                 detection
                 ''',
                 'minimum_interval',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(3, 10)], [], 
+                [('3', '10')], [], 
                 '''                Specify the multiplier for BFD failure
                 detection
                 ''',
@@ -6723,7 +8278,7 @@ _meta_table = {
                 'periodic_ping_disable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('periodic-ping-interval', ATTRIBUTE, 'int' , None, None, 
-                [(60, 3600)], [], 
+                [('60', '3600')], [], 
                 '''                Periodic LSP Ping Interval in seconds (default
                 120)
                 ''',
@@ -6741,7 +8296,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label-value', ATTRIBUTE, 'int' , None, None, 
-                [(16, 4015)], [], 
+                [('16', '4015')], [], 
                 '''                MPLS label
                 ''',
                 'label_value',
@@ -6759,183 +8314,6 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow',
-            False, 
-            [
-            _MetaInfoClassMember('underflow-threshold-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Number of consecutive collections exceeding
-                threshold
-                ''',
-                'underflow_threshold_limit',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('underflow-threshold-percent', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
-                '''                Bandwidth change percent to trigger an
-                underflow
-                ''',
-                'underflow_threshold_percent',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('underflow-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(10, 4294967295)], [], 
-                '''                Bandwidth change value to trigger an
-                underflow (kbps)
-                ''',
-                'underflow_threshold_value',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'underflow',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow',
-            False, 
-            [
-            _MetaInfoClassMember('overflow-threshold-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10)], [], 
-                '''                Number of consecutive collections exceeding
-                threshold
-                ''',
-                'overflow_threshold_limit',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('overflow-threshold-percent', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
-                '''                Bandwidth change percent to trigger an
-                overflow
-                ''',
-                'overflow_threshold_percent',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('overflow-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(10, 4294967295)], [], 
-                '''                Bandwidth change value to trigger an overflow
-                (kbps)
-                ''',
-                'overflow_threshold_value',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'overflow',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits',
-            False, 
-            [
-            _MetaInfoClassMember('bandwidth-max-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Set maximum bandwidth auto-bw can apply on a
-                tunnel
-                ''',
-                'bandwidth_max_limit',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('bandwidth-min-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Set minimum bandwidth auto-bw can apply on a
-                tunnel
-                ''',
-                'bandwidth_min_limit',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'bandwidth-limits',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.AdjustmentThreshold' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.AdjustmentThreshold',
-            False, 
-            [
-            _MetaInfoClassMember('adjustment-threshold-percent', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
-                '''                Bandwidth change percent to trigger
-                adjustment
-                ''',
-                'adjustment_threshold_percent',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('adjustment-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(10, 4294967295)], [], 
-                '''                Bandwidth change value to trigger adjustment
-                (kbps)
-                ''',
-                'adjustment_threshold_value',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'adjustment-threshold',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth',
-            False, 
-            [
-            _MetaInfoClassMember('adjustment-threshold', REFERENCE_CLASS, 'AdjustmentThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.AdjustmentThreshold', 
-                [], [], 
-                '''                Set the bandwidth change threshold to trigger
-                adjustment
-                ''',
-                'adjustment_threshold',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('application-frequency', ATTRIBUTE, 'int' , None, None, 
-                [(5, 10080)], [], 
-                '''                Set the tunnel auto-bw application frequency
-                in minutes
-                ''',
-                'application_frequency',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('bandwidth-limits', REFERENCE_CLASS, 'BandwidthLimits' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits', 
-                [], [], 
-                '''                Set min/max bandwidth auto-bw can apply on a
-                tunnel
-                ''',
-                'bandwidth_limits',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('collection-only', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable bandwidth collection only, no auto-bw
-                adjustment
-                ''',
-                'collection_only',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('enabled', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                This object is only valid for tunnel
-                interfaces and it controls whether that
-                interface has auto-bw enabled on it or not.The
-                object must be set before any other auto-bw
-                configuration is supplied for the interface,
-                and must be the last auto-bw configuration
-                object to be removed.
-                ''',
-                'enabled',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('overflow', REFERENCE_CLASS, 'Overflow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow', 
-                [], [], 
-                '''                Configuring the tunnel overflow detection
-                ''',
-                'overflow',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('underflow', REFERENCE_CLASS, 'Underflow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow', 
-                [], [], 
-                '''                Configuring the tunnel underflow detection
-                ''',
-                'underflow',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'auto-bandwidth',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
     'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency',
             False, 
@@ -6947,7 +8325,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 20000)], [], 
+                [('0', '20000')], [], 
                 '''                Specify the holdtime for the tunnel as
                 forwarding adjacency
                 ''',
@@ -6967,181 +8345,12 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric',
-            False, 
-            [
-            _MetaInfoClassMember('absolute-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483647)], [], 
-                '''                The absolute metric value
-                ''',
-                'absolute_metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('constant-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483647)], [], 
-                '''                The constant metric value
-                ''',
-                'constant_metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetricEnum', 
-                [], [], 
-                '''                Autoroute tunnel metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('relative-metric', ATTRIBUTE, 'int' , None, None, 
-                [(-10, 10)], [], 
-                '''                The value of the adjustment
-                ''',
-                'relative_metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'metric',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric',
-            False, 
-            [
-            _MetaInfoClassMember('absolute-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483647)], [], 
-                '''                The absolute metric value
-                ''',
-                'absolute_metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('constant-metric', ATTRIBUTE, 'int' , None, None, 
-                [(1, 2147483647)], [], 
-                '''                The constant metric value
-                ''',
-                'constant_metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetricEnum', 
-                [], [], 
-                '''                Autoroute tunnel metric type
-                ''',
-                'metric_type',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('relative-metric', ATTRIBUTE, 'int' , None, None, 
-                [(-10, 10)], [], 
-                '''                The value of the adjustment
-                ''',
-                'relative_metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'metric',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce',
-            False, 
-            [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable autoroute announce
-                ''',
-                'enable',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('include-ipv6', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Specify that the tunnel should be an IPv6
-                autoroute announce also
-                ''',
-                'include_ipv6',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('metric', REFERENCE_CLASS, 'Metric' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric', 
-                [], [], 
-                '''                Specify MPLS tunnel metric
-                ''',
-                'metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'autoroute-announce',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr.Destination' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr.Destination',
-            False, 
-            [
-            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
-                '''                IP address of destination
-                ''',
-                'destination_address',
-                'Cisco-IOS-XR-mpls-te-cfg', True),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'destination',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr',
-            False, 
-            [
-            _MetaInfoClassMember('destination', REFERENCE_LIST, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr.Destination', 
-                [], [], 
-                '''                Destination address to add in RIB
-                ''',
-                'destination',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'destination-xr',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute',
-            False, 
-            [
-            _MetaInfoClassMember('autoroute-announce', REFERENCE_CLASS, 'AutorouteAnnounce' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce', 
-                [], [], 
-                '''                Announce tunnel to IGP
-                ''',
-                'autoroute_announce',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('destination', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Adds tunnel's destination in RIB
-                ''',
-                'destination',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('destination-xr', REFERENCE_CLASS, 'DestinationXr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr', 
-                [], [], 
-                '''                Tunnel Autoroute Destination(s)
-                ''',
-                'destination_xr',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('metric', REFERENCE_CLASS, 'Metric' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric', 
-                [], [], 
-                '''                Specify MPLS tunnel metric
-                ''',
-                'metric',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'autoroute',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
     'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions.PathOption' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions.PathOption',
             False, 
             [
             _MetaInfoClassMember('preference-level', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Preference level for this path option
                 ''',
                 'preference_level',
@@ -7153,7 +8362,7 @@ _meta_table = {
                 'destination',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('igp-area', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                IGP area ID in integer format
                 ''',
                 'igp_area',
@@ -7177,7 +8386,7 @@ _meta_table = {
                 'igp_type',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Deprecated
                 ''',
                 'interface',
@@ -7189,13 +8398,13 @@ _meta_table = {
                 'lockdown',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('output-label', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Deprecated
                 ''',
                 'output_label',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                The ID of the IP explicit path associated
                 with this option
                 ''',
@@ -7215,7 +8424,7 @@ _meta_table = {
                 'path_option_attribute_set_name',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-property', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Deprecated
                 ''',
                 'path_property',
@@ -7239,7 +8448,7 @@ _meta_table = {
                 'pce_address',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('protected-by-preference-level', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Preference level of the protecting explicit
                 path. Leave unset in order to not use an
                 explicit protecting path
@@ -7359,6 +8568,15 @@ _meta_table = {
                 ''',
                 'fault_oam',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('wrap-protection-enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                This object is only valid for bidirectional
+                tunnel interfaces and it controls whether
+                that interface has LSP Wrap protectionenabled
+                on it or not.
+                ''',
+                'wrap_protection_enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'association-corouted-type',
@@ -7371,13 +8589,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('association-global-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Association Global ID
                 ''',
                 'association_global_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('association-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association ID
                 ''',
                 'association_id',
@@ -7546,18 +8764,267 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection.Invalidation' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection.Invalidation',
+            False, 
+            [
+            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
+                [], [], 
+                '''                Path Invalidation Action
+                ''',
+                'path_invalidation_action',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-invalidation-timeout', ATTRIBUTE, 'int' , None, None, 
+                [('0', '60000')], [], 
+                '''                Path Invalidation Timeout
+                ''',
+                'path_invalidation_timeout',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'invalidation',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection',
+            False, 
+            [
+            _MetaInfoClassMember('invalidation', REFERENCE_CLASS, 'Invalidation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection.Invalidation', 
+                [], [], 
+                '''                Path invalidation configuration for this
+                specific tunnel
+                ''',
+                'invalidation',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection-cost-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '4294967295')], [], 
+                '''                Path selection cost limit configuration for this
+                specific tunnel
+                ''',
+                'path_selection_cost_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('path-selection-hop-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '255')], [], 
+                '''                Path selection hop limit configuration for this
+                specific tunnel
+                ''',
+                'path_selection_hop_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tiebreaker', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionTiebreakerEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionTiebreakerEnum', 
+                [], [], 
+                '''                CSPF tiebreaker to use in path calculation
+                ''',
+                'tiebreaker',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'tunnel-path-selection',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow',
+            False, 
+            [
+            _MetaInfoClassMember('underflow-threshold-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '10')], [], 
+                '''                Number of consecutive collections exceeding
+                threshold
+                ''',
+                'underflow_threshold_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('underflow-threshold-percent', ATTRIBUTE, 'int' , None, None, 
+                [('1', '100')], [], 
+                '''                Bandwidth change percent to trigger an
+                underflow
+                ''',
+                'underflow_threshold_percent',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('underflow-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('10', '4294967295')], [], 
+                '''                Bandwidth change value to trigger an underflow
+                (kbps)
+                ''',
+                'underflow_threshold_value',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'underflow',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow',
+            False, 
+            [
+            _MetaInfoClassMember('overflow-threshold-limit', ATTRIBUTE, 'int' , None, None, 
+                [('1', '10')], [], 
+                '''                Number of consecutive collections exceeding
+                threshold
+                ''',
+                'overflow_threshold_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('overflow-threshold-percent', ATTRIBUTE, 'int' , None, None, 
+                [('1', '100')], [], 
+                '''                Bandwidth change percent to trigger an
+                overflow
+                ''',
+                'overflow_threshold_percent',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('overflow-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('10', '4294967295')], [], 
+                '''                Bandwidth change value to trigger an overflow
+                (kbps)
+                ''',
+                'overflow_threshold_value',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'overflow',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits',
+            False, 
+            [
+            _MetaInfoClassMember('bandwidth-max-limit', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Set maximum bandwidth auto-bw can apply on a
+                tunnel
+                ''',
+                'bandwidth_max_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bandwidth-min-limit', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Set minimum bandwidth auto-bw can apply on a
+                tunnel
+                ''',
+                'bandwidth_min_limit',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'bandwidth-limits',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.AdjustmentThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.AdjustmentThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('adjustment-threshold-percent', ATTRIBUTE, 'int' , None, None, 
+                [('1', '100')], [], 
+                '''                Bandwidth change percent to trigger adjustment
+                ''',
+                'adjustment_threshold_percent',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('adjustment-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('10', '4294967295')], [], 
+                '''                Bandwidth change value to trigger adjustment
+                (kbps)
+                ''',
+                'adjustment_threshold_value',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'adjustment-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth',
+            False, 
+            [
+            _MetaInfoClassMember('adjustment-threshold', REFERENCE_CLASS, 'AdjustmentThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.AdjustmentThreshold', 
+                [], [], 
+                '''                Set the bandwidth change threshold to trigger
+                adjustment
+                ''',
+                'adjustment_threshold',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('application-frequency', ATTRIBUTE, 'int' , None, None, 
+                [('5', '10080')], [], 
+                '''                Set the tunnel auto-bw application frequency in
+                minutes
+                ''',
+                'application_frequency',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('bandwidth-limits', REFERENCE_CLASS, 'BandwidthLimits' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits', 
+                [], [], 
+                '''                Set min/max bandwidth auto-bw can apply on a
+                tunnel
+                ''',
+                'bandwidth_limits',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('collection-only', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable bandwidth collection only, no auto-bw
+                adjustment
+                ''',
+                'collection_only',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                This object is only valid for tunnel interfaces
+                and it controls whether that interface has
+                auto-bw enabled on it or not.The object must be
+                set before any other auto-bw configuration is
+                supplied for the interface, and must be the
+                last auto-bw configuration object to be removed
+                .
+                ''',
+                'enabled',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('overflow', REFERENCE_CLASS, 'Overflow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow', 
+                [], [], 
+                '''                Configuring the tunnel overflow detection
+                ''',
+                'overflow',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('overflow-enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable auto bandwidth overflow detection
+                ''',
+                'overflow_enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('underflow', REFERENCE_CLASS, 'Underflow' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow', 
+                [], [], 
+                '''                Configuring the tunnel underflow detection
+                ''',
+                'underflow',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('underflow-enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enable auto bandwidth underflow detection
+                ''',
+                'underflow_enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'auto-bandwidth',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Priority' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Priority',
             False, 
             [
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Hold Priority
                 ''',
                 'hold_priority',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -7597,14 +9064,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The value of the bandwidth reserved by this
                 tunnel in kbps
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('class-or-pool-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Class type for the bandwith allocation
                 ''',
                 'class_or_pool_type',
@@ -7622,12 +9089,181 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric',
+            False, 
+            [
+            _MetaInfoClassMember('absolute-metric', ATTRIBUTE, 'int' , None, None, 
+                [('1', '2147483647')], [], 
+                '''                The absolute metric value
+                ''',
+                'absolute_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('constant-metric', ATTRIBUTE, 'int' , None, None, 
+                [('1', '2147483647')], [], 
+                '''                The constant metric value
+                ''',
+                'constant_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetricEnum', 
+                [], [], 
+                '''                Autoroute tunnel metric type
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('relative-metric', ATTRIBUTE, 'int' , None, None, 
+                [('-10', '10')], [], 
+                '''                The value of the adjustment
+                ''',
+                'relative_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'metric',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric',
+            False, 
+            [
+            _MetaInfoClassMember('absolute-metric', ATTRIBUTE, 'int' , None, None, 
+                [('1', '2147483647')], [], 
+                '''                The absolute metric value
+                ''',
+                'absolute_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('constant-metric', ATTRIBUTE, 'int' , None, None, 
+                [('1', '2147483647')], [], 
+                '''                The constant metric value
+                ''',
+                'constant_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('metric-type', REFERENCE_ENUM_CLASS, 'MplsTeAutorouteMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetricEnum', 
+                [], [], 
+                '''                Autoroute tunnel metric type
+                ''',
+                'metric_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('relative-metric', ATTRIBUTE, 'int' , None, None, 
+                [('-10', '10')], [], 
+                '''                The value of the adjustment
+                ''',
+                'relative_metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'metric',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable autoroute announce
+                ''',
+                'enable',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('include-ipv6', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Specify that the tunnel should be an IPv6
+                autoroute announce also
+                ''',
+                'include_ipv6',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('metric', REFERENCE_CLASS, 'Metric' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce.Metric', 
+                [], [], 
+                '''                Specify MPLS tunnel metric
+                ''',
+                'metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'autoroute-announce',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr.Destination' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr.Destination',
+            False, 
+            [
+            _MetaInfoClassMember('destination-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IP address of destination
+                ''',
+                'destination_address',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'destination',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr',
+            False, 
+            [
+            _MetaInfoClassMember('destination', REFERENCE_LIST, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr.Destination', 
+                [], [], 
+                '''                Destination address to add in RIB
+                ''',
+                'destination',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'destination-xr',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute',
+            False, 
+            [
+            _MetaInfoClassMember('autoroute-announce', REFERENCE_CLASS, 'AutorouteAnnounce' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce', 
+                [], [], 
+                '''                Announce tunnel to IGP
+                ''',
+                'autoroute_announce',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('destination', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Deprecated: do NOT use
+                ''',
+                'destination',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('destination-xr', REFERENCE_CLASS, 'DestinationXr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr', 
+                [], [], 
+                '''                Tunnel Autoroute Destination(s)
+                ''',
+                'destination_xr',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('metric', REFERENCE_CLASS, 'Metric' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric', 
+                [], [], 
+                '''                Specify MPLS tunnel metric
+                ''',
+                'metric',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'autoroute',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PolicyClasses' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PolicyClasses',
             False, 
             [
             _MetaInfoClassMember('policy-class', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(1, 8)], [], 
+                [('1', '8')], [], 
                 '''                Array of Policy class
                 ''',
                 'policy_class',
@@ -7639,8 +9275,448 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities.NewStyleAffinity' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities.NewStyleAffinity',
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType',
+            False, 
+            [
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9',
+            False, 
+            [
+            _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the first affinity
+                ''',
+                'affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity2', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the second affinity
+                ''',
+                'affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity3', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the third affinity
+                ''',
+                'affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity4', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fourth affinity
+                ''',
+                'affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity5', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the fifth affinity
+                ''',
+                'affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity6', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the sixth affinity
+                ''',
+                'affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity7', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the seventh affinity
+                ''',
+                'affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity8', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the eighth affinity
+                ''',
+                'affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity9', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                The name of the nineth affinity
+                ''',
+                'affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            _MetaInfoClassMember('affinity-type', REFERENCE_ENUM_CLASS, 'MplsTeTunnelAffinityEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinityEnum', 
+                [], [], 
+                '''                The type of the affinity entry
+                ''',
+                'affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', True),
+            ],
+            'Cisco-IOS-XR-mpls-te-cfg',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9',
+            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10',
             False, 
             [
             _MetaInfoClassMember('affinity1', ATTRIBUTE, 'str' , None, None, 
@@ -7711,24 +9787,84 @@ _meta_table = {
                 'Cisco-IOS-XR-mpls-te-cfg', True),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinity',
+            'new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities',
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes',
             False, 
             [
-            _MetaInfoClassMember('new-style-affinity', REFERENCE_LIST, 'NewStyleAffinity' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities.NewStyleAffinity', 
+            _MetaInfoClassMember('new-style-affinity-affinity-type', REFERENCE_LIST, 'NewStyleAffinityAffinityType' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType', 
                 [], [], 
                 '''                Tunnel new style affinity attribute
                 ''',
-                'new_style_affinity',
+                'new_style_affinity_affinity_type',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10', REFERENCE_LIST, 'NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10', 
+                [], [], 
+                '''                Tunnel new style affinity attribute
+                ''',
+                'new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
-            'new-style-affinities',
+            'new-style-affinity-affinity-types',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
@@ -7738,13 +9874,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth-protection', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Bandwidth Protection
                 ''',
                 'bandwidth_protection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('node-protection', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Node Protection
                 ''',
                 'node_protection',
@@ -7752,29 +9888,6 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'fast-reroute',
-            _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathInvalidation' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathInvalidation',
-            False, 
-            [
-            _MetaInfoClassMember('path-invalidation-action', REFERENCE_ENUM_CLASS, 'PathInvalidationActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationActionEnum', 
-                [], [], 
-                '''                Path Invalidation Action
-                ''',
-                'path_invalidation_action',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-invalidation-timeout', ATTRIBUTE, 'int' , None, None, 
-                [(0, 60000)], [], 
-                '''                Path Invalidation Timeout
-                ''',
-                'path_invalidation_timeout',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            ],
-            'Cisco-IOS-XR-mpls-te-cfg',
-            'path-invalidation',
             _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
@@ -7853,7 +9966,7 @@ _meta_table = {
                 'fast_reroute',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('forward-class', ATTRIBUTE, 'int' , None, None, 
-                [(1, 7)], [], 
+                [('1', '7')], [], 
                 '''                Forward class value
                 ''',
                 'forward_class',
@@ -7865,23 +9978,16 @@ _meta_table = {
                 'forwarding_adjacency',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('load-share', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
+                [('1', '4294967295')], [], 
                 '''                Tunnel loadsharing metric
                 ''',
                 'load_share',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('new-style-affinities', REFERENCE_CLASS, 'NewStyleAffinities' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities', 
+            _MetaInfoClassMember('new-style-affinity-affinity-types', REFERENCE_CLASS, 'NewStyleAffinityAffinityTypes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes', 
                 [], [], 
                 '''                Tunnel new style affinity attributes table
                 ''',
-                'new_style_affinities',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-invalidation', REFERENCE_CLASS, 'PathInvalidation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathInvalidation', 
-                [], [], 
-                '''                Path invalidation configuration for this
-                specific tunnel
-                ''',
-                'path_invalidation',
+                'new_style_affinity_affinity_types',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-option-protects', REFERENCE_CLASS, 'PathOptionProtects' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects', 
                 [], [], 
@@ -7895,24 +10001,9 @@ _meta_table = {
                 ''',
                 'path_protection',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-cost-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Path selection cost limit configuration for this
-                specific tunnel
-                ''',
-                'path_selection_cost_limit',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
-            _MetaInfoClassMember('path-selection-hop-limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
-                '''                Path selection hop limit configuration for this
-                specific tunnel
-                ''',
-                'path_selection_hop_limit',
-                'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-selection-metric', REFERENCE_ENUM_CLASS, 'MplsTePathSelectionMetricEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetricEnum', 
                 [], [], 
-                '''                Path selection metric configuration for this
-                specific tunnel
+                '''                Path selection metric to use in path calculation
                 ''',
                 'path_selection_metric',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
@@ -7960,6 +10051,12 @@ _meta_table = {
                 ''',
                 'switching',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tunnel-path-selection', REFERENCE_CLASS, 'TunnelPathSelection' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection', 
+                [], [], 
+                '''                Configure path selection properties
+                ''',
+                'tunnel_path_selection',
+                'Cisco-IOS-XR-mpls-te-cfg', False),
             ],
             'Cisco-IOS-XR-mpls-te-cfg',
             'tunnel-te-attributes',
@@ -7972,13 +10069,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interval-ms', ATTRIBUTE, 'int' , None, None, 
-                [(3, 5000)], [], 
+                [('3', '5000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval_ms',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('interval-us', ATTRIBUTE, 'int' , None, None, 
-                [(3000, 5000000)], [], 
+                [('3000', '5000000')], [], 
                 '''                Hello interval in micro-seconds
                 ''',
                 'interval_us',
@@ -7995,13 +10092,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interval-standby-ms', ATTRIBUTE, 'int' , None, None, 
-                [(3, 5000)], [], 
+                [('3', '5000')], [], 
                 '''                Hello interval in milli-seconds
                 ''',
                 'interval_standby_ms',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('interval-standby-us', ATTRIBUTE, 'int' , None, None, 
-                [(3000, 5000000)], [], 
+                [('3000', '5000000')], [], 
                 '''                Hello interval in micro-seconds
                 ''',
                 'interval_standby_us',
@@ -8018,7 +10115,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detection-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(2, 10)], [], 
+                [('2', '10')], [], 
                 '''                Detect multiplier
                 ''',
                 'detection_multiplier',
@@ -8045,7 +10142,7 @@ _meta_table = {
                 'min_interval_standby',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('multiplier-standby', ATTRIBUTE, 'int' , None, None, 
-                [(2, 10)], [], 
+                [('2', '10')], [], 
                 '''                Detect multiplier for standby transport
                 profile LSP
                 ''',
@@ -8063,13 +10160,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                MPLS label
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('link', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Transport profile identifier of outgoing link
                 ''',
                 'link',
@@ -8086,7 +10183,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('in-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 4015)], [], 
+                [('16', '4015')], [], 
                 '''                Incoming MPLS label of the working LSP
                 ''',
                 'in_label',
@@ -8098,7 +10195,7 @@ _meta_table = {
                 'lockout',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP Identifier of the working LSP
                 ''',
                 'lsp_id',
@@ -8121,7 +10218,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('global-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Numeric global identifier
                 ''',
                 'global_id',
@@ -8133,7 +10230,7 @@ _meta_table = {
                 'node_id',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Numeric tunnel identifier
                 ''',
                 'tunnel_id',
@@ -8203,13 +10300,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 1048575)], [], 
+                [('16', '1048575')], [], 
                 '''                MPLS label
                 ''',
                 'label',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('link', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Transport profile identifier of outgoing link
                 ''',
                 'link',
@@ -8226,7 +10323,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('in-label', ATTRIBUTE, 'int' , None, None, 
-                [(16, 4015)], [], 
+                [('16', '4015')], [], 
                 '''                Incoming MPLS label of the protect LSP
                 ''',
                 'in_label',
@@ -8238,7 +10335,7 @@ _meta_table = {
                 'lockout',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                LSP Identifier of the protect LSP
                 ''',
                 'lsp_id',
@@ -8347,7 +10444,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('preference-level', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1000)], [], 
+                [('1', '1000')], [], 
                 '''                Preference level for this path option
                 ''',
                 'preference_level',
@@ -8359,7 +10456,7 @@ _meta_table = {
                 'lockdown',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('path-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                The ID of the IP explicit path associated
                 with this option
                 ''',
@@ -8472,13 +10569,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('hold-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Hold Priority
                 ''',
                 'hold_priority',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -8589,14 +10686,14 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The value of the bandwidth reserved by this
                 tunnel in kbps
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
             _MetaInfoClassMember('class-or-pool-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 1)], [], 
+                [('0', '1')], [], 
                 '''                Class type for the bandwith allocation
                 ''',
                 'class_or_pool_type',
@@ -8787,190 +10884,119 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy',
+    'InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments.LogicalChannelAssignment' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments.LogicalChannelAssignment',
             False, 
             [
-            _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                Name of policy-map
+            _MetaInfoClassMember('assignment-index', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Logical channel assignment id
                 ''',
-                'service_policy_name',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', True),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosPolicyAccountEnum', 
-                [], [], 
-                '''                Turn off L2 or L3 accounting.
+                'assignment_index',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', True),
+            _MetaInfoClassMember('allocation', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Configure Allocation for this assignment(10,
+                40 or 100G)
                 ''',
-                'account_type',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('l1-user-defined', ATTRIBUTE, 'int' , None, None, 
-                [(-63, 63)], [], 
-                '''                User specified value
+                'allocation',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', False),
+            _MetaInfoClassMember('description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                Configure description for this assignment
                 ''',
-                'l1_user_defined',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
+                'description',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', False),
+            _MetaInfoClassMember('logical-channel-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Configure Logical channel for this assignment
                 ''',
-                'policy_merge',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('resource-id', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'resource_id',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('service-fragment-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'service_fragment_parent_policy',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'spi_name',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('subscriber-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'subscriber_parent_policy',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
+                'logical_channel_id',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', False),
             ],
-            'Cisco-IOS-XR-ncs5500-qos-cfg',
-            'service-policy',
-            _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-cfg'],
+            'Cisco-IOS-XR-openconfig-optical-client-cfg',
+            'logical-channel-assignment',
+            _yang_ns._namespaces['Cisco-IOS-XR-openconfig-optical-client-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input',
+    'InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy', 
+            _MetaInfoClassMember('logical-channel-assignment', REFERENCE_LIST, 'LogicalChannelAssignment' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments.LogicalChannelAssignment', 
                 [], [], 
-                '''                Service policy details
+                '''                Logical channel assignment id
                 ''',
-                'service_policy',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
+                'logical_channel_assignment',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', False),
             ],
-            'Cisco-IOS-XR-ncs5500-qos-cfg',
-            'input',
-            _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-cfg'],
+            'Cisco-IOS-XR-openconfig-optical-client-cfg',
+            'logical-channel-assignments',
+            _yang_ns._namespaces['Cisco-IOS-XR-openconfig-optical-client-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy',
+    'InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels.Channel' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels.Channel',
             False, 
             [
-            _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
-                [(0, 64)], [], 
-                '''                Name of policy-map
+            _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Channel Number
                 ''',
-                'service_policy_name',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', True),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosPolicyAccountEnum', 
-                [], [], 
-                '''                Turn off L2 or L3 accounting.
+                'index',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', True),
+            _MetaInfoClassMember('channel-description', ATTRIBUTE, 'str' , None, None, 
+                [(0, 255)], [], 
+                '''                Configure description for this Lane
                 ''',
-                'account_type',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('l1-user-defined', ATTRIBUTE, 'int' , None, None, 
-                [(-63, 63)], [], 
-                '''                User specified value
-                ''',
-                'l1_user_defined',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'policy_merge',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('resource-id', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'resource_id',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('service-fragment-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'service_fragment_parent_policy',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'spi_name',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('subscriber-parent-policy', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'subscriber_parent_policy',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
+                'channel_description',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', False),
             ],
-            'Cisco-IOS-XR-ncs5500-qos-cfg',
-            'service-policy',
-            _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-cfg'],
+            'Cisco-IOS-XR-openconfig-optical-client-cfg',
+            'channel',
+            _yang_ns._namespaces['Cisco-IOS-XR-openconfig-optical-client-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output',
+    'InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy', 
+            _MetaInfoClassMember('channel', REFERENCE_LIST, 'Channel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels.Channel', 
                 [], [], 
-                '''                Service policy details
+                '''                Lane
                 ''',
-                'service_policy',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
+                'channel',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', False),
             ],
-            'Cisco-IOS-XR-ncs5500-qos-cfg',
-            'output',
-            _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-cfg'],
+            'Cisco-IOS-XR-openconfig-optical-client-cfg',
+            'channels',
+            _yang_ns._namespaces['Cisco-IOS-XR-openconfig-optical-client-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos',
+    'InterfaceConfigurations.InterfaceConfiguration.ClientPort' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.ClientPort',
             False, 
             [
-            _MetaInfoClassMember('actual-rate-down', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Minimum bandwidth guaranteed for a subscriber
-                ''',
-                'actual_rate_down',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('actual-rate-up', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Minimum bandwidth guaranteed for a subscriber
-                ''',
-                'actual_rate_up',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input', 
+            _MetaInfoClassMember('channels', REFERENCE_CLASS, 'Channels' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels', 
                 [], [], 
-                '''                Ingress service policy
+                '''                Client Port Lane
                 ''',
-                'input',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output', 
+                'channels',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', False),
+            _MetaInfoClassMember('logical-channel-assignments', REFERENCE_CLASS, 'LogicalChannelAssignments' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments', 
                 [], [], 
-                '''                Egress service policy
+                '''                Client port logical channel assignment
                 ''',
-                'output',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
+                'logical_channel_assignments',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', False),
             ],
-            'Cisco-IOS-XR-ncs5500-qos-cfg',
-            'Cisco-IOS-XR-ncs5500-qos-cfg_qos',
-            _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-cfg'],
+            'Cisco-IOS-XR-openconfig-optical-client-cfg',
+            'client-port',
+            _yang_ns._namespaces['Cisco-IOS-XR-openconfig-optical-client-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
@@ -9065,7 +11091,7 @@ _meta_table = {
                 'stm_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('stm-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Stm Thresh Value
                 ''',
                 'stm_threshold_value',
@@ -9179,7 +11205,7 @@ _meta_table = {
                 'gfp_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('gfp-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Gfp Threshold Value
                 ''',
                 'gfp_threshold_value',
@@ -9293,7 +11319,7 @@ _meta_table = {
                 'path_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('path-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Path Threshold Value
                 ''',
                 'path_threshold_value',
@@ -9390,7 +11416,7 @@ _meta_table = {
                 'ocn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('ocn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Ocn Threshold Value
                 ''',
                 'ocn_threshold_value',
@@ -9510,7 +11536,7 @@ _meta_table = {
                 'gfp_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('gfp-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Gfp Thresh Value
                 ''',
                 'gfp_threshold_value',
@@ -9590,7 +11616,7 @@ _meta_table = {
                 'ether_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('ether-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Ether Thresh Value
                 ''',
                 'ether_threshold_value',
@@ -9704,7 +11730,7 @@ _meta_table = {
                 'otn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Otn Threshold Value
                 ''',
                 'otn_threshold_value',
@@ -9778,7 +11804,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tcm-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                TCM number
                 ''',
                 'tcm_number',
@@ -9871,7 +11897,7 @@ _meta_table = {
                 'ocn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('ocn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Ocn Thresh Value
                 ''',
                 'ocn_threshold_value',
@@ -9951,7 +11977,7 @@ _meta_table = {
                 'ether_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('ether-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Ether Threshold Value
                 ''',
                 'ether_threshold_value',
@@ -10105,7 +12131,7 @@ _meta_table = {
                 'ho_vc_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('ho-vc-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ho_vc Thresh Value
                 ''',
                 'ho_vc_threshold_value',
@@ -10174,6 +12200,338 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds.Second30FecThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds.Second30FecThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('fec-threshold', REFERENCE_ENUM_CLASS, 'FecThresholdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'FecThresholdEnum', 
+                [], [], 
+                '''                Fec Threshold Type
+                ''',
+                'fec_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('fec-threshold-value', ATTRIBUTE, 'str' , None, None, 
+                [(0, 16)], [], 
+                '''                Fec Threshold Value
+                ''',
+                'fec_threshold_value',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30fec-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds',
+            False, 
+            [
+            _MetaInfoClassMember('second30fec-threshold', REFERENCE_LIST, 'Second30FecThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds.Second30FecThreshold', 
+                [], [], 
+                '''                none
+                ''',
+                'second30fec_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30fec-thresholds',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports.Second30FecReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports.Second30FecReport',
+            False, 
+            [
+            _MetaInfoClassMember('fec-report', REFERENCE_ENUM_CLASS, 'FecReportEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'FecReportEnum', 
+                [], [], 
+                '''                Fec Report Type
+                ''',
+                'fec_report',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
+                [], [], 
+                '''                Fec Report
+                ''',
+                'enable',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30fec-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports',
+            False, 
+            [
+            _MetaInfoClassMember('second30fec-report', REFERENCE_LIST, 'Second30FecReport' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports.Second30FecReport', 
+                [], [], 
+                '''                none
+                ''',
+                'second30fec_report',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30fec-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec',
+            False, 
+            [
+            _MetaInfoClassMember('second30fec-reports', REFERENCE_CLASS, 'Second30FecReports' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports', 
+                [], [], 
+                '''                set fec TCA reporting status
+                ''',
+                'second30fec_reports',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('second30fec-thresholds', REFERENCE_CLASS, 'Second30FecThresholds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds', 
+                [], [], 
+                '''                Configure fec threshold
+                ''',
+                'second30fec_thresholds',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30fec',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports.Second30OpticsReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports.Second30OpticsReport',
+            False, 
+            [
+            _MetaInfoClassMember('optics-report', REFERENCE_ENUM_CLASS, 'OpticsReportEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'OpticsReportEnum', 
+                [], [], 
+                '''                Optics Report Type
+                ''',
+                'optics_report',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-optics-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports',
+            False, 
+            [
+            _MetaInfoClassMember('second30-optics-report', REFERENCE_LIST, 'Second30OpticsReport' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports.Second30OpticsReport', 
+                [], [], 
+                '''                none
+                ''',
+                'second30_optics_report',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-optics-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds.Second30OpticsThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds.Second30OpticsThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('optics-threshold', REFERENCE_ENUM_CLASS, 'OpticsThresholdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'OpticsThresholdEnum', 
+                [], [], 
+                '''                Optics Threshold Type
+                ''',
+                'optics_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('optics-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Optics Threshold Value
+                ''',
+                'optics_threshold_value',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-optics-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds',
+            False, 
+            [
+            _MetaInfoClassMember('second30-optics-threshold', REFERENCE_LIST, 'Second30OpticsThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds.Second30OpticsThreshold', 
+                [], [], 
+                '''                none
+                ''',
+                'second30_optics_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-optics-thresholds',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics',
+            False, 
+            [
+            _MetaInfoClassMember('second30-optics-reports', REFERENCE_CLASS, 'Second30OpticsReports' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports', 
+                [], [], 
+                '''                set optics TCA reporting status
+                ''',
+                'second30_optics_reports',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('second30-optics-thresholds', REFERENCE_CLASS, 'Second30OpticsThresholds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds', 
+                [], [], 
+                '''                Configure threshold on optics parameters
+                ''',
+                'second30_optics_thresholds',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-optics',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes.Second30OtnThresh' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes.Second30OtnThresh',
+            False, 
+            [
+            _MetaInfoClassMember('otn-threshold', REFERENCE_ENUM_CLASS, 'OtnThresholdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'OtnThresholdEnum', 
+                [], [], 
+                '''                Otn Threshold Type
+                ''',
+                'otn_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Otn Threshold Value
+                ''',
+                'otn_threshold_value',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-otn-thresh',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes',
+            False, 
+            [
+            _MetaInfoClassMember('second30-otn-thresh', REFERENCE_LIST, 'Second30OtnThresh' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes.Second30OtnThresh', 
+                [], [], 
+                '''                none
+                ''',
+                'second30_otn_thresh',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-otn-threshes',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports.Second30OtnReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports.Second30OtnReport',
+            False, 
+            [
+            _MetaInfoClassMember('otn-report', REFERENCE_ENUM_CLASS, 'OtnReportEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'OtnReportEnum', 
+                [], [], 
+                '''                Otn Report Type
+                ''',
+                'otn_report',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('enable', REFERENCE_ENUM_CLASS, 'ReportEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'ReportEnum', 
+                [], [], 
+                '''                Otn Report
+                ''',
+                'enable',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30otn-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports',
+            False, 
+            [
+            _MetaInfoClassMember('second30otn-report', REFERENCE_LIST, 'Second30OtnReport' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports.Second30OtnReport', 
+                [], [], 
+                '''                none
+                ''',
+                'second30otn_report',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30otn-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn',
+            False, 
+            [
+            _MetaInfoClassMember('second30-otn-threshes', REFERENCE_CLASS, 'Second30OtnThreshes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes', 
+                [], [], 
+                '''                Configure threshold on otn parameters
+                ''',
+                'second30_otn_threshes',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('second30otn-reports', REFERENCE_CLASS, 'Second30OtnReports' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports', 
+                [], [], 
+                '''                set otn TCA reporting status
+                ''',
+                'second30otn_reports',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30otn',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30',
+            False, 
+            [
+            _MetaInfoClassMember('second30-optics', REFERENCE_CLASS, 'Second30Optics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics', 
+                [], [], 
+                '''                Configure optics performance monitoring
+                ''',
+                'second30_optics',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('second30fec', REFERENCE_CLASS, 'Second30Fec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec', 
+                [], [], 
+                '''                Configure fec g709 performance monitoring
+                ''',
+                'second30fec',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('second30otn', REFERENCE_CLASS, 'Second30Otn' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn', 
+                [], [], 
+                '''                configure otn g709 performance monitoring
+                ''',
+                'second30otn',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold',
             False, 
@@ -10185,7 +12543,7 @@ _meta_table = {
                 'otn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Otn Threshold Value
                 ''',
                 'otn_threshold_value',
@@ -10259,7 +12617,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('tcm-number', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                TCM number
                 ''',
                 'tcm_number',
@@ -10352,7 +12710,7 @@ _meta_table = {
                 'path_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('path-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Path Threshold Value
                 ''',
                 'path_threshold_value',
@@ -10432,7 +12790,7 @@ _meta_table = {
                 'otn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Otn Threshold Value
                 ''',
                 'otn_threshold_value',
@@ -10534,8 +12892,15 @@ _meta_table = {
                 ''',
                 'optics_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('dbm', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Used only for Opt and Opr,To Enter
+                Threshold in dbm use 1
+                ''',
+                'dbm',
+                'Cisco-IOS-XR-pmengine-cfg', False),
             _MetaInfoClassMember('optics-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Optics Thresh Value
                 ''',
                 'optics_threshold_value',
@@ -10804,7 +13169,7 @@ _meta_table = {
                 'ho_vc_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('ho-vc-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                ho_vc Threshold Value
                 ''',
                 'ho_vc_threshold_value',
@@ -10884,7 +13249,7 @@ _meta_table = {
                 'path_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('path-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Path Thresh Value
                 ''',
                 'path_threshold_value',
@@ -11044,7 +13409,7 @@ _meta_table = {
                 'stm_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('stm-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Stm Threshold Value
                 ''',
                 'stm_threshold_value',
@@ -11124,7 +13489,7 @@ _meta_table = {
                 'path_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('path-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Path Thresh Value
                 ''',
                 'path_threshold_value',
@@ -11221,7 +13586,7 @@ _meta_table = {
                 'ocn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('ocn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Ocn Thresh Value
                 ''',
                 'ocn_threshold_value',
@@ -11381,7 +13746,7 @@ _meta_table = {
                 'otn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Otn Threshold Value
                 ''',
                 'otn_threshold_value',
@@ -11501,7 +13866,7 @@ _meta_table = {
                 'ocn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('ocn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Ocn Threshold Value
                 ''',
                 'ocn_threshold_value',
@@ -11570,6 +13935,120 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds.Second30EtherThreshold' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds.Second30EtherThreshold',
+            False, 
+            [
+            _MetaInfoClassMember('ether-threshold', REFERENCE_ENUM_CLASS, 'EtherThresholdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'EtherThresholdEnum', 
+                [], [], 
+                '''                Ether Threshold Type
+                ''',
+                'ether_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('ether-threshold-value', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Ether Threshold Value
+                ''',
+                'ether_threshold_value',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-ether-threshold',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds',
+            False, 
+            [
+            _MetaInfoClassMember('second30-ether-threshold', REFERENCE_LIST, 'Second30EtherThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds.Second30EtherThreshold', 
+                [], [], 
+                '''                none
+                ''',
+                'second30_ether_threshold',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-ether-thresholds',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports.Second30EtherReport' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports.Second30EtherReport',
+            False, 
+            [
+            _MetaInfoClassMember('ether-report', REFERENCE_ENUM_CLASS, 'EtherReportEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg', 'EtherReportEnum', 
+                [], [], 
+                '''                Ether Report Type
+                ''',
+                'ether_report',
+                'Cisco-IOS-XR-pmengine-cfg', True),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-ether-report',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports',
+            False, 
+            [
+            _MetaInfoClassMember('second30-ether-report', REFERENCE_LIST, 'Second30EtherReport' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports.Second30EtherReport', 
+                [], [], 
+                '''                none
+                ''',
+                'second30_ether_report',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-ether-reports',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether',
+            False, 
+            [
+            _MetaInfoClassMember('second30-ether-reports', REFERENCE_CLASS, 'Second30EtherReports' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports', 
+                [], [], 
+                '''                set ether TCA reporting status
+                ''',
+                'second30_ether_reports',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('second30-ether-thresholds', REFERENCE_CLASS, 'Second30EtherThresholds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds', 
+                [], [], 
+                '''                Configure threshold on ether parameters
+                ''',
+                'second30_ether_thresholds',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'second30-ether',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30',
+            False, 
+            [
+            _MetaInfoClassMember('second30-ether', REFERENCE_CLASS, 'Second30Ether' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether', 
+                [], [], 
+                '''                Configure ether performance monitoring
+                ''',
+                'second30_ether',
+                'Cisco-IOS-XR-pmengine-cfg', False),
+            ],
+            'Cisco-IOS-XR-pmengine-cfg',
+            'ethernet-second30',
+            _yang_ns._namespaces['Cisco-IOS-XR-pmengine-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport',
             False, 
@@ -11621,7 +14100,7 @@ _meta_table = {
                 'otn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Otn Threshold Value
                 ''',
                 'otn_threshold_value',
@@ -11700,8 +14179,15 @@ _meta_table = {
                 ''',
                 'optics_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
+            _MetaInfoClassMember('dbm', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Used only for Opt and Opr,To Enter
+                Threshold in dbm use 1
+                ''',
+                'dbm',
+                'Cisco-IOS-XR-pmengine-cfg', False),
             _MetaInfoClassMember('optics-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Optics Threshold Value
                 ''',
                 'optics_threshold_value',
@@ -11901,7 +14387,7 @@ _meta_table = {
                 'otn_threshold',
                 'Cisco-IOS-XR-pmengine-cfg', True),
             _MetaInfoClassMember('otn-threshold-value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Otn Threshold Value
                 ''',
                 'otn_threshold_value',
@@ -12038,6 +14524,13 @@ _meta_table = {
                 ''',
                 'ethernet_minute15',
                 'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('ethernet-second30', REFERENCE_CLASS, 'EthernetSecond30' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30', 
+                [], [], 
+                '''                Configure ethernet performance monitoring for
+                30 sec
+                ''',
+                'ethernet_second30',
+                'Cisco-IOS-XR-pmengine-cfg', False),
             _MetaInfoClassMember('ho-vc-hour24', REFERENCE_CLASS, 'HoVcHour24' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24', 
                 [], [], 
                 '''                set HO_VC threshold
@@ -12112,6 +14605,13 @@ _meta_table = {
                 ''',
                 'oc_minute15',
                 'Cisco-IOS-XR-pmengine-cfg', False),
+            _MetaInfoClassMember('second30', REFERENCE_CLASS, 'Second30' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30', 
+                [], [], 
+                '''                Configure optics performance monitoring for 30
+                sec
+                ''',
+                'second30',
+                'Cisco-IOS-XR-pmengine-cfg', False),
             _MetaInfoClassMember('sonet-hour24', REFERENCE_CLASS, 'SonetHour24' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24', 
                 [], [], 
                 '''                set Sonet threshold
@@ -12155,8 +14655,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy',
+    'InterfaceConfigurations.InterfaceConfiguration.Qos.Output.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Qos.Output.ServicePolicy',
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -12164,135 +14664,69 @@ _meta_table = {
                 '''                Name of policy-map
                 ''',
                 'service_policy_name',
-                'Cisco-IOS-XR-skp-qos-cfg', True),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_cfg', 'QosPolicyAccountEnum', 
+                'Cisco-IOS-XR-qos-ma-cfg', True),
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting.
                 ''',
                 'account_type',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('l1-user-defined', ATTRIBUTE, 'int' , None, None, 
-                [(-63, 63)], [], 
+                [('-63', '63')], [], 
                 '''                User specified value
                 ''',
                 'l1_user_defined',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'policy_merge',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('resource-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3)], [], 
+                [('0', '3')], [], 
                 '''                Resource ID value
                 ''',
                 'resource_id',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('service-fragment-parent-policy', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                TRUE if service-policy applied is a
-                service-fragment policy).
+                '''                service-fragment-parent-policy
                 ''',
                 'service_fragment_parent_policy',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the SPI
                 ''',
                 'spi_name',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('subscriber-parent-policy', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE if service-policy applied on svlan.
                 ''',
                 'subscriber_parent_policy',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
-            'Cisco-IOS-XR-skp-qos-cfg',
+            'Cisco-IOS-XR-qos-ma-cfg',
             'service-policy',
-            _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-cfg'],
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output',
+    'InterfaceConfigurations.InterfaceConfiguration.Qos.Output' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Qos.Output',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy', 
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Qos.Output.ServicePolicy', 
                 [], [], 
                 '''                Service policy details
                 ''',
                 'service_policy',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
-            'Cisco-IOS-XR-skp-qos-cfg',
+            'Cisco-IOS-XR-qos-ma-cfg',
             'output',
-            _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-cfg'],
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account',
-            False, 
-            [
-            _MetaInfoClassMember('atm-cell-tax', ATTRIBUTE, 'bool' , None, None, 
-                [], [], 
-                '''                ATM cell tax to be included for overhead
-                calculation
-                ''',
-                'atm_cell_tax',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('data-link-type', REFERENCE_ENUM_CLASS, 'Qosl2DataLinkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_cfg', 'Qosl2DataLinkEnum', 
-                [], [], 
-                '''                Data link type
-                ''',
-                'data_link_type',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('encap-type', REFERENCE_ENUM_CLASS, 'Qosl2EncapEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_cfg', 'Qosl2EncapEnum', 
-                [], [], 
-                '''                Encap used between the DSLAM and CPE
-                ''',
-                'encap_type',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('l2-user-defined', ATTRIBUTE, 'int' , None, None, 
-                [(-63, 63)], [], 
-                '''                User specified value 
-                ''',
-                'l2_user_defined',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            ],
-            'Cisco-IOS-XR-skp-qos-cfg',
-            'account',
-            _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead',
-            False, 
-            [
-            _MetaInfoClassMember('account', REFERENCE_CLASS, 'Account' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account', 
-                [], [], 
-                '''                Access Loop Encapsulation
-                ''',
-                'account',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('iwf', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable IWF for L2 overhead accounting
-                ''',
-                'iwf',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            ],
-            'Cisco-IOS-XR-skp-qos-cfg',
-            'l2-overhead',
-            _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
-        ),
-    },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy',
+    'InterfaceConfigurations.InterfaceConfiguration.Qos.Input.ServicePolicy' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Qos.Input.ServicePolicy',
             False, 
             [
             _MetaInfoClassMember('service-policy-name', ATTRIBUTE, 'str' , None, None, 
@@ -12300,118 +14734,87 @@ _meta_table = {
                 '''                Name of policy-map
                 ''',
                 'service_policy_name',
-                'Cisco-IOS-XR-skp-qos-cfg', True),
-            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_cfg', 'QosPolicyAccountEnum', 
+                'Cisco-IOS-XR-qos-ma-cfg', True),
+            _MetaInfoClassMember('account-type', REFERENCE_ENUM_CLASS, 'QosPolicyAccountEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg', 'QosPolicyAccountEnum', 
                 [], [], 
                 '''                Turn off L2 or L3 accounting.
                 ''',
                 'account_type',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('l1-user-defined', ATTRIBUTE, 'int' , None, None, 
-                [(-63, 63)], [], 
+                [('-63', '63')], [], 
                 '''                User specified value
                 ''',
                 'l1_user_defined',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('policy-merge', REFERENCE_ENUM_CLASS, 'QosFieldNotSupportedEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_cfg', 'QosFieldNotSupportedEnum', 
-                [], [], 
-                '''                Not supported (Leave unspecified).
-                ''',
-                'policy_merge',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('resource-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 3)], [], 
+                [('0', '3')], [], 
                 '''                Resource ID value
                 ''',
                 'resource_id',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('service-fragment-parent-policy', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
-                '''                TRUE if service-policy applied is a
-                service-fragment policy).
+                '''                service-fragment-parent-policy
                 ''',
                 'service_fragment_parent_policy',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('spi-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Name of the SPI
                 ''',
                 'spi_name',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('subscriber-parent-policy', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
                 '''                TRUE if service-policy applied on svlan.
                 ''',
                 'subscriber_parent_policy',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
-            'Cisco-IOS-XR-skp-qos-cfg',
+            'Cisco-IOS-XR-qos-ma-cfg',
             'service-policy',
-            _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-cfg'],
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input',
+    'InterfaceConfigurations.InterfaceConfiguration.Qos.Input' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Qos.Input',
             False, 
             [
-            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy', 
+            _MetaInfoClassMember('service-policy', REFERENCE_LIST, 'ServicePolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Qos.Input.ServicePolicy', 
                 [], [], 
                 '''                Service policy details
                 ''',
                 'service_policy',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
-            'Cisco-IOS-XR-skp-qos-cfg',
+            'Cisco-IOS-XR-qos-ma-cfg',
             'input',
-            _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-cfg'],
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
-    'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos' : {
-        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos',
+    'InterfaceConfigurations.InterfaceConfiguration.Qos' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Qos',
             False, 
             [
-            _MetaInfoClassMember('actual-rate-down', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Minimum bandwidth guaranteed for a subscriber
-                ''',
-                'actual_rate_down',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('actual-rate-up', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Minimum bandwidth guaranteed for a subscriber
-                ''',
-                'actual_rate_up',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Qos.Input', 
                 [], [], 
                 '''                Ingress service policy
                 ''',
                 'input',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('l2-overhead', REFERENCE_CLASS, 'L2Overhead' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead', 
-                [], [], 
-                '''                Layer 2 overhead accounting
-                ''',
-                'l2_overhead',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('minimum-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4294967295)], [], 
-                '''                Minimum bandwidth guaranteed for a subscriber
-                ''',
-                'minimum_bandwidth',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
-            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output', 
+                'Cisco-IOS-XR-qos-ma-cfg', False),
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Qos.Output', 
                 [], [], 
                 '''                Egress service policy
                 ''',
                 'output',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             ],
-            'Cisco-IOS-XR-skp-qos-cfg',
-            'Cisco-IOS-XR-skp-qos-cfg_qos',
-            _yang_ns._namespaces['Cisco-IOS-XR-skp-qos-cfg'],
+            'Cisco-IOS-XR-qos-ma-cfg',
+            'qos',
+            _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
@@ -12804,6 +15207,221 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
         ),
     },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Mode' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Mode',
+            False, 
+            [
+            _MetaInfoClassMember('decap', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Always set to true
+                ''',
+                'decap',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                GRE IPV4 - 1, GRE IPV6 - 2, MGRE IPV4 - 3,
+                MGRE IPV6 -4. IPV4 - 5, IPV6 - 6
+                ''',
+                'value',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            ],
+            'Cisco-IOS-XR-tunnel-gre-cfg',
+            'mode',
+            _yang_ns._namespaces['Cisco-IOS-XR-tunnel-gre-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Source' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Source',
+            False, 
+            [
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPV4 address of the tunnel source
+                ''',
+                'address',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Name of tunnel source interface
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                IPV6 address of the tunnel source
+                ''',
+                'ipv6_address',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                1 for Interface Name, 2 for IPv4 Address, 3
+                for IPv6 Address
+                ''',
+                'type',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            ],
+            'Cisco-IOS-XR-tunnel-gre-cfg',
+            'source',
+            _yang_ns._namespaces['Cisco-IOS-XR-tunnel-gre-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Key' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Key',
+            False, 
+            [
+            _MetaInfoClassMember('entropy', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Always set to true
+                ''',
+                'entropy',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Enter the KEY value
+                ''',
+                'value',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            ],
+            'Cisco-IOS-XR-tunnel-gre-cfg',
+            'key',
+            _yang_ns._namespaces['Cisco-IOS-XR-tunnel-gre-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Keepalive' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Keepalive',
+            False, 
+            [
+            _MetaInfoClassMember('keep-alive-period', ATTRIBUTE, 'int' , None, None, 
+                [('1', '32767')], [], 
+                '''                Keepalive period in seconds (default 10
+                seconds)
+                ''',
+                'keep_alive_period',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('keep-alive-retries', ATTRIBUTE, 'int' , None, None, 
+                [('1', '255')], [], 
+                '''                Number of retries (default 3)
+                ''',
+                'keep_alive_retries',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            ],
+            'Cisco-IOS-XR-tunnel-gre-cfg',
+            'keepalive',
+            _yang_ns._namespaces['Cisco-IOS-XR-tunnel-gre-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Destination' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Destination',
+            False, 
+            [
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPV4 address of the tunnel destination
+                ''',
+                'address',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('address-mask', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 prefix length of the tunnel destination
+                ''',
+                'address_mask',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                IPV6 address of the tunnel destination
+                ''',
+                'ipv6_address',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                1 for IPv4 Address, 2 for IPv6 Address
+                ''',
+                'type',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            ],
+            'Cisco-IOS-XR-tunnel-gre-cfg',
+            'destination',
+            _yang_ns._namespaces['Cisco-IOS-XR-tunnel-gre-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
+    'InterfaceConfigurations.InterfaceConfiguration.TunnelIp' : {
+        'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.TunnelIp',
+            False, 
+            [
+            _MetaInfoClassMember('allow-key', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable flag bit to allow packets with GRE key
+                ''',
+                'allow_key',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('destination', REFERENCE_CLASS, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Destination', 
+                [], [], 
+                '''                Configure destination of tunnel
+                ''',
+                'destination',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('disable', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Disable DF bit (i.e. allow fragmentation)
+                ''',
+                'disable',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('keepalive', REFERENCE_CLASS, 'Keepalive' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Keepalive', 
+                [], [], 
+                '''                Enable keepalive packets on this tunnel
+                ''',
+                'keepalive',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('key', REFERENCE_CLASS, 'Key' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Key', 
+                [], [], 
+                '''                Configure the key value for packets sent over
+                this tunnel
+                ''',
+                'key',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('mode', REFERENCE_CLASS, 'Mode' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Mode', 
+                [], [], 
+                '''                Tunnel encapsulation method
+                ''',
+                'mode',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('source', REFERENCE_CLASS, 'Source' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Source', 
+                [], [], 
+                '''                Configure source of tunnel
+                ''',
+                'source',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('tos', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Configure Type of Service bits for this tunnel
+                ''',
+                'tos',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
+                [('1', '255')], [], 
+                '''                Configure the time-to-live for packets sent
+                over this tunnel
+                ''',
+                'ttl',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            _MetaInfoClassMember('tunnel-vrf', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Tunnel vrf label name
+                ''',
+                'tunnel_vrf',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
+            ],
+            'Cisco-IOS-XR-tunnel-gre-cfg',
+            'tunnel-ip',
+            _yang_ns._namespaces['Cisco-IOS-XR-tunnel-gre-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg'
+        ),
+    },
     'InterfaceConfigurations.InterfaceConfiguration.Wanphy' : {
         'meta_info' : _MetaInfoClass('InterfaceConfigurations.InterfaceConfiguration.Wanphy',
             False, 
@@ -12901,14 +15519,14 @@ _meta_table = {
                 'report_sf_ber',
                 'Cisco-IOS-XR-wanphy-ui-cfg', False),
             _MetaInfoClassMember('threshold-sd-ber', ATTRIBUTE, 'int' , None, None, 
-                [(3, 9)], [], 
+                [('3', '9')], [], 
                 '''                Bit error rate is 10 to the minus n, where n is
                 threshold value
                 ''',
                 'threshold_sd_ber',
                 'Cisco-IOS-XR-wanphy-ui-cfg', False),
             _MetaInfoClassMember('threshold-sf-ber', ATTRIBUTE, 'int' , None, None, 
-                [(3, 9)], [], 
+                [('3', '9')], [], 
                 '''                Bit error rate is 10 to the minus n, where n is
                 threshold value
                 ''',
@@ -12939,7 +15557,7 @@ _meta_table = {
                 'active',
                 'Cisco-IOS-XR-ifmgr-cfg', True),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -12957,7 +15575,7 @@ _meta_table = {
                 'atm',
                 'Cisco-IOS-XR-atm-vcm-cfg', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('0', '4294967295')], [], 
                 '''                The bandwidth of the interface in kbps
                 ''',
                 'bandwidth',
@@ -12980,24 +15598,32 @@ _meta_table = {
                 ''',
                 'bundle_member',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
+            _MetaInfoClassMember('carrier-delay', REFERENCE_CLASS, 'CarrierDelay' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CarrierDelay', 
+                [], [], 
+                '''                Set the carrier transition delay on an interface
+                in msecs
+                ''',
+                'carrier_delay',
+                'Cisco-IOS-XR-l2-eth-infra-cfg', False),
             _MetaInfoClassMember('cdp', REFERENCE_CLASS, 'Cdp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Cdp', 
                 [], [], 
                 '''                Interface specific CDP configuration
                 ''',
                 'cdp',
                 'Cisco-IOS-XR-cdp-cfg', False),
-            _MetaInfoClassMember('Cisco-IOS-XR-ncs5500-qos-cfg_qos', REFERENCE_CLASS, 'CiscoIosXrNcs5500QosCfg_Qos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos', 
+            _MetaInfoClassMember('client-port', REFERENCE_CLASS, 'ClientPort' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.ClientPort', 
                 [], [], 
-                '''                Interface QOS configuration
+                '''                Mxp optics for client ports
                 ''',
-                'cisco_ios_xr_ncs5500_qos_cfg_qos',
-                'Cisco-IOS-XR-ncs5500-qos-cfg', False),
-            _MetaInfoClassMember('Cisco-IOS-XR-skp-qos-cfg_qos', REFERENCE_CLASS, 'CiscoIosXrSkpQosCfg_Qos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos', 
+                'client_port',
+                'Cisco-IOS-XR-openconfig-optical-client-cfg', False),
+            _MetaInfoClassMember('control-subscriber', REFERENCE_CLASS, 'ControlSubscriber' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.ControlSubscriber', 
                 [], [], 
-                '''                Interface QOS configuration
+                '''                Interface control subscriber policy
+                configuration
                 ''',
-                'cisco_ios_xr_skp_qos_cfg_qos',
-                'Cisco-IOS-XR-skp-qos-cfg', False),
+                'control_subscriber',
+                'Cisco-IOS-XR-iedge4710-cfg', False),
             _MetaInfoClassMember('dagrs', REFERENCE_CLASS, 'Dagrs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dagrs', 
                 [], [], 
                 '''                Direct-Attached Gateway Redundancy configuration
@@ -13017,6 +15643,12 @@ _meta_table = {
                 ''',
                 'description',
                 'Cisco-IOS-XR-ifmgr-cfg', False),
+            _MetaInfoClassMember('dwdm', REFERENCE_CLASS, 'Dwdm' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Dwdm', 
+                [], [], 
+                '''                DWDM port controller configuration
+                ''',
+                'dwdm',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
             _MetaInfoClassMember('encapsulation', REFERENCE_CLASS, 'Encapsulation' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Encapsulation', 
                 [], [], 
                 '''                The encapsulation on the interface
@@ -13042,6 +15674,12 @@ _meta_table = {
                 ''',
                 'ethernet_bng',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
+            _MetaInfoClassMember('ethernet-control', REFERENCE_CLASS, 'EthernetControl' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.EthernetControl', 
+                [], [], 
+                '''                EthernetControl
+                ''',
+                'ethernet_control',
+                'Cisco-IOS-XR-asr9k-lc-ethctrl-cfg', False),
             _MetaInfoClassMember('ethernet-features', REFERENCE_CLASS, 'EthernetFeatures' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures', 
                 [], [], 
                 '''                Ethernet Features Configuration
@@ -13149,6 +15787,25 @@ _meta_table = {
                 ''',
                 'mac_accounting',
                 'Cisco-IOS-XR-l2-eth-infra-cfg', False),
+            _MetaInfoClassMember('mac-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                Set the Mac address on an interface
+                ''',
+                'mac_addr',
+                'Cisco-IOS-XR-mdrv-lib-cfg', False),
+            _MetaInfoClassMember('macsec', REFERENCE_CLASS, 'Macsec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Macsec', 
+                [], [], 
+                '''                MACSec service for an interface
+                ''',
+                'macsec',
+                'Cisco-IOS-XR-crypto-macsec-mka-if-cfg', False),
+            _MetaInfoClassMember('maintenance-embargo', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                configure maintenance embargo flag on the given
+                interface
+                ''',
+                'maintenance_embargo',
+                'Cisco-IOS-XR-dwdm-ui-cfg', False),
             _MetaInfoClassMember('mlacp', REFERENCE_CLASS, 'Mlacp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Mlacp', 
                 [], [], 
                 '''                Multi-chassis LACP configuration
@@ -13206,7 +15863,7 @@ _meta_table = {
                 'Cisco-IOS-XR-controller-otu-cfg', False),
             _MetaInfoClassMember('pbr', REFERENCE_CLASS, 'Pbr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Pbr', 
                 [], [], 
-                '''                Dynamic Template PBR configuration
+                '''                Interface PBR configuration
                 ''',
                 'pbr',
                 'Cisco-IOS-XR-pbr-cfg', False),
@@ -13228,6 +15885,12 @@ _meta_table = {
                 ''',
                 'pseudowire_iw',
                 'Cisco-IOS-XR-l2vpn-cfg', False),
+            _MetaInfoClassMember('qos', REFERENCE_CLASS, 'Qos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.Qos', 
+                [], [], 
+                '''                Interface QOS configuration
+                ''',
+                'qos',
+                'Cisco-IOS-XR-qos-ma-cfg', False),
             _MetaInfoClassMember('secondary-admin-state', REFERENCE_ENUM_CLASS, 'SecondaryAdminStateEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'SecondaryAdminStateEnumEnum', 
                 [], [], 
                 '''                The secondary admin state of the interface
@@ -13254,12 +15917,24 @@ _meta_table = {
                 ''',
                 'statistics',
                 'Cisco-IOS-XR-infra-statsd-cfg', False),
+            _MetaInfoClassMember('track-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 32)], [], 
+                '''                Track Name
+                ''',
+                'track_name',
+                'Cisco-IOS-XR-manageability-object-tracking-cfg', False),
             _MetaInfoClassMember('transport-profile-tunnel', REFERENCE_CLASS, 'TransportProfileTunnel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel', 
                 [], [], 
                 '''                MPLS-TP tunnel attributes
                 ''',
                 'transport_profile_tunnel',
                 'Cisco-IOS-XR-mpls-te-cfg', False),
+            _MetaInfoClassMember('tunnel-ip', REFERENCE_CLASS, 'TunnelIp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelIp', 
+                [], [], 
+                '''                IP over GRE encapsulation
+                ''',
+                'tunnel_ip',
+                'Cisco-IOS-XR-tunnel-gre-cfg', False),
             _MetaInfoClassMember('tunnel-te-attributes', REFERENCE_CLASS, 'TunnelTeAttributes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_cfg', 'InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes', 
                 [], [], 
                 '''                MPLS tunnel attributes
@@ -13316,14 +15991,28 @@ _meta_table = {
     },
 }
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Mtus.Mtu']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Mtus']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver.Permit']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetControl.Transceiver']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetControl']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters.CellPacking']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols.L2Protocol']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession.Attachment']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions.SpanMonitorSession']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Output']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos.Input']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac.Qos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Output']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos.Input']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac.Qos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.AtmPortModeParameters']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2Protocols']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.L2EthernetFeatures']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.SpanMonitorSessions']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Pac']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport.Cac']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.Shape']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp.CellPacking']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps.Pvp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps']['meta_info']
@@ -13337,8 +16026,10 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.Pvps']['meta_inf
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.Pvcs']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.MaximumCellPackingTimers']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm.VpTunnels']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Atm']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6.Ipv6Timers']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Echo']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4.Timers']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv6']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily.Ipv4']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd.AddressFamily']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bfd']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBalancing.HashFunction']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Bundle.BundleLoadBalancing']['meta_info']
@@ -13372,9 +16063,35 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitc
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Otu.OtnSendTtisapi']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Otu']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTtitcmos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Otu']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Otu.OtnExpectedTti']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Otu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Macsec.PskKeyChain']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Macsec']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalFailBitErrorRate']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ethernet']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ethernet.SignalDegradeBitErrorRate']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ethernet']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ethernet.CarrierDelay']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ethernet']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs.NetworkSrlg']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports.OduReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds.OduThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduExpectedTti']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu.OduTxTti']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds.OtuThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerWindow']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.TriggerThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr.RevertWindow']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports.OtuReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuExpectedTti']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.Frr']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu.OtuTxTti']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Odu']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Otu']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Prbs']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709.Fec']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.NetworkSrlgs']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.G709']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm.Wavelength']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration.VlanIdentifier']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetService.LocalTrafficDefaultEncapsulation']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetService']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetService.Encapsulation']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetService']['meta_info']
@@ -13459,10 +16176,25 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.MacAddre
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Verify']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Network']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.Addresses']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Network']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Network.BgpFlowTagPolicyTable']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Network']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS.RaspecificRoute']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches.RadnsSearch']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers.RadnsServer']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes.Ipv6Prefix']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaspecificRouteS']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.DuplicateAddressDetection']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsSearches']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RadnsServers']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.RaInterval']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor.Ipv6Prefixes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions.PathOption']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType.FaultOam']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationParameters']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Transit']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Endpoint']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection.Invalidation']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Underflow']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.Overflow']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth.BandwidthLimits']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth']['meta_info']
@@ -13472,33 +16204,35 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.A
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.Metric']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.AutorouteAnnounce']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute.DestinationXr']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions.PathOption']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect.PathOptions']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects.PathOptionProtect']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType.FaultOam']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationCoroutedType']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional.AssociationParameters']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Transit']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching.Endpoint']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities.NewStyleAffinity']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BackupBandwidth']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BfdOverLsp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.BindingSegmentIdMpls']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.ForwardingAdjacency']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathOptionProtects']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bidirectional']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AdminMode']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Switching']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Pce']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.TunnelPathSelection']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AutoBandwidth']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Priority']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.AffinityMask']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Bandwidth']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.Autoroute']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PolicyClasses']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinities']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.NewStyleAffinityAffinityTypes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.FastReroute']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes.PathInvalidation']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinInterval']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd.MinIntervalStandby']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.Bfd']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp.OutLabel']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel.WorkingLsp']['meta_info']
@@ -13520,10 +16254,10 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Bandwidth']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.AffinityMask']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes.Logging']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Input']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos.Output']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments.LogicalChannelAssignment']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels.Channel']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.ClientPort.LogicalChannelAssignments']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.ClientPort']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.ClientPort.Channels']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.ClientPort']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Pbr.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Pbr']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmReports.StmHour24StmReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmReports']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmThresholds.StmHour24StmThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StmHour24.StmHour24Stm.StmHour24StmThresholds']['meta_info']
@@ -13575,6 +16309,21 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagemen
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc.HoVcHour24HoVcThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24.HoVcHour24HoVc']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds.Second30FecThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports.Second30FecReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec.Second30FecReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports.Second30OpticsReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds.Second30OpticsThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics.Second30OpticsThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes.Second30OtnThresh']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports.Second30OtnReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnThreshes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn.Second30OtnReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Fec']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Optics']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30.Second30Otn']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds.Hour24OtnTcmThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports.Hour24OtnTcmReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmReports']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm.Hour24OtnTcmThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms.Hour24OtnTcm']['meta_info']
@@ -13635,6 +16384,11 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagemen
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn.OcMinute15OcnThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15.OcMinute15Ocn']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds.Second30EtherThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports.Second30EtherReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherThresholds']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether.Second30EtherReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30.Second30Ether']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports.Hour24OtnPathReport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds.Hour24OtnPathThreshold']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathThresholds']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath.Hour24OtnPathReports']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path.Hour24OtnPath']['meta_info']
@@ -13664,6 +16418,7 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagemen
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcHour24']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetMinute15']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.HoVcHour24']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Second30']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24OtnTcms']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.StsMinute15']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
@@ -13673,14 +16428,13 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagemen
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.SonetHour24']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15Path']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.OcMinute15']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.EthernetSecond30']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Hour24Path']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement.Minute15']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead.Account']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Output']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.L2Overhead']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos.Input']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Qos.Output.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Qos.Output']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Qos.Input.ServicePolicy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Qos.Input']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Qos.Output']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Qos']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Qos.Input']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.Qos']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress.FlowMonitorName']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Egress.FlowMonitorName']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Egress']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap.Ingress']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls.FlowMonitorMap']['meta_info']
@@ -13699,9 +16453,15 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4.FlowMon
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Mpls']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv6']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow.Ipv4']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Mode']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Source']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Key']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Keepalive']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp.Destination']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Dampening']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Mtus']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Encapsulation']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetControl']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PseudowireEther']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PseudowireIw']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.L2Transport']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
@@ -13714,18 +16474,22 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.Mlacp']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Cdp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Optics']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Otu']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Macsec']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ethernet']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Dwdm']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.VlanSubConfiguration']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetService']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetBng']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MacAccounting']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.EthernetFeatures']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.CarrierDelay']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.VlanTrunkConfiguration']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NvSatelliteAccess']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricLink']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NvSatelliteFabricNetwork']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Lldp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.SpanMonitorSessions']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.ControlSubscriber']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Afs']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Statistics']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6PacketFilter']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
@@ -13740,10 +16504,11 @@ _meta_table['InterfaceConfigurations.InterfaceConfiguration.Ipv6Neighbor']['meta
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelTeAttributes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.TransportProfileTunnel']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.MteTunnelAttributes']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrNcs5500QosCfg_Qos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.ClientPort']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Pbr']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.PerformanceManagement']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
-_meta_table['InterfaceConfigurations.InterfaceConfiguration.CiscoIosXrSkpQosCfg_Qos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.Qos']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.NetFlow']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
+_meta_table['InterfaceConfigurations.InterfaceConfiguration.TunnelIp']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration.Wanphy']['meta_info'].parent =_meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info']
 _meta_table['InterfaceConfigurations.InterfaceConfiguration']['meta_info'].parent =_meta_table['InterfaceConfigurations']['meta_info']

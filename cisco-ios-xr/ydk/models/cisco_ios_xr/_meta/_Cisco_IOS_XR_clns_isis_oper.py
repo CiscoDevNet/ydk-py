@@ -41,6 +41,12 @@ _meta_table = {
             'isis-nsf-flav-or-ietf':'ISIS_NSF_FLAV_OR_IETF',
             'isis-nsf-flav-or-nsr':'ISIS_NSF_FLAV_OR_NSR',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
+    'SrmsMiAfEBEnum' : _MetaInfoEnum('SrmsMiAfEBEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
+        {
+            'none':'NONE',
+            'ipv4':'IPV4',
+            'ipv6':'IPV6',
+        }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
     'IsisIfDisabledReasonEnum' : _MetaInfoEnum('IsisIfDisabledReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
             'isis-intf-disabled-no-net-cfg':'ISIS_INTF_DISABLED_NO_NET_CFG',
@@ -60,6 +66,12 @@ _meta_table = {
             'isis-sh-te-link-p2p':'ISIS_SH_TE_LINK_P2P',
             'isis-sh-te-link-broadcast':'ISIS_SH_TE_LINK_BROADCAST',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
+    'SrmsMiSrcEBEnum' : _MetaInfoEnum('SrmsMiSrcEBEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
+        {
+            'none':'NONE',
+            'local':'LOCAL',
+            'remote':'REMOTE',
+        }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
     'IsisLspDbOpEnum' : _MetaInfoEnum('IsisLspDbOpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
             'isis-lsp-db-clear':'ISIS_LSP_DB_CLEAR',
@@ -68,11 +80,17 @@ _meta_table = {
             'isis-lsp-db-purge-lsp':'ISIS_LSP_DB_PURGE_LSP',
             'isis-lsp-db-delete-lsp':'ISIS_LSP_DB_DELETE_LSP',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
-    'IsisMediaClassEnum' : _MetaInfoEnum('IsisMediaClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
+    'IsisIfAfPrefixUnknownReasonEnum' : _MetaInfoEnum('IsisIfAfPrefixUnknownReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
-            'isis-media-class-lan':'ISIS_MEDIA_CLASS_LAN',
-            'isis-media-class-p2p':'ISIS_MEDIA_CLASS_P2P',
-            'isis-media-class-loop-back':'ISIS_MEDIA_CLASS_LOOP_BACK',
+            'isis-intf-af-prefix-unknown-adv-suppressed':'ISIS_INTF_AF_PREFIX_UNKNOWN_ADV_SUPPRESSED',
+            'isis-intf-af-prefix-unknown-global-addr-reg-error':'ISIS_INTF_AF_PREFIX_UNKNOWN_GLOBAL_ADDR_REG_ERROR',
+            'isis-intf-af-prefix-unknown-internal-error':'ISIS_INTF_AF_PREFIX_UNKNOWN_INTERNAL_ERROR',
+        }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
+    'IsisMetricStyleEnum' : _MetaInfoEnum('IsisMetricStyleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
+        {
+            'isis-metric-style-narrow':'ISIS_METRIC_STYLE_NARROW',
+            'isis-metric-style-wide':'ISIS_METRIC_STYLE_WIDE',
+            'isis-metric-style-transition':'ISIS_METRIC_STYLE_TRANSITION',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
     'IsisIfAfProtoDownReasonEnum' : _MetaInfoEnum('IsisIfAfProtoDownReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
@@ -101,11 +119,11 @@ _meta_table = {
             'isis-metric-mode-relative':'ISIS_METRIC_MODE_RELATIVE',
             'isis-metric-mode-absolute':'ISIS_METRIC_MODE_ABSOLUTE',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
-    'IsisMetricStyleEnum' : _MetaInfoEnum('IsisMetricStyleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
+    'IsisMediaClassEnum' : _MetaInfoEnum('IsisMediaClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
-            'isis-metric-style-narrow':'ISIS_METRIC_STYLE_NARROW',
-            'isis-metric-style-wide':'ISIS_METRIC_STYLE_WIDE',
-            'isis-metric-style-transition':'ISIS_METRIC_STYLE_TRANSITION',
+            'isis-media-class-lan':'ISIS_MEDIA_CLASS_LAN',
+            'isis-media-class-p2p':'ISIS_MEDIA_CLASS_P2P',
+            'isis-media-class-loop-back':'ISIS_MEDIA_CLASS_LOOP_BACK',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
     'IsisIfAfDisabledReasonEnum' : _MetaInfoEnum('IsisIfAfDisabledReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
@@ -137,11 +155,29 @@ _meta_table = {
             'area':'AREA',
             'domain':'DOMAIN',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
-    'IsisIfAfPrefixUnknownReasonEnum' : _MetaInfoEnum('IsisIfAfPrefixUnknownReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
+    'IsisLspTriggerEnum' : _MetaInfoEnum('IsisLspTriggerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
-            'isis-intf-af-prefix-unknown-adv-suppressed':'ISIS_INTF_AF_PREFIX_UNKNOWN_ADV_SUPPRESSED',
-            'isis-intf-af-prefix-unknown-global-addr-reg-error':'ISIS_INTF_AF_PREFIX_UNKNOWN_GLOBAL_ADDR_REG_ERROR',
-            'isis-intf-af-prefix-unknown-internal-error':'ISIS_INTF_AF_PREFIX_UNKNOWN_INTERNAL_ERROR',
+            'isis-lsp-trig-config':'ISIS_LSP_TRIG_CONFIG',
+            'isis-lsp-trig-newadj':'ISIS_LSP_TRIG_NEWADJ',
+            'isis-lsp-trig-deladj':'ISIS_LSP_TRIG_DELADJ',
+            'isis-lsp-trig-dr-change':'ISIS_LSP_TRIG_DR_CHANGE',
+            'isis-lsp-trig-area-set':'ISIS_LSP_TRIG_AREA_SET',
+            'isis-lsp-trig-attach':'ISIS_LSP_TRIG_ATTACH',
+            'isis-lsp-trig-hippity':'ISIS_LSP_TRIG_HIPPITY',
+            'isis-lsp-trig-regen':'ISIS_LSP_TRIG_REGEN',
+            'isis-lsp-trig-ip-if-up':'ISIS_LSP_TRIG_IP_IF_UP',
+            'isis-lsp-trig-ip-if-down':'ISIS_LSP_TRIG_IP_IF_DOWN',
+            'isis-lsp-trig-ip-inter-area':'ISIS_LSP_TRIG_IP_INTER_AREA',
+            'isis-lsp-trig-ip-external':'ISIS_LSP_TRIG_IP_EXTERNAL',
+            'isis-lsp-trig-ip-def-orig':'ISIS_LSP_TRIG_IP_DEF_ORIG',
+            'isis-lsp-trig-ip-addr-chg':'ISIS_LSP_TRIG_IP_ADDR_CHG',
+            'isis-lsp-trig-te-info':'ISIS_LSP_TRIG_TE_INFO',
+            'isis-lsp-trig-te-pce-info':'ISIS_LSP_TRIG_TE_PCE_INFO',
+            'isis-lsp-trig-te-fa-info':'ISIS_LSP_TRIG_TE_FA_INFO',
+            'isis-lsp-trig-nsr-fo':'ISIS_LSP_TRIG_NSR_FO',
+            'isis-lsp-trig-pn-cancel':'ISIS_LSP_TRIG_PN_CANCEL',
+            'isis-lsp-trig-lkgp':'ISIS_LSP_TRIG_LKGP',
+            'isis-lsp-trig-pp':'ISIS_LSP_TRIG_PP',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
     'IsisEnabledEnum' : _MetaInfoEnum('IsisEnabledEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
@@ -174,30 +210,6 @@ _meta_table = {
             'isis-intf-clns-proto-down-imd-exist-reg-error':'ISIS_INTF_CLNS_PROTO_DOWN_IMD_EXIST_REG_ERROR',
             'isis-intf-clns-proto-down-imd-state-reg-error':'ISIS_INTF_CLNS_PROTO_DOWN_IMD_STATE_REG_ERROR',
             'isis-intf-clns-proto-down-clns-not-up':'ISIS_INTF_CLNS_PROTO_DOWN_CLNS_NOT_UP',
-        }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
-    'IsisLspTriggerEnum' : _MetaInfoEnum('IsisLspTriggerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
-        {
-            'isis-lsp-trig-config':'ISIS_LSP_TRIG_CONFIG',
-            'isis-lsp-trig-newadj':'ISIS_LSP_TRIG_NEWADJ',
-            'isis-lsp-trig-deladj':'ISIS_LSP_TRIG_DELADJ',
-            'isis-lsp-trig-dr-change':'ISIS_LSP_TRIG_DR_CHANGE',
-            'isis-lsp-trig-area-set':'ISIS_LSP_TRIG_AREA_SET',
-            'isis-lsp-trig-attach':'ISIS_LSP_TRIG_ATTACH',
-            'isis-lsp-trig-hippity':'ISIS_LSP_TRIG_HIPPITY',
-            'isis-lsp-trig-regen':'ISIS_LSP_TRIG_REGEN',
-            'isis-lsp-trig-ip-if-up':'ISIS_LSP_TRIG_IP_IF_UP',
-            'isis-lsp-trig-ip-if-down':'ISIS_LSP_TRIG_IP_IF_DOWN',
-            'isis-lsp-trig-ip-inter-area':'ISIS_LSP_TRIG_IP_INTER_AREA',
-            'isis-lsp-trig-ip-external':'ISIS_LSP_TRIG_IP_EXTERNAL',
-            'isis-lsp-trig-ip-def-orig':'ISIS_LSP_TRIG_IP_DEF_ORIG',
-            'isis-lsp-trig-ip-addr-chg':'ISIS_LSP_TRIG_IP_ADDR_CHG',
-            'isis-lsp-trig-te-info':'ISIS_LSP_TRIG_TE_INFO',
-            'isis-lsp-trig-te-pce-info':'ISIS_LSP_TRIG_TE_PCE_INFO',
-            'isis-lsp-trig-te-fa-info':'ISIS_LSP_TRIG_TE_FA_INFO',
-            'isis-lsp-trig-nsr-fo':'ISIS_LSP_TRIG_NSR_FO',
-            'isis-lsp-trig-pn-cancel':'ISIS_LSP_TRIG_PN_CANCEL',
-            'isis-lsp-trig-lkgp':'ISIS_LSP_TRIG_LKGP',
-            'isis-lsp-trig-pp':'ISIS_LSP_TRIG_PP',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
     'IsisSpfTriggerEnum' : _MetaInfoEnum('IsisSpfTriggerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
@@ -234,11 +246,10 @@ _meta_table = {
             'isis-spf-trig-rtrid':'ISIS_SPF_TRIG_RTRID',
             'isis-spf-trig-prefix-policy':'ISIS_SPF_TRIG_PREFIX_POLICY',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
-    'IsisIfClnsSnpaUnknownReasonEnum' : _MetaInfoEnum('IsisIfClnsSnpaUnknownReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
+    'SrmsMiFlagEBEnum' : _MetaInfoEnum('SrmsMiFlagEBEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
-            'isis-intf-clns-snpa-unknown-access-error':'ISIS_INTF_CLNS_SNPA_UNKNOWN_ACCESS_ERROR',
-            'isis-intf-clns-snpa-unknown-not-lan':'ISIS_INTF_CLNS_SNPA_UNKNOWN_NOT_LAN',
-            'isis-intf-clns-snpa-unknown-internal-error':'ISIS_INTF_CLNS_SNPA_UNKNOWN_INTERNAL_ERROR',
+            'false':'FALSE',
+            'true':'TRUE',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
     'IsisReachableEnum' : _MetaInfoEnum('IsisReachableEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
@@ -271,6 +282,12 @@ _meta_table = {
             'isis-adj-down-restart-tlv-missing':'ISIS_ADJ_DOWN_RESTART_TLV_MISSING',
             'isis-adj-down-bfd-down':'ISIS_ADJ_DOWN_BFD_DOWN',
             'isis-adj-down-3way-down':'ISIS_ADJ_DOWN_3WAY_DOWN',
+        }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
+    'IsisIfClnsSnpaUnknownReasonEnum' : _MetaInfoEnum('IsisIfClnsSnpaUnknownReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
+        {
+            'isis-intf-clns-snpa-unknown-access-error':'ISIS_INTF_CLNS_SNPA_UNKNOWN_ACCESS_ERROR',
+            'isis-intf-clns-snpa-unknown-not-lan':'ISIS_INTF_CLNS_SNPA_UNKNOWN_NOT_LAN',
+            'isis-intf-clns-snpa-unknown-internal-error':'ISIS_INTF_CLNS_SNPA_UNKNOWN_INTERNAL_ERROR',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
     'IsisAdjTopoStatusEnum' : _MetaInfoEnum('IsisAdjTopoStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
@@ -369,6 +386,14 @@ _meta_table = {
             'isis-prefix-origin-inter-area':'ISIS_PREFIX_ORIGIN_INTER_AREA',
             'isis-prefix-origin-default-nearest-attached':'ISIS_PREFIX_ORIGIN_DEFAULT_NEAREST_ATTACHED',
         }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
+    'IsisTilfaComputationEnum' : _MetaInfoEnum('IsisTilfaComputationEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
+        {
+            'isis-tilfa-comp-none':'ISIS_TILFA_COMP_NONE',
+            'isis-tilfa-comp-link':'ISIS_TILFA_COMP_LINK',
+            'isis-tilfa-comp-node':'ISIS_TILFA_COMP_NODE',
+            'isis-tilfa-comp-srlg':'ISIS_TILFA_COMP_SRLG',
+            'isis-tilfa-comp-node-srlg':'ISIS_TILFA_COMP_NODE_SRLG',
+        }, 'Cisco-IOS-XR-clns-isis-oper', _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper']),
     'IsisSpfClassEnum' : _MetaInfoEnum('IsisSpfClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper',
         {
             'isis-spf-frr-per-link':'ISIS_SPF_FRR_PER_LINK',
@@ -432,19 +457,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup path interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup path label stack
                 ''',
                 'backup_label_stack',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of labels in the backup path label stack
                 ''',
                 'backup_label_stack_size',
@@ -479,7 +504,7 @@ _meta_table = {
                 'adjacency_sid_backup',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency SID value
                 ''',
                 'adjacency_sid_value',
@@ -496,19 +521,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup path interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup path label stack
                 ''',
                 'backup_label_stack',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of labels in the backup path label stack
                 ''',
                 'backup_label_stack_size',
@@ -543,7 +568,7 @@ _meta_table = {
                 'adjacency_sid_backup',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency SID value
                 ''',
                 'adjacency_sid_value',
@@ -583,6 +608,18 @@ _meta_table = {
                 ''',
                 'non_frr_adjacency_sid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('underlying-adjacency-sid', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Per bundle member Adjacency sid
+                ''',
+                'underlying_adjacency_sid',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('underlying-interface', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Underlying interface list for bundle interfaces
+                ''',
+                'underlying_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             ],
             'Cisco-IOS-XR-clns-isis-oper',
             'ipv4',
@@ -595,19 +632,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup path interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup path label stack
                 ''',
                 'backup_label_stack',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of labels in the backup path label stack
                 ''',
                 'backup_label_stack_size',
@@ -642,7 +679,7 @@ _meta_table = {
                 'adjacency_sid_backup',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency SID value
                 ''',
                 'adjacency_sid_value',
@@ -659,19 +696,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup path interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup path label stack
                 ''',
                 'backup_label_stack',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of labels in the backup path label stack
                 ''',
                 'backup_label_stack_size',
@@ -706,7 +743,7 @@ _meta_table = {
                 'adjacency_sid_backup',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency SID value
                 ''',
                 'adjacency_sid_value',
@@ -745,6 +782,18 @@ _meta_table = {
                 '''                Adjacency SID not eligible for FRR protection
                 ''',
                 'non_frr_adjacency_sid',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('underlying-adjacency-sid', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Per bundle member Adjacency sid
+                ''',
+                'underlying_adjacency_sid',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('underlying-interface', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Underlying interface list for bundle interfaces
+                ''',
+                'underlying_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             ],
             'Cisco-IOS-XR-clns-isis-oper',
@@ -787,13 +836,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('local-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Local interface
                 ''',
                 'local_interface',
@@ -811,14 +860,14 @@ _meta_table = {
                 'neighbor_circuit_type',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-holdtime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time (s) until neighbor declared down if no IIH
                 received
                 ''',
                 'neighbor_holdtime',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-ietf-nsf-capable-flag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TRUE if neighbor is IETF-NSF capable
                 ''',
                 'neighbor_ietf_nsf_capable_flag',
@@ -854,7 +903,7 @@ _meta_table = {
                 'neighbor_system_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-uptime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                How long the neighbor has been up (s)
                 ''',
                 'neighbor_uptime',
@@ -965,13 +1014,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -988,13 +1037,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -1011,13 +1060,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -1034,13 +1083,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -1057,13 +1106,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -1080,13 +1129,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -1103,13 +1152,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -1126,13 +1175,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -1155,13 +1204,13 @@ _meta_table = {
                 'avg_csnp_process_time',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('avg-csnp-recv-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average csnp receive rate in packets per second
                 ''',
                 'avg_csnp_recv_rate',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('avg-csnp-send-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average csnp send rate in packets per second
                 ''',
                 'avg_csnp_send_rate',
@@ -1179,13 +1228,13 @@ _meta_table = {
                 'avg_hello_process_time',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('avg-hello-recv-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average hello receive rate in packets per second
                 ''',
                 'avg_hello_recv_rate',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('avg-hello-send-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average hello send rate in packets per second
                 ''',
                 'avg_hello_send_rate',
@@ -1203,13 +1252,13 @@ _meta_table = {
                 'avg_lsp_process_time',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('avg-lsp-recv-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average LSP receive rate in packets per second
                 ''',
                 'avg_lsp_recv_rate',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('avg-lsp-send-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average LSP send rate in packets per second
                 ''',
                 'avg_lsp_send_rate',
@@ -1227,13 +1276,13 @@ _meta_table = {
                 'avg_psnp_process_time',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('avg-psnp-recv-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average psnp receive rate in packets per second
                 ''',
                 'avg_psnp_recv_rate',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('avg-psnp-send-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Average psnp send rate in packets per second
                 ''',
                 'avg_psnp_send_rate',
@@ -1245,73 +1294,73 @@ _meta_table = {
                 'avg_psnp_transmit_time',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('fast-csnp-cache-update-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fast-CSNP cache updates
                 ''',
                 'fast_csnp_cache_update_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('fast-csnp-lookup-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fast-CSNP cache lookups
                 ''',
                 'fast_csnp_lookup_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('fast-csnp-lookup-hit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fast-CSNP cache hits
                 ''',
                 'fast_csnp_lookup_hit_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('fast-psnp-lookup-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fast-PSNP cache lookups
                 ''',
                 'fast_psnp_lookup_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('fast-psnp-lookup-hit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Fast-PSNP cache hits
                 ''',
                 'fast_psnp_lookup_hit_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('iih-dropped-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IIHs dropped - Not Used
                 ''',
                 'iih_dropped_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('invalid-checksum-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSPs received with invalid checksum
                 ''',
                 'invalid_checksum_lsp_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-dropped-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSPs dropped
                 ''',
                 'lsp_dropped_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('maximum-iih-queue-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum IIH queue length - Not Used
                 ''',
                 'maximum_iih_queue_length',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('maximum-pdu-queue-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum update PDU queue length
                 ''',
                 'maximum_pdu_queue_length',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('snp-dropped-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SNPs dropped
                 ''',
                 'snp_dropped_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('zero-holdtime-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSPs received with holdtime 0
                 ''',
                 'zero_holdtime_lsp_count',
@@ -1328,13 +1377,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('system-lsp-build-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times system LSP rebuilt
                 ''',
                 'system_lsp_build_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('system-lsp-refresh-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of times system LSP refreshed
                 ''',
                 'system_lsp_refresh_count',
@@ -1386,31 +1435,31 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ispf-run-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of ISPF calculations run
                 ''',
                 'ispf_run_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nhc-run-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Next Hop Calculations run
                 ''',
                 'nhc_run_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('periodic-run-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of periodic SPF calculations run
                 ''',
                 'periodic_run_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prc-run-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of PRCs run
                 ''',
                 'prc_run_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('spf-run-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of full SPF calculations run
                 ''',
                 'spf_run_count',
@@ -1502,13 +1551,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -1670,13 +1719,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active LSPs
                 ''',
                 'active_lsp_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('purged-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of purged LSPs
                 ''',
                 'purged_lsp_count',
@@ -1693,13 +1742,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active LSPs
                 ''',
                 'active_lsp_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('purged-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of purged LSPs
                 ''',
                 'purged_lsp_count',
@@ -1774,13 +1823,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active LSPs
                 ''',
                 'active_lsp_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('purged-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of purged LSPs
                 ''',
                 'purged_lsp_count',
@@ -1797,13 +1846,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active LSPs
                 ''',
                 'active_lsp_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('purged-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of purged LSPs
                 ''',
                 'purged_lsp_count',
@@ -1874,13 +1923,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active LSPs
                 ''',
                 'active_lsp_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('purged-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of purged LSPs
                 ''',
                 'purged_lsp_count',
@@ -1897,13 +1946,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active LSPs
                 ''',
                 'active_lsp_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('purged-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of purged LSPs
                 ''',
                 'purged_lsp_count',
@@ -2047,19 +2096,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup path interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup path label stack
                 ''',
                 'backup_label_stack',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of labels in the backup path label stack
                 ''',
                 'backup_label_stack_size',
@@ -2094,7 +2143,7 @@ _meta_table = {
                 'adjacency_sid_backup',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency SID value
                 ''',
                 'adjacency_sid_value',
@@ -2111,19 +2160,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup path interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup path label stack
                 ''',
                 'backup_label_stack',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of labels in the backup path label stack
                 ''',
                 'backup_label_stack_size',
@@ -2158,7 +2207,7 @@ _meta_table = {
                 'adjacency_sid_backup',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency SID value
                 ''',
                 'adjacency_sid_value',
@@ -2198,6 +2247,18 @@ _meta_table = {
                 ''',
                 'non_frr_adjacency_sid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('underlying-adjacency-sid', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Per bundle member Adjacency sid
+                ''',
+                'underlying_adjacency_sid',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('underlying-interface', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Underlying interface list for bundle interfaces
+                ''',
+                'underlying_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             ],
             'Cisco-IOS-XR-clns-isis-oper',
             'ipv4',
@@ -2210,19 +2271,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup path interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup path label stack
                 ''',
                 'backup_label_stack',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of labels in the backup path label stack
                 ''',
                 'backup_label_stack_size',
@@ -2257,7 +2318,7 @@ _meta_table = {
                 'adjacency_sid_backup',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency SID value
                 ''',
                 'adjacency_sid_value',
@@ -2274,19 +2335,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup path interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup path label stack
                 ''',
                 'backup_label_stack',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('backup-label-stack-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Number of labels in the backup path label stack
                 ''',
                 'backup_label_stack_size',
@@ -2321,7 +2382,7 @@ _meta_table = {
                 'adjacency_sid_backup',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency SID value
                 ''',
                 'adjacency_sid_value',
@@ -2360,6 +2421,18 @@ _meta_table = {
                 '''                Adjacency SID not eligible for FRR protection
                 ''',
                 'non_frr_adjacency_sid',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('underlying-adjacency-sid', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Per bundle member Adjacency sid
+                ''',
+                'underlying_adjacency_sid',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('underlying-interface', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Underlying interface list for bundle interfaces
+                ''',
+                'underlying_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             ],
             'Cisco-IOS-XR-clns-isis-oper',
@@ -2414,20 +2487,20 @@ _meta_table = {
                 'adjacency_bfd_state',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-checkpoint-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Adjacency checkpoint object ID
                 ''',
                 'adjacency_checkpoint_object_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-dispriority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Priority of DIS on this LAN. Valid only if
                 aj_media_class is ISIS_MEDIA_CLASS_LAN
                 ''',
                 'adjacency_dispriority',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-holdtime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time (s) until adjacency declared down if no IIH
                 received
                 ''',
@@ -2440,7 +2513,7 @@ _meta_table = {
                 'adjacency_ietf_nsf_capable_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Local interface
                 ''',
                 'adjacency_interface',
@@ -2452,7 +2525,7 @@ _meta_table = {
                 'adjacency_ipv6bfd_state',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-local-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Local IS priority. Valid only if aj_media_class
                 is ISIS_MEDIA_CLASS_LAN
                 ''',
@@ -2465,7 +2538,7 @@ _meta_table = {
                 'adjacency_media_type',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-neighbor-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Neighbor IS priority. Valid only if
                 aj_media_class is ISIS_MEDIA_CLASS_LAN
                 ''',
@@ -2502,7 +2575,7 @@ _meta_table = {
                 'adjacency_topology',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('adjacency-uptime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                How long the adjacency has been up (s)
                 ''',
                 'adjacency_uptime',
@@ -2514,7 +2587,7 @@ _meta_table = {
                 'adjacency_uptime_valid_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -2534,7 +2607,7 @@ _meta_table = {
                 'neighbor_dis_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nsr-standby', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ISIS NSR STANDBY
                 ''',
                 'nsr_standby',
@@ -2592,13 +2665,13 @@ _meta_table = {
                 'lsp_attached_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-checksum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The LSP checksum
                 ''',
                 'lsp_checksum',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-holdtime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Time, in seconds, until LSP expiry (if active)
                 or deletion (if expired) 
                 ''',
@@ -2611,7 +2684,7 @@ _meta_table = {
                 'lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The total length of the LSP
                 ''',
                 'lsp_length',
@@ -2623,7 +2696,7 @@ _meta_table = {
                 'lsp_level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-nonv1a-flag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TRUE if the LSP is non-v1a, XXX for testing
                 ''',
                 'lsp_nonv1a_flag',
@@ -2641,7 +2714,7 @@ _meta_table = {
                 'lsp_parition_repair_supported_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The LSP sequence number
                 ''',
                 'lsp_sequence_number',
@@ -2724,13 +2797,13 @@ _meta_table = {
                 'lsp_attached_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-checksum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The LSP checksum
                 ''',
                 'lsp_checksum',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-holdtime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Time, in seconds, until LSP expiry (if active)
                 or deletion (if expired) 
                 ''',
@@ -2743,7 +2816,7 @@ _meta_table = {
                 'lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The total length of the LSP
                 ''',
                 'lsp_length',
@@ -2755,7 +2828,7 @@ _meta_table = {
                 'lsp_level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-nonv1a-flag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TRUE if the LSP is non-v1a, XXX for testing
                 ''',
                 'lsp_nonv1a_flag',
@@ -2773,7 +2846,7 @@ _meta_table = {
                 'lsp_parition_repair_supported_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The LSP sequence number
                 ''',
                 'lsp_sequence_number',
@@ -2837,13 +2910,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -2877,7 +2950,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('delayed-trigger-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of delayed triggers
                 ''',
                 'delayed_trigger_count',
@@ -2889,13 +2962,13 @@ _meta_table = {
                 'generic_data',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('log-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Appropriate interface, if any
                 ''',
                 'log_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pseudo-node-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Pseudo-node number
                 ''',
                 'pseudo_node_number',
@@ -2907,7 +2980,7 @@ _meta_table = {
                 'trigger',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('trigger-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of triggers on this run. May not be equal
                 to the number of trigger event types if one or
                 more trigger events has occurred more than once.
@@ -2943,13 +3016,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -3001,13 +3074,13 @@ _meta_table = {
                 'lsp_attached_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-checksum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The LSP checksum
                 ''',
                 'lsp_checksum',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-holdtime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Time, in seconds, until LSP expiry (if active)
                 or deletion (if expired) 
                 ''',
@@ -3020,7 +3093,7 @@ _meta_table = {
                 'lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The total length of the LSP
                 ''',
                 'lsp_length',
@@ -3032,7 +3105,7 @@ _meta_table = {
                 'lsp_level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-nonv1a-flag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TRUE if the LSP is non-v1a, XXX for testing
                 ''',
                 'lsp_nonv1a_flag',
@@ -3050,7 +3123,7 @@ _meta_table = {
                 'lsp_parition_repair_supported_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The LSP sequence number
                 ''',
                 'lsp_sequence_number',
@@ -3085,13 +3158,13 @@ _meta_table = {
                 'lsp_attached_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-checksum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The LSP checksum
                 ''',
                 'lsp_checksum',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-holdtime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Time, in seconds, until LSP expiry (if active)
                 or deletion (if expired) 
                 ''',
@@ -3104,7 +3177,7 @@ _meta_table = {
                 'lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The total length of the LSP
                 ''',
                 'lsp_length',
@@ -3116,7 +3189,7 @@ _meta_table = {
                 'lsp_level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-nonv1a-flag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                TRUE if the LSP is non-v1a, XXX for testing
                 ''',
                 'lsp_nonv1a_flag',
@@ -3134,7 +3207,7 @@ _meta_table = {
                 'lsp_parition_repair_supported_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-sequence-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The LSP sequence number
                 ''',
                 'lsp_sequence_number',
@@ -3283,25 +3356,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -3318,25 +3391,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -3353,25 +3426,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -3419,25 +3492,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -3454,25 +3527,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -3489,25 +3562,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -3555,25 +3628,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -3638,13 +3711,13 @@ _meta_table = {
                 'pce_flooding_scope',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pce-path-scope-bits', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                PCE path scope bits
                 ''',
                 'pce_path_scope_bits',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pce-path-scope-prefs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                PCE path scope preferences
                 ''',
                 'pce_path_scope_prefs',
@@ -3661,13 +3734,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('te-sub-tlv-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Length of sub TLV
                 ''',
                 'te_sub_tlv_length',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-sub-tlv-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Type of sub TLV
                 ''',
                 'te_sub_tlv_type',
@@ -3702,25 +3775,25 @@ _meta_table = {
                 'local_ip_address',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-affinity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Affinity bits
                 ''',
                 'te_affinity',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-ext-admin-num', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE Ext Admin Number
                 ''',
                 'te_ext_admin_num',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-ext-admin-sub', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE Extended Admin Group
                 ''',
                 'te_ext_admin_sub',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=8),
             _MetaInfoClassMember('te-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                TE metric
                 ''',
                 'te_metric',
@@ -3738,13 +3811,13 @@ _meta_table = {
                 'te_neighbor_system_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-physical-link-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Physical link bandwidth
                 ''',
                 'te_physical_link_bandwidth',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-reserved-link-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reservable link bandwidth in global pool
                 ''',
                 'te_reserved_link_bandwidth',
@@ -3762,19 +3835,19 @@ _meta_table = {
                 'te_sub_tlv_data_present',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-subpool-reserved-link-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Reservable link bandwidth in subpool
                 ''',
                 'te_subpool_reserved_link_bandwidth',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-subpool-transmitted-bandwidth', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bandwidth in use in subpool
                 ''',
                 'te_subpool_transmitted_bandwidth',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=8),
             _MetaInfoClassMember('te-transmitted-bandwidth', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Bandwidth in use in global pool
                 ''',
                 'te_transmitted_bandwidth',
@@ -3833,13 +3906,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -3879,7 +3952,7 @@ _meta_table = {
                 'generic_data',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('log-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'log_interface',
@@ -3931,13 +4004,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -3977,7 +4050,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                prefix length
                 ''',
                 'prefix_length',
@@ -4000,7 +4073,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                prefix length
                 ''',
                 'prefix_length',
@@ -4079,7 +4152,7 @@ _meta_table = {
                 'trigger_prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('unique-trigger-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of unique triggers on this run
                 ''',
                 'unique_trigger_count',
@@ -4096,13 +4169,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4119,39 +4192,39 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('added', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of nodes added to the SPT
                 ''',
                 'added',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('deleted', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of nodes deleted from the SPT
                 ''',
                 'deleted',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('modified', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of modified nodes (first hop and/or
                 metric change)
                 ''',
                 'modified',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('reachable', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of reachable nodes in the database
                 ''',
                 'reachable',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('touched', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of nodes touched whilst calculating the
                 SPT
                 ''',
                 'touched',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('unreachable', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of unreachable nodes in the database
                 ''',
                 'unreachable',
@@ -4191,13 +4264,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4214,13 +4287,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4237,13 +4310,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4260,13 +4333,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4283,13 +4356,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4341,13 +4414,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4364,13 +4437,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4387,13 +4460,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4410,13 +4483,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4468,13 +4541,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4491,13 +4564,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4514,13 +4587,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4537,13 +4610,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cpu-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                CPU time duration in milliseconds
                 ''',
                 'cpu_duration',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('real-duration', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Real time duration in milliseconds
                 ''',
                 'real_duration',
@@ -4625,25 +4698,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -4667,7 +4740,7 @@ _meta_table = {
                 'per_priority_touched',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-touched', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of nodes considered during route
                 update
                 ''',
@@ -4685,25 +4758,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -4720,25 +4793,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -4755,25 +4828,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -4790,25 +4863,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -4825,25 +4898,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -4860,25 +4933,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -4944,25 +5017,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -4979,25 +5052,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -5014,25 +5087,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -5049,25 +5122,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -5084,25 +5157,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -5119,25 +5192,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -5203,25 +5276,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -5298,7 +5371,7 @@ _meta_table = {
                 'generic_data',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('next-wait-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum time from end of this route calculation
                 until the start of the next, in milliseconds
                 ''',
@@ -5323,14 +5396,14 @@ _meta_table = {
                 'triggers',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('updated-lsp-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of LSPs which arrived during the route
                 calculation
                 ''',
                 'updated_lsp_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('wait-enforced', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time between the first trigger and the start of
                 the route calculation, in milliseconds.
                 ''',
@@ -5365,7 +5438,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -5377,19 +5450,19 @@ _meta_table = {
                 'system_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel bandwidth
                 ''',
                 'te_bandwidth',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-checkpoint-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel checkpoint object ID
                 ''',
                 'te_checkpoint_object_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'te_interface',
@@ -5406,6 +5479,13 @@ _meta_table = {
                 ''',
                 'te_next_hop_ip_address',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('te-segment-routing-enabled', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Indicates whether MPLS TE segment routing is
+                enabled
+                ''',
+                'te_segment_routing_enabled',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-system-id', ATTRIBUTE, 'str' , None, None, 
                 [], ['[a-fA-F0-9]{4}(\\.[a-fA-F0-9]{4}){2}'], 
                 '''                Destination system ID
@@ -5413,7 +5493,7 @@ _meta_table = {
                 'te_system_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('teigp-metric', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tunnel metric
                 ''',
                 'teigp_metric',
@@ -5470,10 +5550,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -5523,6 +5656,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -5542,7 +5681,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -5572,26 +5711,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -5638,20 +5789,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -5663,10 +5814,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -5716,6 +5920,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -5735,7 +5945,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -5765,26 +5975,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -5831,20 +6053,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -5919,7 +6141,7 @@ _meta_table = {
                 'multicast_path',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-root-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the IS
                 ''',
                 'multicast_root_distance',
@@ -5937,7 +6159,7 @@ _meta_table = {
                 'paths',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('root-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the IS
                 ''',
                 'root_distance',
@@ -5977,25 +6199,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -6084,19 +6306,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('reachable-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of nodes reachable in SPT
                 ''',
                 'reachable_node_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('unreachable-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of nodes unreachable in SPT
                 ''',
                 'unreachable_node_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('unreachable-participant-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of participating nodes unreachable in SPT
                 ''',
                 'unreachable_participant_node_count',
@@ -6113,19 +6335,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('reachable-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of nodes reachable in SPT
                 ''',
                 'reachable_node_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('unreachable-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of nodes unreachable in SPT
                 ''',
                 'unreachable_node_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('unreachable-participant-node-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of participating nodes unreachable in SPT
                 ''',
                 'unreachable_participant_node_count',
@@ -6160,10 +6382,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -6213,6 +6488,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -6232,7 +6513,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -6262,26 +6543,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -6328,20 +6621,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -6353,10 +6646,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -6406,6 +6752,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -6425,7 +6777,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -6455,26 +6807,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -6521,20 +6885,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -6609,7 +6973,7 @@ _meta_table = {
                 'multicast_path',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-root-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the IS
                 ''',
                 'multicast_root_distance',
@@ -6627,7 +6991,7 @@ _meta_table = {
                 'paths',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('root-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the IS
                 ''',
                 'root_distance',
@@ -6667,25 +7031,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Critical priority
                 ''',
                 'critical',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                High priority
                 ''',
                 'high',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Low priority
                 ''',
                 'low',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('medium', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Medium priority
                 ''',
                 'medium',
@@ -7008,10 +7372,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -7061,6 +7478,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -7080,7 +7503,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -7110,26 +7533,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -7176,20 +7611,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -7201,10 +7636,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -7254,6 +7742,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -7273,7 +7767,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -7303,26 +7797,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -7369,26 +7875,26 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-ucmp-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this UCMP next hop
                 ''',
                 'total_ucmp_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -7400,10 +7906,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -7453,6 +8012,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -7472,7 +8037,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -7502,26 +8067,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -7568,20 +8145,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -7593,10 +8170,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -7646,6 +8276,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -7665,7 +8301,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -7695,26 +8331,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -7761,20 +8409,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -7790,44 +8438,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Source.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -7862,7 +8516,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -7878,44 +8532,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastSource.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -7950,7 +8610,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -7967,7 +8627,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Administrative Distance
                 ''',
                 'administrative_distance',
@@ -7979,13 +8639,13 @@ _meta_table = {
                 'is_external_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to network
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Multicast-intact distance to network
                 ''',
                 'multicast_metric',
@@ -8039,10 +8699,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -8092,6 +8805,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -8111,7 +8830,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -8141,26 +8860,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -8207,20 +8938,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -8232,10 +8963,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -8285,6 +9069,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -8304,7 +9094,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -8334,26 +9124,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -8400,26 +9202,26 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-ucmp-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this UCMP next hop
                 ''',
                 'total_ucmp_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -8431,10 +9233,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -8484,6 +9339,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -8503,7 +9364,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -8533,26 +9394,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -8599,20 +9472,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -8624,10 +9497,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -8677,6 +9603,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -8696,7 +9628,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -8726,26 +9658,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -8792,20 +9736,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -8821,44 +9765,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Source.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -8893,7 +9843,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -8909,44 +9859,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastSource.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -8981,7 +9937,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -8998,7 +9954,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Administrative Distance
                 ''',
                 'administrative_distance',
@@ -9010,13 +9966,13 @@ _meta_table = {
                 'is_external_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to network
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Multicast-intact distance to network
                 ''',
                 'multicast_metric',
@@ -9133,7 +10089,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                prefix length
                 ''',
                 'prefix_length',
@@ -9172,44 +10128,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.PerLevelAdvertisingDetail.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -9263,7 +10225,7 @@ _meta_table = {
                 'level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Metric with which the prefix is advertised
                 ''',
                 'metric',
@@ -9281,7 +10243,7 @@ _meta_table = {
                 'summarization_status',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix
                 ''',
                 'tags',
@@ -9324,7 +10286,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
@@ -9516,10 +10478,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -9569,6 +10584,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -9588,7 +10609,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -9618,26 +10639,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -9684,20 +10717,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -9709,10 +10742,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -9762,6 +10848,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -9781,7 +10873,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -9811,26 +10903,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -9877,26 +10981,26 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-ucmp-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this UCMP next hop
                 ''',
                 'total_ucmp_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -9908,10 +11012,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -9961,6 +11118,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -9980,7 +11143,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -10010,26 +11173,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -10076,20 +11251,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -10101,10 +11276,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -10154,6 +11382,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -10173,7 +11407,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -10203,26 +11437,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -10269,20 +11515,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -10298,44 +11544,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Source.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -10370,7 +11622,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -10386,44 +11638,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastSource.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -10458,7 +11716,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -10475,7 +11733,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Administrative Distance
                 ''',
                 'administrative_distance',
@@ -10487,13 +11745,13 @@ _meta_table = {
                 'is_external_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to network
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Multicast-intact distance to network
                 ''',
                 'multicast_metric',
@@ -10547,10 +11805,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -10600,6 +11911,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -10619,7 +11936,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -10649,26 +11966,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -10715,20 +12044,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -10740,10 +12069,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -10793,6 +12175,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -10812,7 +12200,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -10842,26 +12230,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -10908,26 +12308,26 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-ucmp-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this UCMP next hop
                 ''',
                 'total_ucmp_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -10939,10 +12339,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -10992,6 +12445,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -11011,7 +12470,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -11041,26 +12500,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -11107,20 +12578,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -11132,10 +12603,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                BAckup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -11185,6 +12709,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -11204,7 +12734,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -11234,26 +12764,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -11300,20 +12842,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -11329,44 +12871,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Source.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -11401,7 +12949,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -11417,44 +12965,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastSource.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -11489,7 +13043,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -11506,7 +13060,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Administrative Distance
                 ''',
                 'administrative_distance',
@@ -11518,13 +13072,13 @@ _meta_table = {
                 'is_external_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to network
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Multicast-intact distance to network
                 ''',
                 'multicast_metric',
@@ -11641,7 +13195,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                prefix length
                 ''',
                 'prefix_length',
@@ -11680,44 +13234,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.PerLevelAdvertisingDetail.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -11771,7 +13331,7 @@ _meta_table = {
                 'level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Metric with which the prefix is advertised
                 ''',
                 'metric',
@@ -11789,7 +13349,7 @@ _meta_table = {
                 'summarization_status',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix
                 ''',
                 'tags',
@@ -11832,7 +13392,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
@@ -12024,10 +13584,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -12077,6 +13690,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -12096,7 +13715,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -12126,26 +13745,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -12192,20 +13823,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -12217,10 +13848,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -12270,6 +13954,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -12289,7 +13979,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -12319,26 +14009,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -12385,26 +14087,26 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-ucmp-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this UCMP next hop
                 ''',
                 'total_ucmp_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -12416,10 +14118,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -12469,6 +14224,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -12488,7 +14249,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -12518,26 +14279,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -12584,20 +14357,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -12609,10 +14382,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -12662,6 +14488,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -12681,7 +14513,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -12711,26 +14543,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -12777,20 +14621,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -12806,44 +14650,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Source.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -12878,7 +14728,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -12894,44 +14744,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastSource.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -12966,7 +14822,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -12983,7 +14839,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Administrative Distance
                 ''',
                 'administrative_distance',
@@ -12995,13 +14851,13 @@ _meta_table = {
                 'is_external_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to network
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Multicast-intact distance to network
                 ''',
                 'multicast_metric',
@@ -13055,10 +14911,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -13108,6 +15017,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -13127,7 +15042,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -13157,26 +15072,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -13223,20 +15150,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -13248,10 +15175,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -13301,6 +15281,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -13320,7 +15306,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -13350,26 +15336,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -13416,26 +15414,26 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-ucmp-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this UCMP next hop
                 ''',
                 'total_ucmp_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -13447,10 +15445,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -13500,6 +15551,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -13519,7 +15576,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -13549,26 +15606,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -13615,20 +15684,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -13640,10 +15709,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -13693,6 +15815,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -13712,7 +15840,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -13742,26 +15870,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -13808,20 +15948,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -13837,44 +15977,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Source.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -13909,7 +16055,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -13925,44 +16071,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastSource.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -13997,7 +16149,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -14014,7 +16166,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Administrative Distance
                 ''',
                 'administrative_distance',
@@ -14026,13 +16178,13 @@ _meta_table = {
                 'is_external_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to network
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Multicast-intact distance to network
                 ''',
                 'multicast_metric',
@@ -14149,7 +16301,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                prefix length
                 ''',
                 'prefix_length',
@@ -14188,44 +16340,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.PerLevelAdvertisingDetail.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -14279,7 +16437,7 @@ _meta_table = {
                 'level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Metric with which the prefix is advertised
                 ''',
                 'metric',
@@ -14297,7 +16455,7 @@ _meta_table = {
                 'summarization_status',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix
                 ''',
                 'tags',
@@ -14340,7 +16498,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 32)], [], 
+                [('0', '32')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
@@ -14532,10 +16690,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -14585,6 +16796,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -14604,7 +16821,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -14634,26 +16851,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -14700,20 +16929,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -14725,10 +16954,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -14778,6 +17060,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -14797,7 +17085,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -14827,26 +17115,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -14893,26 +17193,26 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-ucmp-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this UCMP next hop
                 ''',
                 'total_ucmp_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -14924,10 +17224,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -14977,6 +17330,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -14996,7 +17355,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -15026,26 +17385,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -15092,20 +17463,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -15117,10 +17488,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -15170,6 +17594,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -15189,7 +17619,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -15219,26 +17649,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -15285,20 +17727,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -15314,44 +17756,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Source.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -15386,7 +17834,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -15402,44 +17850,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastSource.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -15474,7 +17928,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -15491,7 +17945,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Administrative Distance
                 ''',
                 'administrative_distance',
@@ -15503,13 +17957,13 @@ _meta_table = {
                 'is_external_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to network
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Multicast-intact distance to network
                 ''',
                 'multicast_metric',
@@ -15563,10 +18017,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -15616,6 +18123,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -15635,7 +18148,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -15665,26 +18178,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -15731,20 +18256,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -15756,10 +18281,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -15809,6 +18387,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -15828,7 +18412,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -15858,26 +18442,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -15924,26 +18520,26 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-ucmp-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this UCMP next hop
                 ''',
                 'total_ucmp_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -15955,10 +18551,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -16008,6 +18657,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -16027,7 +18682,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -16057,26 +18712,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -16123,20 +18790,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -16148,10 +18815,63 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair',
+            False, 
+            [
+            _MetaInfoClassMember('repair-element-node-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                RepairElementNodeID
+                ''',
+                'repair_element_node_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-element-type', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Element Type
+                ''',
+                'repair_element_type',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv4-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv4Addr
+                ''',
+                'repair_ipv4_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-ipv6-addr', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                RepairIPv6Addr
+                ''',
+                'repair_ipv6_addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('repair-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Repair Label
+                ''',
+                'repair_label',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'backup-repair',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup',
             False, 
             [
+            _MetaInfoClassMember('backup-repair', REFERENCE_LIST, 'BackupRepair' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair', 
+                [], [], 
+                '''                Backup Repair List
+                ''',
+                'backup_repair',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('backup-repair-list-size', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Backup Repair List Size
+                ''',
+                'backup_repair_list_size',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('egress-interface', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
                 '''                Interface to send the packet out of
@@ -16201,6 +18921,12 @@ _meta_table = {
                 ''',
                 'is_srlg_disjoint',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('is-tunnel-requested', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Is SR TE tunnel requested
+                ''',
+                'is_tunnel_requested',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-address', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
                 '''                Next hop neighbor's forwarding address
@@ -16220,7 +18946,7 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('num-sid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of SIDs in TI-LFA/rLFA
                 ''',
                 'num_sid',
@@ -16250,26 +18976,38 @@ _meta_table = {
                 'remote_lfa_system_pid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value-entry', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid values for TI-LFA/rLFA
                 ''',
                 'segment_routing_sid_value_entry',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
+            _MetaInfoClassMember('tilfa-computation', REFERENCE_ENUM_CLASS, 'IsisTilfaComputationEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisTilfaComputationEnum', 
+                [], [], 
+                '''                Ti LFA computation which provided backup path
+                ''',
+                'tilfa_computation',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('total-backup-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to the network via this backup path
                 ''',
                 'total_backup_distance',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('tunnel-egress-interface', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Tunnel Interface to send the packet out of
+                ''',
+                'tunnel_egress_interface',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -16316,20 +19054,20 @@ _meta_table = {
                 'neighbor_snpa',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('segment-routing-sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment routing sid value received from first
                 hop
                 ''',
                 'segment_routing_sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tag associated with the path
                 ''',
                 'tag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Weight configured on the interface
                 ''',
                 'weight',
@@ -16345,44 +19083,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Source.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -16417,7 +19161,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -16433,44 +19177,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastSource.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -16505,7 +19255,7 @@ _meta_table = {
                 'source_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix item
                 ''',
                 'tags',
@@ -16522,7 +19272,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('administrative-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Administrative Distance
                 ''',
                 'administrative_distance',
@@ -16534,13 +19284,13 @@ _meta_table = {
                 'is_external_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Distance to network
                 ''',
                 'metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multicast-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Multicast-intact distance to network
                 ''',
                 'multicast_metric',
@@ -16657,7 +19407,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                prefix length
                 ''',
                 'prefix_length',
@@ -16696,44 +19446,50 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.PerLevelAdvertisingDetail.NodalSid',
             False, 
             [
+            _MetaInfoClassMember('algorithm', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                algorithm
+                ''',
+                'algorithm',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('eflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                eflag
                 ''',
                 'eflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                lflag
                 ''',
                 'lflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nflag
                 ''',
                 'nflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pflag
                 ''',
                 'pflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('rflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rflag
                 ''',
                 'rflag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sid-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                sid value
                 ''',
                 'sid_value',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vflag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vflag
                 ''',
                 'vflag',
@@ -16787,7 +19543,7 @@ _meta_table = {
                 'level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Metric with which the prefix is advertised
                 ''',
                 'metric',
@@ -16805,7 +19561,7 @@ _meta_table = {
                 'summarization_status',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tags', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tags associated with the prefix
                 ''',
                 'tags',
@@ -16848,7 +19604,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 32)], [], 
+                [('0', '32')], [], 
                 '''                Prefix Length
                 ''',
                 'prefix_length',
@@ -16989,25 +19745,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('full-sync-achieved', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                full sync achieved
                 ''',
                 'full_sync_achieved',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('man-sync-count', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                man sync count
                 ''',
                 'man_sync_count',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('nsr-chg-count', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nsr chg count
                 ''',
                 'nsr_chg_count',
                 'Cisco-IOS-XR-clns-isis-oper', False, max_elements=3),
             _MetaInfoClassMember('uptime', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                uptime
                 ''',
                 'uptime',
@@ -17042,13 +19798,13 @@ _meta_table = {
                 'lanid_req_needed',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('my-nodeid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                my nodeid
                 ''',
                 'my_nodeid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('my-process-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                my process id
                 ''',
                 'my_process_id',
@@ -17072,49 +19828,49 @@ _meta_table = {
                 'nsr_enabled',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nsr-recv-err', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nsr recv err
                 ''',
                 'nsr_recv_err',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nsr-send-err', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                nsr send err
                 ''',
                 'nsr_send_err',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nsr-send-ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nsr send ready
                 ''',
                 'nsr_send_ready',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('nsr-send-unready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                nsr send unready
                 ''',
                 'nsr_send_unready',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pm-ha-role', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pm ha role
                 ''',
                 'pm_ha_role',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pm-issu-role', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pm issu role
                 ''',
                 'pm_issu_role',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('retry-flag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                retry flag
                 ''',
                 'retry_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('sysmgr-ha-role', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                sysmgr ha role
                 ''',
                 'sysmgr_ha_role',
@@ -17131,7 +19887,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('conn-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                conn cb
                 ''',
                 'conn_cb',
@@ -17143,13 +19899,13 @@ _meta_table = {
                 'conn_status',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('disconn-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                disconn cb
                 ''',
                 'disconn_cb',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('reg', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                reg
                 ''',
                 'reg',
@@ -17166,13 +19922,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('conn', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                conn
                 ''',
                 'conn',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('conn-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                conn cb
                 ''',
                 'conn_cb',
@@ -17184,49 +19940,49 @@ _meta_table = {
                 'conn_status',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('disconn', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                disconn
                 ''',
                 'disconn',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('disconn-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                disconn cb
                 ''',
                 'disconn_cb',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('evt-rsp-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                evt rsp cb
                 ''',
                 'evt_rsp_cb',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('ha-opt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ha opt
                 ''',
                 'ha_opt',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('ha-opt-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ha opt cb
                 ''',
                 'ha_opt_cb',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('reg-rsp-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                reg rsp cb
                 ''',
                 'reg_rsp_cb',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('send-ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                send ready
                 ''',
                 'send_ready',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('wait-ready', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                wait ready
                 ''',
                 'wait_ready',
@@ -17243,13 +19999,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17266,13 +20022,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17289,13 +20045,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17312,13 +20068,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17335,13 +20091,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17358,13 +20114,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17381,13 +20137,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17404,13 +20160,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17427,13 +20183,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17450,13 +20206,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17473,13 +20229,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17496,13 +20252,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17519,13 +20275,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17542,13 +20298,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -17565,13 +20321,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('conn', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                conn
                 ''',
                 'conn',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('conn-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                conn cb
                 ''',
                 'conn_cb',
@@ -17601,7 +20357,7 @@ _meta_table = {
                 'conn_ts',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('del-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                del cb
                 ''',
                 'del_cb',
@@ -17613,7 +20369,7 @@ _meta_table = {
                 'del_cb_ts',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('disconn-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                disconn cb
                 ''',
                 'disconn_cb',
@@ -17625,7 +20381,7 @@ _meta_table = {
                 'disconn_cb_ts',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('notify-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                notify cb
                 ''',
                 'notify_cb',
@@ -17649,13 +20405,13 @@ _meta_table = {
                 'notify_peer_xr',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pub', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pub
                 ''',
                 'pub',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pub-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                pub cb
                 ''',
                 'pub_cb',
@@ -17673,13 +20429,13 @@ _meta_table = {
                 'pub_ts',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('reg', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                reg
                 ''',
                 'reg',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('reg-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                reg cb
                 ''',
                 'reg_cb',
@@ -17697,7 +20453,7 @@ _meta_table = {
                 'reg_ts',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('remove-srv', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                remove srv
                 ''',
                 'remove_srv',
@@ -17709,13 +20465,13 @@ _meta_table = {
                 'remove_srv_ts',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('unreg', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                unreg
                 ''',
                 'unreg',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('unreg-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                unreg cb
                 ''',
                 'unreg_cb',
@@ -17744,49 +20500,49 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adv-sync-data', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                adv sync data
                 ''',
                 'adv_sync_data',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('conn-up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                conn up
                 ''',
                 'conn_up',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('enabled', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                enabled
                 ''',
                 'enabled',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('has-info-from-te', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                has info from te
                 ''',
                 'has_info_from_te',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('link-purge-time-on', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                link purge time on
                 ''',
                 'link_purge_time_on',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-link-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                te link cb
                 ''',
                 'te_link_cb',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('te-tunnel-cb', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                te tunnel cb
                 ''',
                 'te_tunnel_cb',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('tunnel-purge-time-on', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                tunnel purge time on
                 ''',
                 'tunnel_purge_time_on',
@@ -17803,7 +20559,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('chksum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                chksum
                 ''',
                 'chksum',
@@ -17815,25 +20571,25 @@ _meta_table = {
                 'conn_up',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('endp-hdl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                endp hdl
                 ''',
                 'endp_hdl',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('recv-cnt', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                recv cnt
                 ''',
                 'recv_cnt',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('send-seqnum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                send seqnum
                 ''',
                 'send_seqnum',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('vm-idx', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                vm idx
                 ''',
                 'vm_idx',
@@ -17956,7 +20712,7 @@ _meta_table = {
                 'isis_nsr_peer',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('isis-vm-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                ISIS VM STATE
                 ''',
                 'isis_vm_state',
@@ -18096,27 +20852,27 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('extended-circuit-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended Circuit Number valid for a P2P
                 interface
                 ''',
                 'extended_circuit_number',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('retransmit-lsp-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time in ms until the next scheduled LSP is
                 retransmitted
                 ''',
                 'retransmit_lsp_interval',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('retransmit-lsp-queue-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of LSPs queued to be retransmitted
                 ''',
                 'retransmit_lsp_queue_size',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('time-until-next-iih', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time in ms before the next IIH can be sent
                 ''',
                 'time_until_next_iih',
@@ -18139,7 +20895,7 @@ _meta_table = {
                 'enabled',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                BFD hello minimum interval in milliseconds
                 ''',
                 'interval',
@@ -18151,7 +20907,7 @@ _meta_table = {
                 'ipv6_enabled',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                BFD hello multiplier
                 ''',
                 'multiplier',
@@ -18231,7 +20987,7 @@ _meta_table = {
                 'invalid',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Valid MTU
                 ''',
                 'mtu',
@@ -18535,7 +21291,7 @@ _meta_table = {
                 'lsp_transmitted_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-txmitd-b2b-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of LSPs that can be sent back to back in
                 the current window without exceeding the pacing
                 limit
@@ -18543,7 +21299,7 @@ _meta_table = {
                 'lsp_txmitd_b2b_limit',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-txmt-b2b-msecs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time im msecs indicating the end of the window
                 in which the 'back to back lsps to be sent'
                 counter applies
@@ -18570,7 +21326,7 @@ _meta_table = {
                 'snpa_state',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('time-until-next-lsp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time until next LSP may be sent (ms)
                 ''',
                 'time_until_next_lsp',
@@ -18599,19 +21355,19 @@ _meta_table = {
                 'circuit_lan_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('dispriority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Priority of current DIS on this LAN
                 ''',
                 'dispriority',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('interface-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Interface's DIS-election priority
                 ''',
                 'interface_priority',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('time-until-next-iih', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time (ms) until next IIH
                 ''',
                 'time_until_next_iih',
@@ -18628,7 +21384,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('adjacency-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of adjacencies
                 ''',
                 'adjacency_count',
@@ -18647,13 +21403,13 @@ _meta_table = {
                 'level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-pacing-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP pacing time period (ms)
                 ''',
                 'lsp_pacing_interval',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('psnp-transmit-queue-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of SNP entries queued to be transmitted
                 ''',
                 'psnp_transmit_queue_size',
@@ -18836,19 +21592,19 @@ _meta_table = {
                 'level1_lkgp_configured',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('level1-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                L1 metric for this topology
                 ''',
                 'level1_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('level1-offset-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                L1 metric-offset for this topology
                 ''',
                 'level1_offset_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('level1-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                L1 metric for this topology
                 ''',
                 'level1_weight',
@@ -18866,7 +21622,7 @@ _meta_table = {
                 'level1pp_configured',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('level1pp-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                L1 PP-metric for this topology
                 ''',
                 'level1pp_metric',
@@ -18878,19 +21634,19 @@ _meta_table = {
                 'level2_lkgp_configured',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('level2-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                L2 metric for this topology
                 ''',
                 'level2_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('level2-offset-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                L2 metric-offset for this topology
                 ''',
                 'level2_offset_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('level2-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                L2 metric for this topology
                 ''',
                 'level2_weight',
@@ -18908,13 +21664,13 @@ _meta_table = {
                 'level2pp_configured',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('level2pp-metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                L2 PP-metric for this topology
                 ''',
                 'level2pp_metric',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('max-label-supported', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                MPLS maximum number of labels supported
                 ''',
                 'max_label_supported',
@@ -19164,7 +21920,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                prefix length
                 ''',
                 'prefix_length',
@@ -19187,7 +21943,7 @@ _meta_table = {
                 'prefix',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                prefix length
                 ''',
                 'prefix_length',
@@ -19402,7 +22158,7 @@ _meta_table = {
                 'interface_media_type',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('local-circuit-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Local Circuit Number of the interface
                 ''',
                 'local_circuit_number',
@@ -19432,6 +22188,18 @@ _meta_table = {
                 '''                Array of topology information
                 ''',
                 'per_topology_data',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('rsi-srlg-registered', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Rsi Srlg Registered
+                ''',
+                'rsi_srlg_registered',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('underlying-interface', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Underlying interface list for bundle interfaces
+                ''',
+                'underlying_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             ],
             'Cisco-IOS-XR-clns-isis-oper',
@@ -19474,7 +22242,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -19505,7 +22273,7 @@ _meta_table = {
                 'is_type',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('mesh-group', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface mesh group
                 ''',
                 'mesh_group',
@@ -19574,25 +22342,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('checkpoint-adjacency-circuit-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Neighbor circuit number
                 ''',
                 'checkpoint_adjacency_circuit_number',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-adjacency-holdtime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Adjacency holdtime (s)
                 ''',
                 'checkpoint_adjacency_holdtime',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-adjacency-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Local interface
                 ''',
                 'checkpoint_adjacency_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-adjacency-lan-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Adjacency LAN priority
                 ''',
                 'checkpoint_adjacency_lan_priority',
@@ -19604,7 +22372,7 @@ _meta_table = {
                 'checkpoint_adjacency_level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-adjacency-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Checkpoint object ID
                 ''',
                 'checkpoint_adjacency_object_id',
@@ -19628,7 +22396,7 @@ _meta_table = {
                 'checkpoint_adjacency_system_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -19669,18 +22437,596 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
         ),
     },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr',
+            False, 
+            [
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiAfEBEnum', 
+                [], [], 
+                '''                AF
+                ''',
+                'af',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'addr',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi',
+            False, 
+            [
+            _MetaInfoClassMember('mi-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Mapping Item ID (0, 1, 2, ...)
+                ''',
+                'mi_id',
+                'Cisco-IOS-XR-clns-isis-oper', True),
+            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr', 
+                [], [], 
+                '''                addr
+                ''',
+                'addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('area', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Area (OSPF) or Level (ISIS)
+                ''',
+                'area',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('flag-attached', REFERENCE_ENUM_CLASS, 'SrmsMiFlagEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiFlagEBEnum', 
+                [], [], 
+                '''                Attached flag
+                ''',
+                'flag_attached',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('last-prefix', ATTRIBUTE, 'str' , None, None, 
+                [(0, 50)], [], 
+                '''                Last IP Prefix
+                ''',
+                'last_prefix',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('last-sid-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Last SID Index
+                ''',
+                'last_sid_index',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Prefix length
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('router', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Router ID
+                ''',
+                'router',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SID range
+                ''',
+                'sid_count',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Starting SID
+                ''',
+                'sid_start',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
+                ''',
+                'src',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-mi',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active',
+            False, 
+            [
+            _MetaInfoClassMember('policy-mi', REFERENCE_LIST, 'PolicyMi' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi', 
+                [], [], 
+                '''                Mapping Item
+                ''',
+                'policy_mi',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-ipv4-active',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr',
+            False, 
+            [
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiAfEBEnum', 
+                [], [], 
+                '''                AF
+                ''',
+                'af',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'addr',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi',
+            False, 
+            [
+            _MetaInfoClassMember('mi-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Mapping Item ID (0, 1, 2, ...)
+                ''',
+                'mi_id',
+                'Cisco-IOS-XR-clns-isis-oper', True),
+            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr', 
+                [], [], 
+                '''                addr
+                ''',
+                'addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('area', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Area (OSPF) or Level (ISIS)
+                ''',
+                'area',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('flag-attached', REFERENCE_ENUM_CLASS, 'SrmsMiFlagEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiFlagEBEnum', 
+                [], [], 
+                '''                Attached flag
+                ''',
+                'flag_attached',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('last-prefix', ATTRIBUTE, 'str' , None, None, 
+                [(0, 50)], [], 
+                '''                Last IP Prefix
+                ''',
+                'last_prefix',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('last-sid-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Last SID Index
+                ''',
+                'last_sid_index',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Prefix length
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('router', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Router ID
+                ''',
+                'router',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SID range
+                ''',
+                'sid_count',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Starting SID
+                ''',
+                'sid_start',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
+                ''',
+                'src',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-mi',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup',
+            False, 
+            [
+            _MetaInfoClassMember('policy-mi', REFERENCE_LIST, 'PolicyMi' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi', 
+                [], [], 
+                '''                Mapping Item
+                ''',
+                'policy_mi',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-ipv4-backup',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv4' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv4',
+            False, 
+            [
+            _MetaInfoClassMember('policy-ipv4-active', REFERENCE_CLASS, 'PolicyIpv4Active' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active', 
+                [], [], 
+                '''                IPv4 active policy operational data
+                ''',
+                'policy_ipv4_active',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('policy-ipv4-backup', REFERENCE_CLASS, 'PolicyIpv4Backup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup', 
+                [], [], 
+                '''                IPv4 backup policy operational data
+                ''',
+                'policy_ipv4_backup',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-ipv4',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr',
+            False, 
+            [
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiAfEBEnum', 
+                [], [], 
+                '''                AF
+                ''',
+                'af',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'addr',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi',
+            False, 
+            [
+            _MetaInfoClassMember('mi-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Mapping Item ID (0, 1, 2, ...)
+                ''',
+                'mi_id',
+                'Cisco-IOS-XR-clns-isis-oper', True),
+            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr', 
+                [], [], 
+                '''                addr
+                ''',
+                'addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('area', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Area (OSPF) or Level (ISIS)
+                ''',
+                'area',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('flag-attached', REFERENCE_ENUM_CLASS, 'SrmsMiFlagEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiFlagEBEnum', 
+                [], [], 
+                '''                Attached flag
+                ''',
+                'flag_attached',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('last-prefix', ATTRIBUTE, 'str' , None, None, 
+                [(0, 50)], [], 
+                '''                Last IP Prefix
+                ''',
+                'last_prefix',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('last-sid-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Last SID Index
+                ''',
+                'last_sid_index',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Prefix length
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('router', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Router ID
+                ''',
+                'router',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SID range
+                ''',
+                'sid_count',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Starting SID
+                ''',
+                'sid_start',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
+                ''',
+                'src',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-mi',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup',
+            False, 
+            [
+            _MetaInfoClassMember('policy-mi', REFERENCE_LIST, 'PolicyMi' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi', 
+                [], [], 
+                '''                Mapping Item
+                ''',
+                'policy_mi',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-ipv6-backup',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr',
+            False, 
+            [
+            _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'SrmsMiAfEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiAfEBEnum', 
+                [], [], 
+                '''                AF
+                ''',
+                'af',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('ipv4', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4
+                ''',
+                'ipv4',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('ipv6', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6
+                ''',
+                'ipv6',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'addr',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi',
+            False, 
+            [
+            _MetaInfoClassMember('mi-id', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Mapping Item ID (0, 1, 2, ...)
+                ''',
+                'mi_id',
+                'Cisco-IOS-XR-clns-isis-oper', True),
+            _MetaInfoClassMember('addr', REFERENCE_CLASS, 'Addr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr', 
+                [], [], 
+                '''                addr
+                ''',
+                'addr',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('area', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Area (OSPF) or Level (ISIS)
+                ''',
+                'area',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('flag-attached', REFERENCE_ENUM_CLASS, 'SrmsMiFlagEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiFlagEBEnum', 
+                [], [], 
+                '''                Attached flag
+                ''',
+                'flag_attached',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('last-prefix', ATTRIBUTE, 'str' , None, None, 
+                [(0, 50)], [], 
+                '''                Last IP Prefix
+                ''',
+                'last_prefix',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('last-sid-index', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Last SID Index
+                ''',
+                'last_sid_index',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('prefix', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                Prefix length
+                ''',
+                'prefix',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('router', ATTRIBUTE, 'str' , None, None, 
+                [(0, 30)], [], 
+                '''                Router ID
+                ''',
+                'router',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('sid-count', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                SID range
+                ''',
+                'sid_count',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('sid-start', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Starting SID
+                ''',
+                'sid_start',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('src', REFERENCE_ENUM_CLASS, 'SrmsMiSrcEBEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'SrmsMiSrcEBEnum', 
+                [], [], 
+                '''                src
+                ''',
+                'src',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-mi',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active',
+            False, 
+            [
+            _MetaInfoClassMember('policy-mi', REFERENCE_LIST, 'PolicyMi' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi', 
+                [], [], 
+                '''                Mapping Item
+                ''',
+                'policy_mi',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-ipv6-active',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy.PolicyIpv6' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy.PolicyIpv6',
+            False, 
+            [
+            _MetaInfoClassMember('policy-ipv6-active', REFERENCE_CLASS, 'PolicyIpv6Active' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active', 
+                [], [], 
+                '''                IPv6 active policy operational data
+                ''',
+                'policy_ipv6_active',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('policy-ipv6-backup', REFERENCE_CLASS, 'PolicyIpv6Backup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup', 
+                [], [], 
+                '''                IPv6 backup policy operational data
+                ''',
+                'policy_ipv6_backup',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy-ipv6',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms.Policy' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms.Policy',
+            False, 
+            [
+            _MetaInfoClassMember('policy-ipv4', REFERENCE_CLASS, 'PolicyIpv4' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv4', 
+                [], [], 
+                '''                IPv4 policy operational data
+                ''',
+                'policy_ipv4',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('policy-ipv6', REFERENCE_CLASS, 'PolicyIpv6' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy.PolicyIpv6', 
+                [], [], 
+                '''                IPv6 policy operational data
+                ''',
+                'policy_ipv6',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'policy',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
+    'Isis.Instances.Instance.Srms' : {
+        'meta_info' : _MetaInfoClass('Isis.Instances.Instance.Srms',
+            False, 
+            [
+            _MetaInfoClassMember('policy', REFERENCE_CLASS, 'Policy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms.Policy', 
+                [], [], 
+                '''                Policy operational data
+                ''',
+                'policy',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            ],
+            'Cisco-IOS-XR-clns-isis-oper',
+            'srms',
+            _yang_ns._namespaces['Cisco-IOS-XR-clns-isis-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper'
+        ),
+    },
     'Isis.Instances.Instance.ErrorLog.LogEntry.GenericData.Timestamp' : {
         'meta_info' : _MetaInfoClass('Isis.Instances.Instance.ErrorLog.LogEntry.GenericData.Timestamp',
             False, 
             [
             _MetaInfoClassMember('nano-seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (nanoseconds)
                 ''',
                 'nano_seconds',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Timestamp value (seconds)
                 ''',
                 'seconds',
@@ -19714,7 +23060,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('error-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Error code
                 ''',
                 'error_code',
@@ -19766,19 +23112,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-clns-isis-oper', True),
             _MetaInfoClassMember('checkpoint-interface-handle', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Local interface handle
                 ''',
                 'checkpoint_interface_handle',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Checkpoint object ID
                 ''',
                 'checkpoint_object_id',
@@ -19821,7 +23167,7 @@ _meta_table = {
                 'interface_name_xr',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('local-circuit-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Local circuit number
                 ''',
                 'local_circuit_number',
@@ -19862,13 +23208,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pdu-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs received
                 ''',
                 'pdu_receive_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pdu-send-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs sent
                 ''',
                 'pdu_send_count',
@@ -19891,13 +23237,13 @@ _meta_table = {
                 'iih_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-retransmit-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP retransmissions
                 ''',
                 'lsp_retransmit_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('memory-exhausted-iih-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IIHs not sent due to memory exhaustion
                 ''',
                 'memory_exhausted_iih_count',
@@ -19914,13 +23260,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pdu-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs received
                 ''',
                 'pdu_receive_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pdu-send-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs sent
                 ''',
                 'pdu_send_count',
@@ -19937,13 +23283,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pdu-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs received
                 ''',
                 'pdu_receive_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pdu-send-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs sent
                 ''',
                 'pdu_send_count',
@@ -19960,13 +23306,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pdu-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs received
                 ''',
                 'pdu_receive_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pdu-send-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs sent
                 ''',
                 'pdu_send_count',
@@ -19995,14 +23341,14 @@ _meta_table = {
                 'lsp_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-drop-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of LSPs dropped due to minimum arrival
                 time config
                 ''',
                 'lsp_drop_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('lsp-flooding-dup-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of LSPs already received by neighbors and
                 not flooded
                 ''',
@@ -20026,13 +23372,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('pdu-receive-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs received
                 ''',
                 'pdu_receive_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('pdu-send-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PDUs sent
                 ''',
                 'pdu_send_count',
@@ -20049,7 +23395,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dis-election-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                DIS elections
                 ''',
                 'dis_election_count',
@@ -20061,7 +23407,7 @@ _meta_table = {
                 'iih_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('memory-exhausted-iih-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IIHs not sent due to memory exhaustion
                 ''',
                 'memory_exhausted_iih_count',
@@ -20108,7 +23454,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -20133,7 +23479,7 @@ _meta_table = {
                 'per_area_data',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('traffic-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to which traffic statistics apply
                 ''',
                 'traffic_interface',
@@ -20313,7 +23659,7 @@ _meta_table = {
                 'level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('metric', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Metric
                 ''',
                 'metric',
@@ -20348,7 +23694,7 @@ _meta_table = {
                 'advertise_passive_only',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('default-admin-distance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Default administrative distance
                 ''',
                 'default_admin_distance',
@@ -20394,6 +23740,12 @@ _meta_table = {
                 ''',
                 'configured_nsf_flavor',
                 'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('instance-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                instance id
+                ''',
+                'instance_id',
+                'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('last-restart-nsf-flavor', REFERENCE_ENUM_CLASS, 'IsisNsfFlavorEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'IsisNsfFlavorEnum', 
                 [], [], 
                 '''                NSF type of last restart
@@ -20425,7 +23777,7 @@ _meta_table = {
                 'per_topo_data',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('remaining-time-for-next-nsf-restart', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Time remaining until the next NSF restart may be
                 attempted
                 ''',
@@ -20455,19 +23807,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbors down
                 ''',
                 'neighbor_down_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-init-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbors being initialized
                 ''',
                 'neighbor_init_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbors up
                 ''',
                 'neighbor_up_count',
@@ -20484,19 +23836,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbors down
                 ''',
                 'neighbor_down_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-init-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbors being initialized
                 ''',
                 'neighbor_init_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbors up
                 ''',
                 'neighbor_up_count',
@@ -20513,19 +23865,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('neighbor-down-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbors down
                 ''',
                 'neighbor_down_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-init-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbors being initialized
                 ''',
                 'neighbor_init_count',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('neighbor-up-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbors up
                 ''',
                 'neighbor_up_count',
@@ -20542,7 +23894,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -20600,7 +23952,7 @@ _meta_table = {
                 'checkpoint_lsp_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-lsp-level', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                LSP level
                 ''',
                 'checkpoint_lsp_level',
@@ -20612,7 +23964,7 @@ _meta_table = {
                 'checkpoint_lsp_local_flag',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-lsp-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP Checkpoint table object ID
                 ''',
                 'checkpoint_lsp_object_id',
@@ -20658,13 +24010,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('mesh-group-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                This interface
                 ''',
                 'mesh_group_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('mesh-group-number', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Mesh-group number
                 ''',
                 'mesh_group_number',
@@ -20715,79 +24067,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('no-of-ipv4-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                no of ipv4 routes
                 ''',
                 'no_of_ipv4_routes',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-ipv6-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                no of ipv6 routes
                 ''',
                 'no_of_ipv6_routes',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-l1-adj', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of l1 adj
                 ''',
                 'no_of_l1_adj',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-l1-lsp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                no of l1 lsp
                 ''',
                 'no_of_l1_lsp',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-l2-adj', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of l2 adj
                 ''',
                 'no_of_l2_adj',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-l2-lsp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                no of l2 lsp
                 ''',
                 'no_of_l2_lsp',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-lan-interface', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of lan interface
                 ''',
                 'no_of_lan_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-live-interface', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of live interface
                 ''',
                 'no_of_live_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-loopback-interface', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of loopback interface
                 ''',
                 'no_of_loopback_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-ptp-interface', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of ptp interface
                 ''',
                 'no_of_ptp_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-te-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of te links
                 ''',
                 'no_of_te_links',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-te-tunnels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of te tunnels
                 ''',
                 'no_of_te_tunnels',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seqnum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                seqnum
                 ''',
                 'seqnum',
@@ -20804,79 +24156,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('no-of-ipv4-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                no of ipv4 routes
                 ''',
                 'no_of_ipv4_routes',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-ipv6-routes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                no of ipv6 routes
                 ''',
                 'no_of_ipv6_routes',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-l1-adj', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of l1 adj
                 ''',
                 'no_of_l1_adj',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-l1-lsp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                no of l1 lsp
                 ''',
                 'no_of_l1_lsp',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-l2-adj', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of l2 adj
                 ''',
                 'no_of_l2_adj',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-l2-lsp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                no of l2 lsp
                 ''',
                 'no_of_l2_lsp',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-lan-interface', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of lan interface
                 ''',
                 'no_of_lan_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-live-interface', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of live interface
                 ''',
                 'no_of_live_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-loopback-interface', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of loopback interface
                 ''',
                 'no_of_loopback_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-ptp-interface', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of ptp interface
                 ''',
                 'no_of_ptp_interface',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-te-links', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of te links
                 ''',
                 'no_of_te_links',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('no-of-te-tunnels', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                no of te tunnels
                 ''',
                 'no_of_te_tunnels',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('seqnum', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                seqnum
                 ''',
                 'seqnum',
@@ -20922,7 +24274,7 @@ _meta_table = {
                 'isis_nsr_stats_data',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('isis-vm-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                ISIS VM STATE
                 ''',
                 'isis_vm_state',
@@ -20939,19 +24291,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('checkpoint-te-bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel bandwidth
                 ''',
                 'checkpoint_te_bandwidth',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-te-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel flags
                 ''',
                 'checkpoint_te_flags',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-te-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Tunnel interface
                 ''',
                 'checkpoint_te_interface',
@@ -20963,7 +24315,7 @@ _meta_table = {
                 'checkpoint_te_level',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-te-metric', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Tunnel metric
                 ''',
                 'checkpoint_te_metric',
@@ -20981,7 +24333,7 @@ _meta_table = {
                 'checkpoint_te_nexthop',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('checkpoint-te-object-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Tunnel checkpoint object ID
                 ''',
                 'checkpoint_te_object_id',
@@ -20993,7 +24345,7 @@ _meta_table = {
                 'checkpoint_te_system_id',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -21128,6 +24480,13 @@ _meta_table = {
                 instance
                 ''',
                 'protocol',
+                'Cisco-IOS-XR-clns-isis-oper', False),
+            _MetaInfoClassMember('srms', REFERENCE_CLASS, 'Srms' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.Srms', 
+                [], [], 
+                '''                Segment Routing Mapping Server operational
+                data
+                ''',
+                'srms',
                 'Cisco-IOS-XR-clns-isis-oper', False),
             _MetaInfoClassMember('statistics-global', REFERENCE_CLASS, 'StatisticsGlobal' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper', 'Isis.Instances.Instance.StatisticsGlobal', 
                 [], [], 
@@ -21323,7 +24682,9 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.Topology
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.SpfLog.LogEntry.RouteUpdateStatistics']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.SpfLog.LogEntry']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.SpfLog.LogEntry']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.SpfLog']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.TeTunnels.TeTunnel']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.TeTunnels']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.Paths']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology.ReachabilityStatus.ReachableDetails']['meta_info']
@@ -21335,7 +24696,9 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.Topology
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies.Ipv4LinkTopology']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv4LinkTopologies']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.TopologySummary.RouterNodeCount']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.TopologySummary']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.TopologySummary.PseudonodeNodeCount']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.TopologySummary']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.Paths']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails.MulticastPath']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.TopologyLevels.TopologyLevel.Ipv6LinkTopologies.Ipv6LinkTopology.ReachabilityStatus.ReachableDetails']['meta_info']
@@ -21357,9 +24720,13 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.Co
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail.Owner']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.RedistributedStatus.RedistributionDetails']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.RedistributedStatus.RedistributionDetails']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.RedistributedStatus']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.UcmpNextHop']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastPath']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Source.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Source']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastSource.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastSource']['meta_info']
@@ -21369,9 +24736,13 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.Na
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.Source']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary.MulticastSource']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Primary']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.UcmpNextHop']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastPath']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.SrtePath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Source.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.Source']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastSource.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6Routes.Ipv6Route.NativeStatus.NativeDetails.Backup.MulticastSource']['meta_info']
@@ -21396,9 +24767,13 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrB
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail.Owner']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.RedistributedStatus.RedistributionDetails']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.RedistributedStatus.RedistributionDetails']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.RedistributedStatus']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Source.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Source']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastSource.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastSource']['meta_info']
@@ -21408,9 +24783,13 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrB
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.Source']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary.MulticastSource']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Primary']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Source.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.Source']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastSource.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv6FrrBackups.Ipv6FrrBackup.NativeStatus.NativeDetails.Backup.MulticastSource']['meta_info']
@@ -21435,9 +24814,13 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrB
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail.Owner']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.RedistributedStatus.RedistributionDetails']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.RedistributedStatus.RedistributionDetails']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.RedistributedStatus']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.UcmpNextHop']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastPath']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Source.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Source']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastSource.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastSource']['meta_info']
@@ -21447,9 +24830,13 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrB
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.Source']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary.MulticastSource']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Primary']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.UcmpNextHop']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastPath']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.SrtePath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Source.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.Source']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastSource.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4FrrBackups.Ipv4FrrBackup.NativeStatus.NativeDetails.Backup.MulticastSource']['meta_info']
@@ -21474,9 +24861,13 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.Co
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail.Owner']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.RedistributedStatus.RedistributionDetails.IsisShRouteRedistDetail']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.RedistributedStatus.RedistributionDetails']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.RedistributedStatus.RedistributionDetails']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.RedistributedStatus']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.UcmpNextHop.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.UcmpNextHop']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastPath']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Source.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Source']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastSource.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastSource']['meta_info']
@@ -21486,9 +24877,13 @@ _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.Na
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.SrtePath']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.Source']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary.MulticastSource']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Primary']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Paths']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.UcmpNextHop.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.UcmpNextHop']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastPath']['meta_info']
+_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup.BackupRepair']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath.FrrBackup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.SrtePath']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Source.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.Source']['meta_info']
 _meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastSource.NodalSid']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Topologies.Topology.Ipv4Routes.Ipv4Route.NativeStatus.NativeDetails.Backup.MulticastSource']['meta_info']
@@ -21597,6 +24992,21 @@ _meta_table['Isis.Instances.Instance.Interfaces.Interface.InterfaceStatusAndData
 _meta_table['Isis.Instances.Instance.Interfaces.Interface']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Interfaces']['meta_info']
 _meta_table['Isis.Instances.Instance.CheckpointAdjacencies.CheckpointAdjacency.CheckpointAdjacencyPerAddressFamilyNextHop']['meta_info'].parent =_meta_table['Isis.Instances.Instance.CheckpointAdjacencies.CheckpointAdjacency']['meta_info']
 _meta_table['Isis.Instances.Instance.CheckpointAdjacencies.CheckpointAdjacency']['meta_info'].parent =_meta_table['Isis.Instances.Instance.CheckpointAdjacencies']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Active']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4.PolicyIpv4Backup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Backup']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6.PolicyIpv6Active']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv4']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy.PolicyIpv6']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms.Policy']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms.Policy']['meta_info'].parent =_meta_table['Isis.Instances.Instance.Srms']['meta_info']
 _meta_table['Isis.Instances.Instance.ErrorLog.LogEntry.GenericData.Timestamp']['meta_info'].parent =_meta_table['Isis.Instances.Instance.ErrorLog.LogEntry.GenericData']['meta_info']
 _meta_table['Isis.Instances.Instance.ErrorLog.LogEntry.GenericData']['meta_info'].parent =_meta_table['Isis.Instances.Instance.ErrorLog.LogEntry']['meta_info']
 _meta_table['Isis.Instances.Instance.ErrorLog.LogEntry']['meta_info'].parent =_meta_table['Isis.Instances.Instance.ErrorLog']['meta_info']
@@ -21636,6 +25046,7 @@ _meta_table['Isis.Instances.Instance.Topologies']['meta_info'].parent =_meta_tab
 _meta_table['Isis.Instances.Instance.NsrStatus']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.Interfaces']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.CheckpointAdjacencies']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
+_meta_table['Isis.Instances.Instance.Srms']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.ErrorLog']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.CheckpointInterfaces']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']
 _meta_table['Isis.Instances.Instance.InterfaceStatistics']['meta_info'].parent =_meta_table['Isis.Instances.Instance']['meta_info']

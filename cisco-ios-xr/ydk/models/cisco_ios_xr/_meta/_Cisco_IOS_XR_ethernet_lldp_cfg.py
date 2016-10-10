@@ -164,21 +164,21 @@ _meta_table = {
                 'enable_subintf',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             _MetaInfoClassMember('holdtime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Length  of time  (in sec) that receiver must
                 keep this packet
                 ''',
                 'holdtime',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             _MetaInfoClassMember('reinit', ATTRIBUTE, 'int' , None, None, 
-                [(2, 5)], [], 
+                [('2', '5')], [], 
                 '''                Delay (in sec) for LLDP initialization on any
                 interface
                 ''',
                 'reinit',
                 'Cisco-IOS-XR-ethernet-lldp-cfg', False),
             _MetaInfoClassMember('timer', ATTRIBUTE, 'int' , None, None, 
-                [(5, 65534)], [], 
+                [('5', '65534')], [], 
                 '''                Specify the rate at which LLDP packets are sent
                 (in sec)
                 ''',

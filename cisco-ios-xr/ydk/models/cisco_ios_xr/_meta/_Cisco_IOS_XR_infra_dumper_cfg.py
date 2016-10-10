@@ -38,14 +38,14 @@ _meta_table = {
                 'filename',
                 'Cisco-IOS-XR-infra-dumper-cfg', False),
             _MetaInfoClassMember('higher-limit', ATTRIBUTE, 'int' , None, None, 
-                [(5, 64)], [], 
+                [('5', '64')], [], 
                 '''                Higher limit.  This is required if Filename is
                 specified.
                 ''',
                 'higher_limit',
                 'Cisco-IOS-XR-infra-dumper-cfg', False),
             _MetaInfoClassMember('lower-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4)], [], 
+                [('0', '4')], [], 
                 '''                Lower limit.  This is required if Filename is
                 specified.
                 ''',
@@ -82,14 +82,14 @@ _meta_table = {
                 'filename',
                 'Cisco-IOS-XR-infra-dumper-cfg', False),
             _MetaInfoClassMember('higher-limit', ATTRIBUTE, 'int' , None, None, 
-                [(5, 64)], [], 
+                [('5', '64')], [], 
                 '''                Higher limit.  This is required if Filename is
                 specified.
                 ''',
                 'higher_limit',
                 'Cisco-IOS-XR-infra-dumper-cfg', False),
             _MetaInfoClassMember('lower-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4)], [], 
+                [('0', '4')], [], 
                 '''                Lower limit.  This is required if Filename is
                 specified.
                 ''',
@@ -126,14 +126,14 @@ _meta_table = {
                 'filename',
                 'Cisco-IOS-XR-infra-dumper-cfg', False),
             _MetaInfoClassMember('higher-limit', ATTRIBUTE, 'int' , None, None, 
-                [(5, 64)], [], 
+                [('5', '64')], [], 
                 '''                Higher limit.  This is required if Filename is
                 specified.
                 ''',
                 'higher_limit',
                 'Cisco-IOS-XR-infra-dumper-cfg', False),
             _MetaInfoClassMember('lower-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4)], [], 
+                [('0', '4')], [], 
                 '''                Lower limit.  This is required if Filename is
                 specified.
                 ''',
@@ -190,7 +190,7 @@ _meta_table = {
                 'sparse',
                 'Cisco-IOS-XR-infra-dumper-cfg', False),
             _MetaInfoClassMember('sparse-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4095)], [], 
+                [('1', '4095')], [], 
                 '''                Switch to sparse core dump at this size
                 ''',
                 'sparse_size',

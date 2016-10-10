@@ -12,7 +12,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-l2vpn\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -28,20 +28,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg import CfmMdidFormatEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg import CfmMipPolicyEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg import CfmServiceEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg import CfmShortMaNameFormatEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmAisIntervalEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes import CfmCcmIntervalEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum1Enum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum2Enum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum4Enum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum5Enum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamEventActionEnum6Enum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamProfileHelloIntervalEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamProfileModeEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg import EtherLinkOamProfileRequireModeEnumEnum
 
 class EgressFilteringEnum(Enum):
     """
@@ -94,11 +80,19 @@ class FilteringEnum(Enum):
 
     	802.1ad standard)
 
+    .. data:: FILTERING_TYPE_MAC_RELAY = 2
+
+    	2-Port Mac Relay ingress frame filtering (802
+
+    	.1aj standard)
+
     """
 
     FILTERING_TYPE_DOT1Q = 0
 
     FILTERING_TYPE_DOT1AD = 1
+
+    FILTERING_TYPE_MAC_RELAY = 2
 
 
     @staticmethod
@@ -394,6 +388,8 @@ class EthernetFeatures(object):
                 	Maintenance Domain
                 	**type**\:  str
                 
+                	**range:** 0..79
+                
                 .. attribute:: domain_properties
                 
                 	Fundamental properties of the domain
@@ -452,6 +448,8 @@ class EthernetFeatures(object):
                         
                         	Service (Maintenance Association)
                         	**type**\:  str
+                        
+                        	**range:** 0..79
                         
                         .. attribute:: ais
                         
@@ -1092,7 +1090,7 @@ class EthernetFeatures(object):
                             	ITU Carrier Code (ICC), if format is ICCBased
                             	**type**\:  str
                             
-                            	**range:** 0..7
+                            	**range:** 0..6
                             
                             .. attribute:: short_ma_name_number
                             
@@ -1113,14 +1111,14 @@ class EthernetFeatures(object):
                             	String Short MA Name, if format is String
                             	**type**\:  str
                             
-                            	**range:** 0..46
+                            	**range:** 0..45
                             
                             .. attribute:: short_ma_name_umc
                             
                             	Unique MEG ID Code (UMC), if format is ICCBased
                             	**type**\:  str
                             
-                            	**range:** 0..13
+                            	**range:** 0..12
                             
                             .. attribute:: short_ma_name_vpn_index
                             
@@ -1356,7 +1354,7 @@ class EthernetFeatures(object):
                     	String MDID, if MDID format is String or DNSLike
                     	**type**\:  str
                     
-                    	**range:** 0..44
+                    	**range:** 0..43
                     
                     
 
@@ -1693,7 +1691,8 @@ class EthernetFeatures(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.threshold = None
+                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FramePeriod.Threshold()
+                            self.threshold.parent = self
                             self.window = None
 
 
@@ -1716,16 +1715,7 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..1000000
                             
-                            	**mandatory**\: True
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
 
                             """
 
@@ -1734,7 +1724,6 @@ class EthernetFeatures(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self._is_presence = True
                                 self.threshold_high = None
                                 self.threshold_low = None
 
@@ -1752,8 +1741,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self._is_presence:
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -1820,7 +1807,8 @@ class EthernetFeatures(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.threshold = None
+                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.FrameSeconds.Threshold()
+                            self.threshold.parent = self
                             self.window = None
 
 
@@ -1843,16 +1831,7 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..900
                             
-                            	**mandatory**\: True
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
 
                             """
 
@@ -1861,7 +1840,6 @@ class EthernetFeatures(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self._is_presence = True
                                 self.threshold_high = None
                                 self.threshold_low = None
 
@@ -1879,8 +1857,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self._is_presence:
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -1947,7 +1923,8 @@ class EthernetFeatures(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.threshold = None
+                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.Frame.Threshold()
+                            self.threshold.parent = self
                             self.window = None
 
 
@@ -1969,16 +1946,7 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..12000000
                             
-                            	**mandatory**\: True
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
 
                             """
 
@@ -1987,7 +1955,6 @@ class EthernetFeatures(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self._is_presence = True
                                 self.threshold_high = None
                                 self.threshold_low = None
 
@@ -2005,8 +1972,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self._is_presence:
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 
@@ -2073,7 +2038,8 @@ class EthernetFeatures(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.threshold = None
+                            self.threshold = EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitor.SymbolPeriod.Threshold()
+                            self.threshold.parent = self
                             self.window = None
 
 
@@ -2096,16 +2062,7 @@ class EthernetFeatures(object):
                             
                             	**range:** 1..60000000
                             
-                            	**mandatory**\: True
                             
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
 
                             """
 
@@ -2114,7 +2071,6 @@ class EthernetFeatures(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self._is_presence = True
                                 self.threshold_high = None
                                 self.threshold_low = None
 
@@ -2132,8 +2088,6 @@ class EthernetFeatures(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self._is_presence:
-                                    return True
                                 if self.threshold_high is not None:
                                     return True
 

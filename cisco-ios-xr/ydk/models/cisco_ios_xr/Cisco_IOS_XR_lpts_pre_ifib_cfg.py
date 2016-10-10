@@ -8,7 +8,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-config\-mda\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -72,6 +72,40 @@ class LptsFlowEnum(Enum):
     	IS-IS packets on unconfigured (or
 
     	newly-configured) interfaces
+
+    .. data:: BFD_KNOWN = 9
+
+    	BFD packets on configured interfaces
+
+    .. data:: BFD_DEFAULT = 10
+
+    	BFD packets on unconfigured (or
+
+    	newly-configured) interfaces
+
+    .. data:: BFD_MULTIPATH_KNOWN = 11
+
+    	BFD multipath packets on configured interfaces
+
+    .. data:: BFD_MULTIPATH0 = 12
+
+    	BFD multipath packets on multiple configured
+
+    	interfaces
+
+    .. data:: BFD_BLB_KNOWN = 13
+
+    	BFD packets over Logical Bundle on configured
+
+    	interfaces
+
+    .. data:: BFD_BLB0 = 14
+
+    	BFD packets over Logical Bundle 0
+
+    .. data:: BFD_SP0 = 15
+
+    	BFD packets over Single Path 0
 
     .. data:: BGP_KNOWN = 16
 
@@ -210,6 +244,10 @@ class LptsFlowEnum(Enum):
     	AH or ESP packets with unknown or
 
     	newly-configured SPIs
+
+    .. data:: IPSEC_FRAGMENT = 43
+
+    	AH or ESP fragmented packets
 
     .. data:: MSDP_KNOWN = 44
 
@@ -353,6 +391,14 @@ class LptsFlowEnum(Enum):
 
     	timestamping by squid driver
 
+    .. data:: EIGRP = 73
+
+    	EIGRP packets.
+
+    .. data:: RIP = 74
+
+    	RIP packets.
+
     .. data:: L2TPV3 = 75
 
     	L2TPv3 packets.
@@ -387,6 +433,18 @@ class LptsFlowEnum(Enum):
 
     	L2TPv2 known packets.
 
+    .. data:: DNS = 83
+
+    	DNS packets.
+
+    .. data:: RADIUS = 84
+
+    	RADIUS packets.
+
+    .. data:: TACACS = 85
+
+    	TACACS packets.
+
     .. data:: NTP_DEFAULT = 86
 
     	NTP packets received at 123 port number any
@@ -399,9 +457,41 @@ class LptsFlowEnum(Enum):
 
     	address.
 
+    .. data:: MOBILE_IPV6 = 88
+
+    	Mobile IPV6 packets.
+
     .. data:: AMT = 89
 
     	AMT packets received at UDP port number 2268.
+
+    .. data:: SDAC_TCP = 90
+
+    	SDAC TCP packets.
+
+    .. data:: RADIUS_COA = 91
+
+    	RADIUS Change of Authorization packets.
+
+    .. data:: REL_UDP = 92
+
+    	REL UDP packets.
+
+    .. data:: DHCP4 = 93
+
+    	DHCP IPV4 packets.
+
+    .. data:: DHCP6 = 94
+
+    	DHCP IPV6 packets.
+
+    .. data:: ONEPK = 95
+
+    	ONEPK packets.
+
+    .. data:: EXR = 96
+
+    	EXR packets.
 
     """
 
@@ -422,6 +512,20 @@ class LptsFlowEnum(Enum):
     ISIS_KNOWN = 7
 
     ISIS_DEFAULT = 8
+
+    BFD_KNOWN = 9
+
+    BFD_DEFAULT = 10
+
+    BFD_MULTIPATH_KNOWN = 11
+
+    BFD_MULTIPATH0 = 12
+
+    BFD_BLB_KNOWN = 13
+
+    BFD_BLB0 = 14
+
+    BFD_SP0 = 15
 
     BGP_KNOWN = 16
 
@@ -476,6 +580,8 @@ class LptsFlowEnum(Enum):
     IPSEC_KNOWN = 41
 
     IPSEC_DEFAULT = 42
+
+    IPSEC_FRAGMENT = 43
 
     MSDP_KNOWN = 44
 
@@ -535,6 +641,10 @@ class LptsFlowEnum(Enum):
 
     IPSLA = 72
 
+    EIGRP = 73
+
+    RIP = 74
+
     L2TPV3 = 75
 
     PCEP_TCP_DEFAULT = 76
@@ -551,11 +661,33 @@ class LptsFlowEnum(Enum):
 
     L2TPV2_KNOWN = 82
 
+    DNS = 83
+
+    RADIUS = 84
+
+    TACACS = 85
+
     NTP_DEFAULT = 86
 
     NTP_KNOWN = 87
 
+    MOBILE_IPV6 = 88
+
     AMT = 89
+
+    SDAC_TCP = 90
+
+    RADIUS_COA = 91
+
+    REL_UDP = 92
+
+    DHCP4 = 93
+
+    DHCP6 = 94
+
+    ONEPK = 95
+
+    EXR = 96
 
 
     @staticmethod

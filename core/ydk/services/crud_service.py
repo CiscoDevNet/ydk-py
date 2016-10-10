@@ -22,10 +22,11 @@
      CRUDService: Provide Create/Read/Update/Delete API's
 
 """
+from __future__ import absolute_import
 from ydk.errors import YPYServiceError
 from ydk.types import YList
 from .service import Service
-from meta_service import MetaService
+from .meta_service import MetaService
 import logging
 import importlib
 

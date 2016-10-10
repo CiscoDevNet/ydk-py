@@ -105,20 +105,21 @@ Using the model APIs
 ------------------------
 After establishing the connection, we instantiate the entities and set some data. First, we import the types from the OpenConfig BGP module::
 
- from ydk.models.openconfig import bgp
+ from ydk.models.openconfig import openconfig_bgp
+ from ydk.models.openconfig import openconfig_bgp_types
 
 Next, create a BGP configuration object and set the attributes::
 
  # create BGP object
- bgp_cfg = bgp.Bgp()
+ bgp_cfg = openconfig_bgp.Bgp()
 
  # set the Global AS
  bgp_cfg.global_.config.as_ = 65001
 
  # Create an AFI SAFI config
  ipv4_afsf = bgp_cfg.global_.afi_safis.AfiSafi()
- ipv4_afsf.afi_safi_name = 'ipv4-unicast'
- ipv4_afsf.config.afi_safi_name = 'ipv4-unicast'
+ ipv4_afsf.afi_safi_name = openconfig_bgp_types.Ipv4Unicast()
+ ipv4_afsf.config.afi_safi_name = openconfig_bgp_types.Ipv4Unicast()
  ipv4_afsf.config.enabled = True
 
  # Add the AFI SAFI config to the global AFI SAFI list

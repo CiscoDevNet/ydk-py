@@ -155,7 +155,7 @@ _meta_table = {
                         'port',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                     _MetaInfoClassMember('port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        Port number
                         ''',
                         'port',
@@ -236,7 +236,7 @@ _meta_table = {
                         'end_port',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                     _MetaInfoClassMember('end-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        Port number
                         ''',
                         'end_port',
@@ -255,7 +255,7 @@ _meta_table = {
                         'start_port',
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                     _MetaInfoClassMember('start-port', ATTRIBUTE, 'int' , None, None, 
-                        [(0, 65535)], [], 
+                        [('0', '65535')], [], 
                         '''                        Port number
                         ''',
                         'start_port',
@@ -485,7 +485,7 @@ _meta_table = {
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                 ]),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 128)], [], 
+                [('0', '128')], [], 
                 '''                Prefix of the IP Address
                 ''',
                 'prefix_length',
@@ -767,7 +767,7 @@ _meta_table = {
                         'Cisco-IOS-XR-infra-objmgr-cfg', True),
                 ]),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 32)], [], 
+                [('0', '32')], [], 
                 '''                Prefix of the IP Address
                 ''',
                 'prefix_length',

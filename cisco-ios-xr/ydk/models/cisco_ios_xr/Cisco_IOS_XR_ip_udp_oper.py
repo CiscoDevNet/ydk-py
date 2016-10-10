@@ -8,7 +8,7 @@ for the following management objects\:
   udp\: IP UDP Operational Data
   udp\-connection\: udp connection
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -1338,7 +1338,7 @@ class UdpAddressFamilyEnum(Enum):
 
     	IPv4
 
-    .. data:: IPV6 = 26
+    .. data:: IPV6 = 10
 
     	IPv6
 
@@ -1346,7 +1346,7 @@ class UdpAddressFamilyEnum(Enum):
 
     IPV4 = 2
 
-    IPV6 = 26
+    IPV6 = 10
 
 
     @staticmethod
@@ -1370,7 +1370,7 @@ class Udp(object):
     """
 
     _prefix = 'ip-udp-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-02-26'
 
     def __init__(self):
         self.nodes = Udp.Nodes()
@@ -1391,7 +1391,7 @@ class Udp(object):
         """
 
         _prefix = 'ip-udp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -1421,7 +1421,7 @@ class Udp(object):
             """
 
             _prefix = 'ip-udp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-02-26'
 
             def __init__(self):
                 self.parent = None
@@ -1449,7 +1449,7 @@ class Udp(object):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -1510,7 +1510,7 @@ class Udp(object):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -1612,7 +1612,7 @@ class Udp(object):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -1777,7 +1777,7 @@ class UdpConnection(object):
     """
 
     _prefix = 'ip-udp-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-02-26'
 
     def __init__(self):
         self.nodes = UdpConnection.Nodes()
@@ -1798,7 +1798,7 @@ class UdpConnection(object):
         """
 
         _prefix = 'ip-udp-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -1843,7 +1843,7 @@ class UdpConnection(object):
             """
 
             _prefix = 'ip-udp-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-02-26'
 
             def __init__(self):
                 self.parent = None
@@ -1882,7 +1882,7 @@ class UdpConnection(object):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -1908,7 +1908,7 @@ class UdpConnection(object):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -1975,7 +1975,7 @@ class UdpConnection(object):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -2137,7 +2137,7 @@ class UdpConnection(object):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -2219,7 +2219,7 @@ class UdpConnection(object):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -2254,12 +2254,19 @@ class UdpConnection(object):
                         	UDP send statistics
                         	**type**\:  :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
                         
+                        .. attribute:: vrf_id
+                        
+                        	VRF ID
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -2269,6 +2276,7 @@ class UdpConnection(object):
                             self.receive.parent = self
                             self.send = UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send()
                             self.send.parent = self
+                            self.vrf_id = None
 
 
                         class Send(object):
@@ -2292,28 +2300,28 @@ class UdpConnection(object):
                             .. attribute:: received_application_bytes
                             
                             	Bytes received from application
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: received_xipc_pulses
                             
                             	XIPC pulses received from application
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: sent_net_io_packets
                             
                             	Packets sent to network (NetIO)
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: sent_network_packets
                             
                             	Packets sent to network (v4/v6 IO)
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2322,7 +2330,7 @@ class UdpConnection(object):
                             """
 
                             _prefix = 'ip-udp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -2394,21 +2402,21 @@ class UdpConnection(object):
                             .. attribute:: queued_application_packets
                             
                             	Packets queued to application
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: queued_application_socket_packets
                             
                             	Packets queued to application on socket
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: received_network_packets
                             
                             	Packets received from network
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2417,7 +2425,7 @@ class UdpConnection(object):
                             """
 
                             _prefix = 'ip-udp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -2489,6 +2497,9 @@ class UdpConnection(object):
                                 return True
 
                             if self.send is not None and self.send._has_data():
+                                return True
+
+                            if self.vrf_id is not None:
                                 return True
 
                             return False
@@ -2569,7 +2580,7 @@ class UdpConnection(object):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -2591,7 +2602,7 @@ class UdpConnection(object):
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -2619,7 +2630,7 @@ class UdpConnection(object):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -2642,7 +2653,7 @@ class UdpConnection(object):
                             """
 
                             _prefix = 'ip-udp-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2016-02-26'
 
                             def __init__(self):
                                 self.parent = None
@@ -2703,7 +2714,7 @@ class UdpConnection(object):
                                 """
 
                                 _prefix = 'ip-udp-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2016-02-26'
 
                                 def __init__(self):
                                     self.parent = None
@@ -2747,7 +2758,7 @@ class UdpConnection(object):
                                     """
 
                                     _prefix = 'ip-udp-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-02-26'
 
                                     def __init__(self):
                                         self.parent = None
@@ -2814,7 +2825,7 @@ class UdpConnection(object):
                                     """
 
                                     _prefix = 'ip-udp-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-02-26'
 
                                     def __init__(self):
                                         self.parent = None
@@ -2872,7 +2883,7 @@ class UdpConnection(object):
                                     """
 
                                     _prefix = 'ip-udp-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2016-02-26'
 
                                     def __init__(self):
                                         self.parent = None
@@ -2924,7 +2935,7 @@ class UdpConnection(object):
                                         """
 
                                         _prefix = 'ip-udp-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2016-02-26'
 
                                         def __init__(self):
                                             self.parent = None
@@ -2960,7 +2971,7 @@ class UdpConnection(object):
                                             """
 
                                             _prefix = 'ip-udp-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2016-02-26'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -3019,7 +3030,7 @@ class UdpConnection(object):
                                             """
 
                                             _prefix = 'ip-udp-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2016-02-26'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -3097,7 +3108,7 @@ class UdpConnection(object):
                                             """
 
                                             _prefix = 'ip-udp-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2016-02-26'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -3164,7 +3175,7 @@ class UdpConnection(object):
                                             	Interface name
                                             	**type**\:  str
                                             
-                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                             
                                             .. attribute:: local_address
                                             
@@ -3228,7 +3239,7 @@ class UdpConnection(object):
                                             """
 
                                             _prefix = 'ip-udp-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2016-02-26'
 
                                             def __init__(self):
                                                 self.parent = None
@@ -3284,7 +3295,7 @@ class UdpConnection(object):
                                                 """
 
                                                 _prefix = 'ip-udp-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2016-02-26'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -3359,7 +3370,7 @@ class UdpConnection(object):
                                                 """
 
                                                 _prefix = 'ip-udp-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2016-02-26'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -3426,7 +3437,7 @@ class UdpConnection(object):
                                                 """
 
                                                 _prefix = 'ip-udp-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2016-02-26'
 
                                                 def __init__(self):
                                                     self.parent = None
@@ -3751,7 +3762,7 @@ class UdpConnection(object):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -3821,12 +3832,19 @@ class UdpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: vrf_id
+                    
+                    	VRF ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -3841,6 +3859,7 @@ class UdpConnection(object):
                         self.local_process_id = None
                         self.receive_queue = None
                         self.send_queue = None
+                        self.vrf_id = None
 
 
                     class LocalAddress(object):
@@ -3871,7 +3890,7 @@ class UdpConnection(object):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -3938,7 +3957,7 @@ class UdpConnection(object):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -4019,6 +4038,9 @@ class UdpConnection(object):
                         if self.send_queue is not None:
                             return True
 
+                        if self.vrf_id is not None:
+                            return True
+
                         return False
 
                     @staticmethod
@@ -4067,7 +4089,7 @@ class UdpConnection(object):
                 """
 
                 _prefix = 'ip-udp-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-02-26'
 
                 def __init__(self):
                     self.parent = None
@@ -4130,12 +4152,19 @@ class UdpConnection(object):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: vrf_id
+                    
+                    	VRF ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
 
                     _prefix = 'ip-udp-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2016-02-26'
 
                     def __init__(self):
                         self.parent = None
@@ -4149,6 +4178,7 @@ class UdpConnection(object):
                         self.local_port = None
                         self.receive_queue = None
                         self.send_queue = None
+                        self.vrf_id = None
 
 
                     class LocalAddress(object):
@@ -4179,7 +4209,7 @@ class UdpConnection(object):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -4246,7 +4276,7 @@ class UdpConnection(object):
                         """
 
                         _prefix = 'ip-udp-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2016-02-26'
 
                         def __init__(self):
                             self.parent = None
@@ -4322,6 +4352,9 @@ class UdpConnection(object):
                             return True
 
                         if self.send_queue is not None:
+                            return True
+
+                        if self.vrf_id is not None:
                             return True
 
                         return False

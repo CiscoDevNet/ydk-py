@@ -14,42 +14,59 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
-    'PfilterMa.Nodes.Node.Process.Ipv6.Interfaces.Interface' : {
-        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv6.Interfaces.Interface',
+    'PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo' : {
+        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of the interface
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-pfilter-oper', True),
-            _MetaInfoClassMember('acl-information', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('acl-info', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Interface ACL Details
+                '''                acl information
                 ''',
-                'acl_information',
+                'acl_info',
                 'Cisco-IOS-XR-ip-pfilter-oper', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-oper',
-            'interface',
+            'interface-info',
             _yang_ns._namespaces['Cisco-IOS-XR-ip-pfilter-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper'
         ),
     },
-    'PfilterMa.Nodes.Node.Process.Ipv6.Interfaces' : {
-        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv6.Interfaces',
+    'PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos' : {
+        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos',
             False, 
             [
-            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv6.Interfaces.Interface', 
+            _MetaInfoClassMember('interface-info', REFERENCE_LIST, 'InterfaceInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo', 
                 [], [], 
-                '''                Operational data for pfilter
+                '''                Operational data for pfilter in bag
                 ''',
-                'interface',
+                'interface_info',
                 'Cisco-IOS-XR-ip-pfilter-oper', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-oper',
-            'interfaces',
+            'interface-infos',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-pfilter-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper'
+        ),
+    },
+    'PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable' : {
+        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable',
+            False, 
+            [
+            _MetaInfoClassMember('interface-infos', REFERENCE_CLASS, 'InterfaceInfos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos', 
+                [], [], 
+                '''                Operational data for pfilter
+                ''',
+                'interface_infos',
+                'Cisco-IOS-XR-ip-pfilter-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-pfilter-oper',
+            'acl-info-table',
             _yang_ns._namespaces['Cisco-IOS-XR-ip-pfilter-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper'
         ),
@@ -58,11 +75,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv6',
             False, 
             [
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv6.Interfaces', 
+            _MetaInfoClassMember('acl-info-table', REFERENCE_CLASS, 'AclInfoTable' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable', 
                 [], [], 
                 '''                Operational data for pfilter
                 ''',
-                'interfaces',
+                'acl_info_table',
                 'Cisco-IOS-XR-ip-pfilter-oper', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-oper',
@@ -71,42 +88,59 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper'
         ),
     },
-    'PfilterMa.Nodes.Node.Process.Ipv4.Interfaces.Interface' : {
-        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv4.Interfaces.Interface',
+    'PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo' : {
+        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Name of the interface
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-pfilter-oper', True),
-            _MetaInfoClassMember('acl-information', ATTRIBUTE, 'str' , None, None, 
+            _MetaInfoClassMember('acl-info', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Interface ACL Details
+                '''                acl information
                 ''',
-                'acl_information',
+                'acl_info',
                 'Cisco-IOS-XR-ip-pfilter-oper', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-oper',
-            'interface',
+            'interface-info',
             _yang_ns._namespaces['Cisco-IOS-XR-ip-pfilter-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper'
         ),
     },
-    'PfilterMa.Nodes.Node.Process.Ipv4.Interfaces' : {
-        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv4.Interfaces',
+    'PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos' : {
+        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos',
             False, 
             [
-            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv4.Interfaces.Interface', 
+            _MetaInfoClassMember('interface-info', REFERENCE_LIST, 'InterfaceInfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo', 
                 [], [], 
-                '''                Operational data for pfilter
+                '''                Operational data for pfilter in bag
                 ''',
-                'interface',
+                'interface_info',
                 'Cisco-IOS-XR-ip-pfilter-oper', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-oper',
-            'interfaces',
+            'interface-infos',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-pfilter-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper'
+        ),
+    },
+    'PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable' : {
+        'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable',
+            False, 
+            [
+            _MetaInfoClassMember('interface-infos', REFERENCE_CLASS, 'InterfaceInfos' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos', 
+                [], [], 
+                '''                Operational data for pfilter
+                ''',
+                'interface_infos',
+                'Cisco-IOS-XR-ip-pfilter-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-pfilter-oper',
+            'acl-info-table',
             _yang_ns._namespaces['Cisco-IOS-XR-ip-pfilter-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper'
         ),
@@ -115,11 +149,11 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PfilterMa.Nodes.Node.Process.Ipv4',
             False, 
             [
-            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv4.Interfaces', 
+            _MetaInfoClassMember('acl-info-table', REFERENCE_CLASS, 'AclInfoTable' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_pfilter_oper', 'PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable', 
                 [], [], 
                 '''                Operational data for pfilter
                 ''',
-                'interfaces',
+                'acl_info_table',
                 'Cisco-IOS-XR-ip-pfilter-oper', False),
             ],
             'Cisco-IOS-XR-ip-pfilter-oper',
@@ -210,10 +244,12 @@ _meta_table = {
         ),
     },
 }
-_meta_table['PfilterMa.Nodes.Node.Process.Ipv6.Interfaces.Interface']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv6.Interfaces']['meta_info']
-_meta_table['PfilterMa.Nodes.Node.Process.Ipv6.Interfaces']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv6']['meta_info']
-_meta_table['PfilterMa.Nodes.Node.Process.Ipv4.Interfaces.Interface']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv4.Interfaces']['meta_info']
-_meta_table['PfilterMa.Nodes.Node.Process.Ipv4.Interfaces']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv4']['meta_info']
+_meta_table['PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos']['meta_info']
+_meta_table['PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable']['meta_info']
+_meta_table['PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv6']['meta_info']
+_meta_table['PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos']['meta_info']
+_meta_table['PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable']['meta_info']
+_meta_table['PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process.Ipv4']['meta_info']
 _meta_table['PfilterMa.Nodes.Node.Process.Ipv6']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process']['meta_info']
 _meta_table['PfilterMa.Nodes.Node.Process.Ipv4']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node.Process']['meta_info']
 _meta_table['PfilterMa.Nodes.Node.Process']['meta_info'].parent =_meta_table['PfilterMa.Nodes.Node']['meta_info']

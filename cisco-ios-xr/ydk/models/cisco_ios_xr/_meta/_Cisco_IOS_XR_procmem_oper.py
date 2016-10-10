@@ -14,30 +14,30 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
-    'ProcessesMemory.Nodes.Node.JobIds.JobId' : {
-        'meta_info' : _MetaInfoClass('ProcessesMemory.Nodes.Node.JobIds.JobId',
+    'ProcessesMemory.Nodes.Node.ProcessIds.ProcessId' : {
+        'meta_info' : _MetaInfoClass('ProcessesMemory.Nodes.Node.ProcessIds.ProcessId',
             False, 
             [
-            _MetaInfoClassMember('job-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
-                '''                Job Id
+            _MetaInfoClassMember('process-id', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Process Id
                 ''',
-                'job_id',
+                'process_id',
                 'Cisco-IOS-XR-procmem-oper', True),
             _MetaInfoClassMember('data-seg-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Data Segment Size
                 ''',
                 'data_seg_size',
                 'Cisco-IOS-XR-procmem-oper', False),
             _MetaInfoClassMember('jid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Job ID
                 ''',
                 'jid',
                 'Cisco-IOS-XR-procmem-oper', False),
             _MetaInfoClassMember('malloc-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Malloced Memory Size
                 ''',
                 'malloc_size',
@@ -48,38 +48,44 @@ _meta_table = {
                 ''',
                 'name',
                 'Cisco-IOS-XR-procmem-oper', False),
+            _MetaInfoClassMember('pid', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Process ID
+                ''',
+                'pid',
+                'Cisco-IOS-XR-procmem-oper', False),
             _MetaInfoClassMember('stack-seg-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Stack Segment Size
                 ''',
                 'stack_seg_size',
                 'Cisco-IOS-XR-procmem-oper', False),
             _MetaInfoClassMember('text-seg-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Text Segment Size
                 ''',
                 'text_seg_size',
                 'Cisco-IOS-XR-procmem-oper', False),
             ],
             'Cisco-IOS-XR-procmem-oper',
-            'job-id',
+            'process-id',
             _yang_ns._namespaces['Cisco-IOS-XR-procmem-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper'
         ),
     },
-    'ProcessesMemory.Nodes.Node.JobIds' : {
-        'meta_info' : _MetaInfoClass('ProcessesMemory.Nodes.Node.JobIds',
+    'ProcessesMemory.Nodes.Node.ProcessIds' : {
+        'meta_info' : _MetaInfoClass('ProcessesMemory.Nodes.Node.ProcessIds',
             False, 
             [
-            _MetaInfoClassMember('job-id', REFERENCE_LIST, 'JobId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper', 'ProcessesMemory.Nodes.Node.JobIds.JobId', 
+            _MetaInfoClassMember('process-id', REFERENCE_LIST, 'ProcessId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper', 'ProcessesMemory.Nodes.Node.ProcessIds.ProcessId', 
                 [], [], 
-                '''                Job Id
+                '''                Process Id
                 ''',
-                'job_id',
+                'process_id',
                 'Cisco-IOS-XR-procmem-oper', False),
             ],
             'Cisco-IOS-XR-procmem-oper',
-            'job-ids',
+            'process-ids',
             _yang_ns._namespaces['Cisco-IOS-XR-procmem-oper'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper'
         ),
@@ -94,11 +100,11 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-procmem-oper', True),
-            _MetaInfoClassMember('job-ids', REFERENCE_CLASS, 'JobIds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper', 'ProcessesMemory.Nodes.Node.JobIds', 
+            _MetaInfoClassMember('process-ids', REFERENCE_CLASS, 'ProcessIds' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_procmem_oper', 'ProcessesMemory.Nodes.Node.ProcessIds', 
                 [], [], 
                 '''                List of jobs
                 ''',
-                'job_ids',
+                'process_ids',
                 'Cisco-IOS-XR-procmem-oper', False),
             ],
             'Cisco-IOS-XR-procmem-oper',
@@ -142,7 +148,7 @@ _meta_table = {
         ),
     },
 }
-_meta_table['ProcessesMemory.Nodes.Node.JobIds.JobId']['meta_info'].parent =_meta_table['ProcessesMemory.Nodes.Node.JobIds']['meta_info']
-_meta_table['ProcessesMemory.Nodes.Node.JobIds']['meta_info'].parent =_meta_table['ProcessesMemory.Nodes.Node']['meta_info']
+_meta_table['ProcessesMemory.Nodes.Node.ProcessIds.ProcessId']['meta_info'].parent =_meta_table['ProcessesMemory.Nodes.Node.ProcessIds']['meta_info']
+_meta_table['ProcessesMemory.Nodes.Node.ProcessIds']['meta_info'].parent =_meta_table['ProcessesMemory.Nodes.Node']['meta_info']
 _meta_table['ProcessesMemory.Nodes.Node']['meta_info'].parent =_meta_table['ProcessesMemory.Nodes']['meta_info']
 _meta_table['ProcessesMemory.Nodes']['meta_info'].parent =_meta_table['ProcessesMemory']['meta_info']

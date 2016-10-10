@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   alarm\-logger\: Alarm Logger operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -328,7 +328,7 @@ class AlarmLogger(object):
             .. attribute:: timestamp
             
             	Time when the alarm was generated. It is expressed in number of milliseconds since 00\:00 \:00 UTC, January 1, 1970
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             

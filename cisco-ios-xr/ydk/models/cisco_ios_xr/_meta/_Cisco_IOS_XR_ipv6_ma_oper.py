@@ -57,13 +57,13 @@ _meta_table = {
                 'is_anycast',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Length of IPv6 Address
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route-tag of the Address
                 ''',
                 'route_tag',
@@ -98,13 +98,13 @@ _meta_table = {
                 'is_anycast',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Length of IPv6 Address
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route-tag of the Address
                 ''',
                 'route_tag',
@@ -121,7 +121,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -192,13 +192,13 @@ _meta_table = {
                 'is_anycast',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Length of IPv6 Address
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route-tag of the Address
                 ''',
                 'route_tag',
@@ -297,7 +297,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('mode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                RPF Mode (loose/strict)
                 ''',
                 'mode',
@@ -320,7 +320,7 @@ _meta_table = {
                 'destination',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Enable BGP PA for ingress/egress
                 ''',
                 'enable',
@@ -349,7 +349,7 @@ _meta_table = {
                 'destination',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Enable BGP PA for ingress/egress
                 ''',
                 'enable',
@@ -485,13 +485,13 @@ _meta_table = {
                 'is_anycast',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Length of IPv6 Address
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route-tag of the Address
                 ''',
                 'route_tag',
@@ -503,12 +503,29 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
         ),
     },
+    'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup' : {
+        'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup',
+            False, 
+            [
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 Address of Multicast Group
+                ''',
+                'address',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ma-oper',
+            'client-multicast-group',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
+        ),
+    },
     'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail' : {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -536,6 +553,12 @@ _meta_table = {
                 '''                CAPS Add Time
                 ''',
                 'caps_utime',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('client-multicast-group', REFERENCE_LIST, 'ClientMulticastGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup', 
+                [], [], 
+                '''                IPv6 Client Multicast Group
+                ''',
+                'client_multicast_group',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('flow-tag-dst', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -592,7 +615,7 @@ _meta_table = {
                 'mlacp_active',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IPv6 MTU
                 ''',
                 'mtu',
@@ -681,13 +704,13 @@ _meta_table = {
                 'is_anycast',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Length of IPv6 Address
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route-tag of the Address
                 ''',
                 'route_tag',
@@ -722,13 +745,13 @@ _meta_table = {
                 'is_anycast',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Length of IPv6 Address
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route-tag of the Address
                 ''',
                 'route_tag',
@@ -745,7 +768,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -816,13 +839,13 @@ _meta_table = {
                 'is_anycast',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Length of IPv6 Address
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route-tag of the Address
                 ''',
                 'route_tag',
@@ -921,7 +944,7 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('mode', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                RPF Mode (loose/strict)
                 ''',
                 'mode',
@@ -944,7 +967,7 @@ _meta_table = {
                 'destination',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Enable BGP PA for ingress/egress
                 ''',
                 'enable',
@@ -973,7 +996,7 @@ _meta_table = {
                 'destination',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('enable', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Enable BGP PA for ingress/egress
                 ''',
                 'enable',
@@ -1109,13 +1132,13 @@ _meta_table = {
                 'is_anycast',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prefix Length of IPv6 Address
                 ''',
                 'prefix_length',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('route-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Route-tag of the Address
                 ''',
                 'route_tag',
@@ -1127,12 +1150,29 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
         ),
     },
+    'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup' : {
+        'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup',
+            False, 
+            [
+            _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 Address of Multicast Group
+                ''',
+                'address',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            ],
+            'Cisco-IOS-XR-ipv6-ma-oper',
+            'client-multicast-group',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
+        ),
+    },
     'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail' : {
         'meta_info' : _MetaInfoClass('Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail',
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -1160,6 +1200,12 @@ _meta_table = {
                 '''                CAPS Add Time
                 ''',
                 'caps_utime',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('client-multicast-group', REFERENCE_LIST, 'ClientMulticastGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup', 
+                [], [], 
+                '''                IPv6 Client Multicast Group
+                ''',
+                'client_multicast_group',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('flow-tag-dst', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -1216,7 +1262,7 @@ _meta_table = {
                 'mlacp_active',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IPv6 MTU
                 ''',
                 'mtu',
@@ -1349,13 +1395,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip-assigned', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces with explicit addresses
                 ''',
                 'ip_assigned',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('ip-unassigned', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of unassigned interfaces without explicit
+                address
+                ''',
+                'ip_unassigned',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('ip-unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of unnumbered interfaces with explicit
                 addresses
                 ''',
@@ -1373,13 +1426,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip-assigned', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces with explicit addresses
                 ''',
                 'ip_assigned',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('ip-unassigned', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of unassigned interfaces without explicit
+                address
+                ''',
+                'ip_unassigned',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('ip-unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of unnumbered interfaces with explicit
                 addresses
                 ''',
@@ -1397,13 +1457,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip-assigned', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces with explicit addresses
                 ''',
                 'ip_assigned',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('ip-unassigned', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of unassigned interfaces without explicit
+                address
+                ''',
+                'ip_unassigned',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('ip-unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of unnumbered interfaces with explicit
                 addresses
                 ''',
@@ -1421,13 +1488,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ip-assigned', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces with explicit addresses
                 ''',
                 'ip_assigned',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
+            _MetaInfoClassMember('ip-unassigned', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Number of unassigned interfaces without explicit
+                address
+                ''',
+                'ip_unassigned',
+                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('ip-unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of unnumbered interfaces with explicit
                 addresses
                 ''',
@@ -1463,7 +1537,7 @@ _meta_table = {
                 'if_up_down',
                 'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('if-up-down-basecaps-up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of interfaces (up,down) with basecaps up
                 ''',
                 'if_up_down_basecaps_up',
@@ -1547,171 +1621,10 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
         ),
     },
-    'Ipv6Network.InterfaceGlobalData.Summary.IfUpUp' : {
-        'meta_info' : _MetaInfoClass('Ipv6Network.InterfaceGlobalData.Summary.IfUpUp',
-            False, 
-            [
-            _MetaInfoClassMember('ip-assigned', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of interfaces with explicit addresses
-                ''',
-                'ip_assigned',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('ip-unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of unnumbered interfaces with explicit
-                addresses
-                ''',
-                'ip_unnumbered',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-ma-oper',
-            'if-up-up',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
-        ),
-    },
-    'Ipv6Network.InterfaceGlobalData.Summary.IfUpDown' : {
-        'meta_info' : _MetaInfoClass('Ipv6Network.InterfaceGlobalData.Summary.IfUpDown',
-            False, 
-            [
-            _MetaInfoClassMember('ip-assigned', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of interfaces with explicit addresses
-                ''',
-                'ip_assigned',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('ip-unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of unnumbered interfaces with explicit
-                addresses
-                ''',
-                'ip_unnumbered',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-ma-oper',
-            'if-up-down',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
-        ),
-    },
-    'Ipv6Network.InterfaceGlobalData.Summary.IfDownDown' : {
-        'meta_info' : _MetaInfoClass('Ipv6Network.InterfaceGlobalData.Summary.IfDownDown',
-            False, 
-            [
-            _MetaInfoClassMember('ip-assigned', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of interfaces with explicit addresses
-                ''',
-                'ip_assigned',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('ip-unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of unnumbered interfaces with explicit
-                addresses
-                ''',
-                'ip_unnumbered',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-ma-oper',
-            'if-down-down',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
-        ),
-    },
-    'Ipv6Network.InterfaceGlobalData.Summary.IfShutdownDown' : {
-        'meta_info' : _MetaInfoClass('Ipv6Network.InterfaceGlobalData.Summary.IfShutdownDown',
-            False, 
-            [
-            _MetaInfoClassMember('ip-assigned', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of interfaces with explicit addresses
-                ''',
-                'ip_assigned',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('ip-unnumbered', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of unnumbered interfaces with explicit
-                addresses
-                ''',
-                'ip_unnumbered',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-ma-oper',
-            'if-shutdown-down',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
-        ),
-    },
-    'Ipv6Network.InterfaceGlobalData.Summary' : {
-        'meta_info' : _MetaInfoClass('Ipv6Network.InterfaceGlobalData.Summary',
-            False, 
-            [
-            _MetaInfoClassMember('if-down-down', REFERENCE_CLASS, 'IfDownDown' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary.IfDownDown', 
-                [], [], 
-                '''                Number of interfaces (down,down)
-                ''',
-                'if_down_down',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('if-shutdown-down', REFERENCE_CLASS, 'IfShutdownDown' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary.IfShutdownDown', 
-                [], [], 
-                '''                Number of interfaces (shutdown,down)
-                ''',
-                'if_shutdown_down',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('if-up-down', REFERENCE_CLASS, 'IfUpDown' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary.IfUpDown', 
-                [], [], 
-                '''                Number of interfaces (up,down)
-                ''',
-                'if_up_down',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('if-up-down-basecaps-up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
-                '''                Number of interfaces (up,down) with basecaps up
-                ''',
-                'if_up_down_basecaps_up',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            _MetaInfoClassMember('if-up-up', REFERENCE_CLASS, 'IfUpUp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary.IfUpUp', 
-                [], [], 
-                '''                Number of interfaces (up,up)
-                ''',
-                'if_up_up',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-ma-oper',
-            'summary',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
-        ),
-    },
-    'Ipv6Network.InterfaceGlobalData' : {
-        'meta_info' : _MetaInfoClass('Ipv6Network.InterfaceGlobalData',
-            False, 
-            [
-            _MetaInfoClassMember('summary', REFERENCE_CLASS, 'Summary' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData.Summary', 
-                [], [], 
-                '''                Summary of IPv6 network operational interface
-                data on a node
-                ''',
-                'summary',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
-            ],
-            'Cisco-IOS-XR-ipv6-ma-oper',
-            'interface-global-data',
-            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-ma-oper'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper'
-        ),
-    },
     'Ipv6Network' : {
         'meta_info' : _MetaInfoClass('Ipv6Network',
             False, 
             [
-            _MetaInfoClassMember('interface-global-data', REFERENCE_CLASS, 'InterfaceGlobalData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.InterfaceGlobalData', 
-                [], [], 
-                '''                IPv6 network global operational interface data
-                ''',
-                'interface_global_data',
-                'Cisco-IOS-XR-ipv6-ma-oper', False),
             _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6Network.Nodes', 
                 [], [], 
                 '''                Node-specific IPv6 network operational data
@@ -1743,6 +1656,7 @@ _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalD
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail']['meta_info']
+_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief']['meta_info']
@@ -1761,6 +1675,7 @@ _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnU
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail']['meta_info']
+_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf']['meta_info']
@@ -1775,10 +1690,4 @@ _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Vrfs']['meta_info'].parent =_m
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData.Summary']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node.InterfaceData']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node.InterfaceData']['meta_info'].parent =_meta_table['Ipv6Network.Nodes.Node']['meta_info']
 _meta_table['Ipv6Network.Nodes.Node']['meta_info'].parent =_meta_table['Ipv6Network.Nodes']['meta_info']
-_meta_table['Ipv6Network.InterfaceGlobalData.Summary.IfUpUp']['meta_info'].parent =_meta_table['Ipv6Network.InterfaceGlobalData.Summary']['meta_info']
-_meta_table['Ipv6Network.InterfaceGlobalData.Summary.IfUpDown']['meta_info'].parent =_meta_table['Ipv6Network.InterfaceGlobalData.Summary']['meta_info']
-_meta_table['Ipv6Network.InterfaceGlobalData.Summary.IfDownDown']['meta_info'].parent =_meta_table['Ipv6Network.InterfaceGlobalData.Summary']['meta_info']
-_meta_table['Ipv6Network.InterfaceGlobalData.Summary.IfShutdownDown']['meta_info'].parent =_meta_table['Ipv6Network.InterfaceGlobalData.Summary']['meta_info']
-_meta_table['Ipv6Network.InterfaceGlobalData.Summary']['meta_info'].parent =_meta_table['Ipv6Network.InterfaceGlobalData']['meta_info']
 _meta_table['Ipv6Network.Nodes']['meta_info'].parent =_meta_table['Ipv6Network']['meta_info']
-_meta_table['Ipv6Network.InterfaceGlobalData']['meta_info'].parent =_meta_table['Ipv6Network']['meta_info']

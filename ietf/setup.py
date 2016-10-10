@@ -34,10 +34,10 @@ INSTALL_REQUIREMENTS = ['ecdsa==0.13',
                         'Twisted>=16.0.0',
                         'protobuf==3.0.0b2.post2',
                         'ncclient>=0.4.7',
-                        'ydk>=0.5.0']
+                        'ydk>=0.5.1']
 
 NMSP_PKG_NAME = "ydk-models-ietf"
-NMSP_PKG_VERSION = "0.1.0"
+NMSP_PKG_VERSION = "0.1.1"
 NMSP_PKG_DEPENDENCIES = []
 
 

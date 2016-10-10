@@ -66,6 +66,46 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper'
         ),
     },
+    'Syslog.LoggingFiles.FileLogDetail' : {
+        'meta_info' : _MetaInfoClass('Syslog.LoggingFiles.FileLogDetail',
+            False, 
+            [
+            _MetaInfoClassMember('file-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                File name for logging messages
+                ''',
+                'file_name',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('file-path', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                File path for logging messages
+                ''',
+                'file_path',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            ],
+            'Cisco-IOS-XR-infra-syslog-oper',
+            'file-log-detail',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper'
+        ),
+    },
+    'Syslog.LoggingFiles' : {
+        'meta_info' : _MetaInfoClass('Syslog.LoggingFiles',
+            False, 
+            [
+            _MetaInfoClassMember('file-log-detail', REFERENCE_LIST, 'FileLogDetail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingFiles.FileLogDetail', 
+                [], [], 
+                '''                Logging Files
+                ''',
+                'file_log_detail',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
+            ],
+            'Cisco-IOS-XR-infra-syslog-oper',
+            'logging-files',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-syslog-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper'
+        ),
+    },
     'Syslog.AnRemoteServers.AnRemoteLogServer' : {
         'meta_info' : _MetaInfoClass('Syslog.AnRemoteServers.AnRemoteLogServer',
             False, 
@@ -123,7 +163,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('message-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Message ID of the system message
                 ''',
                 'message_id',
@@ -184,8 +224,8 @@ _meta_table = {
                 ''',
                 'time_of_day',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
-            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('time-stamp', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Time in milliseconds since 00:00:00 UTC, January
                 11970 of when message was generated
                 ''',
@@ -227,13 +267,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('drop-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of messages dropped
                 ''',
                 'drop_count',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('flush-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of messages flushed
                 ''',
                 'flush_count',
@@ -245,7 +285,7 @@ _meta_table = {
                 'is_log_enabled',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('overrun-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of messages overrun
                 ''',
                 'overrun_count',
@@ -262,7 +302,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Buffer size in bytes if logging buffer isenabled
                 ''',
                 'buffer_size',
@@ -274,7 +314,7 @@ _meta_table = {
                 'is_log_enabled',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Message count
                 ''',
                 'message_count',
@@ -297,7 +337,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Buffer size in bytes if logging buffer isenabled
                 ''',
                 'buffer_size',
@@ -309,7 +349,7 @@ _meta_table = {
                 'is_log_enabled',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Message count
                 ''',
                 'message_count',
@@ -332,7 +372,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Buffer size in bytes if logging buffer isenabled
                 ''',
                 'buffer_size',
@@ -344,7 +384,7 @@ _meta_table = {
                 'is_log_enabled',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Message count
                 ''',
                 'message_count',
@@ -367,7 +407,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Buffer size in bytes if logging buffer isenabled
                 ''',
                 'buffer_size',
@@ -379,7 +419,7 @@ _meta_table = {
                 'is_log_enabled',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Message count
                 ''',
                 'message_count',
@@ -402,7 +442,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Message count
                 ''',
                 'message_count',
@@ -431,7 +471,7 @@ _meta_table = {
                 'file_name',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('message-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Message count
                 ''',
                 'message_count',
@@ -506,6 +546,12 @@ _meta_table = {
                 ''',
                 'an_remote_servers',
                 'Cisco-IOS-XR-infra-syslog-oper', False),
+            _MetaInfoClassMember('logging-files', REFERENCE_CLASS, 'LoggingFiles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingFiles', 
+                [], [], 
+                '''                Logging Files information
+                ''',
+                'logging_files',
+                'Cisco-IOS-XR-infra-syslog-oper', False),
             _MetaInfoClassMember('logging-statistics', REFERENCE_CLASS, 'LoggingStatistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'Syslog.LoggingStatistics', 
                 [], [], 
                 '''                Logging statistics information
@@ -527,6 +573,7 @@ _meta_table = {
     },
 }
 _meta_table['Logging.History']['meta_info'].parent =_meta_table['Logging']['meta_info']
+_meta_table['Syslog.LoggingFiles.FileLogDetail']['meta_info'].parent =_meta_table['Syslog.LoggingFiles']['meta_info']
 _meta_table['Syslog.AnRemoteServers.AnRemoteLogServer']['meta_info'].parent =_meta_table['Syslog.AnRemoteServers']['meta_info']
 _meta_table['Syslog.Messages.Message']['meta_info'].parent =_meta_table['Syslog.Messages']['meta_info']
 _meta_table['Syslog.LoggingStatistics.LoggingStats']['meta_info'].parent =_meta_table['Syslog.LoggingStatistics']['meta_info']
@@ -536,6 +583,7 @@ _meta_table['Syslog.LoggingStatistics.TrapLoggingStats']['meta_info'].parent =_m
 _meta_table['Syslog.LoggingStatistics.BufferLoggingStats']['meta_info'].parent =_meta_table['Syslog.LoggingStatistics']['meta_info']
 _meta_table['Syslog.LoggingStatistics.RemoteLoggingStat']['meta_info'].parent =_meta_table['Syslog.LoggingStatistics']['meta_info']
 _meta_table['Syslog.LoggingStatistics.FileLoggingStat']['meta_info'].parent =_meta_table['Syslog.LoggingStatistics']['meta_info']
+_meta_table['Syslog.LoggingFiles']['meta_info'].parent =_meta_table['Syslog']['meta_info']
 _meta_table['Syslog.AnRemoteServers']['meta_info'].parent =_meta_table['Syslog']['meta_info']
 _meta_table['Syslog.Messages']['meta_info'].parent =_meta_table['Syslog']['meta_info']
 _meta_table['Syslog.LoggingStatistics']['meta_info'].parent =_meta_table['Syslog']['meta_info']

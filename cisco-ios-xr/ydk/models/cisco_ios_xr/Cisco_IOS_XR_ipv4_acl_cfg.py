@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv4\-acl\-and\-prefix\-list\: IPv4 ACL configuration data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,17 +23,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclDscpNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclGrantEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclIcmpTypeCodeEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclIgmpNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclLoggingEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclOperatorEnumEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclPortNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclPrecedenceNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclProtocolNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclTcpBitsNumberEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_datatypes import Ipv4AclTcpMatchOperatorEnumEnum
 
 class NextHopTypeEnum(Enum):
     """
@@ -316,6 +305,13 @@ class Ipv4AclAndPrefixList(object):
                     	Comments or a description for the access list
                     	**type**\:  str
                     
+                    .. attribute:: sequence_str
+                    
+                    	Sequence String for the ace
+                    	**type**\:  str
+                    
+                    	**range:** 1..64
+                    
                     .. attribute:: source_network
                     
                     	Source network settings
@@ -384,6 +380,7 @@ class Ipv4AclAndPrefixList(object):
                         self.precedence = None
                         self.protocol = None
                         self.remark = None
+                        self.sequence_str = None
                         self.source_network = Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork()
                         self.source_network.parent = self
                         self.source_port = Ipv4AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort()
@@ -1363,6 +1360,9 @@ class Ipv4AclAndPrefixList(object):
                             return True
 
                         if self.remark is not None:
+                            return True
+
+                        if self.sequence_str is not None:
                             return True
 
                         if self.source_network is not None and self.source_network._has_data():

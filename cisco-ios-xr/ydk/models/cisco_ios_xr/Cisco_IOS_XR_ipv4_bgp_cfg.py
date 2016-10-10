@@ -13,7 +13,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -29,12 +29,54 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpAddressFamilyEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpNbrCapAdditionalPathsCfgEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpPrecedenceDscpEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpTosEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpUpdateFilterActionEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes import BgpafAdditionalPathsCfgEnum
+
+class BgpAdvRtEnum(Enum):
+    """
+    BgpAdvRtEnum
+
+    Bgp adv rt
+
+    .. data:: BGP_REGULAR_RT = 0
+
+    	Regular RT type
+
+    .. data:: BGP_STITCHING_RT = 1
+
+    	Stitching RT type
+
+    """
+
+    BGP_REGULAR_RT = 0
+
+    BGP_STITCHING_RT = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpAdvRtEnum']
+
+
+class BgpAfEncapsulationEnum(Enum):
+    """
+    BgpAfEncapsulationEnum
+
+    Bgp af encapsulation
+
+    .. data:: VX_LAN = 1
+
+    	VxLAN encapsulation type
+
+    """
+
+    VX_LAN = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpAfEncapsulationEnum']
+
 
 class BgpAigpCfgEnum(Enum):
     """
@@ -150,6 +192,43 @@ class BgpClusterIdEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
         return meta._meta_table['BgpClusterIdEnum']
+
+
+class BgpEbgpSendDmzEnableModeEnum(Enum):
+    """
+    BgpEbgpSendDmzEnableModeEnum
+
+    Bgp ebgp send dmz enable mode
+
+    .. data:: DISABLE = 0
+
+    	Disable Mode - Prevent inheritance
+
+    .. data:: DEFAULT = 1
+
+    	Default Mode - Send dmz link bandwidth value to
+
+    	ebgp neighbor
+
+    .. data:: CUMULATIVE = 2
+
+    	Strict Mode - Send cumulative dmz link
+
+    	bandwidth value to ebgp neighbor
+
+    """
+
+    DISABLE = 0
+
+    DEFAULT = 1
+
+    CUMULATIVE = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+        return meta._meta_table['BgpEbgpSendDmzEnableModeEnum']
 
 
 class BgpFlowspecValidationCfgEnum(Enum):
@@ -275,6 +354,10 @@ class BgpReorgOptEnum(Enum):
 
     	Advertise local routes
 
+    .. data:: BGP_CFG_ADV_DEF_IMP_DISABLE = 5
+
+    	Disable adv of Def VRF Imported routes
+
     """
 
     BGP_CFG_ADV = 1
@@ -284,6 +367,8 @@ class BgpReorgOptEnum(Enum):
     BGP_CFG_ADV_DISABLE = 3
 
     BGP_CFG_ADV_LOCAL = 4
+
+    BGP_CFG_ADV_DEF_IMP_DISABLE = 5
 
 
     @staticmethod
@@ -3117,7 +3202,7 @@ class Bgp(object):
                                     	Interface Name
                                     	**type**\:  str
                                     
-                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                     
                                     
 
@@ -3624,6 +3709,16 @@ class Bgp(object):
                                 	Allow EBGP neighbors not on directly connected networks
                                 	**type**\:  :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop>`
                                 
+                                .. attribute:: ebgp_recv_dmz
+                                
+                                	TRUE to receive DMZ link bandwidth from ebgp peer. FALSE to not receive from ebgp peer and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: ebgp_send_dmz_enable_modes
+                                
+                                	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
+                                	**type**\:  :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                
                                 .. attribute:: egress_peer_engineering
                                 
                                 	TRUE to enable egress peer engineering FALSE to disable egress peer engineering and to prevent inheritance from a parent
@@ -3743,6 +3838,11 @@ class Bgp(object):
                                 	TRUE to shutdown this entity, FALSE to prevent this entity from being shutdown even if the parent is
                                 	**type**\:  bool
                                 
+                                .. attribute:: suppress_all_capabilities
+                                
+                                	TRUE to suppress all capabilities. FALSE to not suppress and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
                                 .. attribute:: suppress_four_byte_as_capability
                                 
                                 	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
@@ -3778,7 +3878,7 @@ class Bgp(object):
                                 	Select an interface to configure
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 .. attribute:: vrf_neighbor_afs
                                 
@@ -3806,6 +3906,8 @@ class Bgp(object):
                                     self.description = None
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
+                                    self.ebgp_recv_dmz = None
+                                    self.ebgp_send_dmz_enable_modes = None
                                     self.egress_peer_engineering = None
                                     self.enforce_first_as = None
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.GracefulMaintenance()
@@ -3840,6 +3942,7 @@ class Bgp(object):
                                     self.session_group_add_member = None
                                     self.session_open_mode = None
                                     self.shutdown = None
+                                    self.suppress_all_capabilities = None
                                     self.suppress_four_byte_as_capability = None
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.Tcpmss()
                                     self.tcpmss.parent = self
@@ -3902,10 +4005,30 @@ class Bgp(object):
                                         	Activate an address family for this neighbor. Deletion of this object causes deletion of all the objects under NeighborAF/VRFNeighborAF/NeighborGroupAF associated with this object
                                         	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                                         
+                                        .. attribute:: advertise_def_imp_disable_v4
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_def_imp_disable_v6
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6>`
+                                        
                                         .. attribute:: advertise_disable
                                         
                                         	Disable Advertise Of Routes to the peer
                                         	**type**\:  :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable>`
+                                        
+                                        .. attribute:: advertise_l2vpnevpn
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:  :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2Vpnevpn>`
+                                        
+                                        .. attribute:: advertise_local_l2vpnevpn
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:  :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_v4
                                         
@@ -3980,6 +4103,11 @@ class Bgp(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        .. attribute:: encapsulation_type
+                                        
+                                        	Encapsulation type for this neighbor
+                                        	**type**\:  :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -4094,8 +4222,16 @@ class Bgp(object):
                                             self.accept_own = None
                                             self.accept_route_legacy_rt = None
                                             self.activate = None
+                                            self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4()
+                                            self.advertise_def_imp_disable_v4.parent = self
+                                            self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6()
+                                            self.advertise_def_imp_disable_v6.parent = self
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
+                                            self.advertise_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2Vpnevpn()
+                                            self.advertise_l2vpnevpn.parent = self
+                                            self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn()
+                                            self.advertise_local_l2vpnevpn.parent = self
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalV6()
@@ -4115,6 +4251,7 @@ class Bgp(object):
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self.default_weight = None
+                                            self.encapsulation_type = None
                                             self.flowspec_validation = None
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.Import()
                                             self.import_.parent = self
@@ -4231,6 +4368,69 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AigpCostCommunity']['meta_info']
 
 
+                                        class AdvertiseDefImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV6']['meta_info']
+
+
                                         class AdvertiseDisable(object):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -4245,6 +4445,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -4256,6 +4461,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -4275,6 +4481,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -4451,6 +4660,196 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
+                                        class AdvertiseDefImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseDefImpDisableV4']['meta_info']
+
+
+                                        class AdvertiseL2Vpnevpn(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseL2Vpnevpn']['meta_info']
+
+
+                                        class AdvertiseLocalL2Vpnevpn(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.Vrfs.Vrf.VrfNeighbors.VrfNeighbor.VrfNeighborAfs.VrfNeighborAf.AdvertiseLocalL2Vpnevpn']['meta_info']
+
+
                                         class NeighborAfLongLivedGracefulRestartStaleTime(object):
                                             """
                                             Maximum time to wait before purging long lived
@@ -4625,6 +5024,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -4636,6 +5040,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -4655,6 +5060,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -4680,6 +5088,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -4691,6 +5104,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -4710,6 +5124,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -4907,6 +5324,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -4918,6 +5340,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -4937,6 +5360,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -4962,6 +5388,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -4973,6 +5404,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -4992,6 +5424,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -5095,7 +5530,19 @@ class Bgp(object):
                                             if self.activate is not None:
                                                 return True
 
+                                            if self.advertise_def_imp_disable_v4 is not None and self.advertise_def_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_def_imp_disable_v6 is not None and self.advertise_def_imp_disable_v6._has_data():
+                                                return True
+
                                             if self.advertise_disable is not None and self.advertise_disable._has_data():
+                                                return True
+
+                                            if self.advertise_l2vpnevpn is not None and self.advertise_l2vpnevpn._has_data():
+                                                return True
+
+                                            if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
                                                 return True
 
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
@@ -5138,6 +5585,9 @@ class Bgp(object):
                                                 return True
 
                                             if self.default_weight is not None:
+                                                return True
+
+                                            if self.encapsulation_type is not None:
                                                 return True
 
                                             if self.flowspec_validation is not None:
@@ -6657,6 +7107,12 @@ class Bgp(object):
                                     if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
                                         return True
 
+                                    if self.ebgp_recv_dmz is not None:
+                                        return True
+
+                                    if self.ebgp_send_dmz_enable_modes is not None:
+                                        return True
+
                                     if self.egress_peer_engineering is not None:
                                         return True
 
@@ -6724,6 +7180,9 @@ class Bgp(object):
                                         return True
 
                                     if self.shutdown is not None:
+                                        return True
+
+                                    if self.suppress_all_capabilities is not None:
                                         return True
 
                                     if self.suppress_four_byte_as_capability is not None:
@@ -7008,6 +7467,16 @@ class Bgp(object):
                                 	Allow EBGP neighbors not on directly connected networks
                                 	**type**\:  :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop>`
                                 
+                                .. attribute:: ebgp_recv_dmz
+                                
+                                	TRUE to receive DMZ link bandwidth from ebgp peer. FALSE to not receive from ebgp peer and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: ebgp_send_dmz_enable_modes
+                                
+                                	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
+                                	**type**\:  :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                
                                 .. attribute:: egress_peer_engineering
                                 
                                 	TRUE to enable egress peer engineering FALSE to disable egress peer engineering and to prevent inheritance from a parent
@@ -7142,6 +7611,11 @@ class Bgp(object):
                                 	TRUE to shutdown this entity, FALSE to prevent this entity from being shutdown even if the parent is
                                 	**type**\:  bool
                                 
+                                .. attribute:: suppress_all_capabilities
+                                
+                                	TRUE to suppress all capabilities. FALSE to not suppress and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
                                 .. attribute:: suppress_four_byte_as_capability
                                 
                                 	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
@@ -7177,7 +7651,7 @@ class Bgp(object):
                                 	Select an interface to configure
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -7200,6 +7674,8 @@ class Bgp(object):
                                     self.description = None
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
+                                    self.ebgp_recv_dmz = None
+                                    self.ebgp_send_dmz_enable_modes = None
                                     self.egress_peer_engineering = None
                                     self.enforce_first_as = None
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.GracefulMaintenance()
@@ -7238,6 +7714,7 @@ class Bgp(object):
                                     self.session_group_add_member = None
                                     self.session_open_mode = None
                                     self.shutdown = None
+                                    self.suppress_all_capabilities = None
                                     self.suppress_four_byte_as_capability = None
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.Tcpmss()
                                     self.tcpmss.parent = self
@@ -7298,10 +7775,30 @@ class Bgp(object):
                                         	Activate an address family for this neighbor. Deletion of this object causes deletion of all the objects under NeighborAF/VRFNeighborAF/NeighborGroupAF associated with this object
                                         	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                                         
+                                        .. attribute:: advertise_def_imp_disable_v4
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_def_imp_disable_v6
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6>`
+                                        
                                         .. attribute:: advertise_disable
                                         
                                         	Disable Advertise Of Routes to the peer
                                         	**type**\:  :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable>`
+                                        
+                                        .. attribute:: advertise_l2vpnevpn
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:  :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2Vpnevpn>`
+                                        
+                                        .. attribute:: advertise_local_l2vpnevpn
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:  :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_v4
                                         
@@ -7376,6 +7873,11 @@ class Bgp(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        .. attribute:: encapsulation_type
+                                        
+                                        	Encapsulation type for this neighbor
+                                        	**type**\:  :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -7505,8 +8007,16 @@ class Bgp(object):
                                             self.accept_own = None
                                             self.accept_route_legacy_rt = None
                                             self.activate = None
+                                            self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4()
+                                            self.advertise_def_imp_disable_v4.parent = self
+                                            self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6()
+                                            self.advertise_def_imp_disable_v6.parent = self
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
+                                            self.advertise_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2Vpnevpn()
+                                            self.advertise_l2vpnevpn.parent = self
+                                            self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn()
+                                            self.advertise_local_l2vpnevpn.parent = self
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalV6()
@@ -7526,6 +8036,7 @@ class Bgp(object):
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self.default_weight = None
+                                            self.encapsulation_type = None
                                             self.flowspec_validation = None
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.Import()
                                             self.import_.parent = self
@@ -7644,6 +8155,69 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AigpCostCommunity']['meta_info']
 
 
+                                        class AdvertiseDefImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV6']['meta_info']
+
+
                                         class AdvertiseDisable(object):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -7658,6 +8232,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -7669,6 +8248,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -7688,6 +8268,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -7864,6 +8447,196 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
+                                        class AdvertiseDefImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseDefImpDisableV4']['meta_info']
+
+
+                                        class AdvertiseL2Vpnevpn(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseL2Vpnevpn']['meta_info']
+
+
+                                        class AdvertiseLocalL2Vpnevpn(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.Neighbors.Neighbor.NeighborAfs.NeighborAf.AdvertiseLocalL2Vpnevpn']['meta_info']
+
+
                                         class NeighborAfLongLivedGracefulRestartStaleTime(object):
                                             """
                                             Maximum time to wait before purging long lived
@@ -7937,6 +8710,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -7948,6 +8726,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -7967,6 +8746,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -7992,6 +8774,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -8003,6 +8790,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -8022,6 +8810,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -8219,6 +9010,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -8230,6 +9026,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -8249,6 +9046,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -8274,6 +9074,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -8285,6 +9090,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -8304,6 +9110,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -8407,7 +9216,19 @@ class Bgp(object):
                                             if self.activate is not None:
                                                 return True
 
+                                            if self.advertise_def_imp_disable_v4 is not None and self.advertise_def_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_def_imp_disable_v6 is not None and self.advertise_def_imp_disable_v6._has_data():
+                                                return True
+
                                             if self.advertise_disable is not None and self.advertise_disable._has_data():
+                                                return True
+
+                                            if self.advertise_l2vpnevpn is not None and self.advertise_l2vpnevpn._has_data():
+                                                return True
+
+                                            if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
                                                 return True
 
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
@@ -8450,6 +9271,9 @@ class Bgp(object):
                                                 return True
 
                                             if self.default_weight is not None:
+                                                return True
+
+                                            if self.encapsulation_type is not None:
                                                 return True
 
                                             if self.flowspec_validation is not None:
@@ -9978,6 +10802,12 @@ class Bgp(object):
                                     if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
                                         return True
 
+                                    if self.ebgp_recv_dmz is not None:
+                                        return True
+
+                                    if self.ebgp_send_dmz_enable_modes is not None:
+                                        return True
+
                                     if self.egress_peer_engineering is not None:
                                         return True
 
@@ -10054,6 +10884,9 @@ class Bgp(object):
                                         return True
 
                                     if self.shutdown is not None:
+                                        return True
+
+                                    if self.suppress_all_capabilities is not None:
                                         return True
 
                                     if self.suppress_four_byte_as_capability is not None:
@@ -10199,6 +11032,16 @@ class Bgp(object):
                                 	Allow EBGP neighbors not on directly connected networks
                                 	**type**\:  :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop>`
                                 
+                                .. attribute:: ebgp_recv_dmz
+                                
+                                	TRUE to receive DMZ link bandwidth from ebgp peer. FALSE to not receive from ebgp peer and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: ebgp_send_dmz_enable_modes
+                                
+                                	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
+                                	**type**\:  :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                
                                 .. attribute:: egress_peer_engineering
                                 
                                 	TRUE to enable egress peer engineering FALSE to disable egress peer engineering and to prevent inheritance from a parent
@@ -10333,6 +11176,11 @@ class Bgp(object):
                                 	TRUE to shutdown this entity, FALSE to prevent this entity from being shutdown even if the parent is
                                 	**type**\:  bool
                                 
+                                .. attribute:: suppress_all_capabilities
+                                
+                                	TRUE to suppress all capabilities. FALSE to not suppress and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
                                 .. attribute:: suppress_four_byte_as_capability
                                 
                                 	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
@@ -10368,7 +11216,7 @@ class Bgp(object):
                                 	Select an interface to configure
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -10392,6 +11240,8 @@ class Bgp(object):
                                     self.description = None
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
+                                    self.ebgp_recv_dmz = None
+                                    self.ebgp_send_dmz_enable_modes = None
                                     self.egress_peer_engineering = None
                                     self.enforce_first_as = None
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.GracefulMaintenance()
@@ -10430,6 +11280,7 @@ class Bgp(object):
                                     self.session_group_add_member = None
                                     self.session_open_mode = None
                                     self.shutdown = None
+                                    self.suppress_all_capabilities = None
                                     self.suppress_four_byte_as_capability = None
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.Tcpmss()
                                     self.tcpmss.parent = self
@@ -10490,10 +11341,30 @@ class Bgp(object):
                                         	Activate an address family for this neighbor. Deletion of this object causes deletion of all the objects under NeighborAF/VRFNeighborAF/NeighborGroupAF associated with this object
                                         	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                                         
+                                        .. attribute:: advertise_def_imp_disable_v4
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_def_imp_disable_v6
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6>`
+                                        
                                         .. attribute:: advertise_disable
                                         
                                         	Disable Advertise Of Routes to the peer
                                         	**type**\:  :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable>`
+                                        
+                                        .. attribute:: advertise_l2vpnevpn
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:  :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2Vpnevpn>`
+                                        
+                                        .. attribute:: advertise_local_l2vpnevpn
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:  :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_v4
                                         
@@ -10568,6 +11439,11 @@ class Bgp(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        .. attribute:: encapsulation_type
+                                        
+                                        	Encapsulation type for this neighbor
+                                        	**type**\:  :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -10702,8 +11578,16 @@ class Bgp(object):
                                             self.accept_own = None
                                             self.accept_route_legacy_rt = None
                                             self.activate = None
+                                            self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4()
+                                            self.advertise_def_imp_disable_v4.parent = self
+                                            self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6()
+                                            self.advertise_def_imp_disable_v6.parent = self
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
+                                            self.advertise_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2Vpnevpn()
+                                            self.advertise_l2vpnevpn.parent = self
+                                            self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2Vpnevpn()
+                                            self.advertise_local_l2vpnevpn.parent = self
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalV6()
@@ -10723,6 +11607,7 @@ class Bgp(object):
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self.default_weight = None
+                                            self.encapsulation_type = None
                                             self.flowspec_validation = None
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.Import()
                                             self.import_.parent = self
@@ -10843,6 +11728,69 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AigpCostCommunity']['meta_info']
 
 
+                                        class AdvertiseDefImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV6']['meta_info']
+
+
                                         class AdvertiseDisable(object):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -10857,6 +11805,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -10868,6 +11821,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -10887,6 +11841,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -11063,6 +12020,196 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
+                                        class AdvertiseDefImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseDefImpDisableV4']['meta_info']
+
+
+                                        class AdvertiseL2Vpnevpn(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseL2Vpnevpn']['meta_info']
+
+
+                                        class AdvertiseLocalL2Vpnevpn(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.NeighborGroups.NeighborGroup.NeighborGroupAfs.NeighborGroupAf.AdvertiseLocalL2Vpnevpn']['meta_info']
+
+
                                         class NeighborAfLongLivedGracefulRestartStaleTime(object):
                                             """
                                             Maximum time to wait before purging long lived
@@ -11237,6 +12384,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -11248,6 +12400,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -11267,6 +12420,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -11292,6 +12448,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -11303,6 +12464,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -11322,6 +12484,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -11519,6 +12684,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -11530,6 +12700,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -11549,6 +12720,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -11574,6 +12748,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -11585,6 +12764,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -11604,6 +12784,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -11707,7 +12890,19 @@ class Bgp(object):
                                             if self.activate is not None:
                                                 return True
 
+                                            if self.advertise_def_imp_disable_v4 is not None and self.advertise_def_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_def_imp_disable_v6 is not None and self.advertise_def_imp_disable_v6._has_data():
+                                                return True
+
                                             if self.advertise_disable is not None and self.advertise_disable._has_data():
+                                                return True
+
+                                            if self.advertise_l2vpnevpn is not None and self.advertise_l2vpnevpn._has_data():
+                                                return True
+
+                                            if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
                                                 return True
 
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
@@ -11750,6 +12945,9 @@ class Bgp(object):
                                                 return True
 
                                             if self.default_weight is not None:
+                                                return True
+
+                                            if self.encapsulation_type is not None:
                                                 return True
 
                                             if self.flowspec_validation is not None:
@@ -13284,6 +14482,12 @@ class Bgp(object):
                                     if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
                                         return True
 
+                                    if self.ebgp_recv_dmz is not None:
+                                        return True
+
+                                    if self.ebgp_send_dmz_enable_modes is not None:
+                                        return True
+
                                     if self.egress_peer_engineering is not None:
                                         return True
 
@@ -13360,6 +14564,9 @@ class Bgp(object):
                                         return True
 
                                     if self.shutdown is not None:
+                                        return True
+
+                                    if self.suppress_all_capabilities is not None:
                                         return True
 
                                     if self.suppress_four_byte_as_capability is not None:
@@ -13512,10 +14719,30 @@ class Bgp(object):
                                         	TRUE to configure as a accept\-route\-legacy\-RT.  FALSE to prevent accept\-route\-legacy\-RT from being inherited
                                         	**type**\:  bool
                                         
+                                        .. attribute:: advertise_def_imp_disable_v4
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4>`
+                                        
+                                        .. attribute:: advertise_def_imp_disable_v6
+                                        
+                                        	Disable Advertise Of Default VRF Imported Routes
+                                        	**type**\:  :py:class:`AdvertiseDefImpDisableV6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6>`
+                                        
                                         .. attribute:: advertise_disable
                                         
                                         	Disable Advertise Of Routes to the peer
                                         	**type**\:  :py:class:`AdvertiseDisable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable>`
+                                        
+                                        .. attribute:: advertise_l2vpnevpn
+                                        
+                                        	Advertise Translated Routes to the peer
+                                        	**type**\:  :py:class:`AdvertiseL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2Vpnevpn>`
+                                        
+                                        .. attribute:: advertise_local_l2vpnevpn
+                                        
+                                        	Advertise Of Local Routes to the peer with different RT
+                                        	**type**\:  :py:class:`AdvertiseLocalL2Vpnevpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2Vpnevpn>`
                                         
                                         .. attribute:: advertise_local_v4
                                         
@@ -13595,6 +14822,11 @@ class Bgp(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..65535
+                                        
+                                        .. attribute:: encapsulation_type
+                                        
+                                        	Encapsulation type for this neighbor
+                                        	**type**\:  :py:class:`BgpAfEncapsulationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAfEncapsulationEnum>`
                                         
                                         .. attribute:: flowspec_validation
                                         
@@ -13728,8 +14960,16 @@ class Bgp(object):
                                             self.af_name = None
                                             self.accept_own = None
                                             self.accept_route_legacy_rt = None
+                                            self.advertise_def_imp_disable_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4()
+                                            self.advertise_def_imp_disable_v4.parent = self
+                                            self.advertise_def_imp_disable_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6()
+                                            self.advertise_def_imp_disable_v6.parent = self
                                             self.advertise_disable = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDisable()
                                             self.advertise_disable.parent = self
+                                            self.advertise_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2Vpnevpn()
+                                            self.advertise_l2vpnevpn.parent = self
+                                            self.advertise_local_l2vpnevpn = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2Vpnevpn()
+                                            self.advertise_local_l2vpnevpn.parent = self
                                             self.advertise_local_v4 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV4()
                                             self.advertise_local_v4.parent = self
                                             self.advertise_local_v6 = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalV6()
@@ -13750,6 +14990,7 @@ class Bgp(object):
                                             self.default_originate = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.DefaultOriginate()
                                             self.default_originate.parent = self
                                             self.default_weight = None
+                                            self.encapsulation_type = None
                                             self.flowspec_validation = None
                                             self.import_ = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.Import()
                                             self.import_.parent = self
@@ -13870,6 +15111,69 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AigpCostCommunity']['meta_info']
 
 
+                                        class AdvertiseDefImpDisableV6(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v6'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV6']['meta_info']
+
+
                                         class AdvertiseDisable(object):
                                             """
                                             Disable Advertise Of Routes to the peer
@@ -13884,6 +15188,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -13895,6 +15204,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -13914,6 +15224,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -14090,6 +15403,196 @@ class Bgp(object):
                                                 return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.RemovePrivateAsEntireAsPathInbound']['meta_info']
 
 
+                                        class AdvertiseDefImpDisableV4(object):
+                                            """
+                                            Disable Advertise Of Default VRF Imported Routes
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-def-imp-disable-v4'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseDefImpDisableV4']['meta_info']
+
+
+                                        class AdvertiseL2Vpnevpn(object):
+                                            """
+                                            Advertise Translated Routes to the peer
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseL2Vpnevpn']['meta_info']
+
+
+                                        class AdvertiseLocalL2Vpnevpn(object):
+                                            """
+                                            Advertise Of Local Routes to the peer with
+                                            different RT
+                                            
+                                            .. attribute:: af_name
+                                            
+                                            	Address family
+                                            	**type**\:  :py:class:`BgpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_datatypes.BgpAddressFamilyEnum>`
+                                            
+                                            .. attribute:: reorg_option
+                                            
+                                            	Reorigination option
+                                            	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
+                                            
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'ipv4-bgp-cfg'
+                                            _revision = '2015-08-27'
+
+                                            def __init__(self):
+                                                self.parent = None
+                                                self.af_name = None
+                                                self.reorg_option = None
+                                                self.rt_type = None
+
+                                            @property
+                                            def _common_path(self):
+                                                if self.parent is None:
+                                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                                return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:advertise-local-l2vpnevpn'
+
+                                            def is_config(self):
+                                                ''' Returns True if this instance represents config data else returns False '''
+                                                return True
+
+                                            def _has_data(self):
+                                                if not self.is_config():
+                                                    return False
+                                                if self.af_name is not None:
+                                                    return True
+
+                                                if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
+                                                    return True
+
+                                                return False
+
+                                            @staticmethod
+                                            def _meta_info():
+                                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv4_bgp_cfg as meta
+                                                return meta._meta_table['Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.AfGroups.AfGroup.AfGroupAfs.AfGroupAf.AdvertiseLocalL2Vpnevpn']['meta_info']
+
+
                                         class NeighborAfLongLivedGracefulRestartStaleTime(object):
                                             """
                                             Maximum time to wait before purging long lived
@@ -14264,6 +15767,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -14275,6 +15783,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -14294,6 +15803,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -14319,6 +15831,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -14330,6 +15847,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -14349,6 +15867,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -14546,6 +16067,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -14557,6 +16083,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -14576,6 +16103,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -14601,6 +16131,11 @@ class Bgp(object):
                                             	Reorigination option
                                             	**type**\:  :py:class:`BgpReorgOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpReorgOptEnum>`
                                             
+                                            .. attribute:: rt_type
+                                            
+                                            	RT type
+                                            	**type**\:  :py:class:`BgpAdvRtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpAdvRtEnum>`
+                                            
                                             
 
                                             """
@@ -14612,6 +16147,7 @@ class Bgp(object):
                                                 self.parent = None
                                                 self.af_name = None
                                                 self.reorg_option = None
+                                                self.rt_type = None
 
                                             @property
                                             def _common_path(self):
@@ -14631,6 +16167,9 @@ class Bgp(object):
                                                     return True
 
                                                 if self.reorg_option is not None:
+                                                    return True
+
+                                                if self.rt_type is not None:
                                                     return True
 
                                                 return False
@@ -14731,7 +16270,19 @@ class Bgp(object):
                                             if self.accept_route_legacy_rt is not None:
                                                 return True
 
+                                            if self.advertise_def_imp_disable_v4 is not None and self.advertise_def_imp_disable_v4._has_data():
+                                                return True
+
+                                            if self.advertise_def_imp_disable_v6 is not None and self.advertise_def_imp_disable_v6._has_data():
+                                                return True
+
                                             if self.advertise_disable is not None and self.advertise_disable._has_data():
+                                                return True
+
+                                            if self.advertise_l2vpnevpn is not None and self.advertise_l2vpnevpn._has_data():
+                                                return True
+
+                                            if self.advertise_local_l2vpnevpn is not None and self.advertise_local_l2vpnevpn._has_data():
                                                 return True
 
                                             if self.advertise_local_v4 is not None and self.advertise_local_v4._has_data():
@@ -14777,6 +16328,9 @@ class Bgp(object):
                                                 return True
 
                                             if self.default_weight is not None:
+                                                return True
+
+                                            if self.encapsulation_type is not None:
                                                 return True
 
                                             if self.flowspec_validation is not None:
@@ -15028,6 +16582,16 @@ class Bgp(object):
                                 	Allow EBGP neighbors not on directly connected networks
                                 	**type**\:  :py:class:`EbgpMultihop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop>`
                                 
+                                .. attribute:: ebgp_recv_dmz
+                                
+                                	TRUE to receive DMZ link bandwidth from ebgp peer. FALSE to not receive from ebgp peer and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
+                                .. attribute:: ebgp_send_dmz_enable_modes
+                                
+                                	Default mode, Cumulative mode or Disable to prevent inheritance from a parent
+                                	**type**\:  :py:class:`BgpEbgpSendDmzEnableModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BgpEbgpSendDmzEnableModeEnum>`
+                                
                                 .. attribute:: egress_peer_engineering
                                 
                                 	TRUE to enable egress peer engineering FALSE to disable egress peer engineering and to prevent inheritance from a parent
@@ -15152,6 +16716,11 @@ class Bgp(object):
                                 	TRUE to shutdown this entity, FALSE to prevent this entity from being shutdown even if the parent is
                                 	**type**\:  bool
                                 
+                                .. attribute:: suppress_all_capabilities
+                                
+                                	TRUE to suppress all capabilities. FALSE to not suppress and to prevent inheritance from a parent
+                                	**type**\:  bool
+                                
                                 .. attribute:: suppress_four_byte_as_capability
                                 
                                 	TRUE to suppress BGP 4\-byte\-as capability.  FALSE to not suppress it and to prevent inheritance from a parent
@@ -15187,7 +16756,7 @@ class Bgp(object):
                                 	Select an interface to configure
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -15211,6 +16780,8 @@ class Bgp(object):
                                     self.description = None
                                     self.ebgp_multihop = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.EbgpMultihop()
                                     self.ebgp_multihop.parent = self
+                                    self.ebgp_recv_dmz = None
+                                    self.ebgp_send_dmz_enable_modes = None
                                     self.egress_peer_engineering = None
                                     self.enforce_first_as = None
                                     self.graceful_maintenance = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.GracefulMaintenance()
@@ -15246,6 +16817,7 @@ class Bgp(object):
                                     self.session_group_add_member = None
                                     self.session_open_mode = None
                                     self.shutdown = None
+                                    self.suppress_all_capabilities = None
                                     self.suppress_four_byte_as_capability = None
                                     self.tcpmss = Bgp.Instance.InstanceAs.FourByteAs.DefaultVrf.BgpEntity.SessionGroups.SessionGroup.Tcpmss()
                                     self.tcpmss.parent = self
@@ -16685,6 +18257,12 @@ class Bgp(object):
                                     if self.ebgp_multihop is not None and self.ebgp_multihop._has_data():
                                         return True
 
+                                    if self.ebgp_recv_dmz is not None:
+                                        return True
+
+                                    if self.ebgp_send_dmz_enable_modes is not None:
+                                        return True
+
                                     if self.egress_peer_engineering is not None:
                                         return True
 
@@ -16755,6 +18333,9 @@ class Bgp(object):
                                         return True
 
                                     if self.shutdown is not None:
+                                        return True
+
+                                    if self.suppress_all_capabilities is not None:
                                         return True
 
                                     if self.suppress_four_byte_as_capability is not None:
@@ -21647,7 +23228,7 @@ class Bgp(object):
                                 	Interface Name
                                 	**type**\:  str
                                 
-                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                                 
                                 
 
@@ -22349,6 +23930,13 @@ class BmpServers(object):
         	String to describe the BMP server
         	**type**\:  str
         
+        .. attribute:: flapping_delay
+        
+        	Delay in connecting to BMP Server after a flap had been detected
+        	**type**\:  int
+        
+        	**range:** 60..3600
+        
         .. attribute:: host_port
         
         	Configure Host Name/Address and Port for BMP Server
@@ -22365,6 +23953,13 @@ class BmpServers(object):
         
         	Initial refresh to generate BGP updates
         	**type**\:  :py:class:`InitialRefreshDelay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg.BmpServers.BmpServer.InitialRefreshDelay>`
+        
+        .. attribute:: maximum_buffer_size
+        
+        	Range in MegaBytes for the maximum buffer size of BMP message queue. The maximum buf\-size is 20% and default buf\-size is 15% of the platform virtual memory max\-limit (aka rlimit) . Please run show bgp process performance\-statistics to see the individual values. Unit is in Megabytes
+        	**type**\:  int
+        
+        	**range:** 1..4294967295
         
         .. attribute:: shutdown
         
@@ -22388,7 +23983,7 @@ class BmpServers(object):
         	Select an interface to configure
         	**type**\:  str
         
-        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
         
         .. attribute:: vrf
         
@@ -22407,11 +24002,13 @@ class BmpServers(object):
             self.server_id = None
             self.create = None
             self.description = None
+            self.flapping_delay = None
             self.host_port = BmpServers.BmpServer.HostPort()
             self.host_port.parent = self
             self.initial_delay = None
             self.initial_refresh_delay = BmpServers.BmpServer.InitialRefreshDelay()
             self.initial_refresh_delay.parent = self
+            self.maximum_buffer_size = None
             self.shutdown = None
             self.status_report_interval = None
             self.tos = BmpServers.BmpServer.Tos()
@@ -22621,6 +24218,9 @@ class BmpServers(object):
             if self.description is not None:
                 return True
 
+            if self.flapping_delay is not None:
+                return True
+
             if self.host_port is not None and self.host_port._has_data():
                 return True
 
@@ -22628,6 +24228,9 @@ class BmpServers(object):
                 return True
 
             if self.initial_refresh_delay is not None and self.initial_refresh_delay._has_data():
+                return True
+
+            if self.maximum_buffer_size is not None:
                 return True
 
             if self.shutdown is not None:

@@ -20,14 +20,13 @@
 
 """
 
-
 class Service(object):
     """ Base service class which can be extended for different ways of communicating to remote server """
     def operate_on_object_or_dictionary(self, entity, function, args):
         result=None
         if isinstance(entity, dict):
             result = {}
-            for module, child in entity.iteritems():
+            for module, child in entity.items():
                 result[module] = function(child, *args)
         else:
             result = function(entity, *args)

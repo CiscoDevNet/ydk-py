@@ -8,7 +8,7 @@ for the following management objects\:
   headless\-func\-data\: Information related to headless
     functionality
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -45,7 +45,7 @@ class HeadlessFuncData(object):
     """
 
     _prefix = 'ncs1k-mxp-headless-oper'
-    _revision = '2015-11-09'
+    _revision = '2016-03-23'
 
     def __init__(self):
         self.ethernet_port_names = HeadlessFuncData.EthernetPortNames()
@@ -69,7 +69,7 @@ class HeadlessFuncData(object):
         """
 
         _prefix = 'ncs1k-mxp-headless-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-03-23'
 
         def __init__(self):
             self.parent = None
@@ -87,7 +87,7 @@ class HeadlessFuncData(object):
             	Port name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: headless_end_time
             
@@ -118,7 +118,7 @@ class HeadlessFuncData(object):
             """
 
             _prefix = 'ncs1k-mxp-headless-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-03-23'
 
             def __init__(self):
                 self.parent = None
@@ -139,35 +139,35 @@ class HeadlessFuncData(object):
                 	FecEc
                 	**type**\:  int
                 
-                	**range:** 0..4294967295
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: fec_uc
                 
                 	FecUc
                 	**type**\:  int
                 
-                	**range:** 0..4294967295
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: sm_bei
                 
                 	SmBei
                 	**type**\:  int
                 
-                	**range:** 0..4294967295
+                	**range:** 0..18446744073709551615
                 
                 .. attribute:: sm_bip
                 
                 	SmBip
                 	**type**\:  int
                 
-                	**range:** 0..4294967295
+                	**range:** 0..18446744073709551615
                 
                 
 
                 """
 
                 _prefix = 'ncs1k-mxp-headless-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-03-23'
 
                 def __init__(self):
                     self.parent = None
@@ -285,7 +285,7 @@ class HeadlessFuncData(object):
         """
 
         _prefix = 'ncs1k-mxp-headless-oper'
-        _revision = '2015-11-09'
+        _revision = '2016-03-23'
 
         def __init__(self):
             self.parent = None
@@ -303,7 +303,7 @@ class HeadlessFuncData(object):
             	Port name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: ether_statistics
             
@@ -334,7 +334,7 @@ class HeadlessFuncData(object):
             """
 
             _prefix = 'ncs1k-mxp-headless-oper'
-            _revision = '2015-11-09'
+            _revision = '2016-03-23'
 
             def __init__(self):
                 self.parent = None
@@ -353,147 +353,210 @@ class HeadlessFuncData(object):
                 .. attribute:: rx_bytes_good
                 
                 	RxBytesGood
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_error_jabbers
                 
                 	RxErrorJabbers
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_packets
                 
                 	RxPackets
-                	**type**\:  long
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pause
+                
+                	RxPause
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_pkt_drop
+                
+                	RxPktDrop
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts1024_to1518_bytes
                 
                 	RxPkts1024To1518Bytes
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts128to255_bytes
                 
                 	RxPkts128to255Bytes
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts256_to511_bytes
                 
                 	RxPkts256To511Bytes
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts512_to1023_bytes
                 
                 	RxPkts512To1023Bytes
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts64_bytes
                 
                 	RxPkts64Bytes
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts65_to127_bytes
                 
                 	RxPkts65To127Bytes
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_bad_fcs
                 
                 	RxPktsBadFcs
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_broadcast
                 
                 	RxPktsBroadcast
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_good
                 
                 	RxPktsGood
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_multicast
                 
                 	RxPktsMulticast
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_over_sized
                 
                 	RxPktsOverSized
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_under_sized
                 
                 	RxPktsUnderSized
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_pkts_unicast
                 
                 	RxPktsUnicast
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_recv_fragments
                 
                 	RxRecvFragments
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: rx_total_bytes
                 
                 	RxTotalBytes
-                	**type**\:  long
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_bad_fcs
+                
+                	TxBadFCS
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_bytes_good
                 
                 	TxBytesGood
-                	**type**\:  long
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_fragments
+                
+                	TxFragments
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_jabber
+                
+                	TxJabber
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_packets
+                
+                	TxPackets
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_pause
+                
+                	TxPause
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_pkts_good
                 
                 	TxPktsGood
-                	**type**\:  long
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_pkts_over_sized
+                
+                	TxPktsOverSized
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: tx_pkts_under_sized
+                
+                	TxPktsUnderSized
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: tx_total_bytes
                 
                 	TxTotalBytes
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -502,13 +565,15 @@ class HeadlessFuncData(object):
                 """
 
                 _prefix = 'ncs1k-mxp-headless-oper'
-                _revision = '2015-11-09'
+                _revision = '2016-03-23'
 
                 def __init__(self):
                     self.parent = None
                     self.rx_bytes_good = None
                     self.rx_error_jabbers = None
                     self.rx_packets = None
+                    self.rx_pause = None
+                    self.rx_pkt_drop = None
                     self.rx_pkts1024_to1518_bytes = None
                     self.rx_pkts128to255_bytes = None
                     self.rx_pkts256_to511_bytes = None
@@ -524,8 +589,15 @@ class HeadlessFuncData(object):
                     self.rx_pkts_unicast = None
                     self.rx_recv_fragments = None
                     self.rx_total_bytes = None
+                    self.tx_bad_fcs = None
                     self.tx_bytes_good = None
+                    self.tx_fragments = None
+                    self.tx_jabber = None
+                    self.tx_packets = None
+                    self.tx_pause = None
                     self.tx_pkts_good = None
+                    self.tx_pkts_over_sized = None
+                    self.tx_pkts_under_sized = None
                     self.tx_total_bytes = None
 
                 @property
@@ -549,6 +621,12 @@ class HeadlessFuncData(object):
                         return True
 
                     if self.rx_packets is not None:
+                        return True
+
+                    if self.rx_pause is not None:
+                        return True
+
+                    if self.rx_pkt_drop is not None:
                         return True
 
                     if self.rx_pkts1024_to1518_bytes is not None:
@@ -596,10 +674,31 @@ class HeadlessFuncData(object):
                     if self.rx_total_bytes is not None:
                         return True
 
+                    if self.tx_bad_fcs is not None:
+                        return True
+
                     if self.tx_bytes_good is not None:
                         return True
 
+                    if self.tx_fragments is not None:
+                        return True
+
+                    if self.tx_jabber is not None:
+                        return True
+
+                    if self.tx_packets is not None:
+                        return True
+
+                    if self.tx_pause is not None:
+                        return True
+
                     if self.tx_pkts_good is not None:
+                        return True
+
+                    if self.tx_pkts_over_sized is not None:
+                        return True
+
+                    if self.tx_pkts_under_sized is not None:
                         return True
 
                     if self.tx_total_bytes is not None:

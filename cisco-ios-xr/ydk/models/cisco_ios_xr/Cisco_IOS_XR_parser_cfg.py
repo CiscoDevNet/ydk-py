@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   parser\: Parser configuration
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -49,6 +49,16 @@ class Parser(object):
     	indentation tracking
     	**type**\:  :py:class:`Indentation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.Indentation>`
     
+    .. attribute:: interface_display
+    
+    	Configure the Interface display order
+    	**type**\:  :py:class:`InterfaceDisplay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.InterfaceDisplay>`
+    
+    .. attribute:: netmask_format
+    
+    	Ipv4 netmask\-format to be configured
+    	**type**\:  :py:class:`NetmaskFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg.Parser.NetmaskFormat>`
+    
     .. attribute:: submode_exit
     
     	Exit submode when only '!' seen in interactive mode
@@ -70,6 +80,10 @@ class Parser(object):
         self.history.parent = self
         self.indentation = Parser.Indentation()
         self.indentation.parent = self
+        self.interface_display = Parser.InterfaceDisplay()
+        self.interface_display.parent = self
+        self.netmask_format = Parser.NetmaskFormat()
+        self.netmask_format.parent = self
         self.submode_exit = Parser.SubmodeExit()
         self.submode_exit.parent = self
 
@@ -541,6 +555,92 @@ class Parser(object):
             return meta._meta_table['Parser.History']['meta_info']
 
 
+    class InterfaceDisplay(object):
+        """
+        Configure the Interface display order
+        
+        .. attribute:: slot_order
+        
+        	Configure Interface display order as slot order
+        	**type**\:  bool
+        
+        
+
+        """
+
+        _prefix = 'parser-cfg'
+        _revision = '2015-06-02'
+
+        def __init__(self):
+            self.parent = None
+            self.slot_order = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:interface-display'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.slot_order is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.InterfaceDisplay']['meta_info']
+
+
+    class NetmaskFormat(object):
+        """
+        Ipv4 netmask\-format to be configured
+        
+        .. attribute:: bit_count
+        
+        	Enable ipv4 netmask\-format as bit\-count
+        	**type**\:  bool
+        
+        
+
+        """
+
+        _prefix = 'parser-cfg'
+        _revision = '2015-06-02'
+
+        def __init__(self):
+            self.parent = None
+            self.bit_count = None
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-parser-cfg:parser/Cisco-IOS-XR-parser-cfg:netmask-format'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.bit_count is not None:
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_parser_cfg as meta
+            return meta._meta_table['Parser.NetmaskFormat']['meta_info']
+
+
     class Configuration(object):
         """
         cli configuration services
@@ -693,6 +793,12 @@ class Parser(object):
             return True
 
         if self.indentation is not None and self.indentation._has_data():
+            return True
+
+        if self.interface_display is not None and self.interface_display._has_data():
+            return True
+
+        if self.netmask_format is not None and self.netmask_format._has_data():
             return True
 
         if self.submode_exit is not None and self.submode_exit._has_data():

@@ -16,7 +16,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -32,7 +32,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg import BgpVrfRouteTargetEnum
 
 class SrlgPriorityEnum(Enum):
     """
@@ -379,6 +378,11 @@ class Vrfs(object):
                     """
                     BGP AF VRF config
                     
+                    .. attribute:: export_allow_imported_vpn
+                    
+                    	Allow export of imported paths to non\-default VRF
+                    	**type**\:  :py:class:`ExportAllowImportedVpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn>`
+                    
                     .. attribute:: export_route_policy
                     
                     	Route policy for export filtering
@@ -407,7 +411,7 @@ class Vrfs(object):
                     .. attribute:: vrf_to_global_export_route_policy
                     
                     	Route policy for vrf to global export filtering
-                    	**type**\:  str
+                    	**type**\:  :py:class:`VrfToGlobalExportRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy>`
                     
                     
 
@@ -418,6 +422,8 @@ class Vrfs(object):
 
                     def __init__(self):
                         self.parent = None
+                        self.export_allow_imported_vpn = Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn()
+                        self.export_allow_imported_vpn.parent = self
                         self.export_route_policy = None
                         self.export_route_targets = Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets()
                         self.export_route_targets.parent = self
@@ -1090,6 +1096,127 @@ class Vrfs(object):
                             return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets']['meta_info']
 
 
+                    class VrfToGlobalExportRoutePolicy(object):
+                        """
+                        Route policy for vrf to global export filtering
+                        
+                        .. attribute:: allow_imported_vpn
+                        
+                        	Enable imported VPN paths to be exported to Default VRF
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: route_policy_name
+                        
+                        	Vrf to global export route policy
+                        	**type**\:  str
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'ipv4-bgp-cfg'
+                        _revision = '2015-08-27'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.allow_imported_vpn = None
+                            self.route_policy_name = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:vrf-to-global-export-route-policy'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.allow_imported_vpn is not None:
+                                return True
+
+                            if self.route_policy_name is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy']['meta_info']
+
+
+                    class ExportAllowImportedVpn(object):
+                        """
+                        Allow export of imported paths to non\-default
+                        VRF
+                        
+                        .. attribute:: allow_imported_vpn
+                        
+                        	Enable imported VPN paths to be exported to non\-default VRF
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        .. attribute:: import_stitching_rt
+                        
+                        	Use stitchng RTs to import extranet paths
+                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv4-bgp-cfg'
+                        _revision = '2015-08-27'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.allow_imported_vpn = None
+                            self.import_stitching_rt = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv4-bgp-cfg:export-allow-imported-vpn'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.allow_imported_vpn is not None:
+                                return True
+
+                            if self.import_stitching_rt is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_rsi_cfg as meta
+                            return meta._meta_table['Vrfs.Vrf.Afs.Af.Bgp.ExportAllowImportedVpn']['meta_info']
+
+
                     class GlobalToVrfImportRoutePolicy(object):
                         """
                         Route policy for global to vrf import filtering
@@ -1169,6 +1296,9 @@ class Vrfs(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
+                        if self.export_allow_imported_vpn is not None and self.export_allow_imported_vpn._has_data():
+                            return True
+
                         if self.export_route_policy is not None:
                             return True
 
@@ -1184,7 +1314,7 @@ class Vrfs(object):
                         if self.import_route_targets is not None and self.import_route_targets._has_data():
                             return True
 
-                        if self.vrf_to_global_export_route_policy is not None:
+                        if self.vrf_to_global_export_route_policy is not None and self.vrf_to_global_export_route_policy._has_data():
                             return True
 
                         return False
@@ -1580,7 +1710,7 @@ class Srlg(object):
             	Interface name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: enable
             

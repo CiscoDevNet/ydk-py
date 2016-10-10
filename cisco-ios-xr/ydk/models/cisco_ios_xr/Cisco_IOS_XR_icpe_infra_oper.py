@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   nv\-satellite\: Satellite operational information
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -412,6 +412,10 @@ class IcpeOperInstallStateEnum(Enum):
 
     	Installing
 
+    .. data:: ICPE_OPER_INSTALL_STATE_IN_PROGRESS = 4
+
+    	In progress
+
     """
 
     ICPE_OPER_INSTALL_STATE_STABLE = 0
@@ -421,6 +425,8 @@ class IcpeOperInstallStateEnum(Enum):
     ICPE_OPER_INSTALL_STATE_TRANSFERRED = 2
 
     ICPE_OPER_INSTALL_STATE_INSTALLING = 3
+
+    ICPE_OPER_INSTALL_STATE_IN_PROGRESS = 4
 
 
     @staticmethod
@@ -517,6 +523,57 @@ class IcpeOperSdacpSessStateEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
         return meta._meta_table['IcpeOperSdacpSessStateEnum']
+
+
+class IcpeOperTopoRemoteSourceEnum(Enum):
+    """
+    IcpeOperTopoRemoteSourceEnum
+
+    Icpe oper topo remote source
+
+    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_UNKNOWN = 0
+
+    	Unknown
+
+    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_ICL_ID = 1
+
+    	Remote ICL ID
+
+    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_SATELLITE_MAC = 2
+
+    	Remote satellite MAC
+
+    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_HOST_MAC = 3
+
+    	Remote host MAC
+
+    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_SATELLITE = 4
+
+    	Direct satellite
+
+    .. data:: ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_HOST = 5
+
+    	Direct host
+
+    """
+
+    ICPE_OPER_TOPO_REMOTE_SOURCE_UNKNOWN = 0
+
+    ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_ICL_ID = 1
+
+    ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_SATELLITE_MAC = 2
+
+    ICPE_OPER_TOPO_REMOTE_SOURCE_REMOTE_HOST_MAC = 3
+
+    ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_SATELLITE = 4
+
+    ICPE_OPER_TOPO_REMOTE_SOURCE_DIRECT_HOST = 5
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+        return meta._meta_table['IcpeOperTopoRemoteSourceEnum']
 
 
 class IcpeOperVerCheckStateEnum(Enum):
@@ -977,6 +1034,11 @@ class NvSatellite(object):
     	Detailed breakdown of install status table
     	**type**\:  :py:class:`InstallStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.InstallStatuses>`
     
+    .. attribute:: reload_op_statuses
+    
+    	Detailed breakdown of reload status table
+    	**type**\:  :py:class:`ReloadOpStatuses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses>`
+    
     .. attribute:: reload_statuses
     
     	Detailed breakdown of reload status table
@@ -1011,6 +1073,8 @@ class NvSatellite(object):
         self.install_progresses.parent = self
         self.install_statuses = NvSatellite.InstallStatuses()
         self.install_statuses.parent = self
+        self.reload_op_statuses = NvSatellite.ReloadOpStatuses()
+        self.reload_op_statuses.parent = self
         self.reload_statuses = NvSatellite.ReloadStatuses()
         self.reload_statuses.parent = self
         self.satellite_statuses = NvSatellite.SatelliteStatuses()
@@ -1019,6 +1083,180 @@ class NvSatellite(object):
         self.satellite_topologies.parent = self
         self.sdacp_redundancies = NvSatellite.SdacpRedundancies()
         self.sdacp_redundancies.parent = self
+
+
+    class ReloadOpStatuses(object):
+        """
+        Detailed breakdown of reload status table
+        
+        .. attribute:: reload_op_status
+        
+        	Detailed breakdown of reload status
+        	**type**\: list of  :py:class:`ReloadOpStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.NvSatellite.ReloadOpStatuses.ReloadOpStatus>`
+        
+        
+
+        """
+
+        _prefix = 'icpe-infra-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.reload_op_status = YList()
+            self.reload_op_status.parent = self
+            self.reload_op_status.name = 'reload_op_status'
+
+
+        class ReloadOpStatus(object):
+            """
+            Detailed breakdown of reload status
+            
+            .. attribute:: operation_id  <key>
+            
+            	Operation ID
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: operation_id_xr
+            
+            	Operation ID
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: satellite_range
+            
+            	Satellite range
+            	**type**\:  str
+            
+            .. attribute:: sats_not_initiated
+            
+            	Sats not initiated
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_reload_failed
+            
+            	Sats reload failed
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_reloaded
+            
+            	Sats reloaded
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_reloading
+            
+            	Sats reloading
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            
+
+            """
+
+            _prefix = 'icpe-infra-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.operation_id = None
+                self.operation_id_xr = None
+                self.satellite_range = None
+                self.sats_not_initiated = YLeafList()
+                self.sats_not_initiated.parent = self
+                self.sats_not_initiated.name = 'sats_not_initiated'
+                self.sats_reload_failed = YLeafList()
+                self.sats_reload_failed.parent = self
+                self.sats_reload_failed.name = 'sats_reload_failed'
+                self.sats_reloaded = YLeafList()
+                self.sats_reloaded.parent = self
+                self.sats_reloaded.name = 'sats_reloaded'
+                self.sats_reloading = YLeafList()
+                self.sats_reloading.parent = self
+                self.sats_reloading.name = 'sats_reloading'
+
+            @property
+            def _common_path(self):
+                if self.operation_id is None:
+                    raise YPYModelError('Key property operation_id is None')
+
+                return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:reload-op-statuses/Cisco-IOS-XR-icpe-infra-oper:reload-op-status[Cisco-IOS-XR-icpe-infra-oper:operation-id = ' + str(self.operation_id) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.operation_id is not None:
+                    return True
+
+                if self.operation_id_xr is not None:
+                    return True
+
+                if self.satellite_range is not None:
+                    return True
+
+                if self.sats_not_initiated is not None:
+                    for child in self.sats_not_initiated:
+                        if child is not None:
+                            return True
+
+                if self.sats_reload_failed is not None:
+                    for child in self.sats_reload_failed:
+                        if child is not None:
+                            return True
+
+                if self.sats_reloaded is not None:
+                    for child in self.sats_reloaded:
+                        if child is not None:
+                            return True
+
+                if self.sats_reloading is not None:
+                    for child in self.sats_reloading:
+                        if child is not None:
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+                return meta._meta_table['NvSatellite.ReloadOpStatuses.ReloadOpStatus']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-icpe-infra-oper:nv-satellite/Cisco-IOS-XR-icpe-infra-oper:reload-op-statuses'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.reload_op_status is not None:
+                for child_ref in self.reload_op_status:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_icpe_infra_oper as meta
+            return meta._meta_table['NvSatellite.ReloadOpStatuses']['meta_info']
 
 
     class InstallStatuses(object):
@@ -1095,6 +1333,27 @@ class NvSatellite(object):
             
             	**range:** 0..65535
             
+            .. attribute:: sats_deactivate_aborted
+            
+            	Sats deactivate aborted
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_deactivate_failed
+            
+            	Sats deactivate failed
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_deactivating
+            
+            	Sats deactivating
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
             .. attribute:: sats_no_operation
             
             	Sats no operation
@@ -1105,6 +1364,27 @@ class NvSatellite(object):
             .. attribute:: sats_not_initiated
             
             	Sats not initiated
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_remove_aborted
+            
+            	Sats remove aborted
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_remove_failed
+            
+            	Sats remove failed
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_removing
+            
+            	Sats removing
             	**type**\:  list of int
             
             	**range:** 0..65535
@@ -1154,12 +1434,30 @@ class NvSatellite(object):
                 self.sats_completed = YLeafList()
                 self.sats_completed.parent = self
                 self.sats_completed.name = 'sats_completed'
+                self.sats_deactivate_aborted = YLeafList()
+                self.sats_deactivate_aborted.parent = self
+                self.sats_deactivate_aborted.name = 'sats_deactivate_aborted'
+                self.sats_deactivate_failed = YLeafList()
+                self.sats_deactivate_failed.parent = self
+                self.sats_deactivate_failed.name = 'sats_deactivate_failed'
+                self.sats_deactivating = YLeafList()
+                self.sats_deactivating.parent = self
+                self.sats_deactivating.name = 'sats_deactivating'
                 self.sats_no_operation = YLeafList()
                 self.sats_no_operation.parent = self
                 self.sats_no_operation.name = 'sats_no_operation'
                 self.sats_not_initiated = YLeafList()
                 self.sats_not_initiated.parent = self
                 self.sats_not_initiated.name = 'sats_not_initiated'
+                self.sats_remove_aborted = YLeafList()
+                self.sats_remove_aborted.parent = self
+                self.sats_remove_aborted.name = 'sats_remove_aborted'
+                self.sats_remove_failed = YLeafList()
+                self.sats_remove_failed.parent = self
+                self.sats_remove_failed.name = 'sats_remove_failed'
+                self.sats_removing = YLeafList()
+                self.sats_removing.parent = self
+                self.sats_removing.name = 'sats_removing'
                 self.sats_transfer_aborted = YLeafList()
                 self.sats_transfer_aborted.parent = self
                 self.sats_transfer_aborted.name = 'sats_transfer_aborted'
@@ -1213,6 +1511,21 @@ class NvSatellite(object):
                         if child is not None:
                             return True
 
+                if self.sats_deactivate_aborted is not None:
+                    for child in self.sats_deactivate_aborted:
+                        if child is not None:
+                            return True
+
+                if self.sats_deactivate_failed is not None:
+                    for child in self.sats_deactivate_failed:
+                        if child is not None:
+                            return True
+
+                if self.sats_deactivating is not None:
+                    for child in self.sats_deactivating:
+                        if child is not None:
+                            return True
+
                 if self.sats_no_operation is not None:
                     for child in self.sats_no_operation:
                         if child is not None:
@@ -1220,6 +1533,21 @@ class NvSatellite(object):
 
                 if self.sats_not_initiated is not None:
                     for child in self.sats_not_initiated:
+                        if child is not None:
+                            return True
+
+                if self.sats_remove_aborted is not None:
+                    for child in self.sats_remove_aborted:
+                        if child is not None:
+                            return True
+
+                if self.sats_remove_failed is not None:
+                    for child in self.sats_remove_failed:
+                        if child is not None:
+                            return True
+
+                if self.sats_removing is not None:
+                    for child in self.sats_removing:
                         if child is not None:
                             return True
 
@@ -1472,28 +1800,28 @@ class NvSatellite(object):
                 .. attribute:: control_messages_received
                 
                 	Control messages received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: control_messages_sent
                 
                 	Control messages sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: normal_messages_received
                 
                 	Normal messages received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: normal_messages_sent
                 
                 	Normal messages sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -1948,6 +2276,13 @@ class NvSatellite(object):
             	Received serial number present
             	**type**\:  bool
             
+            .. attribute:: recovery_delay_time_left
+            
+            	Recovery delay time left
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
             .. attribute:: redundancy_iccp_group
             
             	Redundancy ICCP group
@@ -1991,6 +2326,13 @@ class NvSatellite(object):
             
             	SDACP session state
             	**type**\:  :py:class:`IcpeOperSdacpSessStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperSdacpSessStateEnum>`
+            
+            .. attribute:: timeout_warning
+            
+            	Timeout warning
+            	**type**\:  int
+            
+            	**range:** 0..4294967295
             
             .. attribute:: type
             
@@ -2054,6 +2396,7 @@ class NvSatellite(object):
                 self.received_host_name = None
                 self.received_serial_number = None
                 self.received_serial_number_present = None
+                self.recovery_delay_time_left = None
                 self.redundancy_iccp_group = None
                 self.redundancy_out_of_sync_timestamp = NvSatellite.SatelliteStatuses.SatelliteStatus.RedundancyOutOfSyncTimestamp()
                 self.redundancy_out_of_sync_timestamp.parent = self
@@ -2065,6 +2408,7 @@ class NvSatellite(object):
                 self.satellite_treating_as_active = None
                 self.sdacp_session_failure_reason = None
                 self.sdacp_session_state = None
+                self.timeout_warning = None
                 self.type = None
                 self.version_check_state = None
                 self.vrf_name = None
@@ -2538,7 +2882,7 @@ class NvSatellite(object):
                 	Interface handle
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: ip_address
                 
@@ -2741,7 +3085,7 @@ class NvSatellite(object):
                     	Interface handle
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: state
                     
@@ -2953,6 +3297,9 @@ class NvSatellite(object):
                 if self.received_serial_number_present is not None:
                     return True
 
+                if self.recovery_delay_time_left is not None:
+                    return True
+
                 if self.redundancy_iccp_group is not None:
                     return True
 
@@ -2977,6 +3324,9 @@ class NvSatellite(object):
                     return True
 
                 if self.sdacp_session_state is not None:
+                    return True
+
+                if self.timeout_warning is not None:
                     return True
 
                 if self.type is not None:
@@ -3067,7 +3417,7 @@ class NvSatellite(object):
             	Interface handle
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: interface_name_xr
             
@@ -3133,7 +3483,7 @@ class NvSatellite(object):
                 	Interface handle
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: interface_name
                 
@@ -3358,7 +3708,7 @@ class NvSatellite(object):
                         	Interface handle
                         	**type**\:  str
                         
-                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                        	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                         
                         .. attribute:: interface_name
                         
@@ -3382,6 +3732,11 @@ class NvSatellite(object):
                         	Remote is satellite
                         	**type**\:  bool
                         
+                        .. attribute:: source
+                        
+                        	Source
+                        	**type**\:  :py:class:`IcpeOperTopoRemoteSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper.IcpeOperTopoRemoteSourceEnum>`
+                        
                         
 
                         """
@@ -3397,6 +3752,7 @@ class NvSatellite(object):
                             self.mac_address = None
                             self.remote_is_local_host = None
                             self.remote_is_satellite = None
+                            self.source = None
 
                         @property
                         def _common_path(self):
@@ -3428,6 +3784,9 @@ class NvSatellite(object):
                                 return True
 
                             if self.remote_is_satellite is not None:
+                                return True
+
+                            if self.source is not None:
                                 return True
 
                             return False
@@ -3967,6 +4326,27 @@ class NvSatellite(object):
             
             	**range:** 0..65535
             
+            .. attribute:: sats_deactivate_aborted
+            
+            	Sats deactivate aborted
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_deactivate_failed
+            
+            	Sats deactivate failed
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_deactivating
+            
+            	Sats deactivating
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
             .. attribute:: sats_no_operation
             
             	Sats no operation
@@ -3977,6 +4357,27 @@ class NvSatellite(object):
             .. attribute:: sats_not_initiated
             
             	Sats not initiated
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_remove_aborted
+            
+            	Sats remove aborted
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_remove_failed
+            
+            	Sats remove failed
+            	**type**\:  list of int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: sats_removing
+            
+            	Sats removing
             	**type**\:  list of int
             
             	**range:** 0..65535
@@ -4026,12 +4427,30 @@ class NvSatellite(object):
                 self.sats_completed = YLeafList()
                 self.sats_completed.parent = self
                 self.sats_completed.name = 'sats_completed'
+                self.sats_deactivate_aborted = YLeafList()
+                self.sats_deactivate_aborted.parent = self
+                self.sats_deactivate_aborted.name = 'sats_deactivate_aborted'
+                self.sats_deactivate_failed = YLeafList()
+                self.sats_deactivate_failed.parent = self
+                self.sats_deactivate_failed.name = 'sats_deactivate_failed'
+                self.sats_deactivating = YLeafList()
+                self.sats_deactivating.parent = self
+                self.sats_deactivating.name = 'sats_deactivating'
                 self.sats_no_operation = YLeafList()
                 self.sats_no_operation.parent = self
                 self.sats_no_operation.name = 'sats_no_operation'
                 self.sats_not_initiated = YLeafList()
                 self.sats_not_initiated.parent = self
                 self.sats_not_initiated.name = 'sats_not_initiated'
+                self.sats_remove_aborted = YLeafList()
+                self.sats_remove_aborted.parent = self
+                self.sats_remove_aborted.name = 'sats_remove_aborted'
+                self.sats_remove_failed = YLeafList()
+                self.sats_remove_failed.parent = self
+                self.sats_remove_failed.name = 'sats_remove_failed'
+                self.sats_removing = YLeafList()
+                self.sats_removing.parent = self
+                self.sats_removing.name = 'sats_removing'
                 self.sats_transfer_aborted = YLeafList()
                 self.sats_transfer_aborted.parent = self
                 self.sats_transfer_aborted.name = 'sats_transfer_aborted'
@@ -4085,6 +4504,21 @@ class NvSatellite(object):
                         if child is not None:
                             return True
 
+                if self.sats_deactivate_aborted is not None:
+                    for child in self.sats_deactivate_aborted:
+                        if child is not None:
+                            return True
+
+                if self.sats_deactivate_failed is not None:
+                    for child in self.sats_deactivate_failed:
+                        if child is not None:
+                            return True
+
+                if self.sats_deactivating is not None:
+                    for child in self.sats_deactivating:
+                        if child is not None:
+                            return True
+
                 if self.sats_no_operation is not None:
                     for child in self.sats_no_operation:
                         if child is not None:
@@ -4092,6 +4526,21 @@ class NvSatellite(object):
 
                 if self.sats_not_initiated is not None:
                     for child in self.sats_not_initiated:
+                        if child is not None:
+                            return True
+
+                if self.sats_remove_aborted is not None:
+                    for child in self.sats_remove_aborted:
+                        if child is not None:
+                            return True
+
+                if self.sats_remove_failed is not None:
+                    for child in self.sats_remove_failed:
+                        if child is not None:
+                            return True
+
+                if self.sats_removing is not None:
+                    for child in self.sats_removing:
                         if child is not None:
                             return True
 
@@ -4160,6 +4609,9 @@ class NvSatellite(object):
             return True
 
         if self.install_statuses is not None and self.install_statuses._has_data():
+            return True
+
+        if self.reload_op_statuses is not None and self.reload_op_statuses._has_data():
             return True
 
         if self.reload_statuses is not None and self.reload_statuses._has_data():

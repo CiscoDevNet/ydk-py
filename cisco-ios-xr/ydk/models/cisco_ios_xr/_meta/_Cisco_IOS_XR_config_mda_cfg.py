@@ -14,18 +14,59 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
+    'ActiveNodes.ActiveNode.Ltrace.AllocationParams' : {
+        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.Ltrace.AllocationParams',
+            False, 
+            [
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'InfraLtraceModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceModeEnum', 
+                [], [], 
+                '''                Select an allocation mode (static:1, dynamic
+                :2)
+                ''',
+                'mode',
+                'Cisco-IOS-XR-infra-ltrace-cfg', False),
+            _MetaInfoClassMember('scale-factor', REFERENCE_ENUM_CLASS, 'InfraLtraceScaleEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceScaleEnum', 
+                [], [], 
+                '''                Select a scaling down factor
+                ''',
+                'scale_factor',
+                'Cisco-IOS-XR-infra-ltrace-cfg', False),
+            ],
+            'Cisco-IOS-XR-infra-ltrace-cfg',
+            'allocation-params',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-ltrace-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg'
+        ),
+    },
+    'ActiveNodes.ActiveNode.Ltrace' : {
+        'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.Ltrace',
+            False, 
+            [
+            _MetaInfoClassMember('allocation-params', REFERENCE_CLASS, 'AllocationParams' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.Ltrace.AllocationParams', 
+                [], [], 
+                '''                Select Ltrace mode and scale-factor
+                ''',
+                'allocation_params',
+                'Cisco-IOS-XR-infra-ltrace-cfg', False),
+            ],
+            'Cisco-IOS-XR-infra-ltrace-cfg',
+            'ltrace',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-ltrace-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg'
+        ),
+    },
     'ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np' : {
         'meta_info' : _MetaInfoClass('ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np',
             False, 
             [
             _MetaInfoClassMember('id1', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                none
                 ''',
                 'id1',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', True),
             _MetaInfoClassMember('rate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Packets per second
                 ''',
                 'rate',
@@ -112,7 +153,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-lpts-pre-ifib-cfg', False, max_elements=8),
                     _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
-                        [(0, 7)], [], 
+                        [('0', '7')], [], 
                         '''                        Precedence values
                         ''',
                         'precedence',
@@ -142,7 +183,7 @@ _meta_table = {
                 'precedences',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             _MetaInfoClassMember('rate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Configured rate value
                 ''',
                 'rate',
@@ -224,19 +265,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
+                [('3', '40')], [], 
                 '''                Threshold, Range(3, severe)
                 ''',
                 'critical',
                 'Cisco-IOS-XR-watchd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
-                [(5, 40)], [], 
+                [('5', '40')], [], 
                 '''                Threshold, Range(5, 40)
                 ''',
                 'minor',
                 'Cisco-IOS-XR-watchd-cfg', False),
             _MetaInfoClassMember('severe', ATTRIBUTE, 'int' , None, None, 
-                [(4, 40)], [], 
+                [('4', '40')], [], 
                 '''                Threshold, Range(4, minor)
                 ''',
                 'severe',
@@ -270,19 +311,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
+                [('3', '40')], [], 
                 '''                Threshold, Range(3, severe)
                 ''',
                 'critical',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
-                [(5, 40)], [], 
+                [('5', '40')], [], 
                 '''                Threshold, Range(5, 40)
                 ''',
                 'minor',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('severe', ATTRIBUTE, 'int' , None, None, 
-                [(4, 40)], [], 
+                [('4', '40')], [], 
                 '''                Threshold, Range(4, minor)
                 ''',
                 'severe',
@@ -339,6 +380,12 @@ _meta_table = {
                 ''',
                 'lpts_local',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
+            _MetaInfoClassMember('ltrace', REFERENCE_CLASS, 'Ltrace' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg', 'ActiveNodes.ActiveNode.Ltrace', 
+                [], [], 
+                '''                Ltrace Memory configuration
+                ''',
+                'ltrace',
+                'Cisco-IOS-XR-infra-ltrace-cfg', False),
             ],
             'Cisco-IOS-XR-config-mda-cfg',
             'active-node',
@@ -363,18 +410,59 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg'
         ),
     },
+    'PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams' : {
+        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams',
+            False, 
+            [
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'InfraLtraceModeEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceModeEnum', 
+                [], [], 
+                '''                Select an allocation mode (static:1, dynamic
+                :2)
+                ''',
+                'mode',
+                'Cisco-IOS-XR-infra-ltrace-cfg', False),
+            _MetaInfoClassMember('scale-factor', REFERENCE_ENUM_CLASS, 'InfraLtraceScaleEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg', 'InfraLtraceScaleEnum', 
+                [], [], 
+                '''                Select a scaling down factor
+                ''',
+                'scale_factor',
+                'Cisco-IOS-XR-infra-ltrace-cfg', False),
+            ],
+            'Cisco-IOS-XR-infra-ltrace-cfg',
+            'allocation-params',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-ltrace-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg'
+        ),
+    },
+    'PreconfiguredNodes.PreconfiguredNode.Ltrace' : {
+        'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.Ltrace',
+            False, 
+            [
+            _MetaInfoClassMember('allocation-params', REFERENCE_CLASS, 'AllocationParams' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams', 
+                [], [], 
+                '''                Select Ltrace mode and scale-factor
+                ''',
+                'allocation_params',
+                'Cisco-IOS-XR-infra-ltrace-cfg', False),
+            ],
+            'Cisco-IOS-XR-infra-ltrace-cfg',
+            'ltrace',
+            _yang_ns._namespaces['Cisco-IOS-XR-infra-ltrace-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg'
+        ),
+    },
     'PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np' : {
         'meta_info' : _MetaInfoClass('PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np',
             False, 
             [
             _MetaInfoClassMember('id1', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                none
                 ''',
                 'id1',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', True),
             _MetaInfoClassMember('rate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Packets per second
                 ''',
                 'rate',
@@ -461,7 +549,7 @@ _meta_table = {
                         'precedence',
                         'Cisco-IOS-XR-lpts-pre-ifib-cfg', False, max_elements=8),
                     _MetaInfoClassMember('precedence', REFERENCE_LEAFLIST, 'int' , None, None, 
-                        [(0, 7)], [], 
+                        [('0', '7')], [], 
                         '''                        Precedence values
                         ''',
                         'precedence',
@@ -491,7 +579,7 @@ _meta_table = {
                 'precedences',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
             _MetaInfoClassMember('rate', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Configured rate value
                 ''',
                 'rate',
@@ -573,19 +661,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
+                [('3', '40')], [], 
                 '''                Threshold, Range(3, severe)
                 ''',
                 'critical',
                 'Cisco-IOS-XR-watchd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
-                [(5, 40)], [], 
+                [('5', '40')], [], 
                 '''                Threshold, Range(5, 40)
                 ''',
                 'minor',
                 'Cisco-IOS-XR-watchd-cfg', False),
             _MetaInfoClassMember('severe', ATTRIBUTE, 'int' , None, None, 
-                [(4, 40)], [], 
+                [('4', '40')], [], 
                 '''                Threshold, Range(4, minor)
                 ''',
                 'severe',
@@ -619,19 +707,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('critical', ATTRIBUTE, 'int' , None, None, 
-                [(3, 40)], [], 
+                [('3', '40')], [], 
                 '''                Threshold, Range(3, severe)
                 ''',
                 'critical',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('minor', ATTRIBUTE, 'int' , None, None, 
-                [(5, 40)], [], 
+                [('5', '40')], [], 
                 '''                Threshold, Range(5, 40)
                 ''',
                 'minor',
                 'Cisco-IOS-XR-wd-cfg', False),
             _MetaInfoClassMember('severe', ATTRIBUTE, 'int' , None, None, 
-                [(4, 40)], [], 
+                [('4', '40')], [], 
                 '''                Threshold, Range(4, minor)
                 ''',
                 'severe',
@@ -688,6 +776,12 @@ _meta_table = {
                 ''',
                 'lpts_local',
                 'Cisco-IOS-XR-lpts-pre-ifib-cfg', False),
+            _MetaInfoClassMember('ltrace', REFERENCE_CLASS, 'Ltrace' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg', 'PreconfiguredNodes.PreconfiguredNode.Ltrace', 
+                [], [], 
+                '''                Ltrace Memory configuration
+                ''',
+                'ltrace',
+                'Cisco-IOS-XR-infra-ltrace-cfg', False),
             ],
             'Cisco-IOS-XR-config-mda-cfg',
             'preconfigured-node',
@@ -713,6 +807,7 @@ _meta_table = {
         ),
     },
 }
+_meta_table['ActiveNodes.ActiveNode.Ltrace.AllocationParams']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.Ltrace']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables']['meta_info']
@@ -723,10 +818,12 @@ _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocalTables']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal.IpolicerLocal']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.LptsLocal']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
+_meta_table['ActiveNodes.ActiveNode.Ltrace']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.LptsLocal']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode']['meta_info']
 _meta_table['ActiveNodes.ActiveNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info'].parent =_meta_table['ActiveNodes.ActiveNode']['meta_info']
 _meta_table['ActiveNodes.ActiveNode']['meta_info'].parent =_meta_table['ActiveNodes']['meta_info']
+_meta_table['PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.Ltrace']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps.Np']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable.Nps']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables.IpolicerLocalTable']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables']['meta_info']
@@ -737,6 +834,7 @@ _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocalTables'
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal.IpolicerLocal']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold.MemoryThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info']
+_meta_table['PreconfiguredNodes.PreconfiguredNode.Ltrace']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.LptsLocal']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWatchdCfg_WatchdogNodeThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info']
 _meta_table['PreconfiguredNodes.PreconfiguredNode.CiscoIosXrWdCfg_WatchdogNodeThreshold']['meta_info'].parent =_meta_table['PreconfiguredNodes.PreconfiguredNode']['meta_info']

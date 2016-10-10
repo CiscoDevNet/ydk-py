@@ -17,6 +17,7 @@ _meta_table = {
     'SlaBurstIntervalUnitsEnumEnum' : _MetaInfoEnum('SlaBurstIntervalUnitsEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes',
         {
             'once':'ONCE',
+            'milliseconds':'MILLISECONDS',
             'seconds':'SECONDS',
             'minutes':'MINUTES',
             'hours':'HOURS',

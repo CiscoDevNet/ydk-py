@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   aaa\: Authentication, Authorization and Accounting
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,13 +23,33 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_cfg import AaaLocaldTaskClassEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaActionEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaAuthenticationEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaConfigEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaDscpValueEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_cfg import AaaSelectKeyEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_tacacs_cfg import TacacsDscpValueEnum
+
+class AaaAccountingBroadcastEnum(Enum):
+    """
+    AaaAccountingBroadcastEnum
+
+    Aaa accounting broadcast
+
+    .. data:: NOT_SET = 0
+
+    	Not Set
+
+    .. data:: SET = 1
+
+    	broadcast
+
+    """
+
+    NOT_SET = 0
+
+    SET = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+        return meta._meta_table['AaaAccountingBroadcastEnum']
+
 
 class AaaAccountingEnum(Enum):
     """
@@ -62,6 +82,33 @@ class AaaAccountingEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
         return meta._meta_table['AaaAccountingEnum']
+
+
+class AaaAccountingRpFailoverEnum(Enum):
+    """
+    AaaAccountingRpFailoverEnum
+
+    Aaa accounting rp failover
+
+    .. data:: NOT_SET = 0
+
+    	Not Set
+
+    .. data:: SET = 1
+
+    	rpfailover
+
+    """
+
+    NOT_SET = 0
+
+    SET = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+        return meta._meta_table['AaaAccountingRpFailoverEnum']
 
 
 class AaaAccountingUpdateEnum(Enum):
@@ -350,7 +397,7 @@ class Aaa(object):
             .. attribute:: broadcast
             
             	Broadcast
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`AaaAccountingBroadcastEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingBroadcastEnum>`
             
             .. attribute:: method
             
@@ -360,7 +407,7 @@ class Aaa(object):
             .. attribute:: rp_failover
             
             	rpfailover
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`AaaAccountingRpFailoverEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.AaaAccountingRpFailoverEnum>`
             
             .. attribute:: server_group_name
             
@@ -903,12 +950,7 @@ class Aaa(object):
                 	Specify interface for source address in RADIUS packets
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                .. attribute:: throttle
-                
-                	Radius throttling options
-                	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Throttle>`
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: vrf
                 
@@ -939,8 +981,6 @@ class Aaa(object):
                     self.servers = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Servers()
                     self.servers.parent = self
                     self.source_interface = None
-                    self.throttle = Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Throttle()
-                    self.throttle.parent = self
                     self.vrf = None
 
 
@@ -1868,75 +1908,6 @@ class Aaa(object):
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
                         return meta._meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Authorization']['meta_info']
 
-
-                class Throttle(object):
-                    """
-                    Radius throttling options
-                    
-                    .. attribute:: access
-                    
-                    	To flow control the number of access requests sent to a radius server
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    .. attribute:: access_timeout
-                    
-                    	Specify the number of timeouts exceeding which a throttled access request is dropped
-                    	**type**\:  int
-                    
-                    	**range:** 1..10
-                    
-                    .. attribute:: accounting
-                    
-                    	To flow control the number of accounting requests sent to a radius server
-                    	**type**\:  int
-                    
-                    	**range:** 0..65535
-                    
-                    
-
-                    """
-
-                    _prefix = 'aaa-protocol-radius-cfg'
-                    _revision = '2015-11-09'
-
-                    def __init__(self):
-                        self.parent = None
-                        self.access = None
-                        self.access_timeout = None
-                        self.accounting = None
-
-                    @property
-                    def _common_path(self):
-                        if self.parent is None:
-                            raise YPYModelError('parent is not set . Cannot derive path.')
-
-                        return self.parent._common_path +'/Cisco-IOS-XR-aaa-protocol-radius-cfg:throttle'
-
-                    def is_config(self):
-                        ''' Returns True if this instance represents config data else returns False '''
-                        return True
-
-                    def _has_data(self):
-                        if not self.is_config():
-                            return False
-                        if self.access is not None:
-                            return True
-
-                        if self.access_timeout is not None:
-                            return True
-
-                        if self.accounting is not None:
-                            return True
-
-                        return False
-
-                    @staticmethod
-                    def _meta_info():
-                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                        return meta._meta_table['Aaa.ServerGroups.RadiusServerGroups.RadiusServerGroup.Throttle']['meta_info']
-
                 @property
                 def _common_path(self):
                     if self.server_group_name is None:
@@ -1976,9 +1947,6 @@ class Aaa(object):
                         return True
 
                     if self.source_interface is not None:
-                        return True
-
-                    if self.throttle is not None and self.throttle._has_data():
                         return True
 
                     if self.vrf is not None:
@@ -2475,6 +2443,13 @@ class Aaa(object):
             	Username
             	**type**\:  str
             
+            .. attribute:: ordering_index  <key>
+            
+            	This is used to sort the users in the order of precedence
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
             .. attribute:: password
             
             	Specify the password for the user
@@ -2504,6 +2479,7 @@ class Aaa(object):
             def __init__(self):
                 self.parent = None
                 self.name = None
+                self.ordering_index = None
                 self.password = None
                 self.secret = None
                 self.usergroup_under_usernames = Aaa.Usernames.Username.UsergroupUnderUsernames()
@@ -2612,8 +2588,10 @@ class Aaa(object):
             def _common_path(self):
                 if self.name is None:
                     raise YPYModelError('Key property name is None')
+                if self.ordering_index is None:
+                    raise YPYModelError('Key property ordering_index is None')
 
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:usernames/Cisco-IOS-XR-aaa-locald-cfg:username[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + ']'
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-locald-cfg:usernames/Cisco-IOS-XR-aaa-locald-cfg:username[Cisco-IOS-XR-aaa-locald-cfg:name = ' + str(self.name) + '][Cisco-IOS-XR-aaa-locald-cfg:ordering-index = ' + str(self.ordering_index) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -2623,6 +2601,9 @@ class Aaa(object):
                 if not self.is_config():
                     return False
                 if self.name is not None:
+                    return True
+
+                if self.ordering_index is not None:
                     return True
 
                 if self.password is not None:
@@ -3425,7 +3406,7 @@ class Aaa(object):
         
         .. attribute:: vsa
         
-        	VSA  ignore configuration for RADIUS server
+        	Unknown VSA (Vendor Specific Attribute) ignore configuration for RADIUS server
         	**type**\:  :py:class:`Vsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa>`
         
         
@@ -4278,13 +4259,186 @@ class Aaa(object):
                 return meta._meta_table['Aaa.Radius.LoadBalanceOptions']['meta_info']
 
 
+        class Vrfs(object):
+            """
+            List of VRFs
+            
+            .. attribute:: vrf
+            
+            	A VRF
+            	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs.Vrf>`
+            
+            
+
+            """
+
+            _prefix = 'aaa-protocol-radius-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.vrf = YList()
+                self.vrf.parent = self
+                self.vrf.name = 'vrf'
+
+
+            class Vrf(object):
+                """
+                A VRF
+                
+                .. attribute:: vrf_name  <key>
+                
+                	VRF name. Specify 'default' for defalut VRF
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: source_interface
+                
+                	Specify interface for source address in RADIUS packets
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                
+
+                """
+
+                _prefix = 'aaa-protocol-radius-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.vrf_name = None
+                    self.source_interface = None
+
+                @property
+                def _common_path(self):
+                    if self.vrf_name is None:
+                        raise YPYModelError('Key property vrf_name is None')
+
+                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:vrfs/Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf[Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf-name = ' + str(self.vrf_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.vrf_name is not None:
+                        return True
+
+                    if self.source_interface is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                    return meta._meta_table['Aaa.Radius.Vrfs.Vrf']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:vrfs'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.vrf is not None:
+                    for child_ref in self.vrf:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.Radius.Vrfs']['meta_info']
+
+
+        class Throttle(object):
+            """
+            Radius throttling options
+            
+            .. attribute:: access
+            
+            	To flow control the number of access requests sent to a radius server
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: access_timeout
+            
+            	Specify the number of timeouts exceeding which a throttled access request is dropped
+            	**type**\:  int
+            
+            	**range:** 1..10
+            
+            .. attribute:: accounting
+            
+            	To flow control the number of accounting requests sent to a radius server
+            	**type**\:  int
+            
+            	**range:** 0..65535
+            
+            
+
+            """
+
+            _prefix = 'aaa-protocol-radius-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.access = None
+                self.access_timeout = None
+                self.accounting = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:throttle'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.access is not None:
+                    return True
+
+                if self.access_timeout is not None:
+                    return True
+
+                if self.accounting is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
+                return meta._meta_table['Aaa.Radius.Throttle']['meta_info']
+
+
         class Vsa(object):
             """
-            VSA  ignore configuration for RADIUS server
+            Unknown VSA (Vendor Specific Attribute) ignore
+            configuration for RADIUS server
             
             .. attribute:: attribute
             
-            	Vendor Specific Attribute 
+            	Vendor Specific Attribute
             	**type**\:  :py:class:`Attribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute>`
             
             
@@ -4302,11 +4456,11 @@ class Aaa(object):
 
             class Attribute(object):
                 """
-                Vendor Specific Attribute 
+                Vendor Specific Attribute
                 
                 .. attribute:: ignore
                 
-                	Ignore the VSA 
+                	Ignore the VSA
                 	**type**\:  :py:class:`Ignore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vsa.Attribute.Ignore>`
                 
                 
@@ -4324,11 +4478,11 @@ class Aaa(object):
 
                 class Ignore(object):
                     """
-                    Ignore the VSA 
+                    Ignore the VSA
                     
                     .. attribute:: unknown
                     
-                    	Ignore the VSA and no prefix will reject the unkown VSA 
+                    	Ignore the VSA and no prefix will reject the unknown VSA
                     	**type**\:  :py:class:`Empty <ydk.types.Empty>`
                     
                     
@@ -4407,111 +4561,6 @@ class Aaa(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
                 return meta._meta_table['Aaa.Radius.Vsa']['meta_info']
-
-
-        class Vrfs(object):
-            """
-            List of VRFs
-            
-            .. attribute:: vrf
-            
-            	A VRF
-            	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_cfg.Aaa.Radius.Vrfs.Vrf>`
-            
-            
-
-            """
-
-            _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.vrf = YList()
-                self.vrf.parent = self
-                self.vrf.name = 'vrf'
-
-
-            class Vrf(object):
-                """
-                A VRF
-                
-                .. attribute:: vrf_name  <key>
-                
-                	VRF name. Specify 'default' for defalut VRF
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                
-                .. attribute:: source_interface
-                
-                	Specify interface for source address in RADIUS packets
-                	**type**\:  str
-                
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
-                
-                
-
-                """
-
-                _prefix = 'aaa-protocol-radius-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self.vrf_name = None
-                    self.source_interface = None
-
-                @property
-                def _common_path(self):
-                    if self.vrf_name is None:
-                        raise YPYModelError('Key property vrf_name is None')
-
-                    return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:vrfs/Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf[Cisco-IOS-XR-aaa-protocol-radius-cfg:vrf-name = ' + str(self.vrf_name) + ']'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self.vrf_name is not None:
-                        return True
-
-                    if self.source_interface is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                    return meta._meta_table['Aaa.Radius.Vrfs.Vrf']['meta_info']
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:vrfs'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.vrf is not None:
-                    for child_ref in self.vrf:
-                        if child_ref._has_data():
-                            return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.Radius.Vrfs']['meta_info']
 
 
         class Ipv4(object):
@@ -4941,73 +4990,6 @@ class Aaa(object):
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
                 return meta._meta_table['Aaa.Radius.SourcePort']['meta_info']
-
-
-        class Throttle(object):
-            """
-            Radius throttling options
-            
-            .. attribute:: access
-            
-            	To flow control the number of access requests sent to a radius server
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            .. attribute:: access_timeout
-            
-            	Specify the number of timeouts exceeding which a throttled access request is dropped
-            	**type**\:  int
-            
-            	**range:** 1..10
-            
-            .. attribute:: accounting
-            
-            	To flow control the number of accounting requests sent to a radius server
-            	**type**\:  int
-            
-            	**range:** 0..65535
-            
-            
-
-            """
-
-            _prefix = 'aaa-protocol-radius-cfg'
-            _revision = '2015-11-09'
-
-            def __init__(self):
-                self.parent = None
-                self.access = None
-                self.access_timeout = None
-                self.accounting = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-aaa-lib-cfg:aaa/Cisco-IOS-XR-aaa-protocol-radius-cfg:radius/Cisco-IOS-XR-aaa-protocol-radius-cfg:throttle'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return True
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.access is not None:
-                    return True
-
-                if self.access_timeout is not None:
-                    return True
-
-                if self.accounting is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_aaa_lib_cfg as meta
-                return meta._meta_table['Aaa.Radius.Throttle']['meta_info']
 
         @property
         def _common_path(self):
@@ -5463,7 +5445,7 @@ class Aaa(object):
                 	Specify interface for source address in TACACS+ packets
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 

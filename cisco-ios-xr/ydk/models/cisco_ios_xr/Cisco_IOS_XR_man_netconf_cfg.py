@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   netconf\-yang\: NETCONF YANG configuration commands
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -39,7 +39,7 @@ class NetconfYang(object):
     """
 
     _prefix = 'man-netconf-cfg'
-    _revision = '2015-07-30'
+    _revision = '2016-03-15'
 
     def __init__(self):
         self.agent = NetconfYang.Agent()
@@ -72,7 +72,7 @@ class NetconfYang(object):
         """
 
         _prefix = 'man-netconf-cfg'
-        _revision = '2015-07-30'
+        _revision = '2016-03-15'
 
         def __init__(self):
             self.parent = None
@@ -97,7 +97,7 @@ class NetconfYang(object):
             """
 
             _prefix = 'man-netconf-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-03-15'
 
             def __init__(self):
                 self.parent = None
@@ -149,14 +149,14 @@ class NetconfYang(object):
             	Count of allowable concurrent netconf\-yang sessions
             	**type**\:  int
             
-            	**range:** 1..1024
+            	**range:** 1..50
             
             
 
             """
 
             _prefix = 'man-netconf-cfg'
-            _revision = '2015-07-30'
+            _revision = '2016-03-15'
 
             def __init__(self):
                 self.parent = None

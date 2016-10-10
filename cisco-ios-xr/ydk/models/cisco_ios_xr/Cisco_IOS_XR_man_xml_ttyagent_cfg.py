@@ -6,8 +6,9 @@ for Cisco IOS\-XR man\-xml\-ttyagent package configuration.
 This module contains definitions
 for the following management objects\:
   xr\-xml\: XML
+  netconf\: netconf
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -998,5 +999,267 @@ class XrXml(object):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
         return meta._meta_table['XrXml']['meta_info']
+
+
+class Netconf(object):
+    """
+    netconf
+    
+    .. attribute:: agent
+    
+    	XML agent
+    	**type**\:  :py:class:`Agent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent>`
+    
+    
+
+    """
+
+    _prefix = 'man-xml-ttyagent-cfg'
+    _revision = '2015-07-30'
+
+    def __init__(self):
+        self.agent = Netconf.Agent()
+        self.agent.parent = self
+
+
+    class Agent(object):
+        """
+        XML agent
+        
+        .. attribute:: tty
+        
+        	NETCONF agent over TTY
+        	**type**\:  :py:class:`Tty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent.Tty>`
+        
+        
+
+        """
+
+        _prefix = 'man-xml-ttyagent-cfg'
+        _revision = '2015-07-30'
+
+        def __init__(self):
+            self.parent = None
+            self.tty = Netconf.Agent.Tty()
+            self.tty.parent = self
+
+
+        class Tty(object):
+            """
+            NETCONF agent over TTY
+            
+            .. attribute:: enable
+            
+            	Enable specified NETCONF agent
+            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            
+            .. attribute:: session
+            
+            	Session attributes
+            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent.Tty.Session>`
+            
+            .. attribute:: throttle
+            
+            	NETCONF agent throttling
+            	**type**\:  :py:class:`Throttle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_cfg.Netconf.Agent.Tty.Throttle>`
+            
+            
+
+            """
+
+            _prefix = 'man-xml-ttyagent-cfg'
+            _revision = '2015-07-30'
+
+            def __init__(self):
+                self.parent = None
+                self.enable = None
+                self.session = Netconf.Agent.Tty.Session()
+                self.session.parent = self
+                self.throttle = Netconf.Agent.Tty.Throttle()
+                self.throttle.parent = self
+
+
+            class Throttle(object):
+                """
+                NETCONF agent throttling
+                
+                .. attribute:: memory
+                
+                	Size of memory usage, in MBytes, per session
+                	**type**\:  int
+                
+                	**range:** 100..600
+                
+                .. attribute:: offload_memory
+                
+                	Size of memory usage, in MBytes, per session
+                	**type**\:  int
+                
+                	**range:** 0..12000
+                
+                .. attribute:: process_rate
+                
+                	Process rate in number of XML tags per second
+                	**type**\:  int
+                
+                	**range:** 1000..30000
+                
+                
+
+                """
+
+                _prefix = 'man-xml-ttyagent-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.memory = None
+                    self.offload_memory = None
+                    self.process_rate = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:throttle'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.memory is not None:
+                        return True
+
+                    if self.offload_memory is not None:
+                        return True
+
+                    if self.process_rate is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['Netconf.Agent.Tty.Throttle']['meta_info']
+
+
+            class Session(object):
+                """
+                Session attributes
+                
+                .. attribute:: timeout
+                
+                	Timeout in minutes
+                	**type**\:  int
+                
+                	**range:** 1..1440
+                
+                
+
+                """
+
+                _prefix = 'man-xml-ttyagent-cfg'
+                _revision = '2015-07-30'
+
+                def __init__(self):
+                    self.parent = None
+                    self.timeout = None
+
+                @property
+                def _common_path(self):
+
+                    return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty/Cisco-IOS-XR-man-xml-ttyagent-cfg:session'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.timeout is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                    return meta._meta_table['Netconf.Agent.Tty.Session']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent/Cisco-IOS-XR-man-xml-ttyagent-cfg:tty'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.enable is not None:
+                    return True
+
+                if self.session is not None and self.session._has_data():
+                    return True
+
+                if self.throttle is not None and self.throttle._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+                return meta._meta_table['Netconf.Agent.Tty']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf/Cisco-IOS-XR-man-xml-ttyagent-cfg:agent'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return True
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.tty is not None and self.tty._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+            return meta._meta_table['Netconf.Agent']['meta_info']
+
+    @property
+    def _common_path(self):
+
+        return '/Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf'
+
+    def is_config(self):
+        ''' Returns True if this instance represents config data else returns False '''
+        return True
+
+    def _has_data(self):
+        if not self.is_config():
+            return False
+        if self.agent is not None and self.agent._has_data():
+            return True
+
+        return False
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_man_xml_ttyagent_cfg as meta
+        return meta._meta_table['Netconf']['meta_info']
 
 

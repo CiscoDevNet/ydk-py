@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -329,7 +329,7 @@ class Lacp(object):
     """
 
     _prefix = 'bundlemgr-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-05-12'
 
     def __init__(self):
         self.system_mac = None

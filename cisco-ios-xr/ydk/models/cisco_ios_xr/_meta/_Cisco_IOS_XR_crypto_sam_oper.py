@@ -73,7 +73,7 @@ _meta_table = {
                 'is_running',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('prompt-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Prompt interval atreboot time in seconds
                 ''',
                 'prompt_interval',
@@ -102,7 +102,7 @@ _meta_table = {
                 'error',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Device index
                 ''',
                 'index',
@@ -114,7 +114,7 @@ _meta_table = {
                 'issuer',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('sam-table-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SAM table index
                 ''',
                 'sam_table_index',
@@ -167,13 +167,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('number-of-lines', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of lines
                 ''',
                 'number_of_lines',
                 'Cisco-IOS-XR-crypto-sam-oper', True),
             _MetaInfoClassMember('entries-shown', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total entries shown
                 ''',
                 'entries_shown',
@@ -185,7 +185,7 @@ _meta_table = {
                 'logs',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('total-entries', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total log entries available
                 ''',
                 'total_entries',
@@ -260,7 +260,7 @@ _meta_table = {
                 'certificate_flags',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('certificate-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Certificate index
                 ''',
                 'certificate_index',
@@ -324,7 +324,7 @@ _meta_table = {
                 'certificate_flags',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('certificate-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Certificate index
                 ''',
                 'certificate_index',
@@ -347,7 +347,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Specify certificate index
                 ''',
                 'index',
@@ -497,7 +497,7 @@ _meta_table = {
                 'certificate_flags',
                 'Cisco-IOS-XR-crypto-sam-oper', False),
             _MetaInfoClassMember('certificate-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Certificate index
                 ''',
                 'certificate_index',
@@ -567,7 +567,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('crl-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                 CRL index
                 ''',
                 'crl_index',
@@ -596,7 +596,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('crl-index', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                CRL index
                 ''',
                 'crl_index',
@@ -665,7 +665,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('crl-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                 CRL index
                 ''',
                 'crl_index',

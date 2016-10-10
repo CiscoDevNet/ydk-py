@@ -187,6 +187,12 @@ _meta_table = {
             'send':'SEND',
             'receive':'RECEIVE',
         }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
+    'RsvpMgmtEroSubobjStatusEnum' : _MetaInfoEnum('RsvpMgmtEroSubobjStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper',
+        {
+            'rsvp-mgmt-ero-status-not-available':'RSVP_MGMT_ERO_STATUS_NOT_AVAILABLE',
+            'rsvp-mgmt-ero-status-available':'RSVP_MGMT_ERO_STATUS_AVAILABLE',
+            'rsvp-mgmt-ero-status-bw-not-available':'RSVP_MGMT_ERO_STATUS_BW_NOT_AVAILABLE',
+        }, 'Cisco-IOS-XR-ip-rsvp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper']),
     'RsvpStandby.InterfaceNeighborBriefs.InterfaceNeighborBrief.InterfaceNeighborListCompact' : {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceNeighborBriefs.InterfaceNeighborBrief.InterfaceNeighborListCompact',
             False, 
@@ -198,7 +204,7 @@ _meta_table = {
                 'interface_neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor's Interface handle
                 ''',
                 'neighbor_interface_name',
@@ -267,7 +273,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                InterfaceName
                 ''',
                 'interface_name',
@@ -296,14 +302,14 @@ _meta_table = {
                 ''',
                 'direction',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('key-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('key-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Key ID
                 ''',
                 'key_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('key-id-valid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Key validity
                 ''',
                 'key_id_valid',
@@ -367,13 +373,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -403,7 +409,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -432,7 +438,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -455,13 +461,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -542,13 +548,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('detail-list-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of elements in detail list
                 ''',
                 'detail_list_size',
@@ -560,31 +566,31 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ps-bs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of path state block states
                 ''',
                 'ps_bs',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of request states
                 ''',
                 'requests',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rs-bs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of reservation state block states
                 ''',
                 'rs_bs',
@@ -642,13 +648,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -678,7 +684,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -707,7 +713,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -730,13 +736,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -834,7 +840,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -863,13 +869,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -973,7 +979,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('reservation-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Reservation Priority
                 ''',
                 'reservation_priority',
@@ -985,7 +991,7 @@ _meta_table = {
                 'sess_attribute_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -1001,32 +1007,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.TrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -1042,26 +1048,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Traffic Bit Rate
                 ''',
                 'traffic_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic Multiplier
                 ''',
                 'traffic_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic NVC
                 ''',
                 'traffic_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Traffic Signal Type (Refer G709 v3)
                 ''',
                 'traffic_signal_type',
@@ -1077,32 +1083,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.IntsrvTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -1201,7 +1207,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-logical-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor Logical Interface Name
                 ''',
                 'neighbor_logical_interface_name',
@@ -1265,38 +1271,38 @@ _meta_table = {
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP Type of Service
                 ''',
                 'ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TTL
                 ''',
                 'ip_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-header-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Header Flags (defined in RFC2205 Section 3
                 .1.1)
                 ''',
                 'rsvp_header_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-message-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Message Type
                 ''',
                 'rsvp_message_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP TTL
                 ''',
                 'rsvp_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Version
                 ''',
                 'rsvp_version',
@@ -1313,13 +1319,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -1400,7 +1406,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -1440,7 +1446,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -1480,7 +1486,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -1520,7 +1526,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -1560,7 +1566,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -1600,7 +1606,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -1682,37 +1688,43 @@ _meta_table = {
                 'is_valid',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('local-downstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local Downstream Label
                 ''',
                 'local_downstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('local-upstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local Upstream Label
                 ''',
                 'local_upstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('lsp-wrap-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSP Wrap Label
+                ''',
+                'lsp_wrap_label',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MergePoint Label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-downstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Downstream Label
                 ''',
                 'outgoing_downstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-upstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Upstream Label
                 ''',
                 'outgoing_upstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('recovery-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery Label
                 ''',
                 'recovery_label',
@@ -1729,7 +1741,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('class-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                DS-TE Class-Type
                 ''',
                 'class_type',
@@ -1857,7 +1869,7 @@ _meta_table = {
                 'is_strict_route',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ERO Prefix Length
                 ''',
                 'prefix_length',
@@ -1874,7 +1886,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ero-interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Interface ID in ERO
                 ''',
                 'ero_interface_id',
@@ -1890,6 +1902,12 @@ _meta_table = {
                 '''                ERO Entry Is Strict
                 ''',
                 'is_strict_route',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjStatusEnum', 
+                [], [], 
+                '''                Status of ERO
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-oper',
@@ -1944,7 +1962,7 @@ _meta_table = {
                 'is_strict_route',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ERO Prefix Length
                 ''',
                 'prefix_length',
@@ -1961,7 +1979,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ero-interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Interface ID in ERO
                 ''',
                 'ero_interface_id',
@@ -1977,6 +1995,12 @@ _meta_table = {
                 '''                ERO Entry Is Strict
                 ''',
                 'is_strict_route',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjStatusEnum', 
+                [], [], 
+                '''                Status of ERO
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-oper',
@@ -2037,7 +2061,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -2109,7 +2133,7 @@ _meta_table = {
                 'out_ero',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
@@ -2145,7 +2169,7 @@ _meta_table = {
                 'policy_source_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -2181,13 +2205,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port 
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -2245,13 +2269,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active instances of this state
                 ''',
                 'active_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('active-wait-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of instances of this state awaiting Path
                 messages to be sent out or Resv messages to be
                 received
@@ -2259,13 +2283,13 @@ _meta_table = {
                 'active_wait_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ready-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of ready instances of this state
                 ''',
                 'ready_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of instances of this state
                 ''',
                 'total',
@@ -2282,13 +2306,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active instances of this state
                 ''',
                 'active_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('active-wait-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of instances of this state awaiting Path
                 messages to be sent out or Resv messages to be
                 received
@@ -2296,13 +2320,13 @@ _meta_table = {
                 'active_wait_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ready-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of ready instances of this state
                 ''',
                 'ready_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of instances of this state
                 ''',
                 'total',
@@ -2341,32 +2365,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -2377,14 +2401,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -2400,26 +2424,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -2465,13 +2489,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -2501,7 +2525,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -2530,7 +2554,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -2553,13 +2577,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -2674,7 +2698,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -2703,13 +2727,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -2819,7 +2843,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-logical-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor Logical Interface Name
                 ''',
                 'neighbor_logical_interface_name',
@@ -2883,38 +2907,38 @@ _meta_table = {
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP Type of Service
                 ''',
                 'ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TTL
                 ''',
                 'ip_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-header-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Header Flags (defined in RFC2205 Section 3
                 .1.1)
                 ''',
                 'rsvp_header_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-message-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Message Type
                 ''',
                 'rsvp_message_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP TTL
                 ''',
                 'rsvp_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Version
                 ''',
                 'rsvp_version',
@@ -2960,13 +2984,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -3018,7 +3042,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -3058,7 +3082,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -3098,7 +3122,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -3138,7 +3162,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -3178,7 +3202,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -3218,7 +3242,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -3300,37 +3324,43 @@ _meta_table = {
                 'is_valid',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('local-downstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local Downstream Label
                 ''',
                 'local_downstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('local-upstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local Upstream Label
                 ''',
                 'local_upstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('lsp-wrap-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSP Wrap Label
+                ''',
+                'lsp_wrap_label',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MergePoint Label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-downstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Downstream Label
                 ''',
                 'outgoing_downstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-upstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Upstream Label
                 ''',
                 'outgoing_upstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('recovery-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery Label
                 ''',
                 'recovery_label',
@@ -3353,7 +3383,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -3419,7 +3449,7 @@ _meta_table = {
                 'label_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
@@ -3443,7 +3473,7 @@ _meta_table = {
                 'policy_sources',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -3479,7 +3509,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port 
                 ''',
                 'source_port',
@@ -3491,7 +3521,7 @@ _meta_table = {
                 'style',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -3537,8 +3567,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceSummaries.InterfaceSummary.BandwidthInformation.PreStandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -3557,20 +3587,20 @@ _meta_table = {
                 ''',
                 'is_max_subpool_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in
                 subpool
                 ''',
@@ -3587,8 +3617,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceSummaries.InterfaceSummary.BandwidthInformation.StandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -3614,27 +3644,27 @@ _meta_table = {
                 ''',
                 'is_max_bc1_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC0
                 pool
                 ''',
                 'max_pool0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC1
                 pool
                 ''',
@@ -3681,7 +3711,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -3699,27 +3729,27 @@ _meta_table = {
                 'interface_name_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('paths-in', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming path
                 states
                 ''',
                 'paths_in',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('paths-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing path states
                 ''',
                 'paths_out',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservations-in', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming
                 reservation states
                 ''',
                 'reservations_in',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservations-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing reservation states
                 ''',
                 'reservations_out',
@@ -3771,7 +3801,7 @@ _meta_table = {
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to use
                 ''',
                 'hello_interface',
@@ -3783,7 +3813,7 @@ _meta_table = {
                 'instance_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lost-communication-total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of times communication got lost
                 ''',
                 'lost_communication_total',
@@ -3840,14 +3870,14 @@ _meta_table = {
                 ''',
                 'direction',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('key-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('key-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Key ID
                 ''',
                 'key_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('key-id-valid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Key validity
                 ''',
                 'key_id_valid',
@@ -3888,25 +3918,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-challenge-responses-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenge responses sent
                 ''',
                 'authentication_challenge_responses_sent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-failures', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Failures
                 ''',
                 'authentication_failures',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-send-challenges-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenges received
                 ''',
                 'authentication_send_challenges_received',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Messages sent
                 ''',
                 'authentication_sent',
@@ -3928,8 +3958,8 @@ _meta_table = {
                 ''',
                 'counters',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sequence', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('sequence', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Sequence number
                 ''',
                 'sequence',
@@ -3946,99 +3976,99 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-received-bad-digest', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with bad digest
                 ''',
                 'authentication_received_bad_digest',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-bad-message-format', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with bad mesage format
                 ''',
                 'authentication_received_bad_message_format',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenge-response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenge responses received
                 ''',
                 'authentication_received_challenge_response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenge-timeouts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenge timeouts
                 ''',
                 'authentication_received_challenge_timeouts',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenges-resent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenges resent
                 ''',
                 'authentication_received_challenges_resent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenges-response-duplicate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Duplicate challenge responses received
                 ''',
                 'authentication_received_challenges_response_duplicate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenges-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenges sent
                 ''',
                 'authentication_received_challenges_sent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-during-challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received during challenge
                 ''',
                 'authentication_received_during_challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-incomplete', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received incomplete
                 ''',
                 'authentication_received_incomplete',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-no-integrity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with no integrity
                 ''',
                 'authentication_received_no_integrity',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-response-late', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenge responses received late
                 ''',
                 'authentication_received_response_late',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-sequence-number-duplicate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with duplicate sequence
                 number
                 ''',
                 'authentication_received_sequence_number_duplicate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-sequence-number-outof-range', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with sequence number out
                 of range
                 ''',
                 'authentication_received_sequence_number_outof_range',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-valid-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Valid messages
                 ''',
                 'authentication_received_valid_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-wrong-challenges-response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incorect challenge responses received
                 ''',
                 'authentication_received_wrong_challenges_response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-wrong-digest-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with wrong digest type
                 ''',
                 'authentication_received_wrong_digest_type',
@@ -4060,26 +4090,26 @@ _meta_table = {
                 ''',
                 'counters',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sequence', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('sequence', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Sequence number
                 ''',
                 'sequence',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sequence-window', REFERENCE_LEAFLIST, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('sequence-window', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Sequence window
                 ''',
                 'sequence_window',
                 'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=64),
             _MetaInfoClassMember('sequence-window-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence window count
                 ''',
                 'sequence_window_count',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sequence-window-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence window size
                 ''',
                 'sequence_window_size',
@@ -4131,7 +4161,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                InterfaceName
                 ''',
                 'interface_name',
@@ -4167,25 +4197,25 @@ _meta_table = {
                 'direction_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('key-digest-info', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Direction
                 ''',
                 'key_digest_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('key-status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Key status
                 ''',
                 'key_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Lifetime (seconds)
                 ''',
                 'lifetime',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lifetime-left', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remaining lifetime (seconds)
                 ''',
                 'lifetime_left',
@@ -4225,13 +4255,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -4261,7 +4291,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -4290,7 +4320,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -4313,13 +4343,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -4410,32 +4440,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -4446,14 +4476,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -4469,26 +4499,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -4551,7 +4581,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -4580,13 +4610,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -4655,7 +4685,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -4691,13 +4721,13 @@ _meta_table = {
                 'input_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -4727,7 +4757,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port 
                 ''',
                 'source_port',
@@ -4739,7 +4769,7 @@ _meta_table = {
                 'style',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -4780,84 +4810,403 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
+    'RsvpStandby.OpenConfig.GlobalCounters' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.OpenConfig.GlobalCounters',
+            False, 
+            [
+            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of ack messages received
+                ''',
+                'in_ack_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of hello messages received
+                ''',
+                'in_hello_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path error messages received
+                ''',
+                'in_path_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path messages received
+                ''',
+                'in_path_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path tear messages received
+                ''',
+                'in_path_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation error messages
+                received
+                ''',
+                'in_reservation_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation messages received
+                ''',
+                'in_reservation_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation tear messages
+                received
+                ''',
+                'in_reservation_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of srefresh messages received
+                ''',
+                'in_srefresh_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of ack messages send
+                ''',
+                'out_ack_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of hello messages send
+                ''',
+                'out_hello_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path error messages send
+                ''',
+                'out_path_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path messages send
+                ''',
+                'out_path_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path tear messages send
+                ''',
+                'out_path_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation error messages send
+                ''',
+                'out_reservation_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation messages send
+                ''',
+                'out_reservation_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation tear messages send
+                ''',
+                'out_reservation_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of srefresh messages send
+                ''',
+                'out_srefresh_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('path-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of Path Timeouts
+                ''',
+                'path_timeouts',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of rate limited messages
+                ''',
+                'rate_limited_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('reservation-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation timeouts
+                ''',
+                'reservation_timeouts',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-rsvp-oper',
+            'global-counters',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
+        ),
+    },
+    'RsvpStandby.OpenConfig.InterfaceCounters.InterfaceCounter' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.OpenConfig.InterfaceCounters.InterfaceCounter',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ip-rsvp-oper', True),
+            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of ack messages received
+                ''',
+                'in_ack_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of hello messages received
+                ''',
+                'in_hello_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path error messages
+                received
+                ''',
+                'in_path_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path messages received
+                ''',
+                'in_path_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path tear messages
+                received
+                ''',
+                'in_path_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation error
+                messages received
+                ''',
+                'in_reservation_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation messages
+                received
+                ''',
+                'in_reservation_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation tear messages
+                received
+                ''',
+                'in_reservation_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of srefresh messages
+                received
+                ''',
+                'in_srefresh_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('interface-name-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface name
+                ''',
+                'interface_name_xr',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of ack messages send
+                ''',
+                'out_ack_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of hello messages send
+                ''',
+                'out_hello_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path error messages send
+                ''',
+                'out_path_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path messages send
+                ''',
+                'out_path_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path tear messages send
+                ''',
+                'out_path_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation error
+                messages send
+                ''',
+                'out_reservation_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation messages send
+                ''',
+                'out_reservation_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation tear messages
+                send
+                ''',
+                'out_reservation_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of srefresh messages send
+                ''',
+                'out_srefresh_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-rsvp-oper',
+            'interface-counter',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
+        ),
+    },
+    'RsvpStandby.OpenConfig.InterfaceCounters' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.OpenConfig.InterfaceCounters',
+            False, 
+            [
+            _MetaInfoClassMember('interface-counter', REFERENCE_LIST, 'InterfaceCounter' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.OpenConfig.InterfaceCounters.InterfaceCounter', 
+                [], [], 
+                '''                Info about an RSVP-enabled interface counters
+                ''',
+                'interface_counter',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-rsvp-oper',
+            'interface-counters',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
+        ),
+    },
+    'RsvpStandby.OpenConfig' : {
+        'meta_info' : _MetaInfoClass('RsvpStandby.OpenConfig',
+            False, 
+            [
+            _MetaInfoClassMember('global-counters', REFERENCE_CLASS, 'GlobalCounters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.OpenConfig.GlobalCounters', 
+                [], [], 
+                '''                Platform wide RSVP statistics and counters
+                ''',
+                'global_counters',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('interface-counters', REFERENCE_CLASS, 'InterfaceCounters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.OpenConfig.InterfaceCounters', 
+                [], [], 
+                '''                Table of info about RSVP-enabled interface
+                counters for OpenConfig
+                ''',
+                'interface_counters',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-rsvp-oper',
+            'open-config',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
+        ),
+    },
     'RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages' : {
         'meta_info' : _MetaInfoClass('RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages',
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -4874,79 +5223,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -4963,79 +5312,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -5052,79 +5401,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -5141,7 +5490,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name. 'None' is used internally
                 where the true interface is unknown (e.g. for
                 routed packets)
@@ -5161,13 +5510,13 @@ _meta_table = {
                 'bundle_transmitted_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-of-order-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Out of Order messages
                 ''',
                 'out_of_order_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Rate Limited messages
                 ''',
                 'rate_limited_messages',
@@ -5179,7 +5528,7 @@ _meta_table = {
                 'received_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('retransmitted-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of messages retransmitted
                 ''',
                 'retransmitted_messages',
@@ -5219,79 +5568,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -5308,79 +5657,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -5397,79 +5746,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -5486,79 +5835,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -5587,13 +5936,13 @@ _meta_table = {
                 'bundle_transmitted_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-of-order-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Out of Order messages
                 ''',
                 'out_of_order_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Rate Limited messages
                 ''',
                 'rate_limited_messages',
@@ -5605,7 +5954,7 @@ _meta_table = {
                 'received_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('retransmitted-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of messages retransmitted
                 ''',
                 'retransmitted_messages',
@@ -5628,25 +5977,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -5663,25 +6012,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -5698,25 +6047,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -5733,25 +6082,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -5827,25 +6176,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -5862,25 +6211,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -5897,25 +6246,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -5932,25 +6281,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -5967,25 +6316,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -6002,25 +6351,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -6086,25 +6435,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -6121,25 +6470,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -6156,25 +6505,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -6191,25 +6540,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -6226,25 +6575,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -6261,25 +6610,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -6419,7 +6768,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dropped-path-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages dropped due to an out of
                 resource condition
                 ''',
@@ -6445,7 +6794,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('dropped-path-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages dropped due to an out of
                 resource condition
                 ''',
@@ -6523,7 +6872,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name. 'None' is used internally
                 where the true interface is unknown (e.g. for
                 routed packets)
@@ -6531,19 +6880,19 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('expired-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for Expired Path states
                 ''',
                 'expired_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expired-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for Expired Reservation states
                 ''',
                 'expired_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('nac-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for NACKs received
                 ''',
                 'nac_ks',
@@ -6577,7 +6926,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('last-cleared-timestamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The timestamp, in seconds, when these statistics
                 are cleared              since 00:00:00 UTC,
                 January 1, 1970
@@ -6585,7 +6934,7 @@ _meta_table = {
                 'last_cleared_timestamp',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('last-idt-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last IDT number of states
                 ''',
                 'last_idt_states',
@@ -6597,25 +6946,25 @@ _meta_table = {
                 'rsvp_process_role',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-deletions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of deletions
                 ''',
                 'total_deletions',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-id-ts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IDTs
                 ''',
                 'total_id_ts',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('total-nacks', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('total-nacks', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Total number of NACKs
                 ''',
                 'total_nacks',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of states
                 ''',
                 'total_states',
@@ -6632,7 +6981,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('last-cleared-timestamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The timestamp, in seconds, when these statistics
                 are cleared              since 00:00:00 UTC,
                 January 1, 1970
@@ -6640,7 +6989,7 @@ _meta_table = {
                 'last_cleared_timestamp',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('last-idt-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last IDT number of states
                 ''',
                 'last_idt_states',
@@ -6652,25 +7001,25 @@ _meta_table = {
                 'rsvp_process_role',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-deletions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of deletions
                 ''',
                 'total_deletions',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-id-ts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IDTs
                 ''',
                 'total_id_ts',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('total-nacks', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('total-nacks', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Total number of NACKs
                 ''',
                 'total_nacks',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of states
                 ''',
                 'total_states',
@@ -6687,39 +7036,39 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('incoming-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming path
                 states
                 ''',
                 'incoming_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('incoming-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming
                 reservation states
                 ''',
                 'incoming_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interfaces
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing path states
                 ''',
                 'outgoing_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing reservation states
                 ''',
                 'outgoing_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sessions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions
                 ''',
                 'sessions',
@@ -6736,25 +7085,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('expired-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for Expired Path states
                 ''',
                 'expired_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expired-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for Expired Reservation states
                 ''',
                 'expired_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('nac-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for NACKs received
                 ''',
                 'nac_ks',
@@ -6854,8 +7203,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.PreStandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -6874,20 +7223,20 @@ _meta_table = {
                 ''',
                 'is_max_subpool_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in
                 subpool
                 ''',
@@ -6904,8 +7253,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.StandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -6931,27 +7280,27 @@ _meta_table = {
                 ''',
                 'is_max_bc1_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC0
                 pool
                 ''',
                 'max_pool0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC1
                 pool
                 ''',
@@ -7081,13 +7430,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -7104,7 +7453,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('message-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Message ID
                 ''',
                 'message_id',
@@ -7133,7 +7482,7 @@ _meta_table = {
                 'is_neighbor_refresh_reduction_capable',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('message-ids', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of MessageIDs
                 ''',
                 'message_ids',
@@ -7151,7 +7500,7 @@ _meta_table = {
                 'neighbor_message_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('outgoing-states', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of outgoing states to the neighbour
                 ''',
                 'outgoing_states',
@@ -7168,19 +7517,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('ack-hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ACK hold time in msec
                 ''',
                 'ack_hold_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ack-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max size for ACK message
                 ''',
                 'ack_max_size',
@@ -7192,25 +7541,25 @@ _meta_table = {
                 'bandwidth_information',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle-message-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max size in bytes of a single Bundle message
                 ''',
                 'bundle_message_max_size',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expiry-drops-tolerated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of missed messages tolerated
                 ''',
                 'expiry_drops_tolerated',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expiry-interval', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Expiry interval in msecs
                 ''',
                 'expiry_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expiry-states', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of states for expiry check
                 ''',
                 'expiry_states',
@@ -7234,7 +7583,7 @@ _meta_table = {
                 'integrity_receive_password',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('integrity-receive-password-optional', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Integrity recv password optional
                 ''',
                 'integrity_receive_password_optional',
@@ -7258,31 +7607,31 @@ _meta_table = {
                 'neighbor_array',
                 'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('out-of-band-expiry-drops-tolerated', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of out-of-band missed messages tolerated
                 ''',
                 'out_of_band_expiry_drops_tolerated',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-of-band-refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Out-of-band Refresh interval in msecs
                 ''',
                 'out_of_band_refresh_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pacing-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Pacing interval in msecs
                 ''',
                 'pacing_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pacing-message-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of messages per interval
                 ''',
                 'pacing_message_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pacing-messages', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of messages deferred for pacing
                 ''',
                 'pacing_messages',
@@ -7294,7 +7643,7 @@ _meta_table = {
                 'pacing_timer_state',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Refresh interval in msecs
                 ''',
                 'refresh_interval',
@@ -7306,20 +7655,20 @@ _meta_table = {
                 'refresh_timer_state',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('retransmit-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Retransmit time in msec
                 ''',
                 'retransmit_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('signalling-ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TOS (precedence/DSCP) to use in signalling
                 messages
                 ''',
                 'signalling_ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('summary-refresh-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max size in bytes of a single SRefresh
                 ''',
                 'summary_refresh_max_size',
@@ -7359,13 +7708,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -7382,13 +7731,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -7428,13 +7777,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('global-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Global neighbor count
                 ''',
                 'global_neighbors',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval at which hello messages are sent
                 ''',
                 'hello_interval',
@@ -7458,20 +7807,20 @@ _meta_table = {
                 'local_node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('missed-hellos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Max number of hellos missed before hellos
                 declared down
                 ''',
                 'missed_hellos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pending-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of pending states
                 ''',
                 'pending_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('recovery-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery time (milliseconds)
                 ''',
                 'recovery_time',
@@ -7489,7 +7838,7 @@ _meta_table = {
                 'recovery_timer_exp_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Restart time (milliseconds)
                 ''',
                 'restart_time',
@@ -7524,7 +7873,7 @@ _meta_table = {
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to use
                 ''',
                 'hello_interface',
@@ -7571,13 +7920,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -7612,7 +7961,7 @@ _meta_table = {
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Destination Instance
                 ''',
                 'destination_instance',
@@ -7624,19 +7973,19 @@ _meta_table = {
                 'hello_global_neighbor_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to use
                 ''',
                 'hello_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-messages-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-messages-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of hello messages received
                 ''',
                 'hello_messages_received',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-messages-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-messages-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of hello messages sent
                 ''',
                 'hello_messages_sent',
@@ -7660,7 +8009,7 @@ _meta_table = {
                 'source_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Source Instance
                 ''',
                 'source_instance',
@@ -7707,25 +8056,25 @@ _meta_table = {
                 'is_rr_enabled',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-epoch', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbor's epoch value
                 ''',
                 'neighbor_epoch',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor's Interface handle
                 ''',
                 'neighbor_interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-of-order-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of out of order msgs
                 ''',
                 'out_of_order_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('retransmitted-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of retransmitted msgs
                 ''',
                 'retransmitted_messages',
@@ -7788,19 +8137,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -7818,7 +8167,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -7835,19 +8184,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -7865,7 +8214,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -7928,19 +8277,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -7958,7 +8307,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -7975,19 +8324,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -8005,7 +8354,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -8051,19 +8400,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -8081,7 +8430,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -8098,19 +8447,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -8128,7 +8477,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -8174,39 +8523,39 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('incoming-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming path
                 states
                 ''',
                 'incoming_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('incoming-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming
                 reservation states
                 ''',
                 'incoming_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interfaces
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing path states
                 ''',
                 'outgoing_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing reservation states
                 ''',
                 'outgoing_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sessions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions
                 ''',
                 'sessions',
@@ -8229,7 +8578,7 @@ _meta_table = {
                 'database_counters',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total interfaces
                 ''',
                 'interfaces',
@@ -8241,7 +8590,7 @@ _meta_table = {
                 'issu_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ls-ps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total LSPs
                 ''',
                 'ls_ps',
@@ -8270,13 +8619,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -8306,7 +8655,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -8335,7 +8684,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -8358,13 +8707,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -8462,7 +8811,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -8474,7 +8823,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
@@ -8486,7 +8835,7 @@ _meta_table = {
                 'path_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -8522,13 +8871,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -8580,13 +8929,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -8616,7 +8965,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -8645,7 +8994,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -8668,13 +9017,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -8765,32 +9114,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -8801,14 +9150,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -8824,26 +9173,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -8889,7 +9238,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -8918,13 +9267,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -9010,7 +9359,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -9046,13 +9395,13 @@ _meta_table = {
                 'output_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -9082,7 +9431,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -9094,7 +9443,7 @@ _meta_table = {
                 'style',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -9146,13 +9495,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -9182,7 +9531,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -9211,7 +9560,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -9234,13 +9583,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -9331,32 +9680,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -9367,14 +9716,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -9390,26 +9739,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -9455,7 +9804,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -9484,13 +9833,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -9660,7 +10009,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-logical-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor Logical Interface Name
                 ''',
                 'neighbor_logical_interface_name',
@@ -9683,38 +10032,38 @@ _meta_table = {
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP Type of Service
                 ''',
                 'ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TTL
                 ''',
                 'ip_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-header-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Header Flags (defined in RFC2205 Section 3
                 .1.1)
                 ''',
                 'rsvp_header_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-message-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Message Type
                 ''',
                 'rsvp_message_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP TTL
                 ''',
                 'rsvp_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Version
                 ''',
                 'rsvp_version',
@@ -9842,7 +10191,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port-or-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Destination Port or Tunnel ID. For the LSP and
                 OUNI session types this represents the Tunnel ID
                 whereas for the UDP session type this represents
@@ -9859,7 +10208,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point-to-multipoint ID
                 ''',
                 'p2mp_id',
@@ -9871,7 +10220,7 @@ _meta_table = {
                 'p2mp_sub_group_origin',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol. UDP session type this represents the
                 Protocol (UDP not supported at present)
                 ''',
@@ -9890,7 +10239,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port-or-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Source Port or LSP_ID. For the LSP and OUNI
                 session types this represents the LSP_ID whereas
                 for the UDP session type this represents the
@@ -9899,13 +10248,13 @@ _meta_table = {
                 'source_port_or_lsp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('vrfid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Signalling VRF ID
                 ''',
                 'vrfid',
@@ -9928,7 +10277,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port-or-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Destination Port or Tunnel ID. For the LSP and
                 OUNI session types this represents the Tunnel ID
                 whereas for the UDP session type this represents
@@ -9945,7 +10294,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point-to-multipoint ID
                 ''',
                 'p2mp_id',
@@ -9957,7 +10306,7 @@ _meta_table = {
                 'p2mp_sub_group_origin',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol. UDP session type this represents the
                 Protocol (UDP not supported at present)
                 ''',
@@ -9976,7 +10325,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port-or-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Source Port or LSP_ID. For the LSP and OUNI
                 session types this represents the LSP_ID whereas
                 for the UDP session type this represents the
@@ -9985,13 +10334,13 @@ _meta_table = {
                 'source_port_or_lsp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('vrfid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Signalling VRF ID
                 ''',
                 'vrfid',
@@ -10014,7 +10363,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -10062,7 +10411,7 @@ _meta_table = {
                 'output_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
@@ -10086,7 +10435,7 @@ _meta_table = {
                 'policy_sources',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -10134,7 +10483,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -10146,7 +10495,7 @@ _meta_table = {
                 'style',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -10191,8 +10540,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceBriefs.InterfaceBrief.BandwidthInformation.PreStandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -10211,20 +10560,20 @@ _meta_table = {
                 ''',
                 'is_max_subpool_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in
                 subpool
                 ''',
@@ -10241,8 +10590,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.InterfaceBriefs.InterfaceBrief.BandwidthInformation.StandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -10268,27 +10617,27 @@ _meta_table = {
                 ''',
                 'is_max_bc1_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC0
                 pool
                 ''',
                 'max_pool0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC1
                 pool
                 ''',
@@ -10335,7 +10684,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -10387,13 +10736,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -10423,7 +10772,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -10452,7 +10801,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -10475,13 +10824,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -10556,25 +10905,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detail-list-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of elements in detail list
                 ''',
                 'detail_list_size',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ps-bs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of path state block states
                 ''',
                 'ps_bs',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of request states
                 ''',
                 'requests',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rs-bs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of reservation state block states
                 ''',
                 'rs_bs',
@@ -10614,7 +10963,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -10653,32 +11002,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.TrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -10694,26 +11043,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Traffic Bit Rate
                 ''',
                 'traffic_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic Multiplier
                 ''',
                 'traffic_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic NVC
                 ''',
                 'traffic_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Traffic Signal Type (Refer G709 v3)
                 ''',
                 'traffic_signal_type',
@@ -10729,32 +11078,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.IntsrvTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -10800,7 +11149,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association ID
                 ''',
                 'id',
@@ -10812,7 +11161,7 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association Type (RFC 4872)
                 ''',
                 'type',
@@ -10829,7 +11178,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association ID
                 ''',
                 'id',
@@ -10841,7 +11190,7 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association Type (RFC 4872)
                 ''',
                 'type',
@@ -10858,19 +11207,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('extended-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended Association ID
                 ''',
                 'extended_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('global-source', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Global Association Source
                 ''',
                 'global_source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association ID
                 ''',
                 'id',
@@ -10882,7 +11231,7 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association Type (RFC 4872)
                 ''',
                 'type',
@@ -10899,19 +11248,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('extended-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended Association ID
                 ''',
                 'extended_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('global-source', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Global Association Source
                 ''',
                 'global_source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association ID
                 ''',
                 'id',
@@ -10923,7 +11272,7 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association Type (RFC 4872)
                 ''',
                 'type',
@@ -11128,26 +11477,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Traffic Bit Rate
                 ''',
                 'traffic_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic Multiplier
                 ''',
                 'traffic_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic NVC
                 ''',
                 'traffic_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Traffic Signal Type (Refer G709 v3)
                 ''',
                 'traffic_signal_type',
@@ -11163,32 +11512,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.IntsrvTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -11246,7 +11595,7 @@ _meta_table = {
                 'is_strict_route',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ERO Prefix Length
                 ''',
                 'prefix_length',
@@ -11263,7 +11612,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ero-interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Interface ID in ERO
                 ''',
                 'ero_interface_id',
@@ -11279,6 +11628,12 @@ _meta_table = {
                 '''                ERO Entry Is Strict
                 ''',
                 'is_strict_route',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjStatusEnum', 
+                [], [], 
+                '''                Status of ERO
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-oper',
@@ -11321,7 +11676,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('rsvp-mgmt-rev-lsp-unsupported-subobj', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rsvp mgmt rev lsp unsupported subobj
                 ''',
                 'rsvp_mgmt_rev_lsp_unsupported_subobj',
@@ -11379,7 +11734,7 @@ _meta_table = {
                 'is_strict_route',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ERO Prefix Length
                 ''',
                 'prefix_length',
@@ -11396,7 +11751,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ero-interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Interface ID in ERO
                 ''',
                 'ero_interface_id',
@@ -11412,6 +11767,12 @@ _meta_table = {
                 '''                ERO Entry Is Strict
                 ''',
                 'is_strict_route',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjStatusEnum', 
+                [], [], 
+                '''                Status of ERO
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-oper',
@@ -11547,13 +11908,13 @@ _meta_table = {
                 'is_label_variable_length',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject Label Value
                 ''',
                 'label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('variable-length-label', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject Variable Length Label
                 ''',
                 'variable_length_label',
@@ -11623,7 +11984,7 @@ _meta_table = {
                 'interface_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Interface ID
                 ''',
                 'interface_id',
@@ -11640,7 +12001,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srl-gs', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject SRLGs
                 ''',
                 'srl_gs',
@@ -11728,13 +12089,13 @@ _meta_table = {
                 'generic_traffic_spec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('in-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface on which inbound message was received
                 ''',
                 'in_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('in-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label for inbound traffic
                 ''',
                 'in_label',
@@ -11776,10 +12137,16 @@ _meta_table = {
                 'is_valid',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP ID
                 ''',
                 'lsp_id',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('lsp-wrap-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSP Wrap Label
+                ''',
+                'lsp_wrap_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -11806,7 +12173,7 @@ _meta_table = {
                 'rro',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -11835,7 +12202,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -11874,32 +12241,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -11910,14 +12277,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -11933,26 +12300,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -12085,13 +12452,13 @@ _meta_table = {
                 'is_label_variable_length',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject Label Value
                 ''',
                 'label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('variable-length-label', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject Variable Length Label
                 ''',
                 'variable_length_label',
@@ -12161,7 +12528,7 @@ _meta_table = {
                 'interface_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Interface ID
                 ''',
                 'interface_id',
@@ -12178,7 +12545,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srl-gs', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject SRLGs
                 ''',
                 'srl_gs',
@@ -12236,13 +12603,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup tunnel interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('backup-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup label
                 ''',
                 'backup_label',
@@ -12290,13 +12657,13 @@ _meta_table = {
                 'is_valid',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface on which outbound message was sent
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label for outbound traffic
                 ''',
                 'out_label',
@@ -12354,7 +12721,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -12366,13 +12733,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -12430,13 +12797,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -12453,13 +12820,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -12488,19 +12855,19 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('communication-lost-hello-missed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Lost Comm. Hello missed count
                 ''',
                 'communication_lost_hello_missed',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('communication-lost-interface-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Count of lost comm. due to interface down
                 ''',
                 'communication_lost_interface_down',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('communication-lost-neighbor-disabled-hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Count of lost comm. due to nbor disabling Hellos
                 ''',
                 'communication_lost_neighbor_disabled_hello',
@@ -12518,14 +12885,14 @@ _meta_table = {
                 'communication_lost_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('communication-lost-wrong-destination-inst', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Count of lost comm. due to wrong Destination
                 Inst
                 ''',
                 'communication_lost_wrong_destination_inst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('communication-lost-wrong-source-inst', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Count of lost comm. due to wrong Source Inst
                 ''',
                 'communication_lost_wrong_source_inst',
@@ -12537,7 +12904,7 @@ _meta_table = {
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Destination Instance
                 ''',
                 'destination_instance',
@@ -12549,31 +12916,31 @@ _meta_table = {
                 'hello_instance_owner',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to use
                 ''',
                 'hello_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hello Interval
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-messages-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-messages-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of hello messages received
                 ''',
                 'hello_messages_received',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-messages-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-messages-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of hello messages sent
                 ''',
                 'hello_messages_sent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-request-suppressed', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-request-suppressed', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Count of Hello Requests suppessed
                 ''',
                 'hello_request_suppressed',
@@ -12585,7 +12952,7 @@ _meta_table = {
                 'instance_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('missed-acks-allowed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of missed Hello allowed
                 ''',
                 'missed_acks_allowed',
@@ -12603,13 +12970,13 @@ _meta_table = {
                 'source_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Source Instance
                 ''',
                 'source_instance',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-communication-lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of times communication got lost
                 ''',
                 'total_communication_lost',
@@ -12672,13 +13039,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -12695,13 +13062,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -12718,13 +13085,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -12741,13 +13108,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -12764,13 +13131,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -12787,13 +13154,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -12822,7 +13189,7 @@ _meta_table = {
                 'global_neighbor_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hello Interval (milliseconds)
                 ''',
                 'hello_interval',
@@ -12870,13 +13237,13 @@ _meta_table = {
                 'lost_communication_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lost-communication-total', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of times communication got lost
                 ''',
                 'lost_communication_total',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('missed-hellos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Hello missed count
                 ''',
                 'missed_hellos',
@@ -12894,13 +13261,13 @@ _meta_table = {
                 'node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pending-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of pending states for this neighbor
                 ''',
                 'pending_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('recovery-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                GR Recovery Time (milliseconds)
                 ''',
                 'recovery_time',
@@ -12924,7 +13291,7 @@ _meta_table = {
                 'restart_state',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                GR Restart Time (milliseconds)
                 ''',
                 'restart_time',
@@ -12982,13 +13349,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -13018,7 +13385,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -13047,7 +13414,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -13070,13 +13437,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -13174,7 +13541,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -13203,13 +13570,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -13313,7 +13680,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('reservation-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Reservation Priority
                 ''',
                 'reservation_priority',
@@ -13325,7 +13692,7 @@ _meta_table = {
                 'sess_attribute_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -13341,32 +13708,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.TrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -13382,26 +13749,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Traffic Bit Rate
                 ''',
                 'traffic_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic Multiplier
                 ''',
                 'traffic_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic NVC
                 ''',
                 'traffic_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Traffic Signal Type (Refer G709 v3)
                 ''',
                 'traffic_signal_type',
@@ -13417,32 +13784,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.IntsrvTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -13494,7 +13861,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -13518,13 +13885,13 @@ _meta_table = {
                 'input_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -13560,13 +13927,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port 
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -13647,13 +14014,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -13670,13 +14037,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -13729,7 +14096,7 @@ _meta_table = {
                 'lost_communication_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lost-communication-total', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of times communication got lost
                 ''',
                 'lost_communication_total',
@@ -13901,6 +14268,12 @@ _meta_table = {
                 ''',
                 'nsr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('open-config', REFERENCE_CLASS, 'OpenConfig' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.OpenConfig', 
+                [], [], 
+                '''                OpenConfig info
+                ''',
+                'open_config',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('psb-briefs', REFERENCE_CLASS, 'PsbBriefs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpStandby.PsbBriefs', 
                 [], [], 
                 '''                Table of brief info about path state blocks
@@ -13968,8 +14341,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.ControllerSummaries.ControllerSummary.BandwidthInformation.PreStandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -13988,20 +14361,20 @@ _meta_table = {
                 ''',
                 'is_max_subpool_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in
                 subpool
                 ''',
@@ -14018,8 +14391,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.ControllerSummaries.ControllerSummary.BandwidthInformation.StandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -14045,27 +14418,27 @@ _meta_table = {
                 ''',
                 'is_max_bc1_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC0
                 pool
                 ''',
                 'max_pool0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC1
                 pool
                 ''',
@@ -14112,7 +14485,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Controller Name
                 ''',
                 'controller_name',
@@ -14130,27 +14503,27 @@ _meta_table = {
                 'interface_name_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('paths-in', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming path
                 states
                 ''',
                 'paths_in',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('paths-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing path states
                 ''',
                 'paths_out',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservations-in', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming
                 reservation states
                 ''',
                 'reservations_in',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservations-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing reservation states
                 ''',
                 'reservations_out',
@@ -14184,19 +14557,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -14214,7 +14587,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -14231,19 +14604,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -14261,7 +14634,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -14323,8 +14696,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.ControllerDetaileds.ControllerDetailed.BandwidthInformation.PreStandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -14343,20 +14716,20 @@ _meta_table = {
                 ''',
                 'is_max_subpool_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in
                 subpool
                 ''',
@@ -14373,8 +14746,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.ControllerDetaileds.ControllerDetailed.BandwidthInformation.StandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -14400,27 +14773,27 @@ _meta_table = {
                 ''',
                 'is_max_bc1_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC0
                 pool
                 ''',
                 'max_pool0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC1
                 pool
                 ''',
@@ -14550,13 +14923,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -14573,7 +14946,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('message-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Message ID
                 ''',
                 'message_id',
@@ -14602,7 +14975,7 @@ _meta_table = {
                 'is_neighbor_refresh_reduction_capable',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('message-ids', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of MessageIDs
                 ''',
                 'message_ids',
@@ -14620,7 +14993,7 @@ _meta_table = {
                 'neighbor_message_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('outgoing-states', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of outgoing states to the neighbour
                 ''',
                 'outgoing_states',
@@ -14637,19 +15010,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Controller Name
                 ''',
                 'controller_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('ack-hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ACK hold time in msec
                 ''',
                 'ack_hold_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ack-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max size for ACK message
                 ''',
                 'ack_max_size',
@@ -14661,25 +15034,25 @@ _meta_table = {
                 'bandwidth_information',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle-message-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max size in bytes of a single Bundle message
                 ''',
                 'bundle_message_max_size',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expiry-drops-tolerated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of missed messages tolerated
                 ''',
                 'expiry_drops_tolerated',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expiry-interval', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Expiry interval in msecs
                 ''',
                 'expiry_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expiry-states', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of states for expiry check
                 ''',
                 'expiry_states',
@@ -14703,7 +15076,7 @@ _meta_table = {
                 'integrity_receive_password',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('integrity-receive-password-optional', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Integrity recv password optional
                 ''',
                 'integrity_receive_password_optional',
@@ -14727,31 +15100,31 @@ _meta_table = {
                 'neighbor_array',
                 'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('out-of-band-expiry-drops-tolerated', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of out-of-band missed messages tolerated
                 ''',
                 'out_of_band_expiry_drops_tolerated',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-of-band-refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Out-of-band Refresh interval in msecs
                 ''',
                 'out_of_band_refresh_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pacing-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Pacing interval in msecs
                 ''',
                 'pacing_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pacing-message-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of messages per interval
                 ''',
                 'pacing_message_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pacing-messages', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of messages deferred for pacing
                 ''',
                 'pacing_messages',
@@ -14763,7 +15136,7 @@ _meta_table = {
                 'pacing_timer_state',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Refresh interval in msecs
                 ''',
                 'refresh_interval',
@@ -14775,20 +15148,20 @@ _meta_table = {
                 'refresh_timer_state',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('retransmit-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Retransmit time in msec
                 ''',
                 'retransmit_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('signalling-ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TOS (precedence/DSCP) to use in signalling
                 messages
                 ''',
                 'signalling_ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('summary-refresh-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max size in bytes of a single SRefresh
                 ''',
                 'summary_refresh_max_size',
@@ -14835,13 +15208,13 @@ _meta_table = {
                 'bandwidth_configuration_model',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bc0-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                BC0 I/F percent B/W
                 ''',
                 'bc0_percent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bc1-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                BC1 I/F percent B/W
                 ''',
                 'bc1_percent',
@@ -14866,7 +15239,7 @@ _meta_table = {
                 'is_max_res_pool_percent_configured',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('max-res-pool-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maxium reservable I/F percent B/W
                 ''',
                 'max_res_pool_percent',
@@ -14882,8 +15255,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.ControllerBriefs.ControllerBrief.BandwidthInformation.PreStandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -14902,20 +15275,20 @@ _meta_table = {
                 ''',
                 'is_max_subpool_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in
                 subpool
                 ''',
@@ -14932,8 +15305,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.ControllerBriefs.ControllerBrief.BandwidthInformation.StandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -14959,27 +15332,27 @@ _meta_table = {
                 ''',
                 'is_max_bc1_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC0
                 pool
                 ''',
                 'max_pool0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC1
                 pool
                 ''',
@@ -15026,7 +15399,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('controller-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Controller Name
                 ''',
                 'controller_name',
@@ -15078,13 +15451,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -15114,7 +15487,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -15143,7 +15516,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -15166,13 +15539,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -15270,7 +15643,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -15299,13 +15672,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -15367,32 +15740,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.TrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -15408,26 +15781,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Traffic Bit Rate
                 ''',
                 'traffic_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic Multiplier
                 ''',
                 'traffic_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic NVC
                 ''',
                 'traffic_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Traffic Signal Type (Refer G709 v3)
                 ''',
                 'traffic_signal_type',
@@ -15443,32 +15816,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.IntsrvTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -15520,7 +15893,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-logical-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor Logical Interface Name
                 ''',
                 'neighbor_logical_interface_name',
@@ -15543,38 +15916,38 @@ _meta_table = {
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP Type of Service
                 ''',
                 'ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TTL
                 ''',
                 'ip_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-header-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Header Flags (defined in RFC2205 Section 3
                 .1.1)
                 ''',
                 'rsvp_header_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-message-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Message Type
                 ''',
                 'rsvp_message_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP TTL
                 ''',
                 'rsvp_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Version
                 ''',
                 'rsvp_version',
@@ -15597,13 +15970,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('dynamic-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Dynamic State Handle
                 ''',
                 'dynamic_state',
@@ -15633,13 +16006,13 @@ _meta_table = {
                 'input_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -15675,13 +16048,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -15745,13 +16118,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -15781,7 +16154,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -15810,7 +16183,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -15833,13 +16206,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -15954,7 +16327,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -15983,13 +16356,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -16051,32 +16424,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -16087,14 +16460,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -16110,26 +16483,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -16175,7 +16548,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-logical-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor Logical Interface Name
                 ''',
                 'neighbor_logical_interface_name',
@@ -16198,38 +16571,38 @@ _meta_table = {
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP Type of Service
                 ''',
                 'ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TTL
                 ''',
                 'ip_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-header-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Header Flags (defined in RFC2205 Section 3
                 .1.1)
                 ''',
                 'rsvp_header_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-message-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Message Type
                 ''',
                 'rsvp_message_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP TTL
                 ''',
                 'rsvp_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Version
                 ''',
                 'rsvp_version',
@@ -16252,13 +16625,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('dynamic-state', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Dynamic State Handle
                 ''',
                 'dynamic_state',
@@ -16300,13 +16673,13 @@ _meta_table = {
                 'input_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -16342,7 +16715,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -16354,7 +16727,7 @@ _meta_table = {
                 'style',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -16406,7 +16779,7 @@ _meta_table = {
                 'interface_neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor's Interface handle
                 ''',
                 'neighbor_interface_name',
@@ -16475,7 +16848,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                InterfaceName
                 ''',
                 'interface_name',
@@ -16504,14 +16877,14 @@ _meta_table = {
                 ''',
                 'direction',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('key-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('key-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Key ID
                 ''',
                 'key_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('key-id-valid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Key validity
                 ''',
                 'key_id_valid',
@@ -16575,13 +16948,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -16611,7 +16984,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -16640,7 +17013,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -16663,13 +17036,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -16750,13 +17123,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('detail-list-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of elements in detail list
                 ''',
                 'detail_list_size',
@@ -16768,31 +17141,31 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ps-bs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of path state block states
                 ''',
                 'ps_bs',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of request states
                 ''',
                 'requests',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rs-bs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of reservation state block states
                 ''',
                 'rs_bs',
@@ -16850,13 +17223,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -16886,7 +17259,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -16915,7 +17288,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -16938,13 +17311,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -17042,7 +17415,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -17071,13 +17444,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -17181,7 +17554,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('reservation-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Reservation Priority
                 ''',
                 'reservation_priority',
@@ -17193,7 +17566,7 @@ _meta_table = {
                 'sess_attribute_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -17209,32 +17582,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.TrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -17250,26 +17623,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Traffic Bit Rate
                 ''',
                 'traffic_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic Multiplier
                 ''',
                 'traffic_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic NVC
                 ''',
                 'traffic_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Traffic Signal Type (Refer G709 v3)
                 ''',
                 'traffic_signal_type',
@@ -17285,32 +17658,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.IntsrvTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -17409,7 +17782,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-logical-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor Logical Interface Name
                 ''',
                 'neighbor_logical_interface_name',
@@ -17473,38 +17846,38 @@ _meta_table = {
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP Type of Service
                 ''',
                 'ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TTL
                 ''',
                 'ip_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-header-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Header Flags (defined in RFC2205 Section 3
                 .1.1)
                 ''',
                 'rsvp_header_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-message-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Message Type
                 ''',
                 'rsvp_message_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP TTL
                 ''',
                 'rsvp_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Version
                 ''',
                 'rsvp_version',
@@ -17521,13 +17894,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -17608,7 +17981,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -17648,7 +18021,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -17688,7 +18061,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -17728,7 +18101,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -17768,7 +18141,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -17808,7 +18181,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -17890,37 +18263,43 @@ _meta_table = {
                 'is_valid',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('local-downstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local Downstream Label
                 ''',
                 'local_downstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('local-upstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local Upstream Label
                 ''',
                 'local_upstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('lsp-wrap-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSP Wrap Label
+                ''',
+                'lsp_wrap_label',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MergePoint Label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-downstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Downstream Label
                 ''',
                 'outgoing_downstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-upstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Upstream Label
                 ''',
                 'outgoing_upstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('recovery-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery Label
                 ''',
                 'recovery_label',
@@ -17937,7 +18316,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('class-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                DS-TE Class-Type
                 ''',
                 'class_type',
@@ -18065,7 +18444,7 @@ _meta_table = {
                 'is_strict_route',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ERO Prefix Length
                 ''',
                 'prefix_length',
@@ -18082,7 +18461,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ero-interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Interface ID in ERO
                 ''',
                 'ero_interface_id',
@@ -18098,6 +18477,12 @@ _meta_table = {
                 '''                ERO Entry Is Strict
                 ''',
                 'is_strict_route',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjStatusEnum', 
+                [], [], 
+                '''                Status of ERO
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-oper',
@@ -18152,7 +18537,7 @@ _meta_table = {
                 'is_strict_route',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ERO Prefix Length
                 ''',
                 'prefix_length',
@@ -18169,7 +18554,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ero-interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Interface ID in ERO
                 ''',
                 'ero_interface_id',
@@ -18185,6 +18570,12 @@ _meta_table = {
                 '''                ERO Entry Is Strict
                 ''',
                 'is_strict_route',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjStatusEnum', 
+                [], [], 
+                '''                Status of ERO
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-oper',
@@ -18245,7 +18636,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -18317,7 +18708,7 @@ _meta_table = {
                 'out_ero',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
@@ -18353,7 +18744,7 @@ _meta_table = {
                 'policy_source_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -18389,13 +18780,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port 
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -18453,13 +18844,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active instances of this state
                 ''',
                 'active_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('active-wait-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of instances of this state awaiting Path
                 messages to be sent out or Resv messages to be
                 received
@@ -18467,13 +18858,13 @@ _meta_table = {
                 'active_wait_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ready-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of ready instances of this state
                 ''',
                 'ready_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of instances of this state
                 ''',
                 'total',
@@ -18490,13 +18881,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('active-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of active instances of this state
                 ''',
                 'active_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('active-wait-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of instances of this state awaiting Path
                 messages to be sent out or Resv messages to be
                 received
@@ -18504,13 +18895,13 @@ _meta_table = {
                 'active_wait_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ready-instances', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of ready instances of this state
                 ''',
                 'ready_instances',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of instances of this state
                 ''',
                 'total',
@@ -18549,32 +18940,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -18585,14 +18976,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -18608,26 +18999,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -18673,13 +19064,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -18709,7 +19100,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -18738,7 +19129,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -18761,13 +19152,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -18882,7 +19273,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -18911,13 +19302,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -19027,7 +19418,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-logical-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor Logical Interface Name
                 ''',
                 'neighbor_logical_interface_name',
@@ -19091,38 +19482,38 @@ _meta_table = {
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP Type of Service
                 ''',
                 'ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TTL
                 ''',
                 'ip_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-header-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Header Flags (defined in RFC2205 Section 3
                 .1.1)
                 ''',
                 'rsvp_header_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-message-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Message Type
                 ''',
                 'rsvp_message_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP TTL
                 ''',
                 'rsvp_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Version
                 ''',
                 'rsvp_version',
@@ -19168,13 +19559,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -19226,7 +19617,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -19266,7 +19657,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -19306,7 +19697,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -19346,7 +19737,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -19386,7 +19777,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -19426,7 +19817,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -19508,37 +19899,43 @@ _meta_table = {
                 'is_valid',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('local-downstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local Downstream Label
                 ''',
                 'local_downstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('local-upstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Local Upstream Label
                 ''',
                 'local_upstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('lsp-wrap-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSP Wrap Label
+                ''',
+                'lsp_wrap_label',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('merge-point-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MergePoint Label
                 ''',
                 'merge_point_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-downstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Downstream Label
                 ''',
                 'outgoing_downstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-upstream-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Outgoing Upstream Label
                 ''',
                 'outgoing_upstream_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('recovery-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery Label
                 ''',
                 'recovery_label',
@@ -19561,7 +19958,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -19627,7 +20024,7 @@ _meta_table = {
                 'label_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
@@ -19651,7 +20048,7 @@ _meta_table = {
                 'policy_sources',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -19687,7 +20084,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port 
                 ''',
                 'source_port',
@@ -19699,7 +20096,7 @@ _meta_table = {
                 'style',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -19745,8 +20142,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.InterfaceSummaries.InterfaceSummary.BandwidthInformation.PreStandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -19765,20 +20162,20 @@ _meta_table = {
                 ''',
                 'is_max_subpool_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in
                 subpool
                 ''',
@@ -19795,8 +20192,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.InterfaceSummaries.InterfaceSummary.BandwidthInformation.StandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -19822,27 +20219,27 @@ _meta_table = {
                 ''',
                 'is_max_bc1_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC0
                 pool
                 ''',
                 'max_pool0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC1
                 pool
                 ''',
@@ -19889,7 +20286,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -19907,27 +20304,27 @@ _meta_table = {
                 'interface_name_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('paths-in', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming path
                 states
                 ''',
                 'paths_in',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('paths-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing path states
                 ''',
                 'paths_out',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservations-in', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming
                 reservation states
                 ''',
                 'reservations_in',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservations-out', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing reservation states
                 ''',
                 'reservations_out',
@@ -19979,7 +20376,7 @@ _meta_table = {
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to use
                 ''',
                 'hello_interface',
@@ -19991,7 +20388,7 @@ _meta_table = {
                 'instance_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lost-communication-total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of times communication got lost
                 ''',
                 'lost_communication_total',
@@ -20048,14 +20445,14 @@ _meta_table = {
                 ''',
                 'direction',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('key-id', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('key-id', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Key ID
                 ''',
                 'key_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('key-id-valid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Key validity
                 ''',
                 'key_id_valid',
@@ -20096,25 +20493,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-challenge-responses-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenge responses sent
                 ''',
                 'authentication_challenge_responses_sent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-failures', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Failures
                 ''',
                 'authentication_failures',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-send-challenges-received', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenges received
                 ''',
                 'authentication_send_challenges_received',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Messages sent
                 ''',
                 'authentication_sent',
@@ -20136,8 +20533,8 @@ _meta_table = {
                 ''',
                 'counters',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sequence', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('sequence', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Sequence number
                 ''',
                 'sequence',
@@ -20154,99 +20551,99 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('authentication-received-bad-digest', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with bad digest
                 ''',
                 'authentication_received_bad_digest',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-bad-message-format', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with bad mesage format
                 ''',
                 'authentication_received_bad_message_format',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenge-response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenge responses received
                 ''',
                 'authentication_received_challenge_response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenge-timeouts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenge timeouts
                 ''',
                 'authentication_received_challenge_timeouts',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenges-resent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenges resent
                 ''',
                 'authentication_received_challenges_resent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenges-response-duplicate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Duplicate challenge responses received
                 ''',
                 'authentication_received_challenges_response_duplicate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-challenges-sent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenges sent
                 ''',
                 'authentication_received_challenges_sent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-during-challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received during challenge
                 ''',
                 'authentication_received_during_challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-incomplete', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received incomplete
                 ''',
                 'authentication_received_incomplete',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-no-integrity', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with no integrity
                 ''',
                 'authentication_received_no_integrity',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-response-late', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Challenge responses received late
                 ''',
                 'authentication_received_response_late',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-sequence-number-duplicate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with duplicate sequence
                 number
                 ''',
                 'authentication_received_sequence_number_duplicate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-sequence-number-outof-range', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with sequence number out
                 of range
                 ''',
                 'authentication_received_sequence_number_outof_range',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-valid-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Valid messages
                 ''',
                 'authentication_received_valid_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-wrong-challenges-response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Incorect challenge responses received
                 ''',
                 'authentication_received_wrong_challenges_response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('authentication-received-wrong-digest-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Authentication received with wrong digest type
                 ''',
                 'authentication_received_wrong_digest_type',
@@ -20268,26 +20665,26 @@ _meta_table = {
                 ''',
                 'counters',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sequence', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('sequence', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Sequence number
                 ''',
                 'sequence',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('sequence-window', REFERENCE_LEAFLIST, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('sequence-window', REFERENCE_LEAFLIST, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Sequence window
                 ''',
                 'sequence_window',
                 'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=64),
             _MetaInfoClassMember('sequence-window-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence window count
                 ''',
                 'sequence_window_count',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sequence-window-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Sequence window size
                 ''',
                 'sequence_window_size',
@@ -20339,7 +20736,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                InterfaceName
                 ''',
                 'interface_name',
@@ -20375,25 +20772,25 @@ _meta_table = {
                 'direction_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('key-digest-info', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Direction
                 ''',
                 'key_digest_info',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('key-status', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Key status
                 ''',
                 'key_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lifetime', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Lifetime (seconds)
                 ''',
                 'lifetime',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lifetime-left', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remaining lifetime (seconds)
                 ''',
                 'lifetime_left',
@@ -20433,13 +20830,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -20469,7 +20866,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -20498,7 +20895,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -20521,13 +20918,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -20618,32 +21015,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -20654,14 +21051,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -20677,26 +21074,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -20759,7 +21156,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -20788,13 +21185,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -20863,7 +21260,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -20899,13 +21296,13 @@ _meta_table = {
                 'input_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -20935,7 +21332,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port 
                 ''',
                 'source_port',
@@ -20947,7 +21344,7 @@ _meta_table = {
                 'style',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -20988,84 +21385,403 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
         ),
     },
+    'Rsvp.OpenConfig.GlobalCounters' : {
+        'meta_info' : _MetaInfoClass('Rsvp.OpenConfig.GlobalCounters',
+            False, 
+            [
+            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of ack messages received
+                ''',
+                'in_ack_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of hello messages received
+                ''',
+                'in_hello_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path error messages received
+                ''',
+                'in_path_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path messages received
+                ''',
+                'in_path_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path tear messages received
+                ''',
+                'in_path_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation error messages
+                received
+                ''',
+                'in_reservation_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation messages received
+                ''',
+                'in_reservation_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation tear messages
+                received
+                ''',
+                'in_reservation_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of srefresh messages received
+                ''',
+                'in_srefresh_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of ack messages send
+                ''',
+                'out_ack_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of hello messages send
+                ''',
+                'out_hello_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path error messages send
+                ''',
+                'out_path_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path messages send
+                ''',
+                'out_path_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of path tear messages send
+                ''',
+                'out_path_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation error messages send
+                ''',
+                'out_reservation_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation messages send
+                ''',
+                'out_reservation_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation tear messages send
+                ''',
+                'out_reservation_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of srefresh messages send
+                ''',
+                'out_srefresh_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('path-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of Path Timeouts
+                ''',
+                'path_timeouts',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of rate limited messages
+                ''',
+                'rate_limited_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('reservation-timeouts', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Global count of reservation timeouts
+                ''',
+                'reservation_timeouts',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-rsvp-oper',
+            'global-counters',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
+        ),
+    },
+    'Rsvp.OpenConfig.InterfaceCounters.InterfaceCounter' : {
+        'meta_info' : _MetaInfoClass('Rsvp.OpenConfig.InterfaceCounters.InterfaceCounter',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Interface name
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ip-rsvp-oper', True),
+            _MetaInfoClassMember('in-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of ack messages received
+                ''',
+                'in_ack_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of hello messages received
+                ''',
+                'in_hello_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path error messages
+                received
+                ''',
+                'in_path_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path messages received
+                ''',
+                'in_path_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path tear messages
+                received
+                ''',
+                'in_path_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation error
+                messages received
+                ''',
+                'in_reservation_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation messages
+                received
+                ''',
+                'in_reservation_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation tear messages
+                received
+                ''',
+                'in_reservation_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('in-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of srefresh messages
+                received
+                ''',
+                'in_srefresh_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('interface-name-xr', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Interface name
+                ''',
+                'interface_name_xr',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-ack-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of ack messages send
+                ''',
+                'out_ack_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-hello-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of hello messages send
+                ''',
+                'out_hello_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path error messages send
+                ''',
+                'out_path_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path messages send
+                ''',
+                'out_path_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-path-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of path tear messages send
+                ''',
+                'out_path_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-error-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation error
+                messages send
+                ''',
+                'out_reservation_error_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation messages send
+                ''',
+                'out_reservation_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-reservation-tear-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of reservation tear messages
+                send
+                ''',
+                'out_reservation_tear_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('out-srefresh-messages', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
+                '''                Per interface count of srefresh messages send
+                ''',
+                'out_srefresh_messages',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-rsvp-oper',
+            'interface-counter',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
+        ),
+    },
+    'Rsvp.OpenConfig.InterfaceCounters' : {
+        'meta_info' : _MetaInfoClass('Rsvp.OpenConfig.InterfaceCounters',
+            False, 
+            [
+            _MetaInfoClassMember('interface-counter', REFERENCE_LIST, 'InterfaceCounter' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.OpenConfig.InterfaceCounters.InterfaceCounter', 
+                [], [], 
+                '''                Info about an RSVP-enabled interface counters
+                ''',
+                'interface_counter',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-rsvp-oper',
+            'interface-counters',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
+        ),
+    },
+    'Rsvp.OpenConfig' : {
+        'meta_info' : _MetaInfoClass('Rsvp.OpenConfig',
+            False, 
+            [
+            _MetaInfoClassMember('global-counters', REFERENCE_CLASS, 'GlobalCounters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.OpenConfig.GlobalCounters', 
+                [], [], 
+                '''                Platform wide RSVP statistics and counters
+                ''',
+                'global_counters',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('interface-counters', REFERENCE_CLASS, 'InterfaceCounters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.OpenConfig.InterfaceCounters', 
+                [], [], 
+                '''                Table of info about RSVP-enabled interface
+                counters for OpenConfig
+                ''',
+                'interface_counters',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            ],
+            'Cisco-IOS-XR-ip-rsvp-oper',
+            'open-config',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-rsvp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper'
+        ),
+    },
     'Rsvp.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages' : {
         'meta_info' : _MetaInfoClass('Rsvp.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages',
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -21082,79 +21798,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -21171,79 +21887,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -21260,79 +21976,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -21349,7 +22065,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name. 'None' is used internally
                 where the true interface is unknown (e.g. for
                 routed packets)
@@ -21369,13 +22085,13 @@ _meta_table = {
                 'bundle_transmitted_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-of-order-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Out of Order messages
                 ''',
                 'out_of_order_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Rate Limited messages
                 ''',
                 'rate_limited_messages',
@@ -21387,7 +22103,7 @@ _meta_table = {
                 'received_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('retransmitted-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of messages retransmitted
                 ''',
                 'retransmitted_messages',
@@ -21427,79 +22143,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -21516,79 +22232,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -21605,79 +22321,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -21694,79 +22410,79 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ACK messages
                 ''',
                 'ack',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Bundle messages
                 ''',
                 'bundle',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('challenge', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Challenge messages
                 ''',
                 'challenge',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Hello messages
                 ''',
                 'hello',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathError messages
                 ''',
                 'path_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Reservation messages
                 ''',
                 'reservation',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-error', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationError messages
                 ''',
                 'reservation_error',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationTear messages
                 ''',
                 'reservation_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('response', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Integrity Response messages
                 ''',
                 'response',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('srefresh', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Srefresh messages
                 ''',
                 'srefresh',
@@ -21795,13 +22511,13 @@ _meta_table = {
                 'bundle_transmitted_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-of-order-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Out of Order messages
                 ''',
                 'out_of_order_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rate-limited-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Rate Limited messages
                 ''',
                 'rate_limited_messages',
@@ -21813,7 +22529,7 @@ _meta_table = {
                 'received_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('retransmitted-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of messages retransmitted
                 ''',
                 'retransmitted_messages',
@@ -21836,25 +22552,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -21871,25 +22587,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -21906,25 +22622,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -21941,25 +22657,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22035,25 +22751,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22070,25 +22786,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22105,25 +22821,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22140,25 +22856,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22175,25 +22891,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22210,25 +22926,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22294,25 +23010,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22329,25 +23045,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22364,25 +23080,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22399,25 +23115,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22434,25 +23150,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22469,25 +23185,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages
                 ''',
                 'path',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('path-tear', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of PathTear messages
                 ''',
                 'path_tear',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('reservation-confirm', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of ReservationConfirm messages
                 ''',
                 'reservation_confirm',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total count of messages
                 ''',
                 'total',
@@ -22627,7 +23343,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dropped-path-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages dropped due to an out of
                 resource condition
                 ''',
@@ -22653,7 +23369,7 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('dropped-path-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Count of Path messages dropped due to an out of
                 resource condition
                 ''',
@@ -22731,7 +23447,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name. 'None' is used internally
                 where the true interface is unknown (e.g. for
                 routed packets)
@@ -22739,19 +23455,19 @@ _meta_table = {
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('expired-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for Expired Path states
                 ''',
                 'expired_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expired-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for Expired Reservation states
                 ''',
                 'expired_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('nac-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for NACKs received
                 ''',
                 'nac_ks',
@@ -22785,7 +23501,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('last-cleared-timestamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The timestamp, in seconds, when these statistics
                 are cleared              since 00:00:00 UTC,
                 January 1, 1970
@@ -22793,7 +23509,7 @@ _meta_table = {
                 'last_cleared_timestamp',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('last-idt-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last IDT number of states
                 ''',
                 'last_idt_states',
@@ -22805,25 +23521,25 @@ _meta_table = {
                 'rsvp_process_role',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-deletions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of deletions
                 ''',
                 'total_deletions',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-id-ts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IDTs
                 ''',
                 'total_id_ts',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('total-nacks', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('total-nacks', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Total number of NACKs
                 ''',
                 'total_nacks',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of states
                 ''',
                 'total_states',
@@ -22840,7 +23556,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('last-cleared-timestamp', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The timestamp, in seconds, when these statistics
                 are cleared              since 00:00:00 UTC,
                 January 1, 1970
@@ -22848,7 +23564,7 @@ _meta_table = {
                 'last_cleared_timestamp',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('last-idt-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Last IDT number of states
                 ''',
                 'last_idt_states',
@@ -22860,25 +23576,25 @@ _meta_table = {
                 'rsvp_process_role',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-deletions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of deletions
                 ''',
                 'total_deletions',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-id-ts', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of IDTs
                 ''',
                 'total_id_ts',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('total-nacks', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('total-nacks', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Total number of NACKs
                 ''',
                 'total_nacks',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of states
                 ''',
                 'total_states',
@@ -22895,39 +23611,39 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('incoming-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming path
                 states
                 ''',
                 'incoming_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('incoming-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming
                 reservation states
                 ''',
                 'incoming_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interfaces
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing path states
                 ''',
                 'outgoing_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing reservation states
                 ''',
                 'outgoing_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sessions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions
                 ''',
                 'sessions',
@@ -22944,25 +23660,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('expired-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for Expired Path states
                 ''',
                 'expired_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expired-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for Expired Reservation states
                 ''',
                 'expired_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('nac-ks', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Counter for NACKs received
                 ''',
                 'nac_ks',
@@ -23062,8 +23778,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.PreStandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -23082,20 +23798,20 @@ _meta_table = {
                 ''',
                 'is_max_subpool_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in
                 subpool
                 ''',
@@ -23112,8 +23828,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.StandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -23139,27 +23855,27 @@ _meta_table = {
                 ''',
                 'is_max_bc1_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC0
                 pool
                 ''',
                 'max_pool0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC1
                 pool
                 ''',
@@ -23289,13 +24005,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -23312,7 +24028,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('message-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Message ID
                 ''',
                 'message_id',
@@ -23341,7 +24057,7 @@ _meta_table = {
                 'is_neighbor_refresh_reduction_capable',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('message-ids', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of MessageIDs
                 ''',
                 'message_ids',
@@ -23359,7 +24075,7 @@ _meta_table = {
                 'neighbor_message_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('outgoing-states', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of outgoing states to the neighbour
                 ''',
                 'outgoing_states',
@@ -23376,19 +24092,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('ack-hold-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                ACK hold time in msec
                 ''',
                 'ack_hold_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ack-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max size for ACK message
                 ''',
                 'ack_max_size',
@@ -23400,25 +24116,25 @@ _meta_table = {
                 'bandwidth_information',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('bundle-message-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max size in bytes of a single Bundle message
                 ''',
                 'bundle_message_max_size',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expiry-drops-tolerated', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of missed messages tolerated
                 ''',
                 'expiry_drops_tolerated',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expiry-interval', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Expiry interval in msecs
                 ''',
                 'expiry_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('expiry-states', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of states for expiry check
                 ''',
                 'expiry_states',
@@ -23442,7 +24158,7 @@ _meta_table = {
                 'integrity_receive_password',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('integrity-receive-password-optional', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Integrity recv password optional
                 ''',
                 'integrity_receive_password_optional',
@@ -23466,31 +24182,31 @@ _meta_table = {
                 'neighbor_array',
                 'Cisco-IOS-XR-ip-rsvp-oper', False, max_elements=6),
             _MetaInfoClassMember('out-of-band-expiry-drops-tolerated', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of out-of-band missed messages tolerated
                 ''',
                 'out_of_band_expiry_drops_tolerated',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-of-band-refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Out-of-band Refresh interval in msecs
                 ''',
                 'out_of_band_refresh_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pacing-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Pacing interval in msecs
                 ''',
                 'pacing_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pacing-message-rate', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                No. of messages per interval
                 ''',
                 'pacing_message_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pacing-messages', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Number of messages deferred for pacing
                 ''',
                 'pacing_messages',
@@ -23502,7 +24218,7 @@ _meta_table = {
                 'pacing_timer_state',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('refresh-interval', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Refresh interval in msecs
                 ''',
                 'refresh_interval',
@@ -23514,20 +24230,20 @@ _meta_table = {
                 'refresh_timer_state',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('retransmit-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Retransmit time in msec
                 ''',
                 'retransmit_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('signalling-ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TOS (precedence/DSCP) to use in signalling
                 messages
                 ''',
                 'signalling_ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('summary-refresh-max-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Max size in bytes of a single SRefresh
                 ''',
                 'summary_refresh_max_size',
@@ -23567,13 +24283,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -23590,13 +24306,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -23636,13 +24352,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('global-neighbors', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Global neighbor count
                 ''',
                 'global_neighbors',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interval at which hello messages are sent
                 ''',
                 'hello_interval',
@@ -23666,20 +24382,20 @@ _meta_table = {
                 'local_node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('missed-hellos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Max number of hellos missed before hellos
                 declared down
                 ''',
                 'missed_hellos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pending-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of pending states
                 ''',
                 'pending_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('recovery-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Recovery time (milliseconds)
                 ''',
                 'recovery_time',
@@ -23697,7 +24413,7 @@ _meta_table = {
                 'recovery_timer_exp_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Restart time (milliseconds)
                 ''',
                 'restart_time',
@@ -23732,7 +24448,7 @@ _meta_table = {
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to use
                 ''',
                 'hello_interface',
@@ -23779,13 +24495,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -23820,7 +24536,7 @@ _meta_table = {
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Destination Instance
                 ''',
                 'destination_instance',
@@ -23832,19 +24548,19 @@ _meta_table = {
                 'hello_global_neighbor_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to use
                 ''',
                 'hello_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-messages-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-messages-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of hello messages received
                 ''',
                 'hello_messages_received',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-messages-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-messages-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of hello messages sent
                 ''',
                 'hello_messages_sent',
@@ -23868,7 +24584,7 @@ _meta_table = {
                 'source_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Source Instance
                 ''',
                 'source_instance',
@@ -23915,25 +24631,25 @@ _meta_table = {
                 'is_rr_enabled',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-epoch', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Neighbor's epoch value
                 ''',
                 'neighbor_epoch',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor's Interface handle
                 ''',
                 'neighbor_interface_name',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-of-order-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of out of order msgs
                 ''',
                 'out_of_order_messages',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('retransmitted-messages', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of retransmitted msgs
                 ''',
                 'retransmitted_messages',
@@ -23996,19 +24712,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -24026,7 +24742,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -24043,19 +24759,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -24073,7 +24789,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -24136,19 +24852,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -24166,7 +24882,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -24183,19 +24899,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -24213,7 +24929,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -24259,19 +24975,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -24289,7 +25005,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -24306,19 +25022,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('declare-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Declare ready timestamp in seconds
                 ''',
                 'declare_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-end-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT end timestamp in seconds
                 ''',
                 'idt_end_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('idt-start-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                IDT start timestamp in seconds
                 ''',
                 'idt_start_time',
@@ -24336,7 +25052,7 @@ _meta_table = {
                 'sync_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('withdraw-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Withdraw ready timestamp in seconds
                 ''',
                 'withdraw_time',
@@ -24382,39 +25098,39 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('incoming-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming path
                 states
                 ''',
                 'incoming_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('incoming-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of locally created and incoming
                 reservation states
                 ''',
                 'incoming_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Interfaces
                 ''',
                 'interfaces',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-paths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing path states
                 ''',
                 'outgoing_paths',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('outgoing-reservations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of outgoing reservation states
                 ''',
                 'outgoing_reservations',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sessions', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of sessions
                 ''',
                 'sessions',
@@ -24437,7 +25153,7 @@ _meta_table = {
                 'database_counters',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interfaces', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total interfaces
                 ''',
                 'interfaces',
@@ -24449,7 +25165,7 @@ _meta_table = {
                 'issu_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ls-ps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total LSPs
                 ''',
                 'ls_ps',
@@ -24478,13 +25194,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -24514,7 +25230,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -24543,7 +25259,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -24566,13 +25282,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -24670,7 +25386,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -24682,7 +25398,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
@@ -24694,7 +25410,7 @@ _meta_table = {
                 'path_status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -24730,13 +25446,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -24788,13 +25504,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -24824,7 +25540,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -24853,7 +25569,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -24876,13 +25592,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -24973,32 +25689,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -25009,14 +25725,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -25032,26 +25748,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -25097,7 +25813,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -25126,13 +25842,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -25218,7 +25934,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -25254,13 +25970,13 @@ _meta_table = {
                 'output_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -25290,7 +26006,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -25302,7 +26018,7 @@ _meta_table = {
                 'style',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -25354,13 +26070,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -25390,7 +26106,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -25419,7 +26135,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -25442,13 +26158,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -25539,32 +26255,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -25575,14 +26291,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -25598,26 +26314,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -25663,7 +26379,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -25692,13 +26408,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -25868,7 +26584,7 @@ _meta_table = {
                 'neighbor_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('neighbor-logical-interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Neighbor Logical Interface Name
                 ''',
                 'neighbor_logical_interface_name',
@@ -25891,38 +26607,38 @@ _meta_table = {
                 'ip_source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-tos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP Type of Service
                 ''',
                 'ip_tos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ip-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                IP TTL
                 ''',
                 'ip_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-header-flags', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Header Flags (defined in RFC2205 Section 3
                 .1.1)
                 ''',
                 'rsvp_header_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-message-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Message Type
                 ''',
                 'rsvp_message_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-ttl', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP TTL
                 ''',
                 'rsvp_ttl',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rsvp-version', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                RSVP Version
                 ''',
                 'rsvp_version',
@@ -26050,7 +26766,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port-or-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Destination Port or Tunnel ID. For the LSP and
                 OUNI session types this represents the Tunnel ID
                 whereas for the UDP session type this represents
@@ -26067,7 +26783,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point-to-multipoint ID
                 ''',
                 'p2mp_id',
@@ -26079,7 +26795,7 @@ _meta_table = {
                 'p2mp_sub_group_origin',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol. UDP session type this represents the
                 Protocol (UDP not supported at present)
                 ''',
@@ -26098,7 +26814,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port-or-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Source Port or LSP_ID. For the LSP and OUNI
                 session types this represents the LSP_ID whereas
                 for the UDP session type this represents the
@@ -26107,13 +26823,13 @@ _meta_table = {
                 'source_port_or_lsp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('vrfid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Signalling VRF ID
                 ''',
                 'vrfid',
@@ -26136,7 +26852,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port-or-tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Destination Port or Tunnel ID. For the LSP and
                 OUNI session types this represents the Tunnel ID
                 whereas for the UDP session type this represents
@@ -26153,7 +26869,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Point-to-multipoint ID
                 ''',
                 'p2mp_id',
@@ -26165,7 +26881,7 @@ _meta_table = {
                 'p2mp_sub_group_origin',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Protocol. UDP session type this represents the
                 Protocol (UDP not supported at present)
                 ''',
@@ -26184,7 +26900,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port-or-lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Source Port or LSP_ID. For the LSP and OUNI
                 session types this represents the LSP_ID whereas
                 for the UDP session type this represents the
@@ -26193,13 +26909,13 @@ _meta_table = {
                 'source_port_or_lsp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('vrfid', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Signalling VRF ID
                 ''',
                 'vrfid',
@@ -26222,7 +26938,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -26270,7 +26986,7 @@ _meta_table = {
                 'output_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
@@ -26294,7 +27010,7 @@ _meta_table = {
                 'policy_sources',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -26342,7 +27058,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -26354,7 +27070,7 @@ _meta_table = {
                 'style',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -26399,8 +27115,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.InterfaceBriefs.InterfaceBrief.BandwidthInformation.PreStandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -26419,20 +27135,20 @@ _meta_table = {
                 ''',
                 'is_max_subpool_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-subpool-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in
                 subpool
                 ''',
@@ -26449,8 +27165,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.InterfaceBriefs.InterfaceBrief.BandwidthInformation.StandardDsteInterface',
             False, 
             [
-            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('allocated-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Bandwidth (bits per second) now allocated
                 ''',
                 'allocated_bit_rate',
@@ -26476,27 +27192,27 @@ _meta_table = {
                 ''',
                 'is_max_bc1_bandwidth_absolute',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed
                 ''',
                 'max_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-flow-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed per flow
                 ''',
                 'max_flow_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool0-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC0
                 pool
                 ''',
                 'max_pool0_bandwidth',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('max-pool1-bandwidth', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Max bandwidth (bits per second) allowed in BC1
                 pool
                 ''',
@@ -26543,7 +27259,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface Name
                 ''',
                 'interface_name',
@@ -26595,13 +27311,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -26631,7 +27347,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -26660,7 +27376,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -26683,13 +27399,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -26764,25 +27480,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('detail-list-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of elements in detail list
                 ''',
                 'detail_list_size',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('ps-bs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of path state block states
                 ''',
                 'ps_bs',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('requests', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of request states
                 ''',
                 'requests',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('rs-bs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of reservation state block states
                 ''',
                 'rs_bs',
@@ -26822,7 +27538,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -26861,32 +27577,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.TrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -26902,26 +27618,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Traffic Bit Rate
                 ''',
                 'traffic_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic Multiplier
                 ''',
                 'traffic_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic NVC
                 ''',
                 'traffic_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Traffic Signal Type (Refer G709 v3)
                 ''',
                 'traffic_signal_type',
@@ -26937,32 +27653,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.IntsrvTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -27008,7 +27724,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association ID
                 ''',
                 'id',
@@ -27020,7 +27736,7 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association Type (RFC 4872)
                 ''',
                 'type',
@@ -27037,7 +27753,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association ID
                 ''',
                 'id',
@@ -27049,7 +27765,7 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association Type (RFC 4872)
                 ''',
                 'type',
@@ -27066,19 +27782,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('extended-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended Association ID
                 ''',
                 'extended_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('global-source', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Global Association Source
                 ''',
                 'global_source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association ID
                 ''',
                 'id',
@@ -27090,7 +27806,7 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association Type (RFC 4872)
                 ''',
                 'type',
@@ -27107,19 +27823,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('extended-id', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Extended Association ID
                 ''',
                 'extended_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('global-source', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Global Association Source
                 ''',
                 'global_source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association ID
                 ''',
                 'id',
@@ -27131,7 +27847,7 @@ _meta_table = {
                 'source',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Association Type (RFC 4872)
                 ''',
                 'type',
@@ -27336,26 +28052,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Traffic Bit Rate
                 ''',
                 'traffic_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic Multiplier
                 ''',
                 'traffic_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic NVC
                 ''',
                 'traffic_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Traffic Signal Type (Refer G709 v3)
                 ''',
                 'traffic_signal_type',
@@ -27371,32 +28087,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.IntsrvTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -27454,7 +28170,7 @@ _meta_table = {
                 'is_strict_route',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ERO Prefix Length
                 ''',
                 'prefix_length',
@@ -27471,7 +28187,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ero-interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Interface ID in ERO
                 ''',
                 'ero_interface_id',
@@ -27487,6 +28203,12 @@ _meta_table = {
                 '''                ERO Entry Is Strict
                 ''',
                 'is_strict_route',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjStatusEnum', 
+                [], [], 
+                '''                Status of ERO
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-oper',
@@ -27529,7 +28251,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('rsvp-mgmt-rev-lsp-unsupported-subobj', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                rsvp mgmt rev lsp unsupported subobj
                 ''',
                 'rsvp_mgmt_rev_lsp_unsupported_subobj',
@@ -27587,7 +28309,7 @@ _meta_table = {
                 'is_strict_route',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('prefix-length', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                ERO Prefix Length
                 ''',
                 'prefix_length',
@@ -27604,7 +28326,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('ero-interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Interface ID in ERO
                 ''',
                 'ero_interface_id',
@@ -27620,6 +28342,12 @@ _meta_table = {
                 '''                ERO Entry Is Strict
                 ''',
                 'is_strict_route',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('status', REFERENCE_ENUM_CLASS, 'RsvpMgmtEroSubobjStatusEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'RsvpMgmtEroSubobjStatusEnum', 
+                [], [], 
+                '''                Status of ERO
+                ''',
+                'status',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             ],
             'Cisco-IOS-XR-ip-rsvp-oper',
@@ -27755,13 +28483,13 @@ _meta_table = {
                 'is_label_variable_length',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject Label Value
                 ''',
                 'label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('variable-length-label', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject Variable Length Label
                 ''',
                 'variable_length_label',
@@ -27831,7 +28559,7 @@ _meta_table = {
                 'interface_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Interface ID
                 ''',
                 'interface_id',
@@ -27848,7 +28576,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srl-gs', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject SRLGs
                 ''',
                 'srl_gs',
@@ -27936,13 +28664,13 @@ _meta_table = {
                 'generic_traffic_spec',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('in-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface on which inbound message was received
                 ''',
                 'in_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('in-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label for inbound traffic
                 ''',
                 'in_label',
@@ -27984,10 +28712,16 @@ _meta_table = {
                 'is_valid',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lsp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                LSP ID
                 ''',
                 'lsp_id',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('lsp-wrap-label', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                LSP Wrap Label
+                ''',
+                'lsp_wrap_label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-sub-group-origin', ATTRIBUTE, 'str' , None, None, 
                 [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
@@ -28014,7 +28748,7 @@ _meta_table = {
                 'rro',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -28043,7 +28777,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Generalized Label Value
                 ''',
                 'value',
@@ -28082,32 +28816,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.FlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Average Rate in bytes per second
                 ''',
                 'flow_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Maximum Burst
                 ''',
                 'flow_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Maximum Unit
                 ''',
                 'flow_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Minimum Unit
                 ''',
                 'flow_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Peak Rate in bytes per second
                 ''',
                 'flow_peak_rate',
@@ -28118,14 +28852,14 @@ _meta_table = {
                 ''',
                 'flow_qos',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-requested-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                The Flow Requested Rate in bytes per second
                 ''',
                 'flow_requested_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-slack', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Flow Slack
                 ''',
                 'flow_slack',
@@ -28141,26 +28875,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec',
             False, 
             [
-            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('flow-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Flow Bit Rate
                 ''',
                 'flow_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow Multiplier
                 ''',
                 'flow_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Flow NVC
                 ''',
                 'flow_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('flow-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Flow Signal Type (Refer G709 v3)
                 ''',
                 'flow_signal_type',
@@ -28293,13 +29027,13 @@ _meta_table = {
                 'is_label_variable_length',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject Label Value
                 ''',
                 'label',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('variable-length-label', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject Variable Length Label
                 ''',
                 'variable_length_label',
@@ -28369,7 +29103,7 @@ _meta_table = {
                 'interface_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('interface-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Interface ID
                 ''',
                 'interface_id',
@@ -28386,7 +29120,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('srl-gs', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The RRO Subobject SRLGs
                 ''',
                 'srl_gs',
@@ -28444,13 +29178,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('backup-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Backup tunnel interface
                 ''',
                 'backup_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('backup-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Backup label
                 ''',
                 'backup_label',
@@ -28498,13 +29232,13 @@ _meta_table = {
                 'is_valid',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface on which outbound message was sent
                 ''',
                 'out_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('out-label', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Label for outbound traffic
                 ''',
                 'out_label',
@@ -28562,7 +29296,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -28574,13 +29308,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -28638,13 +29372,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -28661,13 +29395,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -28696,19 +29430,19 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', True),
             _MetaInfoClassMember('communication-lost-hello-missed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Lost Comm. Hello missed count
                 ''',
                 'communication_lost_hello_missed',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('communication-lost-interface-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Count of lost comm. due to interface down
                 ''',
                 'communication_lost_interface_down',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('communication-lost-neighbor-disabled-hello', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Count of lost comm. due to nbor disabling Hellos
                 ''',
                 'communication_lost_neighbor_disabled_hello',
@@ -28726,14 +29460,14 @@ _meta_table = {
                 'communication_lost_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('communication-lost-wrong-destination-inst', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Count of lost comm. due to wrong Destination
                 Inst
                 ''',
                 'communication_lost_wrong_destination_inst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('communication-lost-wrong-source-inst', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Count of lost comm. due to wrong Source Inst
                 ''',
                 'communication_lost_wrong_source_inst',
@@ -28745,7 +29479,7 @@ _meta_table = {
                 'destination_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Destination Instance
                 ''',
                 'destination_instance',
@@ -28757,31 +29491,31 @@ _meta_table = {
                 'hello_instance_owner',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to use
                 ''',
                 'hello_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hello Interval
                 ''',
                 'hello_interval',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-messages-received', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-messages-received', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of hello messages received
                 ''',
                 'hello_messages_received',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-messages-sent', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-messages-sent', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of hello messages sent
                 ''',
                 'hello_messages_sent',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('hello-request-suppressed', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hello-request-suppressed', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Count of Hello Requests suppessed
                 ''',
                 'hello_request_suppressed',
@@ -28793,7 +29527,7 @@ _meta_table = {
                 'instance_type',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('missed-acks-allowed', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of missed Hello allowed
                 ''',
                 'missed_acks_allowed',
@@ -28811,13 +29545,13 @@ _meta_table = {
                 'source_address_xr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-instance', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Source Instance
                 ''',
                 'source_instance',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('total-communication-lost', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of times communication got lost
                 ''',
                 'total_communication_lost',
@@ -28880,13 +29614,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -28903,13 +29637,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -28926,13 +29660,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -28949,13 +29683,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -28972,13 +29706,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -28995,13 +29729,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -29030,7 +29764,7 @@ _meta_table = {
                 'global_neighbor_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('hello-interval', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hello Interval (milliseconds)
                 ''',
                 'hello_interval',
@@ -29078,13 +29812,13 @@ _meta_table = {
                 'lost_communication_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lost-communication-total', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of times communication got lost
                 ''',
                 'lost_communication_total',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('missed-hellos', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Hello missed count
                 ''',
                 'missed_hellos',
@@ -29102,13 +29836,13 @@ _meta_table = {
                 'node_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('pending-states', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of pending states for this neighbor
                 ''',
                 'pending_states',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('recovery-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                GR Recovery Time (milliseconds)
                 ''',
                 'recovery_time',
@@ -29132,7 +29866,7 @@ _meta_table = {
                 'restart_state',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('restart-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                GR Restart Time (milliseconds)
                 ''',
                 'restart_time',
@@ -29190,13 +29924,13 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Destination Port
                 ''',
                 'destination_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Protocol type (originally defined in RFC 790,
                 further values in subsequent RFCs)
                 ''',
@@ -29226,7 +29960,7 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -29255,7 +29989,7 @@ _meta_table = {
                 'extended_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -29278,13 +30012,13 @@ _meta_table = {
                 'extended_tunnel_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The Point to Multipoint ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('tunnel-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                The Session Tunnel ID
                 ''',
                 'tunnel_id',
@@ -29382,7 +30116,7 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
@@ -29411,13 +30145,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Source Port
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Point to Multipoint Subgroup ID
                 ''',
                 'sub_group_id',
@@ -29521,7 +30255,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('reservation-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Reservation Priority
                 ''',
                 'reservation_priority',
@@ -29533,7 +30267,7 @@ _meta_table = {
                 'sess_attribute_flags',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('setup-priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Setup Priority
                 ''',
                 'setup_priority',
@@ -29549,32 +30283,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.TrafficSpec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -29590,26 +30324,26 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-bit-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                G709 OTN Traffic Bit Rate
                 ''',
                 'traffic_bit_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-multiplier', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic Multiplier
                 ''',
                 'traffic_multiplier',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-nvc', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                G709 OTN Traffic NVC
                 ''',
                 'traffic_nvc',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-signal-type', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                G709 OTN Traffic Signal Type (Refer G709 v3)
                 ''',
                 'traffic_signal_type',
@@ -29625,32 +30359,32 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.IntsrvTspec',
             False, 
             [
-            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-average-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Average Rate in bytes per second
                 ''',
                 'traffic_average_rate',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-max-burst', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Maximum Burst
                 ''',
                 'traffic_max_burst',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-max-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Maximum Unit
                 ''',
                 'traffic_max_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('traffic-min-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Traffic Minimum Unit
                 ''',
                 'traffic_min_unit',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
-            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('traffic-peak-rate', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Traffic Peak Rate in bytes per second
                 ''',
                 'traffic_peak_rate',
@@ -29702,7 +30436,7 @@ _meta_table = {
                 'destination_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('destination-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Destination Port
                 ''',
                 'destination_port',
@@ -29726,13 +30460,13 @@ _meta_table = {
                 'input_interface',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('p2mp-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                P2MP ID
                 ''',
                 'p2mp_id',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('protocol', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Protocol
                 ''',
                 'protocol',
@@ -29768,13 +30502,13 @@ _meta_table = {
                 'source_address',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('source-port', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Source Port 
                 ''',
                 'source_port',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('sub-group-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Subgroup ID
                 ''',
                 'sub_group_id',
@@ -29855,13 +30589,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -29878,13 +30612,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('nanoseconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Nano-seconds
                 ''',
                 'nanoseconds',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('seconds', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Time Value in Seconds
                 ''',
                 'seconds',
@@ -29937,7 +30671,7 @@ _meta_table = {
                 'lost_communication_time',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('lost-communication-total', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Total number of times communication got lost
                 ''',
                 'lost_communication_total',
@@ -30142,6 +30876,12 @@ _meta_table = {
                 ''',
                 'nsr',
                 'Cisco-IOS-XR-ip-rsvp-oper', False),
+            _MetaInfoClassMember('open-config', REFERENCE_CLASS, 'OpenConfig' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.OpenConfig', 
+                [], [], 
+                '''                OpenConfig info
+                ''',
+                'open_config',
+                'Cisco-IOS-XR-ip-rsvp-oper', False),
             _MetaInfoClassMember('psb-briefs', REFERENCE_CLASS, 'PsbBriefs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper', 'Rsvp.PsbBriefs', 
                 [], [], 
                 '''                Table of brief info about path state blocks
@@ -30342,6 +31082,9 @@ _meta_table['RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec']['meta_info'].paren
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Style']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief.Filter']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs.RsbBrief']['meta_info'].parent =_meta_table['RsvpStandby.RsbBriefs']['meta_info']
+_meta_table['RsvpStandby.OpenConfig.InterfaceCounters.InterfaceCounter']['meta_info'].parent =_meta_table['RsvpStandby.OpenConfig.InterfaceCounters']['meta_info']
+_meta_table['RsvpStandby.OpenConfig.GlobalCounters']['meta_info'].parent =_meta_table['RsvpStandby.OpenConfig']['meta_info']
+_meta_table['RsvpStandby.OpenConfig.InterfaceCounters']['meta_info'].parent =_meta_table['RsvpStandby.OpenConfig']['meta_info']
 _meta_table['RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages']['meta_info'].parent =_meta_table['RsvpStandby.Counters.InterfaceMessages.InterfaceMessage']['meta_info']
 _meta_table['RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.TransmittedMessages']['meta_info'].parent =_meta_table['RsvpStandby.Counters.InterfaceMessages.InterfaceMessage']['meta_info']
 _meta_table['RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.BundleReceivedMessages']['meta_info'].parent =_meta_table['RsvpStandby.Counters.InterfaceMessages.InterfaceMessage']['meta_info']
@@ -30567,6 +31310,7 @@ _meta_table['RsvpStandby.InterfaceSummaries']['meta_info'].parent =_meta_table['
 _meta_table['RsvpStandby.HelloInstanceBriefs']['meta_info'].parent =_meta_table['RsvpStandby']['meta_info']
 _meta_table['RsvpStandby.AuthenticationDetails']['meta_info'].parent =_meta_table['RsvpStandby']['meta_info']
 _meta_table['RsvpStandby.RsbBriefs']['meta_info'].parent =_meta_table['RsvpStandby']['meta_info']
+_meta_table['RsvpStandby.OpenConfig']['meta_info'].parent =_meta_table['RsvpStandby']['meta_info']
 _meta_table['RsvpStandby.Counters']['meta_info'].parent =_meta_table['RsvpStandby']['meta_info']
 _meta_table['RsvpStandby.InterfaceDetaileds']['meta_info'].parent =_meta_table['RsvpStandby']['meta_info']
 _meta_table['RsvpStandby.GracefulRestart']['meta_info'].parent =_meta_table['RsvpStandby']['meta_info']
@@ -30763,6 +31507,9 @@ _meta_table['Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec']['meta_info'].parent =_met
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Style']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief.Filter']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info']
 _meta_table['Rsvp.RsbBriefs.RsbBrief']['meta_info'].parent =_meta_table['Rsvp.RsbBriefs']['meta_info']
+_meta_table['Rsvp.OpenConfig.InterfaceCounters.InterfaceCounter']['meta_info'].parent =_meta_table['Rsvp.OpenConfig.InterfaceCounters']['meta_info']
+_meta_table['Rsvp.OpenConfig.GlobalCounters']['meta_info'].parent =_meta_table['Rsvp.OpenConfig']['meta_info']
+_meta_table['Rsvp.OpenConfig.InterfaceCounters']['meta_info'].parent =_meta_table['Rsvp.OpenConfig']['meta_info']
 _meta_table['Rsvp.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages']['meta_info'].parent =_meta_table['Rsvp.Counters.InterfaceMessages.InterfaceMessage']['meta_info']
 _meta_table['Rsvp.Counters.InterfaceMessages.InterfaceMessage.TransmittedMessages']['meta_info'].parent =_meta_table['Rsvp.Counters.InterfaceMessages.InterfaceMessage']['meta_info']
 _meta_table['Rsvp.Counters.InterfaceMessages.InterfaceMessage.BundleReceivedMessages']['meta_info'].parent =_meta_table['Rsvp.Counters.InterfaceMessages.InterfaceMessage']['meta_info']
@@ -30995,6 +31742,7 @@ _meta_table['Rsvp.InterfaceSummaries']['meta_info'].parent =_meta_table['Rsvp'][
 _meta_table['Rsvp.HelloInstanceBriefs']['meta_info'].parent =_meta_table['Rsvp']['meta_info']
 _meta_table['Rsvp.AuthenticationDetails']['meta_info'].parent =_meta_table['Rsvp']['meta_info']
 _meta_table['Rsvp.RsbBriefs']['meta_info'].parent =_meta_table['Rsvp']['meta_info']
+_meta_table['Rsvp.OpenConfig']['meta_info'].parent =_meta_table['Rsvp']['meta_info']
 _meta_table['Rsvp.Counters']['meta_info'].parent =_meta_table['Rsvp']['meta_info']
 _meta_table['Rsvp.InterfaceDetaileds']['meta_info'].parent =_meta_table['Rsvp']['meta_info']
 _meta_table['Rsvp.GracefulRestart']['meta_info'].parent =_meta_table['Rsvp']['meta_info']

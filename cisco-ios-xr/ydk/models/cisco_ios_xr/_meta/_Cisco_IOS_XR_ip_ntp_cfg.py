@@ -47,7 +47,7 @@ _meta_table = {
                 'peer_type',
                 'Cisco-IOS-XR-ip-ntp-cfg', True),
             _MetaInfoClassMember('authentication-key', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Authentication Key
                 ''',
                 'authentication_key',
@@ -65,19 +65,19 @@ _meta_table = {
                 'iburst',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('max-poll', ATTRIBUTE, 'int' , None, None, 
-                [(4, 17)], [], 
+                [('4', '17')], [], 
                 '''                Maxinum poll interval
                 ''',
                 'max_poll',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('min-poll', ATTRIBUTE, 'int' , None, None, 
-                [(4, 17)], [], 
+                [('4', '17')], [], 
                 '''                Minimum poll interval
                 ''',
                 'min_poll',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('ntp-version', ATTRIBUTE, 'int' , None, None, 
-                [(2, 4)], [], 
+                [('2', '4')], [], 
                 '''                NTP version
                 ''',
                 'ntp_version',
@@ -89,7 +89,7 @@ _meta_table = {
                 'preferred_peer',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Source interface of this peer
                 ''',
                 'source_interface',
@@ -158,7 +158,7 @@ _meta_table = {
                 'address_ipv6',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('authentication-key', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Authentication Key
                 ''',
                 'authentication_key',
@@ -176,19 +176,19 @@ _meta_table = {
                 'iburst',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('max-poll', ATTRIBUTE, 'int' , None, None, 
-                [(4, 17)], [], 
+                [('4', '17')], [], 
                 '''                Maxinum poll interval
                 ''',
                 'max_poll',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('min-poll', ATTRIBUTE, 'int' , None, None, 
-                [(4, 17)], [], 
+                [('4', '17')], [], 
                 '''                Minimum poll interval
                 ''',
                 'min_poll',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('ntp-version', ATTRIBUTE, 'int' , None, None, 
-                [(2, 4)], [], 
+                [('2', '4')], [], 
                 '''                NTP version
                 ''',
                 'ntp_version',
@@ -200,7 +200,7 @@ _meta_table = {
                 'preferred_peer',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Source interface of this peer
                 ''',
                 'source_interface',
@@ -305,7 +305,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dscp-or-precedence-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
+                [('0', '63')], [], 
                 '''                If Mode is set to 'NTPPRECEDENCE(0)' specify
                 Precedence value , if Mode is set to
                 'NTPDSCP(1)' specify DSCP
@@ -331,7 +331,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dscp-or-precedence-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 63)], [], 
+                [('0', '63')], [], 
                 '''                If Mode is set to 'NTPPRECEDENCE(0)' specify
                 Precedence value , if Mode is set to
                 'NTPDSCP(1)' specify DSCP
@@ -363,7 +363,7 @@ _meta_table = {
                 'vrf_name',
                 'Cisco-IOS-XR-ip-ntp-cfg', True),
             _MetaInfoClassMember('source-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Source Interface for NTP
                 ''',
                 'source_interface',
@@ -397,7 +397,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('key-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Authentication Key number
                 ''',
                 'key_number',
@@ -437,7 +437,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('key-number', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Key number
                 ''',
                 'key_number',
@@ -491,6 +491,23 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ip-ntp-cfg',
             'authentication',
+            _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg'
+        ),
+    },
+    'Ntp.Passive' : {
+        'meta_info' : _MetaInfoClass('Ntp.Passive',
+            False, 
+            [
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable NTP Passive associations
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ip-ntp-cfg',
+            'passive',
             _yang_ns._namespaces['Cisco-IOS-XR-ip-ntp-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg'
         ),
@@ -566,19 +583,19 @@ _meta_table = {
                         'Cisco-IOS-XR-ip-ntp-cfg', True),
                 ]),
             _MetaInfoClassMember('authentication-key', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Authentication key
                 ''',
                 'authentication_key',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('ttl', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                TTL
                 ''',
                 'ttl',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
-                [(2, 4)], [], 
+                [('2', '4')], [], 
                 '''                NTP version
                 ''',
                 'version',
@@ -641,13 +658,13 @@ _meta_table = {
                 'address',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('authentication-key', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Authentication key
                 ''',
                 'authentication_key',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('ntp-version', ATTRIBUTE, 'int' , None, None, 
-                [(2, 4)], [], 
+                [('2', '4')], [], 
                 '''                NTP version
                 ''',
                 'ntp_version',
@@ -687,7 +704,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                interface
                 ''',
                 'interface',
@@ -860,7 +877,7 @@ _meta_table = {
                 'authentication',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('broadcast-delay', ATTRIBUTE, 'int' , None, None, 
-                [(1, 999999)], [], 
+                [('1', '999999')], [], 
                 '''                Estimated round-trip delay
                 ''',
                 'broadcast_delay',
@@ -890,16 +907,22 @@ _meta_table = {
                 'log_internal_sync',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('master', ATTRIBUTE, 'int' , None, None, 
-                [(1, 15)], [], 
+                [('1', '15')], [], 
                 '''                Act as NTP master clock
                 ''',
                 'master',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('max-associations', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Set maximum number of associations
                 ''',
                 'max_associations',
+                'Cisco-IOS-XR-ip-ntp-cfg', False),
+            _MetaInfoClassMember('passive', REFERENCE_CLASS, 'Passive' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.Passive', 
+                [], [], 
+                '''                Configure NTP passive associations
+                ''',
+                'passive',
                 'Cisco-IOS-XR-ip-ntp-cfg', False),
             _MetaInfoClassMember('peer-vrfs', REFERENCE_CLASS, 'PeerVrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg', 'Ntp.PeerVrfs', 
                 [], [], 
@@ -956,5 +979,6 @@ _meta_table['Ntp.DscpIpv4']['meta_info'].parent =_meta_table['Ntp']['meta_info']
 _meta_table['Ntp.DscpIpv6']['meta_info'].parent =_meta_table['Ntp']['meta_info']
 _meta_table['Ntp.Sources']['meta_info'].parent =_meta_table['Ntp']['meta_info']
 _meta_table['Ntp.Authentication']['meta_info'].parent =_meta_table['Ntp']['meta_info']
+_meta_table['Ntp.Passive']['meta_info'].parent =_meta_table['Ntp']['meta_info']
 _meta_table['Ntp.InterfaceTables']['meta_info'].parent =_meta_table['Ntp']['meta_info']
 _meta_table['Ntp.AccessGroupTables']['meta_info'].parent =_meta_table['Ntp']['meta_info']

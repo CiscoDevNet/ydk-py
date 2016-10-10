@@ -26,7 +26,7 @@ _meta_table = {
                 'polling_disable',
                 'Cisco-IOS-XR-infra-statsd-cfg', False),
             _MetaInfoClassMember('polling-period', ATTRIBUTE, 'int' , None, None, 
-                [(30, 3600)], [], 
+                [('30', '3600')], [], 
                 '''                Collection polling period for service
                 accounting collectors
                 ''',

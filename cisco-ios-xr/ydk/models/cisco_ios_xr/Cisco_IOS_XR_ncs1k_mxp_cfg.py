@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   hardware\-module\: NCS1k HW module config
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -209,6 +209,11 @@ class HardwareModule(object):
                 	Client Rate
                 	**type**\:  :py:class:`ClientDataRateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRateEnum>`
                 
+                .. attribute:: encrypted
+                
+                	Encrypted
+                	**type**\:  bool
+                
                 .. attribute:: fec
                 
                 	FEC
@@ -230,6 +235,7 @@ class HardwareModule(object):
                     self.parent = None
                     self.slice_id = None
                     self.client_rate = None
+                    self.encrypted = None
                     self.fec = None
                     self.trunk_rate = None
 
@@ -253,6 +259,9 @@ class HardwareModule(object):
                         return True
 
                     if self.client_rate is not None:
+                        return True
+
+                    if self.encrypted is not None:
                         return True
 
                     if self.fec is not None:

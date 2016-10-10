@@ -8,7 +8,7 @@ for the following management objects\:
   rsvp\-standby\: RSVP operational data for standby role
   rsvp\: rsvp
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -266,6 +266,39 @@ class RsvpMgmtEroSubobjEnum(Enum):
     def _meta_info():
         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
         return meta._meta_table['RsvpMgmtEroSubobjEnum']
+
+
+class RsvpMgmtEroSubobjStatusEnum(Enum):
+    """
+    RsvpMgmtEroSubobjStatusEnum
+
+    RSVP ERO Status
+
+    .. data:: RSVP_MGMT_ERO_STATUS_NOT_AVAILABLE = 0
+
+    	ERO is not available in topology
+
+    .. data:: RSVP_MGMT_ERO_STATUS_AVAILABLE = 1
+
+    	ERO is available in topology
+
+    .. data:: RSVP_MGMT_ERO_STATUS_BW_NOT_AVAILABLE = 2
+
+    	ERO doesn't have bw available in topology
+
+    """
+
+    RSVP_MGMT_ERO_STATUS_NOT_AVAILABLE = 0
+
+    RSVP_MGMT_ERO_STATUS_AVAILABLE = 1
+
+    RSVP_MGMT_ERO_STATUS_BW_NOT_AVAILABLE = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
+        return meta._meta_table['RsvpMgmtEroSubobjStatusEnum']
 
 
 class RsvpMgmtFilterEnum(Enum):
@@ -1078,6 +1111,11 @@ class RsvpStandby(object):
     	RSVP NSR information
     	**type**\:  :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Nsr>`
     
+    .. attribute:: open_config
+    
+    	OpenConfig info
+    	**type**\:  :py:class:`OpenConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig>`
+    
     .. attribute:: psb_briefs
     
     	Table of brief info about path state blocks
@@ -1167,6 +1205,8 @@ class RsvpStandby(object):
         self.interface_summaries.parent = self
         self.nsr = RsvpStandby.Nsr()
         self.nsr.parent = self
+        self.open_config = RsvpStandby.OpenConfig()
+        self.open_config.parent = self
         self.psb_briefs = RsvpStandby.PsbBriefs()
         self.psb_briefs.parent = self
         self.psb_detaileds = RsvpStandby.PsbDetaileds()
@@ -1265,7 +1305,7 @@ class RsvpStandby(object):
                 	Neighbor's Interface handle
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -1402,7 +1442,7 @@ class RsvpStandby(object):
             	InterfaceName
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: mode_id  <key>
             
@@ -1431,7 +1471,7 @@ class RsvpStandby(object):
             .. attribute:: key_id
             
             	Key ID
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -3291,14 +3331,14 @@ class RsvpStandby(object):
                 .. attribute:: traffic_average_rate
                 
                 	Traffic Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3319,7 +3359,7 @@ class RsvpStandby(object):
                 .. attribute:: traffic_peak_rate
                 
                 	Traffic Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -3415,7 +3455,7 @@ class RsvpStandby(object):
                     .. attribute:: traffic_bit_rate
                     
                     	G709 OTN Traffic Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3493,14 +3533,14 @@ class RsvpStandby(object):
                     .. attribute:: traffic_average_rate
                     
                     	Traffic Average Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3521,7 +3561,7 @@ class RsvpStandby(object):
                     .. attribute:: traffic_peak_rate
                     
                     	Traffic Peak Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3707,7 +3747,7 @@ class RsvpStandby(object):
                 	Neighbor Logical Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -4177,6 +4217,13 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: lsp_wrap_label
+                
+                	LSP Wrap Label
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: merge_point_label
                 
                 	MergePoint Label
@@ -4229,6 +4276,7 @@ class RsvpStandby(object):
                     self.is_valid = None
                     self.local_downstream_label = None
                     self.local_upstream_label = None
+                    self.lsp_wrap_label = None
                     self.merge_point_label = None
                     self.outgoing_downstream_label = None
                     self.outgoing_upstream_label = None
@@ -4885,6 +4933,9 @@ class RsvpStandby(object):
                     if self.local_upstream_label is not None:
                         return True
 
+                    if self.lsp_wrap_label is not None:
+                        return True
+
                     if self.merge_point_label is not None:
                         return True
 
@@ -5276,6 +5327,11 @@ class RsvpStandby(object):
                     	ERO Entry Is Strict
                     	**type**\:  bool
                     
+                    .. attribute:: status
+                    
+                    	Status of ERO
+                    	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                    
                     
 
                     """
@@ -5288,6 +5344,7 @@ class RsvpStandby(object):
                         self.ero_interface_id = None
                         self.ero_router_id = None
                         self.is_strict_route = None
+                        self.status = None
 
                     @property
                     def _common_path(self):
@@ -5308,6 +5365,9 @@ class RsvpStandby(object):
                             return True
 
                         if self.is_strict_route is not None:
+                            return True
+
+                        if self.status is not None:
                             return True
 
                         return False
@@ -5469,6 +5529,11 @@ class RsvpStandby(object):
                     	ERO Entry Is Strict
                     	**type**\:  bool
                     
+                    .. attribute:: status
+                    
+                    	Status of ERO
+                    	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                    
                     
 
                     """
@@ -5481,6 +5546,7 @@ class RsvpStandby(object):
                         self.ero_interface_id = None
                         self.ero_router_id = None
                         self.is_strict_route = None
+                        self.status = None
 
                     @property
                     def _common_path(self):
@@ -5501,6 +5567,9 @@ class RsvpStandby(object):
                             return True
 
                         if self.is_strict_route is not None:
+                            return True
+
+                        if self.status is not None:
                             return True
 
                         return False
@@ -6140,14 +6209,14 @@ class RsvpStandby(object):
                 .. attribute:: flow_average_rate
                 
                 	The Flow Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -6168,7 +6237,7 @@ class RsvpStandby(object):
                 .. attribute:: flow_peak_rate
                 
                 	The Flow Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -6180,7 +6249,7 @@ class RsvpStandby(object):
                 .. attribute:: flow_requested_rate
                 
                 	The Flow Requested Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -6288,7 +6357,7 @@ class RsvpStandby(object):
                     .. attribute:: flow_bit_rate
                     
                     	G709 OTN Flow Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -7203,7 +7272,7 @@ class RsvpStandby(object):
                 	Neighbor Logical Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -7673,6 +7742,13 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: lsp_wrap_label
+                
+                	LSP Wrap Label
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: merge_point_label
                 
                 	MergePoint Label
@@ -7725,6 +7801,7 @@ class RsvpStandby(object):
                     self.is_valid = None
                     self.local_downstream_label = None
                     self.local_upstream_label = None
+                    self.lsp_wrap_label = None
                     self.merge_point_label = None
                     self.outgoing_downstream_label = None
                     self.outgoing_upstream_label = None
@@ -8381,6 +8458,9 @@ class RsvpStandby(object):
                     if self.local_upstream_label is not None:
                         return True
 
+                    if self.lsp_wrap_label is not None:
+                        return True
+
                     if self.merge_point_label is not None:
                         return True
 
@@ -8558,7 +8638,7 @@ class RsvpStandby(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: bandwidth_information
             
@@ -8659,7 +8739,7 @@ class RsvpStandby(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -8676,21 +8756,21 @@ class RsvpStandby(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -8757,7 +8837,7 @@ class RsvpStandby(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -8779,28 +8859,28 @@ class RsvpStandby(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool0_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC0 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -9017,7 +9097,7 @@ class RsvpStandby(object):
             	Interface to use
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: instance_type
             
@@ -9173,7 +9253,7 @@ class RsvpStandby(object):
             	InterfaceName
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: mode_id  <key>
             
@@ -9273,7 +9353,7 @@ class RsvpStandby(object):
                 .. attribute:: key_id
                 
                 	Key ID
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -9419,7 +9499,7 @@ class RsvpStandby(object):
                     .. attribute:: sequence
                     
                     	Sequence number
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -9556,14 +9636,14 @@ class RsvpStandby(object):
                     .. attribute:: sequence
                     
                     	Sequence number
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: sequence_window
                     
                     	Sequence window
-                    	**type**\:  list of long
+                    	**type**\:  list of int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -10584,14 +10664,14 @@ class RsvpStandby(object):
                 .. attribute:: flow_average_rate
                 
                 	The Flow Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -10612,7 +10692,7 @@ class RsvpStandby(object):
                 .. attribute:: flow_peak_rate
                 
                 	The Flow Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -10624,7 +10704,7 @@ class RsvpStandby(object):
                 .. attribute:: flow_requested_rate
                 
                 	The Flow Requested Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -10732,7 +10812,7 @@ class RsvpStandby(object):
                     .. attribute:: flow_bit_rate
                     
                     	G709 OTN Flow Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -11209,6 +11289,627 @@ class RsvpStandby(object):
             return meta._meta_table['RsvpStandby.RsbBriefs']['meta_info']
 
 
+    class OpenConfig(object):
+        """
+        OpenConfig info
+        
+        .. attribute:: global_counters
+        
+        	Platform wide RSVP statistics and counters
+        	**type**\:  :py:class:`GlobalCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig.GlobalCounters>`
+        
+        .. attribute:: interface_counters
+        
+        	Table of info about RSVP\-enabled interface counters for OpenConfig
+        	**type**\:  :py:class:`InterfaceCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig.InterfaceCounters>`
+        
+        
+
+        """
+
+        _prefix = 'ip-rsvp-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.global_counters = RsvpStandby.OpenConfig.GlobalCounters()
+            self.global_counters.parent = self
+            self.interface_counters = RsvpStandby.OpenConfig.InterfaceCounters()
+            self.interface_counters.parent = self
+
+
+        class GlobalCounters(object):
+            """
+            Platform wide RSVP statistics and counters
+            
+            .. attribute:: in_ack_messages
+            
+            	Global count of ack messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_hello_messages
+            
+            	Global count of hello messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_path_error_messages
+            
+            	Global count of path error messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_path_messages
+            
+            	Global count of path messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_path_tear_messages
+            
+            	Global count of path tear messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_reservation_error_messages
+            
+            	Global count of reservation error messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_reservation_messages
+            
+            	Global count of reservation messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_reservation_tear_messages
+            
+            	Global count of reservation tear messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_srefresh_messages
+            
+            	Global count of srefresh messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_ack_messages
+            
+            	Global count of ack messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_hello_messages
+            
+            	Global count of hello messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_path_error_messages
+            
+            	Global count of path error messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_path_messages
+            
+            	Global count of path messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_path_tear_messages
+            
+            	Global count of path tear messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_reservation_error_messages
+            
+            	Global count of reservation error messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_reservation_messages
+            
+            	Global count of reservation messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_reservation_tear_messages
+            
+            	Global count of reservation tear messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_srefresh_messages
+            
+            	Global count of srefresh messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: path_timeouts
+            
+            	Global count of Path Timeouts
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rate_limited_messages
+            
+            	Global count of rate limited messages
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: reservation_timeouts
+            
+            	Global count of reservation timeouts
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.in_ack_messages = None
+                self.in_hello_messages = None
+                self.in_path_error_messages = None
+                self.in_path_messages = None
+                self.in_path_tear_messages = None
+                self.in_reservation_error_messages = None
+                self.in_reservation_messages = None
+                self.in_reservation_tear_messages = None
+                self.in_srefresh_messages = None
+                self.out_ack_messages = None
+                self.out_hello_messages = None
+                self.out_path_error_messages = None
+                self.out_path_messages = None
+                self.out_path_tear_messages = None
+                self.out_reservation_error_messages = None
+                self.out_reservation_messages = None
+                self.out_reservation_tear_messages = None
+                self.out_srefresh_messages = None
+                self.path_timeouts = None
+                self.rate_limited_messages = None
+                self.reservation_timeouts = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:open-config/Cisco-IOS-XR-ip-rsvp-oper:global-counters'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.in_ack_messages is not None:
+                    return True
+
+                if self.in_hello_messages is not None:
+                    return True
+
+                if self.in_path_error_messages is not None:
+                    return True
+
+                if self.in_path_messages is not None:
+                    return True
+
+                if self.in_path_tear_messages is not None:
+                    return True
+
+                if self.in_reservation_error_messages is not None:
+                    return True
+
+                if self.in_reservation_messages is not None:
+                    return True
+
+                if self.in_reservation_tear_messages is not None:
+                    return True
+
+                if self.in_srefresh_messages is not None:
+                    return True
+
+                if self.out_ack_messages is not None:
+                    return True
+
+                if self.out_hello_messages is not None:
+                    return True
+
+                if self.out_path_error_messages is not None:
+                    return True
+
+                if self.out_path_messages is not None:
+                    return True
+
+                if self.out_path_tear_messages is not None:
+                    return True
+
+                if self.out_reservation_error_messages is not None:
+                    return True
+
+                if self.out_reservation_messages is not None:
+                    return True
+
+                if self.out_reservation_tear_messages is not None:
+                    return True
+
+                if self.out_srefresh_messages is not None:
+                    return True
+
+                if self.path_timeouts is not None:
+                    return True
+
+                if self.rate_limited_messages is not None:
+                    return True
+
+                if self.reservation_timeouts is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
+                return meta._meta_table['RsvpStandby.OpenConfig.GlobalCounters']['meta_info']
+
+
+        class InterfaceCounters(object):
+            """
+            Table of info about RSVP\-enabled interface
+            counters for OpenConfig
+            
+            .. attribute:: interface_counter
+            
+            	Info about an RSVP\-enabled interface counters
+            	**type**\: list of  :py:class:`InterfaceCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig.InterfaceCounters.InterfaceCounter>`
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.interface_counter = YList()
+                self.interface_counter.parent = self
+                self.interface_counter.name = 'interface_counter'
+
+
+            class InterfaceCounter(object):
+                """
+                Info about an RSVP\-enabled interface counters
+                
+                .. attribute:: interface_name  <key>
+                
+                	Interface name
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: in_ack_messages
+                
+                	Per interface count of ack messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_hello_messages
+                
+                	Per interface count of hello messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_path_error_messages
+                
+                	Per interface count of path error messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_path_messages
+                
+                	Per interface count of path messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_path_tear_messages
+                
+                	Per interface count of path tear messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_reservation_error_messages
+                
+                	Per interface count of reservation error messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_reservation_messages
+                
+                	Per interface count of reservation messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_reservation_tear_messages
+                
+                	Per interface count of reservation tear messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_srefresh_messages
+                
+                	Per interface count of srefresh messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: interface_name_xr
+                
+                	Interface name
+                	**type**\:  str
+                
+                .. attribute:: out_ack_messages
+                
+                	Per interface count of ack messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_hello_messages
+                
+                	Per interface count of hello messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_path_error_messages
+                
+                	Per interface count of path error messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_path_messages
+                
+                	Per interface count of path messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_path_tear_messages
+                
+                	Per interface count of path tear messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_reservation_error_messages
+                
+                	Per interface count of reservation error messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_reservation_messages
+                
+                	Per interface count of reservation messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_reservation_tear_messages
+                
+                	Per interface count of reservation tear messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_srefresh_messages
+                
+                	Per interface count of srefresh messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'ip-rsvp-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interface_name = None
+                    self.in_ack_messages = None
+                    self.in_hello_messages = None
+                    self.in_path_error_messages = None
+                    self.in_path_messages = None
+                    self.in_path_tear_messages = None
+                    self.in_reservation_error_messages = None
+                    self.in_reservation_messages = None
+                    self.in_reservation_tear_messages = None
+                    self.in_srefresh_messages = None
+                    self.interface_name_xr = None
+                    self.out_ack_messages = None
+                    self.out_hello_messages = None
+                    self.out_path_error_messages = None
+                    self.out_path_messages = None
+                    self.out_path_tear_messages = None
+                    self.out_reservation_error_messages = None
+                    self.out_reservation_messages = None
+                    self.out_reservation_tear_messages = None
+                    self.out_srefresh_messages = None
+
+                @property
+                def _common_path(self):
+                    if self.interface_name is None:
+                        raise YPYModelError('Key property interface_name is None')
+
+                    return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:open-config/Cisco-IOS-XR-ip-rsvp-oper:interface-counters/Cisco-IOS-XR-ip-rsvp-oper:interface-counter[Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interface_name is not None:
+                        return True
+
+                    if self.in_ack_messages is not None:
+                        return True
+
+                    if self.in_hello_messages is not None:
+                        return True
+
+                    if self.in_path_error_messages is not None:
+                        return True
+
+                    if self.in_path_messages is not None:
+                        return True
+
+                    if self.in_path_tear_messages is not None:
+                        return True
+
+                    if self.in_reservation_error_messages is not None:
+                        return True
+
+                    if self.in_reservation_messages is not None:
+                        return True
+
+                    if self.in_reservation_tear_messages is not None:
+                        return True
+
+                    if self.in_srefresh_messages is not None:
+                        return True
+
+                    if self.interface_name_xr is not None:
+                        return True
+
+                    if self.out_ack_messages is not None:
+                        return True
+
+                    if self.out_hello_messages is not None:
+                        return True
+
+                    if self.out_path_error_messages is not None:
+                        return True
+
+                    if self.out_path_messages is not None:
+                        return True
+
+                    if self.out_path_tear_messages is not None:
+                        return True
+
+                    if self.out_reservation_error_messages is not None:
+                        return True
+
+                    if self.out_reservation_messages is not None:
+                        return True
+
+                    if self.out_reservation_tear_messages is not None:
+                        return True
+
+                    if self.out_srefresh_messages is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
+                    return meta._meta_table['RsvpStandby.OpenConfig.InterfaceCounters.InterfaceCounter']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:open-config/Cisco-IOS-XR-ip-rsvp-oper:interface-counters'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface_counter is not None:
+                    for child_ref in self.interface_counter:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
+                return meta._meta_table['RsvpStandby.OpenConfig.InterfaceCounters']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp-standby/Cisco-IOS-XR-ip-rsvp-oper:open-config'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.global_counters is not None and self.global_counters._has_data():
+                return True
+
+            if self.interface_counters is not None and self.interface_counters._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
+            return meta._meta_table['RsvpStandby.OpenConfig']['meta_info']
+
+
     class Counters(object):
         """
         Counters
@@ -11319,7 +12020,7 @@ class RsvpStandby(object):
                 	Interface Name. 'None' is used internally where the true interface is unknown (e.g. for routed packets)
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: bundle_received_messages
                 
@@ -15035,7 +15736,7 @@ class RsvpStandby(object):
                 	Interface Name. 'None' is used internally where the true interface is unknown (e.g. for routed packets)
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: expired_paths
                 
@@ -15170,7 +15871,7 @@ class RsvpStandby(object):
             .. attribute:: total_nacks
             
             	Total number of NACKs
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -15279,7 +15980,7 @@ class RsvpStandby(object):
             .. attribute:: total_nacks
             
             	Total number of NACKs
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -15481,7 +16182,7 @@ class RsvpStandby(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: expired_paths
                 
@@ -15655,7 +16356,7 @@ class RsvpStandby(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: ack_hold_time
             
@@ -15907,7 +16608,7 @@ class RsvpStandby(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -15924,21 +16625,21 @@ class RsvpStandby(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -16005,7 +16706,7 @@ class RsvpStandby(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -16027,28 +16728,28 @@ class RsvpStandby(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool0_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC0 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -16996,7 +17697,7 @@ class RsvpStandby(object):
             	Interface to use
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: instance_type
             
@@ -17161,19 +17862,19 @@ class RsvpStandby(object):
             	Interface to use
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: hello_messages_received
             
             	Number of hello messages received
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: hello_messages_sent
             
             	Number of hello messages sent
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -17456,7 +18157,7 @@ class RsvpStandby(object):
                 	Neighbor's Interface handle
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: out_of_order_messages
                 
@@ -19877,14 +20578,14 @@ class RsvpStandby(object):
                 .. attribute:: flow_average_rate
                 
                 	The Flow Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -19905,7 +20606,7 @@ class RsvpStandby(object):
                 .. attribute:: flow_peak_rate
                 
                 	The Flow Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -19917,7 +20618,7 @@ class RsvpStandby(object):
                 .. attribute:: flow_requested_rate
                 
                 	The Flow Requested Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -20025,7 +20726,7 @@ class RsvpStandby(object):
                     .. attribute:: flow_bit_rate
                     
                     	G709 OTN Flow Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -21179,14 +21880,14 @@ class RsvpStandby(object):
                 .. attribute:: flow_average_rate
                 
                 	The Flow Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -21207,7 +21908,7 @@ class RsvpStandby(object):
                 .. attribute:: flow_peak_rate
                 
                 	The Flow Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -21219,7 +21920,7 @@ class RsvpStandby(object):
                 .. attribute:: flow_requested_rate
                 
                 	The Flow Requested Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -21327,7 +22028,7 @@ class RsvpStandby(object):
                     .. attribute:: flow_bit_rate
                     
                     	G709 OTN Flow Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -21865,7 +22566,7 @@ class RsvpStandby(object):
                 	Neighbor Logical Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -22690,7 +23391,7 @@ class RsvpStandby(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: bandwidth_information
             
@@ -22759,7 +23460,7 @@ class RsvpStandby(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -22776,21 +23477,21 @@ class RsvpStandby(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -22857,7 +23558,7 @@ class RsvpStandby(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -22879,28 +23580,28 @@ class RsvpStandby(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool0_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC0 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -23761,7 +24462,7 @@ class RsvpStandby(object):
                     	Interface on which inbound message was received
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: in_label
                     
@@ -23805,6 +24506,13 @@ class RsvpStandby(object):
                     .. attribute:: lsp_id
                     
                     	LSP ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: lsp_wrap_label
+                    
+                    	LSP Wrap Label
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -23876,6 +24584,7 @@ class RsvpStandby(object):
                         self.is_traffic_spec_valid = None
                         self.is_valid = None
                         self.lsp_id = None
+                        self.lsp_wrap_label = None
                         self.p2mp_sub_group_origin = None
                         self.protection = RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection()
                         self.protection.parent = self
@@ -23999,14 +24708,14 @@ class RsvpStandby(object):
                         .. attribute:: traffic_average_rate
                         
                         	Traffic Average Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: traffic_max_burst
                         
                         	Traffic Maximum Burst
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -24027,7 +24736,7 @@ class RsvpStandby(object):
                         .. attribute:: traffic_peak_rate
                         
                         	Traffic Peak Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -24123,7 +24832,7 @@ class RsvpStandby(object):
                             .. attribute:: traffic_bit_rate
                             
                             	G709 OTN Traffic Bit Rate
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -24201,14 +24910,14 @@ class RsvpStandby(object):
                             .. attribute:: traffic_average_rate
                             
                             	Traffic Average Rate in bytes per second
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: traffic_max_burst
                             
                             	Traffic Maximum Burst
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -24229,7 +24938,7 @@ class RsvpStandby(object):
                             .. attribute:: traffic_peak_rate
                             
                             	Traffic Peak Rate in bytes per second
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -25069,7 +25778,7 @@ class RsvpStandby(object):
                                 .. attribute:: traffic_bit_rate
                                 
                                 	G709 OTN Traffic Bit Rate
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -25147,14 +25856,14 @@ class RsvpStandby(object):
                                 .. attribute:: traffic_average_rate
                                 
                                 	Traffic Average Rate in bytes per second
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: traffic_max_burst
                                 
                                 	Traffic Maximum Burst
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -25175,7 +25884,7 @@ class RsvpStandby(object):
                                 .. attribute:: traffic_peak_rate
                                 
                                 	Traffic Peak Rate in bytes per second
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -25380,6 +26089,11 @@ class RsvpStandby(object):
                                 	ERO Entry Is Strict
                                 	**type**\:  bool
                                 
+                                .. attribute:: status
+                                
+                                	Status of ERO
+                                	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                                
                                 
 
                                 """
@@ -25392,6 +26106,7 @@ class RsvpStandby(object):
                                     self.ero_interface_id = None
                                     self.ero_router_id = None
                                     self.is_strict_route = None
+                                    self.status = None
 
                                 @property
                                 def _common_path(self):
@@ -25412,6 +26127,9 @@ class RsvpStandby(object):
                                         return True
 
                                     if self.is_strict_route is not None:
+                                        return True
+
+                                    if self.status is not None:
                                         return True
 
                                     return False
@@ -25654,6 +26372,11 @@ class RsvpStandby(object):
                             	ERO Entry Is Strict
                             	**type**\:  bool
                             
+                            .. attribute:: status
+                            
+                            	Status of ERO
+                            	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                            
                             
 
                             """
@@ -25666,6 +26389,7 @@ class RsvpStandby(object):
                                 self.ero_interface_id = None
                                 self.ero_router_id = None
                                 self.is_strict_route = None
+                                self.status = None
 
                             @property
                             def _common_path(self):
@@ -25686,6 +26410,9 @@ class RsvpStandby(object):
                                     return True
 
                                 if self.is_strict_route is not None:
+                                    return True
+
+                                if self.status is not None:
                                     return True
 
                                 return False
@@ -26312,6 +27039,9 @@ class RsvpStandby(object):
                         if self.lsp_id is not None:
                             return True
 
+                        if self.lsp_wrap_label is not None:
+                            return True
+
                         if self.p2mp_sub_group_origin is not None:
                             return True
 
@@ -26352,7 +27082,7 @@ class RsvpStandby(object):
                     	Backup tunnel interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: backup_label
                     
@@ -26403,7 +27133,7 @@ class RsvpStandby(object):
                     	Interface on which outbound message was sent
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: out_label
                     
@@ -26554,14 +27284,14 @@ class RsvpStandby(object):
                         .. attribute:: flow_average_rate
                         
                         	The Flow Average Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: flow_max_burst
                         
                         	The Flow Maximum Burst
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -26582,7 +27312,7 @@ class RsvpStandby(object):
                         .. attribute:: flow_peak_rate
                         
                         	The Flow Peak Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -26594,7 +27324,7 @@ class RsvpStandby(object):
                         .. attribute:: flow_requested_rate
                         
                         	The Flow Requested Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -26702,7 +27432,7 @@ class RsvpStandby(object):
                             .. attribute:: flow_bit_rate
                             
                             	G709 OTN Flow Bit Rate
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -27602,7 +28332,7 @@ class RsvpStandby(object):
             	Interface to use
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: hello_interval
             
@@ -27614,21 +28344,21 @@ class RsvpStandby(object):
             .. attribute:: hello_messages_received
             
             	Number of hello messages received
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: hello_messages_sent
             
             	Number of hello messages sent
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: hello_request_suppressed
             
             	Count of Hello Requests suppessed
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -29697,14 +30427,14 @@ class RsvpStandby(object):
                 .. attribute:: traffic_average_rate
                 
                 	Traffic Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -29725,7 +30455,7 @@ class RsvpStandby(object):
                 .. attribute:: traffic_peak_rate
                 
                 	Traffic Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -29821,7 +30551,7 @@ class RsvpStandby(object):
                     .. attribute:: traffic_bit_rate
                     
                     	G709 OTN Traffic Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -29899,14 +30629,14 @@ class RsvpStandby(object):
                     .. attribute:: traffic_average_rate
                     
                     	Traffic Average Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -29927,7 +30657,7 @@ class RsvpStandby(object):
                     .. attribute:: traffic_peak_rate
                     
                     	Traffic Peak Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -30556,6 +31286,9 @@ class RsvpStandby(object):
         if self.nsr is not None and self.nsr._has_data():
             return True
 
+        if self.open_config is not None and self.open_config._has_data():
+            return True
+
         if self.psb_briefs is not None and self.psb_briefs._has_data():
             return True
 
@@ -30710,6 +31443,11 @@ class Rsvp(object):
     	RSVP NSR information
     	**type**\:  :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Nsr>`
     
+    .. attribute:: open_config
+    
+    	OpenConfig info
+    	**type**\:  :py:class:`OpenConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig>`
+    
     .. attribute:: psb_briefs
     
     	Table of brief info about path state blocks
@@ -30819,6 +31557,8 @@ class Rsvp(object):
         self.issu.parent = self
         self.nsr = Rsvp.Nsr()
         self.nsr.parent = self
+        self.open_config = Rsvp.OpenConfig()
+        self.open_config.parent = self
         self.psb_briefs = Rsvp.PsbBriefs()
         self.psb_briefs.parent = self
         self.psb_detaileds = Rsvp.PsbDetaileds()
@@ -30876,7 +31616,7 @@ class Rsvp(object):
             	Controller Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: bandwidth_information
             
@@ -30977,7 +31717,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -30994,21 +31734,21 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -31075,7 +31815,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -31097,28 +31837,28 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool0_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC0 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -31614,7 +32354,7 @@ class Rsvp(object):
             	Controller Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: ack_hold_time
             
@@ -31866,7 +32606,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -31883,21 +32623,21 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -31964,7 +32704,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -31986,28 +32726,28 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool0_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC0 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -32719,7 +33459,7 @@ class Rsvp(object):
             	Controller Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: bandwidth_information
             
@@ -32788,7 +33528,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -32805,21 +33545,21 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -32886,7 +33626,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -32908,28 +33648,28 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool0_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC0 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -33956,14 +34696,14 @@ class Rsvp(object):
                 .. attribute:: traffic_average_rate
                 
                 	Traffic Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -33984,7 +34724,7 @@ class Rsvp(object):
                 .. attribute:: traffic_peak_rate
                 
                 	Traffic Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -34080,7 +34820,7 @@ class Rsvp(object):
                     .. attribute:: traffic_bit_rate
                     
                     	G709 OTN Traffic Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -34158,14 +34898,14 @@ class Rsvp(object):
                     .. attribute:: traffic_average_rate
                     
                     	Traffic Average Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -34186,7 +34926,7 @@ class Rsvp(object):
                     .. attribute:: traffic_peak_rate
                     
                     	Traffic Peak Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -34284,7 +35024,7 @@ class Rsvp(object):
                 	Neighbor Logical Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -35463,14 +36203,14 @@ class Rsvp(object):
                 .. attribute:: flow_average_rate
                 
                 	The Flow Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -35491,7 +36231,7 @@ class Rsvp(object):
                 .. attribute:: flow_peak_rate
                 
                 	The Flow Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -35503,7 +36243,7 @@ class Rsvp(object):
                 .. attribute:: flow_requested_rate
                 
                 	The Flow Requested Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -35611,7 +36351,7 @@ class Rsvp(object):
                     .. attribute:: flow_bit_rate
                     
                     	G709 OTN Flow Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -35723,7 +36463,7 @@ class Rsvp(object):
                 	Neighbor Logical Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -36058,7 +36798,7 @@ class Rsvp(object):
                 	Neighbor's Interface handle
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -36195,7 +36935,7 @@ class Rsvp(object):
             	InterfaceName
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: mode_id  <key>
             
@@ -36224,7 +36964,7 @@ class Rsvp(object):
             .. attribute:: key_id
             
             	Key ID
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -38084,14 +38824,14 @@ class Rsvp(object):
                 .. attribute:: traffic_average_rate
                 
                 	Traffic Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -38112,7 +38852,7 @@ class Rsvp(object):
                 .. attribute:: traffic_peak_rate
                 
                 	Traffic Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -38208,7 +38948,7 @@ class Rsvp(object):
                     .. attribute:: traffic_bit_rate
                     
                     	G709 OTN Traffic Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -38286,14 +39026,14 @@ class Rsvp(object):
                     .. attribute:: traffic_average_rate
                     
                     	Traffic Average Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -38314,7 +39054,7 @@ class Rsvp(object):
                     .. attribute:: traffic_peak_rate
                     
                     	Traffic Peak Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -38500,7 +39240,7 @@ class Rsvp(object):
                 	Neighbor Logical Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -38970,6 +39710,13 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: lsp_wrap_label
+                
+                	LSP Wrap Label
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: merge_point_label
                 
                 	MergePoint Label
@@ -39022,6 +39769,7 @@ class Rsvp(object):
                     self.is_valid = None
                     self.local_downstream_label = None
                     self.local_upstream_label = None
+                    self.lsp_wrap_label = None
                     self.merge_point_label = None
                     self.outgoing_downstream_label = None
                     self.outgoing_upstream_label = None
@@ -39678,6 +40426,9 @@ class Rsvp(object):
                     if self.local_upstream_label is not None:
                         return True
 
+                    if self.lsp_wrap_label is not None:
+                        return True
+
                     if self.merge_point_label is not None:
                         return True
 
@@ -40069,6 +40820,11 @@ class Rsvp(object):
                     	ERO Entry Is Strict
                     	**type**\:  bool
                     
+                    .. attribute:: status
+                    
+                    	Status of ERO
+                    	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                    
                     
 
                     """
@@ -40081,6 +40837,7 @@ class Rsvp(object):
                         self.ero_interface_id = None
                         self.ero_router_id = None
                         self.is_strict_route = None
+                        self.status = None
 
                     @property
                     def _common_path(self):
@@ -40101,6 +40858,9 @@ class Rsvp(object):
                             return True
 
                         if self.is_strict_route is not None:
+                            return True
+
+                        if self.status is not None:
                             return True
 
                         return False
@@ -40262,6 +41022,11 @@ class Rsvp(object):
                     	ERO Entry Is Strict
                     	**type**\:  bool
                     
+                    .. attribute:: status
+                    
+                    	Status of ERO
+                    	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                    
                     
 
                     """
@@ -40274,6 +41039,7 @@ class Rsvp(object):
                         self.ero_interface_id = None
                         self.ero_router_id = None
                         self.is_strict_route = None
+                        self.status = None
 
                     @property
                     def _common_path(self):
@@ -40294,6 +41060,9 @@ class Rsvp(object):
                             return True
 
                         if self.is_strict_route is not None:
+                            return True
+
+                        if self.status is not None:
                             return True
 
                         return False
@@ -40933,14 +41702,14 @@ class Rsvp(object):
                 .. attribute:: flow_average_rate
                 
                 	The Flow Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -40961,7 +41730,7 @@ class Rsvp(object):
                 .. attribute:: flow_peak_rate
                 
                 	The Flow Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -40973,7 +41742,7 @@ class Rsvp(object):
                 .. attribute:: flow_requested_rate
                 
                 	The Flow Requested Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -41081,7 +41850,7 @@ class Rsvp(object):
                     .. attribute:: flow_bit_rate
                     
                     	G709 OTN Flow Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -41996,7 +42765,7 @@ class Rsvp(object):
                 	Neighbor Logical Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -42466,6 +43235,13 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: lsp_wrap_label
+                
+                	LSP Wrap Label
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: merge_point_label
                 
                 	MergePoint Label
@@ -42518,6 +43294,7 @@ class Rsvp(object):
                     self.is_valid = None
                     self.local_downstream_label = None
                     self.local_upstream_label = None
+                    self.lsp_wrap_label = None
                     self.merge_point_label = None
                     self.outgoing_downstream_label = None
                     self.outgoing_upstream_label = None
@@ -43174,6 +43951,9 @@ class Rsvp(object):
                     if self.local_upstream_label is not None:
                         return True
 
+                    if self.lsp_wrap_label is not None:
+                        return True
+
                     if self.merge_point_label is not None:
                         return True
 
@@ -43351,7 +44131,7 @@ class Rsvp(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: bandwidth_information
             
@@ -43452,7 +44232,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -43469,21 +44249,21 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -43550,7 +44330,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -43572,28 +44352,28 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool0_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC0 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -43810,7 +44590,7 @@ class Rsvp(object):
             	Interface to use
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: instance_type
             
@@ -43966,7 +44746,7 @@ class Rsvp(object):
             	InterfaceName
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: mode_id  <key>
             
@@ -44066,7 +44846,7 @@ class Rsvp(object):
                 .. attribute:: key_id
                 
                 	Key ID
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -44212,7 +44992,7 @@ class Rsvp(object):
                     .. attribute:: sequence
                     
                     	Sequence number
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -44349,14 +45129,14 @@ class Rsvp(object):
                     .. attribute:: sequence
                     
                     	Sequence number
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: sequence_window
                     
                     	Sequence window
-                    	**type**\:  list of long
+                    	**type**\:  list of int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -45377,14 +46157,14 @@ class Rsvp(object):
                 .. attribute:: flow_average_rate
                 
                 	The Flow Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -45405,7 +46185,7 @@ class Rsvp(object):
                 .. attribute:: flow_peak_rate
                 
                 	The Flow Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -45417,7 +46197,7 @@ class Rsvp(object):
                 .. attribute:: flow_requested_rate
                 
                 	The Flow Requested Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -45525,7 +46305,7 @@ class Rsvp(object):
                     .. attribute:: flow_bit_rate
                     
                     	G709 OTN Flow Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -46002,6 +46782,627 @@ class Rsvp(object):
             return meta._meta_table['Rsvp.RsbBriefs']['meta_info']
 
 
+    class OpenConfig(object):
+        """
+        OpenConfig info
+        
+        .. attribute:: global_counters
+        
+        	Platform wide RSVP statistics and counters
+        	**type**\:  :py:class:`GlobalCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig.GlobalCounters>`
+        
+        .. attribute:: interface_counters
+        
+        	Table of info about RSVP\-enabled interface counters for OpenConfig
+        	**type**\:  :py:class:`InterfaceCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig.InterfaceCounters>`
+        
+        
+
+        """
+
+        _prefix = 'ip-rsvp-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.global_counters = Rsvp.OpenConfig.GlobalCounters()
+            self.global_counters.parent = self
+            self.interface_counters = Rsvp.OpenConfig.InterfaceCounters()
+            self.interface_counters.parent = self
+
+
+        class GlobalCounters(object):
+            """
+            Platform wide RSVP statistics and counters
+            
+            .. attribute:: in_ack_messages
+            
+            	Global count of ack messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_hello_messages
+            
+            	Global count of hello messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_path_error_messages
+            
+            	Global count of path error messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_path_messages
+            
+            	Global count of path messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_path_tear_messages
+            
+            	Global count of path tear messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_reservation_error_messages
+            
+            	Global count of reservation error messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_reservation_messages
+            
+            	Global count of reservation messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_reservation_tear_messages
+            
+            	Global count of reservation tear messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: in_srefresh_messages
+            
+            	Global count of srefresh messages received
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_ack_messages
+            
+            	Global count of ack messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_hello_messages
+            
+            	Global count of hello messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_path_error_messages
+            
+            	Global count of path error messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_path_messages
+            
+            	Global count of path messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_path_tear_messages
+            
+            	Global count of path tear messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_reservation_error_messages
+            
+            	Global count of reservation error messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_reservation_messages
+            
+            	Global count of reservation messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_reservation_tear_messages
+            
+            	Global count of reservation tear messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: out_srefresh_messages
+            
+            	Global count of srefresh messages send
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: path_timeouts
+            
+            	Global count of Path Timeouts
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: rate_limited_messages
+            
+            	Global count of rate limited messages
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: reservation_timeouts
+            
+            	Global count of reservation timeouts
+            	**type**\:  int
+            
+            	**range:** 0..18446744073709551615
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.in_ack_messages = None
+                self.in_hello_messages = None
+                self.in_path_error_messages = None
+                self.in_path_messages = None
+                self.in_path_tear_messages = None
+                self.in_reservation_error_messages = None
+                self.in_reservation_messages = None
+                self.in_reservation_tear_messages = None
+                self.in_srefresh_messages = None
+                self.out_ack_messages = None
+                self.out_hello_messages = None
+                self.out_path_error_messages = None
+                self.out_path_messages = None
+                self.out_path_tear_messages = None
+                self.out_reservation_error_messages = None
+                self.out_reservation_messages = None
+                self.out_reservation_tear_messages = None
+                self.out_srefresh_messages = None
+                self.path_timeouts = None
+                self.rate_limited_messages = None
+                self.reservation_timeouts = None
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:open-config/Cisco-IOS-XR-ip-rsvp-oper:global-counters'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.in_ack_messages is not None:
+                    return True
+
+                if self.in_hello_messages is not None:
+                    return True
+
+                if self.in_path_error_messages is not None:
+                    return True
+
+                if self.in_path_messages is not None:
+                    return True
+
+                if self.in_path_tear_messages is not None:
+                    return True
+
+                if self.in_reservation_error_messages is not None:
+                    return True
+
+                if self.in_reservation_messages is not None:
+                    return True
+
+                if self.in_reservation_tear_messages is not None:
+                    return True
+
+                if self.in_srefresh_messages is not None:
+                    return True
+
+                if self.out_ack_messages is not None:
+                    return True
+
+                if self.out_hello_messages is not None:
+                    return True
+
+                if self.out_path_error_messages is not None:
+                    return True
+
+                if self.out_path_messages is not None:
+                    return True
+
+                if self.out_path_tear_messages is not None:
+                    return True
+
+                if self.out_reservation_error_messages is not None:
+                    return True
+
+                if self.out_reservation_messages is not None:
+                    return True
+
+                if self.out_reservation_tear_messages is not None:
+                    return True
+
+                if self.out_srefresh_messages is not None:
+                    return True
+
+                if self.path_timeouts is not None:
+                    return True
+
+                if self.rate_limited_messages is not None:
+                    return True
+
+                if self.reservation_timeouts is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
+                return meta._meta_table['Rsvp.OpenConfig.GlobalCounters']['meta_info']
+
+
+        class InterfaceCounters(object):
+            """
+            Table of info about RSVP\-enabled interface
+            counters for OpenConfig
+            
+            .. attribute:: interface_counter
+            
+            	Info about an RSVP\-enabled interface counters
+            	**type**\: list of  :py:class:`InterfaceCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig.InterfaceCounters.InterfaceCounter>`
+            
+            
+
+            """
+
+            _prefix = 'ip-rsvp-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.interface_counter = YList()
+                self.interface_counter.parent = self
+                self.interface_counter.name = 'interface_counter'
+
+
+            class InterfaceCounter(object):
+                """
+                Info about an RSVP\-enabled interface counters
+                
+                .. attribute:: interface_name  <key>
+                
+                	Interface name
+                	**type**\:  str
+                
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                
+                .. attribute:: in_ack_messages
+                
+                	Per interface count of ack messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_hello_messages
+                
+                	Per interface count of hello messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_path_error_messages
+                
+                	Per interface count of path error messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_path_messages
+                
+                	Per interface count of path messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_path_tear_messages
+                
+                	Per interface count of path tear messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_reservation_error_messages
+                
+                	Per interface count of reservation error messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_reservation_messages
+                
+                	Per interface count of reservation messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_reservation_tear_messages
+                
+                	Per interface count of reservation tear messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: in_srefresh_messages
+                
+                	Per interface count of srefresh messages received
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: interface_name_xr
+                
+                	Interface name
+                	**type**\:  str
+                
+                .. attribute:: out_ack_messages
+                
+                	Per interface count of ack messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_hello_messages
+                
+                	Per interface count of hello messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_path_error_messages
+                
+                	Per interface count of path error messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_path_messages
+                
+                	Per interface count of path messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_path_tear_messages
+                
+                	Per interface count of path tear messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_reservation_error_messages
+                
+                	Per interface count of reservation error messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_reservation_messages
+                
+                	Per interface count of reservation messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_reservation_tear_messages
+                
+                	Per interface count of reservation tear messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: out_srefresh_messages
+                
+                	Per interface count of srefresh messages send
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'ip-rsvp-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.interface_name = None
+                    self.in_ack_messages = None
+                    self.in_hello_messages = None
+                    self.in_path_error_messages = None
+                    self.in_path_messages = None
+                    self.in_path_tear_messages = None
+                    self.in_reservation_error_messages = None
+                    self.in_reservation_messages = None
+                    self.in_reservation_tear_messages = None
+                    self.in_srefresh_messages = None
+                    self.interface_name_xr = None
+                    self.out_ack_messages = None
+                    self.out_hello_messages = None
+                    self.out_path_error_messages = None
+                    self.out_path_messages = None
+                    self.out_path_tear_messages = None
+                    self.out_reservation_error_messages = None
+                    self.out_reservation_messages = None
+                    self.out_reservation_tear_messages = None
+                    self.out_srefresh_messages = None
+
+                @property
+                def _common_path(self):
+                    if self.interface_name is None:
+                        raise YPYModelError('Key property interface_name is None')
+
+                    return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:open-config/Cisco-IOS-XR-ip-rsvp-oper:interface-counters/Cisco-IOS-XR-ip-rsvp-oper:interface-counter[Cisco-IOS-XR-ip-rsvp-oper:interface-name = ' + str(self.interface_name) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.interface_name is not None:
+                        return True
+
+                    if self.in_ack_messages is not None:
+                        return True
+
+                    if self.in_hello_messages is not None:
+                        return True
+
+                    if self.in_path_error_messages is not None:
+                        return True
+
+                    if self.in_path_messages is not None:
+                        return True
+
+                    if self.in_path_tear_messages is not None:
+                        return True
+
+                    if self.in_reservation_error_messages is not None:
+                        return True
+
+                    if self.in_reservation_messages is not None:
+                        return True
+
+                    if self.in_reservation_tear_messages is not None:
+                        return True
+
+                    if self.in_srefresh_messages is not None:
+                        return True
+
+                    if self.interface_name_xr is not None:
+                        return True
+
+                    if self.out_ack_messages is not None:
+                        return True
+
+                    if self.out_hello_messages is not None:
+                        return True
+
+                    if self.out_path_error_messages is not None:
+                        return True
+
+                    if self.out_path_messages is not None:
+                        return True
+
+                    if self.out_path_tear_messages is not None:
+                        return True
+
+                    if self.out_reservation_error_messages is not None:
+                        return True
+
+                    if self.out_reservation_messages is not None:
+                        return True
+
+                    if self.out_reservation_tear_messages is not None:
+                        return True
+
+                    if self.out_srefresh_messages is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
+                    return meta._meta_table['Rsvp.OpenConfig.InterfaceCounters.InterfaceCounter']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:open-config/Cisco-IOS-XR-ip-rsvp-oper:interface-counters'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface_counter is not None:
+                    for child_ref in self.interface_counter:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
+                return meta._meta_table['Rsvp.OpenConfig.InterfaceCounters']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-ip-rsvp-oper:rsvp/Cisco-IOS-XR-ip-rsvp-oper:open-config'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.global_counters is not None and self.global_counters._has_data():
+                return True
+
+            if self.interface_counters is not None and self.interface_counters._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
+            return meta._meta_table['Rsvp.OpenConfig']['meta_info']
+
+
     class Counters(object):
         """
         Counters
@@ -46112,7 +47513,7 @@ class Rsvp(object):
                 	Interface Name. 'None' is used internally where the true interface is unknown (e.g. for routed packets)
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: bundle_received_messages
                 
@@ -49828,7 +51229,7 @@ class Rsvp(object):
                 	Interface Name. 'None' is used internally where the true interface is unknown (e.g. for routed packets)
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: expired_paths
                 
@@ -49963,7 +51364,7 @@ class Rsvp(object):
             .. attribute:: total_nacks
             
             	Total number of NACKs
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -50072,7 +51473,7 @@ class Rsvp(object):
             .. attribute:: total_nacks
             
             	Total number of NACKs
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -50274,7 +51675,7 @@ class Rsvp(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: expired_paths
                 
@@ -50448,7 +51849,7 @@ class Rsvp(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: ack_hold_time
             
@@ -50700,7 +52101,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -50717,21 +52118,21 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -50798,7 +52199,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -50820,28 +52221,28 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool0_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC0 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -51789,7 +53190,7 @@ class Rsvp(object):
             	Interface to use
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: instance_type
             
@@ -51954,19 +53355,19 @@ class Rsvp(object):
             	Interface to use
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: hello_messages_received
             
             	Number of hello messages received
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: hello_messages_sent
             
             	Number of hello messages sent
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -52249,7 +53650,7 @@ class Rsvp(object):
                 	Neighbor's Interface handle
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: out_of_order_messages
                 
@@ -54670,14 +56071,14 @@ class Rsvp(object):
                 .. attribute:: flow_average_rate
                 
                 	The Flow Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -54698,7 +56099,7 @@ class Rsvp(object):
                 .. attribute:: flow_peak_rate
                 
                 	The Flow Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -54710,7 +56111,7 @@ class Rsvp(object):
                 .. attribute:: flow_requested_rate
                 
                 	The Flow Requested Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -54818,7 +56219,7 @@ class Rsvp(object):
                     .. attribute:: flow_bit_rate
                     
                     	G709 OTN Flow Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -55972,14 +57373,14 @@ class Rsvp(object):
                 .. attribute:: flow_average_rate
                 
                 	The Flow Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -56000,7 +57401,7 @@ class Rsvp(object):
                 .. attribute:: flow_peak_rate
                 
                 	The Flow Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -56012,7 +57413,7 @@ class Rsvp(object):
                 .. attribute:: flow_requested_rate
                 
                 	The Flow Requested Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -56120,7 +57521,7 @@ class Rsvp(object):
                     .. attribute:: flow_bit_rate
                     
                     	G709 OTN Flow Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -56658,7 +58059,7 @@ class Rsvp(object):
                 	Neighbor Logical Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 
 
@@ -57483,7 +58884,7 @@ class Rsvp(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: bandwidth_information
             
@@ -57552,7 +58953,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -57569,21 +58970,21 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -57650,7 +59051,7 @@ class Rsvp(object):
                     .. attribute:: allocated_bit_rate
                     
                     	Bandwidth (bits per second) now allocated
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -57672,28 +59073,28 @@ class Rsvp(object):
                     .. attribute:: max_bandwidth
                     
                     	Max bandwidth (bits per second) allowed
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool0_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC0 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -58554,7 +59955,7 @@ class Rsvp(object):
                     	Interface on which inbound message was received
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: in_label
                     
@@ -58598,6 +59999,13 @@ class Rsvp(object):
                     .. attribute:: lsp_id
                     
                     	LSP ID
+                    	**type**\:  int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: lsp_wrap_label
+                    
+                    	LSP Wrap Label
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
@@ -58669,6 +60077,7 @@ class Rsvp(object):
                         self.is_traffic_spec_valid = None
                         self.is_valid = None
                         self.lsp_id = None
+                        self.lsp_wrap_label = None
                         self.p2mp_sub_group_origin = None
                         self.protection = Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection()
                         self.protection.parent = self
@@ -58792,14 +60201,14 @@ class Rsvp(object):
                         .. attribute:: traffic_average_rate
                         
                         	Traffic Average Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: traffic_max_burst
                         
                         	Traffic Maximum Burst
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -58820,7 +60229,7 @@ class Rsvp(object):
                         .. attribute:: traffic_peak_rate
                         
                         	Traffic Peak Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -58916,7 +60325,7 @@ class Rsvp(object):
                             .. attribute:: traffic_bit_rate
                             
                             	G709 OTN Traffic Bit Rate
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -58994,14 +60403,14 @@ class Rsvp(object):
                             .. attribute:: traffic_average_rate
                             
                             	Traffic Average Rate in bytes per second
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: traffic_max_burst
                             
                             	Traffic Maximum Burst
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -59022,7 +60431,7 @@ class Rsvp(object):
                             .. attribute:: traffic_peak_rate
                             
                             	Traffic Peak Rate in bytes per second
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -59862,7 +61271,7 @@ class Rsvp(object):
                                 .. attribute:: traffic_bit_rate
                                 
                                 	G709 OTN Traffic Bit Rate
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -59940,14 +61349,14 @@ class Rsvp(object):
                                 .. attribute:: traffic_average_rate
                                 
                                 	Traffic Average Rate in bytes per second
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: traffic_max_burst
                                 
                                 	Traffic Maximum Burst
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -59968,7 +61377,7 @@ class Rsvp(object):
                                 .. attribute:: traffic_peak_rate
                                 
                                 	Traffic Peak Rate in bytes per second
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -60173,6 +61582,11 @@ class Rsvp(object):
                                 	ERO Entry Is Strict
                                 	**type**\:  bool
                                 
+                                .. attribute:: status
+                                
+                                	Status of ERO
+                                	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                                
                                 
 
                                 """
@@ -60185,6 +61599,7 @@ class Rsvp(object):
                                     self.ero_interface_id = None
                                     self.ero_router_id = None
                                     self.is_strict_route = None
+                                    self.status = None
 
                                 @property
                                 def _common_path(self):
@@ -60205,6 +61620,9 @@ class Rsvp(object):
                                         return True
 
                                     if self.is_strict_route is not None:
+                                        return True
+
+                                    if self.status is not None:
                                         return True
 
                                     return False
@@ -60447,6 +61865,11 @@ class Rsvp(object):
                             	ERO Entry Is Strict
                             	**type**\:  bool
                             
+                            .. attribute:: status
+                            
+                            	Status of ERO
+                            	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                            
                             
 
                             """
@@ -60459,6 +61882,7 @@ class Rsvp(object):
                                 self.ero_interface_id = None
                                 self.ero_router_id = None
                                 self.is_strict_route = None
+                                self.status = None
 
                             @property
                             def _common_path(self):
@@ -60479,6 +61903,9 @@ class Rsvp(object):
                                     return True
 
                                 if self.is_strict_route is not None:
+                                    return True
+
+                                if self.status is not None:
                                     return True
 
                                 return False
@@ -61105,6 +62532,9 @@ class Rsvp(object):
                         if self.lsp_id is not None:
                             return True
 
+                        if self.lsp_wrap_label is not None:
+                            return True
+
                         if self.p2mp_sub_group_origin is not None:
                             return True
 
@@ -61145,7 +62575,7 @@ class Rsvp(object):
                     	Backup tunnel interface
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: backup_label
                     
@@ -61196,7 +62626,7 @@ class Rsvp(object):
                     	Interface on which outbound message was sent
                     	**type**\:  str
                     
-                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                    	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                     
                     .. attribute:: out_label
                     
@@ -61347,14 +62777,14 @@ class Rsvp(object):
                         .. attribute:: flow_average_rate
                         
                         	The Flow Average Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: flow_max_burst
                         
                         	The Flow Maximum Burst
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -61375,7 +62805,7 @@ class Rsvp(object):
                         .. attribute:: flow_peak_rate
                         
                         	The Flow Peak Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -61387,7 +62817,7 @@ class Rsvp(object):
                         .. attribute:: flow_requested_rate
                         
                         	The Flow Requested Rate in bytes per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -61495,7 +62925,7 @@ class Rsvp(object):
                             .. attribute:: flow_bit_rate
                             
                             	G709 OTN Flow Bit Rate
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -62395,7 +63825,7 @@ class Rsvp(object):
             	Interface to use
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: hello_interval
             
@@ -62407,21 +63837,21 @@ class Rsvp(object):
             .. attribute:: hello_messages_received
             
             	Number of hello messages received
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: hello_messages_sent
             
             	Number of hello messages sent
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: hello_request_suppressed
             
             	Count of Hello Requests suppessed
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -64490,14 +65920,14 @@ class Rsvp(object):
                 .. attribute:: traffic_average_rate
                 
                 	Traffic Average Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -64518,7 +65948,7 @@ class Rsvp(object):
                 .. attribute:: traffic_peak_rate
                 
                 	Traffic Peak Rate in bytes per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -64614,7 +66044,7 @@ class Rsvp(object):
                     .. attribute:: traffic_bit_rate
                     
                     	G709 OTN Traffic Bit Rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -64692,14 +66122,14 @@ class Rsvp(object):
                     .. attribute:: traffic_average_rate
                     
                     	Traffic Average Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -64720,7 +66150,7 @@ class Rsvp(object):
                     .. attribute:: traffic_peak_rate
                     
                     	Traffic Peak Rate in bytes per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -65362,6 +66792,9 @@ class Rsvp(object):
             return True
 
         if self.nsr is not None and self.nsr._has_data():
+            return True
+
+        if self.open_config is not None and self.open_config._has_data():
             return True
 
         if self.psb_briefs is not None and self.psb_briefs._has_data():

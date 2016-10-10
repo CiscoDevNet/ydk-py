@@ -19,9 +19,10 @@
    Contains type definitions.
 
 """
+from __future__ import absolute_import
 
 from decimal import Decimal, getcontext
-from errors import YPYModelError
+from .errors import YPYModelError
 
 
 class DELETE(object):
@@ -50,6 +51,7 @@ class Empty(object):
     def __ne__(self, rhs):
         return not isinstance(rhs, Empty)
 
+    __hash__ = object.__hash__
 
 
 class Decimal64(object):
@@ -71,20 +73,15 @@ class Decimal64(object):
 
         return self.s
 
-    def __cmp__(self, rhs):
-        if not isinstance(rhs, Decimal64):
-            raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
-        return cmp(self.s, rhs.s)
-
     def __eq__(self, rhs):
         if not isinstance(rhs, Decimal64):
             raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
-        return self.__cmp__(rhs) == 0
+        return self.s == rhs.s
 
     def __ne__(self, rhs):
         if not isinstance(rhs, Decimal64):
             raise YPYModelError("Decimal64 comparision error, invalid rhs\n")
-        return self.__cmp__(rhs) != 0
+        return self.s != rhs.s
 
     def __lt__(self, rhs):
         if not isinstance(rhs, Decimal64):
@@ -147,6 +144,9 @@ class Decimal64(object):
 
         return self_dec >= rhs_dec
 
+    __hash__ = object.__hash__
+
+
 class FixedBitsDict(object):
     """ Super class of all classes that represents the bits type in YANG
 
@@ -184,6 +184,9 @@ class FixedBitsDict(object):
                 return True
         return False
 
+    __hash__ = object.__hash__
+
+
 class YList(list):
     """ Represents a list with support for hanging a parent
 
@@ -204,6 +207,20 @@ class YList(list):
         super(YList, self).__init__()
         self.parent = None
         self.name = None
+
+    def __getitem__(self, key):
+        if isinstance(key, slice):
+            ret = YList()
+            ret.parent = self.parent
+            ret.name = self.name
+            start = 0 if not key.start else key.start
+            step = 1 if not key.step else key.step
+            stop = len(self) if not key.stop else key.stop
+            for k in range(start, stop, step):
+                ret.append(super(YList, self).__getitem__(k))
+        else:
+            ret = super(YList, self).__getitem__(key)
+        return ret
 
     def __getslice__(self, i, j):
         ret = YList()
@@ -246,6 +263,9 @@ class YListItem(object):
             # Enum, Identity, Python primitive types.
             return True
 
+    __hash__ = object.__hash__
+
+
 class YLeafList(YList):
     """ Represents an associate list with support for hanging a parent
 
@@ -272,7 +292,18 @@ class YLeafList(YList):
         super(YLeafList, self).__setitem__(key, lst_item)
 
     def __getitem__(self, key):
-        return super(YLeafList, self).__getitem__(key)
+        if isinstance(key, slice):
+            ret = YLeafList()
+            ret.parent = self.parent
+            ret.name = self.name
+            start = 0 if not key.start else key.start
+            step = 1 if not key.step else key.step
+            stop = len(self) if not key.stop else key.stop
+            for k in range(start, stop, step):
+                ret.append(super(YLeafList, self).__getitem__(k))
+        else:
+            ret = super(YLeafList, self).__getitem__(key)
+        return ret
 
     def __getslice__(self, i, j):
         # override __getslice__ implemented by CPython
@@ -292,7 +323,6 @@ class YLeafList(YList):
     def extend(self, items):
         for item in items:
             self.append(item)
-
 
     def pop(self, i=-1):
         lst_item = super(YLeafList, self).pop(i)

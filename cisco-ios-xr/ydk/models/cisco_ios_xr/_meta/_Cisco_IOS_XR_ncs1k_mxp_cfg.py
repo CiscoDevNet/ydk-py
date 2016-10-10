@@ -47,6 +47,12 @@ _meta_table = {
                 ''',
                 'client_rate',
                 'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
+            _MetaInfoClassMember('encrypted', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Encrypted
+                ''',
+                'encrypted',
+                'Cisco-IOS-XR-ncs1k-mxp-cfg', False),
             _MetaInfoClassMember('fec', REFERENCE_ENUM_CLASS, 'FecEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg', 'FecEnum', 
                 [], [], 
                 '''                FEC

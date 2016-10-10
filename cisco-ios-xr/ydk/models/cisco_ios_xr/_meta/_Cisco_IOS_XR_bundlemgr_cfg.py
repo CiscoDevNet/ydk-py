@@ -75,7 +75,7 @@ _meta_table = {
                 'system_mac',
                 'Cisco-IOS-XR-bundlemgr-cfg', False),
             _MetaInfoClassMember('system-priority', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Priority for this system. Lower value is higher
                 priority.
                 ''',

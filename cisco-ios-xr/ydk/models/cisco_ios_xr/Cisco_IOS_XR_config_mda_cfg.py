@@ -8,7 +8,7 @@ for the following management objects\:
   active\-nodes\: Per\-node configuration for active nodes
   preconfigured\-nodes\: preconfigured nodes
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -24,8 +24,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg import LptsFlowEnum
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_cfg import LptsPreIFibPrecedenceNumberEnum
 
 
 class ActiveNodes(object):
@@ -76,6 +74,11 @@ class ActiveNodes(object):
         	lpts node specific configuration commands
         	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.LptsLocal>`
         
+        .. attribute:: ltrace
+        
+        	Ltrace Memory configuration
+        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace>`
+        
         
 
         """
@@ -92,6 +95,108 @@ class ActiveNodes(object):
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
             self.lpts_local = ActiveNodes.ActiveNode.LptsLocal()
             self.lpts_local.parent = self
+            self.ltrace = ActiveNodes.ActiveNode.Ltrace()
+            self.ltrace.parent = self
+
+
+        class Ltrace(object):
+            """
+            Ltrace Memory configuration
+            
+            .. attribute:: allocation_params
+            
+            	Select Ltrace mode and scale\-factor
+            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.ActiveNodes.ActiveNode.Ltrace.AllocationParams>`
+            
+            
+
+            """
+
+            _prefix = 'infra-ltrace-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.allocation_params = ActiveNodes.ActiveNode.Ltrace.AllocationParams()
+                self.allocation_params.parent = self
+
+
+            class AllocationParams(object):
+                """
+                Select Ltrace mode and scale\-factor
+                
+                .. attribute:: mode
+                
+                	Select an allocation mode (static\:1, dynamic \:2)
+                	**type**\:  :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
+                
+                .. attribute:: scale_factor
+                
+                	Select a scaling down factor
+                	**type**\:  :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
+                
+                
+
+                """
+
+                _prefix = 'infra-ltrace-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.mode = None
+                    self.scale_factor = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:allocation-params'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.mode is not None:
+                        return True
+
+                    if self.scale_factor is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['ActiveNodes.ActiveNode.Ltrace.AllocationParams']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:ltrace'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.allocation_params is not None and self.allocation_params._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                return meta._meta_table['ActiveNodes.ActiveNode.Ltrace']['meta_info']
 
 
         class LptsLocal(object):
@@ -867,6 +972,9 @@ class ActiveNodes(object):
             if self.lpts_local is not None and self.lpts_local._has_data():
                 return True
 
+            if self.ltrace is not None and self.ltrace._has_data():
+                return True
+
             return False
 
         @staticmethod
@@ -947,6 +1055,11 @@ class PreconfiguredNodes(object):
         	lpts node specific configuration commands
         	**type**\:  :py:class:`LptsLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.LptsLocal>`
         
+        .. attribute:: ltrace
+        
+        	Ltrace Memory configuration
+        	**type**\:  :py:class:`Ltrace <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace>`
+        
         
 
         """
@@ -963,6 +1076,108 @@ class PreconfiguredNodes(object):
             self.cisco_ios_xr_wd_cfg_watchdog_node_threshold.parent = self
             self.lpts_local = PreconfiguredNodes.PreconfiguredNode.LptsLocal()
             self.lpts_local.parent = self
+            self.ltrace = PreconfiguredNodes.PreconfiguredNode.Ltrace()
+            self.ltrace.parent = self
+
+
+        class Ltrace(object):
+            """
+            Ltrace Memory configuration
+            
+            .. attribute:: allocation_params
+            
+            	Select Ltrace mode and scale\-factor
+            	**type**\:  :py:class:`AllocationParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_mda_cfg.PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams>`
+            
+            
+
+            """
+
+            _prefix = 'infra-ltrace-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.allocation_params = PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams()
+                self.allocation_params.parent = self
+
+
+            class AllocationParams(object):
+                """
+                Select Ltrace mode and scale\-factor
+                
+                .. attribute:: mode
+                
+                	Select an allocation mode (static\:1, dynamic \:2)
+                	**type**\:  :py:class:`InfraLtraceModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceModeEnum>`
+                
+                .. attribute:: scale_factor
+                
+                	Select a scaling down factor
+                	**type**\:  :py:class:`InfraLtraceScaleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg.InfraLtraceScaleEnum>`
+                
+                
+
+                """
+
+                _prefix = 'infra-ltrace-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.mode = None
+                    self.scale_factor = None
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:allocation-params'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.mode is not None:
+                        return True
+
+                    if self.scale_factor is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                    return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.Ltrace.AllocationParams']['meta_info']
+
+            @property
+            def _common_path(self):
+                if self.parent is None:
+                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                return self.parent._common_path +'/Cisco-IOS-XR-infra-ltrace-cfg:ltrace'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return True
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.allocation_params is not None and self.allocation_params._has_data():
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_config_mda_cfg as meta
+                return meta._meta_table['PreconfiguredNodes.PreconfiguredNode.Ltrace']['meta_info']
 
 
         class LptsLocal(object):
@@ -1736,6 +1951,9 @@ class PreconfiguredNodes(object):
                 return True
 
             if self.lpts_local is not None and self.lpts_local._has_data():
+                return True
+
+            if self.ltrace is not None and self.ltrace._has_data():
                 return True
 
             return False

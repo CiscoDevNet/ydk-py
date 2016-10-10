@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   router\-convergence\: Configure Router Convergence Monitoring
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -458,11 +458,6 @@ class RouterConvergence(object):
         
         	**range:** 5..80
         
-        .. attribute:: enable
-        
-        	Enable Absolute directory path for saving the archive files. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/. Deletion of this object also causes deletion of all associated objects under StorageLocation
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-        
         .. attribute:: reports
         
         	Absolute directory path for storing reports. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
@@ -494,7 +489,6 @@ class RouterConvergence(object):
             self._is_presence = True
             self.diagnostics = None
             self.diagnostics_size = None
-            self.enable = None
             self.reports = None
             self.reports_size = None
 
@@ -518,9 +512,6 @@ class RouterConvergence(object):
             if self.diagnostics_size is not None:
                 return True
 
-            if self.enable is not None:
-                return True
-
             if self.reports is not None:
                 return True
 
@@ -538,11 +529,6 @@ class RouterConvergence(object):
     class MplsLdp(object):
         """
         RCMD related configuration for MPLS\-LDP
-        
-        .. attribute:: enable
-        
-        	Enable RCMD related configuration for MPLS\-LDP. Deletion of this object also causes deletion of all associated objects under MPLS\-LDP
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
         
         .. attribute:: remote_lfa
         
@@ -566,18 +552,12 @@ class RouterConvergence(object):
         def __init__(self):
             self.parent = None
             self._is_presence = True
-            self.enable = None
             self.remote_lfa = None
 
 
         class RemoteLfa(object):
             """
             Monitoring configuration for Remote LFA
-            
-            .. attribute:: enable
-            
-            	Enable Monitoring configuration for Remote LFA . Deletion of this object also causes deletion of all associated objects under RemoteLFA
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
             
             .. attribute:: threshold
             
@@ -603,7 +583,6 @@ class RouterConvergence(object):
             def __init__(self):
                 self.parent = None
                 self._is_presence = True
-                self.enable = None
                 self.threshold = None
 
             @property
@@ -620,9 +599,6 @@ class RouterConvergence(object):
                     return False
                 if self._is_presence:
                     return True
-                if self.enable is not None:
-                    return True
-
                 if self.threshold is not None:
                     return True
 
@@ -647,9 +623,6 @@ class RouterConvergence(object):
                 return False
             if self._is_presence:
                 return True
-            if self.enable is not None:
-                return True
-
             if self.remote_lfa is not None and self.remote_lfa._has_data():
                 return True
 

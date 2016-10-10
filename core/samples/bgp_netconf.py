@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 #  ----------------------------------------------------------------
 # Copyright 2016 Cisco Systems
 #
@@ -22,13 +23,13 @@
 #  open-config bgp yang module.
 #
 
-
-
+from __future__ import print_function
 from ydk.types import Empty
 from ydk.providers import NetconfServiceProvider, CodecServiceProvider
 from ydk.services import CRUDService, NetconfService, CodecService, Datastore
-from ydk.models.openconfig import bgp
-from ydk.models.openconfig.routing_policy import RoutingPolicy
+from ydk.models.openconfig import openconfig_bgp
+from ydk.models.openconfig import openconfig_bgp_types
+from ydk.models.openconfig.openconfig_routing_policy import RoutingPolicy
 
 from _config_builder import _get_bgp_config, _get_routing_cfg, _get_bgp_routing_multiple_object
 
@@ -44,7 +45,7 @@ def bgp_run(netconf_service, session):
     netconf_service.edit_config(session, Datastore.candidate, bgp_cfg)
 
     bgp_cfg_read = netconf_service.get_config(session, Datastore.candidate, bgp.Bgp())
-    print bgp_cfg_read
+    print(bgp_cfg_read)
 
     # IPv6 Neighbor instance config
     nbr_ipv6 = bgp.Bgp.Neighbors.Neighbor()
@@ -54,9 +55,9 @@ def bgp_run(netconf_service, session):
     nbr_ipv6.config.peer_as = 65002
 
     nbr_ipv6_afsf = nbr_ipv6.afi_safis.AfiSafi()
-    nbr_ipv6_afsf.afi_safi_name = 'ipv6-unicast'
+    nbr_ipv6_afsf.afi_safi_name = openconfig_bgp_types.Ipv6UnicastIdentity()
     nbr_ipv6_afsf.config.peer_as = 65002
-    nbr_ipv6_afsf.config.afi_safi_name = 'ipv6-unicast'
+    nbr_ipv6_afsf.config.afi_safi_name = openconfig_bgp_types.Ipv6UnicastIdentity()
     nbr_ipv6_afsf.config.enabled = True
 
     nbr_ipv6.afi_safis.afi_safi.append(nbr_ipv6_afsf)
@@ -68,7 +69,7 @@ def bgp_run(netconf_service, session):
 
     nbr_ipv6_read = netconf_service.get_config(session, Datastore.candidate, bgp_cfg)
 
-    print nbr_ipv6_read
+    print(nbr_ipv6_read)
 
 
 def run_multiple_routing_bgp(netconf_service, session):
@@ -106,7 +107,7 @@ def init_logging():
 
 if __name__ == "__main__":
     init_logging()
-    provider = NetconfServiceProvider(address='127.0.0.1', username='admin', password='admin', protocol='ssh', port=12022)
+    provider = NetconfServiceProvider(address='localhost', username='admin', password='admin', protocol='ssh', port=1220)
     netconf_service = NetconfService()
     bgp_run(netconf_service, provider)
     # run_multiple_routing_bgp(netconf_service, provider)

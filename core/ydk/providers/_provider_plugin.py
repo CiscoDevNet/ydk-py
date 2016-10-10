@@ -113,7 +113,7 @@ class _ClientSPPlugin(_SPPlugin):
             root = self._encode_edit_request(root, entity, operation)
         else:
             root = self._encode_read_request(root, entity, operation, only_config)
-        payload = etree.tostring(self.head, method='xml', pretty_print='True')
+        payload = etree.tostring(self.head, method='xml', pretty_print='True', encoding='utf-8').decode('utf-8')
         return payload
 
     def encode_rpc(self, rpc):
@@ -121,7 +121,7 @@ class _ClientSPPlugin(_SPPlugin):
             self._raise_non_rpc_error()
         root = self._create_root()
         self._encode_rpc_request(root, rpc)
-        payload = etree.tostring(self.head, method='xml', pretty_print='True')
+        payload = etree.tostring(self.head, method='xml', pretty_print='True', encoding='utf-8').decode('utf-8')
         return payload
 
     def decode(self, payload, read_filter):
@@ -245,8 +245,8 @@ class _ClientSPPlugin(_SPPlugin):
         if err:
             self._handle_rpc_error(payload, reply_str, pathlist)
 
-        root = etree.fromstring(reply_str)
-        payload = etree.tostring(root, method='xml', pretty_print='True')
+        root = etree.fromstring(reply_str.encode('utf-8'))
+        payload = etree.tostring(root, method='xml', pretty_print='True', encoding='utf-8').decode('utf-8')
         return payload
 
     def _handle_rpc_ok(self, optype, payload, reply_str):
@@ -617,9 +617,9 @@ def check_errors(payload):
     payload = payload.replace('xmlns=', 'xmlnamespace=')
     p = etree.XMLParser(remove_blank_text=True)
     pathlist = []
-    elem = etree.XML(payload, parser=p)
-    payload = etree.tostring(elem)
-    tree = etree.fromstring(payload)
+    elem = etree.XML(payload.encode('utf-8'), parser=p)
+    payload = etree.tostring(elem, encoding='utf-8').decode('utf-8')
+    tree = etree.fromstring(payload.encode('utf-8'))
     root = etree.ElementTree(tree)
     for e in root.iter():
         if e.text is not None:

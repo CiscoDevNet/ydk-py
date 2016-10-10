@@ -67,7 +67,7 @@ _meta_table = {
                 'forward_reference',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('vr-fs', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of VRFs in this VRF group
                 ''',
                 'vr_fs',
@@ -176,7 +176,7 @@ _meta_table = {
                 'srlg_name_xr',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -222,7 +222,7 @@ _meta_table = {
                 'srlg_name_xr',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -262,13 +262,13 @@ _meta_table = {
                 'priority',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Index
                 ''',
                 'srlg_index',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -297,7 +297,7 @@ _meta_table = {
                 'group_name_xr',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('group-values', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Group values
                 ''',
                 'group_values',
@@ -343,13 +343,13 @@ _meta_table = {
                 'priority',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Index
                 ''',
                 'srlg_index',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -378,7 +378,7 @@ _meta_table = {
                 'node_name',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('node-values', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Node values
                 ''',
                 'node_values',
@@ -418,7 +418,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
@@ -430,19 +430,19 @@ _meta_table = {
                 'interface_name_xr',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('registrations', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Registrations
                 ''',
                 'registrations',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-value', REFERENCE_LEAFLIST, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG values
                 ''',
                 'srlg_value',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('value-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Values
                 ''',
                 'value_count',
@@ -494,13 +494,13 @@ _meta_table = {
                 'source_name',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-index', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Index
                 ''',
                 'srlg_index',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -517,19 +517,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-infra-rsi-oper', True),
             _MetaInfoClassMember('groups', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Groups
                 ''',
                 'groups',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('nodes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Nodes
                 ''',
                 'nodes',
@@ -569,7 +569,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                SRLG value
                 ''',
                 'value',
@@ -644,7 +644,7 @@ _meta_table = {
                 'srlg_name_xr',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',
@@ -789,7 +789,7 @@ _meta_table = {
                 'srlg_name_xr',
                 'Cisco-IOS-XR-infra-rsi-oper', False),
             _MetaInfoClassMember('srlg-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                SRLG value
                 ''',
                 'srlg_value',

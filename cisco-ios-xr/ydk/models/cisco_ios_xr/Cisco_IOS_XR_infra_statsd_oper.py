@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   infra\-statistics\: Statistics Infrastructure
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -78,7 +78,7 @@ class InfraStatistics(object):
             	Name of the interface
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: cache
             
@@ -221,28 +221,28 @@ class InfraStatistics(object):
                         .. attribute:: bytes_received
                         
                         	Bytes received
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_data_rate
                         
                         	Input data rate in 1000's of bps
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_packet_rate
                         
                         	Input packets per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -256,28 +256,28 @@ class InfraStatistics(object):
                         .. attribute:: output_data_rate
                         
                         	Output data rate in 1000's of bps
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_packet_rate
                         
                         	Output packets per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packets_received
                         
                         	Packets received
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packets_sent
                         
                         	Packets sent
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -414,28 +414,28 @@ class InfraStatistics(object):
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -526,14 +526,14 @@ class InfraStatistics(object):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -582,14 +582,14 @@ class InfraStatistics(object):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -839,7 +839,7 @@ class InfraStatistics(object):
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -853,7 +853,7 @@ class InfraStatistics(object):
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -867,7 +867,7 @@ class InfraStatistics(object):
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -881,35 +881,35 @@ class InfraStatistics(object):
                     .. attribute:: output_packet_rate
                     
                     	Output packets per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_input_data_rate
                     
                     	Peak input data rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_input_packet_rate
                     
                     	Peak input packet rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_data_rate
                     
                     	Peak output data rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_packet_rate
                     
                     	Peak output packet rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1025,28 +1025,28 @@ class InfraStatistics(object):
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1137,14 +1137,14 @@ class InfraStatistics(object):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1193,14 +1193,14 @@ class InfraStatistics(object):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1549,28 +1549,28 @@ class InfraStatistics(object):
                         .. attribute:: bytes_received
                         
                         	Bytes received
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_data_rate
                         
                         	Input data rate in 1000's of bps
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_packet_rate
                         
                         	Input packets per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1584,28 +1584,28 @@ class InfraStatistics(object):
                         .. attribute:: output_data_rate
                         
                         	Output data rate in 1000's of bps
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_packet_rate
                         
                         	Output packets per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packets_received
                         
                         	Packets received
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packets_sent
                         
                         	Packets sent
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1742,28 +1742,28 @@ class InfraStatistics(object):
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1854,14 +1854,14 @@ class InfraStatistics(object):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -1910,14 +1910,14 @@ class InfraStatistics(object):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2167,7 +2167,7 @@ class InfraStatistics(object):
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2181,7 +2181,7 @@ class InfraStatistics(object):
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2195,7 +2195,7 @@ class InfraStatistics(object):
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2209,35 +2209,35 @@ class InfraStatistics(object):
                     .. attribute:: output_packet_rate
                     
                     	Output packets per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_input_data_rate
                     
                     	Peak input data rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_input_packet_rate
                     
                     	Peak input packet rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_data_rate
                     
                     	Peak output data rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_packet_rate
                     
                     	Peak output packet rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2353,28 +2353,28 @@ class InfraStatistics(object):
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2465,14 +2465,14 @@ class InfraStatistics(object):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2521,14 +2521,14 @@ class InfraStatistics(object):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -2877,28 +2877,28 @@ class InfraStatistics(object):
                         .. attribute:: bytes_received
                         
                         	Bytes received
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_data_rate
                         
                         	Input data rate in 1000's of bps
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: input_packet_rate
                         
                         	Input packets per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2912,28 +2912,28 @@ class InfraStatistics(object):
                         .. attribute:: output_data_rate
                         
                         	Output data rate in 1000's of bps
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: output_packet_rate
                         
                         	Output packets per second
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packets_received
                         
                         	Packets received
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: packets_sent
                         
                         	Packets sent
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -3070,28 +3070,28 @@ class InfraStatistics(object):
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3182,14 +3182,14 @@ class InfraStatistics(object):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3238,14 +3238,14 @@ class InfraStatistics(object):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3495,7 +3495,7 @@ class InfraStatistics(object):
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3509,7 +3509,7 @@ class InfraStatistics(object):
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3523,7 +3523,7 @@ class InfraStatistics(object):
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3537,35 +3537,35 @@ class InfraStatistics(object):
                     .. attribute:: output_packet_rate
                     
                     	Output packets per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_input_data_rate
                     
                     	Peak input data rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_input_packet_rate
                     
                     	Peak input packet rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_data_rate
                     
                     	Peak output data rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: peak_output_packet_rate
                     
                     	Peak output packet rate
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3681,28 +3681,28 @@ class InfraStatistics(object):
                     .. attribute:: broadcast_packets_received
                     
                     	Broadcast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: broadcast_packets_sent
                     
                     	Broadcast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3793,14 +3793,14 @@ class InfraStatistics(object):
                     .. attribute:: multicast_packets_received
                     
                     	Multicast packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: multicast_packets_sent
                     
                     	Multicast packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -3849,14 +3849,14 @@ class InfraStatistics(object):
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4162,28 +4162,28 @@ class InfraStatistics(object):
                     .. attribute:: bytes_received
                     
                     	Bytes received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4197,28 +4197,28 @@ class InfraStatistics(object):
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: output_packet_rate
                     
                     	Output packets per second
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_received
                     
                     	Packets received
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
                     .. attribute:: packets_sent
                     
                     	Packets sent
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -4355,28 +4355,28 @@ class InfraStatistics(object):
                 .. attribute:: broadcast_packets_received
                 
                 	Broadcast packets received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: broadcast_packets_sent
                 
                 	Broadcast packets sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes_received
                 
                 	Bytes received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes_sent
                 
                 	Bytes sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4467,14 +4467,14 @@ class InfraStatistics(object):
                 .. attribute:: multicast_packets_received
                 
                 	Multicast packets received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: multicast_packets_sent
                 
                 	Multicast packets sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4523,14 +4523,14 @@ class InfraStatistics(object):
                 .. attribute:: packets_received
                 
                 	Packets received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: packets_sent
                 
                 	Packets sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4780,7 +4780,7 @@ class InfraStatistics(object):
                 .. attribute:: input_data_rate
                 
                 	Input data rate in 1000's of bps
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4794,7 +4794,7 @@ class InfraStatistics(object):
                 .. attribute:: input_packet_rate
                 
                 	Input packets per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4808,7 +4808,7 @@ class InfraStatistics(object):
                 .. attribute:: output_data_rate
                 
                 	Output data rate in 1000's of bps
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4822,35 +4822,35 @@ class InfraStatistics(object):
                 .. attribute:: output_packet_rate
                 
                 	Output packets per second
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_input_data_rate
                 
                 	Peak input data rate
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_input_packet_rate
                 
                 	Peak input packet rate
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_output_data_rate
                 
                 	Peak output data rate
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: peak_output_packet_rate
                 
                 	Peak output packet rate
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -4966,28 +4966,28 @@ class InfraStatistics(object):
                 .. attribute:: broadcast_packets_received
                 
                 	Broadcast packets received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: broadcast_packets_sent
                 
                 	Broadcast packets sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes_received
                 
                 	Bytes received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: bytes_sent
                 
                 	Bytes sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -5078,14 +5078,14 @@ class InfraStatistics(object):
                 .. attribute:: multicast_packets_received
                 
                 	Multicast packets received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: multicast_packets_sent
                 
                 	Multicast packets sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -5134,14 +5134,14 @@ class InfraStatistics(object):
                 .. attribute:: packets_received
                 
                 	Packets received
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: packets_sent
                 
                 	Packets sent
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 

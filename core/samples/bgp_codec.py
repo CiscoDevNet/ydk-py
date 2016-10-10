@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 #  ----------------------------------------------------------------
 # Copyright 2016 Cisco Systems
 #
@@ -22,7 +23,7 @@
 #  open-config bgp yang module.
 #
 
-
+from __future__ import print_function
 from ydk.providers import CodecServiceProvider
 from ydk.services import CodecService
 
@@ -33,28 +34,21 @@ def bgp_run(codec_service, provider):
     bgp_cfg = _get_bgp_config()
     bgp_payload = codec_service.encode(provider, bgp_cfg)
     bgp_entity = codec_service.decode(provider, bgp_payload)
-#     print 'Encoded payload:\n', bgp_payload, \
-#             '\nRe-encode the decoded payload:\n', codec_service.encode(provider, bgp_entity)
     assert bgp_payload == codec_service.encode(provider, bgp_entity)
 
 
 def run_routing(codec_service, provider):
     routing_policy = _get_routing_cfg()
     routing_payload = codec_service.encode(provider, routing_policy)
-    print routing_payload
+    print(routing_payload)
     routing_entity = codec_service.decode(provider, routing_payload)
-#     print 'Encoded payload:\n', routing_payload, \
-#             '\nRe-encode the decoded payload:\n', codec_service.encode(provider, routing_entity)
     assert routing_payload == codec_service.encode(provider, routing_entity)
 
 
 def run_multiple_routing_bgp(codec_service, provider):
     multi_cfg = _get_bgp_routing_multiple_object()
     multi_payload = codec_service.encode(provider, multi_cfg)
-    # print routing_payload
     multi_entity = codec_service.decode(provider, multi_payload)
-#     print 'Encoded payload:\n', multi_payload, \
-#             '\nRe-encode the decoded payload:\n', codec_service.encode(provider, multi_entity)
     assert multi_payload == codec_service.encode(provider, multi_entity)
 
 

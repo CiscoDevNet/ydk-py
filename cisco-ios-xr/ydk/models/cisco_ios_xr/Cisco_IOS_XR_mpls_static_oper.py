@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   mpls\-static\: MPLS STATIC operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -318,6 +318,11 @@ class MplsStatic(object):
             	data for static local\-label table
             	**type**\:  :py:class:`LocalLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.LocalLabels>`
             
+            .. attribute:: lsps
+            
+            	data for static lsp table
+            	**type**\:  :py:class:`Lsps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps>`
+            
             
 
             """
@@ -330,6 +335,451 @@ class MplsStatic(object):
                 self.vrf_name = None
                 self.local_labels = MplsStatic.Vrfs.Vrf.LocalLabels()
                 self.local_labels.parent = self
+                self.lsps = MplsStatic.Vrfs.Vrf.Lsps()
+                self.lsps.parent = self
+
+
+            class Lsps(object):
+                """
+                data for static lsp table
+                
+                .. attribute:: lsp
+                
+                	Data for static lsp
+                	**type**\: list of  :py:class:`Lsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp>`
+                
+                
+
+                """
+
+                _prefix = 'mpls-static-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.lsp = YList()
+                    self.lsp.parent = self
+                    self.lsp.name = 'lsp'
+
+
+                class Lsp(object):
+                    """
+                    Data for static lsp
+                    
+                    .. attribute:: lsp_name  <key>
+                    
+                    	LSP Name
+                    	**type**\:  str
+                    
+                    	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                    
+                    .. attribute:: label
+                    
+                    	Label Information
+                    	**type**\:  :py:class:`Label <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label>`
+                    
+                    .. attribute:: lsp_name_xr
+                    
+                    	LSP Name
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'mpls-static-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.lsp_name = None
+                        self.label = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label()
+                        self.label.parent = self
+                        self.lsp_name_xr = None
+
+
+                    class Label(object):
+                        """
+                        Label Information
+                        
+                        .. attribute:: label
+                        
+                        	Label value
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: label_mode
+                        
+                        	Label Mode
+                        	**type**\:  :py:class:`MgmtMplsStaticLabelModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelModeEnum>`
+                        
+                        .. attribute:: label_status
+                        
+                        	Label Status
+                        	**type**\:  :py:class:`MgmtMplsStaticLabelStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtMplsStaticLabelStatusEnum>`
+                        
+                        .. attribute:: path_info
+                        
+                        	Path Information
+                        	**type**\: list of  :py:class:`PathInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo>`
+                        
+                        .. attribute:: prefix
+                        
+                        	Prefix Information
+                        	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix>`
+                        
+                        .. attribute:: vrf_name
+                        
+                        	VRF name
+                        	**type**\:  str
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-static-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.label = None
+                            self.label_mode = None
+                            self.label_status = None
+                            self.path_info = YList()
+                            self.path_info.parent = self
+                            self.path_info.name = 'path_info'
+                            self.prefix = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix()
+                            self.prefix.parent = self
+                            self.vrf_name = None
+
+
+                        class Prefix(object):
+                            """
+                            Prefix Information
+                            
+                            .. attribute:: prefix
+                            
+                            	Prefix
+                            	**type**\:  :py:class:`Prefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix>`
+                            
+                            .. attribute:: prefix_length
+                            
+                            	Prefix length
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-static-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.prefix = MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix()
+                                self.prefix.parent = self
+                                self.prefix_length = None
+
+
+                            class Prefix(object):
+                                """
+                                Prefix
+                                
+                                .. attribute:: af_name
+                                
+                                	AFName
+                                	**type**\:  :py:class:`MgmtStaticAddrEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticAddrEnum>`
+                                
+                                .. attribute:: ipv4_prefix
+                                
+                                	IPv4 context
+                                	**type**\:  str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: ipv6_prefix
+                                
+                                	IPv6 context
+                                	**type**\:  str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                
+
+                                """
+
+                                _prefix = 'mpls-static-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    self.parent = None
+                                    self.af_name = None
+                                    self.ipv4_prefix = None
+                                    self.ipv6_prefix = None
+
+                                @property
+                                def _common_path(self):
+                                    if self.parent is None:
+                                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-oper:prefix'
+
+                                def is_config(self):
+                                    ''' Returns True if this instance represents config data else returns False '''
+                                    return False
+
+                                def _has_data(self):
+                                    if not self.is_config():
+                                        return False
+                                    if self.af_name is not None:
+                                        return True
+
+                                    if self.ipv4_prefix is not None:
+                                        return True
+
+                                    if self.ipv6_prefix is not None:
+                                        return True
+
+                                    return False
+
+                                @staticmethod
+                                def _meta_info():
+                                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_oper as meta
+                                    return meta._meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix']['meta_info']
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-oper:prefix'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.prefix is not None and self.prefix._has_data():
+                                    return True
+
+                                if self.prefix_length is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_oper as meta
+                                return meta._meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix']['meta_info']
+
+
+                        class PathInfo(object):
+                            """
+                            Path Information
+                            
+                            .. attribute:: next_hop_interface_name
+                            
+                            	Next\-Hop Interface Name
+                            	**type**\:  str
+                            
+                            .. attribute:: next_hop_ipv4_address
+                            
+                            	Next\-Hop Ipv4 Address
+                            	**type**\:  str
+                            
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: next_hop_ipv4_address_set
+                            
+                            	Next\-Hop Ipv4 Set
+                            	**type**\:  bool
+                            
+                            .. attribute:: next_hop_label
+                            
+                            	Next\-Hop Label
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: next_hop_label_type
+                            
+                            	Next\-Hop Label Type
+                            	**type**\:  :py:class:`MgmtStaticNhLblEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticNhLblEnum>`
+                            
+                            .. attribute:: path
+                            
+                            	Path Number
+                            	**type**\:  int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: type
+                            
+                            	Path Type
+                            	**type**\:  :py:class:`MgmtStaticPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper.MgmtStaticPathEnum>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-static-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.next_hop_interface_name = None
+                                self.next_hop_ipv4_address = None
+                                self.next_hop_ipv4_address_set = None
+                                self.next_hop_label = None
+                                self.next_hop_label_type = None
+                                self.path = None
+                                self.type = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-oper:path-info'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.next_hop_interface_name is not None:
+                                    return True
+
+                                if self.next_hop_ipv4_address is not None:
+                                    return True
+
+                                if self.next_hop_ipv4_address_set is not None:
+                                    return True
+
+                                if self.next_hop_label is not None:
+                                    return True
+
+                                if self.next_hop_label_type is not None:
+                                    return True
+
+                                if self.path is not None:
+                                    return True
+
+                                if self.type is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_oper as meta
+                                return meta._meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-oper:label'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.label is not None:
+                                return True
+
+                            if self.label_mode is not None:
+                                return True
+
+                            if self.label_status is not None:
+                                return True
+
+                            if self.path_info is not None:
+                                for child_ref in self.path_info:
+                                    if child_ref._has_data():
+                                        return True
+
+                            if self.prefix is not None and self.prefix._has_data():
+                                return True
+
+                            if self.vrf_name is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_oper as meta
+                            return meta._meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.lsp_name is None:
+                            raise YPYModelError('Key property lsp_name is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-oper:lsp[Cisco-IOS-XR-mpls-static-oper:lsp-name = ' + str(self.lsp_name) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.lsp_name is not None:
+                            return True
+
+                        if self.label is not None and self.label._has_data():
+                            return True
+
+                        if self.lsp_name_xr is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_oper as meta
+                        return meta._meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-mpls-static-oper:lsps'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.lsp is not None:
+                        for child_ref in self.lsp:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_mpls_static_oper as meta
+                    return meta._meta_table['MplsStatic.Vrfs.Vrf.Lsps']['meta_info']
 
 
             class LocalLabels(object):
@@ -737,6 +1187,9 @@ class MplsStatic(object):
                     return True
 
                 if self.local_labels is not None and self.local_labels._has_data():
+                    return True
+
+                if self.lsps is not None and self.lsps._has_data():
                     return True
 
                 return False

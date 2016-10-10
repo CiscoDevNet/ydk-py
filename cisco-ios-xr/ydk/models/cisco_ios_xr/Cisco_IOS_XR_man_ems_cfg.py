@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   grpc\: GRPC configruation
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -58,7 +58,7 @@ class Grpc(object):
     	Server listening port
     	**type**\:  int
     
-    	**range:** 57344..57999
+    	**range:** 10000..57999
     
     .. attribute:: tls
     

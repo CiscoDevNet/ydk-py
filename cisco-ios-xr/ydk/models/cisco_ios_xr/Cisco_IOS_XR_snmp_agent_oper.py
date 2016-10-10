@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   snmp\: SNMP operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,7 +23,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_ifmib_oper import LinkUpDownStatusEnum
 
 class DupReqDropStatusEnum(Enum):
     """
@@ -122,6 +121,16 @@ class Snmp(object):
     	Trap Correlator operational data
     	**type**\:  :py:class:`Correlator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Correlator>`
     
+    .. attribute:: entity_mib
+    
+    	SNMP entity mib
+    	**type**\:  :py:class:`EntityMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib>`
+    
+    .. attribute:: if_indexes
+    
+    	List of ifnames
+    	**type**\:  :py:class:`IfIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.IfIndexes>`
+    
     .. attribute:: information
     
     	SNMP operational information
@@ -142,6 +151,11 @@ class Snmp(object):
     	List of interfaces
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Interfaces>`
     
+    .. attribute:: sensor_mib
+    
+    	SNMP sensor MIB information
+    	**type**\:  :py:class:`SensorMib <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib>`
+    
     .. attribute:: trap_servers
     
     	List of trap hosts
@@ -152,11 +166,15 @@ class Snmp(object):
     """
 
     _prefix = 'snmp-agent-oper'
-    _revision = '2015-10-08'
+    _revision = '2016-06-01'
 
     def __init__(self):
         self.correlator = Snmp.Correlator()
         self.correlator.parent = self
+        self.entity_mib = Snmp.EntityMib()
+        self.entity_mib.parent = self
+        self.if_indexes = Snmp.IfIndexes()
+        self.if_indexes.parent = self
         self.information = Snmp.Information()
         self.information.parent = self
         self.interface_indexes = Snmp.InterfaceIndexes()
@@ -165,6 +183,8 @@ class Snmp(object):
         self.interface_mib.parent = self
         self.interfaces = Snmp.Interfaces()
         self.interfaces.parent = self
+        self.sensor_mib = Snmp.SensorMib()
+        self.sensor_mib.parent = self
         self.trap_servers = Snmp.TrapServers()
         self.trap_servers.parent = self
 
@@ -183,7 +203,7 @@ class Snmp(object):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2015-10-08'
+        _revision = '2016-06-01'
 
         def __init__(self):
             self.parent = None
@@ -242,7 +262,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -399,11 +419,6 @@ class Snmp(object):
         	SNMP statistics
         	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.Statistics>`
         
-        .. attribute:: statistics_extension
-        
-        	SNMP Statistics Extension
-        	**type**\:  :py:class:`StatisticsExtension <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.Information.StatisticsExtension>`
-        
         .. attribute:: system_descr
         
         	System description
@@ -454,7 +469,7 @@ class Snmp(object):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2015-10-08'
+        _revision = '2016-06-01'
 
         def __init__(self):
             self.parent = None
@@ -490,8 +505,6 @@ class Snmp(object):
             self.serial_numbers.parent = self
             self.statistics = Snmp.Information.Statistics()
             self.statistics.parent = self
-            self.statistics_extension = Snmp.Information.StatisticsExtension()
-            self.statistics_extension.parent = self
             self.system_descr = Snmp.Information.SystemDescr()
             self.system_descr.parent = self
             self.system_name = Snmp.Information.SystemName()
@@ -526,7 +539,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -556,7 +569,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -613,7 +626,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -739,7 +752,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -782,7 +795,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -847,7 +860,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -940,7 +953,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -1041,7 +1054,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -1116,7 +1129,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -1159,7 +1172,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -1181,7 +1194,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -1248,7 +1261,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -1427,7 +1440,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -1510,7 +1523,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -1569,7 +1582,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -1662,7 +1675,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -1717,7 +1730,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -1776,7 +1789,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -1902,7 +1915,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -1946,7 +1959,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -2035,7 +2048,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -2090,7 +2103,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -2149,7 +2162,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -2480,7 +2493,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -2646,7 +2659,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -2696,7 +2709,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -2783,7 +2796,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -2826,7 +2839,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -2909,7 +2922,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -2946,7 +2959,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -3023,7 +3036,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -3072,7 +3085,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -3157,7 +3170,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -3192,7 +3205,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -3217,7 +3230,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -3247,7 +3260,7 @@ class Snmp(object):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-01'
 
                         def __init__(self):
                             self.parent = None
@@ -3363,7 +3376,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -3476,153 +3489,6 @@ class Snmp(object):
                 return meta._meta_table['Snmp.Information.Mibs']['meta_info']
 
 
-        class StatisticsExtension(object):
-            """
-            SNMP Statistics Extension
-            
-            .. attribute:: duplicate_drop_configured_timeout
-            
-            	Configured Duplicate Drop feature Timeout
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: duplicate_drop_disable_count
-            
-            	 Number of times duplicate request drop feature is disabled
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: duplicate_drop_enable_count
-            
-            	 Number of times duplicate request drop feature is enabled
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: duplicate_dropped_requests
-            
-            	Number of duplicate SNMP requests are dropped
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: duplicate_request_latest_enable_time
-            
-            	Duplicate request drop feature last enable time(Day Mon Date HH\:MM\:SS)
-            	**type**\:  str
-            
-            .. attribute:: duplicate_request_status
-            
-            	Duplicate requests drop feature status
-            	**type**\:  :py:class:`DupReqDropStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.DupReqDropStatusEnum>`
-            
-            .. attribute:: first_enable_time
-            
-            	Duplicate request drop feature first  enable time (Day Mon Date HH\:MM\:SS)
-            	**type**\:  str
-            
-            .. attribute:: last_status_change_time
-            
-            	Duplicate request drop feature last enable disable time (Day Mon Date HH\:MM\:SS)
-            	**type**\:  str
-            
-            .. attribute:: latest_duplicate_dropped_requests
-            
-            	Number of duplicate SNMP requests dropped, from the last enable time
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: latest_retry_processed_requests
-            
-            	Number of retry SNMP requests processed, from the last enable time
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: retry_processed_requests
-            
-            	Number of Retry SNMP requests are Processed
-            	**type**\:  int
-            
-            	**range:** 0..4294967295
-            
-            
-
-            """
-
-            _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
-
-            def __init__(self):
-                self.parent = None
-                self.duplicate_drop_configured_timeout = None
-                self.duplicate_drop_disable_count = None
-                self.duplicate_drop_enable_count = None
-                self.duplicate_dropped_requests = None
-                self.duplicate_request_latest_enable_time = None
-                self.duplicate_request_status = None
-                self.first_enable_time = None
-                self.last_status_change_time = None
-                self.latest_duplicate_dropped_requests = None
-                self.latest_retry_processed_requests = None
-                self.retry_processed_requests = None
-
-            @property
-            def _common_path(self):
-
-                return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-agent-oper:information/Cisco-IOS-XR-snmp-agent-oper:statistics-extension'
-
-            def is_config(self):
-                ''' Returns True if this instance represents config data else returns False '''
-                return False
-
-            def _has_data(self):
-                if not self.is_config():
-                    return False
-                if self.duplicate_drop_configured_timeout is not None:
-                    return True
-
-                if self.duplicate_drop_disable_count is not None:
-                    return True
-
-                if self.duplicate_drop_enable_count is not None:
-                    return True
-
-                if self.duplicate_dropped_requests is not None:
-                    return True
-
-                if self.duplicate_request_latest_enable_time is not None:
-                    return True
-
-                if self.duplicate_request_status is not None:
-                    return True
-
-                if self.first_enable_time is not None:
-                    return True
-
-                if self.last_status_change_time is not None:
-                    return True
-
-                if self.latest_duplicate_dropped_requests is not None:
-                    return True
-
-                if self.latest_retry_processed_requests is not None:
-                    return True
-
-                if self.retry_processed_requests is not None:
-                    return True
-
-                return False
-
-            @staticmethod
-            def _meta_info():
-                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
-                return meta._meta_table['Snmp.Information.StatisticsExtension']['meta_info']
-
-
         class SerialNumbers(object):
             """
             SNMP statistics pdu 
@@ -3637,7 +3503,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -3742,7 +3608,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -3857,7 +3723,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -3931,6 +3797,13 @@ class Snmp(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: threshold_incoming_q_count
+                
+                	Drop Count at Incoming Q after threshold limit
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: timeout_count
                 
                 	Drop count with timeout
@@ -3943,7 +3816,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -3956,6 +3829,7 @@ class Snmp(object):
                     self.nms_address = None
                     self.overload_count = None
                     self.stack_count = None
+                    self.threshold_incoming_q_count = None
                     self.timeout_count = None
 
                 @property
@@ -3997,6 +3871,9 @@ class Snmp(object):
                         return True
 
                     if self.stack_count is not None:
+                        return True
+
+                    if self.threshold_incoming_q_count is not None:
                         return True
 
                     if self.timeout_count is not None:
@@ -4048,7 +3925,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -4078,7 +3955,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -4119,7 +3996,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -4231,7 +4108,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -4279,7 +4156,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -4303,7 +4180,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -4333,7 +4210,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -4356,7 +4233,7 @@ class Snmp(object):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-01'
 
                         def __init__(self):
                             self.parent = None
@@ -4410,7 +4287,7 @@ class Snmp(object):
                             """
 
                             _prefix = 'snmp-agent-oper'
-                            _revision = '2015-10-08'
+                            _revision = '2016-06-01'
 
                             def __init__(self):
                                 self.parent = None
@@ -4552,7 +4429,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -4582,7 +4459,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -4622,7 +4499,7 @@ class Snmp(object):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-01'
 
                         def __init__(self):
                             self.parent = None
@@ -4755,7 +4632,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -4821,7 +4698,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -4921,9 +4798,6 @@ class Snmp(object):
             if self.statistics is not None and self.statistics._has_data():
                 return True
 
-            if self.statistics_extension is not None and self.statistics_extension._has_data():
-                return True
-
             if self.system_descr is not None and self.system_descr._has_data():
                 return True
 
@@ -4973,7 +4847,7 @@ class Snmp(object):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2015-10-08'
+        _revision = '2016-06-01'
 
         def __init__(self):
             self.parent = None
@@ -4991,7 +4865,7 @@ class Snmp(object):
             	Interface Name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: interface_index
             
@@ -5007,7 +4881,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -5095,7 +4969,7 @@ class Snmp(object):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2015-10-08'
+        _revision = '2016-06-01'
 
         def __init__(self):
             self.parent = None
@@ -5124,7 +4998,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -5176,7 +5050,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -5220,7 +5094,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -5279,7 +5153,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -5313,7 +5187,7 @@ class Snmp(object):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-01'
 
                         def __init__(self):
                             self.parent = None
@@ -5401,7 +5275,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -5435,7 +5309,7 @@ class Snmp(object):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-01'
 
                         def __init__(self):
                             self.parent = None
@@ -5524,7 +5398,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -5650,7 +5524,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -5697,7 +5571,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -5732,7 +5606,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -5769,7 +5643,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -5878,7 +5752,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -5925,7 +5799,7 @@ class Snmp(object):
                 """
 
                 _prefix = 'snmp-agent-oper'
-                _revision = '2015-10-08'
+                _revision = '2016-06-01'
 
                 def __init__(self):
                     self.parent = None
@@ -5956,7 +5830,7 @@ class Snmp(object):
                     .. attribute:: timestamp
                     
                     	Time when the trap was generated. It is expressed in number of milliseconds since 00\:00 \:00 UTC, January 1, 1970
-                    	**type**\:  long
+                    	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
                     
@@ -5970,7 +5844,7 @@ class Snmp(object):
                     """
 
                     _prefix = 'snmp-agent-oper'
-                    _revision = '2015-10-08'
+                    _revision = '2016-06-01'
 
                     def __init__(self):
                         self.parent = None
@@ -6001,7 +5875,7 @@ class Snmp(object):
                         """
 
                         _prefix = 'snmp-agent-oper'
-                        _revision = '2015-10-08'
+                        _revision = '2016-06-01'
 
                         def __init__(self):
                             self.parent = None
@@ -6176,7 +6050,7 @@ class Snmp(object):
         """
 
         _prefix = 'snmp-agent-oper'
-        _revision = '2015-10-08'
+        _revision = '2016-06-01'
 
         def __init__(self):
             self.parent = None
@@ -6208,7 +6082,7 @@ class Snmp(object):
             """
 
             _prefix = 'snmp-agent-oper'
-            _revision = '2015-10-08'
+            _revision = '2016-06-01'
 
             def __init__(self):
                 self.parent = None
@@ -6265,6 +6139,339 @@ class Snmp(object):
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
             return meta._meta_table['Snmp.InterfaceIndexes']['meta_info']
+
+
+    class IfIndexes(object):
+        """
+        List of ifnames
+        
+        .. attribute:: if_index
+        
+        	Interface Index
+        	**type**\: list of  :py:class:`IfIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.IfIndexes.IfIndex>`
+        
+        
+
+        """
+
+        _prefix = 'snmp-agent-oper'
+        _revision = '2016-06-01'
+
+        def __init__(self):
+            self.parent = None
+            self.if_index = YList()
+            self.if_index.parent = self
+            self.if_index.name = 'if_index'
+
+
+        class IfIndex(object):
+            """
+            Interface Index
+            
+            .. attribute:: interface_index  <key>
+            
+            	Interface Index as used by MIB tables
+            	**type**\:  int
+            
+            	**range:** \-2147483648..2147483647
+            
+            .. attribute:: interface_name
+            
+            	Interface Name
+            	**type**\:  str
+            
+            
+
+            """
+
+            _prefix = 'snmp-agent-oper'
+            _revision = '2016-06-01'
+
+            def __init__(self):
+                self.parent = None
+                self.interface_index = None
+                self.interface_name = None
+
+            @property
+            def _common_path(self):
+                if self.interface_index is None:
+                    raise YPYModelError('Key property interface_index is None')
+
+                return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-agent-oper:if-indexes/Cisco-IOS-XR-snmp-agent-oper:if-index[Cisco-IOS-XR-snmp-agent-oper:interface-index = ' + str(self.interface_index) + ']'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.interface_index is not None:
+                    return True
+
+                if self.interface_name is not None:
+                    return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.IfIndexes.IfIndex']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-agent-oper:if-indexes'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.if_index is not None:
+                for child_ref in self.if_index:
+                    if child_ref._has_data():
+                        return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.IfIndexes']['meta_info']
+
+
+    class EntityMib(object):
+        """
+        SNMP entity mib
+        
+        .. attribute:: entity_physical_indexes
+        
+        	SNMP entity mib
+        	**type**\:  :py:class:`EntityPhysicalIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib.EntityPhysicalIndexes>`
+        
+        
+
+        """
+
+        _prefix = 'snmp-entitymib-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.entity_physical_indexes = Snmp.EntityMib.EntityPhysicalIndexes()
+            self.entity_physical_indexes.parent = self
+
+
+        class EntityPhysicalIndexes(object):
+            """
+            SNMP entity mib
+            
+            .. attribute:: entity_physical_index
+            
+            	SNMP entPhysical index number
+            	**type**\: list of  :py:class:`EntityPhysicalIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-entitymib-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.entity_physical_index = YList()
+                self.entity_physical_index.parent = self
+                self.entity_physical_index.name = 'entity_physical_index'
+
+
+            class EntityPhysicalIndex(object):
+                """
+                SNMP entPhysical index number
+                
+                .. attribute:: entity_phynum  <key>
+                
+                	Entity physical index
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: ent_physical_descr
+                
+                	EntPhysicalDescription
+                	**type**\:  str
+                
+                .. attribute:: ent_physical_firmware_rev
+                
+                	entphysicalFirmwareRev
+                	**type**\:  str
+                
+                .. attribute:: ent_physical_hardware_rev
+                
+                	entphysicalHardwareRev
+                	**type**\:  str
+                
+                .. attribute:: ent_physical_mfg_name
+                
+                	entphysicalMfgName
+                	**type**\:  str
+                
+                .. attribute:: ent_physical_modelname
+                
+                	entphysicalModelName
+                	**type**\:  str
+                
+                .. attribute:: ent_physical_name
+                
+                	entPhysicalName
+                	**type**\:  str
+                
+                .. attribute:: ent_physical_serial_num
+                
+                	entphysicalSerialNum
+                	**type**\:  str
+                
+                .. attribute:: ent_physical_software_rev
+                
+                	entphysicalSoftwareRev
+                	**type**\:  str
+                
+                .. attribute:: location
+                
+                	invmgr EDM path
+                	**type**\:  str
+                
+                .. attribute:: physical_index
+                
+                	entPhysicalIndex
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'snmp-entitymib-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.entity_phynum = None
+                    self.ent_physical_descr = None
+                    self.ent_physical_firmware_rev = None
+                    self.ent_physical_hardware_rev = None
+                    self.ent_physical_mfg_name = None
+                    self.ent_physical_modelname = None
+                    self.ent_physical_name = None
+                    self.ent_physical_serial_num = None
+                    self.ent_physical_software_rev = None
+                    self.location = None
+                    self.physical_index = None
+
+                @property
+                def _common_path(self):
+                    if self.entity_phynum is None:
+                        raise YPYModelError('Key property entity_phynum is None')
+
+                    return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/Cisco-IOS-XR-snmp-entitymib-oper:entity-physical-indexes/Cisco-IOS-XR-snmp-entitymib-oper:entity-physical-index[Cisco-IOS-XR-snmp-entitymib-oper:entity-phynum = ' + str(self.entity_phynum) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.entity_phynum is not None:
+                        return True
+
+                    if self.ent_physical_descr is not None:
+                        return True
+
+                    if self.ent_physical_firmware_rev is not None:
+                        return True
+
+                    if self.ent_physical_hardware_rev is not None:
+                        return True
+
+                    if self.ent_physical_mfg_name is not None:
+                        return True
+
+                    if self.ent_physical_modelname is not None:
+                        return True
+
+                    if self.ent_physical_name is not None:
+                        return True
+
+                    if self.ent_physical_serial_num is not None:
+                        return True
+
+                    if self.ent_physical_software_rev is not None:
+                        return True
+
+                    if self.location is not None:
+                        return True
+
+                    if self.physical_index is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/Cisco-IOS-XR-snmp-entitymib-oper:entity-physical-indexes'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.entity_physical_index is not None:
+                    for child_ref in self.entity_physical_index:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.EntityMib.EntityPhysicalIndexes']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.entity_physical_indexes is not None and self.entity_physical_indexes._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.EntityMib']['meta_info']
 
 
     class InterfaceMib(object):
@@ -6349,7 +6556,7 @@ class Snmp(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: if_index
                 
@@ -6455,7 +6662,7 @@ class Snmp(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: if_connector_present
                 
@@ -6558,7 +6765,7 @@ class Snmp(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: if_alias
                 
@@ -6661,7 +6868,7 @@ class Snmp(object):
                 	Interface Name
                 	**type**\:  str
                 
-                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                 
                 .. attribute:: link_up_down_notif_status
                 
@@ -6886,6 +7093,560 @@ class Snmp(object):
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
             return meta._meta_table['Snmp.InterfaceMib']['meta_info']
 
+
+    class SensorMib(object):
+        """
+        SNMP sensor MIB information
+        
+        .. attribute:: ent_phy_indexes
+        
+        	List of physical index 
+        	**type**\:  :py:class:`EntPhyIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.EntPhyIndexes>`
+        
+        .. attribute:: physical_indexes
+        
+        	List of physical index table for threshold value
+        	**type**\:  :py:class:`PhysicalIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes>`
+        
+        
+
+        """
+
+        _prefix = 'snmp-sensormib-oper'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            self.parent = None
+            self.ent_phy_indexes = Snmp.SensorMib.EntPhyIndexes()
+            self.ent_phy_indexes.parent = self
+            self.physical_indexes = Snmp.SensorMib.PhysicalIndexes()
+            self.physical_indexes.parent = self
+
+
+        class PhysicalIndexes(object):
+            """
+            List of physical index table for threshold
+            value
+            
+            .. attribute:: physical_index
+            
+            	Threshold value for physical index
+            	**type**\: list of  :py:class:`PhysicalIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-sensormib-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.physical_index = YList()
+                self.physical_index.parent = self
+                self.physical_index.name = 'physical_index'
+
+
+            class PhysicalIndex(object):
+                """
+                Threshold value for physical index
+                
+                .. attribute:: index  <key>
+                
+                	Physical index
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: threshold_indexes
+                
+                	List of threshold index
+                	**type**\:  :py:class:`ThresholdIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes>`
+                
+                
+
+                """
+
+                _prefix = 'snmp-sensormib-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.index = None
+                    self.threshold_indexes = Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes()
+                    self.threshold_indexes.parent = self
+
+
+                class ThresholdIndexes(object):
+                    """
+                    List of threshold index
+                    
+                    .. attribute:: threshold_index
+                    
+                    	Threshold value for threshold index
+                    	**type**\: list of  :py:class:`ThresholdIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'snmp-sensormib-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.threshold_index = YList()
+                        self.threshold_index.parent = self
+                        self.threshold_index.name = 'threshold_index'
+
+
+                    class ThresholdIndex(object):
+                        """
+                        Threshold value for threshold index
+                        
+                        .. attribute:: phy_index
+                        
+                        	Physical Index
+                        	**type**\:  str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        .. attribute:: thre_index
+                        
+                        	Threshold index
+                        	**type**\:  str
+                        
+                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                        
+                        .. attribute:: threshold_evaluation
+                        
+                        	Indicates the result of the most recent evaluation of the thresholD
+                        	**type**\:  bool
+                        
+                        .. attribute:: threshold_notification_enabled
+                        
+                        	Indicates whether or not a notification should result, in case of threshold violation
+                        	**type**\:  bool
+                        
+                        .. attribute:: threshold_relation
+                        
+                        	Indicates relation between sensor value and threshold
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: threshold_severity
+                        
+                        	Indicates minor, major, critical severities
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: threshold_value
+                        
+                        	Value of the configured threshold
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'snmp-sensormib-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.phy_index = None
+                            self.thre_index = None
+                            self.threshold_evaluation = None
+                            self.threshold_notification_enabled = None
+                            self.threshold_relation = None
+                            self.threshold_severity = None
+                            self.threshold_value = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-snmp-sensormib-oper:threshold-index'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.phy_index is not None:
+                                return True
+
+                            if self.thre_index is not None:
+                                return True
+
+                            if self.threshold_evaluation is not None:
+                                return True
+
+                            if self.threshold_notification_enabled is not None:
+                                return True
+
+                            if self.threshold_relation is not None:
+                                return True
+
+                            if self.threshold_severity is not None:
+                                return True
+
+                            if self.threshold_value is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                            return meta._meta_table['Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-snmp-sensormib-oper:threshold-indexes'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.threshold_index is not None:
+                            for child_ref in self.threshold_index:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                        return meta._meta_table['Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.index is None:
+                        raise YPYModelError('Key property index is None')
+
+                    return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/Cisco-IOS-XR-snmp-sensormib-oper:physical-indexes/Cisco-IOS-XR-snmp-sensormib-oper:physical-index[Cisco-IOS-XR-snmp-sensormib-oper:index = ' + str(self.index) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.index is not None:
+                        return True
+
+                    if self.threshold_indexes is not None and self.threshold_indexes._has_data():
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.SensorMib.PhysicalIndexes.PhysicalIndex']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/Cisco-IOS-XR-snmp-sensormib-oper:physical-indexes'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.physical_index is not None:
+                    for child_ref in self.physical_index:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.SensorMib.PhysicalIndexes']['meta_info']
+
+
+        class EntPhyIndexes(object):
+            """
+            List of physical index 
+            
+            .. attribute:: ent_phy_index
+            
+            	Sensor value for physical index
+            	**type**\: list of  :py:class:`EntPhyIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper.Snmp.SensorMib.EntPhyIndexes.EntPhyIndex>`
+            
+            
+
+            """
+
+            _prefix = 'snmp-sensormib-oper'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                self.parent = None
+                self.ent_phy_index = YList()
+                self.ent_phy_index.parent = self
+                self.ent_phy_index.name = 'ent_phy_index'
+
+
+            class EntPhyIndex(object):
+                """
+                Sensor value for physical index
+                
+                .. attribute:: index  <key>
+                
+                	Physical index
+                	**type**\:  str
+                
+                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                
+                .. attribute:: age_time_stamp
+                
+                	Age of the sensor value; set to the current time if directly access the value from sensor
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: alarm_type
+                
+                	Indicates threshold violation
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: data_type
+                
+                	Sensor data type enums
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: device_description
+                
+                	Device Name
+                	**type**\:  str
+                
+                	**range:** 0..64
+                
+                .. attribute:: device_id
+                
+                	Identifier for this device
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: field_validity_bitmap
+                
+                	Sensor valid bitmap
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: measured_entity
+                
+                	physical entity for which the sensor is taking measurements
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: precision
+                
+                	Sensor precision range
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: scale
+                
+                	Sensor scale enums
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: status
+                
+                	Sensor operation state enums
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: units
+                
+                	Units of variable being read
+                	**type**\:  str
+                
+                	**range:** 0..64
+                
+                .. attribute:: update_rate
+                
+                	Sensor value update rate;set to 0 if sensor value is updated and evaluated immediately
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: value
+                
+                	Current reading of sensor
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
+                
+
+                """
+
+                _prefix = 'snmp-sensormib-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.index = None
+                    self.age_time_stamp = None
+                    self.alarm_type = None
+                    self.data_type = None
+                    self.device_description = None
+                    self.device_id = None
+                    self.field_validity_bitmap = None
+                    self.measured_entity = None
+                    self.precision = None
+                    self.scale = None
+                    self.status = None
+                    self.units = None
+                    self.update_rate = None
+                    self.value = None
+
+                @property
+                def _common_path(self):
+                    if self.index is None:
+                        raise YPYModelError('Key property index is None')
+
+                    return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/Cisco-IOS-XR-snmp-sensormib-oper:ent-phy-indexes/Cisco-IOS-XR-snmp-sensormib-oper:ent-phy-index[Cisco-IOS-XR-snmp-sensormib-oper:index = ' + str(self.index) + ']'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return False
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.index is not None:
+                        return True
+
+                    if self.age_time_stamp is not None:
+                        return True
+
+                    if self.alarm_type is not None:
+                        return True
+
+                    if self.data_type is not None:
+                        return True
+
+                    if self.device_description is not None:
+                        return True
+
+                    if self.device_id is not None:
+                        return True
+
+                    if self.field_validity_bitmap is not None:
+                        return True
+
+                    if self.measured_entity is not None:
+                        return True
+
+                    if self.precision is not None:
+                        return True
+
+                    if self.scale is not None:
+                        return True
+
+                    if self.status is not None:
+                        return True
+
+                    if self.units is not None:
+                        return True
+
+                    if self.update_rate is not None:
+                        return True
+
+                    if self.value is not None:
+                        return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                    return meta._meta_table['Snmp.SensorMib.EntPhyIndexes.EntPhyIndex']['meta_info']
+
+            @property
+            def _common_path(self):
+
+                return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/Cisco-IOS-XR-snmp-sensormib-oper:ent-phy-indexes'
+
+            def is_config(self):
+                ''' Returns True if this instance represents config data else returns False '''
+                return False
+
+            def _has_data(self):
+                if not self.is_config():
+                    return False
+                if self.ent_phy_index is not None:
+                    for child_ref in self.ent_phy_index:
+                        if child_ref._has_data():
+                            return True
+
+                return False
+
+            @staticmethod
+            def _meta_info():
+                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+                return meta._meta_table['Snmp.SensorMib.EntPhyIndexes']['meta_info']
+
+        @property
+        def _common_path(self):
+
+            return '/Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib'
+
+        def is_config(self):
+            ''' Returns True if this instance represents config data else returns False '''
+            return False
+
+        def _has_data(self):
+            if not self.is_config():
+                return False
+            if self.ent_phy_indexes is not None and self.ent_phy_indexes._has_data():
+                return True
+
+            if self.physical_indexes is not None and self.physical_indexes._has_data():
+                return True
+
+            return False
+
+        @staticmethod
+        def _meta_info():
+            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_snmp_agent_oper as meta
+            return meta._meta_table['Snmp.SensorMib']['meta_info']
+
     @property
     def _common_path(self):
 
@@ -6901,6 +7662,12 @@ class Snmp(object):
         if self.correlator is not None and self.correlator._has_data():
             return True
 
+        if self.entity_mib is not None and self.entity_mib._has_data():
+            return True
+
+        if self.if_indexes is not None and self.if_indexes._has_data():
+            return True
+
         if self.information is not None and self.information._has_data():
             return True
 
@@ -6911,6 +7678,9 @@ class Snmp(object):
             return True
 
         if self.interfaces is not None and self.interfaces._has_data():
+            return True
+
+        if self.sensor_mib is not None and self.sensor_mib._has_data():
             return True
 
         if self.trap_servers is not None and self.trap_servers._has_data():

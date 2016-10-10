@@ -10,7 +10,7 @@ from ... import models
 __path__ = pkgutil.extend_path(__path__, __name__)
 
 
-def get_augments_bundles():
+def _get_augments_bundles():
     """Collect augmentation contributors."""
     augment_contributors = []
     for (_, name, ispkg) in pkgutil.iter_modules(models.__path__):
@@ -23,12 +23,12 @@ def get_augments_bundles():
     return augment_contributors
 
 
-def get_pkg_mod_names(path):
+def _get_pkg_mod_names(path):
     """Return a set for Python module name under path."""
     return {name for _, name, _ in pkgutil.iter_modules(path)}
 
 
-def patch(base_lines, patch_lines):
+def _patch(base_lines, patch_lines):
     """Add patch to base, patched fields in base are wrapped with @@@."""
     patched_lines = []
     i, j, docstring = 0, 0, False
@@ -77,7 +77,7 @@ def patch(base_lines, patch_lines):
     return patched_lines
 
 
-def patch_files(base, paths):
+def _patch_files(base, paths):
     """Patch files in paths to base."""
     with open(base) as base_file:
         base_lines = base_file.readlines()
@@ -85,7 +85,7 @@ def patch_files(base, paths):
             with open(path) as patch_file:
                 patch_lines = patch_file.readlines()
                 try:
-                    base_lines = patch(base_lines, patch_lines)
+                    base_lines = _patch(base_lines, patch_lines)
                 except IndexError:
                     # inconsistent modules.
                     pass
@@ -93,7 +93,7 @@ def patch_files(base, paths):
         return ''.join([l for l in base_lines if l != '@@@'])
 
 
-def get_patch_paths(path):
+def _get_patch_paths(path):
     """Return patch module path."""
     base_dir = os.path.dirname(path)
     base_file = os.path.basename(path).rstrip('c')
@@ -101,14 +101,14 @@ def get_patch_paths(path):
     return patch_mod_path
 
 
-def get_base_module_path(mod_name):
+def _get_base_module_path(mod_name):
     """Return base module path."""
     base_dir = os.path.dirname(__file__)
     base_mod = os.path.join(base_dir, '%s.py' % mod_name)
     return base_mod
 
 
-def get_patched_path(mod_name):
+def _get_patched_path(mod_name):
     """Return patched module's path."""
     patched_dir = os.path.join(os.path.dirname(__file__), '_aug_patch')
     if not os.path.exists(patched_dir):
@@ -117,17 +117,17 @@ def get_patched_path(mod_name):
     return patched_mod
 
 
-def merge_augmented_modules(mod_name, mod_aug_lst, prefix):
+def _merge_augmented_modules(mod_name, mod_aug_lst, prefix):
     """Patch augmented module to base module."""
     patch_paths = []
     for mod_fqn in mod_aug_lst:
         mod = importlib.import_module(mod_fqn)
-        patch_path = get_patch_paths(mod.__file__)
+        patch_path = _get_patch_paths(mod.__file__)
         patch_paths.append(patch_path)
 
-    base_mod = get_base_module_path(mod_name)
-    patched_mod = patch_files(base_mod, patch_paths)
-    patched_mod_path = get_patched_path(mod_name)
+    base_mod = _get_base_module_path(mod_name)
+    patched_mod = _patch_files(base_mod, patch_paths)
+    patched_mod_path = _get_patched_path(mod_name)
     with open(patched_mod_path, 'w') as patched_file:
         patched_file.write(patched_mod)
 
@@ -136,14 +136,14 @@ def merge_augmented_modules(mod_name, mod_aug_lst, prefix):
     return mod
 
 
-def shadow_module(augment_contributors):
+def _shadow_module(augment_contributors):
     """Shadow existing module."""
     to_shadowed = {}
 
-    self_mod_names = get_pkg_mod_names(__path__)
+    self_mod_names = _get_pkg_mod_names(__path__)
 
     for module in augment_contributors:
-        other_mod_names = get_pkg_mod_names(module.__path__)
+        other_mod_names = _get_pkg_mod_names(module.__path__)
         to_update = other_mod_names & self_mod_names
 
         for mod_name in list(to_update):
@@ -158,7 +158,7 @@ def shadow_module(augment_contributors):
     for mod_name in to_shadowed:
         mod_aug_lst = to_shadowed[mod_name]
         mod_to_replace = '.'.join([__name__, mod_name])
-        mod = merge_augmented_modules(mod_name, mod_aug_lst, __name__)
+        mod = _merge_augmented_modules(mod_name, mod_aug_lst, __name__)
         sys.modules[mod_to_replace] = mod
         globals()[mod_to_replace] = mod
         # set parent
@@ -166,5 +166,5 @@ def shadow_module(augment_contributors):
         setattr(parent_mod, mod_name, mod)
 
 
-shadow_module(get_augments_bundles())
+_shadow_module(_get_augments_bundles())
 

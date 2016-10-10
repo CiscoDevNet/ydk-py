@@ -19,13 +19,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('cause-code', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Cause code for reboot
                 ''',
                 'cause_code',
                 'Cisco-IOS-XR-linux-os-reboot-history-oper', False),
             _MetaInfoClassMember('no', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number count
                 ''',
                 'no',

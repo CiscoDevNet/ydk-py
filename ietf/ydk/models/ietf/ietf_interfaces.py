@@ -319,7 +319,7 @@ class InterfacesState(object):
         .. attribute:: speed
         
         	An estimate of the interface's current bandwidth in bits per second.  For interfaces that do not vary in bandwidth or for those where no accurate estimation can be made, this node should contain the nominal bandwidth. For interfaces that have no concept of bandwidth, this node is not present
-        	**type**\:  long
+        	**type**\:  int
         
         	**range:** 0..18446744073709551615
         
@@ -476,7 +476,7 @@ class InterfacesState(object):
             .. attribute:: in_broadcast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -497,28 +497,28 @@ class InterfacesState(object):
             .. attribute:: in_multicast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a multicast address at this sub\-layer.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: in_octets
             
             	The total number of octets received on the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: in_pkts
             
             	total packets input
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: in_unicast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were not addressed to a multicast or broadcast address at this sub\-layer.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -532,7 +532,7 @@ class InterfacesState(object):
             .. attribute:: out_broadcast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -553,28 +553,28 @@ class InterfacesState(object):
             .. attribute:: out_multicast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were addressed to a multicast address at this sub\-layer, including those that were discarded or not sent.  For a MAC\-layer protocol, this includes both Group and Functional addresses.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_octets
             
             	The total number of octets transmitted out of the interface, including framing characters.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_pkts
             
             	total packets output
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
             .. attribute:: out_unicast_pkts
             
             	The total number of packets that higher\-level protocols requested be transmitted, and that were not addressed to a multicast or broadcast address at this sub\-layer, including those that were discarded or not sent.  Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             
@@ -686,7 +686,7 @@ class InterfacesState(object):
             .. attribute:: value
             
             	Raw value for the bandwidth
-            	**type**\:  long
+            	**type**\:  int
             
             	**range:** 0..18446744073709551615
             

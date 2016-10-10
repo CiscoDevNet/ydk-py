@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   explicit\-paths\: Configured IP explicit paths
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -118,12 +118,12 @@ class ExplicitPaths(object):
     
     .. attribute:: identifiers
     
-    	List of configured IP explicit path identifiers
+    	List of configured IP explicit path identifiers, this corresponds to mplsTunnelHopTable in TE MIB
     	**type**\:  :py:class:`Identifiers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers>`
     
     .. attribute:: names
     
-    	List of configured IP explicit path names
+    	List of configured IP explicit path names, this corresponds to mplsTunnelHopTable in TE MIB
     	**type**\:  :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names>`
     
     
@@ -142,7 +142,8 @@ class ExplicitPaths(object):
 
     class Identifiers(object):
         """
-        List of configured IP explicit path identifiers
+        List of configured IP explicit path identifiers,
+        this corresponds to mplsTunnelHopTable in TE MIB
         
         .. attribute:: identifier
         
@@ -237,6 +238,13 @@ class ExplicitPaths(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: mpls_label
+                
+                	MPLS label
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 
 
                 """
@@ -251,6 +259,7 @@ class ExplicitPaths(object):
                     self.hop_type = None
                     self.if_index = None
                     self.index = None
+                    self.mpls_label = None
 
                 @property
                 def _common_path(self):
@@ -279,6 +288,9 @@ class ExplicitPaths(object):
                         return True
 
                     if self.index is not None:
+                        return True
+
+                    if self.mpls_label is not None:
                         return True
 
                     return False
@@ -347,7 +359,8 @@ class ExplicitPaths(object):
 
     class Names(object):
         """
-        List of configured IP explicit path names
+        List of configured IP explicit path names, this
+        corresponds to mplsTunnelHopTable in TE MIB
         
         .. attribute:: name
         
@@ -442,6 +455,13 @@ class ExplicitPaths(object):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: mpls_label
+                
+                	MPLS label
+                	**type**\:  int
+                
+                	**range:** 0..4294967295
+                
                 
 
                 """
@@ -456,6 +476,7 @@ class ExplicitPaths(object):
                     self.hop_type = None
                     self.if_index = None
                     self.index = None
+                    self.mpls_label = None
 
                 @property
                 def _common_path(self):
@@ -484,6 +505,9 @@ class ExplicitPaths(object):
                         return True
 
                     if self.index is not None:
+                        return True
+
+                    if self.mpls_label is not None:
                         return True
 
                     return False

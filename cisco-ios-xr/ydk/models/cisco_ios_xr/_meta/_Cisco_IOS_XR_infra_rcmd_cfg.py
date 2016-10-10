@@ -52,21 +52,21 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('frr-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Threshold value for Fast ReRoute Coverage
                 (in percentage)
                 ''',
                 'frr_threshold',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('leaf-networks', ATTRIBUTE, 'int' , None, None, 
-                [(10, 100)], [], 
+                [('10', '100')], [], 
                 '''                Specify the maximum number of leaf networks
                 monitored
                 ''',
                 'leaf_networks',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Threshold value for convergence (in msec)
                 ''',
                 'threshold',
@@ -157,21 +157,11 @@ _meta_table = {
                 'diagnostics',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('diagnostics-size', ATTRIBUTE, 'int' , None, None, 
-                [(5, 80)], [], 
+                [('5', '80')], [], 
                 '''                Maximum size of diagnostics dir (5% - 80%) for
                 local storage.
                 ''',
                 'diagnostics_size',
-                'Cisco-IOS-XR-infra-rcmd-cfg', False),
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable Absolute directory path for saving the
-                archive files. Example /disk0:/rcmd/ or
-                <tftp-location>/rcmd/. Deletion of this object
-                also causes deletion of all associated objects
-                under StorageLocation.
-                ''',
-                'enable',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('reports', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
@@ -181,7 +171,7 @@ _meta_table = {
                 'reports',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('reports-size', ATTRIBUTE, 'int' , None, None, 
-                [(5, 80)], [], 
+                [('5', '80')], [], 
                 '''                Maximum size of reports dir (5% - 80%) for
                 local storage.
                 ''',
@@ -198,16 +188,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RouterConvergence.MplsLdp.RemoteLfa',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable Monitoring configuration for Remote LFA
-                . Deletion of this object also causes deletion
-                of all associated objects under RemoteLFA.
-                ''',
-                'enable',
-                'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('threshold', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Threshold value for label coverage (in
                 percentage)
                 ''',
@@ -224,14 +206,6 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('RouterConvergence.MplsLdp',
             False, 
             [
-            _MetaInfoClassMember('enable', ATTRIBUTE, 'Empty' , None, None, 
-                [], [], 
-                '''                Enable RCMD related configuration for MPLS-LDP.
-                Deletion of this object also causes deletion of
-                all associated objects under MPLS-LDP.
-                ''',
-                'enable',
-                'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('remote-lfa', REFERENCE_CLASS, 'RemoteLfa' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg', 'RouterConvergence.MplsLdp.RemoteLfa', 
                 [], [], 
                 '''                Monitoring configuration for Remote LFA
@@ -364,20 +338,20 @@ _meta_table = {
                 'enable',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('event-buffer-size', ATTRIBUTE, 'int' , None, None, 
-                [(100, 500)], [], 
+                [('100', '500')], [], 
                 '''                Event buffer size for storing event traces (as
                 number of events)
                 ''',
                 'event_buffer_size',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('max-events-stored', ATTRIBUTE, 'int' , None, None, 
-                [(10, 500)], [], 
+                [('10', '500')], [], 
                 '''                Maximum number of events stored in the server
                 ''',
                 'max_events_stored',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('monitoring-interval', ATTRIBUTE, 'int' , None, None, 
-                [(5, 120)], [], 
+                [('5', '120')], [], 
                 '''                Interval in which to collect logs (in mins)
                 ''',
                 'monitoring_interval',
@@ -395,7 +369,7 @@ _meta_table = {
                 'nodes',
                 'Cisco-IOS-XR-infra-rcmd-cfg', False),
             _MetaInfoClassMember('prefix-monitor-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                Limits Individual Prefix Monitoring
                 ''',
                 'prefix_monitor_limit',

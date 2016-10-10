@@ -41,7 +41,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of underlying state flaps
                 ''',
                 'flaps',
@@ -53,13 +53,13 @@ _meta_table = {
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
@@ -82,7 +82,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of underlying state flaps
                 ''',
                 'flaps',
@@ -94,13 +94,13 @@ _meta_table = {
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
@@ -152,7 +152,7 @@ _meta_table = {
                 'capsulation',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured decay half life in mins
                 ''',
                 'half_life',
@@ -170,37 +170,37 @@ _meta_table = {
                 'is_dampening_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The time elasped after the last state transition
                 ''',
                 'last_state_transition_time',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('maximum-suppress-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum suppress time in mins
                 ''',
                 'maximum_suppress_time',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('restart-penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured restart penalty
                 ''',
                 'restart_penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured reuse threshold
                 ''',
                 'reuse_threshold',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of times the state has changed
                 ''',
                 'state_transition_count',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of suppress threshold
                 ''',
                 'suppress_threshold',
@@ -217,7 +217,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the
                 ''',
                 'interface_name',
@@ -258,7 +258,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of underlying state flaps
                 ''',
                 'flaps',
@@ -270,13 +270,13 @@ _meta_table = {
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
@@ -299,7 +299,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of underlying state flaps
                 ''',
                 'flaps',
@@ -311,13 +311,13 @@ _meta_table = {
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
@@ -375,7 +375,7 @@ _meta_table = {
                 'capsulation',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured decay half life in mins
                 ''',
                 'half_life',
@@ -393,37 +393,37 @@ _meta_table = {
                 'is_dampening_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The time elasped after the last state transition
                 ''',
                 'last_state_transition_time',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('maximum-suppress-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum suppress time in mins
                 ''',
                 'maximum_suppress_time',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('restart-penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured restart penalty
                 ''',
                 'restart_penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured reuse threshold
                 ''',
                 'reuse_threshold',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of times the state has changed
                 ''',
                 'state_transition_count',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of suppress threshold
                 ''',
                 'suppress_threshold',
@@ -457,7 +457,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of underlying state flaps
                 ''',
                 'flaps',
@@ -469,13 +469,13 @@ _meta_table = {
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
@@ -498,7 +498,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('flaps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of underlying state flaps
                 ''',
                 'flaps',
@@ -510,13 +510,13 @@ _meta_table = {
                 'is_suppressed_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Dampening penalty of the interface
                 ''',
                 'penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('seconds-remaining', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Remaining period of suppression in secs
                 ''',
                 'seconds_remaining',
@@ -562,7 +562,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the
                 ''',
                 'interface_name',
@@ -574,7 +574,7 @@ _meta_table = {
                 'capsulation',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('half-life', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured decay half life in mins
                 ''',
                 'half_life',
@@ -592,37 +592,37 @@ _meta_table = {
                 'is_dampening_enabled',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('last-state-transition-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The time elasped after the last state transition
                 ''',
                 'last_state_transition_time',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('maximum-suppress-time', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum suppress time in mins
                 ''',
                 'maximum_suppress_time',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('restart-penalty', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured restart penalty
                 ''',
                 'restart_penalty',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('reuse-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured reuse threshold
                 ''',
                 'reuse_threshold',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('state-transition-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                The number of times the state has changed
                 ''',
                 'state_transition_count',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('suppress-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Value of suppress threshold
                 ''',
                 'suppress_threshold',
@@ -763,7 +763,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -783,7 +783,7 @@ _meta_table = {
                 'actual_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface bandwidth (Kb/s)
                 ''',
                 'bandwidth',
@@ -801,7 +801,7 @@ _meta_table = {
                 'encapsulation_type_string',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -819,13 +819,13 @@ _meta_table = {
                 'line_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MTU in bytes
                 ''',
                 'mtu',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent Interface
                 ''',
                 'parent_interface',
@@ -837,7 +837,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('sub-interface-mtu-overhead', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Subif MTU overhead
                 ''',
                 'sub_interface_mtu_overhead',
@@ -920,7 +920,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -940,7 +940,7 @@ _meta_table = {
                 'actual_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface bandwidth (Kb/s)
                 ''',
                 'bandwidth',
@@ -958,7 +958,7 @@ _meta_table = {
                 'encapsulation_type_string',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -976,13 +976,13 @@ _meta_table = {
                 'line_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MTU in bytes
                 ''',
                 'mtu',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent Interface
                 ''',
                 'parent_interface',
@@ -994,7 +994,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('sub-interface-mtu-overhead', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Subif MTU overhead
                 ''',
                 'sub_interface_mtu_overhead',
@@ -1078,7 +1078,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -1098,7 +1098,7 @@ _meta_table = {
                 'actual_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('bandwidth', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface bandwidth (Kb/s)
                 ''',
                 'bandwidth',
@@ -1116,7 +1116,7 @@ _meta_table = {
                 'encapsulation_type_string',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface',
@@ -1134,13 +1134,13 @@ _meta_table = {
                 'line_state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MTU in bytes
                 ''',
                 'mtu',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent Interface
                 ''',
                 'parent_interface',
@@ -1152,7 +1152,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-ifmgr-oper', False),
             _MetaInfoClassMember('sub-interface-mtu-overhead', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Subif MTU overhead
                 ''',
                 'sub_interface_mtu_overhead',

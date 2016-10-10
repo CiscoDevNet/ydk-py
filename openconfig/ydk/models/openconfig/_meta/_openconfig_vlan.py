@@ -41,7 +41,7 @@ _meta_table = {
                 'status',
                 'openconfig-vlan', False),
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                Interface VLAN id.
                 ''',
                 'vlan_id',
@@ -82,7 +82,7 @@ _meta_table = {
                 'status',
                 'openconfig-vlan', False),
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                Interface VLAN id.
                 ''',
                 'vlan_id',
@@ -99,7 +99,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                references the configured vlan-id
                 ''',
                 'vlan_id',

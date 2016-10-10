@@ -93,7 +93,6 @@ _meta_table = {
             '1plus1-unidir-no-aps':'Y_1PLUS1_UNIDIR_NO_APS',
             '1plus1-unidir-aps':'Y_1PLUS1_UNIDIR_APS',
             '1plus1-bdir-aps':'Y_1PLUS1_BDIR_APS',
-            '1plus1plus-r-bidir-aps':'Y_1PLUS1PLUS_R_BIDIR_APS',
         }, 'Cisco-IOS-XR-mpls-te-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-datatypes']),
     'CtypeEnum' : _MetaInfoEnum('CtypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
         {
@@ -166,6 +165,7 @@ _meta_table = {
         {
             'igp':'IGP',
             'te':'TE',
+            'delay':'DELAY',
         }, 'Cisco-IOS-XR-mpls-te-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-datatypes']),
     'MplsTePathOptionProtectionEnum' : _MetaInfoEnum('MplsTePathOptionProtectionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
         {
@@ -180,6 +180,15 @@ _meta_table = {
             'explicit-number':'EXPLICIT_NUMBER',
             'no-ero':'NO_ERO',
             'sr':'SR',
+        }, 'Cisco-IOS-XR-mpls-te-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-datatypes']),
+    'BfdReversePathEnum' : _MetaInfoEnum('BfdReversePathEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
+        {
+            'bfd-reverse-path-binding-label':'BFD_REVERSE_PATH_BINDING_LABEL',
+        }, 'Cisco-IOS-XR-mpls-te-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-datatypes']),
+    'MplsTeOtnApsRestorationStyleEnum' : _MetaInfoEnum('MplsTeOtnApsRestorationStyleEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
+        {
+            'keep-failed-lsp':'KEEP_FAILED_LSP',
+            'delete-failed-lsp':'DELETE_FAILED_LSP',
         }, 'Cisco-IOS-XR-mpls-te-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-te-datatypes']),
     'MplsTeOtnSncModeEnum' : _MetaInfoEnum('MplsTeOtnSncModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_datatypes',
         {

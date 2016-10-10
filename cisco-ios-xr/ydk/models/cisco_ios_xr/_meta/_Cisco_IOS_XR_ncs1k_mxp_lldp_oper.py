@@ -14,21 +14,150 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
+    'LldpL3AddrProtocolEnum' : _MetaInfoEnum('LldpL3AddrProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper',
+        {
+            'ipv4':'IPV4',
+            'ipv6':'IPV6',
+        }, 'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-lldp-oper']),
+    'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address' : {
+        'meta_info' : _MetaInfoClass('LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address',
+            False, 
+            [
+            _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'LldpL3AddrProtocolEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper', 'LldpL3AddrProtocolEnum', 
+                [], [], 
+                '''                AddressType
+                ''',
+                'address_type',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('ipv4-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv4 address
+                ''',
+                'ipv4_address',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('ipv6-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                '''                IPv6 address
+                ''',
+                'ipv6_address',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            ],
+            'Cisco-IOS-XR-ncs1k-mxp-lldp-oper',
+            'address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-lldp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper'
+        ),
+    },
+    'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress' : {
+        'meta_info' : _MetaInfoClass('LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress',
+            False, 
+            [
+            _MetaInfoClassMember('address', REFERENCE_CLASS, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper', 'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address', 
+                [], [], 
+                '''                Network layer address
+                ''',
+                'address',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('if-num', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Interface num
+                ''',
+                'if_num',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('ma-subtype', ATTRIBUTE, 'int' , None, None, 
+                [('0', '255')], [], 
+                '''                MA sub type
+                ''',
+                'ma_subtype',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            ],
+            'Cisco-IOS-XR-ncs1k-mxp-lldp-oper',
+            'network-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-lldp-oper'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper'
+        ),
+    },
     'LldpSnoopData.EthernetControllerNames.EthernetControllerName' : {
         'meta_info' : _MetaInfoClass('LldpSnoopData.EthernetControllerNames.EthernetControllerName',
             False, 
             [
             _MetaInfoClassMember('name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Port name
                 ''',
                 'name',
                 'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', True),
+            _MetaInfoClassMember('chassis-id', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Chassis id
+                ''',
+                'chassis_id',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('enabled-capabilities', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Enabled Capabilities
+                ''',
+                'enabled_capabilities',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('hold-time', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                Remaining hold time
+                ''',
+                'hold_time',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
             _MetaInfoClassMember('lldp-neighbor', ATTRIBUTE, 'str' , None, None, 
                 [(0, 40)], [], 
                 '''                LldpNeighbor
                 ''',
                 'lldp_neighbor',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('network-address', REFERENCE_CLASS, 'NetworkAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper', 'LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress', 
+                [], [], 
+                '''                Management Address
+                ''',
+                'network_address',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('port-description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Port Description
+                ''',
+                'port_description',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('port-id-ckt', ATTRIBUTE, 'int' , None, None, 
+                [('0', '4294967295')], [], 
+                '''                Outgoing port identifier circuit id
+                ''',
+                'port_id_ckt',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('port-id-detail', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Outgoing port identifier
+                ''',
+                'port_id_detail',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('source-mac', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Mac address of the neighbor
+                ''',
+                'source_mac',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('system-capabilities', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                System Capabilities
+                ''',
+                'system_capabilities',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('system-description', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                System Description
+                ''',
+                'system_description',
+                'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
+            _MetaInfoClassMember('system-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                System Name
+                ''',
+                'system_name',
                 'Cisco-IOS-XR-ncs1k-mxp-lldp-oper', False),
             ],
             'Cisco-IOS-XR-ncs1k-mxp-lldp-oper',
@@ -72,5 +201,7 @@ _meta_table = {
         ),
     },
 }
+_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress.Address']['meta_info'].parent =_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress']['meta_info']
+_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName.NetworkAddress']['meta_info'].parent =_meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName']['meta_info']
 _meta_table['LldpSnoopData.EthernetControllerNames.EthernetControllerName']['meta_info'].parent =_meta_table['LldpSnoopData.EthernetControllerNames']['meta_info']
 _meta_table['LldpSnoopData.EthernetControllerNames']['meta_info'].parent =_meta_table['LldpSnoopData']['meta_info']

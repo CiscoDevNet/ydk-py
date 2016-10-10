@@ -18,19 +18,28 @@ _meta_table = {
         {
             'local':'LOCAL',
             'received':'RECEIVED',
+            'pppoe':'PPPOE',
+        }, 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg']),
+    'LinkLayerAddrEnum' : _MetaInfoEnum('LinkLayerAddrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg',
+        {
+            'set':'SET',
+        }, 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg']),
+    'SubscriberIdEnum' : _MetaInfoEnum('SubscriberIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg',
+        {
+            'pppoe':'PPPOE',
         }, 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg']),
     'Dhcpv6.Database' : {
         'meta_info' : _MetaInfoClass('Dhcpv6.Database',
             False, 
             [
             _MetaInfoClassMember('full-write-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                Full file write interval (default 10 minutes)
                 ''',
                 'full_write_interval',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('incremental-write-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 1440)], [], 
+                [('1', '1440')], [], 
                 '''                Incremental file write interval (default 1
                 minutes)
                 ''',
@@ -140,7 +149,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -202,11 +211,29 @@ _meta_table = {
                 ''',
                 'interface_id',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('link-layer-addr', REFERENCE_ENUM_CLASS, 'LinkLayerAddrEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'LinkLayerAddrEnum', 
+                [], [], 
+                '''                Configure Received link-layer-Addr
+                ''',
+                'link_layer_addr',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('remote-i-dreceived', ATTRIBUTE, 'int' , None, None, 
+                [('-2147483648', '2147483647')], [], 
+                '''                Set remote-id value from SADB
+                ''',
+                'remote_i_dreceived',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('remote-id', ATTRIBUTE, 'str' , None, None, 
                 [(0, 256)], [], 
                 '''                Enter remote-id value
                 ''',
                 'remote_id',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('subscriber-id', REFERENCE_ENUM_CLASS, 'SubscriberIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'SubscriberIdEnum', 
+                [], [], 
+                '''                Configure Received SubscriberID
+                ''',
+                'subscriber_id',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg',
@@ -249,7 +276,7 @@ _meta_table = {
                 'any_out_interface',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('out-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                DHCPv6 HelperAddress Specific Output
                 Interface
                 ''',
@@ -423,19 +450,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('block', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Throttle blocking period (in secs)
                 ''',
                 'block',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Number of solicits at which to throttle
                 ''',
                 'limit',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('request', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Throttle request period (in secs)
                 ''',
                 'request',
@@ -538,7 +565,7 @@ _meta_table = {
                 'sessions',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('src-intf-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Create or enter proxy profile Source
                 Interface Name
                 ''',
@@ -562,19 +589,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('block', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Throttle blocking period (in secs)
                 ''',
                 'block',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('limit', ATTRIBUTE, 'int' , None, None, 
-                [(1, 65535)], [], 
+                [('1', '65535')], [], 
                 '''                Number of solicits at which to throttle
                 ''',
                 'limit',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('request', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Throttle request period (in secs)
                 ''',
                 'request',
@@ -710,7 +737,7 @@ _meta_table = {
                 'domain_name',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(1, 255)], [], 
+                [('1', '255')], [], 
                 '''                DHCP Server Preference
                 ''',
                 'preference',
@@ -750,13 +777,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('days', ATTRIBUTE, 'int' , None, None, 
-                [(0, 365)], [], 
+                [('0', '365')], [], 
                 '''                Days
                 ''',
                 'days',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('hours', ATTRIBUTE, 'int' , None, None, 
-                [(0, 23)], [], 
+                [('0', '23')], [], 
                 '''                Hours
                 ''',
                 'hours',
@@ -768,7 +795,7 @@ _meta_table = {
                 'infinite',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('minutes', ATTRIBUTE, 'int' , None, None, 
-                [(1, 59)], [], 
+                [('1', '59')], [], 
                 '''                Minutes
                 ''',
                 'minutes',
@@ -776,6 +803,46 @@ _meta_table = {
             ],
             'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg',
             'lease',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg'
+        ),
+    },
+    'Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions',
+            False, 
+            [
+            _MetaInfoClassMember('type', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Set string
+                ''',
+                'type',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('vendor-options', ATTRIBUTE, 'str' , None, None, 
+                [(0, 512)], [], 
+                '''                Vendor options
+                ''',
+                'vendor_options',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg',
+            'vendor-options',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg'
+        ),
+    },
+    'Dhcpv6.Profiles.Profile.Server.Dhcpv6Options' : {
+        'meta_info' : _MetaInfoClass('Dhcpv6.Profiles.Profile.Server.Dhcpv6Options',
+            False, 
+            [
+            _MetaInfoClassMember('vendor-options', REFERENCE_CLASS, 'VendorOptions' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions', 
+                [], [], 
+                '''                Vendor options
+                ''',
+                'vendor_options',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg',
+            'dhcpv6-options',
             _yang_ns._namespaces['Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg'],
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg'
         ),
@@ -801,6 +868,12 @@ _meta_table = {
                 '''                Table of Class
                 ''',
                 'classes',
+                'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
+            _MetaInfoClassMember('dhcpv6-options', REFERENCE_CLASS, 'Dhcpv6Options' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Server.Dhcpv6Options', 
+                [], [], 
+                '''                DHCPv6 options
+                ''',
+                'dhcpv6_options',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('dns-servers', REFERENCE_CLASS, 'DnsServers' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Dhcpv6.Profiles.Profile.Server.DnsServers', 
                 [], [], 
@@ -829,7 +902,7 @@ _meta_table = {
                 'lease',
                 'Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg', False),
             _MetaInfoClassMember('preference', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                DHCP Server Preference
                 ''',
                 'preference',
@@ -984,7 +1057,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface to configure
                 ''',
                 'interface_name',
@@ -1104,10 +1177,12 @@ _meta_table['Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Sessions.Mac']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Sessions']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Classes.Class']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Classes.Class']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Classes']['meta_info']
+_meta_table['Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server.Dhcpv6Options']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Sessions']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.DnsServers']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Classes']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server.Lease']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server']['meta_info']
+_meta_table['Dhcpv6.Profiles.Profile.Server.Dhcpv6Options']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile.Server']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Relay']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Proxy']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile']['meta_info']
 _meta_table['Dhcpv6.Profiles.Profile.Server']['meta_info'].parent =_meta_table['Dhcpv6.Profiles.Profile']['meta_info']

@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   dhcpv6\: IPV6 DHCPD operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -701,21 +701,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -770,21 +770,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -839,21 +839,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -908,21 +908,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -977,21 +977,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1046,21 +1046,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1115,21 +1115,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1184,21 +1184,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1253,21 +1253,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1322,21 +1322,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1391,21 +1391,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1460,21 +1460,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1529,21 +1529,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1598,21 +1598,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1667,21 +1667,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1736,21 +1736,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -1805,21 +1805,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -2757,21 +2757,21 @@ class Dhcpv6(object):
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -2992,7 +2992,7 @@ class Dhcpv6(object):
                             	DHCPV6 access interface to client
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: is_nak_next_renew
                             
@@ -3074,6 +3074,18 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: srg_vrf_name
+                            
+                            	DHCPV6 SRG VRF NAME
+                            	**type**\:  str
+                            
+                            	**range:** 0..33
+                            
+                            .. attribute:: srgp2p
+                            
+                            	SRG P2P Status
+                            	**type**\:  bool
+                            
                             .. attribute:: subscriber_label
                             
                             	DHCPV6 subscriber label
@@ -3134,6 +3146,8 @@ class Dhcpv6(object):
                                 self.server_ipv6_address = None
                                 self.srg_intf_role = None
                                 self.srg_state = None
+                                self.srg_vrf_name = None
+                                self.srgp2p = None
                                 self.subscriber_label = None
                                 self.tx_interface_id = None
                                 self.tx_remote_id = None
@@ -3494,6 +3508,12 @@ class Dhcpv6(object):
                                     return True
 
                                 if self.srg_state is not None:
+                                    return True
+
+                                if self.srg_vrf_name is not None:
+                                    return True
+
+                                if self.srgp2p is not None:
                                     return True
 
                                 if self.subscriber_label is not None:
@@ -3904,6 +3924,11 @@ class Dhcpv6(object):
                 	DHCPV6 server bindings
                 	**type**\:  :py:class:`Binding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Binding>`
                 
+                .. attribute:: binding_options
+                
+                	DHCPv6 server binding with options
+                	**type**\:  :py:class:`BindingOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions>`
+                
                 .. attribute:: profiles
                 
                 	IPv6 DHCP server profile
@@ -3930,6 +3955,8 @@ class Dhcpv6(object):
                     self.parent = None
                     self.binding = Dhcpv6.Nodes.Node.Server.Binding()
                     self.binding.parent = self
+                    self.binding_options = Dhcpv6.Nodes.Node.Server.BindingOptions()
+                    self.binding_options.parent = self
                     self.profiles = Dhcpv6.Nodes.Node.Server.Profiles()
                     self.profiles.parent = self
                     self.statistics = Dhcpv6.Nodes.Node.Server.Statistics()
@@ -4372,7 +4399,7 @@ class Dhcpv6(object):
                             	DHCPV6 access interface to client
                             	**type**\:  str
                             
-                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+                            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
                             
                             .. attribute:: is_nak_next_renew
                             
@@ -4461,6 +4488,18 @@ class Dhcpv6(object):
                             
                             	**range:** 0..4294967295
                             
+                            .. attribute:: srg_vrf_name
+                            
+                            	DHCPV6 SRG VRF NAME
+                            	**type**\:  str
+                            
+                            	**range:** 0..33
+                            
+                            .. attribute:: srgp2p
+                            
+                            	SRG P2P Status
+                            	**type**\:  bool
+                            
                             .. attribute:: subscriber_label
                             
                             	DHCPV6 subscriber label
@@ -4511,6 +4550,8 @@ class Dhcpv6(object):
                                 self.server_binding_tags = None
                                 self.srg_intf_role = None
                                 self.srg_state = None
+                                self.srg_vrf_name = None
+                                self.srgp2p = None
                                 self.subscriber_label = None
                                 self.vrf_name = None
 
@@ -4883,6 +4924,12 @@ class Dhcpv6(object):
                                 if self.srg_state is not None:
                                     return True
 
+                                if self.srg_vrf_name is not None:
+                                    return True
+
+                                if self.srgp2p is not None:
+                                    return True
+
                                 if self.subscriber_label is not None:
                                     return True
 
@@ -5144,21 +5191,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5213,21 +5260,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5282,21 +5329,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5351,21 +5398,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5420,21 +5467,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5489,21 +5536,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5558,21 +5605,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5627,21 +5674,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5696,21 +5743,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5765,21 +5812,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5834,21 +5881,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5903,21 +5950,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -5972,21 +6019,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6041,21 +6088,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6110,21 +6157,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6179,21 +6226,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -6248,21 +6295,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7057,21 +7104,21 @@ class Dhcpv6(object):
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -7171,6 +7218,364 @@ class Dhcpv6(object):
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
                         return meta._meta_table['Dhcpv6.Nodes.Node.Server.Statistics']['meta_info']
 
+
+                class BindingOptions(object):
+                    """
+                    DHCPv6 server binding with options
+                    
+                    .. attribute:: duid_bind_options
+                    
+                    	DHCPv6 server binding from DUID
+                    	**type**\:  :py:class:`DuidBindOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions>`
+                    
+                    .. attribute:: mac_bind_options
+                    
+                    	DHCPv6 server binding from MAC address
+                    	**type**\:  :py:class:`MacBindOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ipv6-new-dhcpv6d-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.duid_bind_options = Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions()
+                        self.duid_bind_options.parent = self
+                        self.mac_bind_options = Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions()
+                        self.mac_bind_options.parent = self
+
+
+                    class MacBindOptions(object):
+                        """
+                        DHCPv6 server binding from MAC address
+                        
+                        .. attribute:: mac_bind_option
+                        
+                        	DHCPv6 server binding with options
+                        	**type**\: list of  :py:class:`MacBindOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.mac_bind_option = YList()
+                            self.mac_bind_option.parent = self
+                            self.mac_bind_option.name = 'mac_bind_option'
+
+
+                        class MacBindOption(object):
+                            """
+                            DHCPv6 server binding with options
+                            
+                            .. attribute:: mac_address  <key>
+                            
+                            	MAC address
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: dns_address
+                            
+                            	DNS addresses
+                            	**type**\:  list of str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: dns_count
+                            
+                            	DNS address count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: duid_xr
+                            
+                            	Client DUID
+                            	**type**\:  str
+                            
+                            .. attribute:: mac_address_xr
+                            
+                            	Client MAC address
+                            	**type**\:  str
+                            
+                            .. attribute:: opt17
+                            
+                            	Client Option 17 value
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-new-dhcpv6d-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.mac_address = None
+                                self.dns_address = YLeafList()
+                                self.dns_address.parent = self
+                                self.dns_address.name = 'dns_address'
+                                self.dns_count = None
+                                self.duid_xr = None
+                                self.mac_address_xr = None
+                                self.opt17 = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.mac_address is None:
+                                    raise YPYModelError('Key property mac_address is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:mac-bind-option[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:mac-address = ' + str(self.mac_address) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.mac_address is not None:
+                                    return True
+
+                                if self.dns_address is not None:
+                                    for child in self.dns_address:
+                                        if child is not None:
+                                            return True
+
+                                if self.dns_count is not None:
+                                    return True
+
+                                if self.duid_xr is not None:
+                                    return True
+
+                                if self.mac_address_xr is not None:
+                                    return True
+
+                                if self.opt17 is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:mac-bind-options'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.mac_bind_option is not None:
+                                for child_ref in self.mac_bind_option:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions']['meta_info']
+
+
+                    class DuidBindOptions(object):
+                        """
+                        DHCPv6 server binding from DUID
+                        
+                        .. attribute:: duid_bind_option
+                        
+                        	DHCPv6 server binding with options
+                        	**type**\: list of  :py:class:`DuidBindOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ipv6-new-dhcpv6d-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.duid_bind_option = YList()
+                            self.duid_bind_option.parent = self
+                            self.duid_bind_option.name = 'duid_bind_option'
+
+
+                        class DuidBindOption(object):
+                            """
+                            DHCPv6 server binding with options
+                            
+                            .. attribute:: duid  <key>
+                            
+                            	DUID of Binding
+                            	**type**\:  str
+                            
+                            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                            
+                            .. attribute:: dns_address
+                            
+                            	DNS addresses
+                            	**type**\:  list of str
+                            
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            
+                            .. attribute:: dns_count
+                            
+                            	DNS address count
+                            	**type**\:  int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: duid_xr
+                            
+                            	Client DUID
+                            	**type**\:  str
+                            
+                            .. attribute:: mac_address_xr
+                            
+                            	Client MAC address
+                            	**type**\:  str
+                            
+                            .. attribute:: opt17
+                            
+                            	Client Option 17 value
+                            	**type**\:  str
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-new-dhcpv6d-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                self.parent = None
+                                self.duid = None
+                                self.dns_address = YLeafList()
+                                self.dns_address.parent = self
+                                self.dns_address.name = 'dns_address'
+                                self.dns_count = None
+                                self.duid_xr = None
+                                self.mac_address_xr = None
+                                self.opt17 = None
+
+                            @property
+                            def _common_path(self):
+                                if self.parent is None:
+                                    raise YPYModelError('parent is not set . Cannot derive path.')
+                                if self.duid is None:
+                                    raise YPYModelError('Key property duid is None')
+
+                                return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:duid-bind-option[Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:duid = ' + str(self.duid) + ']'
+
+                            def is_config(self):
+                                ''' Returns True if this instance represents config data else returns False '''
+                                return False
+
+                            def _has_data(self):
+                                if not self.is_config():
+                                    return False
+                                if self.duid is not None:
+                                    return True
+
+                                if self.dns_address is not None:
+                                    for child in self.dns_address:
+                                        if child is not None:
+                                            return True
+
+                                if self.dns_count is not None:
+                                    return True
+
+                                if self.duid_xr is not None:
+                                    return True
+
+                                if self.mac_address_xr is not None:
+                                    return True
+
+                                if self.opt17 is not None:
+                                    return True
+
+                                return False
+
+                            @staticmethod
+                            def _meta_info():
+                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                                return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption']['meta_info']
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:duid-bind-options'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.duid_bind_option is not None:
+                                for child_ref in self.duid_bind_option:
+                                    if child_ref._has_data():
+                                        return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                            return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:binding-options'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.duid_bind_options is not None and self.duid_bind_options._has_data():
+                            return True
+
+                        if self.mac_bind_options is not None and self.mac_bind_options._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ipv6_new_dhcpv6d_oper as meta
+                        return meta._meta_table['Dhcpv6.Nodes.Node.Server.BindingOptions']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.parent is None:
@@ -7186,6 +7591,9 @@ class Dhcpv6(object):
                     if not self.is_config():
                         return False
                     if self.binding is not None and self.binding._has_data():
+                        return True
+
+                    if self.binding_options is not None and self.binding_options._has_data():
                         return True
 
                     if self.profiles is not None and self.profiles._has_data():
@@ -7301,21 +7709,21 @@ class Dhcpv6(object):
                             .. attribute:: dropped_packets
                             
                             	Dropped packets
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: received_packets
                             
                             	Received packets
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: transmitted_packets
                             
                             	Transmitted packets
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -7930,21 +8338,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -7999,21 +8407,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8068,21 +8476,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8137,21 +8545,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8206,21 +8614,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8275,21 +8683,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8344,21 +8752,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8413,21 +8821,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8482,21 +8890,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8551,21 +8959,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8620,21 +9028,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8689,21 +9097,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8758,21 +9166,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8827,21 +9235,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8896,21 +9304,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -8965,21 +9373,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
@@ -9034,21 +9442,21 @@ class Dhcpv6(object):
                                 .. attribute:: dropped_packets
                                 
                                 	Dropped packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: received_packets
                                 
                                 	Received packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: transmitted_packets
                                 
                                 	Transmitted packets
-                                	**type**\:  long
+                                	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
                                 

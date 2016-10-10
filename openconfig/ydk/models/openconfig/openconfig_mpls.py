@@ -53,14 +53,6 @@ from ydk.types import Empty, YList, YLeafList, DELETE, Decimal64, FixedBitsDict
 from ydk.errors import YPYError, YPYModelError
 
 
-from ydk.models.openconfig.openconfig_mpls_types import LspOperStatusIdentity
-from ydk.models.openconfig.openconfig_mpls_types import LspRoleIdentity
-from ydk.models.openconfig.openconfig_mpls_types import MplsLabelEnum
-from ydk.models.openconfig.openconfig_mpls_types import NullLabelTypeIdentity
-from ydk.models.openconfig.openconfig_mpls_types import ProtectionTypeIdentity
-from ydk.models.openconfig.openconfig_mpls_types import TunnelAdminStatusIdentity
-from ydk.models.openconfig.openconfig_mpls_types import TunnelTypeEnum
-from ydk.models.openconfig.openconfig_mpls_types import TunnelTypeIdentity
 
 class CspfTieBreakingEnum(Enum):
     """
@@ -4336,147 +4328,147 @@ class Mpls(object):
                         .. attribute:: in_ack_messages
                         
                         	Number of received RSVP refresh reduction ack messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_hello_messages
                         
                         	Number of received RSVP hello messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_path_error_messages
                         
                         	Number of received RSVP Path Error messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_path_messages
                         
                         	Number of received RSVP Path messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_path_tear_messages
                         
                         	Number of received RSVP Path Tear messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_reservation_error_messages
                         
                         	Number of received RSVP Resv Error messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_reservation_messages
                         
                         	Number of received RSVP Resv messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_reservation_tear_messages
                         
                         	Number of received RSVP Resv Tear messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: in_srefresh_messages
                         
                         	Number of received RSVP summary refresh messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_ack_messages
                         
                         	Number of sent RSVP refresh reduction ack messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_hello_messages
                         
                         	Number of sent RSVP hello messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_path_error_messages
                         
                         	Number of sent RSVP Path Error messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_path_messages
                         
                         	Number of sent RSVP PATH messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_path_tear_messages
                         
                         	Number of sent RSVP Path Tear messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_reservation_error_messages
                         
                         	Number of sent RSVP Resv Error messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_reservation_messages
                         
                         	Number of sent RSVP Resv messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_reservation_tear_messages
                         
                         	Number of sent RSVP Resv Tear messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: out_srefresh_messages
                         
                         	Number of sent RSVP summary refresh messages
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: path_timeouts
                         
                         	TODO
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: rate_limited_messages
                         
                         	RSVP messages dropped due to rate limiting
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: reservation_timeouts
                         
                         	TODO
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4789,7 +4781,7 @@ class Mpls(object):
                         .. attribute:: active_reservation_count
                         
                         	Number of active RSVP reservations
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4806,7 +4798,7 @@ class Mpls(object):
                         .. attribute:: highwater_mark
                         
                         	Maximum bandwidth ever reserved
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -4843,14 +4835,14 @@ class Mpls(object):
                             .. attribute:: available_bandwidth
                             
                             	Bandwidth currently available
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: reserved_bandwidth
                             
                             	Bandwidth currently reserved
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -4907,126 +4899,126 @@ class Mpls(object):
                             .. attribute:: in_ack_messages
                             
                             	Number of received RSVP refresh reduction ack messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_hello_messages
                             
                             	Number of received RSVP hello messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_path_error_messages
                             
                             	Number of received RSVP Path Error messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_path_messages
                             
                             	Number of received RSVP Path messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_path_tear_messages
                             
                             	Number of received RSVP Path Tear messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_reservation_error_messages
                             
                             	Number of received RSVP Resv Error messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_reservation_messages
                             
                             	Number of received RSVP Resv messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_reservation_tear_messages
                             
                             	Number of received RSVP Resv Tear messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: in_srefresh_messages
                             
                             	Number of received RSVP summary refresh messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_ack_messages
                             
                             	Number of sent RSVP refresh reduction ack messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_hello_messages
                             
                             	Number of sent RSVP hello messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_path_error_messages
                             
                             	Number of sent RSVP Path Error messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_path_messages
                             
                             	Number of sent RSVP PATH messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_path_tear_messages
                             
                             	Number of sent RSVP Path Tear messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_reservation_error_messages
                             
                             	Number of sent RSVP Resv Error messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_reservation_messages
                             
                             	Number of sent RSVP Resv messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_reservation_tear_messages
                             
                             	Number of sent RSVP Resv Tear messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
                             .. attribute:: out_srefresh_messages
                             
                             	Number of sent RSVP summary refresh messages
-                            	**type**\:  long
+                            	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
                             
@@ -7660,7 +7652,7 @@ class Mpls(object):
                         .. attribute:: bytes
                         
                         	Number of bytes that have been forwarded over the label switched path
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -7688,21 +7680,21 @@ class Mpls(object):
                         .. attribute:: packets
                         
                         	Number of pacets that have been forwarded over the label switched path
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: path_changes
                         
                         	Number of path changes for the label switched path
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
                         .. attribute:: state_changes
                         
                         	Number of state changes for the label switched path
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         

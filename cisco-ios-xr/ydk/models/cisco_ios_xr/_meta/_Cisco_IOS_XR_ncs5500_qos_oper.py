@@ -21,25 +21,32 @@ _meta_table = {
             'action-drop':'ACTION_DROP',
             'action-mark':'ACTION_MARK',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
-    'DnxQoseaShowPolicyUnitEnum' : _MetaInfoEnum('DnxQoseaShowPolicyUnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
+    'PolicyParamUnitEnum' : _MetaInfoEnum('PolicyParamUnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'invalid':'INVALID',
-            'bytes':'BYTES',
-            'kilo-bytes':'KILO_BYTES',
-            'mega-bytes':'MEGA_BYTES',
-            'giga-bytes':'GIGA_BYTES',
-            'bits-per-second':'BITS_PER_SECOND',
-            'kilo-bits-per-second':'KILO_BITS_PER_SECOND',
-            'mega-bits-per-second':'MEGA_BITS_PER_SECOND',
-            'giga-bits-per-second':'GIGA_BITS_PER_SECOND',
-            'cells-per-second':'CELLS_PER_SECOND',
-            'packets-per-second':'PACKETS_PER_SECOND',
-            'microseconds':'MICROSECONDS',
-            'milliseconds':'MILLISECONDS',
-            'packets':'PACKETS',
-            'cells':'CELLS',
-            'percent':'PERCENT',
-            'ratio':'RATIO',
+            'policy-param-unit-invalid':'POLICY_PARAM_UNIT_INVALID',
+            'policy-param-unit-bytes':'POLICY_PARAM_UNIT_BYTES',
+            'policy-param-unit-kbytes':'POLICY_PARAM_UNIT_KBYTES',
+            'policy-param-unit-mbytes':'POLICY_PARAM_UNIT_MBYTES',
+            'policy-param-unit-gbytes':'POLICY_PARAM_UNIT_GBYTES',
+            'policy-param-unit-bitsps':'POLICY_PARAM_UNIT_BITSPS',
+            'policy-param-unit-kbitsps':'POLICY_PARAM_UNIT_KBITSPS',
+            'policy-param-unit-mbitsps':'POLICY_PARAM_UNIT_MBITSPS',
+            'policy-param-unit-gbitsps':'POLICY_PARAM_UNIT_GBITSPS',
+            'policy-param-unit-cells-ps':'POLICY_PARAM_UNIT_CELLS_PS',
+            'policy-param-unit-packets-ps':'POLICY_PARAM_UNIT_PACKETS_PS',
+            'policy-param-unit-us':'POLICY_PARAM_UNIT_US',
+            'policy-param-unit-ms':'POLICY_PARAM_UNIT_MS',
+            'policy-param-unit-seconds':'POLICY_PARAM_UNIT_SECONDS',
+            'policy-param-unit-packets':'POLICY_PARAM_UNIT_PACKETS',
+            'policy-param-unit-cells':'POLICY_PARAM_UNIT_CELLS',
+            'policy-param-unit-percent':'POLICY_PARAM_UNIT_PERCENT',
+            'policy-param-unit-per-thousand':'POLICY_PARAM_UNIT_PER_THOUSAND',
+            'policy-param-unit-per-million':'POLICY_PARAM_UNIT_PER_MILLION',
+            'policy-param-unit-hz':'POLICY_PARAM_UNIT_HZ',
+            'policy-param-unit-khz':'POLICY_PARAM_UNIT_KHZ',
+            'policy-param-unit-mhz':'POLICY_PARAM_UNIT_MHZ',
+            'policy-param-unit-ratio':'POLICY_PARAM_UNIT_RATIO',
+            'policy-param-unit-max':'POLICY_PARAM_UNIT_MAX',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'DnxQoseaShowWredEnum' : _MetaInfoEnum('DnxQoseaShowWredEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
@@ -82,8 +89,12 @@ _meta_table = {
             'discard-class':'DISCARD_CLASS',
             'cos':'COS',
             'inner-cos':'INNER_COS',
+            'un-supported9':'UN_SUPPORTED9',
+            'un-supported10':'UN_SUPPORTED10',
             'dscp-tunnel':'DSCP_TUNNEL',
             'precedence-tunnel':'PRECEDENCE_TUNNEL',
+            'dei':'DEI',
+            'dei-imposition':'DEI_IMPOSITION',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'DnxQoseaShowPolicyStatusEnum' : _MetaInfoEnum('DnxQoseaShowPolicyStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
@@ -115,13 +126,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-bandwidth-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface Bandwidth (in kbps)
                 ''',
                 'interface_bandwidth_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                InterfaceHandle
                 ''',
                 'interface_handle',
@@ -133,7 +144,7 @@ _meta_table = {
                 'interface_status',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('npu-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                NPU ID
                 ''',
                 'npu_id',
@@ -157,19 +168,19 @@ _meta_table = {
                 'stats_accounting_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('total-number-of-classes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of Classes
                 ''',
                 'total_number_of_classes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('voq-base-address', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VOQ base address
                 ''',
                 'voq_base_address',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('voq-stats-handle', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('voq-stats-handle', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                VOQ stats handle
                 ''',
                 'voq_stats_handle',
@@ -185,14 +196,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -208,14 +219,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -231,14 +242,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -254,14 +265,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -277,14 +288,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -300,14 +311,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -323,14 +334,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -353,7 +364,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -399,7 +410,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -445,7 +456,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -491,7 +502,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -514,7 +525,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -537,7 +548,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -554,13 +565,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('range-end', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                End value of a range
                 ''',
                 'range_end',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('range-start', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Start value of a range
                 ''',
                 'range_start',
@@ -593,14 +604,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -616,14 +627,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -652,25 +663,25 @@ _meta_table = {
                 'config_min_threshold',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('first-segment', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                First segment
                 ''',
                 'first_segment',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-max-threshold-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware maximum threshold
                 ''',
                 'hardware_max_threshold_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-min-threshold-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware minimum threshold
                 ''',
                 'hardware_min_threshold_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('segment-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment size
                 ''',
                 'segment_size',
@@ -717,13 +728,13 @@ _meta_table = {
                 'common_mark',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('config-excess-bandwidth-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured excess bandwidth percentage
                 ''',
                 'config_excess_bandwidth_percent',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('config-excess-bandwidth-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured excess bandwidth unit
                 ''',
                 'config_excess_bandwidth_unit',
@@ -777,7 +788,7 @@ _meta_table = {
                 'conform_action',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('egress-queue-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Egress Queue ID
                 ''',
                 'egress_queue_id',
@@ -789,55 +800,55 @@ _meta_table = {
                 'exceed_action',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-excess-bandwidth-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware excess bandwidth weight
                 ''',
                 'hardware_excess_bandwidth_weight',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-max-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware maximum rate in kbps
                 ''',
                 'hardware_max_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-min-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware minimum rate in kbps
                 ''',
                 'hardware_min_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-average-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer average in kbps
                 ''',
                 'hardware_policer_average_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-conform-burst-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer conform burst
                 ''',
                 'hardware_policer_conform_burst_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-excess-burst-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer excess burst
                 ''',
                 'hardware_policer_excess_burst_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-peak-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer peak rate
                 ''',
                 'hardware_policer_peak_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('hardware-queue-limit-bytes', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hardware-queue-limit-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Hardware queue limit in bytes
                 ''',
                 'hardware_queue_limit_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('hardware-queue-limit-microseconds', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hardware-queue-limit-microseconds', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Hardware queue limit in microseconds
                 ''',
                 'hardware_queue_limit_microseconds',
@@ -861,19 +872,19 @@ _meta_table = {
                 'mpls_mark',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('network-min-bandwidth-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Network minimum Bandwith
                 ''',
                 'network_min_bandwidth_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policer-bucket-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PolicerBucketID
                 ''',
                 'policer_bucket_id',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('policer-stats-handle', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('policer-stats-handle', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                PolicerStatsHandle
                 ''',
                 'policer_stats_handle',
@@ -931,7 +942,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Member interface
                 ''',
                 'interface_name',
@@ -977,13 +988,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-bandwidth-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface Bandwidth (in kbps)
                 ''',
                 'interface_bandwidth_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                InterfaceHandle
                 ''',
                 'interface_handle',
@@ -995,7 +1006,7 @@ _meta_table = {
                 'interface_status',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('npu-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                NPU ID
                 ''',
                 'npu_id',
@@ -1019,19 +1030,19 @@ _meta_table = {
                 'stats_accounting_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('total-number-of-classes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of Classes
                 ''',
                 'total_number_of_classes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('voq-base-address', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VOQ base address
                 ''',
                 'voq_base_address',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('voq-stats-handle', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('voq-stats-handle', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                VOQ stats handle
                 ''',
                 'voq_stats_handle',
@@ -1047,14 +1058,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1070,14 +1081,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1093,14 +1104,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1116,14 +1127,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1139,14 +1150,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1162,14 +1173,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1185,14 +1196,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1215,7 +1226,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -1261,7 +1272,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -1307,7 +1318,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -1353,7 +1364,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -1376,7 +1387,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -1399,7 +1410,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -1416,13 +1427,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('range-end', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                End value of a range
                 ''',
                 'range_end',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('range-start', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Start value of a range
                 ''',
                 'range_start',
@@ -1455,14 +1466,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1478,14 +1489,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1514,25 +1525,25 @@ _meta_table = {
                 'config_min_threshold',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('first-segment', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                First segment
                 ''',
                 'first_segment',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-max-threshold-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware maximum threshold
                 ''',
                 'hardware_max_threshold_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-min-threshold-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware minimum threshold
                 ''',
                 'hardware_min_threshold_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('segment-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment size
                 ''',
                 'segment_size',
@@ -1579,13 +1590,13 @@ _meta_table = {
                 'common_mark',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('config-excess-bandwidth-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured excess bandwidth percentage
                 ''',
                 'config_excess_bandwidth_percent',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('config-excess-bandwidth-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured excess bandwidth unit
                 ''',
                 'config_excess_bandwidth_unit',
@@ -1639,7 +1650,7 @@ _meta_table = {
                 'conform_action',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('egress-queue-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Egress Queue ID
                 ''',
                 'egress_queue_id',
@@ -1651,55 +1662,55 @@ _meta_table = {
                 'exceed_action',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-excess-bandwidth-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware excess bandwidth weight
                 ''',
                 'hardware_excess_bandwidth_weight',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-max-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware maximum rate in kbps
                 ''',
                 'hardware_max_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-min-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware minimum rate in kbps
                 ''',
                 'hardware_min_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-average-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer average in kbps
                 ''',
                 'hardware_policer_average_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-conform-burst-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer conform burst
                 ''',
                 'hardware_policer_conform_burst_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-excess-burst-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer excess burst
                 ''',
                 'hardware_policer_excess_burst_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-peak-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer peak rate
                 ''',
                 'hardware_policer_peak_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('hardware-queue-limit-bytes', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hardware-queue-limit-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Hardware queue limit in bytes
                 ''',
                 'hardware_queue_limit_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('hardware-queue-limit-microseconds', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hardware-queue-limit-microseconds', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Hardware queue limit in microseconds
                 ''',
                 'hardware_queue_limit_microseconds',
@@ -1723,19 +1734,19 @@ _meta_table = {
                 'mpls_mark',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('network-min-bandwidth-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Network minimum Bandwith
                 ''',
                 'network_min_bandwidth_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policer-bucket-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PolicerBucketID
                 ''',
                 'policer_bucket_id',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('policer-stats-handle', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('policer-stats-handle', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                PolicerStatsHandle
                 ''',
                 'policer_stats_handle',
@@ -1793,7 +1804,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Bundle interface name
                 ''',
                 'interface_name',
@@ -1811,7 +1822,7 @@ _meta_table = {
                 'member_interfaces',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('npu-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                NPU ID
                 ''',
                 'npu_id',
@@ -1858,13 +1869,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-bandwidth-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface Bandwidth (in kbps)
                 ''',
                 'interface_bandwidth_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                InterfaceHandle
                 ''',
                 'interface_handle',
@@ -1876,7 +1887,7 @@ _meta_table = {
                 'interface_status',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('npu-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                NPU ID
                 ''',
                 'npu_id',
@@ -1900,19 +1911,19 @@ _meta_table = {
                 'stats_accounting_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('total-number-of-classes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of Classes
                 ''',
                 'total_number_of_classes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('voq-base-address', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                VOQ base address
                 ''',
                 'voq_base_address',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('voq-stats-handle', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('voq-stats-handle', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                VOQ stats handle
                 ''',
                 'voq_stats_handle',
@@ -1928,14 +1939,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1951,14 +1962,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1974,14 +1985,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -1997,14 +2008,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -2020,14 +2031,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -2043,14 +2054,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -2066,14 +2077,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -2096,7 +2107,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -2142,7 +2153,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -2188,7 +2199,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -2234,7 +2245,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -2257,7 +2268,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -2280,7 +2291,7 @@ _meta_table = {
                 'mark_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('mark-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Mark value
                 ''',
                 'mark_value',
@@ -2297,13 +2308,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('range-end', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                End value of a range
                 ''',
                 'range_end',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('range-start', ATTRIBUTE, 'int' , None, None, 
-                [(0, 255)], [], 
+                [('0', '255')], [], 
                 '''                Start value of a range
                 ''',
                 'range_start',
@@ -2336,14 +2347,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -2359,14 +2370,14 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold',
             False, 
             [
-            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'DnxQoseaShowPolicyUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowPolicyUnitEnum', 
+            _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
                 [], [], 
                 '''                Policy unit
                 ''',
                 'policy_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policy-value', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Policy value
                 ''',
                 'policy_value',
@@ -2395,25 +2406,25 @@ _meta_table = {
                 'config_min_threshold',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('first-segment', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                First segment
                 ''',
                 'first_segment',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-max-threshold-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware maximum threshold
                 ''',
                 'hardware_max_threshold_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-min-threshold-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware minimum threshold
                 ''',
                 'hardware_min_threshold_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('segment-size', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Segment size
                 ''',
                 'segment_size',
@@ -2460,13 +2471,13 @@ _meta_table = {
                 'common_mark',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('config-excess-bandwidth-percent', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured excess bandwidth percentage
                 ''',
                 'config_excess_bandwidth_percent',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('config-excess-bandwidth-unit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Configured excess bandwidth unit
                 ''',
                 'config_excess_bandwidth_unit',
@@ -2520,7 +2531,7 @@ _meta_table = {
                 'conform_action',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('egress-queue-id', ATTRIBUTE, 'int' , None, None, 
-                [(-2147483648, 2147483647)], [], 
+                [('-2147483648', '2147483647')], [], 
                 '''                Egress Queue ID
                 ''',
                 'egress_queue_id',
@@ -2532,55 +2543,55 @@ _meta_table = {
                 'exceed_action',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-excess-bandwidth-weight', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware excess bandwidth weight
                 ''',
                 'hardware_excess_bandwidth_weight',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-max-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware maximum rate in kbps
                 ''',
                 'hardware_max_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-min-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware minimum rate in kbps
                 ''',
                 'hardware_min_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-average-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer average in kbps
                 ''',
                 'hardware_policer_average_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-conform-burst-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer conform burst
                 ''',
                 'hardware_policer_conform_burst_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-excess-burst-bytes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer excess burst
                 ''',
                 'hardware_policer_excess_burst_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-policer-peak-rate-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware policer peak rate
                 ''',
                 'hardware_policer_peak_rate_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('hardware-queue-limit-bytes', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hardware-queue-limit-bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Hardware queue limit in bytes
                 ''',
                 'hardware_queue_limit_bytes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('hardware-queue-limit-microseconds', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('hardware-queue-limit-microseconds', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Hardware queue limit in microseconds
                 ''',
                 'hardware_queue_limit_microseconds',
@@ -2604,19 +2615,19 @@ _meta_table = {
                 'mpls_mark',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('network-min-bandwidth-kbps', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Network minimum Bandwith
                 ''',
                 'network_min_bandwidth_kbps',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('policer-bucket-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                PolicerBucketID
                 ''',
                 'policer_bucket_id',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('policer-stats-handle', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('policer-stats-handle', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                PolicerStatsHandle
                 ''',
                 'policer_stats_handle',
@@ -2674,7 +2685,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the interface
                 ''',
                 'interface_name',
@@ -2727,19 +2738,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('drop-probability', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Drop Probability
                 ''',
                 'drop_probability',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('max-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum Threshold
                 ''',
                 'max_threshold',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('min-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum Threshold
                 ''',
                 'min_threshold',
@@ -2756,19 +2767,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('drop-probability', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Drop Probability
                 ''',
                 'drop_probability',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('max-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Maximum Threshold
                 ''',
                 'max_threshold',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('min-threshold', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Minimum Threshold
                 ''',
                 'min_threshold',
@@ -2785,19 +2796,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('class-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Class ID
                 ''',
                 'class_id',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
+            _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
+                [(0, 64)], [], 
+                '''                Class Name
+                ''',
+                'class_name',
+                'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('cos-q', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Class of Service Queue
                 ''',
                 'cos_q',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('hardware-queue-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Hardware queue limit in bytes
                 ''',
                 'hardware_queue_limit',
@@ -2809,7 +2826,7 @@ _meta_table = {
                 'hw_wred',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False, max_elements=4),
             _MetaInfoClassMember('queue-limit', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Default/Configured queue limit in bytes
                 ''',
                 'queue_limit',
@@ -2832,25 +2849,25 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The name of the remote interface
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', True),
             _MetaInfoClassMember('interface-handle', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Interface Handle
                 ''',
                 'interface_handle',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('number-of-classes', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Classes
                 ''',
                 'number_of_classes',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
             _MetaInfoClassMember('number-of-virtual-output-queues', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of Virtual Output Queues
                 ''',
                 'number_of_virtual_output_queues',
@@ -2867,8 +2884,8 @@ _meta_table = {
                 ''',
                 'remote_class',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('virtual-output-queue-statistics-handle', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('virtual-output-queue-statistics-handle', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Virtual output queue statistics handle
                 ''',
                 'virtual_output_queue_statistics_handle',

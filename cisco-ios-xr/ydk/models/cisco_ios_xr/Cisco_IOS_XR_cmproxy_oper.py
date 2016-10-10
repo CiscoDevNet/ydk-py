@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   sdr\-inventory\-vm\: Platform VM information
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -210,7 +210,7 @@ class SdrInventoryVm(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: previous_sw_state_string
+                    .. attribute:: prev_sw_state_string
                     
                     	previous software state string
                     	**type**\:  str
@@ -224,7 +224,7 @@ class SdrInventoryVm(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: redundancy_state_string
+                    .. attribute:: red_state_string
                     
                     	redundancy state string
                     	**type**\:  str
@@ -259,9 +259,9 @@ class SdrInventoryVm(object):
                         self.partner_id = None
                         self.partner_name = None
                         self.prev_sw_state = None
-                        self.previous_sw_state_string = None
+                        self.prev_sw_state_string = None
                         self.red_state = None
-                        self.redundancy_state_string = None
+                        self.red_state_string = None
                         self.valid = None
 
                     @property
@@ -316,13 +316,13 @@ class SdrInventoryVm(object):
                         if self.prev_sw_state is not None:
                             return True
 
-                        if self.previous_sw_state_string is not None:
+                        if self.prev_sw_state_string is not None:
                             return True
 
                         if self.red_state is not None:
                             return True
 
-                        if self.redundancy_state_string is not None:
+                        if self.red_state_string is not None:
                             return True
 
                         if self.valid is not None:

@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ip\-tcp\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -55,7 +55,7 @@ class IpUdp(object):
     """
 
     _prefix = 'ip-udp-cfg'
-    _revision = '2015-11-09'
+    _revision = '2016-02-26'
 
     def __init__(self):
         self.directory = None
@@ -97,7 +97,7 @@ class IpUdp(object):
         """
 
         _prefix = 'ip-udp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None
@@ -174,7 +174,7 @@ class IpUdp(object):
         """
 
         _prefix = 'ip-udp-cfg'
-        _revision = '2015-11-09'
+        _revision = '2016-02-26'
 
         def __init__(self):
             self.parent = None

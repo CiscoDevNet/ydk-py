@@ -19,7 +19,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('buckets-size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Size of each bucket
                 ''',
                 'buckets_size',
@@ -42,20 +42,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('bins-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 100)], [], 
+                [('0', '100')], [], 
                 '''                Number of bins to aggregate results into
                 (0 for no aggregation)
                 ''',
                 'bins_count',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('bins-width', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
+                [('1', '10000')], [], 
                 '''                Width of each bin
                 ''',
                 'bins_width',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('bins-width-tenths', ATTRIBUTE, 'int' , None, None, 
-                [(0, 9)], [], 
+                [('0', '9')], [], 
                 '''                Tenths portion of the bin width
                 ''',
                 'bins_width_tenths',
@@ -85,7 +85,7 @@ _meta_table = {
                 'aggregation',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('buckets-archive', ATTRIBUTE, 'int' , None, None, 
-                [(1, 100)], [], 
+                [('1', '100')], [], 
                 '''                Number of buckets to archive in memory
                 ''',
                 'buckets_archive',
@@ -132,7 +132,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('probe-duration', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3600)], [], 
+                [('1', '3600')], [], 
                 '''                Duration of each probe.  This must be
                 specified if, and only if, ProbeDurationUnit
                 is specified.
@@ -147,7 +147,7 @@ _meta_table = {
                 'probe_duration_unit',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('probe-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 90)], [], 
+                [('1', '90')], [], 
                 '''                Interval between probes.  This must be
                 specified if, and only if, ProbeIntervalUnit
                 is not 'Week' or 'Day'.
@@ -172,14 +172,14 @@ _meta_table = {
                 'probe_interval_unit',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('start-time-hour', ATTRIBUTE, 'int' , None, None, 
-                [(0, 23)], [], 
+                [('0', '23')], [], 
                 '''                Time after midnight (in UTC) to send the
                 first packet each day.
                 ''',
                 'start_time_hour',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('start-time-minute', ATTRIBUTE, 'int' , None, None, 
-                [(0, 59)], [], 
+                [('0', '59')], [], 
                 '''                Time after midnight (in UTC) to send the
                 first packet each day. This must be
                 specified if, and only if, StartTimeHour is
@@ -188,7 +188,7 @@ _meta_table = {
                 'start_time_minute',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('start-time-second', ATTRIBUTE, 'int' , None, None, 
-                [(0, 59)], [], 
+                [('0', '59')], [], 
                 '''                Time after midnight (in UTC) to send the
                 first packet each day. This must only be
                 specified if StartTimeHour is specified, and
@@ -209,7 +209,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('burst-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 3600)], [], 
+                [('1', '3600')], [], 
                 '''                Interval between bursts.  This must be
                 specified if, and only if, the SendType is
                 'Burst' and the 'BurstIntervalUnit' is not
@@ -220,13 +220,13 @@ _meta_table = {
             _MetaInfoClassMember('burst-interval-unit', REFERENCE_ENUM_CLASS, 'SlaBurstIntervalUnitsEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaBurstIntervalUnitsEnumEnum', 
                 [], [], 
                 '''                Time unit associated with the BurstInterval
-                .  This must be specified if, and only is,
+                .  This must be specified if, and only if,
                 SendType is 'Burst'.
                 ''',
                 'burst_interval_unit',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('packet-count', ATTRIBUTE, 'int' , None, None, 
-                [(2, 1200)], [], 
+                [('2', '1200')], [], 
                 '''                The number of packets in each burst.  This
                 must be specified if, and only if, the
                 SendType is 'Burst'.
@@ -234,15 +234,17 @@ _meta_table = {
                 'packet_count',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('packet-interval', ATTRIBUTE, 'int' , None, None, 
-                [(1, 10000)], [], 
-                '''                Interval between packets.
+                [('1', '30000')], [], 
+                '''                Interval between packets.  This must be
+                specified if, and only if,
+                PacketIntervalUnit is not 'Once'.
                 ''',
                 'packet_interval',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('packet-interval-unit', REFERENCE_ENUM_CLASS, 'SlaPacketIntervalUnitsEnumEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaPacketIntervalUnitsEnumEnum', 
                 [], [], 
                 '''                Time unit associated with the
-                PacketInterval, must not be 'Once'.
+                PacketInterval
                 ''',
                 'packet_interval_unit',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
@@ -281,7 +283,7 @@ _meta_table = {
                 'padding_value',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('size', ATTRIBUTE, 'int' , None, None, 
-                [(1, 9000)], [], 
+                [('1', '9000')], [], 
                 '''                Minimum size to pad outgoing packet to
                 ''',
                 'size',
@@ -304,7 +306,7 @@ _meta_table = {
                 'packet_size_and_padding',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('priority', ATTRIBUTE, 'int' , None, None, 
-                [(0, 7)], [], 
+                [('0', '7')], [], 
                 '''                Priority class to assign to outgoing SLA
                 packets
                 ''',
@@ -319,7 +321,7 @@ _meta_table = {
                 'send',
                 'Cisco-IOS-XR-ethernet-cfm-cfg', False),
             _MetaInfoClassMember('synthetic-loss-calculation-packets', ATTRIBUTE, 'int' , None, None, 
-                [(10, 12096000)], [], 
+                [('10', '12096000')], [], 
                 '''                Number of packets to use in each FLR
                 calculation
                 ''',
@@ -346,7 +348,8 @@ _meta_table = {
                 [], [], 
                 '''                The possible packet types are cfm-loopback,
                 cfm-delay-measurement,
-                cfm-delay-measurement-version-0 and
+                cfm-delay-measurement-version-0,
+                cfm-loss-measurement and
                 cfm-synthetic-loss-measurement
                 ''',
                 'packet_type',

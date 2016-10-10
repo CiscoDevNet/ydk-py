@@ -113,19 +113,19 @@ _meta_table = {
                 'is_ingress_enabled',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('number-available-egress', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MAC accounting entries available on egress
                 ''',
                 'number_available_egress',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('number-available-ingress', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MAC accounting entries available on ingress
                 ''',
                 'number_available_ingress',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('number-available-on-node', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                MAC accountng entries available across the node
                 ''',
                 'number_available_on_node',
@@ -141,8 +141,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MacAccounting.Interfaces.Interface.IngressStatistic',
             False, 
             [
-            _MetaInfoClassMember('bytes', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of bytes counted
                 ''',
                 'bytes',
@@ -153,8 +153,8 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('packets', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of packets counted
                 ''',
                 'packets',
@@ -170,8 +170,8 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MacAccounting.Interfaces.Interface.EgressStatistic',
             False, 
             [
-            _MetaInfoClassMember('bytes', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('bytes', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of bytes counted
                 ''',
                 'bytes',
@@ -182,8 +182,8 @@ _meta_table = {
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
-            _MetaInfoClassMember('packets', ATTRIBUTE, 'long' , None, None, 
-                [(0, 18446744073709551615L)], [], 
+            _MetaInfoClassMember('packets', ATTRIBUTE, 'int' , None, None, 
+                [('0', '18446744073709551615')], [], 
                 '''                Number of packets counted
                 ''',
                 'packets',
@@ -200,7 +200,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface_name',
@@ -272,20 +272,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('admin-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of subinterfaces which are
                 administrativelyshutdown
                 ''',
                 'admin_down',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of subinterfaces which are down
                 ''',
                 'down',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of subinterfaces which are up
                 ''',
                 'up',
@@ -302,20 +302,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dot1q-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of single tagged subinterfaces
                 ''',
                 'dot1q_count',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('qin-any-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of double tagged subinterfaces with
                 wildcarded inner tag
                 ''',
                 'qin_any_count',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('qin-q-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of double tagged subinterfaces with
                 explicit inner tag
                 ''',
@@ -329,13 +329,13 @@ _meta_table = {
                 'state_counters',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Layer 2 subinterfaces configured
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('untagged-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of subinterfaces without VLAN tag
                 configuration
                 ''',
@@ -353,20 +353,20 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('admin-down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of subinterfaces which are
                 administrativelyshutdown
                 ''',
                 'admin_down',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('down', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of subinterfaces which are down
                 ''',
                 'down',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('up', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of subinterfaces which are up
                 ''',
                 'up',
@@ -383,19 +383,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('dot1q-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of single tagged subinterfaces
                 ''',
                 'dot1q_count',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('native-vlan', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Native VLAN ID configured on trunk
                 ''',
                 'native_vlan',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('qin-q-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of double tagged subinterfaces
                 ''',
                 'qin_q_count',
@@ -408,13 +408,13 @@ _meta_table = {
                 'state_counters',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('total-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Total number of Layer 3 subinterfaces configured
                 ''',
                 'total_count',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('untagged-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of subinterfaces without VLAN tag
                 configuration
                 ''',
@@ -432,19 +432,19 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface',
                 'Cisco-IOS-XR-l2-eth-infra-oper', True),
             _MetaInfoClassMember('dot1ad-count', ATTRIBUTE, 'int' , None, None, 
-                [(0, 4294967295)], [], 
+                [('0', '4294967295')], [], 
                 '''                Number of subinterfaces with 802.1ad outer tag
                 ''',
                 'dot1ad_count',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface name
                 ''',
                 'interface_xr',
@@ -469,7 +469,7 @@ _meta_table = {
                 'mac_filtering',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                L2 MTU
                 ''',
                 'mtu',
@@ -487,7 +487,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('untagged-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface/Sub-interface handling untagged frames
                 ''',
                 'untagged_interface',
@@ -522,13 +522,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer tag value
                 ''',
                 'outer_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('second-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Second tag value
                 ''',
                 'second_tag',
@@ -551,7 +551,7 @@ _meta_table = {
                 'ethertype',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN Id
                 ''',
                 'vlan_id',
@@ -585,13 +585,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vlan-id-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN ID High
                 ''',
                 'vlan_id_high',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('vlan-id-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN ID Low
                 ''',
                 'vlan_id_low',
@@ -643,7 +643,7 @@ _meta_table = {
                 'ethertype',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN Id
                 ''',
                 'vlan_id',
@@ -711,7 +711,7 @@ _meta_table = {
                 'source_mac_match',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('tags-popped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of tags popped on ingress
                 ''',
                 'tags_popped',
@@ -734,13 +734,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer tag value
                 ''',
                 'outer_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('second-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Second tag value
                 ''',
                 'second_tag',
@@ -763,31 +763,31 @@ _meta_table = {
                 'dot1ad_dot1q_stack',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-native-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                802.1ad native tag value
                 ''',
                 'dot1ad_native_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                802.1ad Outer tag value
                 ''',
                 'dot1ad_outer_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                802.1ad tag value
                 ''',
                 'dot1ad_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('native-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Native tag value
                 ''',
                 'native_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer tag value
                 ''',
                 'outer_tag',
@@ -805,7 +805,7 @@ _meta_table = {
                 'stack',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tag value
                 ''',
                 'tag',
@@ -828,7 +828,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface',
@@ -840,19 +840,19 @@ _meta_table = {
                 'encapsulation_details',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_xr',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                L2 MTU
                 ''',
                 'mtu',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
@@ -870,7 +870,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('switched-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                L2 switched MTU
                 ''',
                 'switched_mtu',
@@ -905,13 +905,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer tag value
                 ''',
                 'outer_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('second-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Second tag value
                 ''',
                 'second_tag',
@@ -934,7 +934,7 @@ _meta_table = {
                 'ethertype',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN Id
                 ''',
                 'vlan_id',
@@ -968,13 +968,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('vlan-id-high', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN ID High
                 ''',
                 'vlan_id_high',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('vlan-id-low', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN ID Low
                 ''',
                 'vlan_id_low',
@@ -1026,7 +1026,7 @@ _meta_table = {
                 'ethertype',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('vlan-id', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                VLAN Id
                 ''',
                 'vlan_id',
@@ -1094,7 +1094,7 @@ _meta_table = {
                 'source_mac_match',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('tags-popped', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Number of tags popped on ingress
                 ''',
                 'tags_popped',
@@ -1117,13 +1117,13 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer tag value
                 ''',
                 'outer_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('second-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Second tag value
                 ''',
                 'second_tag',
@@ -1146,31 +1146,31 @@ _meta_table = {
                 'dot1ad_dot1q_stack',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-native-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                802.1ad native tag value
                 ''',
                 'dot1ad_native_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                802.1ad Outer tag value
                 ''',
                 'dot1ad_outer_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('dot1ad-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                802.1ad tag value
                 ''',
                 'dot1ad_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('native-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Native tag value
                 ''',
                 'native_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('outer-tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Outer tag value
                 ''',
                 'outer_tag',
@@ -1188,7 +1188,7 @@ _meta_table = {
                 'stack',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('tag', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                Tag value
                 ''',
                 'tag',
@@ -1217,31 +1217,31 @@ _meta_table = {
                 'encapsulation_details',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('first-tag', ATTRIBUTE, 'int' , None, None, 
-                [(1, 4094)], [], 
+                [('1', '4094')], [], 
                 '''                The first (outermost) tag
                 ''',
                 'first_tag',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('interface-xr', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Interface
                 ''',
                 'interface_xr',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                L2 MTU
                 ''',
                 'mtu',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('parent-interface', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                Parent interface
                 ''',
                 'parent_interface',
@@ -1259,7 +1259,7 @@ _meta_table = {
                         'second_tag',
                         'Cisco-IOS-XR-l2-eth-infra-oper', False),
                     _MetaInfoClassMember('second-tag', ATTRIBUTE, 'int' , None, None, 
-                        [(1, 4096)], [], 
+                        [('1', '4096')], [], 
                         '''                        The second tag
                         ''',
                         'second_tag',
@@ -1278,7 +1278,7 @@ _meta_table = {
                 'state',
                 'Cisco-IOS-XR-l2-eth-infra-oper', False),
             _MetaInfoClassMember('switched-mtu', ATTRIBUTE, 'int' , None, None, 
-                [(0, 65535)], [], 
+                [('0', '65535')], [], 
                 '''                L2 switched MTU
                 ''',
                 'switched_mtu',
@@ -1406,7 +1406,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
-                [], ['(([a-zA-Z0-9_]*\\d+/){3}\\d+)|(([a-zA-Z0-9_]*\\d+/){4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
                 '''                The interface name
                 ''',
                 'interface_name',

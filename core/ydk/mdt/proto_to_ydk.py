@@ -36,12 +36,12 @@ def bytes_to_string (bytes):
 
 TF_DECODE_FN_MAP = {
     "bytes_value": lambda b: bytes_to_string(b),
-    "string_value": unicode,
+    "string_value": str,
     "bool_value": bool,
     "uint32_value": int,
-    "uint64_value": long,
+    "uint64_value": int,
     "sint32_value": int,
-    "sint64_value": long,
+    "sint64_value": int,
     "double_value": float,
     "float_value": float,
 }

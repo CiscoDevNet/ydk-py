@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   otu\: OTU operational data
 
-Copyright (c) 2013\-2015 by Cisco Systems, Inc.
+Copyright (c) 2013\-2016 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -606,7 +606,7 @@ class Otu(object):
             	Port name
             	**type**\:  str
             
-            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
+            	**pattern:** (([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){3,4}\\d+\\.\\d+)\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]\*\\d+))\|(([a\-zA\-Z0\-9\_]\*\\d+/){2}([a\-zA\-Z0\-9\_]+))\|([a\-zA\-Z0\-9\_\-]\*\\d+)\|([a\-zA\-Z0\-9\_\-]\*\\d+\\.\\d+)\|(mpls)\|(dwdm)
             
             .. attribute:: info
             
@@ -639,7 +639,7 @@ class Otu(object):
                 .. attribute:: ec
                 
                 	Average bit errors corrected
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -687,10 +687,8 @@ class Otu(object):
                 
                 .. attribute:: network_srlg
                 
-                	Network SRLG
-                	**type**\:  list of int
-                
-                	**range:** 0..4294967295
+                	Network Shared Risk Link Group information
+                	**type**\:  :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg>`
                 
                 .. attribute:: nv_optical_support
                 
@@ -701,6 +699,11 @@ class Otu(object):
                 
                 	OTU layer alarm Information
                 	**type**\:  :py:class:`OtuAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo>`
+                
+                .. attribute:: otu_fec_satistics
+                
+                	OTU FEC Statistics
+                	**type**\:  :py:class:`OtuFecSatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuFecSatistics>`
                 
                 .. attribute:: performance_monitoring
                 
@@ -739,14 +742,14 @@ class Otu(object):
                 .. attribute:: q
                 
                 	q value calculated
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
                 .. attribute:: q_margin
                 
                 	q margin calculated
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -757,7 +760,7 @@ class Otu(object):
                 
                 .. attribute:: sd
                 
-                	SD
+                	SD in the form of 1.0E \- <SD>
                 	**type**\:  int
                 
                 	**range:** 0..255
@@ -769,7 +772,7 @@ class Otu(object):
                 
                 .. attribute:: sf
                 
-                	SF
+                	SF in the form of 1.0E \- <SF>
                 	**type**\:  int
                 
                 	**range:** 0..255
@@ -787,7 +790,7 @@ class Otu(object):
                 .. attribute:: uc
                 
                 	Uncorrected word count
-                	**type**\:  long
+                	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
                 
@@ -816,12 +819,13 @@ class Otu(object):
                     self.local.parent = self
                     self.loopback_mode = None
                     self.name = None
-                    self.network_srlg = YLeafList()
+                    self.network_srlg = Otu.Controllers.Controller.Info.NetworkSrlg()
                     self.network_srlg.parent = self
-                    self.network_srlg.name = 'network_srlg'
                     self.nv_optical_support = None
                     self.otu_alarm_info = Otu.Controllers.Controller.Info.OtuAlarmInfo()
                     self.otu_alarm_info.parent = self
+                    self.otu_fec_satistics = Otu.Controllers.Controller.Info.OtuFecSatistics()
+                    self.otu_fec_satistics.parent = self
                     self.performance_monitoring = None
                     self.pre_fec_ber_mantissa = None
                     self.pre_fec_ber_value = None
@@ -1295,6 +1299,103 @@ class Otu(object):
                         return meta._meta_table['Otu.Controllers.Controller.Info.TtiMode']['meta_info']
 
 
+                class NetworkSrlg(object):
+                    """
+                    Network Shared Risk Link Group information
+                    
+                    .. attribute:: srlg_info
+                    
+                    	Array of Network Shared Risk Link Group information
+                    	**type**\: list of  :py:class:`SrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-otu-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.srlg_info = YList()
+                        self.srlg_info.parent = self
+                        self.srlg_info.name = 'srlg_info'
+
+
+                    class SrlgInfo(object):
+                        """
+                        Array of Network Shared Risk Link Group
+                        information
+                        
+                        .. attribute:: srlg
+                        
+                        	Shared Risk Link Group information expressed in integer format
+                        	**type**\:  int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'controller-otu-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self.srlg = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:srlg-info'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return False
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self.srlg is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                            return meta._meta_table['Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:network-srlg'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.srlg_info is not None:
+                            for child_ref in self.srlg_info:
+                                if child_ref._has_data():
+                                    return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.NetworkSrlg']['meta_info']
+
+
                 class OtuAlarmInfo(object):
                     """
                     OTU layer alarm Information
@@ -1436,7 +1537,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1510,7 +1611,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1584,7 +1685,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1658,7 +1759,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1732,7 +1833,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1806,7 +1907,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1880,7 +1981,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -1954,7 +2055,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2028,7 +2129,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2102,7 +2203,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2176,7 +2277,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2250,7 +2351,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2324,7 +2425,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2398,7 +2499,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2472,7 +2573,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2546,7 +2647,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2620,7 +2721,7 @@ class Otu(object):
                         .. attribute:: counter
                         
                         	Alarm counter
-                        	**type**\:  long
+                        	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
                         
@@ -2896,6 +2997,60 @@ class Otu(object):
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
                         return meta._meta_table['Otu.Controllers.Controller.Info.Proactive']['meta_info']
 
+
+                class OtuFecSatistics(object):
+                    """
+                    OTU FEC Statistics
+                    
+                    .. attribute:: post_fec_ber
+                    
+                    	Bit Error Rate After Forward Error Correction
+                    	**type**\:  str
+                    
+                    .. attribute:: pre_fec_ber
+                    
+                    	Bit Error Rate Before Forward Error Correction
+                    	**type**\:  str
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-otu-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.post_fec_ber = None
+                        self.pre_fec_ber = None
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-controller-otu-oper:otu-fec-satistics'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return False
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.post_fec_ber is not None:
+                            return True
+
+                        if self.pre_fec_ber is not None:
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_controller_otu_oper as meta
+                        return meta._meta_table['Otu.Controllers.Controller.Info.OtuFecSatistics']['meta_info']
+
                 @property
                 def _common_path(self):
                     if self.parent is None:
@@ -2940,15 +3095,16 @@ class Otu(object):
                     if self.name is not None:
                         return True
 
-                    if self.network_srlg is not None:
-                        for child in self.network_srlg:
-                            if child is not None:
-                                return True
+                    if self.network_srlg is not None and self.network_srlg._has_data():
+                        return True
 
                     if self.nv_optical_support is not None:
                         return True
 
                     if self.otu_alarm_info is not None and self.otu_alarm_info._has_data():
+                        return True
+
+                    if self.otu_fec_satistics is not None and self.otu_fec_satistics._has_data():
                         return True
 
                     if self.performance_monitoring is not None:
