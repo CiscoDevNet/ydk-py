@@ -18,11 +18,24 @@ Linux
 
     $ sudo apt-get install python-pip zlib1g-dev python-lxml libxml2-dev libxslt1-dev python-dev
 
+  Centos (Fedora-based) - The following packages must be present in your system before installing YDK-Py::
+    
+    $ sudo yum install epel-release
+    $ sudo yum install python-pip python-devel libxml2-devel libxslt-devel libcurl-devel libtool
+
 Mac
-  It is recommended to install homebrew (http://brew.sh) and Xcode command line tools on your system before installing YDK-Py::
+  It is recommended to install homebrew (http://brew.sh), homebrew python package and Xcode command line tools on your system before installing YDK-Py::
 
     $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    $ brew install python
     $ xcode-select --install
+
+Windows
+    It is recommended to install a python distribution like [PythonXY](https://python-xy.github.io/) on your system before installing YDK-Py
+
+Python Requirements
+-------------------
+Python2.7 or Python 3.4
 
 Install Tips
 ------------
