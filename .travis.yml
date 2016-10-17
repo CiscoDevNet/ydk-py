@@ -10,7 +10,6 @@ matrix:
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install python; fi
 
 install:
     - virtualenv venv -p python2.7
