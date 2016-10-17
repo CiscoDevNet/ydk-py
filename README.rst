@@ -31,7 +31,7 @@ Mac
     $ xcode-select --install
 
 Windows
-    It is recommended to install a python distribution like [PythonXY](https://python-xy.github.io/) on your system before installing YDK-Py
+    It is recommended to install a python distribution like `PythonXY <https://python-xy.github.io/>`_ on your system before installing YDK-Py
 
 Python Requirements
 -------------------
