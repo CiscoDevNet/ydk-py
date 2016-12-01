@@ -26,25 +26,25 @@ class AclUsageAppIdEnumEnum(Enum):
 
     Acl usage app id enum
 
-    .. data:: PFILTER = 1
+    .. data:: pfilter = 1
 
     	General Usage Statistics
 
-    .. data:: BGP = 2
+    .. data:: bgp = 2
 
     	Usage staistics related to BGP Traffic
 
-    .. data:: OSPF = 3
+    .. data:: ospf = 3
 
     	Usage staistics related to OSPF Traffic
 
     """
 
-    PFILTER = 1
+    pfilter = 1
 
-    BGP = 2
+    bgp = 2
 
-    OSPF = 3
+    ospf = 3
 
 
     @staticmethod

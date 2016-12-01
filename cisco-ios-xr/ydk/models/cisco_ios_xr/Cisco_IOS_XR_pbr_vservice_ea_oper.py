@@ -31,55 +31,55 @@ class VsNshStatsEnum(Enum):
 
     Vs nsh stats
 
-    .. data:: VS_NSH_STATS_SPI_SI = 0
+    .. data:: vs_nsh_stats_spi_si = 0
 
     	vs nsh stats spi si
 
-    .. data:: VS_NSH_STATS_TER_MIN_ATE = 1
+    .. data:: vs_nsh_stats_ter_min_ate = 1
 
     	vs nsh stats ter min ate
 
-    .. data:: VS_NSH_STATS_SF = 2
+    .. data:: vs_nsh_stats_sf = 2
 
     	vs nsh stats sf
 
-    .. data:: VS_NSH_STATS_SFF = 3
+    .. data:: vs_nsh_stats_sff = 3
 
     	vs nsh stats sff
 
-    .. data:: VS_NSH_STATS_SFF_LOCAL = 4
+    .. data:: vs_nsh_stats_sff_local = 4
 
     	vs nsh stats sff local
 
-    .. data:: VS_NSH_STATS_SFP = 5
+    .. data:: vs_nsh_stats_sfp = 5
 
     	vs nsh stats sfp
 
-    .. data:: VS_NSH_STATS_SFP_DETAIL = 6
+    .. data:: vs_nsh_stats_sfp_detail = 6
 
     	vs nsh stats sfp detail
 
-    .. data:: VS_NSH_STATS_MAX = 7
+    .. data:: vs_nsh_stats_max = 7
 
     	vs nsh stats max
 
     """
 
-    VS_NSH_STATS_SPI_SI = 0
+    vs_nsh_stats_spi_si = 0
 
-    VS_NSH_STATS_TER_MIN_ATE = 1
+    vs_nsh_stats_ter_min_ate = 1
 
-    VS_NSH_STATS_SF = 2
+    vs_nsh_stats_sf = 2
 
-    VS_NSH_STATS_SFF = 3
+    vs_nsh_stats_sff = 3
 
-    VS_NSH_STATS_SFF_LOCAL = 4
+    vs_nsh_stats_sff_local = 4
 
-    VS_NSH_STATS_SFP = 5
+    vs_nsh_stats_sfp = 5
 
-    VS_NSH_STATS_SFP_DETAIL = 6
+    vs_nsh_stats_sfp_detail = 6
 
-    VS_NSH_STATS_MAX = 7
+    vs_nsh_stats_max = 7
 
 
     @staticmethod
@@ -96,7 +96,7 @@ class ServiceFunctionChaining(object):
     .. attribute:: nodes
     
     	Node\-specific NSH Service Function Chaining operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes>`
     
     
 
@@ -118,7 +118,7 @@ class ServiceFunctionChaining(object):
         .. attribute:: node
         
         	NSH operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node>`
         
         
 
@@ -148,7 +148,7 @@ class ServiceFunctionChaining(object):
             .. attribute:: process
             
             	Client Process
-            	**type**\:  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process>`
+            	**type**\:   :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process>`
             
             
 
@@ -171,17 +171,17 @@ class ServiceFunctionChaining(object):
                 .. attribute:: service_function
                 
                 	Service Function operational data
-                	**type**\:  :py:class:`ServiceFunction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction>`
+                	**type**\:   :py:class:`ServiceFunction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction>`
                 
                 .. attribute:: service_function_forwarder
                 
                 	Service Function Forwarder operational data
-                	**type**\:  :py:class:`ServiceFunctionForwarder <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder>`
+                	**type**\:   :py:class:`ServiceFunctionForwarder <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder>`
                 
                 .. attribute:: service_function_path
                 
                 	Service Function Path operational data
-                	**type**\:  :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath>`
+                	**type**\:   :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath>`
                 
                 
 
@@ -207,7 +207,7 @@ class ServiceFunctionChaining(object):
                     .. attribute:: path_ids
                     
                     	Service Function Path Id 
-                    	**type**\:  :py:class:`PathIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds>`
+                    	**type**\:   :py:class:`PathIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds>`
                     
                     
 
@@ -229,7 +229,7 @@ class ServiceFunctionChaining(object):
                         .. attribute:: path_id
                         
                         	Specific Service\-Function\-Path identifier 
-                        	**type**\: list of  :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId>`
+                        	**type**\: list of    :py:class:`PathId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId>`
                         
                         
 
@@ -259,12 +259,12 @@ class ServiceFunctionChaining(object):
                             .. attribute:: service_indexes
                             
                             	Service Index Belonging to Path
-                            	**type**\:  :py:class:`ServiceIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes>`
+                            	**type**\:   :py:class:`ServiceIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes>`
                             
                             .. attribute:: stats
                             
                             	SFP Statistics
-                            	**type**\:  :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats>`
+                            	**type**\:   :py:class:`Stats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats>`
                             
                             
 
@@ -289,7 +289,7 @@ class ServiceFunctionChaining(object):
                                 .. attribute:: service_index
                                 
                                 	Service index operational data belonging to this path
-                                	**type**\: list of  :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex>`
+                                	**type**\: list of    :py:class:`ServiceIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex>`
                                 
                                 
 
@@ -320,12 +320,12 @@ class ServiceFunctionChaining(object):
                                     .. attribute:: data
                                     
                                     	Statistics data
-                                    	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data>`
+                                    	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data>`
                                     
                                     .. attribute:: si_arr
                                     
                                     	SI array in case of detail stats
-                                    	**type**\: list of  :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr>`
+                                    	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr>`
                                     
                                     
 
@@ -351,37 +351,37 @@ class ServiceFunctionChaining(object):
                                         .. attribute:: sf
                                         
                                         	Service function stats
-                                        	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf>`
+                                        	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf>`
                                         
                                         .. attribute:: sff
                                         
                                         	Service function forwarder stats
-                                        	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff>`
+                                        	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff>`
                                         
                                         .. attribute:: sff_local
                                         
                                         	Local service function forwarder stats
-                                        	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal>`
+                                        	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal>`
                                         
                                         .. attribute:: sfp
                                         
                                         	SFP stats
-                                        	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp>`
+                                        	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp>`
                                         
                                         .. attribute:: spi_si
                                         
                                         	SPI SI stats
-                                        	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi>`
+                                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi>`
                                         
                                         .. attribute:: term
                                         
                                         	Terminate stats
-                                        	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term>`
+                                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term>`
                                         
                                         .. attribute:: type
                                         
                                         	type
-                                        	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                        	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                         
                                         
 
@@ -414,12 +414,12 @@ class ServiceFunctionChaining(object):
                                             .. attribute:: spi_si
                                             
                                             	Service index counters
-                                            	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi>`
+                                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi>`
                                             
                                             .. attribute:: term
                                             
                                             	Terminate counters
-                                            	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term>`
+                                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term>`
                                             
                                             
 
@@ -446,6 +446,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: processed_pkts
                                                 
@@ -504,6 +506,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: terminated_pkts
                                                 
@@ -590,6 +594,8 @@ class ServiceFunctionChaining(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: processed_pkts
                                             
                                             	Number of packets processed
@@ -647,6 +653,8 @@ class ServiceFunctionChaining(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: terminated_pkts
                                             
@@ -706,6 +714,8 @@ class ServiceFunctionChaining(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: processed_pkts
                                             
                                             	Number of packets processed
@@ -763,6 +773,8 @@ class ServiceFunctionChaining(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: processed_pkts
                                             
@@ -822,6 +834,8 @@ class ServiceFunctionChaining(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: lookup_err_pkts
                                             
                                             	Number of packets with unknown spi\-si
@@ -835,6 +849,8 @@ class ServiceFunctionChaining(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: malformed_err_pkts
                                             
@@ -940,7 +956,7 @@ class ServiceFunctionChaining(object):
                                         .. attribute:: data
                                         
                                         	Stats counter for this index
-                                        	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data>`
+                                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data>`
                                         
                                         .. attribute:: si
                                         
@@ -970,17 +986,17 @@ class ServiceFunctionChaining(object):
                                             .. attribute:: spi_si
                                             
                                             	SF/SFF stats
-                                            	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi>`
+                                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi>`
                                             
                                             .. attribute:: term
                                             
                                             	Terminate stats
-                                            	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term>`
+                                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term>`
                                             
                                             .. attribute:: type
                                             
                                             	type
-                                            	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                            	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                             
                                             
 
@@ -1008,6 +1024,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: processed_pkts
                                                 
@@ -1066,6 +1084,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: terminated_pkts
                                                 
@@ -1238,12 +1258,12 @@ class ServiceFunctionChaining(object):
                                 .. attribute:: detail
                                 
                                 	Detail statistics per service index 
-                                	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail>`
+                                	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail>`
                                 
                                 .. attribute:: summarized
                                 
                                 	Combined statistics of all service index in service functionpath
-                                	**type**\:  :py:class:`Summarized <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized>`
+                                	**type**\:   :py:class:`Summarized <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized>`
                                 
                                 
 
@@ -1267,12 +1287,12 @@ class ServiceFunctionChaining(object):
                                     .. attribute:: data
                                     
                                     	Statistics data
-                                    	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data>`
+                                    	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data>`
                                     
                                     .. attribute:: si_arr
                                     
                                     	SI array in case of detail stats
-                                    	**type**\: list of  :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr>`
+                                    	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr>`
                                     
                                     
 
@@ -1297,37 +1317,37 @@ class ServiceFunctionChaining(object):
                                         .. attribute:: sf
                                         
                                         	Service function stats
-                                        	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf>`
+                                        	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf>`
                                         
                                         .. attribute:: sff
                                         
                                         	Service function forwarder stats
-                                        	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff>`
+                                        	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff>`
                                         
                                         .. attribute:: sff_local
                                         
                                         	Local service function forwarder stats
-                                        	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal>`
+                                        	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal>`
                                         
                                         .. attribute:: sfp
                                         
                                         	SFP stats
-                                        	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp>`
+                                        	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp>`
                                         
                                         .. attribute:: spi_si
                                         
                                         	SPI SI stats
-                                        	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi>`
+                                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi>`
                                         
                                         .. attribute:: term
                                         
                                         	Terminate stats
-                                        	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term>`
+                                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term>`
                                         
                                         .. attribute:: type
                                         
                                         	type
-                                        	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                        	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                         
                                         
 
@@ -1360,12 +1380,12 @@ class ServiceFunctionChaining(object):
                                             .. attribute:: spi_si
                                             
                                             	Service index counters
-                                            	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi>`
+                                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi>`
                                             
                                             .. attribute:: term
                                             
                                             	Terminate counters
-                                            	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term>`
+                                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term>`
                                             
                                             
 
@@ -1392,6 +1412,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: processed_pkts
                                                 
@@ -1450,6 +1472,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: terminated_pkts
                                                 
@@ -1536,6 +1560,8 @@ class ServiceFunctionChaining(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: processed_pkts
                                             
                                             	Number of packets processed
@@ -1593,6 +1619,8 @@ class ServiceFunctionChaining(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: terminated_pkts
                                             
@@ -1652,6 +1680,8 @@ class ServiceFunctionChaining(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: processed_pkts
                                             
                                             	Number of packets processed
@@ -1709,6 +1739,8 @@ class ServiceFunctionChaining(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: processed_pkts
                                             
@@ -1768,6 +1800,8 @@ class ServiceFunctionChaining(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: lookup_err_pkts
                                             
                                             	Number of packets with unknown spi\-si
@@ -1781,6 +1815,8 @@ class ServiceFunctionChaining(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: malformed_err_pkts
                                             
@@ -1886,7 +1922,7 @@ class ServiceFunctionChaining(object):
                                         .. attribute:: data
                                         
                                         	Stats counter for this index
-                                        	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data>`
+                                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data>`
                                         
                                         .. attribute:: si
                                         
@@ -1916,17 +1952,17 @@ class ServiceFunctionChaining(object):
                                             .. attribute:: spi_si
                                             
                                             	SF/SFF stats
-                                            	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi>`
+                                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi>`
                                             
                                             .. attribute:: term
                                             
                                             	Terminate stats
-                                            	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term>`
+                                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term>`
                                             
                                             .. attribute:: type
                                             
                                             	type
-                                            	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                            	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                             
                                             
 
@@ -1954,6 +1990,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: processed_pkts
                                                 
@@ -2012,6 +2050,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: terminated_pkts
                                                 
@@ -2154,12 +2194,12 @@ class ServiceFunctionChaining(object):
                                     .. attribute:: data
                                     
                                     	Statistics data
-                                    	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data>`
+                                    	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data>`
                                     
                                     .. attribute:: si_arr
                                     
                                     	SI array in case of detail stats
-                                    	**type**\: list of  :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr>`
+                                    	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr>`
                                     
                                     
 
@@ -2184,37 +2224,37 @@ class ServiceFunctionChaining(object):
                                         .. attribute:: sf
                                         
                                         	Service function stats
-                                        	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf>`
+                                        	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf>`
                                         
                                         .. attribute:: sff
                                         
                                         	Service function forwarder stats
-                                        	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff>`
+                                        	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff>`
                                         
                                         .. attribute:: sff_local
                                         
                                         	Local service function forwarder stats
-                                        	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal>`
+                                        	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal>`
                                         
                                         .. attribute:: sfp
                                         
                                         	SFP stats
-                                        	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp>`
+                                        	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp>`
                                         
                                         .. attribute:: spi_si
                                         
                                         	SPI SI stats
-                                        	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi>`
+                                        	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi>`
                                         
                                         .. attribute:: term
                                         
                                         	Terminate stats
-                                        	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term>`
+                                        	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term>`
                                         
                                         .. attribute:: type
                                         
                                         	type
-                                        	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                        	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                         
                                         
 
@@ -2247,12 +2287,12 @@ class ServiceFunctionChaining(object):
                                             .. attribute:: spi_si
                                             
                                             	Service index counters
-                                            	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi>`
+                                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi>`
                                             
                                             .. attribute:: term
                                             
                                             	Terminate counters
-                                            	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term>`
+                                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term>`
                                             
                                             
 
@@ -2279,6 +2319,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: processed_pkts
                                                 
@@ -2337,6 +2379,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: terminated_pkts
                                                 
@@ -2423,6 +2467,8 @@ class ServiceFunctionChaining(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: processed_pkts
                                             
                                             	Number of packets processed
@@ -2480,6 +2526,8 @@ class ServiceFunctionChaining(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: terminated_pkts
                                             
@@ -2539,6 +2587,8 @@ class ServiceFunctionChaining(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: processed_pkts
                                             
                                             	Number of packets processed
@@ -2596,6 +2646,8 @@ class ServiceFunctionChaining(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: processed_pkts
                                             
@@ -2655,6 +2707,8 @@ class ServiceFunctionChaining(object):
                                             
                                             	**range:** 0..18446744073709551615
                                             
+                                            	**units**\: byte
+                                            
                                             .. attribute:: lookup_err_pkts
                                             
                                             	Number of packets with unknown spi\-si
@@ -2668,6 +2722,8 @@ class ServiceFunctionChaining(object):
                                             	**type**\:  int
                                             
                                             	**range:** 0..18446744073709551615
+                                            
+                                            	**units**\: byte
                                             
                                             .. attribute:: malformed_err_pkts
                                             
@@ -2773,7 +2829,7 @@ class ServiceFunctionChaining(object):
                                         .. attribute:: data
                                         
                                         	Stats counter for this index
-                                        	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data>`
+                                        	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data>`
                                         
                                         .. attribute:: si
                                         
@@ -2803,17 +2859,17 @@ class ServiceFunctionChaining(object):
                                             .. attribute:: spi_si
                                             
                                             	SF/SFF stats
-                                            	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi>`
+                                            	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi>`
                                             
                                             .. attribute:: term
                                             
                                             	Terminate stats
-                                            	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term>`
+                                            	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term>`
                                             
                                             .. attribute:: type
                                             
                                             	type
-                                            	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                            	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                             
                                             
 
@@ -2841,6 +2897,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: processed_pkts
                                                 
@@ -2899,6 +2957,8 @@ class ServiceFunctionChaining(object):
                                                 	**type**\:  int
                                                 
                                                 	**range:** 0..18446744073709551615
+                                                
+                                                	**units**\: byte
                                                 
                                                 .. attribute:: terminated_pkts
                                                 
@@ -3149,7 +3209,7 @@ class ServiceFunctionChaining(object):
                     .. attribute:: sf_names
                     
                     	List of Service Function Names
-                    	**type**\:  :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames>`
+                    	**type**\:   :py:class:`SfNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames>`
                     
                     
 
@@ -3171,7 +3231,7 @@ class ServiceFunctionChaining(object):
                         .. attribute:: sf_name
                         
                         	Name of Service Function
-                        	**type**\: list of  :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName>`
+                        	**type**\: list of    :py:class:`SfName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName>`
                         
                         
 
@@ -3201,12 +3261,12 @@ class ServiceFunctionChaining(object):
                             .. attribute:: data
                             
                             	Statistics data
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data>`
                             
                             .. attribute:: si_arr
                             
                             	SI array in case of detail stats
-                            	**type**\: list of  :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr>`
+                            	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr>`
                             
                             
 
@@ -3232,37 +3292,37 @@ class ServiceFunctionChaining(object):
                                 .. attribute:: sf
                                 
                                 	Service function stats
-                                	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sf>`
+                                	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sf>`
                                 
                                 .. attribute:: sff
                                 
                                 	Service function forwarder stats
-                                	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sff>`
+                                	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sff>`
                                 
                                 .. attribute:: sff_local
                                 
                                 	Local service function forwarder stats
-                                	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SffLocal>`
+                                	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SffLocal>`
                                 
                                 .. attribute:: sfp
                                 
                                 	SFP stats
-                                	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp>`
+                                	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp>`
                                 
                                 .. attribute:: spi_si
                                 
                                 	SPI SI stats
-                                	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SpiSi>`
+                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SpiSi>`
                                 
                                 .. attribute:: term
                                 
                                 	Terminate stats
-                                	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Term>`
+                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Term>`
                                 
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                 
                                 
 
@@ -3295,12 +3355,12 @@ class ServiceFunctionChaining(object):
                                     .. attribute:: spi_si
                                     
                                     	Service index counters
-                                    	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi>`
+                                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi>`
                                     
                                     .. attribute:: term
                                     
                                     	Terminate counters
-                                    	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.Term>`
+                                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.Term>`
                                     
                                     
 
@@ -3327,6 +3387,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: processed_pkts
                                         
@@ -3385,6 +3447,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: terminated_pkts
                                         
@@ -3471,6 +3535,8 @@ class ServiceFunctionChaining(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
@@ -3528,6 +3594,8 @@ class ServiceFunctionChaining(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: terminated_pkts
                                     
@@ -3587,6 +3655,8 @@ class ServiceFunctionChaining(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
@@ -3644,6 +3714,8 @@ class ServiceFunctionChaining(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: processed_pkts
                                     
@@ -3703,6 +3775,8 @@ class ServiceFunctionChaining(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: lookup_err_pkts
                                     
                                     	Number of packets with unknown spi\-si
@@ -3716,6 +3790,8 @@ class ServiceFunctionChaining(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: malformed_err_pkts
                                     
@@ -3821,7 +3897,7 @@ class ServiceFunctionChaining(object):
                                 .. attribute:: data
                                 
                                 	Stats counter for this index
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data>`
                                 
                                 .. attribute:: si
                                 
@@ -3851,17 +3927,17 @@ class ServiceFunctionChaining(object):
                                     .. attribute:: spi_si
                                     
                                     	SF/SFF stats
-                                    	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi>`
+                                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi>`
                                     
                                     .. attribute:: term
                                     
                                     	Terminate stats
-                                    	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.Term>`
+                                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.Term>`
                                     
                                     .. attribute:: type
                                     
                                     	type
-                                    	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                    	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                     
                                     
 
@@ -3889,6 +3965,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: processed_pkts
                                         
@@ -3947,6 +4025,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: terminated_pkts
                                         
@@ -4143,12 +4223,12 @@ class ServiceFunctionChaining(object):
                     .. attribute:: local
                     
                     	Local Service Function Forwarder operational data
-                    	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local>`
+                    	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local>`
                     
                     .. attribute:: sff_names
                     
                     	List of Service Function Forwarder Names
-                    	**type**\:  :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames>`
+                    	**type**\:   :py:class:`SffNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames>`
                     
                     
 
@@ -4173,7 +4253,7 @@ class ServiceFunctionChaining(object):
                         .. attribute:: error
                         
                         	Error Statistics for local service function forwarder
-                        	**type**\:  :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error>`
+                        	**type**\:   :py:class:`Error <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error>`
                         
                         
 
@@ -4196,12 +4276,12 @@ class ServiceFunctionChaining(object):
                             .. attribute:: data
                             
                             	Statistics data
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data>`
                             
                             .. attribute:: si_arr
                             
                             	SI array in case of detail stats
-                            	**type**\: list of  :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr>`
+                            	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr>`
                             
                             
 
@@ -4226,37 +4306,37 @@ class ServiceFunctionChaining(object):
                                 .. attribute:: sf
                                 
                                 	Service function stats
-                                	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sf>`
+                                	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sf>`
                                 
                                 .. attribute:: sff
                                 
                                 	Service function forwarder stats
-                                	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sff>`
+                                	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sff>`
                                 
                                 .. attribute:: sff_local
                                 
                                 	Local service function forwarder stats
-                                	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SffLocal>`
+                                	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SffLocal>`
                                 
                                 .. attribute:: sfp
                                 
                                 	SFP stats
-                                	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp>`
+                                	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp>`
                                 
                                 .. attribute:: spi_si
                                 
                                 	SPI SI stats
-                                	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SpiSi>`
+                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SpiSi>`
                                 
                                 .. attribute:: term
                                 
                                 	Terminate stats
-                                	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Term>`
+                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Term>`
                                 
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                 
                                 
 
@@ -4289,12 +4369,12 @@ class ServiceFunctionChaining(object):
                                     .. attribute:: spi_si
                                     
                                     	Service index counters
-                                    	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi>`
+                                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi>`
                                     
                                     .. attribute:: term
                                     
                                     	Terminate counters
-                                    	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term>`
+                                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term>`
                                     
                                     
 
@@ -4321,6 +4401,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: processed_pkts
                                         
@@ -4379,6 +4461,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: terminated_pkts
                                         
@@ -4465,6 +4549,8 @@ class ServiceFunctionChaining(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
@@ -4522,6 +4608,8 @@ class ServiceFunctionChaining(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: terminated_pkts
                                     
@@ -4581,6 +4669,8 @@ class ServiceFunctionChaining(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
@@ -4638,6 +4728,8 @@ class ServiceFunctionChaining(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: processed_pkts
                                     
@@ -4697,6 +4789,8 @@ class ServiceFunctionChaining(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: lookup_err_pkts
                                     
                                     	Number of packets with unknown spi\-si
@@ -4710,6 +4804,8 @@ class ServiceFunctionChaining(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: malformed_err_pkts
                                     
@@ -4815,7 +4911,7 @@ class ServiceFunctionChaining(object):
                                 .. attribute:: data
                                 
                                 	Stats counter for this index
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data>`
                                 
                                 .. attribute:: si
                                 
@@ -4845,17 +4941,17 @@ class ServiceFunctionChaining(object):
                                     .. attribute:: spi_si
                                     
                                     	SF/SFF stats
-                                    	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi>`
+                                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi>`
                                     
                                     .. attribute:: term
                                     
                                     	Terminate stats
-                                    	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term>`
+                                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term>`
                                     
                                     .. attribute:: type
                                     
                                     	type
-                                    	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                    	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                     
                                     
 
@@ -4883,6 +4979,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: processed_pkts
                                         
@@ -4941,6 +5039,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: terminated_pkts
                                         
@@ -5106,7 +5206,7 @@ class ServiceFunctionChaining(object):
                         .. attribute:: sff_name
                         
                         	Name of Service Function Forwarder
-                        	**type**\: list of  :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName>`
+                        	**type**\: list of    :py:class:`SffName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName>`
                         
                         
 
@@ -5136,12 +5236,12 @@ class ServiceFunctionChaining(object):
                             .. attribute:: data
                             
                             	Statistics data
-                            	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data>`
+                            	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data>`
                             
                             .. attribute:: si_arr
                             
                             	SI array in case of detail stats
-                            	**type**\: list of  :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr>`
+                            	**type**\: list of    :py:class:`SiArr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr>`
                             
                             
 
@@ -5167,37 +5267,37 @@ class ServiceFunctionChaining(object):
                                 .. attribute:: sf
                                 
                                 	Service function stats
-                                	**type**\:  :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sf>`
+                                	**type**\:   :py:class:`Sf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sf>`
                                 
                                 .. attribute:: sff
                                 
                                 	Service function forwarder stats
-                                	**type**\:  :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sff>`
+                                	**type**\:   :py:class:`Sff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sff>`
                                 
                                 .. attribute:: sff_local
                                 
                                 	Local service function forwarder stats
-                                	**type**\:  :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal>`
+                                	**type**\:   :py:class:`SffLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal>`
                                 
                                 .. attribute:: sfp
                                 
                                 	SFP stats
-                                	**type**\:  :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp>`
+                                	**type**\:   :py:class:`Sfp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp>`
                                 
                                 .. attribute:: spi_si
                                 
                                 	SPI SI stats
-                                	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi>`
+                                	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi>`
                                 
                                 .. attribute:: term
                                 
                                 	Terminate stats
-                                	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Term>`
+                                	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Term>`
                                 
                                 .. attribute:: type
                                 
                                 	type
-                                	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                 
                                 
 
@@ -5230,12 +5330,12 @@ class ServiceFunctionChaining(object):
                                     .. attribute:: spi_si
                                     
                                     	Service index counters
-                                    	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi>`
+                                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi>`
                                     
                                     .. attribute:: term
                                     
                                     	Terminate counters
-                                    	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term>`
+                                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term>`
                                     
                                     
 
@@ -5262,6 +5362,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: processed_pkts
                                         
@@ -5320,6 +5422,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: terminated_pkts
                                         
@@ -5406,6 +5510,8 @@ class ServiceFunctionChaining(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
@@ -5463,6 +5569,8 @@ class ServiceFunctionChaining(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: terminated_pkts
                                     
@@ -5522,6 +5630,8 @@ class ServiceFunctionChaining(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: processed_pkts
                                     
                                     	Number of packets processed
@@ -5579,6 +5689,8 @@ class ServiceFunctionChaining(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: processed_pkts
                                     
@@ -5638,6 +5750,8 @@ class ServiceFunctionChaining(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: lookup_err_pkts
                                     
                                     	Number of packets with unknown spi\-si
@@ -5651,6 +5765,8 @@ class ServiceFunctionChaining(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: malformed_err_pkts
                                     
@@ -5756,7 +5872,7 @@ class ServiceFunctionChaining(object):
                                 .. attribute:: data
                                 
                                 	Stats counter for this index
-                                	**type**\:  :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data>`
+                                	**type**\:   :py:class:`Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data>`
                                 
                                 .. attribute:: si
                                 
@@ -5786,17 +5902,17 @@ class ServiceFunctionChaining(object):
                                     .. attribute:: spi_si
                                     
                                     	SF/SFF stats
-                                    	**type**\:  :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi>`
+                                    	**type**\:   :py:class:`SpiSi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi>`
                                     
                                     .. attribute:: term
                                     
                                     	Terminate stats
-                                    	**type**\:  :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term>`
+                                    	**type**\:   :py:class:`Term <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term>`
                                     
                                     .. attribute:: type
                                     
                                     	type
-                                    	**type**\:  :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
+                                    	**type**\:   :py:class:`VsNshStatsEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper.VsNshStatsEnum>`
                                     
                                     
 
@@ -5824,6 +5940,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: processed_pkts
                                         
@@ -5882,6 +6000,8 @@ class ServiceFunctionChaining(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: terminated_pkts
                                         

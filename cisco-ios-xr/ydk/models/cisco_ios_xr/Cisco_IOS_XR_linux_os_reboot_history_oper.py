@@ -32,7 +32,7 @@ class RebootHistory(object):
     .. attribute:: node
     
     	Node ID
-    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node>`
+    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node>`
     
     
 
@@ -61,7 +61,7 @@ class RebootHistory(object):
         .. attribute:: reboot_history
         
         	Last Reboots
-        	**type**\: list of  :py:class:`RebootHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node.RebootHistory>`
+        	**type**\: list of    :py:class:`RebootHistory_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper.RebootHistory.Node.RebootHistory_>`
         
         
 
@@ -78,7 +78,7 @@ class RebootHistory(object):
             self.reboot_history.name = 'reboot_history'
 
 
-        class RebootHistory(object):
+        class RebootHistory_(object):
             """
             Last Reboots
             
@@ -151,7 +151,7 @@ class RebootHistory(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_linux_os_reboot_history_oper as meta
-                return meta._meta_table['RebootHistory.Node.RebootHistory']['meta_info']
+                return meta._meta_table['RebootHistory.Node.RebootHistory_']['meta_info']
 
         @property
         def _common_path(self):

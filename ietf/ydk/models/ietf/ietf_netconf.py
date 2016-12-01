@@ -35,7 +35,7 @@ class EditOperationTypeEnum(Enum):
 
     NETCONF 'operation' attribute values
 
-    .. data:: MERGE = 0
+    .. data:: merge = 0
 
     	The configuration data identified by the
 
@@ -47,7 +47,7 @@ class EditOperationTypeEnum(Enum):
 
     	by the target parameter.
 
-    .. data:: REPLACE = 1
+    .. data:: replace = 1
 
     	The configuration data identified by the element
 
@@ -67,7 +67,7 @@ class EditOperationTypeEnum(Enum):
 
     	actually present in the config parameter is affected.
 
-    .. data:: CREATE = 2
+    .. data:: create = 2
 
     	The configuration data identified by the element
 
@@ -83,7 +83,7 @@ class EditOperationTypeEnum(Enum):
 
     	<error-tag> value of 'data-exists'.
 
-    .. data:: DELETE = 3
+    .. data:: delete = 3
 
     	The configuration data identified by the element
 
@@ -99,7 +99,7 @@ class EditOperationTypeEnum(Enum):
 
     	an <error-tag> value of 'data-missing'.
 
-    .. data:: REMOVE = 4
+    .. data:: remove = 4
 
     	The configuration data identified by the element
 
@@ -117,15 +117,15 @@ class EditOperationTypeEnum(Enum):
 
     """
 
-    MERGE = 0
+    merge = 0
 
-    REPLACE = 1
+    replace = 1
 
-    CREATE = 2
+    create = 2
 
-    DELETE = 3
+    delete = 3
 
-    REMOVE = 4
+    remove = 4
 
 
     @staticmethod
@@ -140,19 +140,19 @@ class ErrorSeverityTypeEnum(Enum):
 
     NETCONF Error Severity
 
-    .. data:: ERROR = 0
+    .. data:: error = 0
 
     	Error severity
 
-    .. data:: WARNING = 1
+    .. data:: warning = 1
 
     	Warning severity
 
     """
 
-    ERROR = 0
+    error = 0
 
-    WARNING = 1
+    warning = 1
 
 
     @staticmethod
@@ -167,75 +167,75 @@ class ErrorTagTypeEnum(Enum):
 
     NETCONF Error Tag
 
-    .. data:: IN_USE = 0
+    .. data:: in_use = 0
 
     	The request requires a resource that
 
     	already is in use.
 
-    .. data:: INVALID_VALUE = 1
+    .. data:: invalid_value = 1
 
     	The request specifies an unacceptable value for one
 
     	or more parameters.
 
-    .. data:: TOO_BIG = 2
+    .. data:: too_big = 2
 
     	The request or response (that would be generated) is
 
     	too large for the implementation to handle.
 
-    .. data:: MISSING_ATTRIBUTE = 3
+    .. data:: missing_attribute = 3
 
     	An expected attribute is missing.
 
-    .. data:: BAD_ATTRIBUTE = 4
+    .. data:: bad_attribute = 4
 
     	An attribute value is not correct; e.g., wrong type,
 
     	out of range, pattern mismatch.
 
-    .. data:: UNKNOWN_ATTRIBUTE = 5
+    .. data:: unknown_attribute = 5
 
     	An unexpected attribute is present.
 
-    .. data:: MISSING_ELEMENT = 6
+    .. data:: missing_element = 6
 
     	An expected element is missing.
 
-    .. data:: BAD_ELEMENT = 7
+    .. data:: bad_element = 7
 
     	An element value is not correct; e.g., wrong type,
 
     	out of range, pattern mismatch.
 
-    .. data:: UNKNOWN_ELEMENT = 8
+    .. data:: unknown_element = 8
 
     	An unexpected element is present.
 
-    .. data:: UNKNOWN_NAMESPACE = 9
+    .. data:: unknown_namespace = 9
 
     	An unexpected namespace is present.
 
-    .. data:: ACCESS_DENIED = 10
+    .. data:: access_denied = 10
 
     	Access to the requested protocol operation or
 
     	data model is denied because authorization failed.
 
-    .. data:: LOCK_DENIED = 11
+    .. data:: lock_denied = 11
 
     	Access to the requested lock is denied because the
 
     	lock is currently held by another entity.
 
-    .. data:: RESOURCE_DENIED = 12
+    .. data:: resource_denied = 12
 
     	Request could not be completed because of
 
     	insufficient resources.
 
-    .. data:: ROLLBACK_FAILED = 13
+    .. data:: rollback_failed = 13
 
     	Request to roll back some configuration change (via
 
@@ -243,7 +243,7 @@ class ErrorTagTypeEnum(Enum):
 
     	was not completed for some reason.
 
-    .. data:: DATA_EXISTS = 14
+    .. data:: data_exists = 14
 
     	Request could not be completed because the relevant
 
@@ -253,7 +253,7 @@ class ErrorTagTypeEnum(Enum):
 
     	already exists.
 
-    .. data:: DATA_MISSING = 15
+    .. data:: data_missing = 15
 
     	Request could not be completed because the relevant
 
@@ -263,13 +263,13 @@ class ErrorTagTypeEnum(Enum):
 
     	data that does not exist.
 
-    .. data:: OPERATION_NOT_SUPPORTED = 16
+    .. data:: operation_not_supported = 16
 
     	Request could not be completed because the requested
 
     	operation is not supported by this implementation.
 
-    .. data:: OPERATION_FAILED = 17
+    .. data:: operation_failed = 17
 
     	Request could not be completed because the requested
 
@@ -277,13 +277,13 @@ class ErrorTagTypeEnum(Enum):
 
     	any other error condition.
 
-    .. data:: PARTIAL_OPERATION = 18
+    .. data:: partial_operation = 18
 
     	This error-tag is obsolete, and SHOULD NOT be sent
 
     	by servers conforming to this document.
 
-    .. data:: MALFORMED_MESSAGE = 19
+    .. data:: malformed_message = 19
 
     	A message could not be handled because it failed to
 
@@ -293,45 +293,45 @@ class ErrorTagTypeEnum(Enum):
 
     """
 
-    IN_USE = 0
+    in_use = 0
 
-    INVALID_VALUE = 1
+    invalid_value = 1
 
-    TOO_BIG = 2
+    too_big = 2
 
-    MISSING_ATTRIBUTE = 3
+    missing_attribute = 3
 
-    BAD_ATTRIBUTE = 4
+    bad_attribute = 4
 
-    UNKNOWN_ATTRIBUTE = 5
+    unknown_attribute = 5
 
-    MISSING_ELEMENT = 6
+    missing_element = 6
 
-    BAD_ELEMENT = 7
+    bad_element = 7
 
-    UNKNOWN_ELEMENT = 8
+    unknown_element = 8
 
-    UNKNOWN_NAMESPACE = 9
+    unknown_namespace = 9
 
-    ACCESS_DENIED = 10
+    access_denied = 10
 
-    LOCK_DENIED = 11
+    lock_denied = 11
 
-    RESOURCE_DENIED = 12
+    resource_denied = 12
 
-    ROLLBACK_FAILED = 13
+    rollback_failed = 13
 
-    DATA_EXISTS = 14
+    data_exists = 14
 
-    DATA_MISSING = 15
+    data_missing = 15
 
-    OPERATION_NOT_SUPPORTED = 16
+    operation_not_supported = 16
 
-    OPERATION_FAILED = 17
+    operation_failed = 17
 
-    PARTIAL_OPERATION = 18
+    partial_operation = 18
 
-    MALFORMED_MESSAGE = 19
+    malformed_message = 19
 
 
     @staticmethod
@@ -348,12 +348,12 @@ class GetConfigRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfigRpc.Output>`
+    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.GetConfigRpc.Output>`
     
     
 
@@ -383,12 +383,12 @@ class GetConfigRpc(object):
         .. attribute:: source
         
         	Particular configuration to retrieve
-        	**type**\:  :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input.Source>`
+        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.GetConfigRpc.Input.Source>`
         
         .. attribute:: with_defaults
         
         	The explicit defaults processing mode requested
-        	**type**\:  :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
+        	**type**\:   :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
         
         
 
@@ -412,17 +412,17 @@ class GetConfigRpc(object):
             .. attribute:: candidate
             
             	The candidate configuration is the config source
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config source
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config source. This is optional\-to\-implement on the server because not all servers will support filtering for this datastore
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -576,7 +576,7 @@ class EditConfigRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input>`
     
     
 
@@ -604,22 +604,28 @@ class EditConfigRpc(object):
         .. attribute:: default_operation
         
         	The default operation to use
-        	**type**\:  :py:class:`DefaultOperationEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.DefaultOperationEnum>`
+        	**type**\:   :py:class:`DefaultOperationEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.DefaultOperationEnum>`
+        
+        	**default value**\: merge
         
         .. attribute:: error_option
         
         	The error option to use
-        	**type**\:  :py:class:`ErrorOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.ErrorOptionEnum>`
+        	**type**\:   :py:class:`ErrorOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.ErrorOptionEnum>`
+        
+        	**default value**\: stop-on-error
         
         .. attribute:: target
         
         	Particular configuration to edit
-        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.Target>`
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.Target>`
         
         .. attribute:: test_option
         
         	The test option to use
-        	**type**\:  :py:class:`TestOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.TestOptionEnum>`
+        	**type**\:   :py:class:`TestOptionEnum <ydk.models.ietf.ietf_netconf.EditConfigRpc.Input.TestOptionEnum>`
+        
+        	**default value**\: test-then-set
         
         .. attribute:: url
         
@@ -649,25 +655,25 @@ class EditConfigRpc(object):
 
             The default operation to use.
 
-            .. data:: MERGE = 0
+            .. data:: merge = 0
 
             	The default operation is merge.
 
-            .. data:: REPLACE = 1
+            .. data:: replace = 1
 
             	The default operation is replace.
 
-            .. data:: NONE = 2
+            .. data:: none = 2
 
             	There is no default operation.
 
             """
 
-            MERGE = 0
+            merge = 0
 
-            REPLACE = 1
+            replace = 1
 
-            NONE = 2
+            none = 2
 
 
             @staticmethod
@@ -682,15 +688,15 @@ class EditConfigRpc(object):
 
             The error option to use.
 
-            .. data:: STOP_ON_ERROR = 0
+            .. data:: stop_on_error = 0
 
             	The server will stop on errors.
 
-            .. data:: CONTINUE_ON_ERROR = 1
+            .. data:: continue_on_error = 1
 
             	The server may continue on errors.
 
-            .. data:: ROLLBACK_ON_ERROR = 2
+            .. data:: rollback_on_error = 2
 
             	The server will roll back on errors.
 
@@ -700,11 +706,11 @@ class EditConfigRpc(object):
 
             """
 
-            STOP_ON_ERROR = 0
+            stop_on_error = 0
 
-            CONTINUE_ON_ERROR = 1
+            continue_on_error = 1
 
-            ROLLBACK_ON_ERROR = 2
+            rollback_on_error = 2
 
 
             @staticmethod
@@ -719,15 +725,15 @@ class EditConfigRpc(object):
 
             The test option to use.
 
-            .. data:: TEST_THEN_SET = 0
+            .. data:: test_then_set = 0
 
             	The server will test and then set if no errors.
 
-            .. data:: SET = 1
+            .. data:: set = 1
 
             	The server will set without a test first.
 
-            .. data:: TEST_ONLY = 2
+            .. data:: test_only = 2
 
             	The server will only test and not set, even
 
@@ -735,11 +741,11 @@ class EditConfigRpc(object):
 
             """
 
-            TEST_THEN_SET = 0
+            test_then_set = 0
 
-            SET = 1
+            set = 1
 
-            TEST_ONLY = 2
+            test_only = 2
 
 
             @staticmethod
@@ -756,12 +762,12 @@ class EditConfigRpc(object):
             .. attribute:: candidate
             
             	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config source
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -872,7 +878,7 @@ class CopyConfigRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input>`
     
     
 
@@ -895,17 +901,17 @@ class CopyConfigRpc(object):
         .. attribute:: source
         
         	Particular configuration to copy from
-        	**type**\:  :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Source>`
+        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Source>`
         
         .. attribute:: target
         
         	Particular configuration to copy to
-        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Target>`
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.CopyConfigRpc.Input.Target>`
         
         .. attribute:: with_defaults
         
         	The explicit defaults processing mode requested
-        	**type**\:  :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
+        	**type**\:   :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
         
         
 
@@ -930,17 +936,17 @@ class CopyConfigRpc(object):
             .. attribute:: candidate
             
             	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config target. This is optional\-to\-implement on the server
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: url
             
@@ -1002,7 +1008,7 @@ class CopyConfigRpc(object):
             .. attribute:: candidate
             
             	The candidate configuration is the config source
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: config
             
@@ -1012,12 +1018,12 @@ class CopyConfigRpc(object):
             .. attribute:: running
             
             	The running configuration is the config source
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config source
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: url
             
@@ -1135,7 +1141,7 @@ class DeleteConfigRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.DeleteConfigRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.DeleteConfigRpc.Input>`
     
     
 
@@ -1158,7 +1164,7 @@ class DeleteConfigRpc(object):
         .. attribute:: target
         
         	Particular configuration to delete
-        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.DeleteConfigRpc.Input.Target>`
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.DeleteConfigRpc.Input.Target>`
         
         
 
@@ -1180,7 +1186,7 @@ class DeleteConfigRpc(object):
             .. attribute:: startup
             
             	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: url
             
@@ -1281,7 +1287,7 @@ class LockRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.LockRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.LockRpc.Input>`
     
     
 
@@ -1304,7 +1310,7 @@ class LockRpc(object):
         .. attribute:: target
         
         	Particular configuration to lock
-        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.LockRpc.Input.Target>`
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.LockRpc.Input.Target>`
         
         
 
@@ -1326,17 +1332,17 @@ class LockRpc(object):
             .. attribute:: candidate
             
             	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1436,7 +1442,7 @@ class UnlockRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.UnlockRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.UnlockRpc.Input>`
     
     
 
@@ -1459,7 +1465,7 @@ class UnlockRpc(object):
         .. attribute:: target
         
         	Particular configuration to unlock
-        	**type**\:  :py:class:`Target <ydk.models.ietf.ietf_netconf.UnlockRpc.Input.Target>`
+        	**type**\:   :py:class:`Target <ydk.models.ietf.ietf_netconf.UnlockRpc.Input.Target>`
         
         
 
@@ -1481,17 +1487,17 @@ class UnlockRpc(object):
             .. attribute:: candidate
             
             	The candidate configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: running
             
             	The running configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config target
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -1590,12 +1596,12 @@ class GetRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.GetRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.GetRpc.Input>`
     
     .. attribute:: output
     
     	
-    	**type**\:  :py:class:`Output <ydk.models.ietf.ietf_netconf.GetRpc.Output>`
+    	**type**\:   :py:class:`Output <ydk.models.ietf.ietf_netconf.GetRpc.Output>`
     
     
 
@@ -1625,7 +1631,7 @@ class GetRpc(object):
         .. attribute:: with_defaults
         
         	The explicit defaults processing mode requested
-        	**type**\:  :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
+        	**type**\:   :py:class:`WithDefaultsModeEnum <ydk.models.ietf.ietf_netconf_with_defaults.WithDefaultsModeEnum>`
         
         
 
@@ -1779,7 +1785,7 @@ class KillSessionRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSessionRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.KillSessionRpc.Input>`
     
     
 
@@ -1874,7 +1880,7 @@ class CommitRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.CommitRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CommitRpc.Input>`
     
     
 
@@ -1901,10 +1907,14 @@ class CommitRpc(object):
         
         	**range:** 1..4294967295
         
+        	**units**\: seconds
+        
+        	**default value**\: 600
+        
         .. attribute:: confirmed
         
         	Requests a confirmed commit
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: persist
         
@@ -2032,7 +2042,7 @@ class CancelCommitRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommitRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.CancelCommitRpc.Input>`
     
     
 
@@ -2122,7 +2132,7 @@ class ValidateRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.ietf.ietf_netconf.ValidateRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.ietf.ietf_netconf.ValidateRpc.Input>`
     
     
 
@@ -2145,7 +2155,7 @@ class ValidateRpc(object):
         .. attribute:: source
         
         	Particular configuration to validate
-        	**type**\:  :py:class:`Source <ydk.models.ietf.ietf_netconf.ValidateRpc.Input.Source>`
+        	**type**\:   :py:class:`Source <ydk.models.ietf.ietf_netconf.ValidateRpc.Input.Source>`
         
         
 
@@ -2167,7 +2177,7 @@ class ValidateRpc(object):
             .. attribute:: candidate
             
             	The candidate configuration is the config source
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: config
             
@@ -2177,12 +2187,12 @@ class ValidateRpc(object):
             .. attribute:: running
             
             	The running configuration is the config source
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: startup
             
             	The startup configuration is the config source
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: url
             

@@ -30,25 +30,25 @@ class Fpd1Enum(Enum):
 
     FPD types
 
-    .. data:: SPA = 0
+    .. data:: spa = 0
 
     	Shared port adapter
 
-    .. data:: LC = 1
+    .. data:: lc = 1
 
     	Line card
 
-    .. data:: SAM = 2
+    .. data:: sam = 2
 
     	Service acceleration module
 
     """
 
-    SPA = 0
+    spa = 0
 
-    LC = 1
+    lc = 1
 
-    SAM = 2
+    sam = 2
 
 
     @staticmethod
@@ -63,25 +63,25 @@ class FpdEnum(Enum):
 
     Fpd
 
-    .. data:: SPA = 0
+    .. data:: spa = 0
 
     	SPA class of fpd
 
-    .. data:: LC = 1
+    .. data:: lc = 1
 
     	Linecard class of fpd
 
-    .. data:: SAM = 2
+    .. data:: sam = 2
 
     	SAM class of fpd
 
     """
 
-    SPA = 0
+    spa = 0
 
-    LC = 1
+    lc = 1
 
-    SAM = 2
+    sam = 2
 
 
     @staticmethod
@@ -96,211 +96,211 @@ class FpdSub1Enum(Enum):
 
     FPD sub types
 
-    .. data:: FPGA1 = 0
+    .. data:: fpga1 = 0
 
     	FPGA device
 
-    .. data:: ROMMON = 1
+    .. data:: rommon = 1
 
     	ROMMON device
 
-    .. data:: ROMMONA = 2
+    .. data:: rommona = 2
 
     	ROMMONA device
 
-    .. data:: FABRIC_LOADER = 3
+    .. data:: fabric_loader = 3
 
     	Fabric loader
 
-    .. data:: FPGA2 = 4
+    .. data:: fpga2 = 4
 
     	FPGA device
 
-    .. data:: FPGA3 = 5
+    .. data:: fpga3 = 5
 
     	FPGA device
 
-    .. data:: FPGA4 = 6
+    .. data:: fpga4 = 6
 
     	FPGA device
 
-    .. data:: FPGA5 = 7
+    .. data:: fpga5 = 7
 
     	FPGA device
 
-    .. data:: FPGA6 = 8
+    .. data:: fpga6 = 8
 
     	FPGA device
 
-    .. data:: FPGA7 = 9
+    .. data:: fpga7 = 9
 
     	FPGA device
 
-    .. data:: FPGA8 = 10
+    .. data:: fpga8 = 10
 
     	FPGA device
 
-    .. data:: FPGA9 = 11
+    .. data:: fpga9 = 11
 
     	FPGA device
 
-    .. data:: FPGA10 = 12
+    .. data:: fpga10 = 12
 
     	FPGA device
 
-    .. data:: FPGA11 = 13
+    .. data:: fpga11 = 13
 
     	FPGA device
 
-    .. data:: FPGA12 = 14
+    .. data:: fpga12 = 14
 
     	FPGA device
 
-    .. data:: FPGA13 = 15
+    .. data:: fpga13 = 15
 
     	FPGA device
 
-    .. data:: FPGA14 = 16
+    .. data:: fpga14 = 16
 
     	FPGA device
 
-    .. data:: CPLD1 = 17
+    .. data:: cpld1 = 17
 
     	CPLD device
 
-    .. data:: CPLD2 = 18
+    .. data:: cpld2 = 18
 
     	CPLD device
 
-    .. data:: CPLD3 = 19
+    .. data:: cpld3 = 19
 
     	CPLD device
 
-    .. data:: CPLD4 = 20
+    .. data:: cpld4 = 20
 
     	CPLD device
 
-    .. data:: CPLD5 = 21
+    .. data:: cpld5 = 21
 
     	CPLD device
 
-    .. data:: CPLD6 = 22
+    .. data:: cpld6 = 22
 
     	CPLD device
 
-    .. data:: CBC = 23
+    .. data:: cbc = 23
 
     	CAN bus controller
 
-    .. data:: HSBI = 24
+    .. data:: hsbi = 24
 
     	HSBI image
 
-    .. data:: TXPOD = 25
+    .. data:: txpod = 25
 
     	Fabric Tx POD
 
-    .. data:: RXPOD = 26
+    .. data:: rxpod = 26
 
     	Fabric Rx POD
 
-    .. data:: IBMC = 27
+    .. data:: ibmc = 27
 
     	IBMC
 
-    .. data:: FSBL = 28
+    .. data:: fsbl = 28
 
     	FSBL
 
-    .. data:: LNX = 29
+    .. data:: lnx = 29
 
     	Linux firmware
 
-    .. data:: FPGA15 = 30
+    .. data:: fpga15 = 30
 
     	FPGA device
 
-    .. data:: FPGA16 = 31
+    .. data:: fpga16 = 31
 
     	FPGA device
 
-    .. data:: FC_FSBL = 32
+    .. data:: fc_fsbl = 32
 
     	FC FSBL
 
-    .. data:: FC_LNX = 33
+    .. data:: fc_lnx = 33
 
     	FC linux firmware
 
     """
 
-    FPGA1 = 0
+    fpga1 = 0
 
-    ROMMON = 1
+    rommon = 1
 
-    ROMMONA = 2
+    rommona = 2
 
-    FABRIC_LOADER = 3
+    fabric_loader = 3
 
-    FPGA2 = 4
+    fpga2 = 4
 
-    FPGA3 = 5
+    fpga3 = 5
 
-    FPGA4 = 6
+    fpga4 = 6
 
-    FPGA5 = 7
+    fpga5 = 7
 
-    FPGA6 = 8
+    fpga6 = 8
 
-    FPGA7 = 9
+    fpga7 = 9
 
-    FPGA8 = 10
+    fpga8 = 10
 
-    FPGA9 = 11
+    fpga9 = 11
 
-    FPGA10 = 12
+    fpga10 = 12
 
-    FPGA11 = 13
+    fpga11 = 13
 
-    FPGA12 = 14
+    fpga12 = 14
 
-    FPGA13 = 15
+    fpga13 = 15
 
-    FPGA14 = 16
+    fpga14 = 16
 
-    CPLD1 = 17
+    cpld1 = 17
 
-    CPLD2 = 18
+    cpld2 = 18
 
-    CPLD3 = 19
+    cpld3 = 19
 
-    CPLD4 = 20
+    cpld4 = 20
 
-    CPLD5 = 21
+    cpld5 = 21
 
-    CPLD6 = 22
+    cpld6 = 22
 
-    CBC = 23
+    cbc = 23
 
-    HSBI = 24
+    hsbi = 24
 
-    TXPOD = 25
+    txpod = 25
 
-    RXPOD = 26
+    rxpod = 26
 
-    IBMC = 27
+    ibmc = 27
 
-    FSBL = 28
+    fsbl = 28
 
-    LNX = 29
+    lnx = 29
 
-    FPGA15 = 30
+    fpga15 = 30
 
-    FPGA16 = 31
+    fpga16 = 31
 
-    FC_FSBL = 32
+    fc_fsbl = 32
 
-    FC_LNX = 33
+    fc_lnx = 33
 
 
     @staticmethod
@@ -315,211 +315,211 @@ class FpdSubEnum(Enum):
 
     Fpd sub
 
-    .. data:: FPGA1 = 0
+    .. data:: fpga1 = 0
 
     	FPGA device
 
-    .. data:: ROMMON = 1
+    .. data:: rommon = 1
 
     	ROMMON device
 
-    .. data:: ROMMONA = 2
+    .. data:: rommona = 2
 
     	ROMMON device #A
 
-    .. data:: FABLDR = 3
+    .. data:: fabldr = 3
 
     	Fabric loader
 
-    .. data:: FPGA2 = 4
+    .. data:: fpga2 = 4
 
     	FPGA device #2
 
-    .. data:: FPGA3 = 5
+    .. data:: fpga3 = 5
 
     	FPGA device #3
 
-    .. data:: FPGA4 = 6
+    .. data:: fpga4 = 6
 
     	FPGA device #4
 
-    .. data:: FPGA5 = 7
+    .. data:: fpga5 = 7
 
     	FPGA device #5
 
-    .. data:: FPGA6 = 8
+    .. data:: fpga6 = 8
 
     	FPGA device #6
 
-    .. data:: FPGA7 = 9
+    .. data:: fpga7 = 9
 
     	FPGA device #7
 
-    .. data:: FPGA8 = 10
+    .. data:: fpga8 = 10
 
     	FPGA device #8
 
-    .. data:: FPGA9 = 11
+    .. data:: fpga9 = 11
 
     	FPGA device #9
 
-    .. data:: FPGA10 = 12
+    .. data:: fpga10 = 12
 
     	FPGA device #10
 
-    .. data:: FPGA11 = 13
+    .. data:: fpga11 = 13
 
     	FPGA device #11
 
-    .. data:: FPGA12 = 14
+    .. data:: fpga12 = 14
 
     	FPGA device #12
 
-    .. data:: FPGA13 = 15
+    .. data:: fpga13 = 15
 
     	FPGA device #13
 
-    .. data:: FPGA14 = 16
+    .. data:: fpga14 = 16
 
     	FPGA device #14
 
-    .. data:: CPLD1 = 17
+    .. data:: cpld1 = 17
 
     	CPLD device #1
 
-    .. data:: CPLD2 = 18
+    .. data:: cpld2 = 18
 
     	CPLD device #2
 
-    .. data:: CPLD3 = 19
+    .. data:: cpld3 = 19
 
     	CPLD device #3
 
-    .. data:: CPLD4 = 20
+    .. data:: cpld4 = 20
 
     	CPLD device #4
 
-    .. data:: CPLD5 = 21
+    .. data:: cpld5 = 21
 
     	CPLD device #5
 
-    .. data:: CPLD6 = 22
+    .. data:: cpld6 = 22
 
     	CPLD device #6
 
-    .. data:: CBC = 23
+    .. data:: cbc = 23
 
     	Can bus controller
 
-    .. data:: HSBI = 24
+    .. data:: hsbi = 24
 
     	HSBI image
 
-    .. data:: TXPOD = 25
+    .. data:: txpod = 25
 
     	Fabric Tx POD
 
-    .. data:: RXPOD = 26
+    .. data:: rxpod = 26
 
     	Fabric Rx POD
 
-    .. data:: IBMC = 27
+    .. data:: ibmc = 27
 
     	IBMC
 
-    .. data:: FSBL = 28
+    .. data:: fsbl = 28
 
     	FSBL
 
-    .. data:: LNX = 29
+    .. data:: lnx = 29
 
     	Linux firmware
 
-    .. data:: FPGA15 = 30
+    .. data:: fpga15 = 30
 
     	FPGA device #15
 
-    .. data:: FPGA16 = 31
+    .. data:: fpga16 = 31
 
     	FPGA device #16
 
-    .. data:: FC_FSBL = 32
+    .. data:: fc_fsbl = 32
 
     	FC FSBL
 
-    .. data:: FC_LNX = 33
+    .. data:: fc_lnx = 33
 
     	FC linux firmware
 
     """
 
-    FPGA1 = 0
+    fpga1 = 0
 
-    ROMMON = 1
+    rommon = 1
 
-    ROMMONA = 2
+    rommona = 2
 
-    FABLDR = 3
+    fabldr = 3
 
-    FPGA2 = 4
+    fpga2 = 4
 
-    FPGA3 = 5
+    fpga3 = 5
 
-    FPGA4 = 6
+    fpga4 = 6
 
-    FPGA5 = 7
+    fpga5 = 7
 
-    FPGA6 = 8
+    fpga6 = 8
 
-    FPGA7 = 9
+    fpga7 = 9
 
-    FPGA8 = 10
+    fpga8 = 10
 
-    FPGA9 = 11
+    fpga9 = 11
 
-    FPGA10 = 12
+    fpga10 = 12
 
-    FPGA11 = 13
+    fpga11 = 13
 
-    FPGA12 = 14
+    fpga12 = 14
 
-    FPGA13 = 15
+    fpga13 = 15
 
-    FPGA14 = 16
+    fpga14 = 16
 
-    CPLD1 = 17
+    cpld1 = 17
 
-    CPLD2 = 18
+    cpld2 = 18
 
-    CPLD3 = 19
+    cpld3 = 19
 
-    CPLD4 = 20
+    cpld4 = 20
 
-    CPLD5 = 21
+    cpld5 = 21
 
-    CPLD6 = 22
+    cpld6 = 22
 
-    CBC = 23
+    cbc = 23
 
-    HSBI = 24
+    hsbi = 24
 
-    TXPOD = 25
+    txpod = 25
 
-    RXPOD = 26
+    rxpod = 26
 
-    IBMC = 27
+    ibmc = 27
 
-    FSBL = 28
+    fsbl = 28
 
-    LNX = 29
+    lnx = 29
 
-    FPGA15 = 30
+    fpga15 = 30
 
-    FPGA16 = 31
+    fpga16 = 31
 
-    FC_FSBL = 32
+    fc_fsbl = 32
 
-    FC_LNX = 33
+    fc_lnx = 33
 
 
     @staticmethod
@@ -536,12 +536,12 @@ class Fpd(object):
     .. attribute:: nodes
     
     	List of FPD supported nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Nodes>`
     
     .. attribute:: packages
     
     	FPD packages information
-    	**type**\:  :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Packages>`
+    	**type**\:   :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Packages>`
     
     
 
@@ -564,7 +564,7 @@ class Fpd(object):
         .. attribute:: node
         
         	Information about a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Nodes.Node>`
         
         
 
@@ -594,7 +594,7 @@ class Fpd(object):
             .. attribute:: devices
             
             	FPD information table
-            	**type**\:  :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Nodes.Node.Devices>`
+            	**type**\:   :py:class:`Devices <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Nodes.Node.Devices>`
             
             
 
@@ -617,7 +617,7 @@ class Fpd(object):
                 .. attribute:: device
                 
                 	FPD information for a particular fpd type
-                	**type**\: list of  :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Nodes.Node.Devices.Device>`
+                	**type**\: list of    :py:class:`Device <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Nodes.Node.Devices.Device>`
                 
                 
 
@@ -645,7 +645,7 @@ class Fpd(object):
                     .. attribute:: fpd_type
                     
                     	FPD type
-                    	**type**\:  :py:class:`FpdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdEnum>`
+                    	**type**\:   :py:class:`FpdEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdEnum>`
                     
                     .. attribute:: hardware_version
                     
@@ -672,7 +672,7 @@ class Fpd(object):
                     .. attribute:: sub_type
                     
                     	FPD sub type
-                    	**type**\:  :py:class:`FpdSubEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSubEnum>`
+                    	**type**\:   :py:class:`FpdSubEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSubEnum>`
                     
                     
 
@@ -818,7 +818,7 @@ class Fpd(object):
         .. attribute:: all_package
         
         	List of packages
-        	**type**\: list of  :py:class:`AllPackage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Packages.AllPackage>`
+        	**type**\: list of    :py:class:`AllPackage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd.Packages.AllPackage>`
         
         
 
@@ -851,12 +851,12 @@ class Fpd(object):
             .. attribute:: fpd_sub_type
             
             	FPD sub type
-            	**type**\:  :py:class:`FpdSub1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub1Enum>`
+            	**type**\:   :py:class:`FpdSub1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.FpdSub1Enum>`
             
             .. attribute:: fpd_type
             
             	FPD type
-            	**type**\:  :py:class:`Fpd1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd1Enum>`
+            	**type**\:   :py:class:`Fpd1Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper.Fpd1Enum>`
             
             .. attribute:: minimum_required_hardware_version
             

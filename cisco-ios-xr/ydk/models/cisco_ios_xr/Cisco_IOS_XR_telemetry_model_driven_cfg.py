@@ -24,58 +24,25 @@ from ydk.errors import YPYError, YPYModelError
 
 
 
-class AfEnum(Enum):
-    """
-    AfEnum
-
-    Af
-
-    .. data:: IPV4 = 1
-
-    	IPv4 address family
-
-    .. data:: IPV6 = 2
-
-    	IPv6 address family
-
-    """
-
-    IPV4 = 1
-
-    IPV6 = 2
-
-
-    @staticmethod
-    def _meta_info():
-        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-        return meta._meta_table['AfEnum']
-
-
 class EncodeTypeEnum(Enum):
     """
     EncodeTypeEnum
 
     Encode type
 
-    .. data:: GPB = 2
+    .. data:: gpb = 2
 
     	GPB
 
-    .. data:: SELF_DESCRIBING_GPB = 3
+    .. data:: self_describing_gpb = 3
 
     	SELF DESCRIBING GPB
 
-    .. data:: JSON = 4
-
-    	JSON
-
     """
 
-    GPB = 2
+    gpb = 2
 
-    SELF_DESCRIBING_GPB = 3
-
-    JSON = 4
+    self_describing_gpb = 3
 
 
     @staticmethod
@@ -90,19 +57,19 @@ class ProtoTypeEnum(Enum):
 
     Proto type
 
-    .. data:: GRPC = 1
+    .. data:: grpc = 1
 
     	GRPC
 
-    .. data:: TCP = 2
+    .. data:: tcp = 2
 
     	tcp
 
     """
 
-    GRPC = 1
+    grpc = 1
 
-    TCP = 2
+    tcp = 2
 
 
     @staticmethod
@@ -119,22 +86,22 @@ class TelemetryModelDriven(object):
     .. attribute:: destination_groups
     
     	Destination Group configuration
-    	**type**\:  :py:class:`DestinationGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups>`
+    	**type**\:   :py:class:`DestinationGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups>`
     
     .. attribute:: enable
     
     	Enable Model Driven Telemetry
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: sensor_groups
     
     	Sensor group configuration
-    	**type**\:  :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups>`
+    	**type**\:   :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups>`
     
     .. attribute:: subscriptions
     
     	Streaming Telemetry Subscription
-    	**type**\:  :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions>`
+    	**type**\:   :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions>`
     
     
 
@@ -160,7 +127,7 @@ class TelemetryModelDriven(object):
         .. attribute:: sensor_group
         
         	Sensor group configuration
-        	**type**\: list of  :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup>`
+        	**type**\: list of    :py:class:`SensorGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup>`
         
         
 
@@ -187,15 +154,10 @@ class TelemetryModelDriven(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: enable
-            
-            	Enable Sensor Group
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-            
             .. attribute:: sensor_paths
             
             	Sensor path configuration
-            	**type**\:  :py:class:`SensorPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths>`
+            	**type**\:   :py:class:`SensorPaths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths>`
             
             
 
@@ -207,7 +169,6 @@ class TelemetryModelDriven(object):
             def __init__(self):
                 self.parent = None
                 self.sensor_group_identifier = None
-                self.enable = None
                 self.sensor_paths = TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths()
                 self.sensor_paths.parent = self
 
@@ -219,7 +180,7 @@ class TelemetryModelDriven(object):
                 .. attribute:: sensor_path
                 
                 	Sensor path configuration
-                	**type**\: list of  :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath>`
+                	**type**\: list of    :py:class:`SensorPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath>`
                 
                 
 
@@ -324,9 +285,6 @@ class TelemetryModelDriven(object):
                 if self.sensor_group_identifier is not None:
                     return True
 
-                if self.enable is not None:
-                    return True
-
                 if self.sensor_paths is not None and self.sensor_paths._has_data():
                     return True
 
@@ -369,7 +327,7 @@ class TelemetryModelDriven(object):
         .. attribute:: subscription
         
         	Streaming Telemetry Subscription
-        	**type**\: list of  :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription>`
+        	**type**\: list of    :py:class:`Subscription <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription>`
         
         
 
@@ -399,24 +357,12 @@ class TelemetryModelDriven(object):
             .. attribute:: destination_profiles
             
             	Associate Destination Groups with Subscription
-            	**type**\:  :py:class:`DestinationProfiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles>`
+            	**type**\:   :py:class:`DestinationProfiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles>`
             
             .. attribute:: sensor_profiles
             
             	Associate Sensor Groups with Subscription
-            	**type**\:  :py:class:`SensorProfiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles>`
-            
-            .. attribute:: source_address
-            
-            	Source address to use for streaming telemetry information
-            	**type**\:  :py:class:`SourceAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SourceAddress>`
-            
-            .. attribute:: source_qos_marking
-            
-            	Outgoing DSCP value
-            	**type**\:  int
-            
-            	**range:** 10..300
+            	**type**\:   :py:class:`SensorProfiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles>`
             
             
 
@@ -432,86 +378,6 @@ class TelemetryModelDriven(object):
                 self.destination_profiles.parent = self
                 self.sensor_profiles = TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles()
                 self.sensor_profiles.parent = self
-                self.source_address = None
-                self.source_qos_marking = None
-
-
-            class SourceAddress(object):
-                """
-                Source address to use for streaming telemetry
-                information
-                
-                .. attribute:: address_family
-                
-                	Address Family type, IPv4\|IPv6
-                	**type**\:  :py:class:`AfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.AfEnum>`
-                
-                	**mandatory**\: True
-                
-                .. attribute:: ip_address
-                
-                	Source IPv4 address
-                	**type**\:  str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: ipv6_address
-                
-                	IPV6 address of the Source
-                	**type**\:  str
-                
-                .. attribute:: _is_presence
-                
-                	Is present if this instance represents presence container else not
-                	**type**\: bool
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2015-11-09'
-
-                def __init__(self):
-                    self.parent = None
-                    self._is_presence = True
-                    self.address_family = None
-                    self.ip_address = None
-                    self.ipv6_address = None
-
-                @property
-                def _common_path(self):
-                    if self.parent is None:
-                        raise YPYModelError('parent is not set . Cannot derive path.')
-
-                    return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:source-address'
-
-                def is_config(self):
-                    ''' Returns True if this instance represents config data else returns False '''
-                    return True
-
-                def _has_data(self):
-                    if not self.is_config():
-                        return False
-                    if self._is_presence:
-                        return True
-                    if self.address_family is not None:
-                        return True
-
-                    if self.ip_address is not None:
-                        return True
-
-                    if self.ipv6_address is not None:
-                        return True
-
-                    return False
-
-                @staticmethod
-                def _meta_info():
-                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                    return meta._meta_table['TelemetryModelDriven.Subscriptions.Subscription.SourceAddress']['meta_info']
 
 
             class SensorProfiles(object):
@@ -521,7 +387,7 @@ class TelemetryModelDriven(object):
                 .. attribute:: sensor_profile
                 
                 	Associate Sensor Group with Subscription
-                	**type**\: list of  :py:class:`SensorProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile>`
+                	**type**\: list of    :py:class:`SensorProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile>`
                 
                 
 
@@ -548,13 +414,6 @@ class TelemetryModelDriven(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: heartbeat_interval
-                    
-                    	Heartbeat interval in Seconds
-                    	**type**\:  int
-                    
-                    	**range:** 0..4294967295
-                    
                     .. attribute:: sample_interval
                     
                     	Sample interval in milliseconds
@@ -562,10 +421,7 @@ class TelemetryModelDriven(object):
                     
                     	**range:** 0..4294967295
                     
-                    .. attribute:: supress_redundant
-                    
-                    	Supress Redundant updates
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**units**\: millisecond
                     
                     
 
@@ -577,9 +433,7 @@ class TelemetryModelDriven(object):
                     def __init__(self):
                         self.parent = None
                         self.sensorgroupid = None
-                        self.heartbeat_interval = None
                         self.sample_interval = None
-                        self.supress_redundant = None
 
                     @property
                     def _common_path(self):
@@ -600,13 +454,7 @@ class TelemetryModelDriven(object):
                         if self.sensorgroupid is not None:
                             return True
 
-                        if self.heartbeat_interval is not None:
-                            return True
-
                         if self.sample_interval is not None:
-                            return True
-
-                        if self.supress_redundant is not None:
                             return True
 
                         return False
@@ -650,7 +498,7 @@ class TelemetryModelDriven(object):
                 .. attribute:: destination_profile
                 
                 	Associate Destination Group with Subscription
-                	**type**\: list of  :py:class:`DestinationProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile>`
+                	**type**\: list of    :py:class:`DestinationProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile>`
                 
                 
 
@@ -677,11 +525,6 @@ class TelemetryModelDriven(object):
                     
                     	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                     
-                    .. attribute:: enable
-                    
-                    	Associate destintion id with Subscription
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
-                    
                     
 
                     """
@@ -692,7 +535,6 @@ class TelemetryModelDriven(object):
                     def __init__(self):
                         self.parent = None
                         self.destination_id = None
-                        self.enable = None
 
                     @property
                     def _common_path(self):
@@ -711,9 +553,6 @@ class TelemetryModelDriven(object):
                         if not self.is_config():
                             return False
                         if self.destination_id is not None:
-                            return True
-
-                        if self.enable is not None:
                             return True
 
                         return False
@@ -772,12 +611,6 @@ class TelemetryModelDriven(object):
                 if self.sensor_profiles is not None and self.sensor_profiles._has_data():
                     return True
 
-                if self.source_address is not None and self.source_address._has_data():
-                    return True
-
-                if self.source_qos_marking is not None:
-                    return True
-
                 return False
 
             @staticmethod
@@ -817,7 +650,7 @@ class TelemetryModelDriven(object):
         .. attribute:: destination_group
         
         	Destination Group
-        	**type**\: list of  :py:class:`DestinationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup>`
+        	**type**\: list of    :py:class:`DestinationGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup>`
         
         
 
@@ -844,10 +677,15 @@ class TelemetryModelDriven(object):
             
             	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
             
-            .. attribute:: destinations
+            .. attribute:: ipv4_destinations
             
-            	Destination configuration
-            	**type**\:  :py:class:`Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations>`
+            	Destination address configuration
+            	**type**\:   :py:class:`Ipv4Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations>`
+            
+            .. attribute:: ipv6_destinations
+            
+            	Destination address configuration
+            	**type**\:   :py:class:`Ipv6Destinations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations>`
             
             
 
@@ -859,18 +697,20 @@ class TelemetryModelDriven(object):
             def __init__(self):
                 self.parent = None
                 self.destination_id = None
-                self.destinations = TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations()
-                self.destinations.parent = self
+                self.ipv4_destinations = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations()
+                self.ipv4_destinations.parent = self
+                self.ipv6_destinations = TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations()
+                self.ipv6_destinations.parent = self
 
 
-            class Destinations(object):
+            class Ipv6Destinations(object):
                 """
-                Destination configuration
+                Destination address configuration
                 
-                .. attribute:: destination
+                .. attribute:: ipv6_destination
                 
-                	Destination address configuration
-                	**type**\: list of  :py:class:`Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination>`
+                	destination IP address
+                	**type**\: list of    :py:class:`Ipv6Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination>`
                 
                 
 
@@ -881,29 +721,40 @@ class TelemetryModelDriven(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.destination = YList()
-                    self.destination.parent = self
-                    self.destination.name = 'destination'
+                    self.ipv6_destination = YList()
+                    self.ipv6_destination.parent = self
+                    self.ipv6_destination.name = 'ipv6_destination'
 
 
-                class Destination(object):
+                class Ipv6Destination(object):
                     """
-                    Destination address configuration
+                    destination IP address
                     
-                    .. attribute:: address_family  <key>
+                    .. attribute:: destination_port  <key>
                     
-                    	Address Family type, IPv4\|IPv6
-                    	**type**\:  :py:class:`AfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.AfEnum>`
+                    	destination port
+                    	**type**\:  int
                     
-                    .. attribute:: ipv4
+                    	**range:** 1..65535
                     
-                    	ipv4
-                    	**type**\: list of  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4>`
+                    .. attribute:: ipv6_address  <key>
                     
-                    .. attribute:: ipv6
+                    	Destination IPv6 address
+                    	**type**\:  str
                     
-                    	ipv6
-                    	**type**\: list of  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6>`
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: encoding
+                    
+                    	Encoding used to transmit telemetry data to the collector
+                    	**type**\:   :py:class:`EncodeTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeTypeEnum>`
+                    
+                    .. attribute:: protocol
+                    
+                    	Transport Protocol used to transmit telemetry data to the collector
+                    	**type**\:   :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -914,54 +765,46 @@ class TelemetryModelDriven(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.address_family = None
-                        self.ipv4 = YList()
-                        self.ipv4.parent = self
-                        self.ipv4.name = 'ipv4'
-                        self.ipv6 = YList()
-                        self.ipv6.parent = self
-                        self.ipv6.name = 'ipv6'
+                        self.destination_port = None
+                        self.ipv6_address = None
+                        self.encoding = None
+                        self.protocol = None
 
 
-                    class Ipv4(object):
+                    class Protocol(object):
                         """
-                        ipv4
+                        Transport Protocol used to transmit telemetry
+                        data to the collector
                         
-                        .. attribute:: destination_port  <key>
+                        .. attribute:: no_tls
                         
-                        	destination port
+                        	no tls
                         	**type**\:  int
                         
-                        	**range:** 1..65535
+                        	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: ipv4_address  <key>
-                        
-                        	Destination IPv4 address
-                        	**type**\: one of the below types:
-                        
-                        	**type**\:  str
-                        
-                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        	**type**\:  str
-                        
-                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                        
-                        
-                        ----
-                        .. attribute:: encoding
-                        
-                        	Encoding used to transmit telemetry data to the collector
-                        	**type**\:  :py:class:`EncodeTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeTypeEnum>`
+                        	**default value**\: 0
                         
                         .. attribute:: protocol
                         
-                        	Transport Protocol used to transmit telemetry data to the collector
-                        	**type**\:  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4.Protocol>`
+                        	protocol
+                        	**type**\:   :py:class:`ProtoTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoTypeEnum>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: tls_hostname
+                        
+                        	tls hostname
+                        	**type**\:  str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
                         
                         
+
+                        This class is a :ref:`presence class<presence-class>`
 
                         """
 
@@ -970,99 +813,17 @@ class TelemetryModelDriven(object):
 
                         def __init__(self):
                             self.parent = None
-                            self.destination_port = None
-                            self.ipv4_address = None
-                            self.encoding = None
+                            self._is_presence = True
+                            self.no_tls = None
                             self.protocol = None
-
-
-                        class Protocol(object):
-                            """
-                            Transport Protocol used to transmit
-                            telemetry data to the collector
-                            
-                            .. attribute:: no_tls
-                            
-                            	no tls
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: protocol
-                            
-                            	protocol
-                            	**type**\:  :py:class:`ProtoTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoTypeEnum>`
-                            
-                            	**mandatory**\: True
-                            
-                            .. attribute:: tls_hostname
-                            
-                            	tls hostname
-                            	**type**\:  str
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'telemetry-model-driven-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.no_tls = None
-                                self.protocol = None
-                                self.tls_hostname = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:protocol'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self._is_presence:
-                                    return True
-                                if self.no_tls is not None:
-                                    return True
-
-                                if self.protocol is not None:
-                                    return True
-
-                                if self.tls_hostname is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                                return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4.Protocol']['meta_info']
+                            self.tls_hostname = None
 
                         @property
                         def _common_path(self):
                             if self.parent is None:
                                 raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.destination_port is None:
-                                raise YPYModelError('Key property destination_port is None')
-                            if self.ipv4_address is None:
-                                raise YPYModelError('Key property ipv4_address is None')
 
-                            return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4[Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-address = ' + str(self.ipv4_address) + ']'
+                            return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:protocol'
 
                         def is_config(self):
                             ''' Returns True if this instance represents config data else returns False '''
@@ -1071,174 +832,15 @@ class TelemetryModelDriven(object):
                         def _has_data(self):
                             if not self.is_config():
                                 return False
-                            if self.destination_port is not None:
+                            if self._is_presence:
+                                return True
+                            if self.no_tls is not None:
                                 return True
 
-                            if self.ipv4_address is not None:
+                            if self.protocol is not None:
                                 return True
 
-                            if self.encoding is not None:
-                                return True
-
-                            if self.protocol is not None and self.protocol._has_data():
-                                return True
-
-                            return False
-
-                        @staticmethod
-                        def _meta_info():
-                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                            return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv4']['meta_info']
-
-
-                    class Ipv6(object):
-                        """
-                        ipv6
-                        
-                        .. attribute:: destination_port  <key>
-                        
-                        	destination port
-                        	**type**\:  int
-                        
-                        	**range:** 1..65535
-                        
-                        .. attribute:: ipv6_address  <key>
-                        
-                        	IPV6 address of the destination
-                        	**type**\:  str
-                        
-                        	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
-                        
-                        .. attribute:: encoding
-                        
-                        	Encoding used to transmit telemetry data to the collector
-                        	**type**\:  :py:class:`EncodeTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeTypeEnum>`
-                        
-                        .. attribute:: protocol
-                        
-                        	Transport Protocol used to transmit telemetry data to the collector
-                        	**type**\:  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6.Protocol>`
-                        
-                        
-
-                        """
-
-                        _prefix = 'telemetry-model-driven-cfg'
-                        _revision = '2015-11-09'
-
-                        def __init__(self):
-                            self.parent = None
-                            self.destination_port = None
-                            self.ipv6_address = None
-                            self.encoding = None
-                            self.protocol = None
-
-
-                        class Protocol(object):
-                            """
-                            Transport Protocol used to transmit
-                            telemetry data to the collector
-                            
-                            .. attribute:: no_tls
-                            
-                            	no tls
-                            	**type**\:  int
-                            
-                            	**range:** \-2147483648..2147483647
-                            
-                            .. attribute:: protocol
-                            
-                            	protocol
-                            	**type**\:  :py:class:`ProtoTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoTypeEnum>`
-                            
-                            	**mandatory**\: True
-                            
-                            .. attribute:: tls_hostname
-                            
-                            	tls hostname
-                            	**type**\:  str
-                            
-                            .. attribute:: _is_presence
-                            
-                            	Is present if this instance represents presence container else not
-                            	**type**\: bool
-                            
-                            
-
-                            This class is a :ref:`presence class<presence-class>`
-
-                            """
-
-                            _prefix = 'telemetry-model-driven-cfg'
-                            _revision = '2015-11-09'
-
-                            def __init__(self):
-                                self.parent = None
-                                self._is_presence = True
-                                self.no_tls = None
-                                self.protocol = None
-                                self.tls_hostname = None
-
-                            @property
-                            def _common_path(self):
-                                if self.parent is None:
-                                    raise YPYModelError('parent is not set . Cannot derive path.')
-
-                                return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:protocol'
-
-                            def is_config(self):
-                                ''' Returns True if this instance represents config data else returns False '''
-                                return True
-
-                            def _has_data(self):
-                                if not self.is_config():
-                                    return False
-                                if self._is_presence:
-                                    return True
-                                if self.no_tls is not None:
-                                    return True
-
-                                if self.protocol is not None:
-                                    return True
-
-                                if self.tls_hostname is not None:
-                                    return True
-
-                                return False
-
-                            @staticmethod
-                            def _meta_info():
-                                from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                                return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6.Protocol']['meta_info']
-
-                        @property
-                        def _common_path(self):
-                            if self.parent is None:
-                                raise YPYModelError('parent is not set . Cannot derive path.')
-                            if self.destination_port is None:
-                                raise YPYModelError('Key property destination_port is None')
-                            if self.ipv6_address is None:
-                                raise YPYModelError('Key property ipv6_address is None')
-
-                            return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6[Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-address = ' + str(self.ipv6_address) + ']'
-
-                        def is_config(self):
-                            ''' Returns True if this instance represents config data else returns False '''
-                            return True
-
-                        def _has_data(self):
-                            if not self.is_config():
-                                return False
-                            if self.destination_port is not None:
-                                return True
-
-                            if self.ipv6_address is not None:
-                                return True
-
-                            if self.encoding is not None:
-                                return True
-
-                            if self.protocol is not None and self.protocol._has_data():
+                            if self.tls_hostname is not None:
                                 return True
 
                             return False
@@ -1246,16 +848,18 @@ class TelemetryModelDriven(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                            return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination.Ipv6']['meta_info']
+                            return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol']['meta_info']
 
                     @property
                     def _common_path(self):
                         if self.parent is None:
                             raise YPYModelError('parent is not set . Cannot derive path.')
-                        if self.address_family is None:
-                            raise YPYModelError('Key property address_family is None')
+                        if self.destination_port is None:
+                            raise YPYModelError('Key property destination_port is None')
+                        if self.ipv6_address is None:
+                            raise YPYModelError('Key property ipv6_address is None')
 
-                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:destination[Cisco-IOS-XR-telemetry-model-driven-cfg:address-family = ' + str(self.address_family) + ']'
+                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-destination[Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-address = ' + str(self.ipv6_address) + ']'
 
                     def is_config(self):
                         ''' Returns True if this instance represents config data else returns False '''
@@ -1264,32 +868,31 @@ class TelemetryModelDriven(object):
                     def _has_data(self):
                         if not self.is_config():
                             return False
-                        if self.address_family is not None:
+                        if self.destination_port is not None:
                             return True
 
-                        if self.ipv4 is not None:
-                            for child_ref in self.ipv4:
-                                if child_ref._has_data():
-                                    return True
+                        if self.ipv6_address is not None:
+                            return True
 
-                        if self.ipv6 is not None:
-                            for child_ref in self.ipv6:
-                                if child_ref._has_data():
-                                    return True
+                        if self.encoding is not None:
+                            return True
+
+                        if self.protocol is not None and self.protocol._has_data():
+                            return True
 
                         return False
 
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                        return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations.Destination']['meta_info']
+                        return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination']['meta_info']
 
                 @property
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:destinations'
+                    return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv6-destinations'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -1298,8 +901,8 @@ class TelemetryModelDriven(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.destination is not None:
-                        for child_ref in self.destination:
+                    if self.ipv6_destination is not None:
+                        for child_ref in self.ipv6_destination:
                             if child_ref._has_data():
                                 return True
 
@@ -1308,7 +911,218 @@ class TelemetryModelDriven(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
-                    return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Destinations']['meta_info']
+                    return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations']['meta_info']
+
+
+            class Ipv4Destinations(object):
+                """
+                Destination address configuration
+                
+                .. attribute:: ipv4_destination
+                
+                	destination IP address
+                	**type**\: list of    :py:class:`Ipv4Destination <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination>`
+                
+                
+
+                """
+
+                _prefix = 'telemetry-model-driven-cfg'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    self.parent = None
+                    self.ipv4_destination = YList()
+                    self.ipv4_destination.parent = self
+                    self.ipv4_destination.name = 'ipv4_destination'
+
+
+                class Ipv4Destination(object):
+                    """
+                    destination IP address
+                    
+                    .. attribute:: destination_port  <key>
+                    
+                    	destination port
+                    	**type**\:  int
+                    
+                    	**range:** 1..65535
+                    
+                    .. attribute:: ipv4_address  <key>
+                    
+                    	Destination IPv4 address
+                    	**type**\:  str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: encoding
+                    
+                    	Encoding used to transmit telemetry data to the collector
+                    	**type**\:   :py:class:`EncodeTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.EncodeTypeEnum>`
+                    
+                    .. attribute:: protocol
+                    
+                    	Transport Protocol used to transmit telemetry data to the collector
+                    	**type**\:   :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol>`
+                    
+                    	**presence node**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'telemetry-model-driven-cfg'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        self.parent = None
+                        self.destination_port = None
+                        self.ipv4_address = None
+                        self.encoding = None
+                        self.protocol = None
+
+
+                    class Protocol(object):
+                        """
+                        Transport Protocol used to transmit telemetry
+                        data to the collector
+                        
+                        .. attribute:: no_tls
+                        
+                        	no tls
+                        	**type**\:  int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        	**default value**\: 0
+                        
+                        .. attribute:: protocol
+                        
+                        	protocol
+                        	**type**\:   :py:class:`ProtoTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.ProtoTypeEnum>`
+                        
+                        	**mandatory**\: True
+                        
+                        .. attribute:: tls_hostname
+                        
+                        	tls hostname
+                        	**type**\:  str
+                        
+                        .. attribute:: _is_presence
+                        
+                        	Is present if this instance represents presence container else not
+                        	**type**\: bool
+                        
+                        
+
+                        This class is a :ref:`presence class<presence-class>`
+
+                        """
+
+                        _prefix = 'telemetry-model-driven-cfg'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            self.parent = None
+                            self._is_presence = True
+                            self.no_tls = None
+                            self.protocol = None
+                            self.tls_hostname = None
+
+                        @property
+                        def _common_path(self):
+                            if self.parent is None:
+                                raise YPYModelError('parent is not set . Cannot derive path.')
+
+                            return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:protocol'
+
+                        def is_config(self):
+                            ''' Returns True if this instance represents config data else returns False '''
+                            return True
+
+                        def _has_data(self):
+                            if not self.is_config():
+                                return False
+                            if self._is_presence:
+                                return True
+                            if self.no_tls is not None:
+                                return True
+
+                            if self.protocol is not None:
+                                return True
+
+                            if self.tls_hostname is not None:
+                                return True
+
+                            return False
+
+                        @staticmethod
+                        def _meta_info():
+                            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
+                            return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol']['meta_info']
+
+                    @property
+                    def _common_path(self):
+                        if self.parent is None:
+                            raise YPYModelError('parent is not set . Cannot derive path.')
+                        if self.destination_port is None:
+                            raise YPYModelError('Key property destination_port is None')
+                        if self.ipv4_address is None:
+                            raise YPYModelError('Key property ipv4_address is None')
+
+                        return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-destination[Cisco-IOS-XR-telemetry-model-driven-cfg:destination-port = ' + str(self.destination_port) + '][Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-address = ' + str(self.ipv4_address) + ']'
+
+                    def is_config(self):
+                        ''' Returns True if this instance represents config data else returns False '''
+                        return True
+
+                    def _has_data(self):
+                        if not self.is_config():
+                            return False
+                        if self.destination_port is not None:
+                            return True
+
+                        if self.ipv4_address is not None:
+                            return True
+
+                        if self.encoding is not None:
+                            return True
+
+                        if self.protocol is not None and self.protocol._has_data():
+                            return True
+
+                        return False
+
+                    @staticmethod
+                    def _meta_info():
+                        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
+                        return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination']['meta_info']
+
+                @property
+                def _common_path(self):
+                    if self.parent is None:
+                        raise YPYModelError('parent is not set . Cannot derive path.')
+
+                    return self.parent._common_path +'/Cisco-IOS-XR-telemetry-model-driven-cfg:ipv4-destinations'
+
+                def is_config(self):
+                    ''' Returns True if this instance represents config data else returns False '''
+                    return True
+
+                def _has_data(self):
+                    if not self.is_config():
+                        return False
+                    if self.ipv4_destination is not None:
+                        for child_ref in self.ipv4_destination:
+                            if child_ref._has_data():
+                                return True
+
+                    return False
+
+                @staticmethod
+                def _meta_info():
+                    from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_telemetry_model_driven_cfg as meta
+                    return meta._meta_table['TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations']['meta_info']
 
             @property
             def _common_path(self):
@@ -1327,7 +1141,10 @@ class TelemetryModelDriven(object):
                 if self.destination_id is not None:
                     return True
 
-                if self.destinations is not None and self.destinations._has_data():
+                if self.ipv4_destinations is not None and self.ipv4_destinations._has_data():
+                    return True
+
+                if self.ipv6_destinations is not None and self.ipv6_destinations._has_data():
                     return True
 
                 return False

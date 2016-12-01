@@ -31,25 +31,25 @@ class DwdmControllerStateEnum(Enum):
 
     Dwdm controller state
 
-    .. data:: DWDM_UI_STATE_UP = 0
+    .. data:: dwdm_ui_state_up = 0
 
     	Up
 
-    .. data:: DWDM_UI_STATE_DOWN = 1
+    .. data:: dwdm_ui_state_down = 1
 
     	Down
 
-    .. data:: DWDM_UI_STATE_ADMIN_DOWN = 2
+    .. data:: dwdm_ui_state_admin_down = 2
 
     	Administratively Down
 
     """
 
-    DWDM_UI_STATE_UP = 0
+    dwdm_ui_state_up = 0
 
-    DWDM_UI_STATE_DOWN = 1
+    dwdm_ui_state_down = 1
 
-    DWDM_UI_STATE_ADMIN_DOWN = 2
+    dwdm_ui_state_admin_down = 2
 
 
     @staticmethod
@@ -64,25 +64,25 @@ class DwdmWaveChannelOwnerEnum(Enum):
 
     Dwdm wave channel owner
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	Hardware Default
 
-    .. data:: CONFIGURATION = 1
+    .. data:: configuration = 1
 
     	Configuration
 
-    .. data:: GMPLS = 2
+    .. data:: gmpls = 2
 
     	GMPLS Signaled
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    CONFIGURATION = 1
+    configuration = 1
 
-    GMPLS = 2
+    gmpls = 2
 
 
     @staticmethod
@@ -97,31 +97,31 @@ class DwdmtasStateEnum(Enum):
 
     Dwdmtas state
 
-    .. data:: TAS_OOS = 0
+    .. data:: tas_oos = 0
 
     	Out of Service
 
-    .. data:: TAS_IS = 1
+    .. data:: tas_is = 1
 
     	In Service
 
-    .. data:: TAS_OOS_MT = 2
+    .. data:: tas_oos_mt = 2
 
     	Out of Service Maintenance
 
-    .. data:: TAS_IS_CFG = 3
+    .. data:: tas_is_cfg = 3
 
     	In Service Config allowed
 
     """
 
-    TAS_OOS = 0
+    tas_oos = 0
 
-    TAS_IS = 1
+    tas_is = 1
 
-    TAS_OOS_MT = 2
+    tas_oos_mt = 2
 
-    TAS_IS_CFG = 3
+    tas_is_cfg = 3
 
 
     @staticmethod
@@ -136,43 +136,43 @@ class G709ApsByteEnum(Enum):
 
     G709aps byte
 
-    .. data:: PP_NO_PROTECT = 0
+    .. data:: pp_no_protect = 0
 
     	No Protection
 
-    .. data:: PP_NO_REQUEST = 15
+    .. data:: pp_no_request = 15
 
     	No Request
 
-    .. data:: PP_REGEN_DEGRADE = 63
+    .. data:: pp_regen_degrade = 63
 
     	Regenerator Degrade
 
-    .. data:: PP_SIG_DEGRADE = 175
+    .. data:: pp_sig_degrade = 175
 
     	Signal Degrade
 
-    .. data:: PP_REMOTE_MAIN = 239
+    .. data:: pp_remote_main = 239
 
     	Maintenance Request
 
-    .. data:: PP_APS_UNKNOWN = 255
+    .. data:: pp_aps_unknown = 255
 
     	Unknown
 
     """
 
-    PP_NO_PROTECT = 0
+    pp_no_protect = 0
 
-    PP_NO_REQUEST = 15
+    pp_no_request = 15
 
-    PP_REGEN_DEGRADE = 63
+    pp_regen_degrade = 63
 
-    PP_SIG_DEGRADE = 175
+    pp_sig_degrade = 175
 
-    PP_REMOTE_MAIN = 239
+    pp_remote_main = 239
 
-    PP_APS_UNKNOWN = 255
+    pp_aps_unknown = 255
 
 
     @staticmethod
@@ -187,23 +187,23 @@ class G709EfecModeEnum(Enum):
 
     G709efec mode
 
-    .. data:: G975_NONE = 0
+    .. data:: g975_none = 0
 
-    .. data:: G975_1_I4 = 1
+    .. data:: g975_1_i4 = 1
 
     	G975.1 I.4
 
-    .. data:: G975_1_I7 = 2
+    .. data:: g975_1_i7 = 2
 
     	G975.1 I.7
 
     """
 
-    G975_NONE = 0
+    g975_none = 0
 
-    G975_1_I4 = 1
+    g975_1_i4 = 1
 
-    G975_1_I7 = 2
+    g975_1_i7 = 2
 
 
     @staticmethod
@@ -218,25 +218,25 @@ class G709PpfsmModeEnum(Enum):
 
     G709ppfsm mode
 
-    .. data:: PP_DISABLE = 0
+    .. data:: pp_disable = 0
 
     	OFF
 
-    .. data:: PP_DEFAULT_MODE = 1
+    .. data:: pp_default_mode = 1
 
     	ON (Default Mode)
 
-    .. data:: PP_GRACEFUL_MODE = 2
+    .. data:: pp_graceful_mode = 2
 
     	ON (Graceful Mode)
 
     """
 
-    PP_DISABLE = 0
+    pp_disable = 0
 
-    PP_DEFAULT_MODE = 1
+    pp_default_mode = 1
 
-    PP_GRACEFUL_MODE = 2
+    pp_graceful_mode = 2
 
 
     @staticmethod
@@ -251,73 +251,73 @@ class G709PpfsmStateEnum(Enum):
 
     G709ppfsm state
 
-    .. data:: IN_ACTIVE = 0
+    .. data:: in_active = 0
 
     	In Active
 
-    .. data:: DISABLED = 1
+    .. data:: disabled = 1
 
     	Disabled
 
-    .. data:: NORMAL_STATE = 2
+    .. data:: normal_state = 2
 
     	Normal
 
-    .. data:: LOCAL_FAILING = 3
+    .. data:: local_failing = 3
 
     	Local Failing
 
-    .. data:: REMOTE_FAILING = 4
+    .. data:: remote_failing = 4
 
     	Remote Failing
 
-    .. data:: MAIN_T_FAILING = 5
+    .. data:: main_t_failing = 5
 
     	Maintance Failing
 
-    .. data:: REGEN_FAILING = 6
+    .. data:: regen_failing = 6
 
     	Regenerator Failing
 
-    .. data:: LOCAL_FAILED = 7
+    .. data:: local_failed = 7
 
     	Local Failed
 
-    .. data:: REMOTE_FAILED = 8
+    .. data:: remote_failed = 8
 
     	Remote Failed
 
-    .. data:: MAIN_T_FAILED = 9
+    .. data:: main_t_failed = 9
 
     	Maintance Failed
 
-    .. data:: REGEN_FAILED = 10
+    .. data:: regen_failed = 10
 
     	Regenerator Failed
 
     """
 
-    IN_ACTIVE = 0
+    in_active = 0
 
-    DISABLED = 1
+    disabled = 1
 
-    NORMAL_STATE = 2
+    normal_state = 2
 
-    LOCAL_FAILING = 3
+    local_failing = 3
 
-    REMOTE_FAILING = 4
+    remote_failing = 4
 
-    MAIN_T_FAILING = 5
+    main_t_failing = 5
 
-    REGEN_FAILING = 6
+    regen_failing = 6
 
-    LOCAL_FAILED = 7
+    local_failed = 7
 
-    REMOTE_FAILED = 8
+    remote_failed = 8
 
-    MAIN_T_FAILED = 9
+    main_t_failed = 9
 
-    REGEN_FAILED = 10
+    regen_failed = 10
 
 
     @staticmethod
@@ -332,25 +332,25 @@ class G709PpintfStateEnum(Enum):
 
     G709ppintf state
 
-    .. data:: PP_INTF_UP = 0
+    .. data:: pp_intf_up = 0
 
     	Interface is Up
 
-    .. data:: PP_INTF_FAILING = 1
+    .. data:: pp_intf_failing = 1
 
     	Interface is Going Down
 
-    .. data:: PP_INTF_DOWN = 2
+    .. data:: pp_intf_down = 2
 
     	Interface Down
 
     """
 
-    PP_INTF_UP = 0
+    pp_intf_up = 0
 
-    PP_INTF_FAILING = 1
+    pp_intf_failing = 1
 
-    PP_INTF_DOWN = 2
+    pp_intf_down = 2
 
 
     @staticmethod
@@ -365,205 +365,205 @@ class G709PrbsIntervalEnum(Enum):
 
     PRBS test interval information
 
-    .. data:: CURRENT_INTERVAL = 0
+    .. data:: current_interval = 0
 
     	Current interval
 
-    .. data:: PREVIOUS_INTERVAL = 1
+    .. data:: previous_interval = 1
 
     	Previous interval
 
-    .. data:: PREVIOUS_INTERVAL2 = 2
+    .. data:: previous_interval2 = 2
 
     	Previous interval 2
 
-    .. data:: PREVIOUS_INTERVAL3 = 3
+    .. data:: previous_interval3 = 3
 
     	Previous interval 3
 
-    .. data:: PREVIOUS_INTERVAL4 = 4
+    .. data:: previous_interval4 = 4
 
     	Previous interval 4
 
-    .. data:: PREVIOUS_INTERVAL5 = 5
+    .. data:: previous_interval5 = 5
 
     	Previous interval 5
 
-    .. data:: PREVIOUS_INTERVAL6 = 6
+    .. data:: previous_interval6 = 6
 
     	Previous interval 6
 
-    .. data:: PREVIOUS_INTERVAL7 = 7
+    .. data:: previous_interval7 = 7
 
     	Previous interval 7
 
-    .. data:: PREVIOUS_INTERVAL8 = 8
+    .. data:: previous_interval8 = 8
 
     	Previous interval 8
 
-    .. data:: PREVIOUS_INTERVAL9 = 9
+    .. data:: previous_interval9 = 9
 
     	Previous interval 9
 
-    .. data:: PREVIOUS_INTERVAL10 = 10
+    .. data:: previous_interval10 = 10
 
     	Previous interval 10
 
-    .. data:: PREVIOUS_INTERVAL11 = 11
+    .. data:: previous_interval11 = 11
 
     	Previous interval 11
 
-    .. data:: PREVIOUS_INTERVAL12 = 12
+    .. data:: previous_interval12 = 12
 
     	Previous interval 12
 
-    .. data:: PREVIOUS_INTERVAL13 = 13
+    .. data:: previous_interval13 = 13
 
     	Previous interval 13
 
-    .. data:: PREVIOUS_INTERVAL14 = 14
+    .. data:: previous_interval14 = 14
 
     	Previous interval 14
 
-    .. data:: PREVIOUS_INTERVAL15 = 15
+    .. data:: previous_interval15 = 15
 
     	Previous interval 15
 
-    .. data:: PREVIOUS_INTERVAL16 = 16
+    .. data:: previous_interval16 = 16
 
     	Previous interval 16
 
-    .. data:: PREVIOUS_INTERVAL17 = 17
+    .. data:: previous_interval17 = 17
 
     	Previous interval 17
 
-    .. data:: PREVIOUS_INTERVAL18 = 18
+    .. data:: previous_interval18 = 18
 
     	Previous interval 18
 
-    .. data:: PREVIOUS_INTERVAL19 = 19
+    .. data:: previous_interval19 = 19
 
     	Previous interval 19
 
-    .. data:: PREVIOUS_INTERVAL20 = 20
+    .. data:: previous_interval20 = 20
 
     	Previous interval 20
 
-    .. data:: PREVIOUS_INTERVAL21 = 21
+    .. data:: previous_interval21 = 21
 
     	Previous interval 21
 
-    .. data:: PREVIOUS_INTERVAL22 = 22
+    .. data:: previous_interval22 = 22
 
     	Previous interval 22
 
-    .. data:: PREVIOUS_INTERVAL23 = 23
+    .. data:: previous_interval23 = 23
 
     	Previous interval 23
 
-    .. data:: PREVIOUS_INTERVAL24 = 24
+    .. data:: previous_interval24 = 24
 
     	Previous interval 24
 
-    .. data:: PREVIOUS_INTERVAL25 = 25
+    .. data:: previous_interval25 = 25
 
     	Previous interval 25
 
-    .. data:: PREVIOUS_INTERVAL26 = 26
+    .. data:: previous_interval26 = 26
 
     	Previous interval 26
 
-    .. data:: PREVIOUS_INTERVAL27 = 27
+    .. data:: previous_interval27 = 27
 
     	Previous interval 27
 
-    .. data:: PREVIOUS_INTERVAL28 = 28
+    .. data:: previous_interval28 = 28
 
     	Previous interval 28
 
-    .. data:: PREVIOUS_INTERVAL29 = 29
+    .. data:: previous_interval29 = 29
 
     	Previous interval 29
 
-    .. data:: PREVIOUS_INTERVAL30 = 30
+    .. data:: previous_interval30 = 30
 
     	Previous interval 30
 
-    .. data:: PREVIOUS_INTERVAL31 = 31
+    .. data:: previous_interval31 = 31
 
     	Previous interval 31
 
-    .. data:: PREVIOUS_INTERVAL32 = 32
+    .. data:: previous_interval32 = 32
 
     	Previous interval 32
 
     """
 
-    CURRENT_INTERVAL = 0
+    current_interval = 0
 
-    PREVIOUS_INTERVAL = 1
+    previous_interval = 1
 
-    PREVIOUS_INTERVAL2 = 2
+    previous_interval2 = 2
 
-    PREVIOUS_INTERVAL3 = 3
+    previous_interval3 = 3
 
-    PREVIOUS_INTERVAL4 = 4
+    previous_interval4 = 4
 
-    PREVIOUS_INTERVAL5 = 5
+    previous_interval5 = 5
 
-    PREVIOUS_INTERVAL6 = 6
+    previous_interval6 = 6
 
-    PREVIOUS_INTERVAL7 = 7
+    previous_interval7 = 7
 
-    PREVIOUS_INTERVAL8 = 8
+    previous_interval8 = 8
 
-    PREVIOUS_INTERVAL9 = 9
+    previous_interval9 = 9
 
-    PREVIOUS_INTERVAL10 = 10
+    previous_interval10 = 10
 
-    PREVIOUS_INTERVAL11 = 11
+    previous_interval11 = 11
 
-    PREVIOUS_INTERVAL12 = 12
+    previous_interval12 = 12
 
-    PREVIOUS_INTERVAL13 = 13
+    previous_interval13 = 13
 
-    PREVIOUS_INTERVAL14 = 14
+    previous_interval14 = 14
 
-    PREVIOUS_INTERVAL15 = 15
+    previous_interval15 = 15
 
-    PREVIOUS_INTERVAL16 = 16
+    previous_interval16 = 16
 
-    PREVIOUS_INTERVAL17 = 17
+    previous_interval17 = 17
 
-    PREVIOUS_INTERVAL18 = 18
+    previous_interval18 = 18
 
-    PREVIOUS_INTERVAL19 = 19
+    previous_interval19 = 19
 
-    PREVIOUS_INTERVAL20 = 20
+    previous_interval20 = 20
 
-    PREVIOUS_INTERVAL21 = 21
+    previous_interval21 = 21
 
-    PREVIOUS_INTERVAL22 = 22
+    previous_interval22 = 22
 
-    PREVIOUS_INTERVAL23 = 23
+    previous_interval23 = 23
 
-    PREVIOUS_INTERVAL24 = 24
+    previous_interval24 = 24
 
-    PREVIOUS_INTERVAL25 = 25
+    previous_interval25 = 25
 
-    PREVIOUS_INTERVAL26 = 26
+    previous_interval26 = 26
 
-    PREVIOUS_INTERVAL27 = 27
+    previous_interval27 = 27
 
-    PREVIOUS_INTERVAL28 = 28
+    previous_interval28 = 28
 
-    PREVIOUS_INTERVAL29 = 29
+    previous_interval29 = 29
 
-    PREVIOUS_INTERVAL30 = 30
+    previous_interval30 = 30
 
-    PREVIOUS_INTERVAL31 = 31
+    previous_interval31 = 31
 
-    PREVIOUS_INTERVAL32 = 32
+    previous_interval32 = 32
 
 
     @staticmethod
@@ -578,31 +578,31 @@ class G709PrbsModeEnum(Enum):
 
     G709prbs mode
 
-    .. data:: MODE_SOURCE = 0
+    .. data:: mode_source = 0
 
     	mode source
 
-    .. data:: MODE_SINK = 1
+    .. data:: mode_sink = 1
 
     	mode sink
 
-    .. data:: MODE_SOURCE_SINK = 2
+    .. data:: mode_source_sink = 2
 
     	mode source sink
 
-    .. data:: MODE_INVALID = 3
+    .. data:: mode_invalid = 3
 
     	mode invalid
 
     """
 
-    MODE_SOURCE = 0
+    mode_source = 0
 
-    MODE_SINK = 1
+    mode_sink = 1
 
-    MODE_SOURCE_SINK = 2
+    mode_source_sink = 2
 
-    MODE_INVALID = 3
+    mode_invalid = 3
 
 
     @staticmethod
@@ -617,37 +617,37 @@ class G709PrbsPatternEnum(Enum):
 
     G709prbs pattern
 
-    .. data:: PATTERN_NONE = 0
+    .. data:: pattern_none = 0
 
     	pattern none
 
-    .. data:: PATTERN_NULL = 1
+    .. data:: pattern_null = 1
 
     	pattern null
 
-    .. data:: PATTERN_PN11 = 2
+    .. data:: pattern_pn11 = 2
 
     	pattern pn11
 
-    .. data:: PATTERN_PN23 = 3
+    .. data:: pattern_pn23 = 3
 
     	pattern pn23
 
-    .. data:: PATTERN_PN31 = 4
+    .. data:: pattern_pn31 = 4
 
     	pattern pn31
 
     """
 
-    PATTERN_NONE = 0
+    pattern_none = 0
 
-    PATTERN_NULL = 1
+    pattern_null = 1
 
-    PATTERN_PN11 = 2
+    pattern_pn11 = 2
 
-    PATTERN_PN23 = 3
+    pattern_pn23 = 3
 
-    PATTERN_PN31 = 4
+    pattern_pn31 = 4
 
 
     @staticmethod
@@ -664,7 +664,7 @@ class Dwdm(object):
     .. attribute:: ports
     
     	All DWDM Port operational data
-    	**type**\:  :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports>`
+    	**type**\:   :py:class:`Ports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports>`
     
     
 
@@ -685,7 +685,7 @@ class Dwdm(object):
         .. attribute:: port
         
         	DWDM Port operational data
-        	**type**\: list of  :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port>`
+        	**type**\: list of    :py:class:`Port <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port>`
         
         
 
@@ -715,17 +715,17 @@ class Dwdm(object):
             .. attribute:: info
             
             	DWDM port operational data
-            	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info>`
+            	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info>`
             
             .. attribute:: optics
             
             	DWDM Port optics operational data
-            	**type**\:  :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics>`
+            	**type**\:   :py:class:`Optics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics>`
             
             .. attribute:: prbs
             
             	DWDM Port PRBS related data
-            	**type**\:  :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs>`
+            	**type**\:   :py:class:`Prbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs>`
             
             
 
@@ -752,12 +752,12 @@ class Dwdm(object):
                 .. attribute:: fifteen_minutes_bucket
                 
                 	Port 15\-minute PRBS statistics table
-                	**type**\:  :py:class:`FifteenMinutesBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket>`
+                	**type**\:   :py:class:`FifteenMinutesBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket>`
                 
                 .. attribute:: twenty_four_hours_bucket
                 
                 	Port 24\-hour PRBS statistics table
-                	**type**\:  :py:class:`TwentyFourHoursBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket>`
+                	**type**\:   :py:class:`TwentyFourHoursBucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket>`
                 
                 
 
@@ -781,7 +781,7 @@ class Dwdm(object):
                     .. attribute:: twenty_four_hours_statistics
                     
                     	Port 24\-hour PRBS statistics data
-                    	**type**\:  :py:class:`TwentyFourHoursStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics>`
+                    	**type**\:   :py:class:`TwentyFourHoursStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics>`
                     
                     
 
@@ -808,12 +808,12 @@ class Dwdm(object):
                         .. attribute:: prbs_config_mode
                         
                         	Configured mode of PRBS test
-                        	**type**\:  :py:class:`G709PrbsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsModeEnum>`
+                        	**type**\:   :py:class:`G709PrbsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsModeEnum>`
                         
                         .. attribute:: prbs_entry
                         
                         	History consists of 15\-minute/24\-hour intervals
-                        	**type**\: list of  :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry>`
+                        	**type**\: list of    :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.TwentyFourHoursBucket.TwentyFourHoursStatistics.PrbsEntry>`
                         
                         
 
@@ -845,7 +845,7 @@ class Dwdm(object):
                             .. attribute:: configured_pattern
                             
                             	Configured pattern of PRBS test
-                            	**type**\:  :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
+                            	**type**\:   :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
                             
                             .. attribute:: found_at
                             
@@ -864,7 +864,7 @@ class Dwdm(object):
                             .. attribute:: interval_index
                             
                             	Index of bucket, current and previous
-                            	**type**\:  :py:class:`G709PrbsIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsIntervalEnum>`
+                            	**type**\:   :py:class:`G709PrbsIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsIntervalEnum>`
                             
                             .. attribute:: lost_at
                             
@@ -883,7 +883,7 @@ class Dwdm(object):
                             .. attribute:: received_pattern
                             
                             	Received Pattern of PRBS Test
-                            	**type**\:  :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
+                            	**type**\:   :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
                             
                             .. attribute:: start_at
                             
@@ -1034,7 +1034,7 @@ class Dwdm(object):
                     .. attribute:: fifteen_minutes_statistics
                     
                     	Port 15\-minute PRBS statistics data
-                    	**type**\:  :py:class:`FifteenMinutesStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics>`
+                    	**type**\:   :py:class:`FifteenMinutesStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics>`
                     
                     
 
@@ -1061,12 +1061,12 @@ class Dwdm(object):
                         .. attribute:: prbs_config_mode
                         
                         	Configured mode of PRBS test
-                        	**type**\:  :py:class:`G709PrbsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsModeEnum>`
+                        	**type**\:   :py:class:`G709PrbsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsModeEnum>`
                         
                         .. attribute:: prbs_entry
                         
                         	History consists of 15\-minute/24\-hour intervals
-                        	**type**\: list of  :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry>`
+                        	**type**\: list of    :py:class:`PrbsEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Prbs.FifteenMinutesBucket.FifteenMinutesStatistics.PrbsEntry>`
                         
                         
 
@@ -1098,7 +1098,7 @@ class Dwdm(object):
                             .. attribute:: configured_pattern
                             
                             	Configured pattern of PRBS test
-                            	**type**\:  :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
+                            	**type**\:   :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
                             
                             .. attribute:: found_at
                             
@@ -1117,7 +1117,7 @@ class Dwdm(object):
                             .. attribute:: interval_index
                             
                             	Index of bucket, current and previous
-                            	**type**\:  :py:class:`G709PrbsIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsIntervalEnum>`
+                            	**type**\:   :py:class:`G709PrbsIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsIntervalEnum>`
                             
                             .. attribute:: lost_at
                             
@@ -1136,7 +1136,7 @@ class Dwdm(object):
                             .. attribute:: received_pattern
                             
                             	Received Pattern of PRBS Test
-                            	**type**\:  :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
+                            	**type**\:   :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
                             
                             .. attribute:: start_at
                             
@@ -1314,7 +1314,7 @@ class Dwdm(object):
                 .. attribute:: wave_info
                 
                 	DWDM port wavelength information data
-                	**type**\:  :py:class:`WaveInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics.WaveInfo>`
+                	**type**\:   :py:class:`WaveInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Optics.WaveInfo>`
                 
                 
 
@@ -1429,32 +1429,32 @@ class Dwdm(object):
                 .. attribute:: controller_state
                 
                 	DWDM controller state\: Up, Down or Administratively Down
-                	**type**\:  :py:class:`DwdmControllerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmControllerStateEnum>`
+                	**type**\:   :py:class:`DwdmControllerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmControllerStateEnum>`
                 
                 .. attribute:: g709_info
                 
                 	G709 operational information
-                	**type**\:  :py:class:`G709Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info>`
+                	**type**\:   :py:class:`G709Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info>`
                 
                 .. attribute:: network_srlg_info
                 
                 	Network SRLG information
-                	**type**\:  :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.NetworkSrlgInfo>`
+                	**type**\:   :py:class:`NetworkSrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.NetworkSrlgInfo>`
                 
                 .. attribute:: optics_info
                 
                 	Optics operational information
-                	**type**\:  :py:class:`OpticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.OpticsInfo>`
+                	**type**\:   :py:class:`OpticsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.OpticsInfo>`
                 
                 .. attribute:: proactive
                 
                 	Proactive protection information
-                	**type**\:  :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.Proactive>`
+                	**type**\:   :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.Proactive>`
                 
                 .. attribute:: signal_log
                 
                 	Signal log information
-                	**type**\:  :py:class:`SignalLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.SignalLog>`
+                	**type**\:   :py:class:`SignalLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.SignalLog>`
                 
                 .. attribute:: slice_state
                 
@@ -1464,12 +1464,12 @@ class Dwdm(object):
                 .. attribute:: tdc_info
                 
                 	TDC operational information
-                	**type**\:  :py:class:`TdcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.TdcInfo>`
+                	**type**\:   :py:class:`TdcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.TdcInfo>`
                 
                 .. attribute:: transport_admin_state
                 
                 	DWDM controller TAS state\: IS, OOS, OOS\-MT or IS\-CFG
-                	**type**\:  :py:class:`DwdmtasStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasStateEnum>`
+                	**type**\:   :py:class:`DwdmtasStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasStateEnum>`
                 
                 
 
@@ -1518,12 +1518,12 @@ class Dwdm(object):
                     .. attribute:: ec_tca
                     
                     	FEC Corrected bits TCA information
-                    	**type**\:  :py:class:`EcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.EcTca>`
+                    	**type**\:   :py:class:`EcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.EcTca>`
                     
                     .. attribute:: efec_mode
                     
                     	EFEC information
-                    	**type**\:  :py:class:`G709EfecModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709EfecModeEnum>`
+                    	**type**\:   :py:class:`G709EfecModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709EfecModeEnum>`
                     
                     .. attribute:: fe_cstr
                     
@@ -1549,7 +1549,7 @@ class Dwdm(object):
                     .. attribute:: fec_mismatch
                     
                     	FEC mismatch alarm
-                    	**type**\:  :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.FecMismatch>`
+                    	**type**\:   :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.FecMismatch>`
                     
                     .. attribute:: fec_mode
                     
@@ -1561,12 +1561,12 @@ class Dwdm(object):
                     .. attribute:: g709_prbs_mode
                     
                     	Configured mode of PRBS Test
-                    	**type**\:  :py:class:`G709PrbsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsModeEnum>`
+                    	**type**\:   :py:class:`G709PrbsModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsModeEnum>`
                     
                     .. attribute:: g709_prbs_pattern
                     
                     	Pattern of PRBS Test
-                    	**type**\:  :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
+                    	**type**\:   :py:class:`G709PrbsPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PrbsPatternEnum>`
                     
                     .. attribute:: is_fec_mode_default
                     
@@ -1607,12 +1607,12 @@ class Dwdm(object):
                     .. attribute:: odu_info
                     
                     	ODU layer Information
-                    	**type**\:  :py:class:`OduInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo>`
+                    	**type**\:   :py:class:`OduInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo>`
                     
                     .. attribute:: otu_info
                     
                     	OTU layer information
-                    	**type**\:  :py:class:`OtuInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo>`
+                    	**type**\:   :py:class:`OtuInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo>`
                     
                     .. attribute:: prbs_time_stamp
                     
@@ -1666,7 +1666,7 @@ class Dwdm(object):
                     .. attribute:: uc_tca
                     
                     	FEC uncorrected words TCA information
-                    	**type**\:  :py:class:`UcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.UcTca>`
+                    	**type**\:   :py:class:`UcTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.UcTca>`
                     
                     
 
@@ -1962,27 +1962,27 @@ class Dwdm(object):
                         .. attribute:: ais
                         
                         	Alarm Indication Signal information
-                        	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais>`
+                        	**type**\:   :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ais>`
                         
                         .. attribute:: bbe
                         
                         	Backgound Block Error information
-                        	**type**\:  :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe>`
+                        	**type**\:   :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bbe>`
                         
                         .. attribute:: bbe_tca
                         
                         	 Backgound Block Error TCA information
-                        	**type**\:  :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca>`
+                        	**type**\:   :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.BbeTca>`
                         
                         .. attribute:: bber
                         
                         	Backgound Block Error Rate information
-                        	**type**\:  :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber>`
+                        	**type**\:   :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bber>`
                         
                         .. attribute:: bdi
                         
                         	Backward Defect Indication information
-                        	**type**\:  :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi>`
+                        	**type**\:   :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Bdi>`
                         
                         .. attribute:: bei
                         
@@ -2001,102 +2001,102 @@ class Dwdm(object):
                         .. attribute:: eoc
                         
                         	GCC End of Channel information
-                        	**type**\:  :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc>`
+                        	**type**\:   :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Eoc>`
                         
                         .. attribute:: es
                         
                         	Errored Seconds information 
-                        	**type**\:  :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es>`
+                        	**type**\:   :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Es>`
                         
                         .. attribute:: es_tca
                         
                         	Errored Seconds TCA information
-                        	**type**\:  :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca>`
+                        	**type**\:   :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.EsTca>`
                         
                         .. attribute:: esr
                         
                         	Errored Seconds Rate information
-                        	**type**\:  :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr>`
+                        	**type**\:   :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Esr>`
                         
                         .. attribute:: fc
                         
                         	Failure Count information
-                        	**type**\:  :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc>`
+                        	**type**\:   :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Fc>`
                         
                         .. attribute:: iae
                         
                         	Incoming Alignment Error information
-                        	**type**\:  :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae>`
+                        	**type**\:   :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Iae>`
                         
                         .. attribute:: lof
                         
                         	Loss of Frame information
-                        	**type**\:  :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof>`
+                        	**type**\:   :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lof>`
                         
                         .. attribute:: lom
                         
                         	Loss of MultiFrame information
-                        	**type**\:  :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom>`
+                        	**type**\:   :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Lom>`
                         
                         .. attribute:: los
                         
                         	Loss of Signal information
-                        	**type**\:  :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los>`
+                        	**type**\:   :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Los>`
                         
                         .. attribute:: oof
                         
                         	Out of Frame information
-                        	**type**\:  :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof>`
+                        	**type**\:   :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oof>`
                         
                         .. attribute:: oom
                         
                         	Out of MultiFrame information
-                        	**type**\:  :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom>`
+                        	**type**\:   :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Oom>`
                         
                         .. attribute:: prefec_sd_ber
                         
                         	Prefec Signal Degrade BER information
-                        	**type**\:  :py:class:`PrefecSdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer>`
+                        	**type**\:   :py:class:`PrefecSdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSdBer>`
                         
                         .. attribute:: prefec_sf_ber
                         
                         	Prefec Signal Fail BER information
-                        	**type**\:  :py:class:`PrefecSfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer>`
+                        	**type**\:   :py:class:`PrefecSfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.PrefecSfBer>`
                         
                         .. attribute:: sd_ber
                         
                         	Signal Degrade BER information
-                        	**type**\:  :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer>`
+                        	**type**\:   :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SdBer>`
                         
                         .. attribute:: ses
                         
                         	Severly Errored Seconds information
-                        	**type**\:  :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses>`
+                        	**type**\:   :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Ses>`
                         
                         .. attribute:: sesr
                         
                         	Severly Errored Seconds Rate information
-                        	**type**\:  :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr>`
+                        	**type**\:   :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Sesr>`
                         
                         .. attribute:: sf_ber
                         
                         	Signal Fail  BER information
-                        	**type**\:  :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer>`
+                        	**type**\:   :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.SfBer>`
                         
                         .. attribute:: tim
                         
                         	Trace Identifier Mismatch information
-                        	**type**\:  :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim>`
+                        	**type**\:   :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tim>`
                         
                         .. attribute:: tti
                         
                         	Trail Trace Identifier information
-                        	**type**\:  :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti>`
+                        	**type**\:   :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Tti>`
                         
                         .. attribute:: uas
                         
                         	Unavailability Seconds information
-                        	**type**\:  :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas>`
+                        	**type**\:   :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OtuInfo.Uas>`
                         
                         
 
@@ -4262,27 +4262,27 @@ class Dwdm(object):
                         .. attribute:: ais
                         
                         	Alarm Indication Signal information
-                        	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais>`
+                        	**type**\:   :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ais>`
                         
                         .. attribute:: bbe
                         
                         	Background Block Error information
-                        	**type**\:  :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe>`
+                        	**type**\:   :py:class:`Bbe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bbe>`
                         
                         .. attribute:: bbe_tca
                         
                         	Background Block Error TCA information
-                        	**type**\:  :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca>`
+                        	**type**\:   :py:class:`BbeTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.BbeTca>`
                         
                         .. attribute:: bber
                         
                         	Background Block Error Rate count information
-                        	**type**\:  :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber>`
+                        	**type**\:   :py:class:`Bber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bber>`
                         
                         .. attribute:: bdi
                         
                         	Backward Defect Indication information
-                        	**type**\:  :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi>`
+                        	**type**\:   :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Bdi>`
                         
                         .. attribute:: bei
                         
@@ -4301,77 +4301,77 @@ class Dwdm(object):
                         .. attribute:: eoc
                         
                         	GCC End of Channel information
-                        	**type**\:  :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc>`
+                        	**type**\:   :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Eoc>`
                         
                         .. attribute:: es
                         
                         	Errored Seconds information
-                        	**type**\:  :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Es>`
+                        	**type**\:   :py:class:`Es <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Es>`
                         
                         .. attribute:: es_tca
                         
                         	Errored Seconds TCA information
-                        	**type**\:  :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca>`
+                        	**type**\:   :py:class:`EsTca <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.EsTca>`
                         
                         .. attribute:: esr
                         
                         	Errored Seconds Rate information
-                        	**type**\:  :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr>`
+                        	**type**\:   :py:class:`Esr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Esr>`
                         
                         .. attribute:: fc
                         
                         	Failure count information
-                        	**type**\:  :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc>`
+                        	**type**\:   :py:class:`Fc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Fc>`
                         
                         .. attribute:: lck
                         
                         	Upstream Connection Locked information
-                        	**type**\:  :py:class:`Lck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck>`
+                        	**type**\:   :py:class:`Lck <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Lck>`
                         
                         .. attribute:: oci
                         
                         	Open Connection Indiction information
-                        	**type**\:  :py:class:`Oci <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci>`
+                        	**type**\:   :py:class:`Oci <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Oci>`
                         
                         .. attribute:: ptim
                         
                         	Payload Type Identifier Mismatch information
-                        	**type**\:  :py:class:`Ptim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim>`
+                        	**type**\:   :py:class:`Ptim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ptim>`
                         
                         .. attribute:: sd_ber
                         
                         	Signal Degrade BER information
-                        	**type**\:  :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer>`
+                        	**type**\:   :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SdBer>`
                         
                         .. attribute:: ses
                         
                         	Severly Errored Seconds information
-                        	**type**\:  :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses>`
+                        	**type**\:   :py:class:`Ses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Ses>`
                         
                         .. attribute:: sesr
                         
                         	Severly Errored Seconds Rate information
-                        	**type**\:  :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr>`
+                        	**type**\:   :py:class:`Sesr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Sesr>`
                         
                         .. attribute:: sf_ber
                         
                         	Signal Fail  BER information
-                        	**type**\:  :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer>`
+                        	**type**\:   :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.SfBer>`
                         
                         .. attribute:: tim
                         
                         	Trace Identifier Mismatch information
-                        	**type**\:  :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim>`
+                        	**type**\:   :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tim>`
                         
                         .. attribute:: tti
                         
                         	Trail Trace Identifier information
-                        	**type**\:  :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti>`
+                        	**type**\:   :py:class:`Tti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Tti>`
                         
                         .. attribute:: uas
                         
                         	Unavailability Seconds information
-                        	**type**\:  :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas>`
+                        	**type**\:   :py:class:`Uas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Dwdm.Ports.Port.Info.G709Info.OduInfo.Uas>`
                         
                         
 
@@ -6454,7 +6454,7 @@ class Dwdm(object):
                     .. attribute:: wave_channel_owner
                     
                     	Owner of current wavelength
-                    	**type**\:  :py:class:`DwdmWaveChannelOwnerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmWaveChannelOwnerEnum>`
+                    	**type**\:   :py:class:`DwdmWaveChannelOwnerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmWaveChannelOwnerEnum>`
                     
                     .. attribute:: wave_frequency
                     
@@ -6881,17 +6881,17 @@ class Dwdm(object):
                     .. attribute:: proactive_fsm_if_state
                     
                     	Proactive FSM IF State
-                    	**type**\:  :py:class:`G709PpintfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PpintfStateEnum>`
+                    	**type**\:   :py:class:`G709PpintfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PpintfStateEnum>`
                     
                     .. attribute:: proactive_fsm_state
                     
                     	Proactive FSM State
-                    	**type**\:  :py:class:`G709PpfsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PpfsmStateEnum>`
+                    	**type**\:   :py:class:`G709PpfsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PpfsmStateEnum>`
                     
                     .. attribute:: proactive_mode
                     
                     	Proactive Mode
-                    	**type**\:  :py:class:`G709PpfsmModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PpfsmModeEnum>`
+                    	**type**\:   :py:class:`G709PpfsmModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709PpfsmModeEnum>`
                     
                     .. attribute:: protection_trigger
                     
@@ -6943,12 +6943,12 @@ class Dwdm(object):
                     .. attribute:: rx_aps_descr
                     
                     	Rx APS Description
-                    	**type**\:  :py:class:`G709ApsByteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ApsByteEnum>`
+                    	**type**\:   :py:class:`G709ApsByteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ApsByteEnum>`
                     
                     .. attribute:: tas_state
                     
                     	TAS State
-                    	**type**\:  :py:class:`DwdmtasStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasStateEnum>`
+                    	**type**\:   :py:class:`DwdmtasStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.DwdmtasStateEnum>`
                     
                     .. attribute:: trig_ec_cnt
                     
@@ -6995,7 +6995,7 @@ class Dwdm(object):
                     .. attribute:: tx_aps_descr
                     
                     	Tx APS Description
-                    	**type**\:  :py:class:`G709ApsByteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ApsByteEnum>`
+                    	**type**\:   :py:class:`G709ApsByteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.G709ApsByteEnum>`
                     
                     
 
@@ -7327,7 +7327,7 @@ class Vtxp(object):
     .. attribute:: dwdm_vtxp
     
     	DWDM operational data
-    	**type**\:  :py:class:`DwdmVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp>`
+    	**type**\:   :py:class:`DwdmVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp>`
     
     
 
@@ -7348,7 +7348,7 @@ class Vtxp(object):
         .. attribute:: port_vtxps
         
         	All DWDM Port operational data
-        	**type**\:  :py:class:`PortVtxps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps>`
+        	**type**\:   :py:class:`PortVtxps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps>`
         
         
 
@@ -7370,7 +7370,7 @@ class Vtxp(object):
             .. attribute:: port_vtxp
             
             	DWDM Port operational data
-            	**type**\: list of  :py:class:`PortVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp>`
+            	**type**\: list of    :py:class:`PortVtxp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp>`
             
             
 
@@ -7400,7 +7400,7 @@ class Vtxp(object):
                 .. attribute:: info
                 
                 	DWDM port operational data
-                	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info>`
+                	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dwdm_ui_oper.Vtxp.DwdmVtxp.PortVtxps.PortVtxp.Info>`
                 
                 
 

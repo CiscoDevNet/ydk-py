@@ -275,44 +275,10 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg'
         ),
     },
-    'IpDomain.Ipv6HostTable' : {
-        'meta_info' : _MetaInfoClass('IpDomain.Ipv6HostTable',
-            False, 
-            [
-            ],
-            'Cisco-IOS-XR-ip-domain-cfg',
-            'ipv6-host-table',
-            _yang_ns._namespaces['Cisco-IOS-XR-ip-domain-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg'
-        ),
-    },
-    'IpDomain.Ipv4HostTable' : {
-        'meta_info' : _MetaInfoClass('IpDomain.Ipv4HostTable',
-            False, 
-            [
-            ],
-            'Cisco-IOS-XR-ip-domain-cfg',
-            'ipv4-host-table',
-            _yang_ns._namespaces['Cisco-IOS-XR-ip-domain-cfg'],
-        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg'
-        ),
-    },
     'IpDomain' : {
         'meta_info' : _MetaInfoClass('IpDomain',
             False, 
             [
-            _MetaInfoClassMember('ipv4-host-table', REFERENCE_CLASS, 'Ipv4HostTable' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Ipv4HostTable', 
-                [], [], 
-                '''                IPv4 host
-                ''',
-                'ipv4_host_table',
-                'Cisco-IOS-XR-ip-domain-cfg', False),
-            _MetaInfoClassMember('ipv6-host-table', REFERENCE_CLASS, 'Ipv6HostTable' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Ipv6HostTable', 
-                [], [], 
-                '''                IPv6 host
-                ''',
-                'ipv6_host_table',
-                'Cisco-IOS-XR-ip-domain-cfg', False),
             _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg', 'IpDomain.Vrfs', 
                 [], [], 
                 '''                VRF table
@@ -337,5 +303,3 @@ _meta_table['IpDomain.Vrfs.Vrf.Lists']['meta_info'].parent =_meta_table['IpDomai
 _meta_table['IpDomain.Vrfs.Vrf.Ipv4Hosts']['meta_info'].parent =_meta_table['IpDomain.Vrfs.Vrf']['meta_info']
 _meta_table['IpDomain.Vrfs.Vrf']['meta_info'].parent =_meta_table['IpDomain.Vrfs']['meta_info']
 _meta_table['IpDomain.Vrfs']['meta_info'].parent =_meta_table['IpDomain']['meta_info']
-_meta_table['IpDomain.Ipv6HostTable']['meta_info'].parent =_meta_table['IpDomain']['meta_info']
-_meta_table['IpDomain.Ipv4HostTable']['meta_info'].parent =_meta_table['IpDomain']['meta_info']

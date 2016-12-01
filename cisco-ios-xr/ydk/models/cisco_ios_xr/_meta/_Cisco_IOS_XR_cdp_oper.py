@@ -16,17 +16,17 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'CdpDuplexEnum' : _MetaInfoEnum('CdpDuplexEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper',
         {
-            'cdp-dplx-none':'CDP_DPLX_NONE',
-            'cdp-dplx-half':'CDP_DPLX_HALF',
-            'cdp-dplx-full':'CDP_DPLX_FULL',
+            'cdp-dplx-none':'cdp_dplx_none',
+            'cdp-dplx-half':'cdp_dplx_half',
+            'cdp-dplx-full':'cdp_dplx_full',
         }, 'Cisco-IOS-XR-cdp-oper', _yang_ns._namespaces['Cisco-IOS-XR-cdp-oper']),
     'CdpL3AddrProtocolEnum' : _MetaInfoEnum('CdpL3AddrProtocolEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-cdp-oper', _yang_ns._namespaces['Cisco-IOS-XR-cdp-oper']),
-    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address' : {
-        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address',
+    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address' : {
+        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address',
             False, 
             [
             _MetaInfoClassMember('address-type', REFERENCE_ENUM_CLASS, 'CdpL3AddrProtocolEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocolEnum', 
@@ -54,11 +54,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper'
         ),
     },
-    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry' : {
-        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry',
+    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry' : {
+        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry',
             False, 
             [
-            _MetaInfoClassMember('address', REFERENCE_CLASS, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address', 
+            _MetaInfoClassMember('address', REFERENCE_CLASS, 'Address' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address', 
                 [], [], 
                 '''                Network layer address
                 ''',
@@ -71,11 +71,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper'
         ),
     },
-    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses' : {
-        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses',
+    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses' : {
+        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses',
             False, 
             [
-            _MetaInfoClassMember('cdp-addr-entry', REFERENCE_LIST, 'CdpAddrEntry' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry', 
+            _MetaInfoClassMember('cdp-addr-entry', REFERENCE_LIST, 'CdpAddrEntry' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry', 
                 [], [], 
                 '''                cdp addr entry
                 ''',
@@ -88,8 +88,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper'
         ),
     },
-    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry' : {
-        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry',
+    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry' : {
+        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry',
             False, 
             [
             _MetaInfoClassMember('hello-message', ATTRIBUTE, 'str' , None, None, 
@@ -105,11 +105,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper'
         ),
     },
-    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList' : {
-        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList',
+    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList' : {
+        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList',
             False, 
             [
-            _MetaInfoClassMember('cdp-prot-hello-entry', REFERENCE_LIST, 'CdpProtHelloEntry' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry', 
+            _MetaInfoClassMember('cdp-prot-hello-entry', REFERENCE_LIST, 'CdpProtHelloEntry' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry', 
                 [], [], 
                 '''                cdp prot hello entry
                 ''',
@@ -122,8 +122,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper'
         ),
     },
-    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail' : {
-        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail',
+    'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_' : {
+        'meta_info' : _MetaInfoClass('Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_',
             False, 
             [
             _MetaInfoClassMember('duplex', REFERENCE_ENUM_CLASS, 'CdpDuplexEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'CdpDuplexEnum', 
@@ -138,13 +138,13 @@ _meta_table = {
                 ''',
                 'native_vlan',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('network-addresses', REFERENCE_CLASS, 'NetworkAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses', 
+            _MetaInfoClassMember('network-addresses', REFERENCE_CLASS, 'NetworkAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses', 
                 [], [], 
                 '''                List of network addresses 
                 ''',
                 'network_addresses',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('protocol-hello-list', REFERENCE_CLASS, 'ProtocolHelloList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList', 
+            _MetaInfoClassMember('protocol-hello-list', REFERENCE_CLASS, 'ProtocolHelloList' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList', 
                 [], [], 
                 '''                List of protocol hello entries
                 ''',
@@ -185,7 +185,7 @@ _meta_table = {
                 ''',
                 'capabilities',
                 'Cisco-IOS-XR-cdp-oper', False),
-            _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail', 
+            _MetaInfoClassMember('detail', REFERENCE_CLASS, 'Detail_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_', 
                 [], [], 
                 '''                Detailed neighbor info
                 ''',
@@ -1040,12 +1040,12 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry']['meta_info']
-_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses']['meta_info']
-_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList']['meta_info']
-_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.NetworkAddresses']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail']['meta_info']
-_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail.ProtocolHelloList']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail']['meta_info']
-_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor']['meta_info']
+_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry']['meta_info']
+_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses']['meta_info']
+_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList']['meta_info']
+_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_']['meta_info']
+_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_']['meta_info']
+_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor']['meta_info']
 _meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail']['meta_info']
 _meta_table['Cdp.Nodes.Node.Neighbors.Details.Detail']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Details']['meta_info']
 _meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address']['meta_info'].parent =_meta_table['Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry']['meta_info']

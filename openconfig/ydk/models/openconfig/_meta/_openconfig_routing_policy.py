@@ -697,7 +697,7 @@ _meta_table = {
                 [], [], 
                 '''                type of comparison to be performed
                 ''',
-                'operator_',
+                'operator',
                 'openconfig-bgp-policy', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -720,7 +720,7 @@ _meta_table = {
                 [], [], 
                 '''                type of comparison to be performed
                 ''',
-                'operator_',
+                'operator',
                 'openconfig-bgp-policy', False),
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 

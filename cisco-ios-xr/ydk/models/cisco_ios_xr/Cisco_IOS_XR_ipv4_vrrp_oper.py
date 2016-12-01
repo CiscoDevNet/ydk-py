@@ -30,25 +30,25 @@ class VrrpBAfEnum(Enum):
 
     Vrrp b af
 
-    .. data:: ADDRESS_FAMILY_IPV4 = 0
+    .. data:: address_family_ipv4 = 0
 
     	IPv4 Address Family
 
-    .. data:: ADDRESS_FAMILY_IPV6 = 1
+    .. data:: address_family_ipv6 = 1
 
     	IPv6 Address Family
 
-    .. data:: VRRP_BAF_COUNT = 2
+    .. data:: vrrp_baf_count = 2
 
     	Number of Adddress Families
 
     """
 
-    ADDRESS_FAMILY_IPV4 = 0
+    address_family_ipv4 = 0
 
-    ADDRESS_FAMILY_IPV6 = 1
+    address_family_ipv6 = 1
 
-    VRRP_BAF_COUNT = 2
+    vrrp_baf_count = 2
 
 
     @staticmethod
@@ -63,25 +63,25 @@ class VrrpBagProtocolStateEnum(Enum):
 
     VRRP protocol state
 
-    .. data:: STATE_INITIAL = 1
+    .. data:: state_initial = 1
 
     	Initial
 
-    .. data:: STATE_BACKUP = 2
+    .. data:: state_backup = 2
 
     	Backup
 
-    .. data:: STATE_MASTER = 3
+    .. data:: state_master = 3
 
     	Master
 
     """
 
-    STATE_INITIAL = 1
+    state_initial = 1
 
-    STATE_BACKUP = 2
+    state_backup = 2
 
-    STATE_MASTER = 3
+    state_master = 3
 
 
     @staticmethod
@@ -96,31 +96,31 @@ class VrrpBfdSessionStateEnum(Enum):
 
     Vrrp bfd session state
 
-    .. data:: BFD_STATE_NONE = 0
+    .. data:: bfd_state_none = 0
 
     	None
 
-    .. data:: BFD_STATE_INACTIVE = 1
+    .. data:: bfd_state_inactive = 1
 
     	Inactive
 
-    .. data:: BFD_STATE_UP = 2
+    .. data:: bfd_state_up = 2
 
     	Up
 
-    .. data:: BFD_STATE_DOWN = 3
+    .. data:: bfd_state_down = 3
 
     	Down
 
     """
 
-    BFD_STATE_NONE = 0
+    bfd_state_none = 0
 
-    BFD_STATE_INACTIVE = 1
+    bfd_state_inactive = 1
 
-    BFD_STATE_UP = 2
+    bfd_state_up = 2
 
-    BFD_STATE_DOWN = 3
+    bfd_state_down = 3
 
 
     @staticmethod
@@ -135,25 +135,25 @@ class VrrpProtAuthEnum(Enum):
 
     Vrrp prot auth
 
-    .. data:: AUTHENTICATION_NONE = 0
+    .. data:: authentication_none = 0
 
     	Down
 
-    .. data:: AUTHENTICATION_TEXT = 1
+    .. data:: authentication_text = 1
 
     	Simple Text
 
-    .. data:: AUTHENTICATION_IP = 2
+    .. data:: authentication_ip = 2
 
     	IP header
 
     """
 
-    AUTHENTICATION_NONE = 0
+    authentication_none = 0
 
-    AUTHENTICATION_TEXT = 1
+    authentication_text = 1
 
-    AUTHENTICATION_IP = 2
+    authentication_ip = 2
 
 
     @staticmethod
@@ -168,85 +168,85 @@ class VrrpStateChangeReasonEnum(Enum):
 
     Vrrp state change reason
 
-    .. data:: STATE_CHANGE_BFD_DOWN = 0
+    .. data:: state_change_bfd_down = 0
 
     	BFD session down
 
-    .. data:: STATE_CHANGE_VIRTUAL_IP_CONFIGURED = 1
+    .. data:: state_change_virtual_ip_configured = 1
 
     	Virtual IP configured
 
-    .. data:: STATE_CHANGE_INTERFACE_IP = 2
+    .. data:: state_change_interface_ip = 2
 
     	Interface IP update
 
-    .. data:: STATE_CHANGE_DELAY_TIMER = 3
+    .. data:: state_change_delay_timer = 3
 
     	Delay timer expired
 
-    .. data:: STATE_CHANGE_STARTUP = 4
+    .. data:: state_change_startup = 4
 
     	Ready on startup
 
-    .. data:: STATE_CHANGE_INTERFACE_UP = 5
+    .. data:: state_change_interface_up = 5
 
     	Interface Up update
 
-    .. data:: STATE_CHANGE_INTERFACE_DOWN = 6
+    .. data:: state_change_interface_down = 6
 
     	Interface Down update
 
-    .. data:: STATE_CHANGE_MASTER_DOWN_TIMER = 7
+    .. data:: state_change_master_down_timer = 7
 
     	Master down timer expired
 
-    .. data:: STATE_CHANGE_HIGHER_PRIORITY_MASTER = 8
+    .. data:: state_change_higher_priority_master = 8
 
     	Higher priority advert received
 
-    .. data:: STATE_CHANGE_FHRP_ADMIN = 9
+    .. data:: state_change_fhrp_admin = 9
 
     	FHRP Admin state change
 
-    .. data:: STATE_CHANGE_MGO_PARENT = 10
+    .. data:: state_change_mgo_parent = 10
 
     	Change of MGO parent session
 
-    .. data:: STATE_CHANGE_CHKPT_UPDATE = 11
+    .. data:: state_change_chkpt_update = 11
 
     	Checkpoint update from Primary VRRP instance
 
-    .. data:: STATE_CHANGE_ISSU_RESYNC = 12
+    .. data:: state_change_issu_resync = 12
 
     	Resync following ISSU primary event
 
     """
 
-    STATE_CHANGE_BFD_DOWN = 0
+    state_change_bfd_down = 0
 
-    STATE_CHANGE_VIRTUAL_IP_CONFIGURED = 1
+    state_change_virtual_ip_configured = 1
 
-    STATE_CHANGE_INTERFACE_IP = 2
+    state_change_interface_ip = 2
 
-    STATE_CHANGE_DELAY_TIMER = 3
+    state_change_delay_timer = 3
 
-    STATE_CHANGE_STARTUP = 4
+    state_change_startup = 4
 
-    STATE_CHANGE_INTERFACE_UP = 5
+    state_change_interface_up = 5
 
-    STATE_CHANGE_INTERFACE_DOWN = 6
+    state_change_interface_down = 6
 
-    STATE_CHANGE_MASTER_DOWN_TIMER = 7
+    state_change_master_down_timer = 7
 
-    STATE_CHANGE_HIGHER_PRIORITY_MASTER = 8
+    state_change_higher_priority_master = 8
 
-    STATE_CHANGE_FHRP_ADMIN = 9
+    state_change_fhrp_admin = 9
 
-    STATE_CHANGE_MGO_PARENT = 10
+    state_change_mgo_parent = 10
 
-    STATE_CHANGE_CHKPT_UPDATE = 11
+    state_change_chkpt_update = 11
 
-    STATE_CHANGE_ISSU_RESYNC = 12
+    state_change_issu_resync = 12
 
 
     @staticmethod
@@ -261,19 +261,19 @@ class VrrpVipStateEnum(Enum):
 
     Vrrp vip state
 
-    .. data:: VIRTUAL_IP_STATE_DOWN = 0
+    .. data:: virtual_ip_state_down = 0
 
     	Down
 
-    .. data:: VIRTUAL_IP_STATE_UP = 1
+    .. data:: virtual_ip_state_up = 1
 
     	Up
 
     """
 
-    VIRTUAL_IP_STATE_DOWN = 0
+    virtual_ip_state_down = 0
 
-    VIRTUAL_IP_STATE_UP = 1
+    virtual_ip_state_up = 1
 
 
     @staticmethod
@@ -288,31 +288,31 @@ class VrrpVmacStateEnum(Enum):
 
     Vrrp vmac state
 
-    .. data:: STORED = 0
+    .. data:: stored = 0
 
     	VMAC stored locally
 
-    .. data:: RESERVED = 1
+    .. data:: reserved = 1
 
     	VMAC reserved in mac table
 
-    .. data:: ACTIVE = 2
+    .. data:: active = 2
 
     	VMAC active in mac table
 
-    .. data:: RESERVING = 3
+    .. data:: reserving = 3
 
     	VMAC not yet reserved in mac table
 
     """
 
-    STORED = 0
+    stored = 0
 
-    RESERVED = 1
+    reserved = 1
 
-    ACTIVE = 2
+    active = 2
 
-    RESERVING = 3
+    reserving = 3
 
 
     @staticmethod
@@ -329,22 +329,22 @@ class Vrrp(object):
     .. attribute:: ipv4
     
     	IPv4 VRRP configuration
-    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4>`
+    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4>`
     
     .. attribute:: ipv6
     
     	IPv6 VRRP configuration
-    	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6>`
+    	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6>`
     
     .. attribute:: mgo_sessions
     
     	VRRP MGO Session information
-    	**type**\:  :py:class:`MgoSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions>`
+    	**type**\:   :py:class:`MgoSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions>`
     
     .. attribute:: summary
     
     	VRRP summary statistics
-    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Summary>`
+    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Summary>`
     
     
 
@@ -911,17 +911,17 @@ class Vrrp(object):
         .. attribute:: interfaces
         
         	The VRRP interface table
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces>`
         
         .. attribute:: track_items
         
         	The VRRP tracked item table
-        	**type**\:  :py:class:`TrackItems <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems>`
+        	**type**\:   :py:class:`TrackItems <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems>`
         
         .. attribute:: virtual_routers
         
         	The VRRP virtual router table
-        	**type**\:  :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters>`
+        	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters>`
         
         
 
@@ -947,7 +947,7 @@ class Vrrp(object):
             .. attribute:: track_item
             
             	A configured VRRP IP address entry
-            	**type**\: list of  :py:class:`TrackItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems.TrackItem>`
+            	**type**\: list of    :py:class:`TrackItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.TrackItems.TrackItem>`
             
             
 
@@ -1133,7 +1133,7 @@ class Vrrp(object):
             .. attribute:: virtual_router
             
             	A VRRP virtual router
-            	**type**\: list of  :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter>`
+            	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter>`
             
             
 
@@ -1170,7 +1170,7 @@ class Vrrp(object):
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:  :py:class:`VrrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAfEnum>`
+                	**type**\:   :py:class:`VrrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAfEnum>`
                 
                 .. attribute:: address_list_error_count
                 
@@ -1229,7 +1229,7 @@ class Vrrp(object):
                 .. attribute:: authentication_type
                 
                 	Authentication type
-                	**type**\:  :py:class:`VrrpProtAuthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuthEnum>`
+                	**type**\:   :py:class:`VrrpProtAuthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuthEnum>`
                 
                 .. attribute:: bfd_cfg_remote_ip
                 
@@ -1262,7 +1262,7 @@ class Vrrp(object):
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
-                	**type**\:  :py:class:`VrrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionStateEnum>`
+                	**type**\:   :py:class:`VrrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionStateEnum>`
                 
                 .. attribute:: configured_advertize_time
                 
@@ -1297,12 +1297,16 @@ class Vrrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: followed_session_name
                 
@@ -1366,12 +1370,12 @@ class Vrrp(object):
                 .. attribute:: ipv6_configured_down_address
                 
                 	IPv6 Configured but Down VRRP addresses
-                	**type**\: list of  :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
+                	**type**\: list of    :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
                 
                 .. attribute:: ipv6_operational_address
                 
                 	IPv6 Operational VRRP addresses
-                	**type**\: list of  :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
+                	**type**\: list of    :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
                 
                 .. attribute:: is_accept_mode
                 
@@ -1417,6 +1421,8 @@ class Vrrp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: millisecond
                 
                 .. attribute:: oper_advertize_time
                 
@@ -1468,7 +1474,7 @@ class Vrrp(object):
                 .. attribute:: primary_state
                 
                 	State of primary IP address
-                	**type**\:  :py:class:`VrrpVipStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipStateEnum>`
+                	**type**\:   :py:class:`VrrpVipStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipStateEnum>`
                 
                 .. attribute:: primary_virtual_ip
                 
@@ -1505,15 +1511,17 @@ class Vrrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
-                	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime>`
+                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime>`
                 
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
-                	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime>`
+                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime>`
                 
                 .. attribute:: secondary_address_count
                 
@@ -1546,7 +1554,7 @@ class Vrrp(object):
                 .. attribute:: state_change_history
                 
                 	State change history
-                	**type**\: list of  :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory>`
+                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory>`
                 
                 .. attribute:: state_from_checkpoint
                 
@@ -1559,6 +1567,8 @@ class Vrrp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: time_stats_discontinuity
                 
@@ -1633,7 +1643,7 @@ class Vrrp(object):
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
-                	**type**\:  :py:class:`VrrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVmacStateEnum>`
+                	**type**\:   :py:class:`VrrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVmacStateEnum>`
                 
                 .. attribute:: virtual_router_id_xr
                 
@@ -1645,7 +1655,7 @@ class Vrrp(object):
                 .. attribute:: vrrp_state
                 
                 	VRRP state
-                	**type**\:  :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
+                	**type**\:   :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
                 
                 
 
@@ -1759,12 +1769,16 @@ class Vrrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -1817,12 +1831,16 @@ class Vrrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -1965,22 +1983,22 @@ class Vrrp(object):
                     .. attribute:: new_state
                     
                     	New State
-                    	**type**\:  :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
+                    	**type**\:   :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
                     
                     .. attribute:: old_state
                     
                     	Old State
-                    	**type**\:  :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
+                    	**type**\:   :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
                     
                     .. attribute:: reason
                     
                     	Reason for state change
-                    	**type**\:  :py:class:`VrrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpStateChangeReasonEnum>`
+                    	**type**\:   :py:class:`VrrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpStateChangeReasonEnum>`
                     
                     .. attribute:: time
                     
                     	Time of state change
-                    	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
+                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
                     
                     
 
@@ -2009,12 +2027,16 @@ class Vrrp(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: seconds
                         
                         	Seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -2383,7 +2405,7 @@ class Vrrp(object):
             .. attribute:: interface
             
             	A VRRP interface entry
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv6.Interfaces.Interface>`
             
             
 
@@ -2560,17 +2582,17 @@ class Vrrp(object):
         .. attribute:: interfaces
         
         	The VRRP interface table
-        	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.Interfaces>`
+        	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.Interfaces>`
         
         .. attribute:: track_items
         
         	The VRRP tracked item table
-        	**type**\:  :py:class:`TrackItems <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.TrackItems>`
+        	**type**\:   :py:class:`TrackItems <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.TrackItems>`
         
         .. attribute:: virtual_routers
         
         	The VRRP virtual router table
-        	**type**\:  :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters>`
+        	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters>`
         
         
 
@@ -2596,7 +2618,7 @@ class Vrrp(object):
             .. attribute:: interface
             
             	A VRRP interface entry
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.Interfaces.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.Interfaces.Interface>`
             
             
 
@@ -2745,7 +2767,7 @@ class Vrrp(object):
             .. attribute:: track_item
             
             	A configured VRRP IP address entry
-            	**type**\: list of  :py:class:`TrackItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.TrackItems.TrackItem>`
+            	**type**\: list of    :py:class:`TrackItem <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.TrackItems.TrackItem>`
             
             
 
@@ -2931,7 +2953,7 @@ class Vrrp(object):
             .. attribute:: virtual_router
             
             	A VRRP virtual router
-            	**type**\: list of  :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter>`
+            	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter>`
             
             
 
@@ -2968,7 +2990,7 @@ class Vrrp(object):
                 .. attribute:: address_family
                 
                 	Address family
-                	**type**\:  :py:class:`VrrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAfEnum>`
+                	**type**\:   :py:class:`VrrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAfEnum>`
                 
                 .. attribute:: address_list_error_count
                 
@@ -3027,7 +3049,7 @@ class Vrrp(object):
                 .. attribute:: authentication_type
                 
                 	Authentication type
-                	**type**\:  :py:class:`VrrpProtAuthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuthEnum>`
+                	**type**\:   :py:class:`VrrpProtAuthEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpProtAuthEnum>`
                 
                 .. attribute:: bfd_cfg_remote_ip
                 
@@ -3060,7 +3082,7 @@ class Vrrp(object):
                 .. attribute:: bfd_session_state
                 
                 	BFD session state
-                	**type**\:  :py:class:`VrrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionStateEnum>`
+                	**type**\:   :py:class:`VrrpBfdSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBfdSessionStateEnum>`
                 
                 .. attribute:: configured_advertize_time
                 
@@ -3095,12 +3117,16 @@ class Vrrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: delay_timer_secs
                 
                 	Delay timer running time secs
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: followed_session_name
                 
@@ -3164,12 +3190,12 @@ class Vrrp(object):
                 .. attribute:: ipv6_configured_down_address
                 
                 	IPv6 Configured but Down VRRP addresses
-                	**type**\: list of  :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
+                	**type**\: list of    :py:class:`Ipv6ConfiguredDownAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress>`
                 
                 .. attribute:: ipv6_operational_address
                 
                 	IPv6 Operational VRRP addresses
-                	**type**\: list of  :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
+                	**type**\: list of    :py:class:`Ipv6OperationalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress>`
                 
                 .. attribute:: is_accept_mode
                 
@@ -3215,6 +3241,8 @@ class Vrrp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: millisecond
                 
                 .. attribute:: oper_advertize_time
                 
@@ -3266,7 +3294,7 @@ class Vrrp(object):
                 .. attribute:: primary_state
                 
                 	State of primary IP address
-                	**type**\:  :py:class:`VrrpVipStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipStateEnum>`
+                	**type**\:   :py:class:`VrrpVipStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVipStateEnum>`
                 
                 .. attribute:: primary_virtual_ip
                 
@@ -3303,15 +3331,17 @@ class Vrrp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: millisecond
+                
                 .. attribute:: resign_received_time
                 
                 	Time last resign was received
-                	**type**\:  :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime>`
+                	**type**\:   :py:class:`ResignReceivedTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime>`
                 
                 .. attribute:: resign_sent_time
                 
                 	Time last resign was sent
-                	**type**\:  :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime>`
+                	**type**\:   :py:class:`ResignSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime>`
                 
                 .. attribute:: secondary_address_count
                 
@@ -3344,7 +3374,7 @@ class Vrrp(object):
                 .. attribute:: state_change_history
                 
                 	State change history
-                	**type**\: list of  :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory>`
+                	**type**\: list of    :py:class:`StateChangeHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory>`
                 
                 .. attribute:: state_from_checkpoint
                 
@@ -3357,6 +3387,8 @@ class Vrrp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: time_stats_discontinuity
                 
@@ -3431,7 +3463,7 @@ class Vrrp(object):
                 .. attribute:: virtual_mac_address_state
                 
                 	Virtual mac address state
-                	**type**\:  :py:class:`VrrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVmacStateEnum>`
+                	**type**\:   :py:class:`VrrpVmacStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpVmacStateEnum>`
                 
                 .. attribute:: virtual_router_id_xr
                 
@@ -3443,7 +3475,7 @@ class Vrrp(object):
                 .. attribute:: vrrp_state
                 
                 	VRRP state
-                	**type**\:  :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
+                	**type**\:   :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
                 
                 
 
@@ -3557,12 +3589,16 @@ class Vrrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -3615,12 +3651,16 @@ class Vrrp(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Seconds
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     
 
@@ -3763,22 +3803,22 @@ class Vrrp(object):
                     .. attribute:: new_state
                     
                     	New State
-                    	**type**\:  :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
+                    	**type**\:   :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
                     
                     .. attribute:: old_state
                     
                     	Old State
-                    	**type**\:  :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
+                    	**type**\:   :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
                     
                     .. attribute:: reason
                     
                     	Reason for state change
-                    	**type**\:  :py:class:`VrrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpStateChangeReasonEnum>`
+                    	**type**\:   :py:class:`VrrpStateChangeReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpStateChangeReasonEnum>`
                     
                     .. attribute:: time
                     
                     	Time of state change
-                    	**type**\:  :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
+                    	**type**\:   :py:class:`Time <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time>`
                     
                     
 
@@ -3807,12 +3847,16 @@ class Vrrp(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: nanosecond
+                        
                         .. attribute:: seconds
                         
                         	Seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -4209,7 +4253,7 @@ class Vrrp(object):
         .. attribute:: mgo_session
         
         	A VRRP MGO Session
-        	**type**\: list of  :py:class:`MgoSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions.MgoSession>`
+        	**type**\: list of    :py:class:`MgoSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions.MgoSession>`
         
         
 
@@ -4239,7 +4283,7 @@ class Vrrp(object):
             .. attribute:: primary_af_name
             
             	Address family of primary session
-            	**type**\:  :py:class:`VrrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAfEnum>`
+            	**type**\:   :py:class:`VrrpBAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBAfEnum>`
             
             .. attribute:: primary_session_interface
             
@@ -4265,12 +4309,12 @@ class Vrrp(object):
             .. attribute:: primary_session_state
             
             	State of primary session
-            	**type**\:  :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
+            	**type**\:   :py:class:`VrrpBagProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.VrrpBagProtocolStateEnum>`
             
             .. attribute:: slave
             
             	List of slaves following this primary session
-            	**type**\: list of  :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions.MgoSession.Slave>`
+            	**type**\: list of    :py:class:`Slave <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper.Vrrp.MgoSessions.MgoSession.Slave>`
             
             
 

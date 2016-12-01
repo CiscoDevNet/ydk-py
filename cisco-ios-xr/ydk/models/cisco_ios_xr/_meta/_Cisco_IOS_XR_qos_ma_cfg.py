@@ -16,11 +16,11 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'QosFieldNotSupportedEnum' : _MetaInfoEnum('QosFieldNotSupportedEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg',
         {
-            'not-supported':'NOT_SUPPORTED',
+            'not-supported':'not_supported',
         }, 'Cisco-IOS-XR-qos-ma-cfg', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg']),
     'QosPolicyAccountEnum' : _MetaInfoEnum('QosPolicyAccountEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_cfg',
         {
-            'user-defined':'USER_DEFINED',
+            'user-defined':'user_defined',
         }, 'Cisco-IOS-XR-qos-ma-cfg', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-cfg']),
     'Qos' : {
         'meta_info' : _MetaInfoClass('Qos',

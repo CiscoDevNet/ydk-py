@@ -26,13 +26,13 @@ class EthertypeMatchEnum(Enum):
 
     Ethertype match
 
-    .. data:: PPP_OVER_ETHERNET = 34915
+    .. data:: ppp_over_ethernet = 34915
 
     	PPP over Ethernet
 
     """
 
-    PPP_OVER_ETHERNET = 34915
+    ppp_over_ethernet = 34915
 
 
     @staticmethod
@@ -47,43 +47,43 @@ class MatchEnum(Enum):
 
     Match
 
-    .. data:: MATCH_DEFAULT = 1
+    .. data:: match_default = 1
 
     	All otherwise unmatched packets
 
-    .. data:: MATCH_UNTAGGED = 2
+    .. data:: match_untagged = 2
 
     	Untagged packets
 
-    .. data:: MATCH_DOT1Q = 3
+    .. data:: match_dot1q = 3
 
     	Match Dot1Q tags
 
-    .. data:: MATCH_DOT1AD = 4
+    .. data:: match_dot1ad = 4
 
     	Match Dot1ad tags
 
-    .. data:: MATCH_DOT1Q_PRIORITY = 5
+    .. data:: match_dot1q_priority = 5
 
     	Match Dot1Q priority-tagged packets
 
-    .. data:: MATCH_DOT1AD_PRIORITY = 6
+    .. data:: match_dot1ad_priority = 6
 
     	Match Dot1ad priority-tagged packets
 
     """
 
-    MATCH_DEFAULT = 1
+    match_default = 1
 
-    MATCH_UNTAGGED = 2
+    match_untagged = 2
 
-    MATCH_DOT1Q = 3
+    match_dot1q = 3
 
-    MATCH_DOT1AD = 4
+    match_dot1ad = 4
 
-    MATCH_DOT1Q_PRIORITY = 5
+    match_dot1q_priority = 5
 
-    MATCH_DOT1AD_PRIORITY = 6
+    match_dot1ad_priority = 6
 
 
     @staticmethod
@@ -98,55 +98,55 @@ class RewriteEnum(Enum):
 
     Rewrite
 
-    .. data:: POP1 = 1
+    .. data:: pop1 = 1
 
     	Pop 1 tag
 
-    .. data:: POP2 = 2
+    .. data:: pop2 = 2
 
     	Pop 2 tags
 
-    .. data:: PUSH1 = 3
+    .. data:: push1 = 3
 
     	Push 1 tag
 
-    .. data:: PUSH2 = 4
+    .. data:: push2 = 4
 
     	Push 2 tags
 
-    .. data:: TRANSLATE1TO1 = 5
+    .. data:: translate1to1 = 5
 
     	Translate 1-to-1
 
-    .. data:: TRANSLATE1TO2 = 6
+    .. data:: translate1to2 = 6
 
     	Translate 1-to-2
 
-    .. data:: TRANSLATE2TO1 = 7
+    .. data:: translate2to1 = 7
 
     	Translate 2-to-1
 
-    .. data:: TRANSLATE2TO2 = 8
+    .. data:: translate2to2 = 8
 
     	Translate 2-to-2
 
     """
 
-    POP1 = 1
+    pop1 = 1
 
-    POP2 = 2
+    pop2 = 2
 
-    PUSH1 = 3
+    push1 = 3
 
-    PUSH2 = 4
+    push2 = 4
 
-    TRANSLATE1TO1 = 5
+    translate1to1 = 5
 
-    TRANSLATE1TO2 = 6
+    translate1to2 = 6
 
-    TRANSLATE2TO1 = 7
+    translate2to1 = 7
 
-    TRANSLATE2TO2 = 8
+    translate2to2 = 8
 
 
     @staticmethod
@@ -161,19 +161,19 @@ class VlanEnum(Enum):
 
     Vlan
 
-    .. data:: VLAN_TYPE_DOT1AD = 1
+    .. data:: vlan_type_dot1ad = 1
 
     	An 802.1ad VLAN
 
-    .. data:: VLAN_TYPE_DOT1Q = 2
+    .. data:: vlan_type_dot1q = 2
 
     	An 802.1q VLAN
 
     """
 
-    VLAN_TYPE_DOT1AD = 1
+    vlan_type_dot1ad = 1
 
-    VLAN_TYPE_DOT1Q = 2
+    vlan_type_dot1q = 2
 
 
     @staticmethod
@@ -188,13 +188,13 @@ class VlanTagOrAnyEnum(Enum):
 
     Vlan tag or any
 
-    .. data:: ANY = 4096
+    .. data:: any = 4096
 
     	Match any VLAN tag value
 
     """
 
-    ANY = 4096
+    any = 4096
 
 
     @staticmethod
@@ -209,7 +209,7 @@ class VlanTagOrCvpEnum(Enum):
 
     Vlan tag or cvp
 
-    .. data:: NATIVE_WITH_CVLAN_PRESERVATION = 65534
+    .. data:: native_with_cvlan_preservation = 65534
 
     	This is the Native VLAN and C-VLAN
 
@@ -217,7 +217,7 @@ class VlanTagOrCvpEnum(Enum):
 
     """
 
-    NATIVE_WITH_CVLAN_PRESERVATION = 65534
+    native_with_cvlan_preservation = 65534
 
 
     @staticmethod
@@ -232,11 +232,11 @@ class VlanTagOrNativeEnum(Enum):
 
     Vlan tag or native
 
-    .. data:: NATIVE = 65535
+    .. data:: native = 65535
 
     	This is the Native VLAN
 
-    .. data:: NATIVE_WITH_CVLAN_PRESERVATION = 65534
+    .. data:: native_with_cvlan_preservation = 65534
 
     	This is the Native VLAN and C-VLAN
 
@@ -244,9 +244,9 @@ class VlanTagOrNativeEnum(Enum):
 
     """
 
-    NATIVE = 65535
+    native = 65535
 
-    NATIVE_WITH_CVLAN_PRESERVATION = 65534
+    native_with_cvlan_preservation = 65534
 
 
     @staticmethod
@@ -261,13 +261,13 @@ class VlanTagOrNullEnum(Enum):
 
     Vlan tag or null
 
-    .. data:: ANY = 0
+    .. data:: any = 0
 
     	Match any inner VLAN tag value
 
     """
 
-    ANY = 0
+    any = 0
 
 
     @staticmethod

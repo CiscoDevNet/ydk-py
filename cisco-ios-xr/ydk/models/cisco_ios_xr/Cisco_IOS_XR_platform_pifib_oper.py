@@ -30,19 +30,19 @@ class UsageAddressFamilyEnum(Enum):
 
     Usage address family
 
-    .. data:: IPV4 = 0
+    .. data:: ipv4 = 0
 
     	Ipv4 af
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	Ipv6 af
 
     """
 
-    IPV4 = 0
+    ipv4 = 0
 
-    IPV6 = 1
+    ipv6 = 1
 
 
     @staticmethod

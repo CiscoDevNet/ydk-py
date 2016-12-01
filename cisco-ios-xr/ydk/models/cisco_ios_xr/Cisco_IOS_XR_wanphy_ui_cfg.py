@@ -30,13 +30,13 @@ class WanphyLanModeEnum(Enum):
 
     Wanphy lan mode
 
-    .. data:: ON = 1
+    .. data:: on = 1
 
     	LanMode
 
     """
 
-    ON = 1
+    on = 1
 
 
     @staticmethod
@@ -51,13 +51,13 @@ class WanphyWanModeEnum(Enum):
 
     Wanphy wan mode
 
-    .. data:: ON = 1
+    .. data:: on = 1
 
     	WAN Mode
 
     """
 
-    ON = 1
+    on = 1
 
 
     @staticmethod

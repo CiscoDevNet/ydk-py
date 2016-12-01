@@ -32,7 +32,7 @@ class Tty(object):
     .. attribute:: tty_lines
     
     	TTY templates
-    	**type**\:  :py:class:`TtyLines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines>`
+    	**type**\:   :py:class:`TtyLines <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines>`
     
     
 
@@ -53,7 +53,7 @@ class Tty(object):
         .. attribute:: tty_line
         
         	TTY Line,Use string 'console' to configure a console line,Use string 'default' to configure a default line,Use any string to configure a user defined template
-        	**type**\: list of  :py:class:`TtyLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine>`
+        	**type**\: list of    :py:class:`TtyLine <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine>`
         
         
 
@@ -86,32 +86,32 @@ class Tty(object):
             .. attribute:: aaa
             
             	Container class for AAA related TTY configuration
-            	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa>`
+            	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa>`
             
             .. attribute:: connection
             
             	Management connection configuration
-            	**type**\:  :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Connection>`
+            	**type**\:   :py:class:`Connection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Connection>`
             
             .. attribute:: exec_
             
             	EXEC timeout and timestamp configurtion
-            	**type**\:  :py:class:`Exec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Exec>`
+            	**type**\:   :py:class:`Exec_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Exec_>`
             
             .. attribute:: exec_mode
             
             	Exec Mode Pager  configurtion
-            	**type**\:  :py:class:`ExecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.ExecMode>`
+            	**type**\:   :py:class:`ExecMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.ExecMode>`
             
             .. attribute:: general
             
             	TTY line general configuration
-            	**type**\:  :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.General>`
+            	**type**\:   :py:class:`General <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.General>`
             
             .. attribute:: telnet
             
             	Telnet protocol\-specific configuration
-            	**type**\:  :py:class:`Telnet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Telnet>`
+            	**type**\:   :py:class:`Telnet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Telnet>`
             
             
 
@@ -127,7 +127,7 @@ class Tty(object):
                 self.aaa.parent = self
                 self.connection = Tty.TtyLines.TtyLine.Connection()
                 self.connection.parent = self
-                self.exec_ = Tty.TtyLines.TtyLine.Exec()
+                self.exec_ = Tty.TtyLines.TtyLine.Exec_()
                 self.exec_.parent = self
                 self.exec_mode = Tty.TtyLines.TtyLine.ExecMode()
                 self.exec_mode.parent = self
@@ -148,6 +148,10 @@ class Tty(object):
                 
                 	**range:** 0..10000
                 
+                	**units**\: minute
+                
+                	**default value**\: 0
+                
                 .. attribute:: length
                 
                 	Number of lines on a screen
@@ -155,12 +159,16 @@ class Tty(object):
                 
                 	**range:** 0..512
                 
+                	**default value**\: 24
+                
                 .. attribute:: width
                 
                 	Number of characters on a screen line
                 	**type**\:  int
                 
                 	**range:** 0..512
+                
+                	**default value**\: 80
                 
                 
 
@@ -213,7 +221,7 @@ class Tty(object):
                 .. attribute:: transparent
                 
                 	Send a CR as a CR followed by a NULL instead of a CRfollowed by a LF
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -259,17 +267,17 @@ class Tty(object):
                 .. attribute:: accounting
                 
                 	Accounting parameters
-                	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.Accounting>`
+                	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.Accounting>`
                 
                 .. attribute:: authentication
                 
                 	Authentication parameters
-                	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.Authentication>`
+                	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.Authentication>`
                 
                 .. attribute:: authorization
                 
                 	Authorization parameters
-                	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.Authorization>`
+                	**type**\:   :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.Authorization>`
                 
                 .. attribute:: login_timeout
                 
@@ -277,6 +285,10 @@ class Tty(object):
                 	**type**\:  int
                 
                 	**range:** 0..300
+                
+                	**units**\: second
+                
+                	**default value**\: 30
                 
                 .. attribute:: password
                 
@@ -295,7 +307,7 @@ class Tty(object):
                 .. attribute:: user_groups
                 
                 	Users characteristics
-                	**type**\:  :py:class:`UserGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.UserGroups>`
+                	**type**\:   :py:class:`UserGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.UserGroups>`
                 
                 
 
@@ -326,7 +338,7 @@ class Tty(object):
                     .. attribute:: user_group
                     
                     	Group to which the user will belong
-                    	**type**\: list of  :py:class:`UserGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.UserGroups.UserGroup>`
+                    	**type**\: list of    :py:class:`UserGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Aaa.UserGroups.UserGroup>`
                     
                     
 
@@ -632,7 +644,7 @@ class Tty(object):
                     return meta._meta_table['Tty.TtyLines.TtyLine.Aaa']['meta_info']
 
 
-            class Exec(object):
+            class Exec_(object):
                 """
                 EXEC timeout and timestamp configurtion
                 
@@ -644,7 +656,9 @@ class Tty(object):
                 .. attribute:: timeout
                 
                 	EXEC Timeout
-                	**type**\:  :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Exec.Timeout>`
+                	**type**\:   :py:class:`Timeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Exec_.Timeout>`
+                
+                	**presence node**\: True
                 
                 
 
@@ -672,6 +686,8 @@ class Tty(object):
                     
                     	**mandatory**\: True
                     
+                    	**units**\: minute
+                    
                     .. attribute:: seconds
                     
                     	Timeout in seconds
@@ -680,6 +696,8 @@ class Tty(object):
                     	**range:** 0..2147483
                     
                     	**mandatory**\: True
+                    
+                    	**units**\: second
                     
                     .. attribute:: _is_presence
                     
@@ -728,7 +746,7 @@ class Tty(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_cfg as meta
-                        return meta._meta_table['Tty.TtyLines.TtyLine.Exec.Timeout']['meta_info']
+                        return meta._meta_table['Tty.TtyLines.TtyLine.Exec_.Timeout']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -755,7 +773,7 @@ class Tty(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_tty_server_cfg as meta
-                    return meta._meta_table['Tty.TtyLines.TtyLine.Exec']['meta_info']
+                    return meta._meta_table['Tty.TtyLines.TtyLine.Exec_']['meta_info']
 
 
             class Connection(object):
@@ -775,7 +793,7 @@ class Tty(object):
                 .. attribute:: cli_white_space_completion
                 
                 	Command completion on whitespace
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: disconnect_character
                 
@@ -803,11 +821,15 @@ class Tty(object):
                 
                 	**pattern:** ((\\p{IsBasicLatin}\|\\p{IsLatin\-1Supplement})\*)\|(DEFAULT)\|(BREAK)\|(NONE)
                 
+                	**default value**\: 30
+                
                 
                 ----
                 	**type**\:  int
                 
                 	**range:** 0..255
+                
+                	**default value**\: 30
                 
                 
                 ----
@@ -818,25 +840,31 @@ class Tty(object):
                 
                 	**range:** 0..20
                 
+                	**default value**\: 6
+                
                 .. attribute:: session_timeout
                 
                 	Interval for closing connection when there is no input traffic
-                	**type**\:  :py:class:`SessionTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Connection.SessionTimeout>`
+                	**type**\:   :py:class:`SessionTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Connection.SessionTimeout>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: transport_input
                 
                 	Protocols to use when connecting to the terminal server
-                	**type**\:  :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Connection.TransportInput>`
+                	**type**\:   :py:class:`TransportInput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Connection.TransportInput>`
                 
                 .. attribute:: transport_output
                 
                 	Protocols to use for outgoing connections
-                	**type**\:  :py:class:`TransportOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Connection.TransportOutput>`
+                	**type**\:   :py:class:`TransportOutput <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_server_cfg.Tty.TtyLines.TtyLine.Connection.TransportOutput>`
+                
+                	**presence node**\: True
                 
                 .. attribute:: transport_preferred
                 
                 	The preferred protocol to use
-                	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                 
                 
 
@@ -875,17 +903,19 @@ class Tty(object):
                     .. attribute:: protocol1
                     
                     	Transport protocol1
-                    	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                    	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                     
                     .. attribute:: protocol2
                     
                     	Transport protocol2
-                    	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                    	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                     
                     .. attribute:: select
                     
                     	Choose transport protocols
-                    	**type**\:  :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                    	**type**\:   :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                    
+                    	**default value**\: all
                     
                     
 
@@ -949,17 +979,17 @@ class Tty(object):
                     .. attribute:: protocol1
                     
                     	Transport protocol1
-                    	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                    	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                     
                     .. attribute:: protocol2
                     
                     	Transport protocol2
-                    	**type**\:  :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
+                    	**type**\:   :py:class:`TtyTransportProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolEnum>`
                     
                     .. attribute:: select
                     
                     	Choose transport protocols
-                    	**type**\:  :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
+                    	**type**\:   :py:class:`TtyTransportProtocolSelectEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyTransportProtocolSelectEnum>`
                     
                     	**mandatory**\: True
                     
@@ -1029,7 +1059,7 @@ class Tty(object):
                     .. attribute:: direction
                     
                     	Include output traffic as well as input traffic
-                    	**type**\:  :py:class:`TtySessionTimeoutDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtySessionTimeoutDirectionEnum>`
+                    	**type**\:   :py:class:`TtySessionTimeoutDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtySessionTimeoutDirectionEnum>`
                     
                     	**mandatory**\: True
                     
@@ -1150,7 +1180,9 @@ class Tty(object):
                 .. attribute:: pager
                 
                 	Preferred Paging Utility
-                	**type**\:  :py:class:`TtyPagerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyPagerEnum>`
+                	**type**\:   :py:class:`TtyPagerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes.TtyPagerEnum>`
+                
+                	**default value**\: more
                 
                 
 

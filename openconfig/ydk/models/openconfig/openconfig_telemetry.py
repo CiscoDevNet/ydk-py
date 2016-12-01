@@ -55,17 +55,17 @@ class TelemetrySystem(object):
     .. attribute:: destination_groups
     
     	Top level container for destination group configuration and state
-    	**type**\:  :py:class:`DestinationGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups>`
+    	**type**\:   :py:class:`DestinationGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups>`
     
     .. attribute:: sensor_groups
     
     	Top level container for sensor\-groups
-    	**type**\:  :py:class:`SensorGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups>`
+    	**type**\:   :py:class:`SensorGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups>`
     
     .. attribute:: subscriptions
     
     	This container holds information for both persistent and dynamic telemetry subscriptions
-    	**type**\:  :py:class:`Subscriptions <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions>`
+    	**type**\:   :py:class:`Subscriptions <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions>`
     
     
 
@@ -90,7 +90,7 @@ class TelemetrySystem(object):
         .. attribute:: sensor_group
         
         	List of telemetry sensory groups on the local system, where a sensor grouping represents a resuable grouping of multiple paths and exclude filters
-        	**type**\: list of  :py:class:`SensorGroup <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup>`
+        	**type**\: list of    :py:class:`SensorGroup <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup>`
         
         
 
@@ -117,22 +117,22 @@ class TelemetrySystem(object):
             	Reference to the name or identifier of the sensor grouping
             	**type**\:  str
             
-            	**refers to**\: :py:class:`sensor_group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
+            	**refers to**\:  :py:class:`sensor_group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
             
             .. attribute:: config
             
             	Configuration parameters relating to the telemetry sensor grouping
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
             
             .. attribute:: sensor_paths
             
             	Top level container to hold a set of sensor paths grouped together
-            	**type**\:  :py:class:`SensorPaths <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths>`
+            	**type**\:   :py:class:`SensorPaths <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths>`
             
             .. attribute:: state
             
             	State information relating to the telemetry sensor group
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.State>`
             
             
 
@@ -252,7 +252,7 @@ class TelemetrySystem(object):
                 .. attribute:: sensor_path
                 
                 	List of paths in the model which together comprise a sensor grouping. Filters for each path to exclude items are also provided
-                	**type**\: list of  :py:class:`SensorPath <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath>`
+                	**type**\: list of    :py:class:`SensorPath <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath>`
                 
                 
 
@@ -279,17 +279,17 @@ class TelemetrySystem(object):
                     	Reference to the path of interest
                     	**type**\:  str
                     
-                    	**refers to**\: :py:class:`path <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config>`
+                    	**refers to**\:  :py:class:`path <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters to configure a set of data model paths as a sensor grouping
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config>`
                     
                     .. attribute:: state
                     
                     	Configuration parameters to configure a set of data model paths as a sensor grouping
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State>`
                     
                     
 
@@ -540,7 +540,7 @@ class TelemetrySystem(object):
         .. attribute:: destination_group
         
         	List of destination\-groups. Destination groups allow the reuse of common telemetry destinations across the telemetry configuration. An operator references a set of destinations via the configurable destination\-group\-identifier.  A destination group may contain one or more telemetry destinations
-        	**type**\: list of  :py:class:`DestinationGroup <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup>`
+        	**type**\: list of    :py:class:`DestinationGroup <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup>`
         
         
 
@@ -572,22 +572,22 @@ class TelemetrySystem(object):
             	Unique identifier for the destination group
             	**type**\:  str
             
-            	**refers to**\: :py:class:`group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Config>`
+            	**refers to**\:  :py:class:`group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Config>`
             
             .. attribute:: config
             
             	Top level config container for destination groups
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Config>`
+            	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Config>`
             
             .. attribute:: destinations
             
             	The destination container lists the destination information such as IP address and port of the telemetry messages from the network element
-            	**type**\:  :py:class:`Destinations <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations>`
+            	**type**\:   :py:class:`Destinations <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations>`
             
             .. attribute:: state
             
             	Top level state container for destination groups
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.State>`
+            	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.State>`
             
             
 
@@ -706,7 +706,7 @@ class TelemetrySystem(object):
                 .. attribute:: destination
                 
                 	List of telemetry stream destinations
-                	**type**\: list of  :py:class:`Destination <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination>`
+                	**type**\: list of    :py:class:`Destination <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination>`
                 
                 
 
@@ -750,17 +750,17 @@ class TelemetrySystem(object):
                     
                     	**range:** 0..65535
                     
-                    	**refers to**\: :py:class:`destination_port <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config>`
+                    	**refers to**\:  :py:class:`destination_port <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config>`
                     
                     .. attribute:: config
                     
                     	Configuration parameters relating to telemetry destinations
-                    	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config>`
+                    	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config>`
                     
                     .. attribute:: state
                     
                     	State information associated with telemetry destinations
-                    	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State>`
+                    	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State>`
                     
                     
 
@@ -811,7 +811,7 @@ class TelemetrySystem(object):
                         .. attribute:: destination_protocol
                         
                         	Protocol used to transmit telemetry data to the collector
-                        	**type**\:  :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
+                        	**type**\:   :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
                         
                         
 
@@ -889,7 +889,7 @@ class TelemetrySystem(object):
                         .. attribute:: destination_protocol
                         
                         	Protocol used to transmit telemetry data to the collector
-                        	**type**\:  :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
+                        	**type**\:   :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
                         
                         
 
@@ -1063,12 +1063,12 @@ class TelemetrySystem(object):
         .. attribute:: dynamic
         
         	This container holds information relating to dynamic telemetry subscriptions. A dynamic subscription is typically configured through an RPC channel, and does not persist across device restarts, or if the RPC channel is reset or otherwise torn down
-        	**type**\:  :py:class:`Dynamic <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic>`
+        	**type**\:   :py:class:`Dynamic <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic>`
         
         .. attribute:: persistent
         
         	This container holds information relating to persistent telemetry subscriptions. A persistent telemetry subscription is configued locally on the device through configuration, and is persistent across device restarts or other redundancy changes
-        	**type**\:  :py:class:`Persistent <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent>`
+        	**type**\:   :py:class:`Persistent <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent>`
         
         
 
@@ -1096,7 +1096,7 @@ class TelemetrySystem(object):
             .. attribute:: subscription
             
             	List of telemetry subscriptions. A telemetry subscription consists of a set of collection destinations, stream attributes, and associated paths to state information in the model (sensor data)
-            	**type**\: list of  :py:class:`Subscription <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription>`
+            	**type**\: list of    :py:class:`Subscription <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription>`
             
             
 
@@ -1126,27 +1126,27 @@ class TelemetrySystem(object):
                 
                 	**range:** 0..18446744073709551615
                 
-                	**refers to**\: :py:class:`subscription_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.Config>`
+                	**refers to**\:  :py:class:`subscription_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.Config>`
                 
                 .. attribute:: config
                 
                 	Config parameters relating to the telemetry subscriptions on the local device
-                	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.Config>`
+                	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.Config>`
                 
                 .. attribute:: destination_groups
                 
                 	A subscription may specify destination addresses. If the subscription supplies destination addresses, the network element will be the initiator of the telemetry streaming, sending it to the destination(s) specified.  If the destination set is omitted, the subscription preconfigures certain elements such as paths and sample intervals under a specified subscription ID. In this case, the network element will NOT initiate an outbound connection for telemetry, but will wait for an inbound connection from a network management system.  It is expected that the network management system connecting to the network element will reference the preconfigured subscription ID when initiating a subscription
-                	**type**\:  :py:class:`DestinationGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups>`
+                	**type**\:   :py:class:`DestinationGroups <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups>`
                 
                 .. attribute:: sensor_profiles
                 
                 	A sensor profile is a set of sensor groups or individual sensor paths which are associated with a telemetry subscription. This is the source of the telemetry data for the subscription to send to the defined collectors
-                	**type**\:  :py:class:`SensorProfiles <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles>`
+                	**type**\:   :py:class:`SensorProfiles <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles>`
                 
                 .. attribute:: state
                 
                 	State parameters relating to the telemetry subscriptions on the local device
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.State>`
                 
                 
 
@@ -1339,7 +1339,7 @@ class TelemetrySystem(object):
                     .. attribute:: sensor_profile
                     
                     	List of telemetry sensor groups used in the subscription
-                    	**type**\: list of  :py:class:`SensorProfile <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile>`
+                    	**type**\: list of    :py:class:`SensorProfile <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile>`
                     
                     
 
@@ -1365,17 +1365,17 @@ class TelemetrySystem(object):
                         	Reference to the telemetry sensor group name
                         	**type**\:  str
                         
-                        	**refers to**\: :py:class:`sensor_group <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config>`
+                        	**refers to**\:  :py:class:`sensor_group <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters related to the sensor profile for a subscription
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config>`
                         
                         .. attribute:: state
                         
                         	State information relating to the sensor profile for a subscription
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State>`
                         
                         
 
@@ -1417,7 +1417,7 @@ class TelemetrySystem(object):
                             	Reference to the sensor group which is used in the profile
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`sensor_group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
+                            	**refers to**\:  :py:class:`sensor_group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
                             
                             .. attribute:: suppress_redundant
                             
@@ -1496,7 +1496,7 @@ class TelemetrySystem(object):
                             	Reference to the sensor group which is used in the profile
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`sensor_group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
+                            	**refers to**\:  :py:class:`sensor_group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.SensorGroups.SensorGroup.Config>`
                             
                             .. attribute:: suppress_redundant
                             
@@ -1633,7 +1633,7 @@ class TelemetrySystem(object):
                     .. attribute:: destination_group
                     
                     	Identifier of the previously defined destination group
-                    	**type**\: list of  :py:class:`DestinationGroup <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup>`
+                    	**type**\: list of    :py:class:`DestinationGroup <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup>`
                     
                     
 
@@ -1659,17 +1659,17 @@ class TelemetrySystem(object):
                         	The destination group id references a configured group of destinations for the telemetry stream
                         	**type**\:  str
                         
-                        	**refers to**\: :py:class:`group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config>`
+                        	**refers to**\:  :py:class:`group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config>`
                         
                         .. attribute:: config
                         
                         	Configuration parameters related to telemetry destinations
-                        	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config>`
                         
                         .. attribute:: state
                         
                         	State information related to telemetry destinations
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State>`
                         
                         
 
@@ -1697,7 +1697,7 @@ class TelemetrySystem(object):
                             	The destination group id references a reusable group of destination addresses and ports for the telemetry stream
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup>`
+                            	**refers to**\:  :py:class:`group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup>`
                             
                             
 
@@ -1745,7 +1745,7 @@ class TelemetrySystem(object):
                             	The destination group id references a reusable group of destination addresses and ports for the telemetry stream
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup>`
+                            	**refers to**\:  :py:class:`group_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.DestinationGroups.DestinationGroup>`
                             
                             
 
@@ -1912,7 +1912,7 @@ class TelemetrySystem(object):
             .. attribute:: subscription
             
             	List representation of telemetry subscriptions that are configured via an inline RPC, otherwise known as dynamic telemetry subscriptions
-            	**type**\: list of  :py:class:`Subscription <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription>`
+            	**type**\: list of    :py:class:`Subscription <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription>`
             
             
 
@@ -1941,17 +1941,17 @@ class TelemetrySystem(object):
                 
                 	**range:** 0..18446744073709551615
                 
-                	**refers to**\: :py:class:`subscription_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.State>`
+                	**refers to**\:  :py:class:`subscription_id <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.State>`
                 
                 .. attribute:: sensor_paths
                 
                 	Top level container to hold a set of sensor paths grouped together
-                	**type**\:  :py:class:`SensorPaths <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths>`
+                	**type**\:   :py:class:`SensorPaths <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths>`
                 
                 .. attribute:: state
                 
                 	State information relating to dynamic telemetry subscriptions
-                	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.State>`
+                	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.State>`
                 
                 
 
@@ -2001,7 +2001,7 @@ class TelemetrySystem(object):
                     .. attribute:: destination_protocol
                     
                     	Protocol used to transmit telemetry data to the collector
-                    	**type**\:  :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
+                    	**type**\:   :py:class:`TelemetryStreamProtocolEnum <ydk.models.openconfig.openconfig_telemetry.TelemetryStreamProtocolEnum>`
                     
                     .. attribute:: heartbeat_interval
                     
@@ -2108,7 +2108,7 @@ class TelemetrySystem(object):
                     .. attribute:: sensor_path
                     
                     	List of paths in the model which together comprise a sensor grouping. Filters for each path to exclude items are also provided
-                    	**type**\: list of  :py:class:`SensorPath <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath>`
+                    	**type**\: list of    :py:class:`SensorPath <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath>`
                     
                     
 
@@ -2135,12 +2135,12 @@ class TelemetrySystem(object):
                         	Reference to the path of interest
                         	**type**\:  str
                         
-                        	**refers to**\: :py:class:`path <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State>`
+                        	**refers to**\:  :py:class:`path <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State>`
                         
                         .. attribute:: state
                         
                         	State information for a dynamic subscription's paths of interest
-                        	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State>`
+                        	**type**\:   :py:class:`State <ydk.models.openconfig.openconfig_telemetry.TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State>`
                         
                         
 

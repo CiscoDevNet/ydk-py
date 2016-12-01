@@ -30,19 +30,19 @@ class PolicyStateEnum(Enum):
 
     Different Interface states
 
-    .. data:: ACTIVE = 0
+    .. data:: active = 0
 
     	active
 
-    .. data:: SUSPENDED = 1
+    .. data:: suspended = 1
 
     	suspended
 
     """
 
-    ACTIVE = 0
+    active = 0
 
-    SUSPENDED = 1
+    suspended = 1
 
 
     @staticmethod
@@ -59,7 +59,7 @@ class Pbr(object):
     .. attribute:: nodes
     
     	Node\-specific PBR operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes>`
     
     
 
@@ -80,7 +80,7 @@ class Pbr(object):
         .. attribute:: node
         
         	PBR operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node>`
         
         
 
@@ -110,7 +110,7 @@ class Pbr(object):
             .. attribute:: policy_map
             
             	Operational data for policymaps
-            	**type**\:  :py:class:`PolicyMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap>`
+            	**type**\:   :py:class:`PolicyMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap>`
             
             
 
@@ -133,7 +133,7 @@ class Pbr(object):
                 .. attribute:: interfaces
                 
                 	Operational data for all interfaces
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces>`
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces>`
                 
                 
 
@@ -155,7 +155,7 @@ class Pbr(object):
                     .. attribute:: interface
                     
                     	PBR action data for a particular interface
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface>`
                     
                     
 
@@ -185,7 +185,7 @@ class Pbr(object):
                         .. attribute:: direction
                         
                         	PBR direction
-                        	**type**\:  :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction>`
+                        	**type**\:   :py:class:`Direction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction>`
                         
                         
 
@@ -208,7 +208,7 @@ class Pbr(object):
                             .. attribute:: input
                             
                             	PBR policy statistics
-                            	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input>`
+                            	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input>`
                             
                             
 
@@ -230,7 +230,7 @@ class Pbr(object):
                                 .. attribute:: class_stat
                                 
                                 	Array of classes contained in policy
-                                	**type**\: list of  :py:class:`ClassStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat>`
+                                	**type**\: list of    :py:class:`ClassStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat>`
                                 
                                 .. attribute:: node_name
                                 
@@ -249,7 +249,7 @@ class Pbr(object):
                                 .. attribute:: state
                                 
                                 	State
-                                	**type**\:  :py:class:`PolicyStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.PolicyStateEnum>`
+                                	**type**\:   :py:class:`PolicyStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.PolicyStateEnum>`
                                 
                                 .. attribute:: state_description
                                 
@@ -301,15 +301,17 @@ class Pbr(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: general_stats
                                     
                                     	general stats
-                                    	**type**\:  :py:class:`GeneralStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats>`
+                                    	**type**\:   :py:class:`GeneralStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats>`
                                     
                                     .. attribute:: httpr_stats
                                     
                                     	HTTPR stats
-                                    	**type**\:  :py:class:`HttprStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats>`
+                                    	**type**\:   :py:class:`HttprStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats>`
                                     
                                     
 
@@ -340,12 +342,16 @@ class Pbr(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**units**\: kbit/s
+                                        
                                         .. attribute:: pre_policy_matched_bytes
                                         
                                         	Matched bytes before applying policy
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: pre_policy_matched_packets
                                         
@@ -361,12 +367,16 @@ class Pbr(object):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**units**\: byte
+                                        
                                         .. attribute:: total_drop_packets
                                         
                                         	Dropped packets (packets/bytes)
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: total_drop_rate
                                         
@@ -375,12 +385,16 @@ class Pbr(object):
                                         
                                         	**range:** 0..4294967295
                                         
+                                        	**units**\: byte
+                                        
                                         .. attribute:: total_transmit_rate
                                         
                                         	Total transmit rate in kbps
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**units**\: kbit/s
                                         
                                         .. attribute:: transmit_bytes
                                         
@@ -389,12 +403,16 @@ class Pbr(object):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**units**\: byte
+                                        
                                         .. attribute:: transmit_packets
                                         
                                         	Transmitted packets (packets/bytes)
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         
 
@@ -475,6 +493,8 @@ class Pbr(object):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**units**\: byte
+                                        
                                         .. attribute:: drop_packets
                                         
                                         	Dropped  packets
@@ -489,6 +509,8 @@ class Pbr(object):
                                         
                                         	**range:** 0..18446744073709551615
                                         
+                                        	**units**\: byte
+                                        
                                         .. attribute:: resp_sent_packets
                                         
                                         	TotalNum of pkts HTTPR response sent
@@ -502,6 +524,8 @@ class Pbr(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
                                         
                                         .. attribute:: rqst_rcvd_packets
                                         

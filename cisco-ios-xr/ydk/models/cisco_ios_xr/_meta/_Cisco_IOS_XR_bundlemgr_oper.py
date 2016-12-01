@@ -16,373 +16,373 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'BmdMlacpSwitchoverEnum' : _MetaInfoEnum('BmdMlacpSwitchoverEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-mlacp-switchover-nonrevertive':'BMD_MLACP_SWITCHOVER_NONREVERTIVE',
-            'bmd-mlacp-switchover-brute-force':'BMD_MLACP_SWITCHOVER_BRUTE_FORCE',
-            'bmd-mlacp-switchover-revertive':'BMD_MLACP_SWITCHOVER_REVERTIVE',
-            'bmd-mlacp-switchover-count':'BMD_MLACP_SWITCHOVER_COUNT',
+            'bmd-mlacp-switchover-nonrevertive':'bmd_mlacp_switchover_nonrevertive',
+            'bmd-mlacp-switchover-brute-force':'bmd_mlacp_switchover_brute_force',
+            'bmd-mlacp-switchover-revertive':'bmd_mlacp_switchover_revertive',
+            'bmd-mlacp-switchover-count':'bmd_mlacp_switchover_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'LoadBalanceEnum' : _MetaInfoEnum('LoadBalanceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'default':'DEFAULT',
-            'auto':'AUTO',
-            'value':'VALUE',
-            'source-ip':'SOURCE_IP',
-            'destination-ip':'DESTINATION_IP',
-            'unknown':'UNKNOWN',
+            'default':'default',
+            'auto':'auto',
+            'value':'value',
+            'source-ip':'source_ip',
+            'destination-ip':'destination_ip',
+            'unknown':'unknown',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmBdlStateEnum' : _MetaInfoEnum('BmBdlStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-bdl-state-admin-down':'BM_BDL_STATE_ADMIN_DOWN',
-            'bm-bdl-state-down':'BM_BDL_STATE_DOWN',
-            'bm-bdl-state-ptnr-down':'BM_BDL_STATE_PTNR_DOWN',
-            'bm-bdl-state-bundle-shutdown':'BM_BDL_STATE_BUNDLE_SHUTDOWN',
-            'bm-bdl-state-pe-isolated':'BM_BDL_STATE_PE_ISOLATED',
-            'bm-bdl-state-nak':'BM_BDL_STATE_NAK',
-            'bm-bdl-state-up-active':'BM_BDL_STATE_UP_ACTIVE',
-            'bm-bdl-state-mlacp-hot-standby':'BM_BDL_STATE_MLACP_HOT_STANDBY',
-            'bm-bdl-state-mlacp-cold-standby':'BM_BDL_STATE_MLACP_COLD_STANDBY',
-            'bm-bdl-state-unknown':'BM_BDL_STATE_UNKNOWN',
-            'bm-bdl-state-cold-standby':'BM_BDL_STATE_COLD_STANDBY',
-            'bm-bdl-state-error-disabled':'BM_BDL_STATE_ERROR_DISABLED',
-            'bm-bdl-state-efd-disabled':'BM_BDL_STATE_EFD_DISABLED',
+            'bm-bdl-state-admin-down':'bm_bdl_state_admin_down',
+            'bm-bdl-state-down':'bm_bdl_state_down',
+            'bm-bdl-state-ptnr-down':'bm_bdl_state_ptnr_down',
+            'bm-bdl-state-bundle-shutdown':'bm_bdl_state_bundle_shutdown',
+            'bm-bdl-state-pe-isolated':'bm_bdl_state_pe_isolated',
+            'bm-bdl-state-nak':'bm_bdl_state_nak',
+            'bm-bdl-state-up-active':'bm_bdl_state_up_active',
+            'bm-bdl-state-mlacp-hot-standby':'bm_bdl_state_mlacp_hot_standby',
+            'bm-bdl-state-mlacp-cold-standby':'bm_bdl_state_mlacp_cold_standby',
+            'bm-bdl-state-unknown':'bm_bdl_state_unknown',
+            'bm-bdl-state-cold-standby':'bm_bdl_state_cold_standby',
+            'bm-bdl-state-error-disabled':'bm_bdl_state_error_disabled',
+            'bm-bdl-state-efd-disabled':'bm_bdl_state_efd_disabled',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'LacpPeriodStateEnum' : _MetaInfoEnum('LacpPeriodStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'period-s-low':'PERIOD_S_LOW',
-            'period-fast':'PERIOD_FAST',
-            'period-none':'PERIOD_NONE',
+            'period-s-low':'period_s_low',
+            'period-fast':'period_fast',
+            'period-none':'period_none',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BundleMediaEnum' : _MetaInfoEnum('BundleMediaEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bundle-media-ethernet':'BUNDLE_MEDIA_ETHERNET',
-            'bundle-media-pos':'BUNDLE_MEDIA_POS',
-            'bundle-media-count':'BUNDLE_MEDIA_COUNT',
+            'bundle-media-ethernet':'bundle_media_ethernet',
+            'bundle-media-pos':'bundle_media_pos',
+            'bundle-media-count':'bundle_media_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdMlacpBdlStateEnumEnum' : _MetaInfoEnum('BmdMlacpBdlStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bdl-state-nak':'BDL_STATE_NAK',
-            'bdl-state-unknown':'BDL_STATE_UNKNOWN',
-            'bdl-state-no-sync':'BDL_STATE_NO_SYNC',
-            'bdl-state-rec-delay':'BDL_STATE_REC_DELAY',
-            'bdl-state-up':'BDL_STATE_UP',
-            'bdl-state-down':'BDL_STATE_DOWN',
-            'bdl-state-admin-down':'BDL_STATE_ADMIN_DOWN',
-            'bdl-state-test':'BDL_STATE_TEST',
-            'bdl-state-error':'BDL_STATE_ERROR',
+            'bdl-state-nak':'bdl_state_nak',
+            'bdl-state-unknown':'bdl_state_unknown',
+            'bdl-state-no-sync':'bdl_state_no_sync',
+            'bdl-state-rec-delay':'bdl_state_rec_delay',
+            'bdl-state-up':'bdl_state_up',
+            'bdl-state-down':'bdl_state_down',
+            'bdl-state-admin-down':'bdl_state_admin_down',
+            'bdl-state-test':'bdl_state_test',
+            'bdl-state-error':'bdl_state_error',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BundleMedia1Enum' : _MetaInfoEnum('BundleMedia1Enum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'ethernet':'ETHERNET',
-            'pos':'POS',
+            'ethernet':'ethernet',
+            'pos':'pos',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'RxstatesEnum' : _MetaInfoEnum('RxstatesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'current-rx':'CURRENT_RX',
-            'expired':'EXPIRED',
-            'defaulted':'DEFAULTED',
-            'initialize':'INITIALIZE',
-            'lacp-disabled':'LACP_DISABLED',
-            'port-disabled':'PORT_DISABLED',
+            'current-rx':'current_rx',
+            'expired':'expired',
+            'defaulted':'defaulted',
+            'initialize':'initialize',
+            'lacp-disabled':'lacp_disabled',
+            'port-disabled':'port_disabled',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'LacpChurnstatesEnum' : _MetaInfoEnum('LacpChurnstatesEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'no-churn':'NO_CHURN',
-            'churn':'CHURN',
-            'churn-monitor':'CHURN_MONITOR',
+            'no-churn':'no_churn',
+            'churn':'churn',
+            'churn-monitor':'churn_monitor',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdBagEventMbrItemEnum' : _MetaInfoEnum('BmdBagEventMbrItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-event-mbr-idb-create':'BMD_EVENT_MBR_IDB_CREATE',
-            'bmd-event-mbr-bdl-add':'BMD_EVENT_MBR_BDL_ADD',
-            'bmd-event-mbr-im-state':'BMD_EVENT_MBR_IM_STATE',
-            'bmd-event-mbr-sel-logic':'BMD_EVENT_MBR_SEL_LOGIC',
-            'bmd-event-mbr-mux':'BMD_EVENT_MBR_MUX',
-            'bmd-event-mbr-bfd':'BMD_EVENT_MBR_BFD',
-            'bmd-event-mbr-expired':'BMD_EVENT_MBR_EXPIRED',
-            'bmd-event-mbr-defaulted':'BMD_EVENT_MBR_DEFAULTED',
-            'bmd-event-mbr-first-retry':'BMD_EVENT_MBR_FIRST_RETRY',
-            'bmd-event-mbr-msg':'BMD_EVENT_MBR_MSG',
-            'bmd-event-mbr-error':'BMD_EVENT_MBR_ERROR',
-            'bmd-event-mbr-mlacp-tlv':'BMD_EVENT_MBR_MLACP_TLV',
-            'bmd-event-mbr-redundancy-role':'BMD_EVENT_MBR_REDUNDANCY_ROLE',
-            'bmd-event-mbr-count':'BMD_EVENT_MBR_COUNT',
+            'bmd-event-mbr-idb-create':'bmd_event_mbr_idb_create',
+            'bmd-event-mbr-bdl-add':'bmd_event_mbr_bdl_add',
+            'bmd-event-mbr-im-state':'bmd_event_mbr_im_state',
+            'bmd-event-mbr-sel-logic':'bmd_event_mbr_sel_logic',
+            'bmd-event-mbr-mux':'bmd_event_mbr_mux',
+            'bmd-event-mbr-bfd':'bmd_event_mbr_bfd',
+            'bmd-event-mbr-expired':'bmd_event_mbr_expired',
+            'bmd-event-mbr-defaulted':'bmd_event_mbr_defaulted',
+            'bmd-event-mbr-first-retry':'bmd_event_mbr_first_retry',
+            'bmd-event-mbr-msg':'bmd_event_mbr_msg',
+            'bmd-event-mbr-error':'bmd_event_mbr_error',
+            'bmd-event-mbr-mlacp-tlv':'bmd_event_mbr_mlacp_tlv',
+            'bmd-event-mbr-redundancy-role':'bmd_event_mbr_redundancy_role',
+            'bmd-event-mbr-count':'bmd_event_mbr_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdBagEventDataEnum' : _MetaInfoEnum('BmdBagEventDataEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-bag-evt-data-none':'BMD_BAG_EVT_DATA_NONE',
-            'bmd-bag-evt-data-error':'BMD_BAG_EVT_DATA_ERROR',
-            'bmd-bag-evt-data-string':'BMD_BAG_EVT_DATA_STRING',
+            'bmd-bag-evt-data-none':'bmd_bag_evt_data_none',
+            'bmd-bag-evt-data-error':'bmd_bag_evt_data_error',
+            'bmd-bag-evt-data-string':'bmd_bag_evt_data_string',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdSwitchReasonEnum' : _MetaInfoEnum('BmdSwitchReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-switch-reason-none':'BM_SWITCH_REASON_NONE',
-            'bm-switch-reason-noop':'BM_SWITCH_REASON_NOOP',
-            'bm-switch-reason-not-mlacp':'BM_SWITCH_REASON_NOT_MLACP',
-            'bm-switch-reason-revertive':'BM_SWITCH_REASON_REVERTIVE',
-            'bm-switch-reason-bdl-down':'BM_SWITCH_REASON_BDL_DOWN',
-            'bm-switch-reason-recovery':'BM_SWITCH_REASON_RECOVERY',
-            'bm-switch-reason-preceding-error':'BM_SWITCH_REASON_PRECEDING_ERROR',
-            'bm-switch-reason-wrong-order':'BM_SWITCH_REASON_WRONG_ORDER',
-            'bm-switch-reason-singleton':'BM_SWITCH_REASON_SINGLETON',
+            'bm-switch-reason-none':'bm_switch_reason_none',
+            'bm-switch-reason-noop':'bm_switch_reason_noop',
+            'bm-switch-reason-not-mlacp':'bm_switch_reason_not_mlacp',
+            'bm-switch-reason-revertive':'bm_switch_reason_revertive',
+            'bm-switch-reason-bdl-down':'bm_switch_reason_bdl_down',
+            'bm-switch-reason-recovery':'bm_switch_reason_recovery',
+            'bm-switch-reason-preceding-error':'bm_switch_reason_preceding_error',
+            'bm-switch-reason-wrong-order':'bm_switch_reason_wrong_order',
+            'bm-switch-reason-singleton':'bm_switch_reason_singleton',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdMemberTypeEnumEnum' : _MetaInfoEnum('BmdMemberTypeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-mbr-local':'BMD_MBR_LOCAL',
-            'bmd-mbr-foreign':'BMD_MBR_FOREIGN',
-            'bmd-mbr-unknown':'BMD_MBR_UNKNOWN',
+            'bmd-mbr-local':'bmd_mbr_local',
+            'bmd-mbr-foreign':'bmd_mbr_foreign',
+            'bmd-mbr-unknown':'bmd_mbr_unknown',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmAfIdEnum' : _MetaInfoEnum('BmAfIdEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-af-id-ipv4':'BM_AF_ID_IPV4',
-            'bm-af-id-ipv6':'BM_AF_ID_IPV6',
+            'bm-af-id-ipv4':'bm_af_id_ipv4',
+            'bm-af-id-ipv6':'bm_af_id_ipv6',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmMbrStateReasonEnum' : _MetaInfoEnum('BmMbrStateReasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-mbr-state-reason-unknown':'BM_MBR_STATE_REASON_UNKNOWN',
-            'bm-mbr-state-reason-unselectable-unknown':'BM_MBR_STATE_REASON_UNSELECTABLE_UNKNOWN',
-            'bm-mbr-state-reason-link-down':'BM_MBR_STATE_REASON_LINK_DOWN',
-            'bm-mbr-state-reason-link-deleting':'BM_MBR_STATE_REASON_LINK_DELETING',
-            'bm-mbr-state-reason-creating':'BM_MBR_STATE_REASON_CREATING',
-            'bm-mbr-state-reason-bundle-creating':'BM_MBR_STATE_REASON_BUNDLE_CREATING',
-            'bm-mbr-state-reason-bundle-deleting':'BM_MBR_STATE_REASON_BUNDLE_DELETING',
-            'bm-mbr-state-reason-bundle-admin-down':'BM_MBR_STATE_REASON_BUNDLE_ADMIN_DOWN',
-            'bm-mbr-state-reason-replicating':'BM_MBR_STATE_REASON_REPLICATING',
-            'bm-mbr-state-reason-bandwidth':'BM_MBR_STATE_REASON_BANDWIDTH',
-            'bm-mbr-state-reason-loop-back':'BM_MBR_STATE_REASON_LOOP_BACK',
-            'bm-mbr-state-reason-activity-type':'BM_MBR_STATE_REASON_ACTIVITY_TYPE',
-            'bm-mbr-state-reason-bundle-shutdown':'BM_MBR_STATE_REASON_BUNDLE_SHUTDOWN',
-            'bm-mbr-state-reason-min-selected':'BM_MBR_STATE_REASON_MIN_SELECTED',
-            'bm-mbr-state-reason-max-selected':'BM_MBR_STATE_REASON_MAX_SELECTED',
-            'bm-mbr-state-reason-link-limit':'BM_MBR_STATE_REASON_LINK_LIMIT',
-            'bm-mbr-state-reason-active-limit':'BM_MBR_STATE_REASON_ACTIVE_LIMIT',
-            'bm-mbr-state-reason-standby-unknown':'BM_MBR_STATE_REASON_STANDBY_UNKNOWN',
-            'bm-mbr-state-reason-expired':'BM_MBR_STATE_REASON_EXPIRED',
-            'bm-mbr-state-reason-defaulted':'BM_MBR_STATE_REASON_DEFAULTED',
-            'bm-mbr-state-reason-act-or-not-agg':'BM_MBR_STATE_REASON_ACT_OR_NOT_AGG',
-            'bm-mbr-state-reason-partner-not-agg':'BM_MBR_STATE_REASON_PARTNER_NOT_AGG',
-            'bm-mbr-state-reason-lagid':'BM_MBR_STATE_REASON_LAGID',
-            'bm-mbr-state-reason-bundle-not-cfgd':'BM_MBR_STATE_REASON_BUNDLE_NOT_CFGD',
-            'bm-mbr-state-reason-bundle-not-ready':'BM_MBR_STATE_REASON_BUNDLE_NOT_READY',
-            'bm-mbr-state-reason-partner-ood':'BM_MBR_STATE_REASON_PARTNER_OOD',
-            'bm-mbr-state-reason-partner-not-in-sync':'BM_MBR_STATE_REASON_PARTNER_NOT_IN_SYNC',
-            'bm-mbr-state-reason-foreign-partner-oos':'BM_MBR_STATE_REASON_FOREIGN_PARTNER_OOS',
-            'bm-mbr-state-reason-attach-unknown':'BM_MBR_STATE_REASON_ATTACH_UNKNOWN',
-            'bm-mbr-state-reason-partner-not-collecting':'BM_MBR_STATE_REASON_PARTNER_NOT_COLLECTING',
-            'bm-mbr-state-reason-collect-unknown':'BM_MBR_STATE_REASON_COLLECT_UNKNOWN',
-            'bm-mbr-state-reason-standby-foreign':'BM_MBR_STATE_REASON_STANDBY_FOREIGN',
-            'bm-mbr-state-reason-bfd-starting':'BM_MBR_STATE_REASON_BFD_STARTING',
-            'bm-mbr-state-reason-bfd-down':'BM_MBR_STATE_REASON_BFD_DOWN',
-            'bm-mbr-state-reason-bfd-nbr-unconfig':'BM_MBR_STATE_REASON_BFD_NBR_UNCONFIG',
-            'bm-mbr-state-reason-mlacp':'BM_MBR_STATE_REASON_MLACP',
-            'bm-mbr-state-reason-pe-isolated':'BM_MBR_STATE_REASON_PE_ISOLATED',
-            'bm-mbr-state-reason-forced-switchover':'BM_MBR_STATE_REASON_FORCED_SWITCHOVER',
-            'bm-mbr-state-reason-errdis-unknown':'BM_MBR_STATE_REASON_ERRDIS_UNKNOWN',
-            'bm-mbr-state-reason-mlacp-no-mbr-state-info':'BM_MBR_STATE_REASON_MLACP_NO_MBR_STATE_INFO',
-            'bm-mbr-state-reason-active':'BM_MBR_STATE_REASON_ACTIVE',
-            'bm-mbr-state-reason-mlacp-no-bdl-state-info':'BM_MBR_STATE_REASON_MLACP_NO_BDL_STATE_INFO',
-            'bm-mbr-state-reason-mlacp-no-bdl-config-info':'BM_MBR_STATE_REASON_MLACP_NO_BDL_CONFIG_INFO',
-            'bm-mbr-state-reason-mlacp-no-bdl-sync':'BM_MBR_STATE_REASON_MLACP_NO_BDL_SYNC',
-            'bm-mbr-state-reason-mlacp-bdl-has-no-peer':'BM_MBR_STATE_REASON_MLACP_BDL_HAS_NO_PEER',
-            'bm-mbr-state-reason-mlacp-nak':'BM_MBR_STATE_REASON_MLACP_NAK',
-            'bm-mbr-state-reason-mlacp-transport-unavailable':'BM_MBR_STATE_REASON_MLACP_TRANSPORT_UNAVAILABLE',
-            'bm-mbr-state-reason-mlacp-not-configured':'BM_MBR_STATE_REASON_MLACP_NOT_CONFIGURED',
-            'bm-mbr-state-reason-recovery-timer':'BM_MBR_STATE_REASON_RECOVERY_TIMER',
-            'bm-mbr-state-reason-mlacp-standby':'BM_MBR_STATE_REASON_MLACP_STANDBY',
-            'bm-mbr-state-reason-maximized-out':'BM_MBR_STATE_REASON_MAXIMIZED_OUT',
-            'bm-mbr-state-reason-mlacp-peer-selected':'BM_MBR_STATE_REASON_MLACP_PEER_SELECTED',
-            'bm-mbr-state-reason-mlacp-connect-timer-running':'BM_MBR_STATE_REASON_MLACP_CONNECT_TIMER_RUNNING',
-            'bm-mbr-state-reason-bundle-not-mlacp':'BM_MBR_STATE_REASON_BUNDLE_NOT_MLACP',
-            'bm-mbr-state-reason-no-lon':'BM_MBR_STATE_REASON_NO_LON',
-            'bm-mbr-state-reason-cumul-rel-bw-limit':'BM_MBR_STATE_REASON_CUMUL_REL_BW_LIMIT',
-            'bm-mbr-state-reason-no-mac':'BM_MBR_STATE_REASON_NO_MAC',
-            'bm-mbr-state-reason-no-system-id':'BM_MBR_STATE_REASON_NO_SYSTEM_ID',
-            'bm-mbr-state-reason-link-shutdown':'BM_MBR_STATE_REASON_LINK_SHUTDOWN',
-            'bm-mbr-state-reason-activity-mlacp':'BM_MBR_STATE_REASON_ACTIVITY_MLACP',
-            'bm-mbr-state-reason-activity-iccp':'BM_MBR_STATE_REASON_ACTIVITY_ICCP',
-            'bm-mbr-state-reason-bundle-icpe-mlacp':'BM_MBR_STATE_REASON_BUNDLE_ICPE_MLACP',
-            'bm-mbr-state-reason-no-link-num':'BM_MBR_STATE_REASON_NO_LINK_NUM',
-            'bm-mbr-state-reason-standby-peer-higher-prio':'BM_MBR_STATE_REASON_STANDBY_PEER_HIGHER_PRIO',
-            'bm-mbr-state-reason-red-state-standby':'BM_MBR_STATE_REASON_RED_STATE_STANDBY',
-            'bm-mbr-state-reason-other-red-state-standby':'BM_MBR_STATE_REASON_OTHER_RED_STATE_STANDBY',
-            'bm-mbr-state-reason-hold-ing':'BM_MBR_STATE_REASON_HOLD_ING',
-            'bm-mbr-state-reason-bundle-error-disabled':'BM_MBR_STATE_REASON_BUNDLE_ERROR_DISABLED',
-            'bm-mbr-state-reason-bundle-efd-disabled':'BM_MBR_STATE_REASON_BUNDLE_EFD_DISABLED',
-            'bm-mbr-state-reason-singleton-pe-isolated':'BM_MBR_STATE_REASON_SINGLETON_PE_ISOLATED',
-            'bm-mbr-state-reason-bfd-ipv6-starting':'BM_MBR_STATE_REASON_BFD_IPV6_STARTING',
-            'bm-mbr-state-reason-bfd-ipv6-down':'BM_MBR_STATE_REASON_BFD_IPV6_DOWN',
-            'bm-mbr-state-reason-bfd-ipv6-nbr-unconfig':'BM_MBR_STATE_REASON_BFD_IPV6_NBR_UNCONFIG',
-            'bm-mbr-state-reason-timer-running':'BM_MBR_STATE_REASON_TIMER_RUNNING',
-            'bm-mbr-state-reason-count':'BM_MBR_STATE_REASON_COUNT',
+            'bm-mbr-state-reason-unknown':'bm_mbr_state_reason_unknown',
+            'bm-mbr-state-reason-unselectable-unknown':'bm_mbr_state_reason_unselectable_unknown',
+            'bm-mbr-state-reason-link-down':'bm_mbr_state_reason_link_down',
+            'bm-mbr-state-reason-link-deleting':'bm_mbr_state_reason_link_deleting',
+            'bm-mbr-state-reason-creating':'bm_mbr_state_reason_creating',
+            'bm-mbr-state-reason-bundle-creating':'bm_mbr_state_reason_bundle_creating',
+            'bm-mbr-state-reason-bundle-deleting':'bm_mbr_state_reason_bundle_deleting',
+            'bm-mbr-state-reason-bundle-admin-down':'bm_mbr_state_reason_bundle_admin_down',
+            'bm-mbr-state-reason-replicating':'bm_mbr_state_reason_replicating',
+            'bm-mbr-state-reason-bandwidth':'bm_mbr_state_reason_bandwidth',
+            'bm-mbr-state-reason-loop-back':'bm_mbr_state_reason_loop_back',
+            'bm-mbr-state-reason-activity-type':'bm_mbr_state_reason_activity_type',
+            'bm-mbr-state-reason-bundle-shutdown':'bm_mbr_state_reason_bundle_shutdown',
+            'bm-mbr-state-reason-min-selected':'bm_mbr_state_reason_min_selected',
+            'bm-mbr-state-reason-max-selected':'bm_mbr_state_reason_max_selected',
+            'bm-mbr-state-reason-link-limit':'bm_mbr_state_reason_link_limit',
+            'bm-mbr-state-reason-active-limit':'bm_mbr_state_reason_active_limit',
+            'bm-mbr-state-reason-standby-unknown':'bm_mbr_state_reason_standby_unknown',
+            'bm-mbr-state-reason-expired':'bm_mbr_state_reason_expired',
+            'bm-mbr-state-reason-defaulted':'bm_mbr_state_reason_defaulted',
+            'bm-mbr-state-reason-act-or-not-agg':'bm_mbr_state_reason_act_or_not_agg',
+            'bm-mbr-state-reason-partner-not-agg':'bm_mbr_state_reason_partner_not_agg',
+            'bm-mbr-state-reason-lagid':'bm_mbr_state_reason_lagid',
+            'bm-mbr-state-reason-bundle-not-cfgd':'bm_mbr_state_reason_bundle_not_cfgd',
+            'bm-mbr-state-reason-bundle-not-ready':'bm_mbr_state_reason_bundle_not_ready',
+            'bm-mbr-state-reason-partner-ood':'bm_mbr_state_reason_partner_ood',
+            'bm-mbr-state-reason-partner-not-in-sync':'bm_mbr_state_reason_partner_not_in_sync',
+            'bm-mbr-state-reason-foreign-partner-oos':'bm_mbr_state_reason_foreign_partner_oos',
+            'bm-mbr-state-reason-attach-unknown':'bm_mbr_state_reason_attach_unknown',
+            'bm-mbr-state-reason-partner-not-collecting':'bm_mbr_state_reason_partner_not_collecting',
+            'bm-mbr-state-reason-collect-unknown':'bm_mbr_state_reason_collect_unknown',
+            'bm-mbr-state-reason-standby-foreign':'bm_mbr_state_reason_standby_foreign',
+            'bm-mbr-state-reason-bfd-starting':'bm_mbr_state_reason_bfd_starting',
+            'bm-mbr-state-reason-bfd-down':'bm_mbr_state_reason_bfd_down',
+            'bm-mbr-state-reason-bfd-nbr-unconfig':'bm_mbr_state_reason_bfd_nbr_unconfig',
+            'bm-mbr-state-reason-mlacp':'bm_mbr_state_reason_mlacp',
+            'bm-mbr-state-reason-pe-isolated':'bm_mbr_state_reason_pe_isolated',
+            'bm-mbr-state-reason-forced-switchover':'bm_mbr_state_reason_forced_switchover',
+            'bm-mbr-state-reason-errdis-unknown':'bm_mbr_state_reason_errdis_unknown',
+            'bm-mbr-state-reason-mlacp-no-mbr-state-info':'bm_mbr_state_reason_mlacp_no_mbr_state_info',
+            'bm-mbr-state-reason-active':'bm_mbr_state_reason_active',
+            'bm-mbr-state-reason-mlacp-no-bdl-state-info':'bm_mbr_state_reason_mlacp_no_bdl_state_info',
+            'bm-mbr-state-reason-mlacp-no-bdl-config-info':'bm_mbr_state_reason_mlacp_no_bdl_config_info',
+            'bm-mbr-state-reason-mlacp-no-bdl-sync':'bm_mbr_state_reason_mlacp_no_bdl_sync',
+            'bm-mbr-state-reason-mlacp-bdl-has-no-peer':'bm_mbr_state_reason_mlacp_bdl_has_no_peer',
+            'bm-mbr-state-reason-mlacp-nak':'bm_mbr_state_reason_mlacp_nak',
+            'bm-mbr-state-reason-mlacp-transport-unavailable':'bm_mbr_state_reason_mlacp_transport_unavailable',
+            'bm-mbr-state-reason-mlacp-not-configured':'bm_mbr_state_reason_mlacp_not_configured',
+            'bm-mbr-state-reason-recovery-timer':'bm_mbr_state_reason_recovery_timer',
+            'bm-mbr-state-reason-mlacp-standby':'bm_mbr_state_reason_mlacp_standby',
+            'bm-mbr-state-reason-maximized-out':'bm_mbr_state_reason_maximized_out',
+            'bm-mbr-state-reason-mlacp-peer-selected':'bm_mbr_state_reason_mlacp_peer_selected',
+            'bm-mbr-state-reason-mlacp-connect-timer-running':'bm_mbr_state_reason_mlacp_connect_timer_running',
+            'bm-mbr-state-reason-bundle-not-mlacp':'bm_mbr_state_reason_bundle_not_mlacp',
+            'bm-mbr-state-reason-no-lon':'bm_mbr_state_reason_no_lon',
+            'bm-mbr-state-reason-cumul-rel-bw-limit':'bm_mbr_state_reason_cumul_rel_bw_limit',
+            'bm-mbr-state-reason-no-mac':'bm_mbr_state_reason_no_mac',
+            'bm-mbr-state-reason-no-system-id':'bm_mbr_state_reason_no_system_id',
+            'bm-mbr-state-reason-link-shutdown':'bm_mbr_state_reason_link_shutdown',
+            'bm-mbr-state-reason-activity-mlacp':'bm_mbr_state_reason_activity_mlacp',
+            'bm-mbr-state-reason-activity-iccp':'bm_mbr_state_reason_activity_iccp',
+            'bm-mbr-state-reason-bundle-icpe-mlacp':'bm_mbr_state_reason_bundle_icpe_mlacp',
+            'bm-mbr-state-reason-no-link-num':'bm_mbr_state_reason_no_link_num',
+            'bm-mbr-state-reason-standby-peer-higher-prio':'bm_mbr_state_reason_standby_peer_higher_prio',
+            'bm-mbr-state-reason-red-state-standby':'bm_mbr_state_reason_red_state_standby',
+            'bm-mbr-state-reason-other-red-state-standby':'bm_mbr_state_reason_other_red_state_standby',
+            'bm-mbr-state-reason-hold-ing':'bm_mbr_state_reason_hold_ing',
+            'bm-mbr-state-reason-bundle-error-disabled':'bm_mbr_state_reason_bundle_error_disabled',
+            'bm-mbr-state-reason-bundle-efd-disabled':'bm_mbr_state_reason_bundle_efd_disabled',
+            'bm-mbr-state-reason-singleton-pe-isolated':'bm_mbr_state_reason_singleton_pe_isolated',
+            'bm-mbr-state-reason-bfd-ipv6-starting':'bm_mbr_state_reason_bfd_ipv6_starting',
+            'bm-mbr-state-reason-bfd-ipv6-down':'bm_mbr_state_reason_bfd_ipv6_down',
+            'bm-mbr-state-reason-bfd-ipv6-nbr-unconfig':'bm_mbr_state_reason_bfd_ipv6_nbr_unconfig',
+            'bm-mbr-state-reason-timer-running':'bm_mbr_state_reason_timer_running',
+            'bm-mbr-state-reason-count':'bm_mbr_state_reason_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdBagEventBdlItemEnum' : _MetaInfoEnum('BmdBagEventBdlItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-event-bdl-idb-create':'BMD_EVENT_BDL_IDB_CREATE',
-            'bmd-event-bdl-configured':'BMD_EVENT_BDL_CONFIGURED',
-            'bmd-event-bdl-im-state':'BMD_EVENT_BDL_IM_STATE',
-            'bmd-event-bdl-mbr-added':'BMD_EVENT_BDL_MBR_ADDED',
-            'bmd-event-bdl-mbr-deleted':'BMD_EVENT_BDL_MBR_DELETED',
-            'bmd-event-bdl-mac-addr':'BMD_EVENT_BDL_MAC_ADDR',
-            'bmd-event-bdl-first-retry':'BMD_EVENT_BDL_FIRST_RETRY',
-            'bmd-event-bdl-user-config':'BMD_EVENT_BDL_USER_CONFIG',
-            'bmd-event-bdl-error':'BMD_EVENT_BDL_ERROR',
-            'bmd-event-bdl-mlacp-tlv':'BMD_EVENT_BDL_MLACP_TLV',
-            'bmd-event-bdl-redundancy-role':'BMD_EVENT_BDL_REDUNDANCY_ROLE',
-            'bdl-bfd-state-change':'BDL_BFD_STATE_CHANGE',
-            'bmd-event-bdl-icl':'BMD_EVENT_BDL_ICL',
-            'bmd-event-bdl-count':'BMD_EVENT_BDL_COUNT',
+            'bmd-event-bdl-idb-create':'bmd_event_bdl_idb_create',
+            'bmd-event-bdl-configured':'bmd_event_bdl_configured',
+            'bmd-event-bdl-im-state':'bmd_event_bdl_im_state',
+            'bmd-event-bdl-mbr-added':'bmd_event_bdl_mbr_added',
+            'bmd-event-bdl-mbr-deleted':'bmd_event_bdl_mbr_deleted',
+            'bmd-event-bdl-mac-addr':'bmd_event_bdl_mac_addr',
+            'bmd-event-bdl-first-retry':'bmd_event_bdl_first_retry',
+            'bmd-event-bdl-user-config':'bmd_event_bdl_user_config',
+            'bmd-event-bdl-error':'bmd_event_bdl_error',
+            'bmd-event-bdl-mlacp-tlv':'bmd_event_bdl_mlacp_tlv',
+            'bmd-event-bdl-redundancy-role':'bmd_event_bdl_redundancy_role',
+            'bdl-bfd-state-change':'bdl_bfd_state_change',
+            'bmd-event-bdl-icl':'bmd_event_bdl_icl',
+            'bmd-event-bdl-count':'bmd_event_bdl_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdMlacpNodeStateEnumEnum' : _MetaInfoEnum('BmdMlacpNodeStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'node-state-incomplete':'NODE_STATE_INCOMPLETE',
-            'node-state-conn-rejected':'NODE_STATE_CONN_REJECTED',
-            'node-state-connect-sent':'NODE_STATE_CONNECT_SENT',
-            'node-state-unconfigured':'NODE_STATE_UNCONFIGURED',
-            'node-state-unreachable':'NODE_STATE_UNREACHABLE',
-            'node-state-iccp-down':'NODE_STATE_ICCP_DOWN',
-            'node-state-nak':'NODE_STATE_NAK',
-            'node-state-unknown':'NODE_STATE_UNKNOWN',
-            'node-state-mlacp-down':'NODE_STATE_MLACP_DOWN',
-            'node-state-admin-down':'NODE_STATE_ADMIN_DOWN',
-            'node-state-pe-isolated':'NODE_STATE_PE_ISOLATED',
-            'node-state-error':'NODE_STATE_ERROR',
-            'node-state-test':'NODE_STATE_TEST',
-            'node-state-up':'NODE_STATE_UP',
+            'node-state-incomplete':'node_state_incomplete',
+            'node-state-conn-rejected':'node_state_conn_rejected',
+            'node-state-connect-sent':'node_state_connect_sent',
+            'node-state-unconfigured':'node_state_unconfigured',
+            'node-state-unreachable':'node_state_unreachable',
+            'node-state-iccp-down':'node_state_iccp_down',
+            'node-state-nak':'node_state_nak',
+            'node-state-unknown':'node_state_unknown',
+            'node-state-mlacp-down':'node_state_mlacp_down',
+            'node-state-admin-down':'node_state_admin_down',
+            'node-state-pe-isolated':'node_state_pe_isolated',
+            'node-state-error':'node_state_error',
+            'node-state-test':'node_state_test',
+            'node-state-up':'node_state_up',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdBagEventRgItemEnum' : _MetaInfoEnum('BmdBagEventRgItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-event-rg-idb-create':'BMD_EVENT_RG_IDB_CREATE',
-            'bmd-event-rg-configured':'BMD_EVENT_RG_CONFIGURED',
-            'bmd-event-rg-user-config':'BMD_EVENT_RG_USER_CONFIG',
-            'bmd-event-rg-connect-ion':'BMD_EVENT_RG_CONNECT_ION',
-            'bmd-event-rg-data':'BMD_EVENT_RG_DATA',
-            'bmd-event-rg-sync':'BMD_EVENT_RG_SYNC',
-            'bmd-event-rg-first-retry':'BMD_EVENT_RG_FIRST_RETRY',
-            'bmd-event-rg-error':'BMD_EVENT_RG_ERROR',
-            'bmd-event-rg-mlacp-tlv':'BMD_EVENT_RG_MLACP_TLV',
-            'bmd-event-rg-iccp-event':'BMD_EVENT_RG_ICCP_EVENT',
-            'bmd-event-rg-count':'BMD_EVENT_RG_COUNT',
+            'bmd-event-rg-idb-create':'bmd_event_rg_idb_create',
+            'bmd-event-rg-configured':'bmd_event_rg_configured',
+            'bmd-event-rg-user-config':'bmd_event_rg_user_config',
+            'bmd-event-rg-connect-ion':'bmd_event_rg_connect_ion',
+            'bmd-event-rg-data':'bmd_event_rg_data',
+            'bmd-event-rg-sync':'bmd_event_rg_sync',
+            'bmd-event-rg-first-retry':'bmd_event_rg_first_retry',
+            'bmd-event-rg-error':'bmd_event_rg_error',
+            'bmd-event-rg-mlacp-tlv':'bmd_event_rg_mlacp_tlv',
+            'bmd-event-rg-iccp-event':'bmd_event_rg_iccp_event',
+            'bmd-event-rg-count':'bmd_event_rg_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmWhichSystemEnum' : _MetaInfoEnum('BmWhichSystemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-which-system-actr':'BM_WHICH_SYSTEM_ACTR',
-            'bm-which-system-ptnr':'BM_WHICH_SYSTEM_PTNR',
+            'bm-which-system-actr':'bm_which_system_actr',
+            'bm-which-system-ptnr':'bm_which_system_ptnr',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdBfdBdlStateEnum' : _MetaInfoEnum('BmdBfdBdlStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-bfd-bdl-down':'BMD_BFD_BDL_DOWN',
-            'bmd-bfd-bdl-unknown':'BMD_BFD_BDL_UNKNOWN',
-            'bmd-bfd-bdl-up':'BMD_BFD_BDL_UP',
-            'bmd-bfd-bdl-count':'BMD_BFD_BDL_COUNT',
+            'bmd-bfd-bdl-down':'bmd_bfd_bdl_down',
+            'bmd-bfd-bdl-unknown':'bmd_bfd_bdl_unknown',
+            'bmd-bfd-bdl-up':'bmd_bfd_bdl_up',
+            'bmd-bfd-bdl-count':'bmd_bfd_bdl_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdMlacpMbrStateEnumEnum' : _MetaInfoEnum('BmdMlacpMbrStateEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'mbr-state-nak':'MBR_STATE_NAK',
-            'mbr-state-unknown':'MBR_STATE_UNKNOWN',
-            'mbr-state-up':'MBR_STATE_UP',
-            'mbr-state-down':'MBR_STATE_DOWN',
-            'mbr-state-admin-down':'MBR_STATE_ADMIN_DOWN',
-            'mbr-state-test':'MBR_STATE_TEST',
-            'mbr-state-error':'MBR_STATE_ERROR',
+            'mbr-state-nak':'mbr_state_nak',
+            'mbr-state-unknown':'mbr_state_unknown',
+            'mbr-state-up':'mbr_state_up',
+            'mbr-state-down':'mbr_state_down',
+            'mbr-state-admin-down':'mbr_state_admin_down',
+            'mbr-state-test':'mbr_state_test',
+            'mbr-state-error':'mbr_state_error',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdBagTargetEnum' : _MetaInfoEnum('BmdBagTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-bag-target-mbr':'BM_BAG_TARGET_MBR',
-            'bm-bag-target-bdl':'BM_BAG_TARGET_BDL',
-            'bm-bag-target-node':'BM_BAG_TARGET_NODE',
-            'bm-bag-target-rg':'BM_BAG_TARGET_RG',
+            'bm-bag-target-mbr':'bm_bag_target_mbr',
+            'bm-bag-target-bdl':'bm_bag_target_bdl',
+            'bm-bag-target-node':'bm_bag_target_node',
+            'bm-bag-target-rg':'bm_bag_target_rg',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmMuxstateEnum' : _MetaInfoEnum('BmMuxstateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'detached':'DETACHED',
-            'waiting':'WAITING',
-            'attached':'ATTACHED',
-            'collecting':'COLLECTING',
-            'distributing':'DISTRIBUTING',
-            'collecting-distributing':'COLLECTING_DISTRIBUTING',
+            'detached':'detached',
+            'waiting':'waiting',
+            'attached':'attached',
+            'collecting':'collecting',
+            'distributing':'distributing',
+            'collecting-distributing':'collecting_distributing',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'LacpSelStateEnum' : _MetaInfoEnum('LacpSelStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'unselected':'UNSELECTED',
-            'standby':'STANDBY',
-            'selected':'SELECTED',
+            'unselected':'unselected',
+            'standby':'standby',
+            'selected':'selected',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdMemberStateEnum' : _MetaInfoEnum('BmdMemberStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bmd-mbr-state-configured':'BMD_MBR_STATE_CONFIGURED',
-            'bmd-mbr-state-standby':'BMD_MBR_STATE_STANDBY',
-            'bmd-mbr-state-hot-standby':'BMD_MBR_STATE_HOT_STANDBY',
-            'bmd-mbr-state-negotiating':'BMD_MBR_STATE_NEGOTIATING',
-            'bmd-mbr-state-bfd-running':'BMD_MBR_STATE_BFD_RUNNING',
-            'bmd-mbr-state-active':'BMD_MBR_STATE_ACTIVE',
+            'bmd-mbr-state-configured':'bmd_mbr_state_configured',
+            'bmd-mbr-state-standby':'bmd_mbr_state_standby',
+            'bmd-mbr-state-hot-standby':'bmd_mbr_state_hot_standby',
+            'bmd-mbr-state-negotiating':'bmd_mbr_state_negotiating',
+            'bmd-mbr-state-bfd-running':'bmd_mbr_state_bfd_running',
+            'bmd-mbr-state-active':'bmd_mbr_state_active',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmMuxreasonEnum' : _MetaInfoEnum('BmMuxreasonEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-mux-reason-no-reason':'BM_MUX_REASON_NO_REASON',
-            'bm-mux-reason-link-down':'BM_MUX_REASON_LINK_DOWN',
-            'bm-mux-reason-link-deleted':'BM_MUX_REASON_LINK_DELETED',
-            'bm-mux-reason-duplex':'BM_MUX_REASON_DUPLEX',
-            'bm-mux-reason-bandwidth':'BM_MUX_REASON_BANDWIDTH',
-            'bm-mux-reason-loop-back':'BM_MUX_REASON_LOOP_BACK',
-            'bm-mux-reason-activity-type':'BM_MUX_REASON_ACTIVITY_TYPE',
-            'bm-mux-reason-link-limit':'BM_MUX_REASON_LINK_LIMIT',
-            'bm-mux-reason-shared':'BM_MUX_REASON_SHARED',
-            'bm-mux-reason-lagid':'BM_MUX_REASON_LAGID',
-            'bm-mux-reason-no-bundle':'BM_MUX_REASON_NO_BUNDLE',
-            'bm-mux-reason-no-primary':'BM_MUX_REASON_NO_PRIMARY',
-            'bm-mux-reason-bundle-down':'BM_MUX_REASON_BUNDLE_DOWN',
-            'bm-mux-reason-individual':'BM_MUX_REASON_INDIVIDUAL',
-            'bm-mux-reason-defaulted':'BM_MUX_REASON_DEFAULTED',
-            'bm-mux-reason-in-sync':'BM_MUX_REASON_IN_SYNC',
-            'bm-mux-reason-collecting':'BM_MUX_REASON_COLLECTING',
-            'bm-mux-reason-active-link-limit':'BM_MUX_REASON_ACTIVE_LINK_LIMIT',
-            'bm-mux-reason-distributing':'BM_MUX_REASON_DISTRIBUTING',
-            'bm-mux-reason-count':'BM_MUX_REASON_COUNT',
+            'bm-mux-reason-no-reason':'bm_mux_reason_no_reason',
+            'bm-mux-reason-link-down':'bm_mux_reason_link_down',
+            'bm-mux-reason-link-deleted':'bm_mux_reason_link_deleted',
+            'bm-mux-reason-duplex':'bm_mux_reason_duplex',
+            'bm-mux-reason-bandwidth':'bm_mux_reason_bandwidth',
+            'bm-mux-reason-loop-back':'bm_mux_reason_loop_back',
+            'bm-mux-reason-activity-type':'bm_mux_reason_activity_type',
+            'bm-mux-reason-link-limit':'bm_mux_reason_link_limit',
+            'bm-mux-reason-shared':'bm_mux_reason_shared',
+            'bm-mux-reason-lagid':'bm_mux_reason_lagid',
+            'bm-mux-reason-no-bundle':'bm_mux_reason_no_bundle',
+            'bm-mux-reason-no-primary':'bm_mux_reason_no_primary',
+            'bm-mux-reason-bundle-down':'bm_mux_reason_bundle_down',
+            'bm-mux-reason-individual':'bm_mux_reason_individual',
+            'bm-mux-reason-defaulted':'bm_mux_reason_defaulted',
+            'bm-mux-reason-in-sync':'bm_mux_reason_in_sync',
+            'bm-mux-reason-collecting':'bm_mux_reason_collecting',
+            'bm-mux-reason-active-link-limit':'bm_mux_reason_active_link_limit',
+            'bm-mux-reason-distributing':'bm_mux_reason_distributing',
+            'bm-mux-reason-count':'bm_mux_reason_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmFeatureStatusEnum' : _MetaInfoEnum('BmFeatureStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-feature-not-configured':'BM_FEATURE_NOT_CONFIGURED',
-            'bm-feature-not-operational':'BM_FEATURE_NOT_OPERATIONAL',
-            'bm-feature-operational':'BM_FEATURE_OPERATIONAL',
+            'bm-feature-not-configured':'bm_feature_not_configured',
+            'bm-feature-not-operational':'bm_feature_not_operational',
+            'bm-feature-operational':'bm_feature_operational',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmSeverityEnum' : _MetaInfoEnum('BmSeverityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'ok':'OK',
-            'information':'INFORMATION',
-            'misconfiguration':'MISCONFIGURATION',
-            'warning':'WARNING',
-            'error':'ERROR',
+            'ok':'ok',
+            'information':'information',
+            'misconfiguration':'misconfiguration',
+            'warning':'warning',
+            'error':'error',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BundleMlacpModeEnum' : _MetaInfoEnum('BundleMlacpModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bundle-mlacp-mode-standby':'BUNDLE_MLACP_MODE_STANDBY',
-            'bundle-mlacp-mode-active':'BUNDLE_MLACP_MODE_ACTIVE',
-            'bundle-mlacp-mode-count':'BUNDLE_MLACP_MODE_COUNT',
+            'bundle-mlacp-mode-standby':'bundle_mlacp_mode_standby',
+            'bundle-mlacp-mode-active':'bundle_mlacp_mode_active',
+            'bundle-mlacp-mode-count':'bundle_mlacp_mode_count',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdBagMlacpSchActionItemEnum' : _MetaInfoEnum('BmdBagMlacpSchActionItemEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'switchover':'SWITCHOVER',
-            'switchback':'SWITCHBACK',
+            'switchover':'switchover',
+            'switchback':'switchback',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmStateReasonTargetEnum' : _MetaInfoEnum('BmStateReasonTargetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'member-reason':'MEMBER_REASON',
-            'bundle-reason':'BUNDLE_REASON',
+            'member-reason':'member_reason',
+            'bundle-reason':'bundle_reason',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmdMlacpNodeSyncEnumEnum' : _MetaInfoEnum('BmdMlacpNodeSyncEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'node-sync-req':'NODE_SYNC_REQ',
-            'node-sync-done':'NODE_SYNC_DONE',
-            'node-sync-start':'NODE_SYNC_START',
-            'node-sync-init':'NODE_SYNC_INIT',
-            'node-sync-singleton':'NODE_SYNC_SINGLETON',
+            'node-sync-req':'node_sync_req',
+            'node-sync-done':'node_sync_done',
+            'node-sync-start':'node_sync_start',
+            'node-sync-init':'node_sync_init',
+            'node-sync-singleton':'node_sync_singleton',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'BmBdlMacSourceEnum' : _MetaInfoEnum('BmBdlMacSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper',
         {
-            'bm-bdl-mac-source-unknown':'BM_BDL_MAC_SOURCE_UNKNOWN',
-            'bm-bdl-mac-source-chassis':'BM_BDL_MAC_SOURCE_CHASSIS',
-            'bm-bdl-mac-source-configured':'BM_BDL_MAC_SOURCE_CONFIGURED',
-            'bm-bdl-mac-source-member':'BM_BDL_MAC_SOURCE_MEMBER',
-            'bm-bdl-mac-source-peer':'BM_BDL_MAC_SOURCE_PEER',
+            'bm-bdl-mac-source-unknown':'bm_bdl_mac_source_unknown',
+            'bm-bdl-mac-source-chassis':'bm_bdl_mac_source_chassis',
+            'bm-bdl-mac-source-configured':'bm_bdl_mac_source_configured',
+            'bm-bdl-mac-source-member':'bm_bdl_mac_source_member',
+            'bm-bdl-mac-source-peer':'bm_bdl_mac_source_peer',
         }, 'Cisco-IOS-XR-bundlemgr-oper', _yang_ns._namespaces['Cisco-IOS-XR-bundlemgr-oper']),
     'LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress' : {
         'meta_info' : _MetaInfoClass('LacpBundles.Bundles.Bundle.Data.ActorBundleData.MacAddress',
@@ -966,6 +966,18 @@ _meta_table = {
                 '''                LACP state of this port
                 ''',
                 'actor_port_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address of the actor system
+                ''',
+                'actor_system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                System priority of actor system
+                ''',
+                'actor_system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -2301,6 +2313,18 @@ _meta_table = {
                 ''',
                 'actor_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address of the actor system
+                ''',
+                'actor_system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                System priority of actor system
+                ''',
+                'actor_system_priority',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                MIB ifindex of attached bundle
@@ -2668,6 +2692,18 @@ _meta_table = {
                 '''                LACP state of this port
                 ''',
                 'actor_port_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address of the actor system
+                ''',
+                'actor_system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                System priority of actor system
+                ''',
+                'actor_system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -3871,6 +3907,18 @@ _meta_table = {
                 ''',
                 'actor_port_state',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address of the actor system
+                ''',
+                'actor_system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                System priority of actor system
+                ''',
+                'actor_system_priority',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
                 '''                MIB ifindex of attached bundle
@@ -4238,6 +4286,18 @@ _meta_table = {
                 '''                LACP state of this port
                 ''',
                 'actor_port_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address of the actor system
+                ''',
+                'actor_system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                System priority of actor system
+                ''',
+                'actor_system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -8929,8 +8989,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests',
+    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests',
             False, 
             [
             _MetaInfoClassMember('all-syncs', ATTRIBUTE, 'int' , None, None, 
@@ -8958,8 +9018,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts',
+    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
             _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
@@ -8969,7 +9029,7 @@ _meta_table = {
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
                 ''',
@@ -8989,8 +9049,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests',
+    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests',
             False, 
             [
             _MetaInfoClassMember('all-syncs', ATTRIBUTE, 'int' , None, None, 
@@ -9018,8 +9078,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles',
+    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles',
             False, 
             [
             _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
@@ -9029,7 +9089,7 @@ _meta_table = {
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
                 ''',
@@ -9049,17 +9109,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData',
+    'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignBundles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles', 
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignBundles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles', 
                 [], [], 
                 '''                Counts of mLACP sync request TLVs on all bundles
                 ''',
                 'mlacp_sync_requests_on_all_foreign_bundles',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts', 
                 [], [], 
                 '''                Counts of mLACP sync request TLVs on all ports
                 ''',
@@ -9208,7 +9268,7 @@ _meta_table = {
                 ''',
                 'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_', 
                 [], [], 
                 '''                Peer device mLACP TLV counter information
                 ''',
@@ -9559,8 +9619,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests',
+    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests',
             False, 
             [
             _MetaInfoClassMember('all-syncs', ATTRIBUTE, 'int' , None, None, 
@@ -9588,8 +9648,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts',
+    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
             _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
@@ -9599,7 +9659,7 @@ _meta_table = {
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
                 ''',
@@ -9619,8 +9679,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests',
+    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests',
             False, 
             [
             _MetaInfoClassMember('all-syncs', ATTRIBUTE, 'int' , None, None, 
@@ -9648,8 +9708,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles',
+    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles',
             False, 
             [
             _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
@@ -9659,7 +9719,7 @@ _meta_table = {
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
                 ''',
@@ -9679,17 +9739,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData',
+    'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignBundles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles', 
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignBundles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles', 
                 [], [], 
                 '''                Counts of mLACP sync request TLVs on all bundles
                 ''',
                 'mlacp_sync_requests_on_all_foreign_bundles',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts', 
                 [], [], 
                 '''                Counts of mLACP sync request TLVs on all ports
                 ''',
@@ -9838,7 +9898,7 @@ _meta_table = {
                 ''',
                 'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_', 
                 [], [], 
                 '''                Peer device mLACP TLV counter information
                 ''',
@@ -10206,8 +10266,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests',
+    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests',
             False, 
             [
             _MetaInfoClassMember('all-syncs', ATTRIBUTE, 'int' , None, None, 
@@ -10235,8 +10295,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts',
+    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts',
             False, 
             [
             _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
@@ -10246,7 +10306,7 @@ _meta_table = {
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
                 ''',
@@ -10266,8 +10326,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests',
+    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests',
             False, 
             [
             _MetaInfoClassMember('all-syncs', ATTRIBUTE, 'int' , None, None, 
@@ -10295,8 +10355,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles',
+    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles',
             False, 
             [
             _MetaInfoClassMember('last-time-cleared', ATTRIBUTE, 'int' , None, None, 
@@ -10306,7 +10366,7 @@ _meta_table = {
                 ''',
                 'last_time_cleared',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
+            _MetaInfoClassMember('received-sync-requests', REFERENCE_CLASS, 'ReceivedSyncRequests' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests', 
                 [], [], 
                 '''                Number of mLACP sync request TLVs received
                 ''',
@@ -10326,17 +10386,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData',
+    'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_',
             False, 
             [
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignBundles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles', 
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-bundles', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignBundles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles', 
                 [], [], 
                 '''                Counts of mLACP sync request TLVs on all bundles
                 ''',
                 'mlacp_sync_requests_on_all_foreign_bundles',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts', 
+            _MetaInfoClassMember('mlacp-sync-requests-on-all-foreign-ports', REFERENCE_CLASS, 'MlacpSyncRequestsOnAllForeignPorts' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts', 
                 [], [], 
                 '''                Counts of mLACP sync request TLVs on all ports
                 ''',
@@ -10485,7 +10545,7 @@ _meta_table = {
                 ''',
                 'bundle_data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_', 
                 [], [], 
                 '''                Peer device mLACP TLV counter information
                 ''',
@@ -18599,8 +18659,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId.SystemMacAddr' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId.SystemMacAddr',
+    'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_.SystemMacAddr' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_.SystemMacAddr',
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
@@ -18616,11 +18676,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId',
+    'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_',
             False, 
             [
-            _MetaInfoClassMember('system-mac-addr', REFERENCE_CLASS, 'SystemMacAddr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId.SystemMacAddr', 
+            _MetaInfoClassMember('system-mac-addr', REFERENCE_CLASS, 'SystemMacAddr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_.SystemMacAddr', 
                 [], [], 
                 '''                MAC Address used to identify the system
                 ''',
@@ -18649,7 +18709,7 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId', 
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_', 
                 [], [], 
                 '''                System ID
                 ''',
@@ -18692,8 +18752,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId.SystemMacAddr' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId.SystemMacAddr',
+    'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_.SystemMacAddr' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_.SystemMacAddr',
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
@@ -18709,11 +18769,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId',
+    'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_',
             False, 
             [
-            _MetaInfoClassMember('system-mac-addr', REFERENCE_CLASS, 'SystemMacAddr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId.SystemMacAddr', 
+            _MetaInfoClassMember('system-mac-addr', REFERENCE_CLASS, 'SystemMacAddr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_.SystemMacAddr', 
                 [], [], 
                 '''                MAC Address used to identify the system
                 ''',
@@ -18742,7 +18802,7 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId', 
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_', 
                 [], [], 
                 '''                System ID
                 ''',
@@ -18920,8 +18980,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData',
+    'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData_' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData_',
             False, 
             [
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
@@ -19139,7 +19199,7 @@ _meta_table = {
                 ''',
                 'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData_', 
                 [], [], 
                 '''                Peer device mLACP TLV counter information
                 ''',
@@ -19447,8 +19507,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData',
+    'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData_' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData_',
             False, 
             [
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
@@ -19666,7 +19726,7 @@ _meta_table = {
                 ''',
                 'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData_', 
                 [], [], 
                 '''                Peer device mLACP TLV counter information
                 ''',
@@ -19974,8 +20034,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData',
+    'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData_' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData_',
             False, 
             [
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
@@ -20193,7 +20253,7 @@ _meta_table = {
                 ''',
                 'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData_', 
                 [], [], 
                 '''                Peer device mLACP TLV counter information
                 ''',
@@ -20484,8 +20544,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData' : {
-        'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData',
+    'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData_' : {
+        'meta_info' : _MetaInfoClass('BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData_',
             False, 
             [
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
@@ -20703,7 +20763,7 @@ _meta_table = {
                 ''',
                 'mlacp_sync_requests_on_all_foreign_ports',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData', 
+            _MetaInfoClassMember('node-data', REFERENCE_CLASS, 'NodeData_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData_', 
                 [], [], 
                 '''                Peer device mLACP TLV counter information
                 ''',
@@ -21084,8 +21144,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'LacpData.Global.SystemId.SystemId.SystemMacAddr' : {
-        'meta_info' : _MetaInfoClass('LacpData.Global.SystemId.SystemId.SystemMacAddr',
+    'LacpData.Global_.SystemId.SystemId_.SystemMacAddr' : {
+        'meta_info' : _MetaInfoClass('LacpData.Global_.SystemId.SystemId_.SystemMacAddr',
             False, 
             [
             _MetaInfoClassMember('macaddr', ATTRIBUTE, 'str' , None, None, 
@@ -21101,11 +21161,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'LacpData.Global.SystemId.SystemId' : {
-        'meta_info' : _MetaInfoClass('LacpData.Global.SystemId.SystemId',
+    'LacpData.Global_.SystemId.SystemId_' : {
+        'meta_info' : _MetaInfoClass('LacpData.Global_.SystemId.SystemId_',
             False, 
             [
-            _MetaInfoClassMember('system-mac-addr', REFERENCE_CLASS, 'SystemMacAddr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global.SystemId.SystemId.SystemMacAddr', 
+            _MetaInfoClassMember('system-mac-addr', REFERENCE_CLASS, 'SystemMacAddr' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global_.SystemId.SystemId_.SystemMacAddr', 
                 [], [], 
                 '''                MAC Address used to identify the system
                 ''',
@@ -21124,8 +21184,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'LacpData.Global.SystemId' : {
-        'meta_info' : _MetaInfoClass('LacpData.Global.SystemId',
+    'LacpData.Global_.SystemId' : {
+        'meta_info' : _MetaInfoClass('LacpData.Global_.SystemId',
             False, 
             [
             _MetaInfoClassMember('iccp-group-id', ATTRIBUTE, 'int' , None, None, 
@@ -21134,7 +21194,7 @@ _meta_table = {
                 ''',
                 'iccp_group_id',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global.SystemId.SystemId', 
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global_.SystemId.SystemId_', 
                 [], [], 
                 '''                System ID
                 ''',
@@ -21160,11 +21220,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'LacpData.Global' : {
-        'meta_info' : _MetaInfoClass('LacpData.Global',
+    'LacpData.Global_' : {
+        'meta_info' : _MetaInfoClass('LacpData.Global_',
             False, 
             [
-            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global.SystemId', 
+            _MetaInfoClassMember('system-id', REFERENCE_CLASS, 'SystemId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global_.SystemId', 
                 [], [], 
                 '''                LACP System ID
                 ''',
@@ -21181,7 +21241,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('LacpData',
             False, 
             [
-            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global', 
+            _MetaInfoClassMember('global', REFERENCE_CLASS, 'Global_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'LacpData.Global_', 
                 [], [], 
                 '''                Global LACP data
                 ''',
@@ -21194,8 +21254,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Data.MacAddress' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Data.MacAddress',
+    'Bundles.Bundles_.Bundle.Data.MacAddress' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Data.MacAddress',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -21211,8 +21271,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress',
+    'Bundles.Bundles_.Bundle.Data.BfdConfig.DestinationAddress' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Data.BfdConfig.DestinationAddress',
             False, 
             [
             _MetaInfoClassMember('af', REFERENCE_ENUM_CLASS, 'BmAfIdEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmAfIdEnum', 
@@ -21240,8 +21300,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Data.BfdConfig' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Data.BfdConfig',
+    'Bundles.Bundles_.Bundle.Data.BfdConfig' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Data.BfdConfig',
             False, 
             [
             _MetaInfoClassMember('bundle-status', REFERENCE_ENUM_CLASS, 'BmdBfdBdlStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmdBfdBdlStateEnum', 
@@ -21250,7 +21310,7 @@ _meta_table = {
                 ''',
                 'bundle_status',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress', 
+            _MetaInfoClassMember('destination-address', REFERENCE_CLASS, 'DestinationAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Data.BfdConfig.DestinationAddress', 
                 [], [], 
                 '''                Configured destination address for BFD session
                 ''',
@@ -21310,8 +21370,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Data' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Data',
+    'Bundles.Bundles_.Bundle.Data' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Data',
             False, 
             [
             _MetaInfoClassMember('active-foreign-member-count', ATTRIBUTE, 'int' , None, None, 
@@ -21334,7 +21394,7 @@ _meta_table = {
                 ''',
                 'available_bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data.BfdConfig', 
+            _MetaInfoClassMember('bfd-config', REFERENCE_LIST, 'BfdConfig' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Data.BfdConfig', 
                 [], [], 
                 '''                Configuration values for BFD on bundle members
                 ''',
@@ -21460,7 +21520,7 @@ _meta_table = {
                 ''',
                 'load_balance_locality_threshold',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data.MacAddress', 
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Data.MacAddress', 
                 [], [], 
                 '''                MAC address of this member
                 ''',
@@ -21584,8 +21644,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Members.Member.Counters' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Members.Member.Counters',
+    'Bundles.Bundles_.Bundle.Members.Member.Counters' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Members.Member.Counters',
             False, 
             [
             _MetaInfoClassMember('defaulted', ATTRIBUTE, 'int' , None, None, 
@@ -21662,8 +21722,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Members.Member.LinkData' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Members.Member.LinkData',
+    'Bundles.Bundles_.Bundle.Members.Member.LinkData' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Members.Member.LinkData',
             False, 
             [
             _MetaInfoClassMember('actor-operational-key', ATTRIBUTE, 'int' , None, None, 
@@ -21689,6 +21749,18 @@ _meta_table = {
                 '''                LACP state of this port
                 ''',
                 'actor_port_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address of the actor system
+                ''',
+                'actor_system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                System priority of actor system
+                ''',
+                'actor_system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -21751,8 +21823,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData',
+    'Bundles.Bundles_.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData',
             False, 
             [
             _MetaInfoClassMember('reason-type', REFERENCE_ENUM_CLASS, 'BmStateReasonTargetEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'BmStateReasonTargetEnum', 
@@ -21774,8 +21846,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Members.Member.MemberMuxData' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Members.Member.MemberMuxData',
+    'Bundles.Bundles_.Bundle.Members.Member.MemberMuxData' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Members.Member.MemberMuxData',
             False, 
             [
             _MetaInfoClassMember('error', ATTRIBUTE, 'int' , None, None, 
@@ -21791,7 +21863,7 @@ _meta_table = {
                 ''',
                 'member_mux_state_reason',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData', 
+            _MetaInfoClassMember('member-mux-state-reason-data', REFERENCE_CLASS, 'MemberMuxStateReasonData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData', 
                 [], [], 
                 '''                Data regarding the reason for last Mux state
                 change
@@ -21823,8 +21895,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Members.Member.MacAddress' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Members.Member.MacAddress',
+    'Bundles.Bundles_.Bundle.Members.Member.MacAddress' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Members.Member.MacAddress',
             False, 
             [
             _MetaInfoClassMember('address', ATTRIBUTE, 'str' , None, None, 
@@ -21840,8 +21912,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Members.Member' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Members.Member',
+    'Bundles.Bundles_.Bundle.Members.Member' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Members.Member',
             False, 
             [
             _MetaInfoClassMember('member-interface', ATTRIBUTE, 'str' , None, None, 
@@ -21856,7 +21928,7 @@ _meta_table = {
                 ''',
                 'bandwidth',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.Counters', 
+            _MetaInfoClassMember('counters', REFERENCE_CLASS, 'Counters' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Members.Member.Counters', 
                 [], [], 
                 '''                Counters data about member link
                 ''',
@@ -21874,7 +21946,7 @@ _meta_table = {
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('link-data', REFERENCE_CLASS, 'LinkData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.LinkData', 
+            _MetaInfoClassMember('link-data', REFERENCE_CLASS, 'LinkData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Members.Member.LinkData', 
                 [], [], 
                 '''                Lacp data about member link
                 ''',
@@ -21886,13 +21958,13 @@ _meta_table = {
                 ''',
                 'link_order_number',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.MacAddress', 
+            _MetaInfoClassMember('mac-address', REFERENCE_CLASS, 'MacAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Members.Member.MacAddress', 
                 [], [], 
                 '''                MAC address of this member (deprecated)
                 ''',
                 'mac_address',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member.MemberMuxData', 
+            _MetaInfoClassMember('member-mux-data', REFERENCE_CLASS, 'MemberMuxData' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Members.Member.MemberMuxData', 
                 [], [], 
                 '''                Mux state machine data
                 ''',
@@ -21935,11 +22007,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle.Members' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle.Members',
+    'Bundles.Bundles_.Bundle.Members' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle.Members',
             False, 
             [
-            _MetaInfoClassMember('member', REFERENCE_LIST, 'Member' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members.Member', 
+            _MetaInfoClassMember('member', REFERENCE_LIST, 'Member' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Members.Member', 
                 [], [], 
                 '''                Member information
                 ''',
@@ -21952,8 +22024,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles.Bundle' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles.Bundle',
+    'Bundles.Bundles_.Bundle' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_.Bundle',
             False, 
             [
             _MetaInfoClassMember('bundle-interface', ATTRIBUTE, 'str' , None, None, 
@@ -21962,13 +22034,13 @@ _meta_table = {
                 ''',
                 'bundle_interface',
                 'Cisco-IOS-XR-bundlemgr-oper', True),
-            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Data', 
+            _MetaInfoClassMember('data', REFERENCE_CLASS, 'Data' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Data', 
                 [], [], 
                 '''                Data for each Bundle
                 ''',
                 'data',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
-            _MetaInfoClassMember('members', REFERENCE_CLASS, 'Members' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle.Members', 
+            _MetaInfoClassMember('members', REFERENCE_CLASS, 'Members' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle.Members', 
                 [], [], 
                 '''                Member interface
                 ''',
@@ -21981,11 +22053,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper'
         ),
     },
-    'Bundles.Bundles' : {
-        'meta_info' : _MetaInfoClass('Bundles.Bundles',
+    'Bundles.Bundles_' : {
+        'meta_info' : _MetaInfoClass('Bundles.Bundles_',
             False, 
             [
-            _MetaInfoClassMember('bundle', REFERENCE_LIST, 'Bundle' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles.Bundle', 
+            _MetaInfoClassMember('bundle', REFERENCE_LIST, 'Bundle' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_.Bundle', 
                 [], [], 
                 '''                Bundle interface
                 ''',
@@ -22002,7 +22074,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Bundles',
             False, 
             [
-            _MetaInfoClassMember('bundles', REFERENCE_CLASS, 'Bundles' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles', 
+            _MetaInfoClassMember('bundles', REFERENCE_CLASS, 'Bundles_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_oper', 'Bundles.Bundles_', 
                 [], [], 
                 '''                Per bundle operational data
                 ''',
@@ -22143,6 +22215,18 @@ _meta_table = {
                 '''                LACP state of this port
                 ''',
                 'actor_port_state',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-mac-address', ATTRIBUTE, 'str' , None, None, 
+                [], ['[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'], 
+                '''                MAC Address of the actor system
+                ''',
+                'actor_system_mac_address',
+                'Cisco-IOS-XR-bundlemgr-oper', False),
+            _MetaInfoClassMember('actor-system-priority', ATTRIBUTE, 'int' , None, None, 
+                [('0', '65535')], [], 
+                '''                System priority of the actor system
+                ''',
+                'actor_system_priority',
                 'Cisco-IOS-XR-bundlemgr-oper', False),
             _MetaInfoClassMember('attached-aggregator-id', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -23046,13 +23130,13 @@ _meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGrou
 _meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData.BundleData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData.MlacpTlvCounters']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.NodeData_']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData.BundleData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.IccpGroupData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.IccpGroups.IccpGroup.IccpGroupItem']['meta_info']
@@ -23065,13 +23149,13 @@ _meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.Icc
 _meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData.BundleData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData.MlacpTlvCounters']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.NodeData_']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData.BundleData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.IccpGroupData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Bundles.Bundle.BundleItem.IccpGroup']['meta_info']
@@ -23085,13 +23169,13 @@ _meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroup
 _meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.MlacpSyncRequestsOnAllLocalBundles']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData.BundleData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData.MlacpSyncRequestsOnAllForeignBundles']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_.MlacpSyncRequestsOnAllForeignBundles']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData.MlacpTlvCounters']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData']['meta_info']
-_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.NodeData_']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData.BundleData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.IccpGroupData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem']['meta_info']
 _meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpBundleCounters.Nodes.Node.NodeItem']['meta_info']
@@ -23323,11 +23407,11 @@ _meta_table['BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpG
 _meta_table['BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup.IccpGroupItem']['meta_info'].parent =_meta_table['BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup']['meta_info']
 _meta_table['BundleInformation.MlacpIccpGroupCounters.IccpGroups.IccpGroup']['meta_info'].parent =_meta_table['BundleInformation.MlacpIccpGroupCounters.IccpGroups']['meta_info']
 _meta_table['BundleInformation.MlacpIccpGroupCounters.IccpGroups']['meta_info'].parent =_meta_table['BundleInformation.MlacpIccpGroupCounters']['meta_info']
-_meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId.SystemMacAddr']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId']['meta_info']
-_meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem']['meta_info']
+_meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_.SystemMacAddr']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_']['meta_info']
+_meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem.SystemId_']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem']['meta_info']
 _meta_table['BundleInformation.SystemId.SystemIdGlobal.SystemIdGlobalItem']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdGlobal']['meta_info']
-_meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId.SystemMacAddr']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId']['meta_info']
-_meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem']['meta_info']
+_meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_.SystemMacAddr']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_']['meta_info']
+_meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem.SystemId_']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem']['meta_info']
 _meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup.SystemIdIccpGroupItem']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup']['meta_info']
 _meta_table['BundleInformation.SystemId.SystemIdIccpGroups.SystemIdIccpGroup']['meta_info'].parent =_meta_table['BundleInformation.SystemId.SystemIdIccpGroups']['meta_info']
 _meta_table['BundleInformation.SystemId.SystemIdGlobal']['meta_info'].parent =_meta_table['BundleInformation.SystemId']['meta_info']
@@ -23337,7 +23421,7 @@ _meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGrou
 _meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData.MlacpTlvCounters']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData']['meta_info']
-_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.NodeData_']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData.MemberData']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.IccpGroups.IccpGroup.IccpGroupItem.Items.MemberData.MlacpTlvCounters']['meta_info']
@@ -23353,7 +23437,7 @@ _meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Ite
 _meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData.MlacpTlvCounters']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData']['meta_info']
-_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.NodeData_']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData.MemberData']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Members.Member.MemberItem.Items.MemberData.MlacpTlvCounters']['meta_info']
@@ -23369,7 +23453,7 @@ _meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.Bun
 _meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData.MlacpTlvCounters']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData']['meta_info']
-_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.NodeData_']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData.MemberData']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Bundles.Bundle.BundleItem.MemberData.MlacpTlvCounters']['meta_info']
@@ -23384,7 +23468,7 @@ _meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.Bun
 _meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData.MlacpTlvCounters']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData']['meta_info']
-_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData']['meta_info']
+_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.NodeData_']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MlacpSyncRequestsOnAllForeignPorts']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData.MemberData']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.NodeData']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters.ReceivedSyncRequests']['meta_info'].parent =_meta_table['BundleInformation.MlacpMemberCounters.Nodes.Node.NodeItem.Items.MemberData.MlacpTlvCounters']['meta_info']
@@ -23416,23 +23500,23 @@ _meta_table['BundleInformation.EventsMbr']['meta_info'].parent =_meta_table['Bun
 _meta_table['BundleInformation.MlacpIccpGroupCounters']['meta_info'].parent =_meta_table['BundleInformation']['meta_info']
 _meta_table['BundleInformation.SystemId']['meta_info'].parent =_meta_table['BundleInformation']['meta_info']
 _meta_table['BundleInformation.MlacpMemberCounters']['meta_info'].parent =_meta_table['BundleInformation']['meta_info']
-_meta_table['LacpData.Global.SystemId.SystemId.SystemMacAddr']['meta_info'].parent =_meta_table['LacpData.Global.SystemId.SystemId']['meta_info']
-_meta_table['LacpData.Global.SystemId.SystemId']['meta_info'].parent =_meta_table['LacpData.Global.SystemId']['meta_info']
-_meta_table['LacpData.Global.SystemId']['meta_info'].parent =_meta_table['LacpData.Global']['meta_info']
-_meta_table['LacpData.Global']['meta_info'].parent =_meta_table['LacpData']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Data.BfdConfig.DestinationAddress']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle.Data.BfdConfig']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Data.MacAddress']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle.Data']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Data.BfdConfig']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle.Data']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle.Members.Member.MemberMuxData']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Members.Member.Counters']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle.Members.Member']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Members.Member.LinkData']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle.Members.Member']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Members.Member.MemberMuxData']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle.Members.Member']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Members.Member.MacAddress']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle.Members.Member']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Members.Member']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle.Members']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Data']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle']['meta_info']
-_meta_table['Bundles.Bundles.Bundle.Members']['meta_info'].parent =_meta_table['Bundles.Bundles.Bundle']['meta_info']
-_meta_table['Bundles.Bundles.Bundle']['meta_info'].parent =_meta_table['Bundles.Bundles']['meta_info']
-_meta_table['Bundles.Bundles']['meta_info'].parent =_meta_table['Bundles']['meta_info']
+_meta_table['LacpData.Global_.SystemId.SystemId_.SystemMacAddr']['meta_info'].parent =_meta_table['LacpData.Global_.SystemId.SystemId_']['meta_info']
+_meta_table['LacpData.Global_.SystemId.SystemId_']['meta_info'].parent =_meta_table['LacpData.Global_.SystemId']['meta_info']
+_meta_table['LacpData.Global_.SystemId']['meta_info'].parent =_meta_table['LacpData.Global_']['meta_info']
+_meta_table['LacpData.Global_']['meta_info'].parent =_meta_table['LacpData']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Data.BfdConfig.DestinationAddress']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle.Data.BfdConfig']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Data.MacAddress']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle.Data']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Data.BfdConfig']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle.Data']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Members.Member.MemberMuxData.MemberMuxStateReasonData']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle.Members.Member.MemberMuxData']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Members.Member.Counters']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle.Members.Member']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Members.Member.LinkData']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle.Members.Member']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Members.Member.MemberMuxData']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle.Members.Member']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Members.Member.MacAddress']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle.Members.Member']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Members.Member']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle.Members']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Data']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle.Members']['meta_info'].parent =_meta_table['Bundles.Bundles_.Bundle']['meta_info']
+_meta_table['Bundles.Bundles_.Bundle']['meta_info'].parent =_meta_table['Bundles.Bundles_']['meta_info']
+_meta_table['Bundles.Bundles_']['meta_info'].parent =_meta_table['Bundles']['meta_info']
 _meta_table['LacpBundleMembers.Nodes.Node.Counters']['meta_info'].parent =_meta_table['LacpBundleMembers.Nodes.Node']['meta_info']
 _meta_table['LacpBundleMembers.Nodes.Node']['meta_info'].parent =_meta_table['LacpBundleMembers.Nodes']['meta_info']
 _meta_table['LacpBundleMembers.Members.Member.Data']['meta_info'].parent =_meta_table['LacpBundleMembers.Members.Member']['meta_info']

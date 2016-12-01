@@ -16,110 +16,110 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'DnxQoseaShowActionEnum' : _MetaInfoEnum('DnxQoseaShowActionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'action-none':'ACTION_NONE',
-            'action-transmit':'ACTION_TRANSMIT',
-            'action-drop':'ACTION_DROP',
-            'action-mark':'ACTION_MARK',
+            'action-none':'action_none',
+            'action-transmit':'action_transmit',
+            'action-drop':'action_drop',
+            'action-mark':'action_mark',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'PolicyParamUnitEnum' : _MetaInfoEnum('PolicyParamUnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'policy-param-unit-invalid':'POLICY_PARAM_UNIT_INVALID',
-            'policy-param-unit-bytes':'POLICY_PARAM_UNIT_BYTES',
-            'policy-param-unit-kbytes':'POLICY_PARAM_UNIT_KBYTES',
-            'policy-param-unit-mbytes':'POLICY_PARAM_UNIT_MBYTES',
-            'policy-param-unit-gbytes':'POLICY_PARAM_UNIT_GBYTES',
-            'policy-param-unit-bitsps':'POLICY_PARAM_UNIT_BITSPS',
-            'policy-param-unit-kbitsps':'POLICY_PARAM_UNIT_KBITSPS',
-            'policy-param-unit-mbitsps':'POLICY_PARAM_UNIT_MBITSPS',
-            'policy-param-unit-gbitsps':'POLICY_PARAM_UNIT_GBITSPS',
-            'policy-param-unit-cells-ps':'POLICY_PARAM_UNIT_CELLS_PS',
-            'policy-param-unit-packets-ps':'POLICY_PARAM_UNIT_PACKETS_PS',
-            'policy-param-unit-us':'POLICY_PARAM_UNIT_US',
-            'policy-param-unit-ms':'POLICY_PARAM_UNIT_MS',
-            'policy-param-unit-seconds':'POLICY_PARAM_UNIT_SECONDS',
-            'policy-param-unit-packets':'POLICY_PARAM_UNIT_PACKETS',
-            'policy-param-unit-cells':'POLICY_PARAM_UNIT_CELLS',
-            'policy-param-unit-percent':'POLICY_PARAM_UNIT_PERCENT',
-            'policy-param-unit-per-thousand':'POLICY_PARAM_UNIT_PER_THOUSAND',
-            'policy-param-unit-per-million':'POLICY_PARAM_UNIT_PER_MILLION',
-            'policy-param-unit-hz':'POLICY_PARAM_UNIT_HZ',
-            'policy-param-unit-khz':'POLICY_PARAM_UNIT_KHZ',
-            'policy-param-unit-mhz':'POLICY_PARAM_UNIT_MHZ',
-            'policy-param-unit-ratio':'POLICY_PARAM_UNIT_RATIO',
-            'policy-param-unit-max':'POLICY_PARAM_UNIT_MAX',
+            'policy-param-unit-invalid':'policy_param_unit_invalid',
+            'policy-param-unit-bytes':'policy_param_unit_bytes',
+            'policy-param-unit-kbytes':'policy_param_unit_kbytes',
+            'policy-param-unit-mbytes':'policy_param_unit_mbytes',
+            'policy-param-unit-gbytes':'policy_param_unit_gbytes',
+            'policy-param-unit-bitsps':'policy_param_unit_bitsps',
+            'policy-param-unit-kbitsps':'policy_param_unit_kbitsps',
+            'policy-param-unit-mbitsps':'policy_param_unit_mbitsps',
+            'policy-param-unit-gbitsps':'policy_param_unit_gbitsps',
+            'policy-param-unit-cells-ps':'policy_param_unit_cells_ps',
+            'policy-param-unit-packets-ps':'policy_param_unit_packets_ps',
+            'policy-param-unit-us':'policy_param_unit_us',
+            'policy-param-unit-ms':'policy_param_unit_ms',
+            'policy-param-unit-seconds':'policy_param_unit_seconds',
+            'policy-param-unit-packets':'policy_param_unit_packets',
+            'policy-param-unit-cells':'policy_param_unit_cells',
+            'policy-param-unit-percent':'policy_param_unit_percent',
+            'policy-param-unit-per-thousand':'policy_param_unit_per_thousand',
+            'policy-param-unit-per-million':'policy_param_unit_per_million',
+            'policy-param-unit-hz':'policy_param_unit_hz',
+            'policy-param-unit-khz':'policy_param_unit_khz',
+            'policy-param-unit-mhz':'policy_param_unit_mhz',
+            'policy-param-unit-ratio':'policy_param_unit_ratio',
+            'policy-param-unit-max':'policy_param_unit_max',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'DnxQoseaShowWredEnum' : _MetaInfoEnum('DnxQoseaShowWredEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'wred-cos':'WRED_COS',
-            'wred-dscp':'WRED_DSCP',
-            'wred-precedence':'WRED_PRECEDENCE',
-            'wred-discard-class':'WRED_DISCARD_CLASS',
-            'wred-mpls-exp':'WRED_MPLS_EXP',
-            'red-with-user-min-max':'RED_WITH_USER_MIN_MAX',
-            'red-with-default-min-max':'RED_WITH_DEFAULT_MIN_MAX',
-            'wred-invalid':'WRED_INVALID',
+            'wred-cos':'wred_cos',
+            'wred-dscp':'wred_dscp',
+            'wred-precedence':'wred_precedence',
+            'wred-discard-class':'wred_discard_class',
+            'wred-mpls-exp':'wred_mpls_exp',
+            'red-with-user-min-max':'red_with_user_min_max',
+            'red-with-default-min-max':'red_with_default_min_max',
+            'wred-invalid':'wred_invalid',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'DnxQoseaShowHpLevelEnum' : _MetaInfoEnum('DnxQoseaShowHpLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'high-priority-level1':'HIGH_PRIORITY_LEVEL1',
-            'high-priority-level2':'HIGH_PRIORITY_LEVEL2',
-            'high-priority-level3':'HIGH_PRIORITY_LEVEL3',
-            'high-priority-level4':'HIGH_PRIORITY_LEVEL4',
-            'high-priority-level5':'HIGH_PRIORITY_LEVEL5',
-            'high-priority-level6':'HIGH_PRIORITY_LEVEL6',
-            'high-priority-level7':'HIGH_PRIORITY_LEVEL7',
-            'unknown':'UNKNOWN',
+            'high-priority-level1':'high_priority_level1',
+            'high-priority-level2':'high_priority_level2',
+            'high-priority-level3':'high_priority_level3',
+            'high-priority-level4':'high_priority_level4',
+            'high-priority-level5':'high_priority_level5',
+            'high-priority-level6':'high_priority_level6',
+            'high-priority-level7':'high_priority_level7',
+            'unknown':'unknown',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'QosPolicyAccountEnumEnum' : _MetaInfoEnum('QosPolicyAccountEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'qos-serv-policy-no-ac-count-pref':'QOS_SERV_POLICY_NO_AC_COUNT_PREF',
-            'qos-serv-policy-ac-count-l2':'QOS_SERV_POLICY_AC_COUNT_L2',
-            'qos-serv-policy-no-ac-count-l2':'QOS_SERV_POLICY_NO_AC_COUNT_L2',
-            'qos-serv-policy-ac-count-user-def':'QOS_SERV_POLICY_AC_COUNT_USER_DEF',
-            'qos-serv-policy-ac-count-l1':'QOS_SERV_POLICY_AC_COUNT_L1',
+            'qos-serv-policy-no-ac-count-pref':'qos_serv_policy_no_ac_count_pref',
+            'qos-serv-policy-ac-count-l2':'qos_serv_policy_ac_count_l2',
+            'qos-serv-policy-no-ac-count-l2':'qos_serv_policy_no_ac_count_l2',
+            'qos-serv-policy-ac-count-user-def':'qos_serv_policy_ac_count_user_def',
+            'qos-serv-policy-ac-count-l1':'qos_serv_policy_ac_count_l1',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'DnxQoseaShowMarkEnum' : _MetaInfoEnum('DnxQoseaShowMarkEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'mark-none':'MARK_NONE',
-            'dscp':'DSCP',
-            'precedence':'PRECEDENCE',
-            'mpls-topmost':'MPLS_TOPMOST',
-            'mpls-imposition':'MPLS_IMPOSITION',
-            'qos-group':'QOS_GROUP',
-            'discard-class':'DISCARD_CLASS',
-            'cos':'COS',
-            'inner-cos':'INNER_COS',
-            'un-supported9':'UN_SUPPORTED9',
-            'un-supported10':'UN_SUPPORTED10',
-            'dscp-tunnel':'DSCP_TUNNEL',
-            'precedence-tunnel':'PRECEDENCE_TUNNEL',
-            'dei':'DEI',
-            'dei-imposition':'DEI_IMPOSITION',
+            'mark-none':'mark_none',
+            'dscp':'dscp',
+            'precedence':'precedence',
+            'mpls-topmost':'mpls_topmost',
+            'mpls-imposition':'mpls_imposition',
+            'qos-group':'qos_group',
+            'discard-class':'discard_class',
+            'cos':'cos',
+            'inner-cos':'inner_cos',
+            'un-supported9':'un_supported9',
+            'un-supported10':'un_supported10',
+            'dscp-tunnel':'dscp_tunnel',
+            'precedence-tunnel':'precedence_tunnel',
+            'dei':'dei',
+            'dei-imposition':'dei_imposition',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'DnxQoseaShowPolicyStatusEnum' : _MetaInfoEnum('DnxQoseaShowPolicyStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'no-error':'NO_ERROR',
-            'policy-in-reset':'POLICY_IN_RESET',
+            'no-error':'no_error',
+            'policy-in-reset':'policy_in_reset',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'DnxQoseaShowIntfStatusEnum' : _MetaInfoEnum('DnxQoseaShowIntfStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'state-unknown':'STATE_UNKNOWN',
-            'state-down':'STATE_DOWN',
+            'state-unknown':'state_unknown',
+            'state-down':'state_down',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'DnxQoseaShowLevelEnum' : _MetaInfoEnum('DnxQoseaShowLevelEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'level1':'LEVEL1',
-            'level2':'LEVEL2',
-            'level3':'LEVEL3',
-            'level4':'LEVEL4',
-            'level5':'LEVEL5',
+            'level1':'level1',
+            'level2':'level2',
+            'level3':'level3',
+            'level4':'level4',
+            'level5':'level5',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'DnxQoseaShowQueueEnum' : _MetaInfoEnum('DnxQoseaShowQueueEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper',
         {
-            'low-priority-default-queue':'LOW_PRIORITY_DEFAULT_QUEUE',
-            'low-priority-queue':'LOW_PRIORITY_QUEUE',
-            'high-priority-queue':'HIGH_PRIORITY_QUEUE',
-            'unknown-queue-type':'UNKNOWN_QUEUE_TYPE',
+            'low-priority-default-queue':'low_priority_default_queue',
+            'low-priority-queue':'low_priority_queue',
+            'high-priority-queue':'high_priority_queue',
+            'unknown-queue-type':'unknown_queue_type',
         }, 'Cisco-IOS-XR-ncs5500-qos-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs5500-qos-oper']),
     'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails' : {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails',
@@ -192,8 +192,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -215,8 +215,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -238,8 +238,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -261,8 +261,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -284,8 +284,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -307,8 +307,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -330,8 +330,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -353,8 +353,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -376,8 +376,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction',
             False, 
             [
             _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
@@ -386,7 +386,7 @@ _meta_table = {
                 ''',
                 'action_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark', 
+            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark', 
                 [], [], 
                 '''                Action mark
                 ''',
@@ -399,8 +399,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -422,8 +422,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction',
             False, 
             [
             _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
@@ -432,7 +432,7 @@ _meta_table = {
                 ''',
                 'action_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark', 
+            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark', 
                 [], [], 
                 '''                Action mark
                 ''',
@@ -445,8 +445,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -468,8 +468,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction',
             False, 
             [
             _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
@@ -478,7 +478,7 @@ _meta_table = {
                 ''',
                 'action_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark', 
+            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark', 
                 [], [], 
                 '''                Action mark
                 ''',
@@ -491,8 +491,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -514,8 +514,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -537,8 +537,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -560,8 +560,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue',
             False, 
             [
             _MetaInfoClassMember('range-end', ATTRIBUTE, 'int' , None, None, 
@@ -583,11 +583,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue',
             False, 
             [
-            _MetaInfoClassMember('dnx-qosea-show-red-match-value', REFERENCE_LIST, 'DnxQoseaShowRedMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue', 
+            _MetaInfoClassMember('dnx-qosea-show-red-match-value', REFERENCE_LIST, 'DnxQoseaShowRedMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue', 
                 [], [], 
                 '''                dnx qosea show red match value
                 ''',
@@ -600,8 +600,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -623,8 +623,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -646,17 +646,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred',
             False, 
             [
-            _MetaInfoClassMember('config-max-threshold', REFERENCE_CLASS, 'ConfigMaxThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold', 
+            _MetaInfoClassMember('config-max-threshold', REFERENCE_CLASS, 'ConfigMaxThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold', 
                 [], [], 
                 '''                Configured maximum threshold
                 ''',
                 'config_max_threshold',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-min-threshold', REFERENCE_CLASS, 'ConfigMinThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold', 
+            _MetaInfoClassMember('config-min-threshold', REFERENCE_CLASS, 'ConfigMinThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold', 
                 [], [], 
                 '''                Configured minimum threshold
                 ''',
@@ -692,7 +692,7 @@ _meta_table = {
                 ''',
                 'wred_match_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('wred-match-value', REFERENCE_CLASS, 'WredMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue', 
+            _MetaInfoClassMember('wred-match-value', REFERENCE_CLASS, 'WredMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue', 
                 [], [], 
                 '''                WRED match values
                 ''',
@@ -705,8 +705,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_',
             False, 
             [
             _MetaInfoClassMember('level-one-class-name', ATTRIBUTE, 'str' , None, None, 
@@ -721,7 +721,7 @@ _meta_table = {
                 ''',
                 'class_level',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('common-mark', REFERENCE_LIST, 'CommonMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark', 
+            _MetaInfoClassMember('common-mark', REFERENCE_LIST, 'CommonMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark', 
                 [], [], 
                 '''                Common mark
                 ''',
@@ -739,49 +739,49 @@ _meta_table = {
                 ''',
                 'config_excess_bandwidth_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-max-rate', REFERENCE_CLASS, 'ConfigMaxRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate', 
+            _MetaInfoClassMember('config-max-rate', REFERENCE_CLASS, 'ConfigMaxRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate', 
                 [], [], 
                 '''                Configured maximum rate
                 ''',
                 'config_max_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-min-rate', REFERENCE_CLASS, 'ConfigMinRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate', 
+            _MetaInfoClassMember('config-min-rate', REFERENCE_CLASS, 'ConfigMinRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate', 
                 [], [], 
                 '''                Configured minimum rate
                 ''',
                 'config_min_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-average-rate', REFERENCE_CLASS, 'ConfigPolicerAverageRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate', 
+            _MetaInfoClassMember('config-policer-average-rate', REFERENCE_CLASS, 'ConfigPolicerAverageRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate', 
                 [], [], 
                 '''                Configured policer average rate
                 ''',
                 'config_policer_average_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-conform-burst', REFERENCE_CLASS, 'ConfigPolicerConformBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst', 
+            _MetaInfoClassMember('config-policer-conform-burst', REFERENCE_CLASS, 'ConfigPolicerConformBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst', 
                 [], [], 
                 '''                Configured policer conform burst
                 ''',
                 'config_policer_conform_burst',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-excess-burst', REFERENCE_CLASS, 'ConfigPolicerExcessBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst', 
+            _MetaInfoClassMember('config-policer-excess-burst', REFERENCE_CLASS, 'ConfigPolicerExcessBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst', 
                 [], [], 
                 '''                Configured policer excess burst
                 ''',
                 'config_policer_excess_burst',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-peak-rate', REFERENCE_CLASS, 'ConfigPolicerPeakRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate', 
+            _MetaInfoClassMember('config-policer-peak-rate', REFERENCE_CLASS, 'ConfigPolicerPeakRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate', 
                 [], [], 
                 '''                Config policer peak rate
                 ''',
                 'config_policer_peak_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-queue-limit', REFERENCE_CLASS, 'ConfigQueueLimit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit', 
+            _MetaInfoClassMember('config-queue-limit', REFERENCE_CLASS, 'ConfigQueueLimit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit', 
                 [], [], 
                 '''                Configured queue limit
                 ''',
                 'config_queue_limit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('conform-action', REFERENCE_CLASS, 'ConformAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction', 
+            _MetaInfoClassMember('conform-action', REFERENCE_CLASS, 'ConformAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction', 
                 [], [], 
                 '''                Conform action
                 ''',
@@ -793,7 +793,7 @@ _meta_table = {
                 ''',
                 'egress_queue_id',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('exceed-action', REFERENCE_CLASS, 'ExceedAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction', 
+            _MetaInfoClassMember('exceed-action', REFERENCE_CLASS, 'ExceedAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction', 
                 [], [], 
                 '''                Exceed action
                 ''',
@@ -853,7 +853,7 @@ _meta_table = {
                 ''',
                 'hardware_queue_limit_microseconds',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('ip-mark', REFERENCE_LIST, 'IpMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark', 
+            _MetaInfoClassMember('ip-mark', REFERENCE_LIST, 'IpMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark', 
                 [], [], 
                 '''                IP mark
                 ''',
@@ -865,7 +865,7 @@ _meta_table = {
                 ''',
                 'level_two_class_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mpls-mark', REFERENCE_LIST, 'MplsMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark', 
+            _MetaInfoClassMember('mpls-mark', REFERENCE_LIST, 'MplsMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark', 
                 [], [], 
                 '''                MPLS mark
                 ''',
@@ -901,13 +901,13 @@ _meta_table = {
                 ''',
                 'queue_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('violate-action', REFERENCE_CLASS, 'ViolateAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction', 
+            _MetaInfoClassMember('violate-action', REFERENCE_CLASS, 'ViolateAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction', 
                 [], [], 
                 '''                Violate action
                 ''',
                 'violate_action',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('wred', REFERENCE_LIST, 'Wred' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred', 
+            _MetaInfoClassMember('wred', REFERENCE_LIST, 'Wred' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred', 
                 [], [], 
                 '''                WRED parameters
                 ''',
@@ -924,7 +924,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes',
             False, 
             [
-            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class', 
+            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_', 
                 [], [], 
                 '''                QoS policy class
                 ''',
@@ -1054,8 +1054,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1077,8 +1077,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1100,8 +1100,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1123,8 +1123,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1146,8 +1146,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1169,8 +1169,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1192,8 +1192,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1215,8 +1215,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -1238,8 +1238,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction',
             False, 
             [
             _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
@@ -1248,7 +1248,7 @@ _meta_table = {
                 ''',
                 'action_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark', 
+            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark', 
                 [], [], 
                 '''                Action mark
                 ''',
@@ -1261,8 +1261,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -1284,8 +1284,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction',
             False, 
             [
             _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
@@ -1294,7 +1294,7 @@ _meta_table = {
                 ''',
                 'action_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark', 
+            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark', 
                 [], [], 
                 '''                Action mark
                 ''',
@@ -1307,8 +1307,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -1330,8 +1330,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction',
             False, 
             [
             _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
@@ -1340,7 +1340,7 @@ _meta_table = {
                 ''',
                 'action_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark', 
+            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark', 
                 [], [], 
                 '''                Action mark
                 ''',
@@ -1353,8 +1353,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -1376,8 +1376,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -1399,8 +1399,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -1422,8 +1422,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue',
             False, 
             [
             _MetaInfoClassMember('range-end', ATTRIBUTE, 'int' , None, None, 
@@ -1445,11 +1445,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue',
             False, 
             [
-            _MetaInfoClassMember('dnx-qosea-show-red-match-value', REFERENCE_LIST, 'DnxQoseaShowRedMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue', 
+            _MetaInfoClassMember('dnx-qosea-show-red-match-value', REFERENCE_LIST, 'DnxQoseaShowRedMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue', 
                 [], [], 
                 '''                dnx qosea show red match value
                 ''',
@@ -1462,8 +1462,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1485,8 +1485,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1508,17 +1508,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred',
             False, 
             [
-            _MetaInfoClassMember('config-max-threshold', REFERENCE_CLASS, 'ConfigMaxThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold', 
+            _MetaInfoClassMember('config-max-threshold', REFERENCE_CLASS, 'ConfigMaxThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold', 
                 [], [], 
                 '''                Configured maximum threshold
                 ''',
                 'config_max_threshold',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-min-threshold', REFERENCE_CLASS, 'ConfigMinThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold', 
+            _MetaInfoClassMember('config-min-threshold', REFERENCE_CLASS, 'ConfigMinThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold', 
                 [], [], 
                 '''                Configured minimum threshold
                 ''',
@@ -1554,7 +1554,7 @@ _meta_table = {
                 ''',
                 'wred_match_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('wred-match-value', REFERENCE_CLASS, 'WredMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue', 
+            _MetaInfoClassMember('wred-match-value', REFERENCE_CLASS, 'WredMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue', 
                 [], [], 
                 '''                WRED match values
                 ''',
@@ -1567,8 +1567,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class',
+    'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_',
             False, 
             [
             _MetaInfoClassMember('level-one-class-name', ATTRIBUTE, 'str' , None, None, 
@@ -1583,7 +1583,7 @@ _meta_table = {
                 ''',
                 'class_level',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('common-mark', REFERENCE_LIST, 'CommonMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark', 
+            _MetaInfoClassMember('common-mark', REFERENCE_LIST, 'CommonMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark', 
                 [], [], 
                 '''                Common mark
                 ''',
@@ -1601,49 +1601,49 @@ _meta_table = {
                 ''',
                 'config_excess_bandwidth_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-max-rate', REFERENCE_CLASS, 'ConfigMaxRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate', 
+            _MetaInfoClassMember('config-max-rate', REFERENCE_CLASS, 'ConfigMaxRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate', 
                 [], [], 
                 '''                Configured maximum rate
                 ''',
                 'config_max_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-min-rate', REFERENCE_CLASS, 'ConfigMinRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate', 
+            _MetaInfoClassMember('config-min-rate', REFERENCE_CLASS, 'ConfigMinRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate', 
                 [], [], 
                 '''                Configured minimum rate
                 ''',
                 'config_min_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-average-rate', REFERENCE_CLASS, 'ConfigPolicerAverageRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate', 
+            _MetaInfoClassMember('config-policer-average-rate', REFERENCE_CLASS, 'ConfigPolicerAverageRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate', 
                 [], [], 
                 '''                Configured policer average rate
                 ''',
                 'config_policer_average_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-conform-burst', REFERENCE_CLASS, 'ConfigPolicerConformBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst', 
+            _MetaInfoClassMember('config-policer-conform-burst', REFERENCE_CLASS, 'ConfigPolicerConformBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst', 
                 [], [], 
                 '''                Configured policer conform burst
                 ''',
                 'config_policer_conform_burst',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-excess-burst', REFERENCE_CLASS, 'ConfigPolicerExcessBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst', 
+            _MetaInfoClassMember('config-policer-excess-burst', REFERENCE_CLASS, 'ConfigPolicerExcessBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst', 
                 [], [], 
                 '''                Configured policer excess burst
                 ''',
                 'config_policer_excess_burst',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-peak-rate', REFERENCE_CLASS, 'ConfigPolicerPeakRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate', 
+            _MetaInfoClassMember('config-policer-peak-rate', REFERENCE_CLASS, 'ConfigPolicerPeakRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate', 
                 [], [], 
                 '''                Config policer peak rate
                 ''',
                 'config_policer_peak_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-queue-limit', REFERENCE_CLASS, 'ConfigQueueLimit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit', 
+            _MetaInfoClassMember('config-queue-limit', REFERENCE_CLASS, 'ConfigQueueLimit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit', 
                 [], [], 
                 '''                Configured queue limit
                 ''',
                 'config_queue_limit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('conform-action', REFERENCE_CLASS, 'ConformAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction', 
+            _MetaInfoClassMember('conform-action', REFERENCE_CLASS, 'ConformAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction', 
                 [], [], 
                 '''                Conform action
                 ''',
@@ -1655,7 +1655,7 @@ _meta_table = {
                 ''',
                 'egress_queue_id',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('exceed-action', REFERENCE_CLASS, 'ExceedAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction', 
+            _MetaInfoClassMember('exceed-action', REFERENCE_CLASS, 'ExceedAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction', 
                 [], [], 
                 '''                Exceed action
                 ''',
@@ -1715,7 +1715,7 @@ _meta_table = {
                 ''',
                 'hardware_queue_limit_microseconds',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('ip-mark', REFERENCE_LIST, 'IpMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark', 
+            _MetaInfoClassMember('ip-mark', REFERENCE_LIST, 'IpMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark', 
                 [], [], 
                 '''                IP mark
                 ''',
@@ -1727,7 +1727,7 @@ _meta_table = {
                 ''',
                 'level_two_class_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mpls-mark', REFERENCE_LIST, 'MplsMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark', 
+            _MetaInfoClassMember('mpls-mark', REFERENCE_LIST, 'MplsMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark', 
                 [], [], 
                 '''                MPLS mark
                 ''',
@@ -1763,13 +1763,13 @@ _meta_table = {
                 ''',
                 'queue_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('violate-action', REFERENCE_CLASS, 'ViolateAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction', 
+            _MetaInfoClassMember('violate-action', REFERENCE_CLASS, 'ViolateAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction', 
                 [], [], 
                 '''                Violate action
                 ''',
                 'violate_action',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('wred', REFERENCE_LIST, 'Wred' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred', 
+            _MetaInfoClassMember('wred', REFERENCE_LIST, 'Wred' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred', 
                 [], [], 
                 '''                WRED parameters
                 ''',
@@ -1786,7 +1786,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes',
             False, 
             [
-            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class', 
+            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_', 
                 [], [], 
                 '''                QoS policy class
                 ''',
@@ -1935,8 +1935,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1958,8 +1958,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -1981,8 +1981,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -2004,8 +2004,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -2027,8 +2027,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -2050,8 +2050,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -2073,8 +2073,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -2096,8 +2096,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -2119,8 +2119,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction',
             False, 
             [
             _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
@@ -2129,7 +2129,7 @@ _meta_table = {
                 ''',
                 'action_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark', 
+            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark', 
                 [], [], 
                 '''                Action mark
                 ''',
@@ -2142,8 +2142,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -2165,8 +2165,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction',
             False, 
             [
             _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
@@ -2175,7 +2175,7 @@ _meta_table = {
                 ''',
                 'action_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark', 
+            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark', 
                 [], [], 
                 '''                Action mark
                 ''',
@@ -2188,8 +2188,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -2211,8 +2211,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction',
             False, 
             [
             _MetaInfoClassMember('action-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowActionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowActionEnum', 
@@ -2221,7 +2221,7 @@ _meta_table = {
                 ''',
                 'action_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark', 
+            _MetaInfoClassMember('mark', REFERENCE_LIST, 'Mark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark', 
                 [], [], 
                 '''                Action mark
                 ''',
@@ -2234,8 +2234,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -2257,8 +2257,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -2280,8 +2280,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark',
             False, 
             [
             _MetaInfoClassMember('mark-type', REFERENCE_ENUM_CLASS, 'DnxQoseaShowMarkEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'DnxQoseaShowMarkEnum', 
@@ -2303,8 +2303,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue',
             False, 
             [
             _MetaInfoClassMember('range-end', ATTRIBUTE, 'int' , None, None, 
@@ -2326,11 +2326,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue',
             False, 
             [
-            _MetaInfoClassMember('dnx-qosea-show-red-match-value', REFERENCE_LIST, 'DnxQoseaShowRedMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue', 
+            _MetaInfoClassMember('dnx-qosea-show-red-match-value', REFERENCE_LIST, 'DnxQoseaShowRedMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue', 
                 [], [], 
                 '''                dnx qosea show red match value
                 ''',
@@ -2343,8 +2343,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -2366,8 +2366,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold',
             False, 
             [
             _MetaInfoClassMember('policy-unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PolicyParamUnitEnum', 
@@ -2389,17 +2389,17 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred',
             False, 
             [
-            _MetaInfoClassMember('config-max-threshold', REFERENCE_CLASS, 'ConfigMaxThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold', 
+            _MetaInfoClassMember('config-max-threshold', REFERENCE_CLASS, 'ConfigMaxThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold', 
                 [], [], 
                 '''                Configured maximum threshold
                 ''',
                 'config_max_threshold',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-min-threshold', REFERENCE_CLASS, 'ConfigMinThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold', 
+            _MetaInfoClassMember('config-min-threshold', REFERENCE_CLASS, 'ConfigMinThreshold' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold', 
                 [], [], 
                 '''                Configured minimum threshold
                 ''',
@@ -2435,7 +2435,7 @@ _meta_table = {
                 ''',
                 'wred_match_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('wred-match-value', REFERENCE_CLASS, 'WredMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue', 
+            _MetaInfoClassMember('wred-match-value', REFERENCE_CLASS, 'WredMatchValue' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue', 
                 [], [], 
                 '''                WRED match values
                 ''',
@@ -2448,8 +2448,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper'
         ),
     },
-    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class' : {
-        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class',
+    'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_' : {
+        'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_',
             False, 
             [
             _MetaInfoClassMember('level-one-class-name', ATTRIBUTE, 'str' , None, None, 
@@ -2464,7 +2464,7 @@ _meta_table = {
                 ''',
                 'class_level',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('common-mark', REFERENCE_LIST, 'CommonMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark', 
+            _MetaInfoClassMember('common-mark', REFERENCE_LIST, 'CommonMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark', 
                 [], [], 
                 '''                Common mark
                 ''',
@@ -2482,49 +2482,49 @@ _meta_table = {
                 ''',
                 'config_excess_bandwidth_unit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-max-rate', REFERENCE_CLASS, 'ConfigMaxRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate', 
+            _MetaInfoClassMember('config-max-rate', REFERENCE_CLASS, 'ConfigMaxRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate', 
                 [], [], 
                 '''                Configured maximum rate
                 ''',
                 'config_max_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-min-rate', REFERENCE_CLASS, 'ConfigMinRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate', 
+            _MetaInfoClassMember('config-min-rate', REFERENCE_CLASS, 'ConfigMinRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate', 
                 [], [], 
                 '''                Configured minimum rate
                 ''',
                 'config_min_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-average-rate', REFERENCE_CLASS, 'ConfigPolicerAverageRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate', 
+            _MetaInfoClassMember('config-policer-average-rate', REFERENCE_CLASS, 'ConfigPolicerAverageRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate', 
                 [], [], 
                 '''                Configured policer average rate
                 ''',
                 'config_policer_average_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-conform-burst', REFERENCE_CLASS, 'ConfigPolicerConformBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst', 
+            _MetaInfoClassMember('config-policer-conform-burst', REFERENCE_CLASS, 'ConfigPolicerConformBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst', 
                 [], [], 
                 '''                Configured policer conform burst
                 ''',
                 'config_policer_conform_burst',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-excess-burst', REFERENCE_CLASS, 'ConfigPolicerExcessBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst', 
+            _MetaInfoClassMember('config-policer-excess-burst', REFERENCE_CLASS, 'ConfigPolicerExcessBurst' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst', 
                 [], [], 
                 '''                Configured policer excess burst
                 ''',
                 'config_policer_excess_burst',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-policer-peak-rate', REFERENCE_CLASS, 'ConfigPolicerPeakRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate', 
+            _MetaInfoClassMember('config-policer-peak-rate', REFERENCE_CLASS, 'ConfigPolicerPeakRate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate', 
                 [], [], 
                 '''                Config policer peak rate
                 ''',
                 'config_policer_peak_rate',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('config-queue-limit', REFERENCE_CLASS, 'ConfigQueueLimit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit', 
+            _MetaInfoClassMember('config-queue-limit', REFERENCE_CLASS, 'ConfigQueueLimit' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit', 
                 [], [], 
                 '''                Configured queue limit
                 ''',
                 'config_queue_limit',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('conform-action', REFERENCE_CLASS, 'ConformAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction', 
+            _MetaInfoClassMember('conform-action', REFERENCE_CLASS, 'ConformAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction', 
                 [], [], 
                 '''                Conform action
                 ''',
@@ -2536,7 +2536,7 @@ _meta_table = {
                 ''',
                 'egress_queue_id',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('exceed-action', REFERENCE_CLASS, 'ExceedAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction', 
+            _MetaInfoClassMember('exceed-action', REFERENCE_CLASS, 'ExceedAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction', 
                 [], [], 
                 '''                Exceed action
                 ''',
@@ -2596,7 +2596,7 @@ _meta_table = {
                 ''',
                 'hardware_queue_limit_microseconds',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('ip-mark', REFERENCE_LIST, 'IpMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark', 
+            _MetaInfoClassMember('ip-mark', REFERENCE_LIST, 'IpMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark', 
                 [], [], 
                 '''                IP mark
                 ''',
@@ -2608,7 +2608,7 @@ _meta_table = {
                 ''',
                 'level_two_class_name',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('mpls-mark', REFERENCE_LIST, 'MplsMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark', 
+            _MetaInfoClassMember('mpls-mark', REFERENCE_LIST, 'MplsMark' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark', 
                 [], [], 
                 '''                MPLS mark
                 ''',
@@ -2644,13 +2644,13 @@ _meta_table = {
                 ''',
                 'queue_type',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('violate-action', REFERENCE_CLASS, 'ViolateAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction', 
+            _MetaInfoClassMember('violate-action', REFERENCE_CLASS, 'ViolateAction' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction', 
                 [], [], 
                 '''                Violate action
                 ''',
                 'violate_action',
                 'Cisco-IOS-XR-ncs5500-qos-oper', False),
-            _MetaInfoClassMember('wred', REFERENCE_LIST, 'Wred' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred', 
+            _MetaInfoClassMember('wred', REFERENCE_LIST, 'Wred' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred', 
                 [], [], 
                 '''                WRED parameters
                 ''',
@@ -2667,7 +2667,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('PlatformQos.Nodes.Node.Interfaces.Interface.Classes',
             False, 
             [
-            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class', 
+            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper', 'PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_', 
                 [], [], 
                 '''                QoS policy class
                 ''',
@@ -2985,79 +2985,79 @@ _meta_table = {
         ),
     },
 }
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.WredMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMinThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMaxRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigMinRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigQueueLimit']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerAverageRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerPeakRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerConformBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConfigPolicerExcessBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ConformAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ExceedAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.ViolateAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.IpMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.CommonMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.MplsMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class.Wred']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.WredMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMinThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred.ConfigMaxThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMaxRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigMinRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigQueueLimit']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerAverageRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerPeakRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerConformBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConfigPolicerExcessBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ConformAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ExceedAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.ViolateAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.IpMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.CommonMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.MplsMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_.Wred']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes.Class_']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.PolicyDetails']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.Classes']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.WredMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMinThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMaxRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigMinRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigQueueLimit']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerAverageRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerPeakRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerConformBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConfigPolicerExcessBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ConformAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ExceedAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.ViolateAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.IpMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.CommonMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.MplsMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class.Wred']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.WredMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMinThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred.ConfigMaxThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMaxRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigMinRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigQueueLimit']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerAverageRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerPeakRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerConformBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConfigPolicerExcessBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ConformAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ExceedAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.ViolateAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.IpMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.CommonMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.MplsMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_.Wred']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes.Class_']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.PolicyDetails']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.Classes']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.BundleInterfaces']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.WredMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMinThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred.ConfigMaxThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMaxRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigMinRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigQueueLimit']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerAverageRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerPeakRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerConformBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConfigPolicerExcessBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ConformAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ExceedAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.ViolateAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.IpMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.CommonMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.MplsMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class.Wred']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info']
-_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction.Mark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue.DnxQoseaShowRedMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.WredMatchValue']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMinThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred.ConfigMaxThreshold']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMaxRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigMinRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigQueueLimit']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerAverageRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerPeakRate']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerConformBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConfigPolicerExcessBurst']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ConformAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ExceedAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.ViolateAction']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.IpMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.CommonMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.MplsMark']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_.Wred']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info']
+_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes.Class_']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.PolicyDetails']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.Interfaces.Interface.Classes']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces.Interface']['meta_info']
 _meta_table['PlatformQos.Nodes.Node.Interfaces.Interface']['meta_info'].parent =_meta_table['PlatformQos.Nodes.Node.Interfaces']['meta_info']

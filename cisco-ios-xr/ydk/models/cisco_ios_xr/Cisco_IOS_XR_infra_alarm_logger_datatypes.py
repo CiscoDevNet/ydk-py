@@ -26,49 +26,49 @@ class AlarmLoggerSeverityLevelEnum(Enum):
 
     Alarm logger severity level
 
-    .. data:: EMERGENCY = 0
+    .. data:: emergency = 0
 
     	Emergency
 
-    .. data:: ALERT = 1
+    .. data:: alert = 1
 
     	Alert
 
-    .. data:: CRITICAL = 2
+    .. data:: critical = 2
 
     	Critical
 
-    .. data:: ERROR = 3
+    .. data:: error = 3
 
     	Error
 
-    .. data:: WARNING = 4
+    .. data:: warning = 4
 
     	Warning
 
-    .. data:: NOTICE = 5
+    .. data:: notice = 5
 
     	Notice
 
-    .. data:: INFORMATIONAL = 6
+    .. data:: informational = 6
 
     	Informational
 
     """
 
-    EMERGENCY = 0
+    emergency = 0
 
-    ALERT = 1
+    alert = 1
 
-    CRITICAL = 2
+    critical = 2
 
-    ERROR = 3
+    error = 3
 
-    WARNING = 4
+    warning = 4
 
-    NOTICE = 5
+    notice = 5
 
-    INFORMATIONAL = 6
+    informational = 6
 
 
     @staticmethod

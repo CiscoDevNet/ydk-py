@@ -31,13 +31,13 @@ class IccpModeEnum(Enum):
 
     Iccp mode
 
-    .. data:: SINGLETON = 1
+    .. data:: singleton = 1
 
     	Run the ICCP group in Singleton mode
 
     """
 
-    SINGLETON = 1
+    singleton = 1
 
 
     @staticmethod
@@ -54,17 +54,17 @@ class RedundancyGroupManager(object):
     .. attribute:: aps
     
     	MR\-APS groups
-    	**type**\:  :py:class:`Aps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps>`
+    	**type**\:   :py:class:`Aps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps>`
     
     .. attribute:: enable
     
     	Enable redundancy group manager
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: iccp
     
     	ICCP configuration
-    	**type**\:  :py:class:`Iccp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp>`
+    	**type**\:   :py:class:`Iccp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp>`
     
     
 
@@ -88,12 +88,12 @@ class RedundancyGroupManager(object):
         .. attribute:: default_redundancy_group
         
         	Default SONET controller backup configuration
-        	**type**\:  :py:class:`DefaultRedundancyGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.DefaultRedundancyGroup>`
+        	**type**\:   :py:class:`DefaultRedundancyGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.DefaultRedundancyGroup>`
         
         .. attribute:: groups
         
         	Redundancy Group Table
-        	**type**\:  :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups>`
+        	**type**\:   :py:class:`Groups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups>`
         
         
 
@@ -173,7 +173,7 @@ class RedundancyGroupManager(object):
             .. attribute:: group
             
             	Redundancy Group Configuration
-            	**type**\: list of  :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group>`
+            	**type**\: list of    :py:class:`Group <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group>`
             
             
 
@@ -203,7 +203,7 @@ class RedundancyGroupManager(object):
                 .. attribute:: controllers
                 
                 	Controller configuration
-                	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group.Controllers>`
+                	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group.Controllers>`
                 
                 
 
@@ -226,7 +226,7 @@ class RedundancyGroupManager(object):
                     .. attribute:: controller
                     
                     	none
-                    	**type**\: list of  :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller>`
+                    	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Aps.Groups.Group.Controllers.Controller>`
                     
                     
 
@@ -422,7 +422,7 @@ class RedundancyGroupManager(object):
         .. attribute:: iccp_groups
         
         	Redundancy Group Table Configuration
-        	**type**\:  :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups>`
+        	**type**\:   :py:class:`IccpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups>`
         
         
 
@@ -444,7 +444,7 @@ class RedundancyGroupManager(object):
             .. attribute:: iccp_group
             
             	Redundancy Group Configuration
-            	**type**\: list of  :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup>`
+            	**type**\: list of    :py:class:`IccpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup>`
             
             
 
@@ -474,7 +474,7 @@ class RedundancyGroupManager(object):
                 .. attribute:: backbones
                 
                 	ICCP backbone configuration
-                	**type**\:  :py:class:`Backbones <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones>`
+                	**type**\:   :py:class:`Backbones <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones>`
                 
                 .. attribute:: isolation_recovery_delay
                 
@@ -483,20 +483,22 @@ class RedundancyGroupManager(object):
                 
                 	**range:** 30..600
                 
+                	**units**\: second
+                
                 .. attribute:: members
                 
                 	ICCP member configuration
-                	**type**\:  :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
+                	**type**\:   :py:class:`Members <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members>`
                 
                 .. attribute:: mode
                 
                 	ICCP mode
-                	**type**\:  :py:class:`IccpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.IccpModeEnum>`
+                	**type**\:   :py:class:`IccpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.IccpModeEnum>`
                 
                 .. attribute:: nv_satellite
                 
                 	nV Satellite configuration
-                	**type**\:  :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite>`
+                	**type**\:   :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.NvSatellite>`
                 
                 
 
@@ -525,7 +527,7 @@ class RedundancyGroupManager(object):
                     .. attribute:: backbone
                     
                     	ICCP backbone interface configuration
-                    	**type**\: list of  :py:class:`Backbone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone>`
+                    	**type**\: list of    :py:class:`Backbone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Backbones.Backbone>`
                     
                     
 
@@ -623,7 +625,7 @@ class RedundancyGroupManager(object):
                     .. attribute:: member
                     
                     	ICCP member configuration
-                    	**type**\: list of  :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member>`
+                    	**type**\: list of    :py:class:`Member <ydk.models.cisco_ios_xr.Cisco_IOS_XR_rgmgr_cfg.RedundancyGroupManager.Iccp.IccpGroups.IccpGroup.Members.Member>`
                     
                     
 

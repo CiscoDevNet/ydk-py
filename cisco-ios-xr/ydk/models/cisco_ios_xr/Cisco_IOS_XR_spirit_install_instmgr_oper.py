@@ -30,43 +30,43 @@ class CardTypeEtEnum(Enum):
 
     card type
 
-    .. data:: CARD_RP = 0
+    .. data:: card_rp = 0
 
     	Card RP
 
-    .. data:: CARD_DRP = 1
+    .. data:: card_drp = 1
 
     	Card DRP
 
-    .. data:: CARD_LC = 2
+    .. data:: card_lc = 2
 
     	Card LC
 
-    .. data:: CARD_SC = 3
+    .. data:: card_sc = 3
 
     	Card SC
 
-    .. data:: CARD_SP = 4
+    .. data:: card_sp = 4
 
     	Card SP
 
-    .. data:: CARD_OTHER = 5
+    .. data:: card_other = 5
 
     	Card Other
 
     """
 
-    CARD_RP = 0
+    card_rp = 0
 
-    CARD_DRP = 1
+    card_drp = 1
 
-    CARD_LC = 2
+    card_lc = 2
 
-    CARD_SC = 3
+    card_sc = 3
 
-    CARD_SP = 4
+    card_sp = 4
 
-    CARD_OTHER = 5
+    card_other = 5
 
 
     @staticmethod
@@ -81,139 +81,139 @@ class IsdErrorEtEnum(Enum):
 
     isd error
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	ISD ERROR NONE
 
-    .. data:: NOT_COMPATIBLE = 1
+    .. data:: not_compatible = 1
 
     	ISD ERROR NOT COMPATIBLE
 
-    .. data:: NOT_ENOUGH_RESOURCE = 2
+    .. data:: not_enough_resource = 2
 
     	ISD ERROR NOT ENOUGH RESOURCE
 
-    .. data:: NOT_NSR_READY = 3
+    .. data:: not_nsr_ready = 3
 
     	ISD ERROR NOT NSR READY
 
-    .. data:: NOT_CONN_SDRSM = 4
+    .. data:: not_conn_sdrsm = 4
 
     	ISD ERROR NOT CONNECTED SDR SM
 
-    .. data:: CMD_INVALID = 5
+    .. data:: cmd_invalid = 5
 
     	ISD ERROR INST CMD INVALID
 
-    .. data:: LOAD_PREP_FAIL = 6
+    .. data:: load_prep_fail = 6
 
     	ISD ERROR INST LOAD PREP FAILURE
 
-    .. data:: ERROR_TIMEOUT = 7
+    .. data:: error_timeout = 7
 
     	ISD ERROR TIMEOUT
 
-    .. data:: ERR_NODE_DOWN = 8
+    .. data:: err_node_down = 8
 
     	ISD ERROR NODE DOWN
 
-    .. data:: NODE_NOT_READY = 9
+    .. data:: node_not_ready = 9
 
     	ISD ERROR NODE NOT READY
 
-    .. data:: ERR_NODE_NEW = 10
+    .. data:: err_node_new = 10
 
     	ISD ERROR NODE NEW
 
-    .. data:: ERR_CARD_OIR = 11
+    .. data:: err_card_oir = 11
 
     	ISD ERROR CARD OIR
 
-    .. data:: INVALID_EVT = 12
+    .. data:: invalid_evt = 12
 
     	ISD ERROR INVALID EVT
 
-    .. data:: DISCONN_FROM_CALV = 13
+    .. data:: disconn_from_calv = 13
 
     	ISD ERROR DISCONN FROM CALVADOS
 
-    .. data:: GSP_DOWN = 14
+    .. data:: gsp_down = 14
 
     	ISD ERROR GSP DOWN
 
-    .. data:: ABORT_BY_ISM = 15
+    .. data:: abort_by_ism = 15
 
     	ISD ERROR ABORT BY ISM
 
-    .. data:: RPFO = 16
+    .. data:: rpfo = 16
 
     	ISD ERROR RPFO
 
-    .. data:: PKG_NULL = 17
+    .. data:: pkg_null = 17
 
     	ISD ERROR PKG NULL
 
-    .. data:: ERROR_GENERAL = 18
+    .. data:: error_general = 18
 
     	ISD ERROR GENERAL
 
-    .. data:: FSA_ERROR = 19
+    .. data:: fsa_error = 19
 
     	ISD ERROR FSA ERROR
 
-    .. data:: ERR_POST_ISSU = 20
+    .. data:: err_post_issu = 20
 
     	ISD ERROR POST ISSU
 
-    .. data:: ERR_ISSU_DIR_RESTART = 21
+    .. data:: err_issu_dir_restart = 21
 
     	ISD ERROR ISSUDIR RESTART
 
     """
 
-    NONE = 0
+    none = 0
 
-    NOT_COMPATIBLE = 1
+    not_compatible = 1
 
-    NOT_ENOUGH_RESOURCE = 2
+    not_enough_resource = 2
 
-    NOT_NSR_READY = 3
+    not_nsr_ready = 3
 
-    NOT_CONN_SDRSM = 4
+    not_conn_sdrsm = 4
 
-    CMD_INVALID = 5
+    cmd_invalid = 5
 
-    LOAD_PREP_FAIL = 6
+    load_prep_fail = 6
 
-    ERROR_TIMEOUT = 7
+    error_timeout = 7
 
-    ERR_NODE_DOWN = 8
+    err_node_down = 8
 
-    NODE_NOT_READY = 9
+    node_not_ready = 9
 
-    ERR_NODE_NEW = 10
+    err_node_new = 10
 
-    ERR_CARD_OIR = 11
+    err_card_oir = 11
 
-    INVALID_EVT = 12
+    invalid_evt = 12
 
-    DISCONN_FROM_CALV = 13
+    disconn_from_calv = 13
 
-    GSP_DOWN = 14
+    gsp_down = 14
 
-    ABORT_BY_ISM = 15
+    abort_by_ism = 15
 
-    RPFO = 16
+    rpfo = 16
 
-    PKG_NULL = 17
+    pkg_null = 17
 
-    ERROR_GENERAL = 18
+    error_general = 18
 
-    FSA_ERROR = 19
+    fsa_error = 19
 
-    ERR_POST_ISSU = 20
+    err_post_issu = 20
 
-    ERR_ISSU_DIR_RESTART = 21
+    err_issu_dir_restart = 21
 
 
     @staticmethod
@@ -228,49 +228,61 @@ class IsdIssuStatusEtEnum(Enum):
 
     isd status
 
-    .. data:: OK = 0
+    .. data:: ok = 0
 
     	ISSU STATUS OK
 
-    .. data:: PREP_DONE = 1
+    .. data:: prep_done = 1
 
     	ISSU STATUS PREP DONE
 
-    .. data:: BIG_BANG = 2
+    .. data:: big_bang = 2
 
     	ISSU STATUS BIG BANG
 
-    .. data:: DONE = 3
+    .. data:: done = 3
 
     	ISSU STATUS DONE
 
-    .. data:: ABORT = 4
+    .. data:: abort = 4
 
     	ISSU STATUS ABORT
 
-    .. data:: CMD_REJECT = 5
+    .. data:: cmd_reject = 5
 
     	ISSU STATUS CMD REJECT
 
-    .. data:: UNKNOWN = 6
+    .. data:: unknown = 6
 
     	ISSU STATUS UNKNOWN
 
+    .. data:: abort_cleanup = 7
+
+    	ISSU STATUS ABORT CLEANUP
+
+    .. data:: abort_cmd_reject = 8
+
+    	ISSU STATUS CMD ABORT REJECT
+
     """
 
-    OK = 0
+    ok = 0
 
-    PREP_DONE = 1
+    prep_done = 1
 
-    BIG_BANG = 2
+    big_bang = 2
 
-    DONE = 3
+    done = 3
 
-    ABORT = 4
+    abort = 4
 
-    CMD_REJECT = 5
+    cmd_reject = 5
 
-    UNKNOWN = 6
+    unknown = 6
+
+    abort_cleanup = 7
+
+    abort_cmd_reject = 8
 
 
     @staticmethod
@@ -285,97 +297,109 @@ class IsdStateEtEnum(Enum):
 
     isd state
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	ISSU ST NONE
 
-    .. data:: IDLE = 1
+    .. data:: idle = 1
 
     	ISSU ST IDLE
 
-    .. data:: INIT = 2
+    .. data:: init = 2
 
     	ISSU ST INIT
 
-    .. data:: INIT_DONE = 3
+    .. data:: init_done = 3
 
     	ISSU ST INIT DONE
 
-    .. data:: LOAD_PREP = 4
+    .. data:: load_prep = 4
 
     	ISSU ST LOAD PREP
 
-    .. data:: LOAD_EXEC = 5
+    .. data:: load_exec = 5
 
     	ISSU ST LOAD EXEC
 
-    .. data:: LOAD_ISSU_GO = 6
+    .. data:: load_issu_go = 6
 
     	ISSU ST LOAD ISSU GO
 
-    .. data:: LOAD_DONE = 7
+    .. data:: load_done = 7
 
     	ISSU ST LOAD DONE
 
-    .. data:: RUN_PREP = 8
+    .. data:: run_prep = 8
 
     	ISSU ST RUN PREP
 
-    .. data:: BIG_BANG = 9
+    .. data:: big_bang = 9
 
     	ISSU ST RUN BIG BANG
 
-    .. data:: RUN_DONE = 10
+    .. data:: run_done = 10
 
     	ISSU ST RUN DONE
 
-    .. data:: CLEANUP = 11
+    .. data:: cleanup = 11
 
     	ISSU ST CLEANUP
 
-    .. data:: CLEANUP_DONE = 12
+    .. data:: cleanup_done = 12
 
     	ISSU ST CLEANUP DONE
 
-    .. data:: ABORT = 13
+    .. data:: abort = 13
 
     	ISSU ST ABORT
 
-    .. data:: UNKNOW_STATE = 14
+    .. data:: abort_done = 14
+
+    	ISSU ST ABORT DONE
+
+    .. data:: abort_cleanup = 15
+
+    	ISSU ST ABORT CLEANUP
+
+    .. data:: unknown_state = 16
 
     	ISSU UNKNOWN STATE
 
     """
 
-    NONE = 0
+    none = 0
 
-    IDLE = 1
+    idle = 1
 
-    INIT = 2
+    init = 2
 
-    INIT_DONE = 3
+    init_done = 3
 
-    LOAD_PREP = 4
+    load_prep = 4
 
-    LOAD_EXEC = 5
+    load_exec = 5
 
-    LOAD_ISSU_GO = 6
+    load_issu_go = 6
 
-    LOAD_DONE = 7
+    load_done = 7
 
-    RUN_PREP = 8
+    run_prep = 8
 
-    BIG_BANG = 9
+    big_bang = 9
 
-    RUN_DONE = 10
+    run_done = 10
 
-    CLEANUP = 11
+    cleanup = 11
 
-    CLEANUP_DONE = 12
+    cleanup_done = 12
 
-    ABORT = 13
+    abort = 13
 
-    UNKNOW_STATE = 14
+    abort_done = 14
+
+    abort_cleanup = 15
+
+    unknown_state = 16
 
 
     @staticmethod
@@ -390,31 +414,31 @@ class IssuNodeRoleEtEnum(Enum):
 
     ISSU role
 
-    .. data:: UNKNOWN_ROLE = 0
+    .. data:: unknown_role = 0
 
     	Unknown
 
-    .. data:: PRIMARY_ROLE = 1
+    .. data:: primary_role = 1
 
     	Primary
 
-    .. data:: SECONDARY_ROLE = 2
+    .. data:: secondary_role = 2
 
     	Secondary
 
-    .. data:: TERTIARY_ROLE = 3
+    .. data:: tertiary_role = 3
 
     	Tertiary
 
     """
 
-    UNKNOWN_ROLE = 0
+    unknown_role = 0
 
-    PRIMARY_ROLE = 1
+    primary_role = 1
 
-    SECONDARY_ROLE = 2
+    secondary_role = 2
 
-    TERTIARY_ROLE = 3
+    tertiary_role = 3
 
 
     @staticmethod
@@ -429,31 +453,31 @@ class IssudirNodeStatusEtEnum(Enum):
 
     ISSU node status
 
-    .. data:: NOT_ISSU_READY = 0
+    .. data:: not_issu_ready = 0
 
     	Not ISSU Ready
 
-    .. data:: ISSU_READY = 1
+    .. data:: issu_ready = 1
 
     	ISSU Ready
 
-    .. data:: ISUS_GO = 2
+    .. data:: isus_go = 2
 
     	ISSU Go
 
-    .. data:: NODE_FAIL = 3
+    .. data:: node_fail = 3
 
     	Node Fail
 
     """
 
-    NOT_ISSU_READY = 0
+    not_issu_ready = 0
 
-    ISSU_READY = 1
+    issu_ready = 1
 
-    ISUS_GO = 2
+    isus_go = 2
 
-    NODE_FAIL = 3
+    node_fail = 3
 
 
     @staticmethod
@@ -468,31 +492,31 @@ class NodeRoleEtEnum(Enum):
 
     node role
 
-    .. data:: NODE_UNKNOWN = 0
+    .. data:: node_unknown = 0
 
     	Unknown
 
-    .. data:: NODE_ACTIVE = 1
+    .. data:: node_active = 1
 
     	Active
 
-    .. data:: NODE_STANDBY = 2
+    .. data:: node_standby = 2
 
     	Standby
 
-    .. data:: NODE_UNUSABLE = 3
+    .. data:: node_unusable = 3
 
     	Unusable
 
     """
 
-    NODE_UNKNOWN = 0
+    node_unknown = 0
 
-    NODE_ACTIVE = 1
+    node_active = 1
 
-    NODE_STANDBY = 2
+    node_standby = 2
 
-    NODE_UNUSABLE = 3
+    node_unusable = 3
 
 
     @staticmethod
@@ -509,67 +533,67 @@ class SoftwareInstall(object):
     .. attribute:: active
     
     	Show active packages installed
-    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active>`
+    	**type**\:   :py:class:`Active <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active>`
     
     .. attribute:: all_operations_log
     
     	Show log file for all operations
-    	**type**\:  :py:class:`AllOperationsLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog>`
+    	**type**\:   :py:class:`AllOperationsLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog>`
     
     .. attribute:: committed
     
     	Show Committed packages installed
-    	**type**\:  :py:class:`Committed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed>`
+    	**type**\:   :py:class:`Committed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed>`
     
     .. attribute:: files
     
     	Show information about an installed file
-    	**type**\:  :py:class:`Files <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files>`
+    	**type**\:   :py:class:`Files <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files>`
     
     .. attribute:: inactive
     
     	Show XR inactive packages
-    	**type**\:  :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Inactive>`
+    	**type**\:   :py:class:`Inactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Inactive>`
     
     .. attribute:: issu
     
     	ISSU operation
-    	**type**\:  :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu>`
+    	**type**\:   :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu>`
     
     .. attribute:: last_n_operation_logs
     
     	Show log file for last n operations
-    	**type**\:  :py:class:`LastNOperationLogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs>`
+    	**type**\:   :py:class:`LastNOperationLogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs>`
     
     .. attribute:: operation_logs
     
     	Show log file
-    	**type**\:  :py:class:`OperationLogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs>`
+    	**type**\:   :py:class:`OperationLogs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs>`
     
     .. attribute:: packages
     
     	Show the list of installed packages
-    	**type**\:  :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages>`
+    	**type**\:   :py:class:`Packages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages>`
     
     .. attribute:: prepare
     
     	Show prepared packages ready for activation
-    	**type**\:  :py:class:`Prepare <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare>`
+    	**type**\:   :py:class:`Prepare <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Prepare>`
     
     .. attribute:: repository
     
     	Show packages stored in install software repositories
-    	**type**\:  :py:class:`Repository <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository>`
+    	**type**\:   :py:class:`Repository <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository>`
     
     .. attribute:: request
     
     	Show current request
-    	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Request>`
+    	**type**\:   :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Request>`
     
     .. attribute:: version
     
     	Show install version
-    	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Version>`
+    	**type**\:   :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Version>`
     
     
 
@@ -614,7 +638,7 @@ class SoftwareInstall(object):
         .. attribute:: file
         
         	Show information about an installed file
-        	**type**\: list of  :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files.File>`
+        	**type**\: list of    :py:class:`File <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files.File>`
         
         
 
@@ -642,12 +666,12 @@ class SoftwareInstall(object):
             .. attribute:: brief
             
             	Show information about an installed file
-            	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files.File.Brief>`
+            	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files.File.Brief>`
             
             .. attribute:: detail
             
             	Show detail information about an installed file
-            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files.File.Detail>`
+            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Files.File.Detail>`
             
             
 
@@ -817,7 +841,7 @@ class SoftwareInstall(object):
         .. attribute:: last_n_operation_log
         
         	Show log file of last n operations
-        	**type**\: list of  :py:class:`LastNOperationLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog>`
+        	**type**\: list of    :py:class:`LastNOperationLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog>`
         
         
 
@@ -847,12 +871,12 @@ class SoftwareInstall(object):
             .. attribute:: detail
             
             	Show detailed log file for last n operations
-            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail>`
+            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Detail>`
             
             .. attribute:: summary
             
             	Show summary log file for last n operations
-            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary>`
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.LastNOperationLogs.LastNOperationLog.Summary>`
             
             
 
@@ -1064,7 +1088,7 @@ class SoftwareInstall(object):
         .. attribute:: active_package_info
         
         	active package info
-        	**type**\: list of  :py:class:`ActivePackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active.ActivePackageInfo>`
+        	**type**\: list of    :py:class:`ActivePackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Active.ActivePackageInfo>`
         
         
 
@@ -1330,12 +1354,12 @@ class SoftwareInstall(object):
         .. attribute:: inventory
         
         	Show XR install issu inventory
-        	**type**\:  :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory>`
+        	**type**\:   :py:class:`Inventory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory>`
         
         .. attribute:: stage
         
         	Show XR install issu stage
-        	**type**\:  :py:class:`Stage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Stage>`
+        	**type**\:   :py:class:`Stage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Stage>`
         
         
 
@@ -1359,7 +1383,7 @@ class SoftwareInstall(object):
             .. attribute:: issu_error
             
             	ISSU Error
-            	**type**\:  :py:class:`IsdErrorEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdErrorEtEnum>`
+            	**type**\:   :py:class:`IsdErrorEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdErrorEtEnum>`
             
             .. attribute:: issu_node_cnt
             
@@ -1378,7 +1402,7 @@ class SoftwareInstall(object):
             .. attribute:: issu_status
             
             	Abort Status
-            	**type**\:  :py:class:`IsdIssuStatusEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdIssuStatusEtEnum>`
+            	**type**\:   :py:class:`IsdIssuStatusEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdIssuStatusEtEnum>`
             
             .. attribute:: percentage
             
@@ -1387,10 +1411,12 @@ class SoftwareInstall(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: percentage
+            
             .. attribute:: state
             
             	State
-            	**type**\:  :py:class:`IsdStateEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdStateEtEnum>`
+            	**type**\:   :py:class:`IsdStateEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IsdStateEtEnum>`
             
             
 
@@ -1453,7 +1479,7 @@ class SoftwareInstall(object):
             .. attribute:: invinfo
             
             	invinfo
-            	**type**\: list of  :py:class:`Invinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory.Invinfo>`
+            	**type**\: list of    :py:class:`Invinfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Issu.Inventory.Invinfo>`
             
             
 
@@ -1476,7 +1502,7 @@ class SoftwareInstall(object):
                 .. attribute:: issu_node_role
                 
                 	ISSU Node Role
-                	**type**\:  :py:class:`IssuNodeRoleEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IssuNodeRoleEtEnum>`
+                	**type**\:   :py:class:`IssuNodeRoleEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IssuNodeRoleEtEnum>`
                 
                 .. attribute:: node_id
                 
@@ -1488,17 +1514,17 @@ class SoftwareInstall(object):
                 .. attribute:: node_role
                 
                 	Node role
-                	**type**\:  :py:class:`NodeRoleEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.NodeRoleEtEnum>`
+                	**type**\:   :py:class:`NodeRoleEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.NodeRoleEtEnum>`
                 
                 .. attribute:: node_state
                 
                 	Node State
-                	**type**\:  :py:class:`IssudirNodeStatusEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IssudirNodeStatusEtEnum>`
+                	**type**\:   :py:class:`IssudirNodeStatusEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.IssudirNodeStatusEtEnum>`
                 
                 .. attribute:: node_type
                 
                 	Node Type
-                	**type**\:  :py:class:`CardTypeEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.CardTypeEtEnum>`
+                	**type**\:   :py:class:`CardTypeEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.CardTypeEtEnum>`
                 
                 
 
@@ -1606,7 +1632,7 @@ class SoftwareInstall(object):
         .. attribute:: committed_package_info
         
         	committed package info
-        	**type**\: list of  :py:class:`CommittedPackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed.CommittedPackageInfo>`
+        	**type**\: list of    :py:class:`CommittedPackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Committed.CommittedPackageInfo>`
         
         
 
@@ -1743,12 +1769,12 @@ class SoftwareInstall(object):
         .. attribute:: detail
         
         	Show detailed log file for all operations
-        	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Detail>`
+        	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Detail>`
         
         .. attribute:: summary
         
         	Show summary log file for all operations
-        	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Summary>`
+        	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Summary>`
         
         
 
@@ -1883,7 +1909,7 @@ class SoftwareInstall(object):
         .. attribute:: package
         
         	Show the info for a installed package
-        	**type**\: list of  :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package>`
+        	**type**\: list of    :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package>`
         
         
 
@@ -1911,17 +1937,17 @@ class SoftwareInstall(object):
             .. attribute:: brief
             
             	Show the info for a installed package
-            	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Brief>`
+            	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Brief>`
             
             .. attribute:: detail
             
             	Show the deatil info for a installed package
-            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Detail>`
+            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Detail>`
             
             .. attribute:: verbose
             
             	Show the verbose info for a installed package
-            	**type**\:  :py:class:`Verbose <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Verbose>`
+            	**type**\:   :py:class:`Verbose <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Packages.Package.Verbose>`
             
             
 
@@ -2140,7 +2166,7 @@ class SoftwareInstall(object):
         .. attribute:: operation_log
         
         	Show log file for the specified install ID
-        	**type**\: list of  :py:class:`OperationLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog>`
+        	**type**\: list of    :py:class:`OperationLog <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog>`
         
         
 
@@ -2170,12 +2196,12 @@ class SoftwareInstall(object):
             .. attribute:: detail
             
             	Show detailed log file for the specified install ID
-            	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Detail>`
+            	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Detail>`
             
             .. attribute:: summary
             
             	Show summary log file for the specified install ID
-            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Summary>`
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.OperationLogs.OperationLog.Summary>`
             
             
 
@@ -2347,12 +2373,12 @@ class SoftwareInstall(object):
         .. attribute:: all
         
         	Show contents of all install software repositories
-        	**type**\:  :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.All>`
+        	**type**\:   :py:class:`All <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.All>`
         
         .. attribute:: xr
         
         	Show install software repository for XR
-        	**type**\:  :py:class:`Xr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.Xr>`
+        	**type**\:   :py:class:`Xr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Repository.Xr>`
         
         
 

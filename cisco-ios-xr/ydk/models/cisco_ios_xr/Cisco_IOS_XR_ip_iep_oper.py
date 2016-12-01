@@ -30,25 +30,25 @@ class IepAddressEnum(Enum):
 
     Address types
 
-    .. data:: NEXT = 0
+    .. data:: next = 0
 
     	Address type is next
 
-    .. data:: EXCLUDE = 1
+    .. data:: exclude = 1
 
     	Address type is exclude
 
-    .. data:: EXCLUDE_SRLG = 2
+    .. data:: exclude_srlg = 2
 
     	Address type is exclude SRLG
 
     """
 
-    NEXT = 0
+    next = 0
 
-    EXCLUDE = 1
+    exclude = 1
 
-    EXCLUDE_SRLG = 2
+    exclude_srlg = 2
 
 
     @staticmethod
@@ -63,19 +63,19 @@ class IepHopEnum(Enum):
 
     Hop types of the next\-address configured
 
-    .. data:: STRICT = 0
+    .. data:: strict = 0
 
     	Hop type is strict
 
-    .. data:: LOOSE = 1
+    .. data:: loose = 1
 
     	Hop type is loose
 
     """
 
-    STRICT = 0
+    strict = 0
 
-    LOOSE = 1
+    loose = 1
 
 
     @staticmethod
@@ -90,19 +90,19 @@ class IepStatusEnum(Enum):
 
     Status of the path
 
-    .. data:: ENABLED = 0
+    .. data:: enabled = 0
 
     	Status is enabled
 
-    .. data:: DISABLED = 1
+    .. data:: disabled = 1
 
     	Status is disabled
 
     """
 
-    ENABLED = 0
+    enabled = 0
 
-    DISABLED = 1
+    disabled = 1
 
 
     @staticmethod
@@ -119,12 +119,12 @@ class ExplicitPaths(object):
     .. attribute:: identifiers
     
     	List of configured IP explicit path identifiers, this corresponds to mplsTunnelHopTable in TE MIB
-    	**type**\:  :py:class:`Identifiers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers>`
+    	**type**\:   :py:class:`Identifiers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers>`
     
     .. attribute:: names
     
     	List of configured IP explicit path names, this corresponds to mplsTunnelHopTable in TE MIB
-    	**type**\:  :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names>`
+    	**type**\:   :py:class:`Names <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names>`
     
     
 
@@ -148,7 +148,7 @@ class ExplicitPaths(object):
         .. attribute:: identifier
         
         	IP explicit path configured for a particular identifier
-        	**type**\: list of  :py:class:`Identifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers.Identifier>`
+        	**type**\: list of    :py:class:`Identifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers.Identifier>`
         
         
 
@@ -179,12 +179,12 @@ class ExplicitPaths(object):
             .. attribute:: address
             
             	List of IP addresses configured in the explicit path
-            	**type**\: list of  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers.Identifier.Address>`
+            	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Identifiers.Identifier.Address>`
             
             .. attribute:: status
             
             	Status of the path
-            	**type**\:  :py:class:`IepStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
+            	**type**\:   :py:class:`IepStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
             
             
 
@@ -217,12 +217,12 @@ class ExplicitPaths(object):
                 .. attribute:: address_type
                 
                 	Specifies the address type
-                	**type**\:  :py:class:`IepAddressEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepAddressEnum>`
+                	**type**\:   :py:class:`IepAddressEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepAddressEnum>`
                 
                 .. attribute:: hop_type
                 
                 	Specifies the next unicast address in the path as a strict or loose hop
-                	**type**\:  :py:class:`IepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepHopEnum>`
+                	**type**\:   :py:class:`IepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepHopEnum>`
                 
                 .. attribute:: if_index
                 
@@ -365,7 +365,7 @@ class ExplicitPaths(object):
         .. attribute:: name
         
         	IP explicit path configured for a particular path name
-        	**type**\: list of  :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names.Name>`
+        	**type**\: list of    :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names.Name>`
         
         
 
@@ -396,12 +396,12 @@ class ExplicitPaths(object):
             .. attribute:: address
             
             	List of IP addresses configured in the explicit path
-            	**type**\: list of  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names.Name.Address>`
+            	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.ExplicitPaths.Names.Name.Address>`
             
             .. attribute:: status
             
             	Status of the path
-            	**type**\:  :py:class:`IepStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
+            	**type**\:   :py:class:`IepStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepStatusEnum>`
             
             
 
@@ -434,12 +434,12 @@ class ExplicitPaths(object):
                 .. attribute:: address_type
                 
                 	Specifies the address type
-                	**type**\:  :py:class:`IepAddressEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepAddressEnum>`
+                	**type**\:   :py:class:`IepAddressEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepAddressEnum>`
                 
                 .. attribute:: hop_type
                 
                 	Specifies the next unicast address in the path as a strict or loose hop
-                	**type**\:  :py:class:`IepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepHopEnum>`
+                	**type**\:   :py:class:`IepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_oper.IepHopEnum>`
                 
                 .. attribute:: if_index
                 

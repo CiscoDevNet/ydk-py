@@ -30,31 +30,31 @@ class GmplsOtuTtiModeEnum(Enum):
 
     Gmpls otu tti mode
 
-    .. data:: GMPLS_OTU_TTI_MODE_NONE = 0
+    .. data:: gmpls_otu_tti_mode_none = 0
 
     	Not Set
 
-    .. data:: GMPLS_OTU_TTI_MODE_SM = 1
+    .. data:: gmpls_otu_tti_mode_sm = 1
 
     	Section Monitoring
 
-    .. data:: GMPLS_OTU_TTI_MODE_PM = 2
+    .. data:: gmpls_otu_tti_mode_pm = 2
 
     	Path Monitoring
 
-    .. data:: GMPLS_OTU_TTI_MODE_TCM = 3
+    .. data:: gmpls_otu_tti_mode_tcm = 3
 
     	Tandem Connection Monitoring
 
     """
 
-    GMPLS_OTU_TTI_MODE_NONE = 0
+    gmpls_otu_tti_mode_none = 0
 
-    GMPLS_OTU_TTI_MODE_SM = 1
+    gmpls_otu_tti_mode_sm = 1
 
-    GMPLS_OTU_TTI_MODE_PM = 2
+    gmpls_otu_tti_mode_pm = 2
 
-    GMPLS_OTU_TTI_MODE_TCM = 3
+    gmpls_otu_tti_mode_tcm = 3
 
 
     @staticmethod
@@ -69,31 +69,31 @@ class OtuDerStateEnum(Enum):
 
     Otu der state
 
-    .. data:: OUT_OF_SERVICE = 0
+    .. data:: out_of_service = 0
 
     	Out Of Service
 
-    .. data:: IN_SERVICE = 1
+    .. data:: in_service = 1
 
     	In Service
 
-    .. data:: MAINTENANCE = 2
+    .. data:: maintenance = 2
 
     	Maintenance
 
-    .. data:: AIS = 3
+    .. data:: ais = 3
 
     	Automatic In Service
 
     """
 
-    OUT_OF_SERVICE = 0
+    out_of_service = 0
 
-    IN_SERVICE = 1
+    in_service = 1
 
-    MAINTENANCE = 2
+    maintenance = 2
 
-    AIS = 3
+    ais = 3
 
 
     @staticmethod
@@ -108,67 +108,67 @@ class OtuG709FecModeEnum(Enum):
 
     Otu g709fec mode
 
-    .. data:: OTU_BAG_NONE_FEC = 1
+    .. data:: otu_bag_none_fec = 1
 
     	NONE
 
-    .. data:: OTU_BAG_STANDARD_FEC = 2
+    .. data:: otu_bag_standard_fec = 2
 
     	STANDARD
 
-    .. data:: OTU_BAG_1_I_7_FEC = 4
+    .. data:: otu_bag_1_i_7_fec = 4
 
     	ENHANCEDI.7
 
-    .. data:: OTU_BAG_1_I_4_FEC = 8
+    .. data:: otu_bag_1_i_4_fec = 8
 
     	ENHANCEDI.4
 
-    .. data:: OTU_BAG_SWIZZLE_FEC = 16
+    .. data:: otu_bag_swizzle_fec = 16
 
     	SWIZZLE
 
-    .. data:: OTU_BAG_HG20_FEC = 32
+    .. data:: otu_bag_hg20_fec = 32
 
     	HIGH GAIN20
 
-    .. data:: OTU_BAG_ENHANCED_HG7_FEC = 64
+    .. data:: otu_bag_enhanced_hg7_fec = 64
 
     	Enhanced High Gain 7
 
-    .. data:: OTU_BAG_SD20_FEC = 128
+    .. data:: otu_bag_sd20_fec = 128
 
     	Soft-Decision 20
 
-    .. data:: OTU_BAG_SD7_FEC = 256
+    .. data:: otu_bag_sd7_fec = 256
 
     	Soft-Decision 7
 
-    .. data:: OTU_BAG_ALL_FEC = 512
+    .. data:: otu_bag_all_fec = 512
 
     	ALL
 
     """
 
-    OTU_BAG_NONE_FEC = 1
+    otu_bag_none_fec = 1
 
-    OTU_BAG_STANDARD_FEC = 2
+    otu_bag_standard_fec = 2
 
-    OTU_BAG_1_I_7_FEC = 4
+    otu_bag_1_i_7_fec = 4
 
-    OTU_BAG_1_I_4_FEC = 8
+    otu_bag_1_i_4_fec = 8
 
-    OTU_BAG_SWIZZLE_FEC = 16
+    otu_bag_swizzle_fec = 16
 
-    OTU_BAG_HG20_FEC = 32
+    otu_bag_hg20_fec = 32
 
-    OTU_BAG_ENHANCED_HG7_FEC = 64
+    otu_bag_enhanced_hg7_fec = 64
 
-    OTU_BAG_SD20_FEC = 128
+    otu_bag_sd20_fec = 128
 
-    OTU_BAG_SD7_FEC = 256
+    otu_bag_sd7_fec = 256
 
-    OTU_BAG_ALL_FEC = 512
+    otu_bag_all_fec = 512
 
 
     @staticmethod
@@ -183,25 +183,25 @@ class OtuLoopBackModeEnum(Enum):
 
     Otu loop back mode
 
-    .. data:: NONE = 1
+    .. data:: none = 1
 
     	None
 
-    .. data:: LINE = 2
+    .. data:: line = 2
 
     	Line
 
-    .. data:: INTERNAL = 4
+    .. data:: internal = 4
 
     	Internal
 
     """
 
-    NONE = 1
+    none = 1
 
-    LINE = 2
+    line = 2
 
-    INTERNAL = 4
+    internal = 4
 
 
     @staticmethod
@@ -216,19 +216,19 @@ class OtuPerMonEnum(Enum):
 
     Otu per mon
 
-    .. data:: DISABLE = 0
+    .. data:: disable = 0
 
     	Disable
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enable
 
     """
 
-    DISABLE = 0
+    disable = 0
 
-    ENABLE = 1
+    enable = 1
 
 
     @staticmethod
@@ -243,73 +243,73 @@ class OtuPpFsmStateEnum(Enum):
 
     Otu pp fsm state
 
-    .. data:: OTU_IN_ACTIVE = 0
+    .. data:: otu_in_active = 0
 
     	In Active
 
-    .. data:: OTU_DISABLED = 1
+    .. data:: otu_disabled = 1
 
     	Disabled
 
-    .. data:: OTU_NORMAL_STATE = 2
+    .. data:: otu_normal_state = 2
 
     	Normal
 
-    .. data:: OTU_LOCAL_FAILING = 3
+    .. data:: otu_local_failing = 3
 
     	Local Failing
 
-    .. data:: OTU_REMOTE_FAILING = 4
+    .. data:: otu_remote_failing = 4
 
     	Remote Failing
 
-    .. data:: OTU_MAIN_T_FAILING = 5
+    .. data:: otu_main_t_failing = 5
 
     	Maintance Failing
 
-    .. data:: OTU_REGEN_FAILING = 6
+    .. data:: otu_regen_failing = 6
 
     	Regenerator Failing
 
-    .. data:: OTU_LOCAL_FAILED = 7
+    .. data:: otu_local_failed = 7
 
     	Local Failed
 
-    .. data:: OTU_REMOTE_FAILED = 8
+    .. data:: otu_remote_failed = 8
 
     	Remote Failed
 
-    .. data:: OTU_MAIN_T_FAILED = 9
+    .. data:: otu_main_t_failed = 9
 
     	Maintance Failed
 
-    .. data:: OTU_REGEN_FAILED = 10
+    .. data:: otu_regen_failed = 10
 
     	Regenerator Failed
 
     """
 
-    OTU_IN_ACTIVE = 0
+    otu_in_active = 0
 
-    OTU_DISABLED = 1
+    otu_disabled = 1
 
-    OTU_NORMAL_STATE = 2
+    otu_normal_state = 2
 
-    OTU_LOCAL_FAILING = 3
+    otu_local_failing = 3
 
-    OTU_REMOTE_FAILING = 4
+    otu_remote_failing = 4
 
-    OTU_MAIN_T_FAILING = 5
+    otu_main_t_failing = 5
 
-    OTU_REGEN_FAILING = 6
+    otu_regen_failing = 6
 
-    OTU_LOCAL_FAILED = 7
+    otu_local_failed = 7
 
-    OTU_REMOTE_FAILED = 8
+    otu_remote_failed = 8
 
-    OTU_MAIN_T_FAILED = 9
+    otu_main_t_failed = 9
 
-    OTU_REGEN_FAILED = 10
+    otu_regen_failed = 10
 
 
     @staticmethod
@@ -324,25 +324,25 @@ class OtuPpIntfStateEnum(Enum):
 
     Otu pp intf state
 
-    .. data:: OTU_PP_INTF_UP = 0
+    .. data:: otu_pp_intf_up = 0
 
     	Interface is Up
 
-    .. data:: OTU_PP_INTF_FAILING = 1
+    .. data:: otu_pp_intf_failing = 1
 
     	Interface is Going Down
 
-    .. data:: OTU_PP_INTF_DOWN = 2
+    .. data:: otu_pp_intf_down = 2
 
     	Interface Down
 
     """
 
-    OTU_PP_INTF_UP = 0
+    otu_pp_intf_up = 0
 
-    OTU_PP_INTF_FAILING = 1
+    otu_pp_intf_failing = 1
 
-    OTU_PP_INTF_DOWN = 2
+    otu_pp_intf_down = 2
 
 
     @staticmethod
@@ -357,25 +357,25 @@ class OtuSecStateEnum(Enum):
 
     Otu sec state
 
-    .. data:: NORMAL = 0
+    .. data:: normal = 0
 
     	Normal
 
-    .. data:: MAINTENANCE = 1
+    .. data:: maintenance = 1
 
     	Maintenance
 
-    .. data:: AIS = 2
+    .. data:: ais = 2
 
     	Automatic In Service
 
     """
 
-    NORMAL = 0
+    normal = 0
 
-    MAINTENANCE = 1
+    maintenance = 1
 
-    AIS = 2
+    ais = 2
 
 
     @staticmethod
@@ -390,121 +390,121 @@ class OtuStateEtEnum(Enum):
 
     Otu state et
 
-    .. data:: NOT_READY = 0
+    .. data:: not_ready = 0
 
     	Not Ready
 
-    .. data:: ADMIN_DOWN = 1
+    .. data:: admin_down = 1
 
     	Admin Down
 
-    .. data:: DOWN = 2
+    .. data:: down = 2
 
     	Down
 
-    .. data:: UP = 3
+    .. data:: up = 3
 
     	Up
 
-    .. data:: SHUTDOWN = 4
+    .. data:: shutdown = 4
 
     	Shutdown
 
-    .. data:: ERROR_DISABLE = 5
+    .. data:: error_disable = 5
 
     	Error Disable
 
-    .. data:: DOWN_IMMEDIATE = 6
+    .. data:: down_immediate = 6
 
     	Down Immediate
 
-    .. data:: DOWN_IMMEDIATE_ADMIN = 7
+    .. data:: down_immediate_admin = 7
 
     	Down Immediate Admin
 
-    .. data:: DOWN_GRACEFUL = 8
+    .. data:: down_graceful = 8
 
     	Down Graceful
 
-    .. data:: BEGIN_SHUTDOWN = 9
+    .. data:: begin_shutdown = 9
 
     	Begin Shutdown
 
-    .. data:: END_SHUTDOWN = 10
+    .. data:: end_shutdown = 10
 
     	End Shutdown
 
-    .. data:: BEGIN_ERROR_DISABLE = 11
+    .. data:: begin_error_disable = 11
 
     	Begin Error Disable
 
-    .. data:: END_ERROR_DISABLE = 12
+    .. data:: end_error_disable = 12
 
     	End Error Disable
 
-    .. data:: BEGIN_DOWN_GRACEFUL = 13
+    .. data:: begin_down_graceful = 13
 
     	Begin Down Graceful
 
-    .. data:: RESET = 14
+    .. data:: reset = 14
 
     	Reset
 
-    .. data:: OPERATIONAL = 15
+    .. data:: operational = 15
 
     	Operational
 
-    .. data:: NOT_OPERATIONAL = 16
+    .. data:: not_operational = 16
 
     	Not Operational
 
-    .. data:: UNKNOWN = 17
+    .. data:: unknown = 17
 
     	Unknown
 
-    .. data:: LAST = 18
+    .. data:: last = 18
 
     	Last
 
     """
 
-    NOT_READY = 0
+    not_ready = 0
 
-    ADMIN_DOWN = 1
+    admin_down = 1
 
-    DOWN = 2
+    down = 2
 
-    UP = 3
+    up = 3
 
-    SHUTDOWN = 4
+    shutdown = 4
 
-    ERROR_DISABLE = 5
+    error_disable = 5
 
-    DOWN_IMMEDIATE = 6
+    down_immediate = 6
 
-    DOWN_IMMEDIATE_ADMIN = 7
+    down_immediate_admin = 7
 
-    DOWN_GRACEFUL = 8
+    down_graceful = 8
 
-    BEGIN_SHUTDOWN = 9
+    begin_shutdown = 9
 
-    END_SHUTDOWN = 10
+    end_shutdown = 10
 
-    BEGIN_ERROR_DISABLE = 11
+    begin_error_disable = 11
 
-    END_ERROR_DISABLE = 12
+    end_error_disable = 12
 
-    BEGIN_DOWN_GRACEFUL = 13
+    begin_down_graceful = 13
 
-    RESET = 14
+    reset = 14
 
-    OPERATIONAL = 15
+    operational = 15
 
-    NOT_OPERATIONAL = 16
+    not_operational = 16
 
-    UNKNOWN = 17
+    unknown = 17
 
-    LAST = 18
+    last = 18
 
 
     @staticmethod
@@ -519,31 +519,31 @@ class OtuTtiEtEnum(Enum):
 
     Otu tti et
 
-    .. data:: ASCII = 0
+    .. data:: ascii = 0
 
     	ASCII
 
-    .. data:: HEX = 1
+    .. data:: hex = 1
 
     	HEX
 
-    .. data:: FULL_ASCII = 2
+    .. data:: full_ascii = 2
 
     	FULL ASCII
 
-    .. data:: FULL_HEX = 3
+    .. data:: full_hex = 3
 
     	FULL HEX
 
     """
 
-    ASCII = 0
+    ascii = 0
 
-    HEX = 1
+    hex = 1
 
-    FULL_ASCII = 2
+    full_ascii = 2
 
-    FULL_HEX = 3
+    full_hex = 3
 
 
     @staticmethod
@@ -560,7 +560,7 @@ class Otu(object):
     .. attribute:: controllers
     
     	All OTU Port operational data
-    	**type**\:  :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers>`
+    	**type**\:   :py:class:`Controllers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers>`
     
     
 
@@ -581,7 +581,7 @@ class Otu(object):
         .. attribute:: controller
         
         	OTU Port operational data
-        	**type**\: list of  :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller>`
+        	**type**\: list of    :py:class:`Controller <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller>`
         
         
 
@@ -611,7 +611,7 @@ class Otu(object):
             .. attribute:: info
             
             	OTU port operational data
-            	**type**\:  :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info>`
+            	**type**\:   :py:class:`Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info>`
             
             
 
@@ -634,7 +634,7 @@ class Otu(object):
                 .. attribute:: derivedstate_mode
                 
                 	Derived State
-                	**type**\:  :py:class:`OtuDerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuDerStateEnum>`
+                	**type**\:   :py:class:`OtuDerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuDerStateEnum>`
                 
                 .. attribute:: ec
                 
@@ -651,7 +651,7 @@ class Otu(object):
                 .. attribute:: fec_mode
                 
                 	FEC
-                	**type**\:  :py:class:`OtuG709FecModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuG709FecModeEnum>`
+                	**type**\:   :py:class:`OtuG709FecModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuG709FecModeEnum>`
                 
                 .. attribute:: gcc_mode
                 
@@ -661,7 +661,7 @@ class Otu(object):
                 .. attribute:: gmpls_tti_mode
                 
                 	GMPLS TTI MODE
-                	**type**\:  :py:class:`GmplsOtuTtiModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiModeEnum>`
+                	**type**\:   :py:class:`GmplsOtuTtiModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.GmplsOtuTtiModeEnum>`
                 
                 .. attribute:: gmpls_tvm_id
                 
@@ -673,12 +673,12 @@ class Otu(object):
                 .. attribute:: local
                 
                 	TTI
-                	**type**\:  :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Local>`
+                	**type**\:   :py:class:`Local <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Local>`
                 
                 .. attribute:: loopback_mode
                 
                 	Loopback
-                	**type**\:  :py:class:`OtuLoopBackModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackModeEnum>`
+                	**type**\:   :py:class:`OtuLoopBackModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuLoopBackModeEnum>`
                 
                 .. attribute:: name
                 
@@ -688,7 +688,7 @@ class Otu(object):
                 .. attribute:: network_srlg
                 
                 	Network Shared Risk Link Group information
-                	**type**\:  :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg>`
+                	**type**\:   :py:class:`NetworkSrlg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg>`
                 
                 .. attribute:: nv_optical_support
                 
@@ -698,17 +698,17 @@ class Otu(object):
                 .. attribute:: otu_alarm_info
                 
                 	OTU layer alarm Information
-                	**type**\:  :py:class:`OtuAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo>`
+                	**type**\:   :py:class:`OtuAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo>`
                 
                 .. attribute:: otu_fec_satistics
                 
                 	OTU FEC Statistics
-                	**type**\:  :py:class:`OtuFecSatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuFecSatistics>`
+                	**type**\:   :py:class:`OtuFecSatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuFecSatistics>`
                 
                 .. attribute:: performance_monitoring
                 
                 	Performance Monitoring
-                	**type**\:  :py:class:`OtuPerMonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPerMonEnum>`
+                	**type**\:   :py:class:`OtuPerMonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPerMonEnum>`
                 
                 .. attribute:: pre_fec_ber_mantissa
                 
@@ -737,7 +737,7 @@ class Otu(object):
                 .. attribute:: proactive
                 
                 	Proactive Protection
-                	**type**\:  :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Proactive>`
+                	**type**\:   :py:class:`Proactive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Proactive>`
                 
                 .. attribute:: q
                 
@@ -756,7 +756,22 @@ class Otu(object):
                 .. attribute:: remote
                 
                 	Remote
-                	**type**\:  :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
+                	**type**\:   :py:class:`Remote <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.Remote>`
+                
+                .. attribute:: remote_host_ip
+                
+                	Remote host ip
+                	**type**\:  str
+                
+                .. attribute:: remote_host_name
+                
+                	Remote host name
+                	**type**\:  str
+                
+                .. attribute:: remote_intf_name
+                
+                	Remote Interface Name
+                	**type**\:  str
                 
                 .. attribute:: sd
                 
@@ -768,7 +783,7 @@ class Otu(object):
                 .. attribute:: sec_state
                 
                 	Sec State
-                	**type**\:  :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
                 
                 .. attribute:: sf
                 
@@ -780,12 +795,12 @@ class Otu(object):
                 .. attribute:: state
                 
                 	Admin State
-                	**type**\:  :py:class:`OtuStateEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuStateEtEnum>`
+                	**type**\:   :py:class:`OtuStateEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuStateEtEnum>`
                 
                 .. attribute:: tti_mode
                 
                 	OTU TTI
-                	**type**\:  :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode>`
+                	**type**\:   :py:class:`TtiMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode>`
                 
                 .. attribute:: uc
                 
@@ -837,6 +852,9 @@ class Otu(object):
                     self.q_margin = None
                     self.remote = Otu.Controllers.Controller.Info.Remote()
                     self.remote.parent = self
+                    self.remote_host_ip = None
+                    self.remote_host_name = None
+                    self.remote_intf_name = None
                     self.sd = None
                     self.sec_state = None
                     self.sf = None
@@ -970,32 +988,32 @@ class Otu(object):
                     .. attribute:: exp
                     
                     	String Expected
-                    	**type**\:  :py:class:`Exp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp>`
+                    	**type**\:   :py:class:`Exp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Exp>`
                     
                     .. attribute:: g709tti_exp_mode
                     
                     	G709TTI Expected
-                    	**type**\:  :py:class:`OtuTtiEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
+                    	**type**\:   :py:class:`OtuTtiEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
                     
                     .. attribute:: g709tti_rec_mode
                     
                     	G709TTI Recieved
-                    	**type**\:  :py:class:`OtuTtiEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
+                    	**type**\:   :py:class:`OtuTtiEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
                     
                     .. attribute:: g709tti_sent_mode
                     
                     	G709TTI sent
-                    	**type**\:  :py:class:`OtuTtiEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
+                    	**type**\:   :py:class:`OtuTtiEtEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuTtiEtEnum>`
                     
                     .. attribute:: rec
                     
                     	String Received
-                    	**type**\:  :py:class:`Rec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
+                    	**type**\:   :py:class:`Rec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Rec>`
                     
                     .. attribute:: tx
                     
                     	String Sent
-                    	**type**\:  :py:class:`Tx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx>`
+                    	**type**\:   :py:class:`Tx <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.TtiMode.Tx>`
                     
                     
 
@@ -1306,7 +1324,7 @@ class Otu(object):
                     .. attribute:: srlg_info
                     
                     	Array of Network Shared Risk Link Group information
-                    	**type**\: list of  :py:class:`SrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo>`
+                    	**type**\: list of    :py:class:`SrlgInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo>`
                     
                     
 
@@ -1403,87 +1421,87 @@ class Otu(object):
                     .. attribute:: ais
                     
                     	Alarm Indication Signal
-                    	**type**\:  :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais>`
+                    	**type**\:   :py:class:`Ais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais>`
                     
                     .. attribute:: bdi
                     
                     	Backward Defect Indication
-                    	**type**\:  :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi>`
+                    	**type**\:   :py:class:`Bdi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi>`
                     
                     .. attribute:: biae
                     
                     	Backward Incoming Alignment Error
-                    	**type**\:  :py:class:`Biae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae>`
+                    	**type**\:   :py:class:`Biae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae>`
                     
                     .. attribute:: ec
                     
                     	EC alarm
-                    	**type**\:  :py:class:`Ec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec>`
+                    	**type**\:   :py:class:`Ec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec>`
                     
                     .. attribute:: eoc
                     
                     	GCC End of Channel
-                    	**type**\:  :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc>`
+                    	**type**\:   :py:class:`Eoc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc>`
                     
                     .. attribute:: fec_mismatch
                     
                     	FEC mismatch alarm
-                    	**type**\:  :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch>`
+                    	**type**\:   :py:class:`FecMismatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch>`
                     
                     .. attribute:: fecunc
                     
                     	FEC UnCorrected Word
-                    	**type**\:  :py:class:`Fecunc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc>`
+                    	**type**\:   :py:class:`Fecunc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc>`
                     
                     .. attribute:: iae
                     
                     	Incoming Alignment Error
-                    	**type**\:  :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae>`
+                    	**type**\:   :py:class:`Iae <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae>`
                     
                     .. attribute:: lof
                     
                     	Loss of Frame
-                    	**type**\:  :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof>`
+                    	**type**\:   :py:class:`Lof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof>`
                     
                     .. attribute:: lom
                     
                     	Loss of MultiFrame
-                    	**type**\:  :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom>`
+                    	**type**\:   :py:class:`Lom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom>`
                     
                     .. attribute:: los
                     
                     	Loss of Signal
-                    	**type**\:  :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Los>`
+                    	**type**\:   :py:class:`Los <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Los>`
                     
                     .. attribute:: oof
                     
                     	Out of Frame
-                    	**type**\:  :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof>`
+                    	**type**\:   :py:class:`Oof <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof>`
                     
                     .. attribute:: oom
                     
                     	Out of MultiFrame
-                    	**type**\:  :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom>`
+                    	**type**\:   :py:class:`Oom <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom>`
                     
                     .. attribute:: sd_ber
                     
                     	SD BER alarm
-                    	**type**\:  :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer>`
+                    	**type**\:   :py:class:`SdBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer>`
                     
                     .. attribute:: sf_ber
                     
                     	SF BER alarm
-                    	**type**\:  :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer>`
+                    	**type**\:   :py:class:`SfBer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer>`
                     
                     .. attribute:: tim
                     
                     	Trace Identifier Mismatch
-                    	**type**\:  :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim>`
+                    	**type**\:   :py:class:`Tim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim>`
                     
                     .. attribute:: uc
                     
                     	UC alarm
-                    	**type**\:  :py:class:`Uc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc>`
+                    	**type**\:   :py:class:`Uc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc>`
                     
                     
 
@@ -2867,12 +2885,12 @@ class Otu(object):
                     .. attribute:: proactive_fsm_if_state
                     
                     	Proactive FSM IF State
-                    	**type**\:  :py:class:`OtuPpIntfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfStateEnum>`
+                    	**type**\:   :py:class:`OtuPpIntfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpIntfStateEnum>`
                     
                     .. attribute:: proactive_fsm_state
                     
                     	Proactive FSM State
-                    	**type**\:  :py:class:`OtuPpFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmStateEnum>`
+                    	**type**\:   :py:class:`OtuPpFsmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuPpFsmStateEnum>`
                     
                     .. attribute:: proactive_status
                     
@@ -2903,7 +2921,7 @@ class Otu(object):
                     .. attribute:: sec_state
                     
                     	Secondary Admin State
-                    	**type**\:  :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
+                    	**type**\:   :py:class:`OtuSecStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuSecStateEnum>`
                     
                     .. attribute:: trig_thresh_coeff
                     
@@ -3132,6 +3150,15 @@ class Otu(object):
                         return True
 
                     if self.remote is not None and self.remote._has_data():
+                        return True
+
+                    if self.remote_host_ip is not None:
+                        return True
+
+                    if self.remote_host_name is not None:
+                        return True
+
+                    if self.remote_intf_name is not None:
                         return True
 
                     if self.sd is not None:

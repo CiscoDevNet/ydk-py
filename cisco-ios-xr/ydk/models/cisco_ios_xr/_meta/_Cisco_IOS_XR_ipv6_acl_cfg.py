@@ -16,9 +16,9 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'NextHopTypeEnum' : _MetaInfoEnum('NextHopTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg',
         {
-            'none-next-hop':'NONE_NEXT_HOP',
-            'regular-next-hop':'REGULAR_NEXT_HOP',
-            'default-next-hop':'DEFAULT_NEXT_HOP',
+            'none-next-hop':'none_next_hop',
+            'regular-next-hop':'regular_next_hop',
+            'default-next-hop':'default_next_hop',
         }, 'Cisco-IOS-XR-ipv6-acl-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv6-acl-cfg']),
     'Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry' : {
         'meta_info' : _MetaInfoClass('Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry',

@@ -30,19 +30,19 @@ class LinkUpDownStatusEnum(Enum):
 
     Link up down status
 
-    .. data:: ENABLED = 1
+    .. data:: enabled = 1
 
     	LinkUpDown notification is enabled
 
-    .. data:: DISABLED = 2
+    .. data:: disabled = 2
 
     	LinkUpDown notification is disabled
 
     """
 
-    ENABLED = 1
+    enabled = 1
 
-    DISABLED = 2
+    disabled = 2
 
 
     @staticmethod

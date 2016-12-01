@@ -31,79 +31,79 @@ class CollectIonIntervalEnum(Enum):
 
     Collect ion interval
 
-    .. data:: Y_1_MINUTE = 1
+    .. data:: Y_1_minute = 1
 
     	Interval1minute
 
-    .. data:: Y_2_MINUTES = 2
+    .. data:: Y_2_minutes = 2
 
     	Interval2minutes
 
-    .. data:: Y_3_MINUTES = 3
+    .. data:: Y_3_minutes = 3
 
     	Interval3minutes
 
-    .. data:: Y_4_MINUTES = 4
+    .. data:: Y_4_minutes = 4
 
     	Interval4minutes
 
-    .. data:: Y_5_MINUTES = 5
+    .. data:: Y_5_minutes = 5
 
     	Interval5minutes
 
-    .. data:: Y_6_MINUTES = 6
+    .. data:: Y_6_minutes = 6
 
     	Interval6minutes
 
-    .. data:: Y_10_MINUTES = 10
+    .. data:: Y_10_minutes = 10
 
     	Interval10minutes
 
-    .. data:: Y_12_MINUTES = 12
+    .. data:: Y_12_minutes = 12
 
     	Interval12minutes
 
-    .. data:: Y_15_MINUTES = 15
+    .. data:: Y_15_minutes = 15
 
     	Interval15inutes
 
-    .. data:: Y_20_MINUTES = 20
+    .. data:: Y_20_minutes = 20
 
     	Interval20minutes
 
-    .. data:: Y_30_MINUTES = 30
+    .. data:: Y_30_minutes = 30
 
     	Interval30minutes
 
-    .. data:: Y_60_MINUTES = 60
+    .. data:: Y_60_minutes = 60
 
     	Interval60minutes
 
     """
 
-    Y_1_MINUTE = 1
+    Y_1_minute = 1
 
-    Y_2_MINUTES = 2
+    Y_2_minutes = 2
 
-    Y_3_MINUTES = 3
+    Y_3_minutes = 3
 
-    Y_4_MINUTES = 4
+    Y_4_minutes = 4
 
-    Y_5_MINUTES = 5
+    Y_5_minutes = 5
 
-    Y_6_MINUTES = 6
+    Y_6_minutes = 6
 
-    Y_10_MINUTES = 10
+    Y_10_minutes = 10
 
-    Y_12_MINUTES = 12
+    Y_12_minutes = 12
 
-    Y_15_MINUTES = 15
+    Y_15_minutes = 15
 
-    Y_20_MINUTES = 20
+    Y_20_minutes = 20
 
-    Y_30_MINUTES = 30
+    Y_30_minutes = 30
 
-    Y_60_MINUTES = 60
+    Y_60_minutes = 60
 
 
     @staticmethod
@@ -118,13 +118,13 @@ class HistorySizeEnum(Enum):
 
     History size
 
-    .. data:: MAX = 10
+    .. data:: max = 10
 
     	Max history
 
     """
 
-    MAX = 10
+    max = 10
 
 
     @staticmethod
@@ -139,13 +139,13 @@ class HistoryTimeoutEnum(Enum):
 
     History timeout
 
-    .. data:: MAX = 720
+    .. data:: max = 720
 
     	Max timeout
 
     """
 
-    MAX = 720
+    max = 720
 
 
     @staticmethod
@@ -162,17 +162,17 @@ class TrafficCollector(object):
     .. attribute:: enable_traffic_collector
     
     	Enable traffic collector
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: external_interfaces
     
     	Configure external interfaces
-    	**type**\:  :py:class:`ExternalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.ExternalInterfaces>`
+    	**type**\:   :py:class:`ExternalInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.ExternalInterfaces>`
     
     .. attribute:: statistics
     
     	Configure statistics related parameters
-    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.Statistics>`
+    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.Statistics>`
     
     
 
@@ -196,7 +196,7 @@ class TrafficCollector(object):
         .. attribute:: external_interface
         
         	Configure an external internface
-        	**type**\: list of  :py:class:`ExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.ExternalInterfaces.ExternalInterface>`
+        	**type**\: list of    :py:class:`ExternalInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.TrafficCollector.ExternalInterfaces.ExternalInterface>`
         
         
 
@@ -226,7 +226,7 @@ class TrafficCollector(object):
             .. attribute:: enable
             
             	Enable traffic collector on this interface
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -299,19 +299,19 @@ class TrafficCollector(object):
         .. attribute:: collection_interval
         
         	Configure statistics collection interval
-        	**type**\:  :py:class:`CollectIonIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.CollectIonIntervalEnum>`
+        	**type**\:   :py:class:`CollectIonIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.CollectIonIntervalEnum>`
         
         .. attribute:: enable_traffic_collector_statistics
         
         	Enable traffic collector statistics
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: history_size
         
         	Configure statistics history size
         	**type**\: one of the below types:
         
-        	**type**\:  :py:class:`HistorySizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistorySizeEnum>`
+        	**type**\:   :py:class:`HistorySizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistorySizeEnum>`
         
         
         ----
@@ -326,7 +326,7 @@ class TrafficCollector(object):
         	Configure statistics history timeout interval
         	**type**\: one of the below types:
         
-        	**type**\:  :py:class:`HistoryTimeoutEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistoryTimeoutEnum>`
+        	**type**\:   :py:class:`HistoryTimeoutEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg.HistoryTimeoutEnum>`
         
         
         ----

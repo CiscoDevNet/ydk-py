@@ -30,25 +30,25 @@ class ClientDataRateEnum(Enum):
 
     Client data rate
 
-    .. data:: TEN_GIG = 1
+    .. data:: ten_gig = 1
 
     	TenGig
 
-    .. data:: FORTY_GIG = 2
+    .. data:: forty_gig = 2
 
     	FortyGig
 
-    .. data:: HUNDRED_GIG = 3
+    .. data:: hundred_gig = 3
 
     	HundredGig
 
     """
 
-    TEN_GIG = 1
+    ten_gig = 1
 
-    FORTY_GIG = 2
+    forty_gig = 2
 
-    HUNDRED_GIG = 3
+    hundred_gig = 3
 
 
     @staticmethod
@@ -63,19 +63,19 @@ class FecEnum(Enum):
 
     Fec
 
-    .. data:: SD7 = 1
+    .. data:: sd7 = 1
 
     	SoftDecision7
 
-    .. data:: SD20 = 2
+    .. data:: sd20 = 2
 
     	SoftDecision20
 
     """
 
-    SD7 = 1
+    sd7 = 1
 
-    SD20 = 2
+    sd20 = 2
 
 
     @staticmethod
@@ -90,25 +90,25 @@ class TrunkDataRateEnum(Enum):
 
     Trunk data rate
 
-    .. data:: HUNDRED_GIG = 2
+    .. data:: hundred_gig = 2
 
     	HundredGig
 
-    .. data:: TWO_HUNDRED_GIG = 3
+    .. data:: two_hundred_gig = 3
 
     	TwoHundredGig
 
-    .. data:: TWO_HUNDRED_FIFTY_GIG = 4
+    .. data:: two_hundred_fifty_gig = 4
 
     	TwoHundredFiftyGig
 
     """
 
-    HUNDRED_GIG = 2
+    hundred_gig = 2
 
-    TWO_HUNDRED_GIG = 3
+    two_hundred_gig = 3
 
-    TWO_HUNDRED_FIFTY_GIG = 4
+    two_hundred_fifty_gig = 4
 
 
     @staticmethod
@@ -125,7 +125,7 @@ class HardwareModule(object):
     .. attribute:: node
     
     	Node
-    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node>`
+    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node>`
     
     
 
@@ -151,10 +151,10 @@ class HardwareModule(object):
         
         	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
         
-        .. attribute:: values
+        .. attribute:: slice
         
         	Slice to be Provisioned
-        	**type**\:  :py:class:`Values <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Values>`
+        	**type**\: list of    :py:class:`Slice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Slice>`
         
         
 
@@ -166,18 +166,31 @@ class HardwareModule(object):
         def __init__(self):
             self.parent = None
             self.location = None
-            self.values = HardwareModule.Node.Values()
-            self.values.parent = self
+            self.slice = YList()
+            self.slice.parent = self
+            self.slice.name = 'slice'
 
 
-        class Values(object):
+        class Slice(object):
             """
             Slice to be Provisioned
             
-            .. attribute:: value
+            .. attribute:: slice_id  <key>
+            
+            	Set Slice
+            	**type**\:  str
+            
+            	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+            
+            .. attribute:: lldp
+            
+            	Drop LLDP Packets
+            	**type**\:  bool
+            
+            .. attribute:: values
             
             	Data rates & FEC
-            	**type**\: list of  :py:class:`Value <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Values.Value>`
+            	**type**\:   :py:class:`Values <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.HardwareModule.Node.Slice.Values>`
             
             
 
@@ -188,41 +201,37 @@ class HardwareModule(object):
 
             def __init__(self):
                 self.parent = None
-                self.value = YList()
-                self.value.parent = self
-                self.value.name = 'value'
+                self.slice_id = None
+                self.lldp = None
+                self.values = HardwareModule.Node.Slice.Values()
+                self.values.parent = self
 
 
-            class Value(object):
+            class Values(object):
                 """
                 Data rates & FEC
-                
-                .. attribute:: slice_id  <key>
-                
-                	Set Slice
-                	**type**\:  str
-                
-                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
                 
                 .. attribute:: client_rate
                 
                 	Client Rate
-                	**type**\:  :py:class:`ClientDataRateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRateEnum>`
+                	**type**\:   :py:class:`ClientDataRateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.ClientDataRateEnum>`
                 
                 .. attribute:: encrypted
                 
                 	Encrypted
                 	**type**\:  bool
                 
+                	**default value**\: false
+                
                 .. attribute:: fec
                 
                 	FEC
-                	**type**\:  :py:class:`FecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.FecEnum>`
+                	**type**\:   :py:class:`FecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.FecEnum>`
                 
                 .. attribute:: trunk_rate
                 
                 	TrunkRate
-                	**type**\:  :py:class:`TrunkDataRateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRateEnum>`
+                	**type**\:   :py:class:`TrunkDataRateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg.TrunkDataRateEnum>`
                 
                 
 
@@ -233,7 +242,6 @@ class HardwareModule(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.slice_id = None
                     self.client_rate = None
                     self.encrypted = None
                     self.fec = None
@@ -243,10 +251,8 @@ class HardwareModule(object):
                 def _common_path(self):
                     if self.parent is None:
                         raise YPYModelError('parent is not set . Cannot derive path.')
-                    if self.slice_id is None:
-                        raise YPYModelError('Key property slice_id is None')
 
-                    return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-cfg:value[Cisco-IOS-XR-ncs1k-mxp-cfg:slice-id = ' + str(self.slice_id) + ']'
+                    return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-cfg:values'
 
                 def is_config(self):
                     ''' Returns True if this instance represents config data else returns False '''
@@ -255,9 +261,6 @@ class HardwareModule(object):
                 def _has_data(self):
                     if not self.is_config():
                         return False
-                    if self.slice_id is not None:
-                        return True
-
                     if self.client_rate is not None:
                         return True
 
@@ -275,14 +278,16 @@ class HardwareModule(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_cfg as meta
-                    return meta._meta_table['HardwareModule.Node.Values.Value']['meta_info']
+                    return meta._meta_table['HardwareModule.Node.Slice.Values']['meta_info']
 
             @property
             def _common_path(self):
                 if self.parent is None:
                     raise YPYModelError('parent is not set . Cannot derive path.')
+                if self.slice_id is None:
+                    raise YPYModelError('Key property slice_id is None')
 
-                return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-cfg:values'
+                return self.parent._common_path +'/Cisco-IOS-XR-ncs1k-mxp-cfg:slice[Cisco-IOS-XR-ncs1k-mxp-cfg:slice-id = ' + str(self.slice_id) + ']'
 
             def is_config(self):
                 ''' Returns True if this instance represents config data else returns False '''
@@ -291,17 +296,21 @@ class HardwareModule(object):
             def _has_data(self):
                 if not self.is_config():
                     return False
-                if self.value is not None:
-                    for child_ref in self.value:
-                        if child_ref._has_data():
-                            return True
+                if self.slice_id is not None:
+                    return True
+
+                if self.lldp is not None:
+                    return True
+
+                if self.values is not None and self.values._has_data():
+                    return True
 
                 return False
 
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ncs1k_mxp_cfg as meta
-                return meta._meta_table['HardwareModule.Node.Values']['meta_info']
+                return meta._meta_table['HardwareModule.Node.Slice']['meta_info']
 
         @property
         def _common_path(self):
@@ -320,8 +329,10 @@ class HardwareModule(object):
             if self.location is not None:
                 return True
 
-            if self.values is not None and self.values._has_data():
-                return True
+            if self.slice is not None:
+                for child_ref in self.slice:
+                    if child_ref._has_data():
+                        return True
 
             return False
 

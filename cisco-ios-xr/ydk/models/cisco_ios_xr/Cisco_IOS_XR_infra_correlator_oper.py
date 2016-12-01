@@ -31,27 +31,27 @@ class AcRuleStateEnum(Enum):
 
     Ac rule state
 
-    .. data:: RULE_UNAPPLIED = 0
+    .. data:: rule_unapplied = 0
 
     	Rule is in Unapplied state
 
-    .. data:: RULE_APPLIED = 1
+    .. data:: rule_applied = 1
 
     	Rule is Applied to specified RacksSlots,
 
     	Contexts and Sources
 
-    .. data:: RULE_APPLIED_ALL = 2
+    .. data:: rule_applied_all = 2
 
     	Rule is Applied to all of router
 
     """
 
-    RULE_UNAPPLIED = 0
+    rule_unapplied = 0
 
-    RULE_APPLIED = 1
+    rule_applied = 1
 
-    RULE_APPLIED_ALL = 2
+    rule_applied_all = 2
 
 
     @staticmethod
@@ -66,25 +66,25 @@ class AlAlarmBistateEnum(Enum):
 
     Al alarm bistate
 
-    .. data:: NOT_AVAILABLE = 0
+    .. data:: not_available = 0
 
     	not available
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	active
 
-    .. data:: CLEAR = 2
+    .. data:: clear = 2
 
     	clear
 
     """
 
-    NOT_AVAILABLE = 0
+    not_available = 0
 
-    ACTIVE = 1
+    active = 1
 
-    CLEAR = 2
+    clear = 2
 
 
     @staticmethod
@@ -99,61 +99,61 @@ class AlAlarmSeverityEnum(Enum):
 
     Al alarm severity
 
-    .. data:: UNKNOWN = -1
+    .. data:: unknown = -1
 
     	unknown
 
-    .. data:: EMERGENCY = 0
+    .. data:: emergency = 0
 
     	emergency
 
-    .. data:: ALERT = 1
+    .. data:: alert = 1
 
     	alert
 
-    .. data:: CRITICAL = 2
+    .. data:: critical = 2
 
     	critical
 
-    .. data:: ERROR = 3
+    .. data:: error = 3
 
     	error
 
-    .. data:: WARNING = 4
+    .. data:: warning = 4
 
     	warning
 
-    .. data:: NOTICE = 5
+    .. data:: notice = 5
 
     	notice
 
-    .. data:: INFORMATIONAL = 6
+    .. data:: informational = 6
 
     	informational
 
-    .. data:: DEBUGGING = 7
+    .. data:: debugging = 7
 
     	debugging
 
     """
 
-    UNKNOWN = -1
+    unknown = -1
 
-    EMERGENCY = 0
+    emergency = 0
 
-    ALERT = 1
+    alert = 1
 
-    CRITICAL = 2
+    critical = 2
 
-    ERROR = 3
+    error = 3
 
-    WARNING = 4
+    warning = 4
 
-    NOTICE = 5
+    notice = 5
 
-    INFORMATIONAL = 6
+    informational = 6
 
-    DEBUGGING = 7
+    debugging = 7
 
 
     @staticmethod
@@ -170,12 +170,12 @@ class Suppression(object):
     .. attribute:: rule_details
     
     	Table that contains the database of suppression rule details
-    	**type**\:  :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails>`
+    	**type**\:   :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails>`
     
     .. attribute:: rule_summaries
     
     	Table that contains the database of suppression rule summary
-    	**type**\:  :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries>`
+    	**type**\:   :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries>`
     
     
 
@@ -199,7 +199,7 @@ class Suppression(object):
         .. attribute:: rule_summary
         
         	One of the suppression rules
-        	**type**\: list of  :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries.RuleSummary>`
+        	**type**\: list of    :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleSummaries.RuleSummary>`
         
         
 
@@ -234,7 +234,7 @@ class Suppression(object):
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
-            	**type**\:  :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+            	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
             
             .. attribute:: suppressed_alarms_count
             
@@ -323,7 +323,7 @@ class Suppression(object):
         .. attribute:: rule_detail
         
         	Details of one of the suppression rules
-        	**type**\: list of  :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail>`
+        	**type**\: list of    :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail>`
         
         
 
@@ -353,7 +353,7 @@ class Suppression(object):
             .. attribute:: alarm_severity
             
             	Severity level to suppress
-            	**type**\:  :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverityEnum>`
+            	**type**\:   :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverityEnum>`
             
             .. attribute:: all_alarms
             
@@ -370,12 +370,12 @@ class Suppression(object):
             .. attribute:: codes
             
             	Message codes defining the rule
-            	**type**\: list of  :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.Codes>`
+            	**type**\: list of    :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.Codes>`
             
             .. attribute:: rule_summary
             
             	Rule summary, name, etc
-            	**type**\:  :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.RuleSummary>`
+            	**type**\:   :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Suppression.RuleDetails.RuleDetail.RuleSummary>`
             
             
 
@@ -411,7 +411,7 @@ class Suppression(object):
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
-                	**type**\:  :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+                	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
                 
                 .. attribute:: suppressed_alarms_count
                 
@@ -626,37 +626,37 @@ class Correlator(object):
     .. attribute:: alarms
     
     	Correlated alarms Table
-    	**type**\:  :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms>`
+    	**type**\:   :py:class:`Alarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms>`
     
     .. attribute:: buffer_status
     
     	Describes buffer utilization and parameters configured
-    	**type**\:  :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.BufferStatus>`
+    	**type**\:   :py:class:`BufferStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.BufferStatus>`
     
     .. attribute:: rule_details
     
     	Table that contains the database of correlation rule details
-    	**type**\:  :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails>`
+    	**type**\:   :py:class:`RuleDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails>`
     
     .. attribute:: rule_set_details
     
     	Table that contains the ruleset detail info
-    	**type**\:  :py:class:`RuleSetDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails>`
+    	**type**\:   :py:class:`RuleSetDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails>`
     
     .. attribute:: rule_set_summaries
     
     	Table that contains the ruleset summary info
-    	**type**\:  :py:class:`RuleSetSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries>`
+    	**type**\:   :py:class:`RuleSetSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries>`
     
     .. attribute:: rule_summaries
     
     	Table that contains the database of correlation rule summary
-    	**type**\:  :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries>`
+    	**type**\:   :py:class:`RuleSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries>`
     
     .. attribute:: rules
     
     	Table that contains the database of correlation rules
-    	**type**\:  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules>`
+    	**type**\:   :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules>`
     
     
 
@@ -690,7 +690,7 @@ class Correlator(object):
         .. attribute:: rule
         
         	One of the correlation rules
-        	**type**\: list of  :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule>`
+        	**type**\: list of    :py:class:`Rule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule>`
         
         
 
@@ -734,7 +734,7 @@ class Correlator(object):
             .. attribute:: codes
             
             	Message codes defining the rule
-            	**type**\: list of  :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule.Codes>`
+            	**type**\: list of    :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Rules.Rule.Codes>`
             
             .. attribute:: rule_name_xr
             
@@ -744,7 +744,7 @@ class Correlator(object):
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
-            	**type**\:  :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+            	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
             
             .. attribute:: timeout
             
@@ -976,7 +976,7 @@ class Correlator(object):
         .. attribute:: alarm
         
         	One of the correlated alarms
-        	**type**\: list of  :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm>`
+        	**type**\: list of    :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm>`
         
         
 
@@ -1006,7 +1006,7 @@ class Correlator(object):
             .. attribute:: alarm_info
             
             	Correlated alarm information
-            	**type**\:  :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm.AlarmInfo>`
+            	**type**\:   :py:class:`AlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.Alarms.Alarm.AlarmInfo>`
             
             .. attribute:: context
             
@@ -1073,7 +1073,7 @@ class Correlator(object):
                 .. attribute:: severity
                 
                 	Severity of the alarm
-                	**type**\:  :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverityEnum>`
+                	**type**\:   :py:class:`AlAlarmSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmSeverityEnum>`
                 
                 .. attribute:: source_id
                 
@@ -1083,7 +1083,7 @@ class Correlator(object):
                 .. attribute:: state
                 
                 	State of the alarm (bistate alarms only)
-                	**type**\:  :py:class:`AlAlarmBistateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmBistateEnum>`
+                	**type**\:   :py:class:`AlAlarmBistateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AlAlarmBistateEnum>`
                 
                 .. attribute:: timestamp
                 
@@ -1091,6 +1091,8 @@ class Correlator(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: millisecond
                 
                 
 
@@ -1228,7 +1230,7 @@ class Correlator(object):
         .. attribute:: rule_set_summary
         
         	Summary of one of the correlation rulesets
-        	**type**\: list of  :py:class:`RuleSetSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries.RuleSetSummary>`
+        	**type**\: list of    :py:class:`RuleSetSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetSummaries.RuleSetSummary>`
         
         
 
@@ -1331,7 +1333,7 @@ class Correlator(object):
         .. attribute:: rule_set_detail
         
         	Detail of one of the correlation rulesets
-        	**type**\: list of  :py:class:`RuleSetDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail>`
+        	**type**\: list of    :py:class:`RuleSetDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail>`
         
         
 
@@ -1366,7 +1368,7 @@ class Correlator(object):
             .. attribute:: rules
             
             	Rules contained in a ruleset
-            	**type**\: list of  :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail.Rules>`
+            	**type**\: list of    :py:class:`Rules <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSetDetails.RuleSetDetail.Rules>`
             
             
 
@@ -1403,7 +1405,7 @@ class Correlator(object):
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
-                	**type**\:  :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+                	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
                 
                 .. attribute:: stateful
                 
@@ -1522,7 +1524,7 @@ class Correlator(object):
         .. attribute:: rule_detail
         
         	Details of one of the correlation rules
-        	**type**\: list of  :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail>`
+        	**type**\: list of    :py:class:`RuleDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail>`
         
         
 
@@ -1566,7 +1568,7 @@ class Correlator(object):
             .. attribute:: codes
             
             	Message codes defining the rule
-            	**type**\: list of  :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.Codes>`
+            	**type**\: list of    :py:class:`Codes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.Codes>`
             
             .. attribute:: context_correlation
             
@@ -1598,7 +1600,7 @@ class Correlator(object):
             .. attribute:: rule_summary
             
             	Rule summary, name, etc
-            	**type**\:  :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.RuleSummary>`
+            	**type**\:   :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleDetails.RuleDetail.RuleSummary>`
             
             .. attribute:: timeout
             
@@ -1655,7 +1657,7 @@ class Correlator(object):
                 .. attribute:: rule_state
                 
                 	Applied state of the rule It could be not applied, applied or applied to all
-                	**type**\:  :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+                	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
                 
                 .. attribute:: stateful
                 
@@ -1865,7 +1867,7 @@ class Correlator(object):
         .. attribute:: rule_summary
         
         	One of the correlation rules
-        	**type**\: list of  :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries.RuleSummary>`
+        	**type**\: list of    :py:class:`RuleSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.Correlator.RuleSummaries.RuleSummary>`
         
         
 
@@ -1907,7 +1909,7 @@ class Correlator(object):
             .. attribute:: rule_state
             
             	Applied state of the rule It could be not applied, applied or applied to all
-            	**type**\:  :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
+            	**type**\:   :py:class:`AcRuleStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper.AcRuleStateEnum>`
             
             .. attribute:: stateful
             

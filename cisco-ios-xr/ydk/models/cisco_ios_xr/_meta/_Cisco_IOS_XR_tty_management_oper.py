@@ -16,10 +16,10 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'TransportServiceEnum' : _MetaInfoEnum('TransportServiceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_oper',
         {
-            'unknown':'UNKNOWN',
-            'telnet':'TELNET',
-            'rlogin':'RLOGIN',
-            'ssh':'SSH',
+            'unknown':'unknown',
+            'telnet':'telnet',
+            'rlogin':'rlogin',
+            'ssh':'ssh',
         }, 'Cisco-IOS-XR-tty-management-oper', _yang_ns._namespaces['Cisco-IOS-XR-tty-management-oper']),
     'HostAfIdBaseIdentity' : {
         'meta_info' : _MetaInfoClass('HostAfIdBaseIdentity',

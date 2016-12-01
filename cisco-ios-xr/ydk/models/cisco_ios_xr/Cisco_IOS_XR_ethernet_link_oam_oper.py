@@ -30,31 +30,31 @@ class ActionEnum(Enum):
 
     Actions supported by an OAM interface
 
-    .. data:: NO_ACTION = 1
+    .. data:: no_action = 1
 
     	Disabled (do nothing)
 
-    .. data:: DISABLE_INTERFACE = 2
+    .. data:: disable_interface = 2
 
     	Disable the interface
 
-    .. data:: LOG = 3
+    .. data:: log = 3
 
     	Log the event and do nothing else
 
-    .. data:: EFD = 4
+    .. data:: efd = 4
 
     	EFD the interface
 
     """
 
-    NO_ACTION = 1
+    no_action = 1
 
-    DISABLE_INTERFACE = 2
+    disable_interface = 2
 
-    LOG = 3
+    log = 3
 
-    EFD = 4
+    efd = 4
 
 
     @staticmethod
@@ -69,51 +69,51 @@ class LogEnum(Enum):
 
     The type of a log entry
 
-    .. data:: LOG_TYPE_SYMBOL_EVENT = 1
+    .. data:: log_type_symbol_event = 1
 
     	Log entry for an errored symbol event
 
-    .. data:: LOG_TYPE_PERIOD_EVENT = 2
+    .. data:: log_type_period_event = 2
 
     	Log entry for an errored frame period event
 
-    .. data:: LOG_TYPE_FRAME_EVENT = 3
+    .. data:: log_type_frame_event = 3
 
     	Log entry for an errored frame event
 
-    .. data:: LOG_TYPE_SECS_EVENT = 4
+    .. data:: log_type_secs_event = 4
 
     	Log entry for an errored frame seconds summary
 
     	event
 
-    .. data:: LOG_TYPE_LINK_FAULT = 256
+    .. data:: log_type_link_fault = 256
 
     	Log entry for a link fault
 
-    .. data:: LOG_TYPE_DYING_GASP = 257
+    .. data:: log_type_dying_gasp = 257
 
     	Log entry for a dying gasp
 
-    .. data:: LOG_TYPE_CRITICAL_EVENT = 258
+    .. data:: log_type_critical_event = 258
 
     	Log entry for a critical event
 
     """
 
-    LOG_TYPE_SYMBOL_EVENT = 1
+    log_type_symbol_event = 1
 
-    LOG_TYPE_PERIOD_EVENT = 2
+    log_type_period_event = 2
 
-    LOG_TYPE_FRAME_EVENT = 3
+    log_type_frame_event = 3
 
-    LOG_TYPE_SECS_EVENT = 4
+    log_type_secs_event = 4
 
-    LOG_TYPE_LINK_FAULT = 256
+    log_type_link_fault = 256
 
-    LOG_TYPE_DYING_GASP = 257
+    log_type_dying_gasp = 257
 
-    LOG_TYPE_CRITICAL_EVENT = 258
+    log_type_critical_event = 258
 
 
     @staticmethod
@@ -128,19 +128,19 @@ class LogLocationEnum(Enum):
 
     The location of the event that caused a log entry
 
-    .. data:: LOG_LOCATION_LOCAL = 1
+    .. data:: log_location_local = 1
 
     	A local event
 
-    .. data:: LOG_LOCATION_REMOTE = 2
+    .. data:: log_location_remote = 2
 
     	A remote event
 
     """
 
-    LOG_LOCATION_LOCAL = 1
+    log_location_local = 1
 
-    LOG_LOCATION_REMOTE = 2
+    log_location_remote = 2
 
 
     @staticmethod
@@ -155,43 +155,43 @@ class LoopbackStatusEnum(Enum):
 
     The loopback mode of an OAM interface
 
-    .. data:: NONE = 1
+    .. data:: none = 1
 
     	Loopback is not being performed
 
-    .. data:: INITIATING = 2
+    .. data:: initiating = 2
 
     	Initiating master loopback
 
-    .. data:: MASTER_LOOPBACK = 3
+    .. data:: master_loopback = 3
 
     	In master loopback mode
 
-    .. data:: TERMINATING = 4
+    .. data:: terminating = 4
 
     	Terminating master loopback mode
 
-    .. data:: LOCAL_LOOPBACK = 5
+    .. data:: local_loopback = 5
 
     	In slave loopback mode
 
-    .. data:: UNKNOWN = 6
+    .. data:: unknown = 6
 
     	Parser and multiplexer combination unexpected
 
     """
 
-    NONE = 1
+    none = 1
 
-    INITIATING = 2
+    initiating = 2
 
-    MASTER_LOOPBACK = 3
+    master_loopback = 3
 
-    TERMINATING = 4
+    terminating = 4
 
-    LOCAL_LOOPBACK = 5
+    local_loopback = 5
 
-    UNKNOWN = 6
+    unknown = 6
 
 
     @staticmethod
@@ -206,25 +206,25 @@ class ModeEnum(Enum):
 
     Mode of an OAM interface
 
-    .. data:: PASSIVE = 0
+    .. data:: passive = 0
 
     	Passive mode
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	Active mode
 
-    .. data:: DONT_CARE = 2
+    .. data:: dont_care = 2
 
     	Don't care what the mode is
 
     """
 
-    PASSIVE = 0
+    passive = 0
 
-    ACTIVE = 1
+    active = 1
 
-    DONT_CARE = 2
+    dont_care = 2
 
 
     @staticmethod
@@ -239,73 +239,73 @@ class OperationalStateEnum(Enum):
 
     Operational state of an interface
 
-    .. data:: DISABLED = 1
+    .. data:: disabled = 1
 
     	802.3 OAM is disabled
 
-    .. data:: LINK_FAULT = 2
+    .. data:: link_fault = 2
 
     	802.3 OAM has encountered a link fault
 
-    .. data:: PASSIVE_WAIT = 3
+    .. data:: passive_wait = 3
 
     	Passive OAM entity waiting to see if peer is
 
     	OAM capable
 
-    .. data:: ACTIVE_SEND_LOCAL = 4
+    .. data:: active_send_local = 4
 
     	Active OAM entity trying to determine if peer
 
     	is OAM capable
 
-    .. data:: SEND_LOCAL_AND_REMOTE = 5
+    .. data:: send_local_and_remote = 5
 
     	OAM discovered peer but still to accept or
 
     	reject peer config
 
-    .. data:: SEND_LOCAL_AND_REMOTE_OK = 6
+    .. data:: send_local_and_remote_ok = 6
 
     	OAM peering is allowed by local device
 
-    .. data:: PEERING_LOCALLY_REJECTED = 7
+    .. data:: peering_locally_rejected = 7
 
     	OAM peering rejected by local device
 
-    .. data:: PEERING_REMOTELY_REJECTED = 8
+    .. data:: peering_remotely_rejected = 8
 
     	OAM peering rejected by remote device
 
-    .. data:: OPERATIONAL = 9
+    .. data:: operational = 9
 
     	802.3 OAM is operational
 
-    .. data:: OPERATIONAL_HALF_DUPLEX = 10
+    .. data:: operational_half_duplex = 10
 
     	802.3 OAM is operating in half-duplex mode
 
     """
 
-    DISABLED = 1
+    disabled = 1
 
-    LINK_FAULT = 2
+    link_fault = 2
 
-    PASSIVE_WAIT = 3
+    passive_wait = 3
 
-    ACTIVE_SEND_LOCAL = 4
+    active_send_local = 4
 
-    SEND_LOCAL_AND_REMOTE = 5
+    send_local_and_remote = 5
 
-    SEND_LOCAL_AND_REMOTE_OK = 6
+    send_local_and_remote_ok = 6
 
-    PEERING_LOCALLY_REJECTED = 7
+    peering_locally_rejected = 7
 
-    PEERING_REMOTELY_REJECTED = 8
+    peering_remotely_rejected = 8
 
-    OPERATIONAL = 9
+    operational = 9
 
-    OPERATIONAL_HALF_DUPLEX = 10
+    operational_half_duplex = 10
 
 
     @staticmethod
@@ -320,49 +320,49 @@ class ProtocolStateEnum(Enum):
 
     The state the protocol is in
 
-    .. data:: PROTOCOL_STATE_INACTIVE = 0
+    .. data:: protocol_state_inactive = 0
 
     	The protocol is in the INACTIVE state
 
-    .. data:: PROTOCOL_STATE_FAULT = 1
+    .. data:: protocol_state_fault = 1
 
     	The protocol is in the FAULT state
 
-    .. data:: PROTOCOL_STATE_ACTIVE_SEND_LOCAL = 2
+    .. data:: protocol_state_active_send_local = 2
 
     	The protocol is in the ACTIVE_SEND_LOCAL state
 
-    .. data:: PROTOCOL_STATE_PASSIVE_WAIT = 3
+    .. data:: protocol_state_passive_wait = 3
 
     	The protocol is in the SEND_LOCAL_REMOTE state
 
-    .. data:: PROTOCOL_STATE_SEND_LOCAL_REMOTE = 4
+    .. data:: protocol_state_send_local_remote = 4
 
     	The protocol is in the LOCAL_REMOTE state
 
-    .. data:: PROTOCOL_STATE_SEND_LOCAL_REMOTE_OK = 5
+    .. data:: protocol_state_send_local_remote_ok = 5
 
     	The protocol is in the LOCAL_REMOTE_OK state
 
-    .. data:: PROTOCOL_STATE_SEND_ANY = 6
+    .. data:: protocol_state_send_any = 6
 
     	The protocol is in the SEND_ANY state
 
     """
 
-    PROTOCOL_STATE_INACTIVE = 0
+    protocol_state_inactive = 0
 
-    PROTOCOL_STATE_FAULT = 1
+    protocol_state_fault = 1
 
-    PROTOCOL_STATE_ACTIVE_SEND_LOCAL = 2
+    protocol_state_active_send_local = 2
 
-    PROTOCOL_STATE_PASSIVE_WAIT = 3
+    protocol_state_passive_wait = 3
 
-    PROTOCOL_STATE_SEND_LOCAL_REMOTE = 4
+    protocol_state_send_local_remote = 4
 
-    PROTOCOL_STATE_SEND_LOCAL_REMOTE_OK = 5
+    protocol_state_send_local_remote_ok = 5
 
-    PROTOCOL_STATE_SEND_ANY = 6
+    protocol_state_send_any = 6
 
 
     @staticmethod
@@ -379,32 +379,32 @@ class EtherLinkOam(object):
     .. attribute:: discovery_info_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Discovery Info container
-    	**type**\:  :py:class:`DiscoveryInfoInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.DiscoveryInfoInterfaces>`
+    	**type**\:   :py:class:`DiscoveryInfoInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.DiscoveryInfoInterfaces>`
     
     .. attribute:: event_log_entry_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Event Log Entry container
-    	**type**\:  :py:class:`EventLogEntryInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces>`
+    	**type**\:   :py:class:`EventLogEntryInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces>`
     
     .. attribute:: interface_state_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Interface State container
-    	**type**\:  :py:class:`InterfaceStateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces>`
+    	**type**\:   :py:class:`InterfaceStateInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces>`
     
     .. attribute:: nodes
     
     	Node table for node\-specific operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes>`
     
     .. attribute:: running_config_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Running Config container
-    	**type**\:  :py:class:`RunningConfigInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces>`
+    	**type**\:   :py:class:`RunningConfigInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces>`
     
     .. attribute:: stats_interfaces
     
     	Table of Ethernet Link OAM enabled interfaces within Stats container
-    	**type**\:  :py:class:`StatsInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.StatsInterfaces>`
+    	**type**\:   :py:class:`StatsInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.StatsInterfaces>`
     
     
 
@@ -436,7 +436,7 @@ class EtherLinkOam(object):
         .. attribute:: discovery_info_interface
         
         	Ethernet Link OAM interface to get Discovery Info for
-        	**type**\: list of  :py:class:`DiscoveryInfoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface>`
+        	**type**\: list of    :py:class:`DiscoveryInfoInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface>`
         
         
 
@@ -512,7 +512,7 @@ class EtherLinkOam(object):
             .. attribute:: local_mode
             
             	Local Mode (passive/active)
-            	**type**\:  :py:class:`ModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
+            	**type**\:   :py:class:`ModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
             
             .. attribute:: local_mode_valid
             
@@ -563,7 +563,7 @@ class EtherLinkOam(object):
             .. attribute:: loopback_mode
             
             	The loopback mode the interface is in
-            	**type**\:  :py:class:`LoopbackStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LoopbackStatusEnum>`
+            	**type**\:   :py:class:`LoopbackStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LoopbackStatusEnum>`
             
             .. attribute:: loopback_mode_valid
             
@@ -588,7 +588,7 @@ class EtherLinkOam(object):
             .. attribute:: operational_status
             
             	Operational status
-            	**type**\:  :py:class:`OperationalStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.OperationalStateEnum>`
+            	**type**\:   :py:class:`OperationalStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.OperationalStateEnum>`
             
             .. attribute:: operational_status_valid
             
@@ -602,12 +602,16 @@ class EtherLinkOam(object):
             
             	**range:** 0..65535
             
+            	**units**\: second
+            
             .. attribute:: received_at_risk_notification_timestamp
             
             	Timestamp of when the last At Risk notification was received (in seconds since the UNIX epoch), or 0 if the peer is not currently at risk
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            	**units**\: second
             
             .. attribute:: remote_event
             
@@ -644,7 +648,7 @@ class EtherLinkOam(object):
             .. attribute:: remote_mode
             
             	Remote Mode (passive/active)
-            	**type**\:  :py:class:`ModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
+            	**type**\:   :py:class:`ModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
             
             .. attribute:: remote_mode_valid
             
@@ -995,7 +999,7 @@ class EtherLinkOam(object):
         .. attribute:: interface_state_interface
         
         	Ethernet Link OAM interface to get Interface State for
-        	**type**\: list of  :py:class:`InterfaceStateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface>`
+        	**type**\: list of    :py:class:`InterfaceStateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface>`
         
         
 
@@ -1026,12 +1030,12 @@ class EtherLinkOam(object):
             .. attribute:: efd_triggers
             
             	Any present EFD triggers
-            	**type**\:  :py:class:`EfdTriggers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers>`
+            	**type**\:   :py:class:`EfdTriggers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers>`
             
             .. attribute:: errors
             
             	The errors that have occurred on this interface
-            	**type**\:  :py:class:`Errors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors>`
+            	**type**\:   :py:class:`Errors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors>`
             
             .. attribute:: local_mwd_key
             
@@ -1043,7 +1047,7 @@ class EtherLinkOam(object):
             .. attribute:: protocol_code
             
             	The state the protocol is in
-            	**type**\:  :py:class:`ProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ProtocolStateEnum>`
+            	**type**\:   :py:class:`ProtocolStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ProtocolStateEnum>`
             
             .. attribute:: remote_mwd_key
             
@@ -1377,7 +1381,7 @@ class EtherLinkOam(object):
         .. attribute:: running_config_interface
         
         	Ethernet Link OAM interface to get Running Config for
-        	**type**\: list of  :py:class:`RunningConfigInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface>`
+        	**type**\: list of    :py:class:`RunningConfigInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface>`
         
         
 
@@ -1408,7 +1412,7 @@ class EtherLinkOam(object):
             .. attribute:: capabilities_conflict_action
             
             	Action to perform when a capabilities conflict occurs
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: capabilities_conflict_action_overridden
             
@@ -1430,7 +1434,7 @@ class EtherLinkOam(object):
             .. attribute:: critical_event_action
             
             	Action to perform when a critical event occurs
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: critical_event_action_overridden
             
@@ -1440,7 +1444,7 @@ class EtherLinkOam(object):
             .. attribute:: discovery_timeout_action
             
             	Action to perform when a discovery timeout occurs
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: discovery_timeout_action_overridden
             
@@ -1450,7 +1454,7 @@ class EtherLinkOam(object):
             .. attribute:: dying_gasp_action
             
             	Action to perform when a dying gasp occurs
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: dying_gasp_action_overridden
             
@@ -1510,6 +1514,8 @@ class EtherLinkOam(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: frame_seconds_threshold_high_overridden
             
             	Is this configuration information an interface override?
@@ -1522,6 +1528,8 @@ class EtherLinkOam(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: frame_seconds_threshold_low_overridden
             
             	Is this configuration information an interface override?
@@ -1533,6 +1541,8 @@ class EtherLinkOam(object):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: second
             
             .. attribute:: frame_seconds_window_overridden
             
@@ -1578,7 +1588,7 @@ class EtherLinkOam(object):
             .. attribute:: high_threshold_action
             
             	Action to perform when a high threshold is breached
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: high_threshold_action_overridden
             
@@ -1588,7 +1598,7 @@ class EtherLinkOam(object):
             .. attribute:: link_fault_action
             
             	Action to perform when a link fault occurs
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: link_fault_action_overridden
             
@@ -1618,7 +1628,7 @@ class EtherLinkOam(object):
             .. attribute:: mode
             
             	Configured mode
-            	**type**\:  :py:class:`ModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
+            	**type**\:   :py:class:`ModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
             
             .. attribute:: mode_overridden
             
@@ -1628,7 +1638,7 @@ class EtherLinkOam(object):
             .. attribute:: remote_loopback_action
             
             	Action to perform when a session enters or exits remote loopback
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: remote_loopback_action_overridden
             
@@ -1683,12 +1693,12 @@ class EtherLinkOam(object):
             .. attribute:: require_remote_mode
             
             	The mode that is required of the remote peer
-            	**type**\:  :py:class:`ModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
+            	**type**\:   :py:class:`ModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ModeEnum>`
             
             .. attribute:: session_down_action
             
             	Action to perform when a session comes down
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: session_down_action_overridden
             
@@ -1698,7 +1708,7 @@ class EtherLinkOam(object):
             .. attribute:: session_up_action
             
             	Action to perform when a session comes up
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: session_up_action_overridden
             
@@ -1754,7 +1764,7 @@ class EtherLinkOam(object):
             .. attribute:: wiring_conflict_action
             
             	Action to perform when a wiring conflict occurs
-            	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+            	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
             
             .. attribute:: wiring_conflict_action_overridden
             
@@ -2092,7 +2102,7 @@ class EtherLinkOam(object):
         .. attribute:: node
         
         	Node\-specific data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node>`
         
         
 
@@ -2122,7 +2132,7 @@ class EtherLinkOam(object):
             .. attribute:: summary
             
             	Ethernet Link OAM Summary information for the entire node
-            	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node.Summary>`
+            	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.Nodes.Node.Summary>`
             
             
 
@@ -2476,7 +2486,7 @@ class EtherLinkOam(object):
         .. attribute:: event_log_entry_interface
         
         	Ethernet Link OAM enabled interface to get Event Log Entry for
-        	**type**\: list of  :py:class:`EventLogEntryInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface>`
+        	**type**\: list of    :py:class:`EventLogEntryInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface>`
         
         
 
@@ -2507,7 +2517,7 @@ class EtherLinkOam(object):
             .. attribute:: event_log_entry_indexes
             
             	Table of Ethernet Link OAM Event Log entries on the interface
-            	**type**\:  :py:class:`EventLogEntryIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes>`
+            	**type**\:   :py:class:`EventLogEntryIndexes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes>`
             
             
 
@@ -2531,7 +2541,7 @@ class EtherLinkOam(object):
                 .. attribute:: event_log_entry_index
                 
                 	Ethernet Link OAM Event Log Entry Index to get data for
-                	**type**\: list of  :py:class:`EventLogEntryIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex>`
+                	**type**\: list of    :py:class:`EventLogEntryIndex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex>`
                 
                 
 
@@ -2562,7 +2572,7 @@ class EtherLinkOam(object):
                     .. attribute:: action_taken
                     
                     	Local action taken (If applicable)
-                    	**type**\:  :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
+                    	**type**\:   :py:class:`ActionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.ActionEnum>`
                     
                     .. attribute:: event_total
                     
@@ -2602,7 +2612,7 @@ class EtherLinkOam(object):
                     .. attribute:: location
                     
                     	Where the event occurred
-                    	**type**\:  :py:class:`LogLocationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LogLocationEnum>`
+                    	**type**\:   :py:class:`LogLocationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LogLocationEnum>`
                     
                     .. attribute:: oui
                     
@@ -2642,7 +2652,7 @@ class EtherLinkOam(object):
                     .. attribute:: type
                     
                     	Type of event that this entry describes
-                    	**type**\:  :py:class:`LogEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LogEnum>`
+                    	**type**\:   :py:class:`LogEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.LogEnum>`
                     
                     .. attribute:: value
                     
@@ -2863,7 +2873,7 @@ class EtherLinkOam(object):
         .. attribute:: stats_interface
         
         	Ethernet Link OAM interface to get Stats for
-        	**type**\: list of  :py:class:`StatsInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.StatsInterfaces.StatsInterface>`
+        	**type**\: list of    :py:class:`StatsInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper.EtherLinkOam.StatsInterfaces.StatsInterface>`
         
         
 

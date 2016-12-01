@@ -36,12 +36,16 @@ class IpUdp(object):
     .. attribute:: directory
     
     	UDP directory details
-    	**type**\:  :py:class:`Directory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_cfg.IpUdp.Directory>`
+    	**type**\:   :py:class:`Directory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_cfg.IpUdp.Directory>`
+    
+    	**presence node**\: True
     
     .. attribute:: num_thread
     
     	UDP InQueue and OutQueue threads
-    	**type**\:  :py:class:`NumThread <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_cfg.IpUdp.NumThread>`
+    	**type**\:   :py:class:`NumThread <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_cfg.IpUdp.NumThread>`
+    
+    	**presence node**\: True
     
     .. attribute:: receive_q
     
@@ -152,6 +156,8 @@ class IpUdp(object):
         	**range:** 1024..4294967295
         
         	**mandatory**\: True
+        
+        	**units**\: byte
         
         .. attribute:: max_udp_debug_files
         

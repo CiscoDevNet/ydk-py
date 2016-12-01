@@ -31,25 +31,25 @@ class IgpteLibBwModelEnum(Enum):
 
     Bandwidth model
 
-    .. data:: RDM = 0
+    .. data:: rdm = 0
 
     	Russian Dolls Model
 
-    .. data:: MAM = 1
+    .. data:: mam = 1
 
     	Maximum Allocation Model
 
-    .. data:: NOT_SET = 2
+    .. data:: not_set = 2
 
     	No model set
 
     """
 
-    RDM = 0
+    rdm = 0
 
-    MAM = 1
+    mam = 1
 
-    NOT_SET = 2
+    not_set = 2
 
 
     @staticmethod
@@ -64,37 +64,37 @@ class RsvpMgmtAssociationEnum(Enum):
 
     RSVP ASSOCIATION Types
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No ASSOCIATION Object present
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	IPv4 ASSOCIATION Type
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	IPv6 ASSOCIATION Type
 
-    .. data:: EXTENDED_IPV4 = 3
+    .. data:: extended_ipv4 = 3
 
     	EXTENDED IPv4 ASSOCIATION Type
 
-    .. data:: EXTENDED_IPV6 = 4
+    .. data:: extended_ipv6 = 4
 
     	EXTENDED IPv6 ASSOCIATION Type
 
     """
 
-    NONE = 0
+    none = 0
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
-    EXTENDED_IPV4 = 3
+    extended_ipv4 = 3
 
-    EXTENDED_IPV6 = 4
+    extended_ipv6 = 4
 
 
     @staticmethod
@@ -109,37 +109,37 @@ class RsvpMgmtAuthChallengeStatusEnum(Enum):
 
     RSVP Authentication Challenge Status
 
-    .. data:: RSVP_MGMT_AUTH_CS_NOT_CFG = 0
+    .. data:: rsvp_mgmt_auth_cs_not_cfg = 0
 
     	Not configured
 
-    .. data:: RSVP_MGMT_AUTH_CS_COMPLETED = 1
+    .. data:: rsvp_mgmt_auth_cs_completed = 1
 
     	Complete
 
-    .. data:: RSVP_MGMT_AUTH_CS_IN_PROGRESS = 2
+    .. data:: rsvp_mgmt_auth_cs_in_progress = 2
 
     	In Progress
 
-    .. data:: RSVP_MGMT_AUTH_CS_FAILURE = 3
+    .. data:: rsvp_mgmt_auth_cs_failure = 3
 
     	Failed
 
-    .. data:: RSVP_MGMT_AUTH_CS_NOT_SUPPORTED = 4
+    .. data:: rsvp_mgmt_auth_cs_not_supported = 4
 
     	Not supported
 
     """
 
-    RSVP_MGMT_AUTH_CS_NOT_CFG = 0
+    rsvp_mgmt_auth_cs_not_cfg = 0
 
-    RSVP_MGMT_AUTH_CS_COMPLETED = 1
+    rsvp_mgmt_auth_cs_completed = 1
 
-    RSVP_MGMT_AUTH_CS_IN_PROGRESS = 2
+    rsvp_mgmt_auth_cs_in_progress = 2
 
-    RSVP_MGMT_AUTH_CS_FAILURE = 3
+    rsvp_mgmt_auth_cs_failure = 3
 
-    RSVP_MGMT_AUTH_CS_NOT_SUPPORTED = 4
+    rsvp_mgmt_auth_cs_not_supported = 4
 
 
     @staticmethod
@@ -154,19 +154,19 @@ class RsvpMgmtAuthDirectionEnum(Enum):
 
     RSVP Authentication Direction Types
 
-    .. data:: RSVP_MGMT_AUTH_DIRECTION_SEND = 0
+    .. data:: rsvp_mgmt_auth_direction_send = 0
 
     	Send
 
-    .. data:: RSVP_MGMT_AUTH_DIRECTION_RECV = 1
+    .. data:: rsvp_mgmt_auth_direction_recv = 1
 
     	Receive
 
     """
 
-    RSVP_MGMT_AUTH_DIRECTION_SEND = 0
+    rsvp_mgmt_auth_direction_send = 0
 
-    RSVP_MGMT_AUTH_DIRECTION_RECV = 1
+    rsvp_mgmt_auth_direction_recv = 1
 
 
     @staticmethod
@@ -181,31 +181,31 @@ class RsvpMgmtAuthKiEnum(Enum):
 
     RSVP Authentication KeyInfo Type
 
-    .. data:: RSVP_MGMT_AUTH_KI_TYPE_NONE = 0
+    .. data:: rsvp_mgmt_auth_ki_type_none = 0
 
     	None
 
-    .. data:: RSVP_MGMT_AUTH_KI_TYPE_GLOBAL = 1
+    .. data:: rsvp_mgmt_auth_ki_type_global = 1
 
     	Global
 
-    .. data:: RSVP_MGMT_AUTH_KI_TYPE_INTERFACE = 2
+    .. data:: rsvp_mgmt_auth_ki_type_interface = 2
 
     	Interface
 
-    .. data:: RSVP_MGMT_AUTH_KI_TYPE_NEIGHBOR = 3
+    .. data:: rsvp_mgmt_auth_ki_type_neighbor = 3
 
     	Neighbor
 
     """
 
-    RSVP_MGMT_AUTH_KI_TYPE_NONE = 0
+    rsvp_mgmt_auth_ki_type_none = 0
 
-    RSVP_MGMT_AUTH_KI_TYPE_GLOBAL = 1
+    rsvp_mgmt_auth_ki_type_global = 1
 
-    RSVP_MGMT_AUTH_KI_TYPE_INTERFACE = 2
+    rsvp_mgmt_auth_ki_type_interface = 2
 
-    RSVP_MGMT_AUTH_KI_TYPE_NEIGHBOR = 3
+    rsvp_mgmt_auth_ki_type_neighbor = 3
 
 
     @staticmethod
@@ -220,19 +220,19 @@ class RsvpMgmtDsteModesEnum(Enum):
 
     RSVP DSTE modes
 
-    .. data:: PRE_STANDARD = 1
+    .. data:: pre_standard = 1
 
     	pre standard
 
-    .. data:: STANDARD = 3
+    .. data:: standard = 3
 
     	standard
 
     """
 
-    PRE_STANDARD = 1
+    pre_standard = 1
 
-    STANDARD = 3
+    standard = 3
 
 
     @staticmethod
@@ -247,19 +247,19 @@ class RsvpMgmtEroSubobjEnum(Enum):
 
     RSVP ERO Types
 
-    .. data:: RSVP_MGMT_ERO_TYPE_IPV4 = 1
+    .. data:: rsvp_mgmt_ero_type_ipv4 = 1
 
     	IPv4 ERO Type
 
-    .. data:: RSVP_MGMT_ERO_TYPE_UN_NUM = 4
+    .. data:: rsvp_mgmt_ero_type_un_num = 4
 
     	Unnumbered ERO Type
 
     """
 
-    RSVP_MGMT_ERO_TYPE_IPV4 = 1
+    rsvp_mgmt_ero_type_ipv4 = 1
 
-    RSVP_MGMT_ERO_TYPE_UN_NUM = 4
+    rsvp_mgmt_ero_type_un_num = 4
 
 
     @staticmethod
@@ -274,25 +274,25 @@ class RsvpMgmtEroSubobjStatusEnum(Enum):
 
     RSVP ERO Status
 
-    .. data:: RSVP_MGMT_ERO_STATUS_NOT_AVAILABLE = 0
+    .. data:: rsvp_mgmt_ero_status_not_available = 0
 
     	ERO is not available in topology
 
-    .. data:: RSVP_MGMT_ERO_STATUS_AVAILABLE = 1
+    .. data:: rsvp_mgmt_ero_status_available = 1
 
     	ERO is available in topology
 
-    .. data:: RSVP_MGMT_ERO_STATUS_BW_NOT_AVAILABLE = 2
+    .. data:: rsvp_mgmt_ero_status_bw_not_available = 2
 
     	ERO doesn't have bw available in topology
 
     """
 
-    RSVP_MGMT_ERO_STATUS_NOT_AVAILABLE = 0
+    rsvp_mgmt_ero_status_not_available = 0
 
-    RSVP_MGMT_ERO_STATUS_AVAILABLE = 1
+    rsvp_mgmt_ero_status_available = 1
 
-    RSVP_MGMT_ERO_STATUS_BW_NOT_AVAILABLE = 2
+    rsvp_mgmt_ero_status_bw_not_available = 2
 
 
     @staticmethod
@@ -307,19 +307,19 @@ class RsvpMgmtFilterEnum(Enum):
 
     RSVP Filter Types
 
-    .. data:: RSVP_MGMT_FILTER_TYPE_IPV4 = 1
+    .. data:: rsvp_mgmt_filter_type_ipv4 = 1
 
     	IPv4 FilterSpec Type
 
-    .. data:: RSVP_MGMT_FILTER_TYPE_P2MP_LSP_IPV4 = 12
+    .. data:: rsvp_mgmt_filter_type_p2mp_lsp_ipv4 = 12
 
     	P2MP LSP IPv4 FilterSpec Type
 
     """
 
-    RSVP_MGMT_FILTER_TYPE_IPV4 = 1
+    rsvp_mgmt_filter_type_ipv4 = 1
 
-    RSVP_MGMT_FILTER_TYPE_P2MP_LSP_IPV4 = 12
+    rsvp_mgmt_filter_type_p2mp_lsp_ipv4 = 12
 
 
     @staticmethod
@@ -334,13 +334,13 @@ class RsvpMgmtFlowSpecEnum(Enum):
 
     RSVP Generic FlowSpec Types
 
-    .. data:: G709OTN = 5
+    .. data:: g709otn = 5
 
     	G709 OTN FlowSpec Type
 
     """
 
-    G709OTN = 5
+    g709otn = 5
 
 
     @staticmethod
@@ -355,25 +355,25 @@ class RsvpMgmtFrrStateEnumEnum(Enum):
 
     RSVP FRR States
 
-    .. data:: READY_STATE = 0
+    .. data:: ready_state = 0
 
     	Ready State
 
-    .. data:: PENDING_STATE = 1
+    .. data:: pending_state = 1
 
     	Pending
 
-    .. data:: ACTIVE_STATE = 2
+    .. data:: active_state = 2
 
     	Active State
 
     """
 
-    READY_STATE = 0
+    ready_state = 0
 
-    PENDING_STATE = 1
+    pending_state = 1
 
-    ACTIVE_STATE = 2
+    active_state = 2
 
 
     @staticmethod
@@ -388,13 +388,13 @@ class RsvpMgmtGenericLabelEnum(Enum):
 
     RSVP Generic Label Types
 
-    .. data:: RSVP_MGMT_LABEL_TYPE_GMPLS = 2
+    .. data:: rsvp_mgmt_label_type_gmpls = 2
 
     	Generalized Label Type
 
     """
 
-    RSVP_MGMT_LABEL_TYPE_GMPLS = 2
+    rsvp_mgmt_label_type_gmpls = 2
 
 
     @staticmethod
@@ -409,19 +409,19 @@ class RsvpMgmtGrAppEnum(Enum):
 
     RSVP Graceful Restart application type
 
-    .. data:: OUNI = 0
+    .. data:: ouni = 0
 
     	Application is OUNI
 
-    .. data:: GMPLS = 1
+    .. data:: gmpls = 1
 
     	Application is GMPLS
 
     """
 
-    OUNI = 0
+    ouni = 0
 
-    GMPLS = 1
+    gmpls = 1
 
 
     @staticmethod
@@ -436,51 +436,51 @@ class RsvpMgmtHelloDownReasonEnum(Enum):
 
     Reasons why RSVP Hellos went down
 
-    .. data:: NOT_APPLICABLE = 0
+    .. data:: not_applicable = 0
 
     	Not applicable. This means RSVP Hellos are up
 
-    .. data:: WRONG_DESTINATION_INSTANCE = 1
+    .. data:: wrong_destination_instance = 1
 
     	Incorrect destination instance in received
 
     	Hellos
 
-    .. data:: WRONG_SOURCE_INSTANCE = 2
+    .. data:: wrong_source_instance = 2
 
     	Incorrect source instance in received Hellos
 
-    .. data:: HELLO_MISSED = 3
+    .. data:: hello_missed = 3
 
     	Hellos not being received
 
-    .. data:: INTERFACE_DOWN = 4
+    .. data:: interface_down = 4
 
     	Interface went down
 
-    .. data:: NEIGHBOR_DISABLED_HELLO = 5
+    .. data:: neighbor_disabled_hello = 5
 
     	Neighbor disabled Hellos
 
-    .. data:: CONTROL_CHANNEL_DOWN = 6
+    .. data:: control_channel_down = 6
 
     	Control channel went down
 
     """
 
-    NOT_APPLICABLE = 0
+    not_applicable = 0
 
-    WRONG_DESTINATION_INSTANCE = 1
+    wrong_destination_instance = 1
 
-    WRONG_SOURCE_INSTANCE = 2
+    wrong_source_instance = 2
 
-    HELLO_MISSED = 3
+    hello_missed = 3
 
-    INTERFACE_DOWN = 4
+    interface_down = 4
 
-    NEIGHBOR_DISABLED_HELLO = 5
+    neighbor_disabled_hello = 5
 
-    CONTROL_CHANNEL_DOWN = 6
+    control_channel_down = 6
 
 
     @staticmethod
@@ -495,19 +495,19 @@ class RsvpMgmtHelloInstanceEnum(Enum):
 
     RSVP Hello instance types
 
-    .. data:: ACTIVE = 0
+    .. data:: active = 0
 
     	Hello requests and ACKs are sent
 
-    .. data:: PASSIVE = 1
+    .. data:: passive = 1
 
     	Hello ACKs only are sent
 
     """
 
-    ACTIVE = 0
+    active = 0
 
-    PASSIVE = 1
+    passive = 1
 
 
     @staticmethod
@@ -522,19 +522,19 @@ class RsvpMgmtHelloInstanceOwnerEnum(Enum):
 
     RSVP Hello instance owner
 
-    .. data:: MPLS_GRACEFUL_RESTART = 0
+    .. data:: mpls_graceful_restart = 0
 
     	MPLS Graceful Restart
 
-    .. data:: MPLS_OUNI = 1
+    .. data:: mpls_ouni = 1
 
     	MPLS OUNI
 
     """
 
-    MPLS_GRACEFUL_RESTART = 0
+    mpls_graceful_restart = 0
 
-    MPLS_OUNI = 1
+    mpls_ouni = 1
 
 
     @staticmethod
@@ -549,15 +549,15 @@ class RsvpMgmtHelloStateEnum(Enum):
 
     RSVP Hello instance states
 
-    .. data:: HELLO_STATE_INIT = 0
+    .. data:: hello_state_init = 0
 
     	No Hello messages ever received from neighbor
 
-    .. data:: HELLO_STATE_UP = 1
+    .. data:: hello_state_up = 1
 
     	Receiving expected Hello messages from neighbor
 
-    .. data:: HELLO_STATE_DOWN = 2
+    .. data:: hello_state_down = 2
 
     	Stopped receiving expected Hello messages from
 
@@ -565,11 +565,11 @@ class RsvpMgmtHelloStateEnum(Enum):
 
     """
 
-    HELLO_STATE_INIT = 0
+    hello_state_init = 0
 
-    HELLO_STATE_UP = 1
+    hello_state_up = 1
 
-    HELLO_STATE_DOWN = 2
+    hello_state_down = 2
 
 
     @staticmethod
@@ -584,31 +584,31 @@ class RsvpMgmtQosServiceEnumEnum(Enum):
 
     QOS Types
 
-    .. data:: RSVP_MGMT_QOS_UNKNOWN = 0
+    .. data:: rsvp_mgmt_qos_unknown = 0
 
     	QOS Unknown
 
-    .. data:: RSVP_MGMT_QOS_GUARANTEED = 3
+    .. data:: rsvp_mgmt_qos_guaranteed = 3
 
     	QOS Guaranteed
 
-    .. data:: RSVP_MGMT_QOS_CONTROLLED_LOAD = 5
+    .. data:: rsvp_mgmt_qos_controlled_load = 5
 
     	QOS Controlled Load
 
-    .. data:: RSVP_MGMT_QOS_QUALITATIVE = 6
+    .. data:: rsvp_mgmt_qos_qualitative = 6
 
     	QOS Qualitative
 
     """
 
-    RSVP_MGMT_QOS_UNKNOWN = 0
+    rsvp_mgmt_qos_unknown = 0
 
-    RSVP_MGMT_QOS_GUARANTEED = 3
+    rsvp_mgmt_qos_guaranteed = 3
 
-    RSVP_MGMT_QOS_CONTROLLED_LOAD = 5
+    rsvp_mgmt_qos_controlled_load = 5
 
-    RSVP_MGMT_QOS_QUALITATIVE = 6
+    rsvp_mgmt_qos_qualitative = 6
 
 
     @staticmethod
@@ -623,25 +623,25 @@ class RsvpMgmtReservationTypeEnumEnum(Enum):
 
     RSVP Reservation Types
 
-    .. data:: RSVP_MGMT_FF_OPTION = 10
+    .. data:: rsvp_mgmt_ff_option = 10
 
     	Single Reservation
 
-    .. data:: RSVP_MGMT_WF_OPTION = 17
+    .. data:: rsvp_mgmt_wf_option = 17
 
     	Shared Reservation, Unlimited Scope
 
-    .. data:: RSVP_MGMT_SE_OPTION = 18
+    .. data:: rsvp_mgmt_se_option = 18
 
     	Shared Reservation, Limited Scope
 
     """
 
-    RSVP_MGMT_FF_OPTION = 10
+    rsvp_mgmt_ff_option = 10
 
-    RSVP_MGMT_WF_OPTION = 17
+    rsvp_mgmt_wf_option = 17
 
-    RSVP_MGMT_SE_OPTION = 18
+    rsvp_mgmt_se_option = 18
 
 
     @staticmethod
@@ -656,25 +656,25 @@ class RsvpMgmtRestartStateEnum(Enum):
 
     RSVP GR (Graceful Restart) Restart states
 
-    .. data:: DONE = 0
+    .. data:: done = 0
 
     	Restart is done
 
-    .. data:: RECOVERY = 1
+    .. data:: recovery = 1
 
     	Neighbor is in recovery
 
-    .. data:: ABORT = 2
+    .. data:: abort = 2
 
     	Neighbor recovery aborted
 
     """
 
-    DONE = 0
+    done = 0
 
-    RECOVERY = 1
+    recovery = 1
 
-    ABORT = 2
+    abort = 2
 
 
     @staticmethod
@@ -689,31 +689,31 @@ class RsvpMgmtRroSubobjEnum(Enum):
 
     RSVP RRO Types
 
-    .. data:: IPV4RRO_TYPE = 1
+    .. data:: ipv4rro_type = 1
 
     	IPv4 RRO Type
 
-    .. data:: LABEL_RRO_TYPE = 3
+    .. data:: label_rro_type = 3
 
     	Label RRO Type
 
-    .. data:: UNNUMBERED_RRO_TYPE = 4
+    .. data:: unnumbered_rro_type = 4
 
     	Unnumbered RRO Type
 
-    .. data:: SRLG_RRO_TYPE = 34
+    .. data:: srlg_rro_type = 34
 
     	SRLG RRO Type
 
     """
 
-    IPV4RRO_TYPE = 1
+    ipv4rro_type = 1
 
-    LABEL_RRO_TYPE = 3
+    label_rro_type = 3
 
-    UNNUMBERED_RRO_TYPE = 4
+    unnumbered_rro_type = 4
 
-    SRLG_RRO_TYPE = 34
+    srlg_rro_type = 34
 
 
     @staticmethod
@@ -728,31 +728,31 @@ class RsvpMgmtSessionEnum(Enum):
 
     RSVP Session Types
 
-    .. data:: RSVP_MGMT_SESSION_TYPE_UDP_IPV4 = 1
+    .. data:: rsvp_mgmt_session_type_udp_ipv4 = 1
 
     	UDP IPv4 Session Type
 
-    .. data:: RSVP_MGMT_SESSION_TYPE_LSP_IPV4 = 7
+    .. data:: rsvp_mgmt_session_type_lsp_ipv4 = 7
 
     	LSP IPv4 Session Type
 
-    .. data:: RSVP_MGMT_SESSION_TYPE_UNI_IPV4 = 9
+    .. data:: rsvp_mgmt_session_type_uni_ipv4 = 9
 
     	UNI IPv4 Session Type
 
-    .. data:: RSVP_MGMT_SESSION_TYPE_P2MP_LSP_IPV4 = 13
+    .. data:: rsvp_mgmt_session_type_p2mp_lsp_ipv4 = 13
 
     	P2MP LSP IPv4 Session Type
 
     """
 
-    RSVP_MGMT_SESSION_TYPE_UDP_IPV4 = 1
+    rsvp_mgmt_session_type_udp_ipv4 = 1
 
-    RSVP_MGMT_SESSION_TYPE_LSP_IPV4 = 7
+    rsvp_mgmt_session_type_lsp_ipv4 = 7
 
-    RSVP_MGMT_SESSION_TYPE_UNI_IPV4 = 9
+    rsvp_mgmt_session_type_uni_ipv4 = 9
 
-    RSVP_MGMT_SESSION_TYPE_P2MP_LSP_IPV4 = 13
+    rsvp_mgmt_session_type_p2mp_lsp_ipv4 = 13
 
 
     @staticmethod
@@ -767,19 +767,19 @@ class RsvpMgmtTspecEnum(Enum):
 
     RSVP Generic Sender Tspec Types
 
-    .. data:: G709OTN = 5
+    .. data:: g709otn = 5
 
     	G709 OTN Sender Tspec Type
 
-    .. data:: INTSRV = 12
+    .. data:: intsrv = 12
 
     	Int-Serv Sender Tspec Type
 
     """
 
-    G709OTN = 5
+    g709otn = 5
 
-    INTSRV = 12
+    intsrv = 12
 
 
     @staticmethod
@@ -794,19 +794,19 @@ class RsvpModeEnum(Enum):
 
     Rsvp mode
 
-    .. data:: SEND = 0
+    .. data:: send = 0
 
     	Send
 
-    .. data:: RECEIVE = 1
+    .. data:: receive = 1
 
     	Receive
 
     """
 
-    SEND = 0
+    send = 0
 
-    RECEIVE = 1
+    receive = 1
 
 
     @staticmethod
@@ -821,31 +821,31 @@ class RsvpProcNsrNotReadyReasonEnum(Enum):
 
     Rsvp proc nsr not ready reason
 
-    .. data:: COLLAB_TIME_OUT = 0
+    .. data:: collab_time_out = 0
 
     	Collab connection time out
 
-    .. data:: COLLAB_CONNTECTION_IDT = 1
+    .. data:: collab_conntection_idt = 1
 
     	Collab connection down or IDT not done
 
-    .. data:: NSR_PEER_NOT_CONNECTED = 2
+    .. data:: nsr_peer_not_connected = 2
 
     	NSR peer not connected
 
-    .. data:: NSR_PEER_NOT_IN_SYNC = 3
+    .. data:: nsr_peer_not_in_sync = 3
 
     	NSR peer not in sync
 
     """
 
-    COLLAB_TIME_OUT = 0
+    collab_time_out = 0
 
-    COLLAB_CONNTECTION_IDT = 1
+    collab_conntection_idt = 1
 
-    NSR_PEER_NOT_CONNECTED = 2
+    nsr_peer_not_connected = 2
 
-    NSR_PEER_NOT_IN_SYNC = 3
+    nsr_peer_not_in_sync = 3
 
 
     @staticmethod
@@ -860,55 +860,55 @@ class RsvpProcRoleEnum(Enum):
 
     RSVP Process Role
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Unknown
 
-    .. data:: V1_ACTIVE = 1
+    .. data:: v1_active = 1
 
     	V1 Active
 
-    .. data:: V1_STANDBY = 2
+    .. data:: v1_standby = 2
 
     	V1 Standby
 
-    .. data:: V2_ACTIVE = 3
+    .. data:: v2_active = 3
 
     	V2 Active
 
-    .. data:: V2_STANDBY = 4
+    .. data:: v2_standby = 4
 
     	V2 Standby
 
-    .. data:: V1_ACTIVE_POST_BIG_BANG = 5
+    .. data:: v1_active_post_big_bang = 5
 
     	V1 Active post big-bang
 
-    .. data:: V1_STANDBY_POST_BIG_BANG = 6
+    .. data:: v1_standby_post_big_bang = 6
 
     	V1 Standbyi post big-bang
 
-    .. data:: COUNT = 7
+    .. data:: count = 7
 
     	Count
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    V1_ACTIVE = 1
+    v1_active = 1
 
-    V1_STANDBY = 2
+    v1_standby = 2
 
-    V2_ACTIVE = 3
+    v2_active = 3
 
-    V2_STANDBY = 4
+    v2_standby = 4
 
-    V1_ACTIVE_POST_BIG_BANG = 5
+    v1_active_post_big_bang = 5
 
-    V1_STANDBY_POST_BIG_BANG = 6
+    v1_standby_post_big_bang = 6
 
-    COUNT = 7
+    count = 7
 
 
     @staticmethod
@@ -923,31 +923,31 @@ class RsvpSessionEnum(Enum):
 
     Rsvp session
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	Show IPv4 sessions only
 
-    .. data:: P2P_LSP_IPV4 = 7
+    .. data:: p2p_lsp_ipv4 = 7
 
     	Show IPv4 P2P LSP sessions only
 
-    .. data:: OUNI_IPV4 = 9
+    .. data:: ouni_ipv4 = 9
 
     	Show IPv4 OUNI sessions only
 
-    .. data:: P2MP_LSP_IPV4 = 13
+    .. data:: p2mp_lsp_ipv4 = 13
 
     	Show IPv4 P2MP LSP sessions only
 
     """
 
-    IPV4 = 1
+    ipv4 = 1
 
-    P2P_LSP_IPV4 = 7
+    p2p_lsp_ipv4 = 7
 
-    OUNI_IPV4 = 9
+    ouni_ipv4 = 9
 
-    P2MP_LSP_IPV4 = 13
+    p2mp_lsp_ipv4 = 13
 
 
     @staticmethod
@@ -962,19 +962,19 @@ class RsvpSyncStatusEnum(Enum):
 
     Rsvp sync status
 
-    .. data:: NOT_READY = 0
+    .. data:: not_ready = 0
 
     	Not Ready
 
-    .. data:: READY = 1
+    .. data:: ready = 1
 
     	Ready
 
     """
 
-    NOT_READY = 0
+    not_ready = 0
 
-    READY = 1
+    ready = 1
 
 
     @staticmethod
@@ -989,25 +989,25 @@ class RsvpTimerStateEnum(Enum):
 
     RSVP Timer States
 
-    .. data:: RSVP_TIMER_RUNNING_AND_SLEEPING = 1
+    .. data:: rsvp_timer_running_and_sleeping = 1
 
     	RSVP timer running and sleeping
 
-    .. data:: RSVP_TIMER_RUNNING = 2
+    .. data:: rsvp_timer_running = 2
 
     	RSVP timer running
 
-    .. data:: RSVP_TIMER_NOT_RUNNING = 3
+    .. data:: rsvp_timer_not_running = 3
 
     	RSVP timer not running
 
     """
 
-    RSVP_TIMER_RUNNING_AND_SLEEPING = 1
+    rsvp_timer_running_and_sleeping = 1
 
-    RSVP_TIMER_RUNNING = 2
+    rsvp_timer_running = 2
 
-    RSVP_TIMER_NOT_RUNNING = 3
+    rsvp_timer_not_running = 3
 
 
     @staticmethod
@@ -1024,142 +1024,142 @@ class RsvpStandby(object):
     .. attribute:: authentication_briefs
     
     	Table for Authentication related information
-    	**type**\:  :py:class:`AuthenticationBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationBriefs>`
+    	**type**\:   :py:class:`AuthenticationBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationBriefs>`
     
     .. attribute:: authentication_details
     
     	Table for detailed authentication related information
-    	**type**\:  :py:class:`AuthenticationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails>`
+    	**type**\:   :py:class:`AuthenticationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails>`
     
     .. attribute:: counters
     
     	Counters
-    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters>`
+    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters>`
     
     .. attribute:: frr_summary
     
     	Fast Re\-Route Summary State Information
-    	**type**\:  :py:class:`FrrSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.FrrSummary>`
+    	**type**\:   :py:class:`FrrSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.FrrSummary>`
     
     .. attribute:: frrs
     
     	Table of detailed info about Fast Re\-route states
-    	**type**\:  :py:class:`Frrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs>`
+    	**type**\:   :py:class:`Frrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs>`
     
     .. attribute:: global_neighbor_briefs
     
     	Table of brief info about global neighbors
-    	**type**\:  :py:class:`GlobalNeighborBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs>`
+    	**type**\:   :py:class:`GlobalNeighborBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs>`
     
     .. attribute:: global_neighbor_details
     
     	Table of detailed info about global neighbors
-    	**type**\:  :py:class:`GlobalNeighborDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails>`
+    	**type**\:   :py:class:`GlobalNeighborDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails>`
     
     .. attribute:: graceful_restart
     
     	Info about graceful\-restart
-    	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GracefulRestart>`
+    	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GracefulRestart>`
     
     .. attribute:: hello_instance_briefs
     
     	Table of brief info about hello instances
-    	**type**\:  :py:class:`HelloInstanceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceBriefs>`
+    	**type**\:   :py:class:`HelloInstanceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceBriefs>`
     
     .. attribute:: hello_instance_details
     
     	Table of detailed info about hello instances
-    	**type**\:  :py:class:`HelloInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceDetails>`
+    	**type**\:   :py:class:`HelloInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceDetails>`
     
     .. attribute:: hello_interface_instance_briefs
     
     	Table of brief info about i/f\-based hello instances
-    	**type**\:  :py:class:`HelloInterfaceInstanceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceBriefs>`
+    	**type**\:   :py:class:`HelloInterfaceInstanceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceBriefs>`
     
     .. attribute:: hello_interface_instance_details
     
     	Table of detailed info about i/f\-based hello instances
-    	**type**\:  :py:class:`HelloInterfaceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceDetails>`
+    	**type**\:   :py:class:`HelloInterfaceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceDetails>`
     
     .. attribute:: interface_briefs
     
     	Table of brief info about RSVP\-enabled interfaces
-    	**type**\:  :py:class:`InterfaceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs>`
+    	**type**\:   :py:class:`InterfaceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs>`
     
     .. attribute:: interface_detaileds
     
     	Table of detailed info about RSVP\-enabled interfaces
-    	**type**\:  :py:class:`InterfaceDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds>`
+    	**type**\:   :py:class:`InterfaceDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds>`
     
     .. attribute:: interface_neighbor_briefs
     
     	Table of brief info about I/F neighbors
-    	**type**\:  :py:class:`InterfaceNeighborBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborBriefs>`
+    	**type**\:   :py:class:`InterfaceNeighborBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborBriefs>`
     
     .. attribute:: interface_neighbor_details
     
     	Table of detailed info about I/F neighbors
-    	**type**\:  :py:class:`InterfaceNeighborDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborDetails>`
+    	**type**\:   :py:class:`InterfaceNeighborDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborDetails>`
     
     .. attribute:: interface_summaries
     
     	Table of summary info about RSVP\-enabled interfaces
-    	**type**\:  :py:class:`InterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries>`
+    	**type**\:   :py:class:`InterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries>`
     
     .. attribute:: nsr
     
     	RSVP NSR information
-    	**type**\:  :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Nsr>`
+    	**type**\:   :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Nsr>`
     
     .. attribute:: open_config
     
     	OpenConfig info
-    	**type**\:  :py:class:`OpenConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig>`
+    	**type**\:   :py:class:`OpenConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig>`
     
     .. attribute:: psb_briefs
     
     	Table of brief info about path state blocks
-    	**type**\:  :py:class:`PsbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs>`
+    	**type**\:   :py:class:`PsbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs>`
     
     .. attribute:: psb_detaileds
     
     	Table of detailed info about path state blocks
-    	**type**\:  :py:class:`PsbDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds>`
+    	**type**\:   :py:class:`PsbDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds>`
     
     .. attribute:: request_briefs
     
     	Table of brief info about requests
-    	**type**\:  :py:class:`RequestBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs>`
+    	**type**\:   :py:class:`RequestBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs>`
     
     .. attribute:: request_details
     
     	Table of detail info about requests
-    	**type**\:  :py:class:`RequestDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails>`
+    	**type**\:   :py:class:`RequestDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails>`
     
     .. attribute:: rsb_briefs
     
     	Table of brief info about reservation state blocks
-    	**type**\:  :py:class:`RsbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs>`
+    	**type**\:   :py:class:`RsbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs>`
     
     .. attribute:: rsb_detaileds
     
     	Table of detailed info about reservation state blocks
-    	**type**\:  :py:class:`RsbDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds>`
+    	**type**\:   :py:class:`RsbDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds>`
     
     .. attribute:: session_briefs
     
     	Table of brief info about sessions
-    	**type**\:  :py:class:`SessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs>`
+    	**type**\:   :py:class:`SessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs>`
     
     .. attribute:: session_detaileds
     
     	Table of detailed info about sessions
-    	**type**\:  :py:class:`SessionDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds>`
+    	**type**\:   :py:class:`SessionDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds>`
     
     .. attribute:: summary
     
     	RSVP summary information
-    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary>`
+    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary>`
     
     
 
@@ -1234,7 +1234,7 @@ class RsvpStandby(object):
         .. attribute:: interface_neighbor_brief
         
         	Brief info for a single interface neighbor
-        	**type**\: list of  :py:class:`InterfaceNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborBriefs.InterfaceNeighborBrief>`
+        	**type**\: list of    :py:class:`InterfaceNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborBriefs.InterfaceNeighborBrief>`
         
         
 
@@ -1264,7 +1264,7 @@ class RsvpStandby(object):
             .. attribute:: interface_neighbor_list_compact
             
             	Compact list of I/F Neighbors
-            	**type**\: list of  :py:class:`InterfaceNeighborListCompact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborBriefs.InterfaceNeighborBrief.InterfaceNeighborListCompact>`
+            	**type**\: list of    :py:class:`InterfaceNeighborListCompact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborBriefs.InterfaceNeighborBrief.InterfaceNeighborListCompact>`
             
             .. attribute:: node_address
             
@@ -1410,7 +1410,7 @@ class RsvpStandby(object):
         .. attribute:: authentication_brief
         
         	Brief Authentication information
-        	**type**\: list of  :py:class:`AuthenticationBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationBriefs.AuthenticationBrief>`
+        	**type**\: list of    :py:class:`AuthenticationBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationBriefs.AuthenticationBrief>`
         
         
 
@@ -1447,7 +1447,7 @@ class RsvpStandby(object):
             .. attribute:: mode_id  <key>
             
             	Mode (Tx or Rx)
-            	**type**\:  :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
+            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
             
             .. attribute:: source_address  <key>
             
@@ -1466,7 +1466,7 @@ class RsvpStandby(object):
             .. attribute:: direction
             
             	Direction
-            	**type**\:  :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
+            	**type**\:   :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
             
             .. attribute:: key_id
             
@@ -1490,7 +1490,7 @@ class RsvpStandby(object):
             .. attribute:: key_type
             
             	Key type
-            	**type**\:  :py:class:`RsvpMgmtAuthKiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthKiEnum>`
+            	**type**\:   :py:class:`RsvpMgmtAuthKiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthKiEnum>`
             
             .. attribute:: neighbor_address
             
@@ -1623,7 +1623,7 @@ class RsvpStandby(object):
         .. attribute:: session_brief
         
         	Brief info about session
-        	**type**\: list of  :py:class:`SessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief>`
+        	**type**\: list of    :py:class:`SessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief>`
         
         
 
@@ -1709,12 +1709,12 @@ class RsvpStandby(object):
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: vrf_name
             
@@ -1754,7 +1754,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession>`
                 
                 
 
@@ -1776,27 +1776,27 @@ class RsvpStandby(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -2228,7 +2228,7 @@ class RsvpStandby(object):
         .. attribute:: psb_detailed
         
         	Detailed info for a single path state block
-        	**type**\: list of  :py:class:`PsbDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed>`
+        	**type**\: list of    :py:class:`PsbDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed>`
         
         
 
@@ -2256,7 +2256,7 @@ class RsvpStandby(object):
             .. attribute:: class_type
             
             	DS\-TE Class\-Type
-            	**type**\:  :py:class:`ClassType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.ClassType>`
+            	**type**\:   :py:class:`ClassType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.ClassType>`
             
             .. attribute:: destination_address
             
@@ -2275,7 +2275,7 @@ class RsvpStandby(object):
             .. attribute:: expiry_time
             
             	Expiry Time
-            	**type**\:  :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.ExpiryTime>`
+            	**type**\:   :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.ExpiryTime>`
             
             .. attribute:: extended_tunnel_id
             
@@ -2287,22 +2287,22 @@ class RsvpStandby(object):
             .. attribute:: generic_traffic_spec
             
             	RSVP Generic Traffic Spec Info
-            	**type**\:  :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec>`
+            	**type**\:   :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec>`
             
             .. attribute:: header
             
             	RSVP Header Info
-            	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Header>`
+            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Header>`
             
             .. attribute:: hop
             
             	Path Hop Info
-            	**type**\:  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Hop>`
+            	**type**\:   :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Hop>`
             
             .. attribute:: in_ero
             
             	Incoming Explicit Route Sub Objects
-            	**type**\: list of  :py:class:`InEro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.InEro>`
+            	**type**\: list of    :py:class:`InEro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.InEro>`
             
             .. attribute:: input_interface
             
@@ -2322,12 +2322,12 @@ class RsvpStandby(object):
             .. attribute:: label_info
             
             	Label Information
-            	**type**\:  :py:class:`LabelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo>`
+            	**type**\:   :py:class:`LabelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo>`
             
             .. attribute:: out_ero
             
             	Outgoing Explicit Route Sub Objects
-            	**type**\: list of  :py:class:`OutEro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.OutEro>`
+            	**type**\: list of    :py:class:`OutEro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.OutEro>`
             
             .. attribute:: p2mp_id
             
@@ -2339,27 +2339,27 @@ class RsvpStandby(object):
             .. attribute:: path_flags
             
             	Path Flags
-            	**type**\:  :py:class:`PathFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.PathFlags>`
+            	**type**\:   :py:class:`PathFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.PathFlags>`
             
             .. attribute:: pfc
             
             	Path Forwarding Contexts
-            	**type**\: list of  :py:class:`Pfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Pfc>`
+            	**type**\: list of    :py:class:`Pfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Pfc>`
             
             .. attribute:: policy_flags
             
             	Policy Flags
-            	**type**\:  :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.PolicyFlags>`
+            	**type**\:   :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.PolicyFlags>`
             
             .. attribute:: policy_query_flags
             
             	Policy Query Flags
-            	**type**\:  :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.PolicyQueryFlags>`
+            	**type**\:   :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.PolicyQueryFlags>`
             
             .. attribute:: policy_source_info
             
             	Policy Sources Info
-            	**type**\:  :py:class:`PolicySourceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.PolicySourceInfo>`
+            	**type**\:   :py:class:`PolicySourceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.PolicySourceInfo>`
             
             .. attribute:: protocol
             
@@ -2371,22 +2371,22 @@ class RsvpStandby(object):
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session>`
             
             .. attribute:: session_attribute
             
             	RSVP Session Attribute
-            	**type**\:  :py:class:`SessionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.SessionAttribute>`
+            	**type**\:   :py:class:`SessionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.SessionAttribute>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -2419,12 +2419,12 @@ class RsvpStandby(object):
             .. attribute:: template
             
             	RSVP Template
-            	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Template>`
+            	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Template>`
             
             .. attribute:: traffic_spec
             
             	RSVP Traffic Spec Info
-            	**type**\:  :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.TrafficSpec>`
+            	**type**\:   :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.TrafficSpec>`
             
             .. attribute:: vrf_name
             
@@ -2505,7 +2505,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession>`
                 
                 
 
@@ -2527,27 +2527,27 @@ class RsvpStandby(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -2945,7 +2945,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter>`
                 
                 
 
@@ -2967,17 +2967,17 @@ class RsvpStandby(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Template.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -3193,7 +3193,7 @@ class RsvpStandby(object):
                 .. attribute:: sess_attribute_flags
                 
                 	Session Attributes
-                	**type**\:  :py:class:`SessAttributeFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.SessionAttribute.SessAttributeFlags>`
+                	**type**\:   :py:class:`SessAttributeFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.SessionAttribute.SessAttributeFlags>`
                 
                 .. attribute:: setup_priority
                 
@@ -3335,6 +3335,8 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
@@ -3362,6 +3364,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 
 
@@ -3420,17 +3424,17 @@ class RsvpStandby(object):
                 .. attribute:: g709otn_tspec
                 
                 	G709 OTN Sender Tspec
-                	**type**\:  :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec>`
+                	**type**\:   :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec>`
                 
                 .. attribute:: intsrv_tspec
                 
                 	Integrated Services Sender Tspec
-                	**type**\:  :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.IntsrvTspec>`
+                	**type**\:   :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.GenericTrafficSpec.IntsrvTspec>`
                 
                 .. attribute:: tspec_type
                 
                 	TspecType
-                	**type**\:  :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
                 
                 
 
@@ -3537,6 +3541,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte/s
+                    
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
@@ -3564,6 +3570,8 @@ class RsvpStandby(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte/s
                     
                     
 
@@ -3988,12 +3996,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -4171,32 +4183,32 @@ class RsvpStandby(object):
                 .. attribute:: generic_local_downstream_label
                 
                 	Generic Local Downstream Label
-                	**type**\:  :py:class:`GenericLocalDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel>`
+                	**type**\:   :py:class:`GenericLocalDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel>`
                 
                 .. attribute:: generic_local_upstream_label
                 
                 	Generic Local Upstream Label
-                	**type**\:  :py:class:`GenericLocalUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel>`
+                	**type**\:   :py:class:`GenericLocalUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel>`
                 
                 .. attribute:: generic_merge_point_label
                 
                 	Generic MergePoint Label
-                	**type**\:  :py:class:`GenericMergePointLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLabel>`
+                	**type**\:   :py:class:`GenericMergePointLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLabel>`
                 
                 .. attribute:: generic_outgoing_downstream_label
                 
                 	Generic Outgoing Downstream Label
-                	**type**\:  :py:class:`GenericOutgoingDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel>`
+                	**type**\:   :py:class:`GenericOutgoingDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel>`
                 
                 .. attribute:: generic_outgoing_upstream_label
                 
                 	Generic Outgoing Upstream Label
-                	**type**\:  :py:class:`GenericOutgoingUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel>`
+                	**type**\:   :py:class:`GenericOutgoingUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel>`
                 
                 .. attribute:: generic_recovery_label
                 
                 	Generic Recovery Label
-                	**type**\:  :py:class:`GenericRecoveryLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel>`
+                	**type**\:   :py:class:`GenericRecoveryLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel>`
                 
                 .. attribute:: is_valid
                 
@@ -4290,12 +4302,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -4392,12 +4404,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -4494,12 +4506,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -4596,12 +4608,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -4698,12 +4710,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -4800,12 +4812,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -5022,12 +5034,12 @@ class RsvpStandby(object):
                 .. attribute:: policy_flags
                 
                 	Policy Flags
-                	**type**\:  :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Pfc.PolicyFlags>`
+                	**type**\:   :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Pfc.PolicyFlags>`
                 
                 .. attribute:: policy_query_flags
                 
                 	Policy Query Flags
-                	**type**\:  :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Pfc.PolicyQueryFlags>`
+                	**type**\:   :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.Pfc.PolicyQueryFlags>`
                 
                 
 
@@ -5211,17 +5223,17 @@ class RsvpStandby(object):
                 .. attribute:: ero_type
                 
                 	EROType
-                	**type**\:  :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
+                	**type**\:   :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
                 
                 .. attribute:: ipv4ero_sub_object
                 
                 	IPV4 ERO Sub Object
-                	**type**\:  :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject>`
+                	**type**\:   :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject>`
                 
                 .. attribute:: unnumbered_ero_sub_object
                 
                 	Unnumbered ERO Sub Object
-                	**type**\:  :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.InEro.UnnumberedEroSubObject>`
+                	**type**\:   :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.InEro.UnnumberedEroSubObject>`
                 
                 
 
@@ -5330,7 +5342,7 @@ class RsvpStandby(object):
                     .. attribute:: status
                     
                     	Status of ERO
-                    	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
                     
                     
 
@@ -5413,17 +5425,17 @@ class RsvpStandby(object):
                 .. attribute:: ero_type
                 
                 	EROType
-                	**type**\:  :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
+                	**type**\:   :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
                 
                 .. attribute:: ipv4ero_sub_object
                 
                 	IPV4 ERO Sub Object
-                	**type**\:  :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject>`
+                	**type**\:   :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject>`
                 
                 .. attribute:: unnumbered_ero_sub_object
                 
                 	Unnumbered ERO Sub Object
-                	**type**\:  :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.UnnumberedEroSubObject>`
+                	**type**\:   :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbDetaileds.PsbDetailed.OutEro.UnnumberedEroSubObject>`
                 
                 
 
@@ -5532,7 +5544,7 @@ class RsvpStandby(object):
                     .. attribute:: status
                     
                     	Status of ERO
-                    	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
                     
                     
 
@@ -5763,12 +5775,12 @@ class RsvpStandby(object):
         .. attribute:: path_states
         
         	Path state counters
-        	**type**\:  :py:class:`PathStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.FrrSummary.PathStates>`
+        	**type**\:   :py:class:`PathStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.FrrSummary.PathStates>`
         
         .. attribute:: reservation_states
         
         	Rerservation state counters
-        	**type**\:  :py:class:`ReservationStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.FrrSummary.ReservationStates>`
+        	**type**\:   :py:class:`ReservationStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.FrrSummary.ReservationStates>`
         
         
 
@@ -5974,7 +5986,7 @@ class RsvpStandby(object):
         .. attribute:: rsb_detailed
         
         	Detailed info for a single reservation state block
-        	**type**\: list of  :py:class:`RsbDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed>`
+        	**type**\: list of    :py:class:`RsbDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed>`
         
         
 
@@ -6012,7 +6024,7 @@ class RsvpStandby(object):
             .. attribute:: expiry_time
             
             	Expiry Time
-            	**type**\:  :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.ExpiryTime>`
+            	**type**\:   :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.ExpiryTime>`
             
             .. attribute:: extended_tunnel_id
             
@@ -6024,27 +6036,27 @@ class RsvpStandby(object):
             .. attribute:: filter
             
             	RSVP Filter
-            	**type**\:  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Filter>`
+            	**type**\:   :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Filter>`
             
             .. attribute:: flow_spec
             
             	Flow Spec Information
-            	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.FlowSpec>`
+            	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.FlowSpec>`
             
             .. attribute:: generic_flow_spec
             
             	Generic Flow Spec Information
-            	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec>`
+            	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec>`
             
             .. attribute:: header
             
             	RSVP Header Information
-            	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Header>`
+            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Header>`
             
             .. attribute:: hop
             
             	Hop Infomation
-            	**type**\:  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Hop>`
+            	**type**\:   :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Hop>`
             
             .. attribute:: input_adjusted_interface
             
@@ -6059,7 +6071,7 @@ class RsvpStandby(object):
             .. attribute:: label_info
             
             	Label Information
-            	**type**\:  :py:class:`LabelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo>`
+            	**type**\:   :py:class:`LabelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo>`
             
             .. attribute:: p2mp_id
             
@@ -6071,17 +6083,17 @@ class RsvpStandby(object):
             .. attribute:: policy_flags
             
             	RSVP Policy Flags
-            	**type**\:  :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.PolicyFlags>`
+            	**type**\:   :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.PolicyFlags>`
             
             .. attribute:: policy_query_flags
             
             	RSVP Query Flags
-            	**type**\:  :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.PolicyQueryFlags>`
+            	**type**\:   :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.PolicyQueryFlags>`
             
             .. attribute:: policy_sources
             
             	RSVP Policy Sources
-            	**type**\:  :py:class:`PolicySources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.PolicySources>`
+            	**type**\:   :py:class:`PolicySources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.PolicySources>`
             
             .. attribute:: protocol
             
@@ -6093,22 +6105,22 @@ class RsvpStandby(object):
             .. attribute:: rsb_flags
             
             	Reservation State Block Flags
-            	**type**\:  :py:class:`RsbFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.RsbFlags>`
+            	**type**\:   :py:class:`RsbFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.RsbFlags>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -6127,7 +6139,7 @@ class RsvpStandby(object):
             .. attribute:: style
             
             	RSVP Style
-            	**type**\:  :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Style>`
+            	**type**\:   :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Style>`
             
             .. attribute:: sub_group_id
             
@@ -6213,6 +6225,8 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
@@ -6241,10 +6255,12 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_qos
                 
                 	The Flow Quality of Service
-                	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                 
                 .. attribute:: flow_requested_rate
                 
@@ -6252,6 +6268,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 .. attribute:: flow_slack
                 
@@ -6329,12 +6347,12 @@ class RsvpStandby(object):
                 .. attribute:: flow_spec_type
                 
                 	FlowSpecType
-                	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                 
                 .. attribute:: g709otn_flow_spec
                 
                 	G709 OTN FlowSpec
-                	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec>`
+                	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec>`
                 
                 
 
@@ -6460,7 +6478,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession>`
                 
                 
 
@@ -6482,27 +6500,27 @@ class RsvpStandby(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -6900,7 +6918,7 @@ class RsvpStandby(object):
                 .. attribute:: reservation_type
                 
                 	The Reservation Type\: WF, SE or FF
-                	**type**\:  :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
                 
                 
 
@@ -6943,7 +6961,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter>`
                 
                 
 
@@ -6965,17 +6983,17 @@ class RsvpStandby(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -7574,12 +7592,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -7696,32 +7718,32 @@ class RsvpStandby(object):
                 .. attribute:: generic_local_downstream_label
                 
                 	Generic Local Downstream Label
-                	**type**\:  :py:class:`GenericLocalDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel>`
+                	**type**\:   :py:class:`GenericLocalDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel>`
                 
                 .. attribute:: generic_local_upstream_label
                 
                 	Generic Local Upstream Label
-                	**type**\:  :py:class:`GenericLocalUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel>`
+                	**type**\:   :py:class:`GenericLocalUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel>`
                 
                 .. attribute:: generic_merge_point_label
                 
                 	Generic MergePoint Label
-                	**type**\:  :py:class:`GenericMergePointLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel>`
+                	**type**\:   :py:class:`GenericMergePointLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel>`
                 
                 .. attribute:: generic_outgoing_downstream_label
                 
                 	Generic Outgoing Downstream Label
-                	**type**\:  :py:class:`GenericOutgoingDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel>`
+                	**type**\:   :py:class:`GenericOutgoingDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel>`
                 
                 .. attribute:: generic_outgoing_upstream_label
                 
                 	Generic Outgoing Upstream Label
-                	**type**\:  :py:class:`GenericOutgoingUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel>`
+                	**type**\:   :py:class:`GenericOutgoingUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel>`
                 
                 .. attribute:: generic_recovery_label
                 
                 	Generic Recovery Label
-                	**type**\:  :py:class:`GenericRecoveryLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel>`
+                	**type**\:   :py:class:`GenericRecoveryLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel>`
                 
                 .. attribute:: is_valid
                 
@@ -7815,12 +7837,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -7917,12 +7939,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -8019,12 +8041,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -8121,12 +8143,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -8223,12 +8245,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -8325,12 +8347,12 @@ class RsvpStandby(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -8613,7 +8635,7 @@ class RsvpStandby(object):
         .. attribute:: interface_summary
         
         	Summary info about an RSVP\-enabled interface
-        	**type**\: list of  :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries.InterfaceSummary>`
+        	**type**\: list of    :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries.InterfaceSummary>`
         
         
 
@@ -8643,7 +8665,7 @@ class RsvpStandby(object):
             .. attribute:: bandwidth_information
             
             	Interface bandwidth information
-            	**type**\:  :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries.InterfaceSummary.BandwidthInformation>`
+            	**type**\:   :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries.InterfaceSummary.BandwidthInformation>`
             
             .. attribute:: interface_name_xr
             
@@ -8704,17 +8726,17 @@ class RsvpStandby(object):
                 .. attribute:: dste_mode
                 
                 	DSTEMode
-                	**type**\:  :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
+                	**type**\:   :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
                 
                 .. attribute:: pre_standard_dste_interface
                 
                 	Prestandard DSTE interface information
-                	**type**\:  :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries.InterfaceSummary.BandwidthInformation.PreStandardDsteInterface>`
+                	**type**\:   :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries.InterfaceSummary.BandwidthInformation.PreStandardDsteInterface>`
                 
                 .. attribute:: standard_dste_interface
                 
                 	Standard DSTE interface information
-                	**type**\:  :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries.InterfaceSummary.BandwidthInformation.StandardDsteInterface>`
+                	**type**\:   :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceSummaries.InterfaceSummary.BandwidthInformation.StandardDsteInterface>`
                 
                 
 
@@ -8743,6 +8765,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -8760,6 +8784,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
@@ -8767,12 +8793,16 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -8841,6 +8871,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -8863,12 +8895,16 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: max_pool0_bandwidth
                     
@@ -8877,12 +8913,16 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -9051,7 +9091,7 @@ class RsvpStandby(object):
         .. attribute:: hello_instance_brief
         
         	Brief info for a single hello instance
-        	**type**\: list of  :py:class:`HelloInstanceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceBriefs.HelloInstanceBrief>`
+        	**type**\: list of    :py:class:`HelloInstanceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceBriefs.HelloInstanceBrief>`
         
         
 
@@ -9102,7 +9142,7 @@ class RsvpStandby(object):
             .. attribute:: instance_type
             
             	Hello instance type
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
             
             .. attribute:: lost_communication_total
             
@@ -9114,7 +9154,7 @@ class RsvpStandby(object):
             .. attribute:: neighbor_hello_state
             
             	Neighbor Hello state
-            	**type**\:  :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
             
             .. attribute:: source_address_xr
             
@@ -9221,7 +9261,7 @@ class RsvpStandby(object):
         .. attribute:: authentication_detail
         
         	Brief Authentication information
-        	**type**\: list of  :py:class:`AuthenticationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail>`
+        	**type**\: list of    :py:class:`AuthenticationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail>`
         
         
 
@@ -9258,7 +9298,7 @@ class RsvpStandby(object):
             .. attribute:: mode_id  <key>
             
             	Mode (Tx or Rx)
-            	**type**\:  :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
+            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
             
             .. attribute:: source_address  <key>
             
@@ -9270,17 +9310,17 @@ class RsvpStandby(object):
             .. attribute:: auth_compact
             
             	Basic authentication data
-            	**type**\:  :py:class:`AuthCompact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.AuthCompact>`
+            	**type**\:   :py:class:`AuthCompact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.AuthCompact>`
             
             .. attribute:: challenge_status
             
             	Challenge status
-            	**type**\:  :py:class:`RsvpMgmtAuthChallengeStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthChallengeStatusEnum>`
+            	**type**\:   :py:class:`RsvpMgmtAuthChallengeStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthChallengeStatusEnum>`
             
             .. attribute:: direction_info
             
             	direction info
-            	**type**\:  :py:class:`DirectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo>`
+            	**type**\:   :py:class:`DirectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo>`
             
             .. attribute:: key_digest_info
             
@@ -9303,12 +9343,16 @@ class RsvpStandby(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: lifetime_left
             
             	Remaining lifetime (seconds)
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: second
             
             
 
@@ -9348,7 +9392,7 @@ class RsvpStandby(object):
                 .. attribute:: direction
                 
                 	Direction
-                	**type**\:  :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
+                	**type**\:   :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
                 
                 .. attribute:: key_id
                 
@@ -9372,7 +9416,7 @@ class RsvpStandby(object):
                 .. attribute:: key_type
                 
                 	Key type
-                	**type**\:  :py:class:`RsvpMgmtAuthKiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthKiEnum>`
+                	**type**\:   :py:class:`RsvpMgmtAuthKiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthKiEnum>`
                 
                 .. attribute:: neighbor_address
                 
@@ -9459,17 +9503,17 @@ class RsvpStandby(object):
                 .. attribute:: auth_direction
                 
                 	AuthDirection
-                	**type**\:  :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
+                	**type**\:   :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
                 
                 .. attribute:: receive_info
                 
                 	receive info
-                	**type**\:  :py:class:`ReceiveInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo.ReceiveInfo>`
+                	**type**\:   :py:class:`ReceiveInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo.ReceiveInfo>`
                 
                 .. attribute:: send_info
                 
                 	send info
-                	**type**\:  :py:class:`SendInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo.SendInfo>`
+                	**type**\:   :py:class:`SendInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo.SendInfo>`
                 
                 
 
@@ -9494,7 +9538,7 @@ class RsvpStandby(object):
                     .. attribute:: counters
                     
                     	Counters
-                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo.SendInfo.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo.SendInfo.Counters>`
                     
                     .. attribute:: sequence
                     
@@ -9631,7 +9675,7 @@ class RsvpStandby(object):
                     .. attribute:: counters
                     
                     	Counters
-                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo.ReceiveInfo.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.AuthenticationDetails.AuthenticationDetail.DirectionInfo.ReceiveInfo.Counters>`
                     
                     .. attribute:: sequence
                     
@@ -10052,7 +10096,7 @@ class RsvpStandby(object):
         .. attribute:: rsb_brief
         
         	Brief info for a single reservation state block
-        	**type**\: list of  :py:class:`RsbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief>`
+        	**type**\: list of    :py:class:`RsbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief>`
         
         
 
@@ -10096,17 +10140,17 @@ class RsvpStandby(object):
             .. attribute:: filter
             
             	RSVP Filter
-            	**type**\:  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Filter>`
+            	**type**\:   :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Filter>`
             
             .. attribute:: flow_spec
             
             	Flow Spec Information
-            	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.FlowSpec>`
+            	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.FlowSpec>`
             
             .. attribute:: generic_flow_spec
             
             	Generic Flow Spec Info
-            	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec>`
+            	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec>`
             
             .. attribute:: input_interface
             
@@ -10130,17 +10174,17 @@ class RsvpStandby(object):
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -10159,7 +10203,7 @@ class RsvpStandby(object):
             .. attribute:: style
             
             	RSVP Style
-            	**type**\:  :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Style>`
+            	**type**\:   :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Style>`
             
             .. attribute:: sub_group_id
             
@@ -10224,7 +10268,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession>`
                 
                 
 
@@ -10246,27 +10290,27 @@ class RsvpStandby(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -10668,6 +10712,8 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
@@ -10696,10 +10742,12 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_qos
                 
                 	The Flow Quality of Service
-                	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                 
                 .. attribute:: flow_requested_rate
                 
@@ -10707,6 +10755,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 .. attribute:: flow_slack
                 
@@ -10784,12 +10834,12 @@ class RsvpStandby(object):
                 .. attribute:: flow_spec_type
                 
                 	FlowSpecType
-                	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                 
                 .. attribute:: g709otn_flow_spec
                 
                 	G709 OTN FlowSpec
-                	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec>`
+                	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec>`
                 
                 
 
@@ -10915,7 +10965,7 @@ class RsvpStandby(object):
                 .. attribute:: reservation_type
                 
                 	The Reservation Type\: WF, SE or FF
-                	**type**\:  :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
                 
                 
 
@@ -10958,7 +11008,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter>`
                 
                 
 
@@ -10980,17 +11030,17 @@ class RsvpStandby(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RsbBriefs.RsbBrief.Filter.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -11296,12 +11346,12 @@ class RsvpStandby(object):
         .. attribute:: global_counters
         
         	Platform wide RSVP statistics and counters
-        	**type**\:  :py:class:`GlobalCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig.GlobalCounters>`
+        	**type**\:   :py:class:`GlobalCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig.GlobalCounters>`
         
         .. attribute:: interface_counters
         
         	Table of info about RSVP\-enabled interface counters for OpenConfig
-        	**type**\:  :py:class:`InterfaceCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig.InterfaceCounters>`
+        	**type**\:   :py:class:`InterfaceCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig.InterfaceCounters>`
         
         
 
@@ -11591,7 +11641,7 @@ class RsvpStandby(object):
             .. attribute:: interface_counter
             
             	Info about an RSVP\-enabled interface counters
-            	**type**\: list of  :py:class:`InterfaceCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig.InterfaceCounters.InterfaceCounter>`
+            	**type**\: list of    :py:class:`InterfaceCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.OpenConfig.InterfaceCounters.InterfaceCounter>`
             
             
 
@@ -11917,47 +11967,47 @@ class RsvpStandby(object):
         .. attribute:: database
         
         	Summary information for all RSVP database counters
-        	**type**\:  :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.Database>`
+        	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.Database>`
         
         .. attribute:: event_syncs
         
         	Table containing event sync counters
-        	**type**\:  :py:class:`EventSyncs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.EventSyncs>`
+        	**type**\:   :py:class:`EventSyncs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.EventSyncs>`
         
         .. attribute:: interface_events
         
         	Event counters
-        	**type**\:  :py:class:`InterfaceEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceEvents>`
+        	**type**\:   :py:class:`InterfaceEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceEvents>`
         
         .. attribute:: interface_messages
         
         	Table of message counters
-        	**type**\:  :py:class:`InterfaceMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages>`
+        	**type**\:   :py:class:`InterfaceMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages>`
         
         .. attribute:: issu
         
         	Summary information for all RSVP ISSU counters
-        	**type**\:  :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.Issu>`
+        	**type**\:   :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.Issu>`
         
         .. attribute:: message_summary
         
         	Summary information for all RSVP message counters
-        	**type**\:  :py:class:`MessageSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary>`
+        	**type**\:   :py:class:`MessageSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary>`
         
         .. attribute:: nsr
         
         	Summary information for all RSVP NSR counters
-        	**type**\:  :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.Nsr>`
+        	**type**\:   :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.Nsr>`
         
         .. attribute:: out_of_resource
         
         	Out of resource counters
-        	**type**\:  :py:class:`OutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource>`
+        	**type**\:   :py:class:`OutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource>`
         
         .. attribute:: prefix_filtering
         
         	Prefix filtering counters
-        	**type**\:  :py:class:`PrefixFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering>`
+        	**type**\:   :py:class:`PrefixFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering>`
         
         
 
@@ -11995,7 +12045,7 @@ class RsvpStandby(object):
             .. attribute:: interface_message
             
             	Interface message counters
-            	**type**\: list of  :py:class:`InterfaceMessage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage>`
+            	**type**\: list of    :py:class:`InterfaceMessage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage>`
             
             
 
@@ -12025,12 +12075,12 @@ class RsvpStandby(object):
                 .. attribute:: bundle_received_messages
                 
                 	Count of Bundle messages received
-                	**type**\:  :py:class:`BundleReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.BundleReceivedMessages>`
+                	**type**\:   :py:class:`BundleReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.BundleReceivedMessages>`
                 
                 .. attribute:: bundle_transmitted_messages
                 
                 	Count of Bundle messages transmitted
-                	**type**\:  :py:class:`BundleTransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.BundleTransmittedMessages>`
+                	**type**\:   :py:class:`BundleTransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.BundleTransmittedMessages>`
                 
                 .. attribute:: out_of_order_messages
                 
@@ -12049,7 +12099,7 @@ class RsvpStandby(object):
                 .. attribute:: received_messages
                 
                 	Count of messages received
-                	**type**\:  :py:class:`ReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages>`
+                	**type**\:   :py:class:`ReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages>`
                 
                 .. attribute:: retransmitted_messages
                 
@@ -12061,7 +12111,7 @@ class RsvpStandby(object):
                 .. attribute:: transmitted_messages
                 
                 	Count of messages transmitted
-                	**type**\:  :py:class:`TransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.TransmittedMessages>`
+                	**type**\:   :py:class:`TransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceMessages.InterfaceMessage.TransmittedMessages>`
                 
                 
 
@@ -12879,12 +12929,12 @@ class RsvpStandby(object):
             .. attribute:: bundle_received_messages
             
             	Count of Bundle messages received
-            	**type**\:  :py:class:`BundleReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary.BundleReceivedMessages>`
+            	**type**\:   :py:class:`BundleReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary.BundleReceivedMessages>`
             
             .. attribute:: bundle_transmitted_messages
             
             	Count of Bundle messages transmitted
-            	**type**\:  :py:class:`BundleTransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary.BundleTransmittedMessages>`
+            	**type**\:   :py:class:`BundleTransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary.BundleTransmittedMessages>`
             
             .. attribute:: out_of_order_messages
             
@@ -12903,7 +12953,7 @@ class RsvpStandby(object):
             .. attribute:: received_messages
             
             	Count of messages received
-            	**type**\:  :py:class:`ReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary.ReceivedMessages>`
+            	**type**\:   :py:class:`ReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary.ReceivedMessages>`
             
             .. attribute:: retransmitted_messages
             
@@ -12915,7 +12965,7 @@ class RsvpStandby(object):
             .. attribute:: transmitted_messages
             
             	Count of messages transmitted
-            	**type**\:  :py:class:`TransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary.TransmittedMessages>`
+            	**type**\:   :py:class:`TransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.MessageSummary.TransmittedMessages>`
             
             
 
@@ -13694,12 +13744,12 @@ class RsvpStandby(object):
             .. attribute:: accesses
             
             	AccessList specific prefix filtering counters
-            	**type**\:  :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses>`
+            	**type**\:   :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses>`
             
             .. attribute:: interfaces
             
             	Interface specific prefix filtering counters
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces>`
             
             
 
@@ -13723,7 +13773,7 @@ class RsvpStandby(object):
                 .. attribute:: access
                 
                 	Prefix filtering counters for a specific AccessList
-                	**type**\: list of  :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access>`
+                	**type**\: list of    :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access>`
                 
                 
 
@@ -13754,22 +13804,22 @@ class RsvpStandby(object):
                     .. attribute:: dropped
                     
                     	Count of messages dropped
-                    	**type**\:  :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access.Dropped>`
+                    	**type**\:   :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access.Dropped>`
                     
                     .. attribute:: forwarded
                     
                     	Count of messages which got forwarded
-                    	**type**\:  :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access.Forwarded>`
+                    	**type**\:   :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access.Forwarded>`
                     
                     .. attribute:: locally_destined
                     
                     	Count of locally destined messages
-                    	**type**\:  :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access.LocallyDestined>`
+                    	**type**\:   :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access.LocallyDestined>`
                     
                     .. attribute:: total
                     
                     	Count of total messages
-                    	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access.Total>`
+                    	**type**\:   :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Accesses.Access.Total>`
                     
                     
 
@@ -14178,12 +14228,12 @@ class RsvpStandby(object):
                 .. attribute:: interfaces
                 
                 	Table of interface specific prefix filtering counters
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces>`
+                	**type**\:   :py:class:`Interfaces_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_>`
                 
                 .. attribute:: summary
                 
                 	Summary of prefix filtering counts for all interfaces
-                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary>`
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary>`
                 
                 
 
@@ -14194,7 +14244,7 @@ class RsvpStandby(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.interfaces = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces()
+                    self.interfaces = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_()
                     self.interfaces.parent = self
                     self.summary = RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary()
                     self.summary.parent = self
@@ -14208,32 +14258,32 @@ class RsvpStandby(object):
                     .. attribute:: default_action_dropped
                     
                     	Count of messages which got dropped due to default ACL action
-                    	**type**\:  :py:class:`DefaultActionDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionDropped>`
+                    	**type**\:   :py:class:`DefaultActionDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionDropped>`
                     
                     .. attribute:: default_action_processed
                     
                     	Count of messages which were processed due to default ACL action
-                    	**type**\:  :py:class:`DefaultActionProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionProcessed>`
+                    	**type**\:   :py:class:`DefaultActionProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionProcessed>`
                     
                     .. attribute:: dropped
                     
                     	Count of messages dropped
-                    	**type**\:  :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.Dropped>`
+                    	**type**\:   :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.Dropped>`
                     
                     .. attribute:: forwarded
                     
                     	Count of messages which got forwarded
-                    	**type**\:  :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.Forwarded>`
+                    	**type**\:   :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.Forwarded>`
                     
                     .. attribute:: locally_destined
                     
                     	Count of locally destined messages
-                    	**type**\:  :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.LocallyDestined>`
+                    	**type**\:   :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.LocallyDestined>`
                     
                     .. attribute:: total
                     
                     	Count of total messages
-                    	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.Total>`
+                    	**type**\:   :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary.Total>`
                     
                     
 
@@ -14765,7 +14815,7 @@ class RsvpStandby(object):
                         return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Summary']['meta_info']
 
 
-                class Interfaces(object):
+                class Interfaces_(object):
                     """
                     Table of interface specific prefix filtering
                     counters
@@ -14773,7 +14823,7 @@ class RsvpStandby(object):
                     .. attribute:: interface
                     
                     	Prefix filtering counters for a specific interface
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface>`
                     
                     
 
@@ -14804,32 +14854,32 @@ class RsvpStandby(object):
                         .. attribute:: default_action_dropped
                         
                         	Count of messages which got dropped due to default ACL action
-                        	**type**\:  :py:class:`DefaultActionDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped>`
+                        	**type**\:   :py:class:`DefaultActionDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped>`
                         
                         .. attribute:: default_action_processed
                         
                         	Count of messages which were processed due to default ACL action
-                        	**type**\:  :py:class:`DefaultActionProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed>`
+                        	**type**\:   :py:class:`DefaultActionProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed>`
                         
                         .. attribute:: dropped
                         
                         	Count of messages dropped
-                        	**type**\:  :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped>`
+                        	**type**\:   :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped>`
                         
                         .. attribute:: forwarded
                         
                         	Count of messages which got forwarded
-                        	**type**\:  :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded>`
+                        	**type**\:   :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded>`
                         
                         .. attribute:: locally_destined
                         
                         	Count of locally destined messages
-                        	**type**\:  :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined>`
+                        	**type**\:   :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined>`
                         
                         .. attribute:: total
                         
                         	Count of total messages
-                        	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total>`
+                        	**type**\:   :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total>`
                         
                         
 
@@ -14841,17 +14891,17 @@ class RsvpStandby(object):
                         def __init__(self):
                             self.parent = None
                             self.interface_name = None
-                            self.default_action_dropped = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped()
+                            self.default_action_dropped = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped()
                             self.default_action_dropped.parent = self
-                            self.default_action_processed = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed()
+                            self.default_action_processed = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed()
                             self.default_action_processed.parent = self
-                            self.dropped = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped()
+                            self.dropped = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped()
                             self.dropped.parent = self
-                            self.forwarded = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded()
+                            self.forwarded = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded()
                             self.forwarded.parent = self
-                            self.locally_destined = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined()
+                            self.locally_destined = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined()
                             self.locally_destined.parent = self
-                            self.total = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total()
+                            self.total = RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total()
                             self.total.parent = self
 
 
@@ -14932,7 +14982,7 @@ class RsvpStandby(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded']['meta_info']
+                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded']['meta_info']
 
 
                         class LocallyDestined(object):
@@ -15012,7 +15062,7 @@ class RsvpStandby(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined']['meta_info']
+                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined']['meta_info']
 
 
                         class Dropped(object):
@@ -15092,7 +15142,7 @@ class RsvpStandby(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped']['meta_info']
+                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped']['meta_info']
 
 
                         class DefaultActionDropped(object):
@@ -15173,7 +15223,7 @@ class RsvpStandby(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped']['meta_info']
+                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped']['meta_info']
 
 
                         class DefaultActionProcessed(object):
@@ -15254,7 +15304,7 @@ class RsvpStandby(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed']['meta_info']
+                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed']['meta_info']
 
 
                         class Total(object):
@@ -15334,7 +15384,7 @@ class RsvpStandby(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total']['meta_info']
+                                return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -15376,7 +15426,7 @@ class RsvpStandby(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                            return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
+                            return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -15400,7 +15450,7 @@ class RsvpStandby(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                        return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces']['meta_info']
+                        return meta._meta_table['RsvpStandby.Counters.PrefixFiltering.Interfaces.Interfaces_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -15460,7 +15510,7 @@ class RsvpStandby(object):
             .. attribute:: interfaces
             
             	Interface specific out of resource counters
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource.Interfaces>`
             
             
 
@@ -15482,12 +15532,12 @@ class RsvpStandby(object):
                 .. attribute:: interfaces
                 
                 	Table of interface specific out of resource counters
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces>`
+                	**type**\:   :py:class:`Interfaces_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_>`
                 
                 .. attribute:: summary
                 
                 	Summary of out of resource counts for all interfaces
-                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource.Interfaces.Summary>`
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource.Interfaces.Summary>`
                 
                 
 
@@ -15498,7 +15548,7 @@ class RsvpStandby(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.interfaces = RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces()
+                    self.interfaces = RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_()
                     self.interfaces.parent = self
                     self.summary = RsvpStandby.Counters.OutOfResource.Interfaces.Summary()
                     self.summary.parent = self
@@ -15550,7 +15600,7 @@ class RsvpStandby(object):
                         return meta._meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Summary']['meta_info']
 
 
-                class Interfaces(object):
+                class Interfaces_(object):
                     """
                     Table of interface specific out of resource
                     counters
@@ -15558,7 +15608,7 @@ class RsvpStandby(object):
                     .. attribute:: interface
                     
                     	Out of resource counters for a specific interface
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_.Interface>`
                     
                     
 
@@ -15630,7 +15680,7 @@ class RsvpStandby(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                            return meta._meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces.Interface']['meta_info']
+                            return meta._meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_.Interface']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -15654,7 +15704,7 @@ class RsvpStandby(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                        return meta._meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces']['meta_info']
+                        return meta._meta_table['RsvpStandby.Counters.OutOfResource.Interfaces.Interfaces_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -15711,7 +15761,7 @@ class RsvpStandby(object):
             .. attribute:: interface_event
             
             	Event counters for an interface
-            	**type**\: list of  :py:class:`InterfaceEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceEvents.InterfaceEvent>`
+            	**type**\: list of    :py:class:`InterfaceEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.InterfaceEvents.InterfaceEvent>`
             
             
 
@@ -15842,6 +15892,8 @@ class RsvpStandby(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: last_idt_states
             
             	Last IDT number of states
@@ -15852,7 +15904,7 @@ class RsvpStandby(object):
             .. attribute:: rsvp_process_role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             .. attribute:: total_deletions
             
@@ -15951,6 +16003,8 @@ class RsvpStandby(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: last_idt_states
             
             	Last IDT number of states
@@ -15961,7 +16015,7 @@ class RsvpStandby(object):
             .. attribute:: rsvp_process_role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             .. attribute:: total_deletions
             
@@ -16157,7 +16211,7 @@ class RsvpStandby(object):
             .. attribute:: event_sync
             
             	Event sync counters
-            	**type**\: list of  :py:class:`EventSync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.EventSyncs.EventSync>`
+            	**type**\: list of    :py:class:`EventSync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Counters.EventSyncs.EventSync>`
             
             
 
@@ -16331,7 +16385,7 @@ class RsvpStandby(object):
         .. attribute:: interface_detailed
         
         	Detailed info about an RSVP\-enabled interface
-        	**type**\: list of  :py:class:`InterfaceDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed>`
+        	**type**\: list of    :py:class:`InterfaceDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed>`
         
         
 
@@ -16375,7 +16429,7 @@ class RsvpStandby(object):
             .. attribute:: bandwidth_information
             
             	Interface bandwidth information
-            	**type**\:  :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation>`
+            	**type**\:   :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation>`
             
             .. attribute:: bundle_message_max_size
             
@@ -16383,6 +16437,8 @@ class RsvpStandby(object):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: byte
             
             .. attribute:: expiry_drops_tolerated
             
@@ -16398,6 +16454,8 @@ class RsvpStandby(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: millisecond
+            
             .. attribute:: expiry_states
             
             	Number of states for expiry check
@@ -16408,12 +16466,12 @@ class RsvpStandby(object):
             .. attribute:: expiry_timer_state
             
             	Expiry timer state
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             .. attribute:: flags
             
             	Interface flags
-            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.Flags>`
+            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.Flags>`
             
             .. attribute:: integrity_receive_password
             
@@ -16444,7 +16502,7 @@ class RsvpStandby(object):
             .. attribute:: neighbor_array
             
             	Neighbor array
-            	**type**\: list of  :py:class:`NeighborArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.NeighborArray>`
+            	**type**\: list of    :py:class:`NeighborArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.NeighborArray>`
             
             .. attribute:: out_of_band_expiry_drops_tolerated
             
@@ -16460,12 +16518,16 @@ class RsvpStandby(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: millisecond
+            
             .. attribute:: pacing_interval
             
             	Pacing interval in msecs
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: millisecond
             
             .. attribute:: pacing_message_rate
             
@@ -16484,7 +16546,7 @@ class RsvpStandby(object):
             .. attribute:: pacing_timer_state
             
             	State of pacing timer
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             .. attribute:: refresh_interval
             
@@ -16493,10 +16555,12 @@ class RsvpStandby(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: millisecond
+            
             .. attribute:: refresh_timer_state
             
             	Refresh timer state
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             .. attribute:: retransmit_time
             
@@ -16519,10 +16583,12 @@ class RsvpStandby(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: byte
+            
             .. attribute:: summary_refresh_timer_state
             
             	Summary refresh timer state
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             
 
@@ -16573,17 +16639,17 @@ class RsvpStandby(object):
                 .. attribute:: dste_mode
                 
                 	DSTEMode
-                	**type**\:  :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
+                	**type**\:   :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
                 
                 .. attribute:: pre_standard_dste_interface
                 
                 	Prestandard DSTE interface information
-                	**type**\:  :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.PreStandardDsteInterface>`
+                	**type**\:   :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.PreStandardDsteInterface>`
                 
                 .. attribute:: standard_dste_interface
                 
                 	Standard DSTE interface information
-                	**type**\:  :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.StandardDsteInterface>`
+                	**type**\:   :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.StandardDsteInterface>`
                 
                 
 
@@ -16612,6 +16678,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -16629,6 +16697,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
@@ -16636,12 +16706,16 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -16710,6 +16784,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -16732,12 +16808,16 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: max_pool0_bandwidth
                     
@@ -16746,12 +16826,16 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -16998,7 +17082,7 @@ class RsvpStandby(object):
                 .. attribute:: expiry_time
                 
                 	Expiry time
-                	**type**\:  :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.NeighborArray.ExpiryTime>`
+                	**type**\:   :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.NeighborArray.ExpiryTime>`
                 
                 .. attribute:: is_neighbor_refresh_reduction_capable
                 
@@ -17022,7 +17106,7 @@ class RsvpStandby(object):
                 .. attribute:: neighbor_message_id
                 
                 	List of Neighbor MessageIDs
-                	**type**\: list of  :py:class:`NeighborMessageId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.NeighborArray.NeighborMessageId>`
+                	**type**\: list of    :py:class:`NeighborMessageId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceDetaileds.InterfaceDetailed.NeighborArray.NeighborMessageId>`
                 
                 .. attribute:: outgoing_states
                 
@@ -17062,12 +17146,16 @@ class RsvpStandby(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Time Value in Seconds
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**units**\: second
                     
                     
 
@@ -17356,7 +17444,7 @@ class RsvpStandby(object):
         .. attribute:: local_node_address
         
         	Local node address
-        	**type**\: list of  :py:class:`LocalNodeAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GracefulRestart.LocalNodeAddress>`
+        	**type**\: list of    :py:class:`LocalNodeAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GracefulRestart.LocalNodeAddress>`
         
         .. attribute:: missed_hellos
         
@@ -17379,15 +17467,17 @@ class RsvpStandby(object):
         
         	**range:** 0..4294967295
         
+        	**units**\: millisecond
+        
         .. attribute:: recovery_time_left
         
         	How much recovery timer remains
-        	**type**\:  :py:class:`RecoveryTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GracefulRestart.RecoveryTimeLeft>`
+        	**type**\:   :py:class:`RecoveryTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GracefulRestart.RecoveryTimeLeft>`
         
         .. attribute:: recovery_timer_exp_time
         
         	Time at which recovery timer will expire
-        	**type**\:  :py:class:`RecoveryTimerExpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GracefulRestart.RecoveryTimerExpTime>`
+        	**type**\:   :py:class:`RecoveryTimerExpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GracefulRestart.RecoveryTimerExpTime>`
         
         .. attribute:: restart_time
         
@@ -17395,6 +17485,8 @@ class RsvpStandby(object):
         	**type**\:  int
         
         	**range:** 0..4294967295
+        
+        	**units**\: millisecond
         
         
 
@@ -17433,12 +17525,16 @@ class RsvpStandby(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: nanosecond
+            
             .. attribute:: seconds
             
             	Time Value in Seconds
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
+            
+            	**units**\: second
             
             
 
@@ -17489,12 +17585,16 @@ class RsvpStandby(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: nanosecond
+            
             .. attribute:: seconds
             
             	Time Value in Seconds
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
+            
+            	**units**\: second
             
             
 
@@ -17541,7 +17641,7 @@ class RsvpStandby(object):
             .. attribute:: application_type
             
             	GR local node\-id app type
-            	**type**\:  :py:class:`RsvpMgmtGrAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGrAppEnum>`
+            	**type**\:   :py:class:`RsvpMgmtGrAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGrAppEnum>`
             
             .. attribute:: local_node_ip_address
             
@@ -17650,7 +17750,7 @@ class RsvpStandby(object):
         .. attribute:: hello_interface_instance_brief
         
         	Brief info for a single interface\-based hello instance
-        	**type**\: list of  :py:class:`HelloInterfaceInstanceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceBriefs.HelloInterfaceInstanceBrief>`
+        	**type**\: list of    :py:class:`HelloInterfaceInstanceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceBriefs.HelloInterfaceInstanceBrief>`
         
         
 
@@ -17702,7 +17802,7 @@ class RsvpStandby(object):
             .. attribute:: instance_type
             
             	Hello instance type
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
             
             .. attribute:: source_address_xr
             
@@ -17801,7 +17901,7 @@ class RsvpStandby(object):
         .. attribute:: hello_interface_instance_detail
         
         	Detailed info for a single interface\-based hello instance
-        	**type**\: list of  :py:class:`HelloInterfaceInstanceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceDetails.HelloInterfaceInstanceDetail>`
+        	**type**\: list of    :py:class:`HelloInterfaceInstanceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceDetails.HelloInterfaceInstanceDetail>`
         
         
 
@@ -17881,12 +17981,12 @@ class RsvpStandby(object):
             .. attribute:: instance_type
             
             	Hello instance type
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
             
             .. attribute:: last_message_sent_time
             
             	Last Ack/msg sent time
-            	**type**\:  :py:class:`LastMessageSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceDetails.HelloInterfaceInstanceDetail.LastMessageSentTime>`
+            	**type**\:   :py:class:`LastMessageSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInterfaceInstanceDetails.HelloInterfaceInstanceDetail.LastMessageSentTime>`
             
             .. attribute:: source_address_xr
             
@@ -17937,12 +18037,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -18074,7 +18178,7 @@ class RsvpStandby(object):
         .. attribute:: interface_neighbor_detail
         
         	Detailed info for a single interface neighbor
-        	**type**\: list of  :py:class:`InterfaceNeighborDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborDetails.InterfaceNeighborDetail>`
+        	**type**\: list of    :py:class:`InterfaceNeighborDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborDetails.InterfaceNeighborDetail>`
         
         
 
@@ -18104,7 +18208,7 @@ class RsvpStandby(object):
             .. attribute:: interface_neighbor_list_detail
             
             	Detail list of I/F Neighbors
-            	**type**\: list of  :py:class:`InterfaceNeighborListDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborDetails.InterfaceNeighborDetail.InterfaceNeighborListDetail>`
+            	**type**\: list of    :py:class:`InterfaceNeighborListDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceNeighborDetails.InterfaceNeighborDetail.InterfaceNeighborListDetail>`
             
             .. attribute:: node_address
             
@@ -18292,7 +18396,7 @@ class RsvpStandby(object):
         .. attribute:: status
         
         	RSVP NSR status information
-        	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Nsr.Status>`
+        	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Nsr.Status>`
         
         
 
@@ -18314,17 +18418,17 @@ class RsvpStandby(object):
             .. attribute:: idt_status
             
             	IDT status
-            	**type**\:  :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Nsr.Status.IdtStatus>`
+            	**type**\:   :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Nsr.Status.IdtStatus>`
             
             .. attribute:: previous_idt_status
             
             	Previous IDT status
-            	**type**\:  :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Nsr.Status.PreviousIdtStatus>`
+            	**type**\:   :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Nsr.Status.PreviousIdtStatus>`
             
             .. attribute:: role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             
 
@@ -18353,12 +18457,16 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -18367,15 +18475,17 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -18383,6 +18493,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -18449,12 +18561,16 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -18463,15 +18579,17 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -18479,6 +18597,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -18591,7 +18711,7 @@ class RsvpStandby(object):
         .. attribute:: database_counters
         
         	All database counters
-        	**type**\:  :py:class:`DatabaseCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.DatabaseCounters>`
+        	**type**\:   :py:class:`DatabaseCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.DatabaseCounters>`
         
         .. attribute:: interfaces
         
@@ -18603,7 +18723,7 @@ class RsvpStandby(object):
         .. attribute:: issu_status
         
         	Issu status
-        	**type**\:  :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.IssuStatus>`
+        	**type**\:   :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.IssuStatus>`
         
         .. attribute:: ls_ps
         
@@ -18615,7 +18735,7 @@ class RsvpStandby(object):
         .. attribute:: nsr_status
         
         	NSR status
-        	**type**\:  :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.NsrStatus>`
+        	**type**\:   :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.NsrStatus>`
         
         
 
@@ -18643,17 +18763,17 @@ class RsvpStandby(object):
             .. attribute:: idt_status
             
             	IDT status
-            	**type**\:  :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.IssuStatus.IdtStatus>`
+            	**type**\:   :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.IssuStatus.IdtStatus>`
             
             .. attribute:: previous_idt_status
             
             	Previous IDT status
-            	**type**\:  :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.IssuStatus.PreviousIdtStatus>`
+            	**type**\:   :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.IssuStatus.PreviousIdtStatus>`
             
             .. attribute:: role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             
 
@@ -18682,12 +18802,16 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -18696,15 +18820,17 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -18712,6 +18838,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -18778,12 +18906,16 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -18792,15 +18924,17 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -18808,6 +18942,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -18898,17 +19034,17 @@ class RsvpStandby(object):
             .. attribute:: idt_status
             
             	IDT status
-            	**type**\:  :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.NsrStatus.IdtStatus>`
+            	**type**\:   :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.NsrStatus.IdtStatus>`
             
             .. attribute:: previous_idt_status
             
             	Previous IDT status
-            	**type**\:  :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.NsrStatus.PreviousIdtStatus>`
+            	**type**\:   :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Summary.NsrStatus.PreviousIdtStatus>`
             
             .. attribute:: role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             
 
@@ -18937,12 +19073,16 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -18951,15 +19091,17 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -18967,6 +19109,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -19033,12 +19177,16 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -19047,15 +19195,17 @@ class RsvpStandby(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -19063,6 +19213,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -19288,7 +19440,7 @@ class RsvpStandby(object):
         .. attribute:: frr
         
         	Detailed info for a single Fast Re\-route state
-        	**type**\: list of  :py:class:`Frr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr>`
+        	**type**\: list of    :py:class:`Frr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr>`
         
         
 
@@ -19339,7 +19491,7 @@ class RsvpStandby(object):
             .. attribute:: path_status
             
             	RSVP FRR Path States
-            	**type**\:  :py:class:`RsvpMgmtFrrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFrrStateEnumEnum>`
+            	**type**\:   :py:class:`RsvpMgmtFrrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFrrStateEnumEnum>`
             
             .. attribute:: protocol
             
@@ -19351,22 +19503,22 @@ class RsvpStandby(object):
             .. attribute:: reservation_status
             
             	RSVP FRR Reservation States
-            	**type**\:  :py:class:`RsvpMgmtFrrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFrrStateEnumEnum>`
+            	**type**\:   :py:class:`RsvpMgmtFrrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFrrStateEnumEnum>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -19438,7 +19590,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession>`
                 
                 
 
@@ -19460,27 +19612,27 @@ class RsvpStandby(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.Frrs.Frr.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -19966,7 +20118,7 @@ class RsvpStandby(object):
         .. attribute:: request_brief
         
         	Brief info for a request
-        	**type**\: list of  :py:class:`RequestBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief>`
+        	**type**\: list of    :py:class:`RequestBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief>`
         
         
 
@@ -20010,17 +20162,17 @@ class RsvpStandby(object):
             .. attribute:: filter
             
             	RSVP Filter
-            	**type**\:  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Filter>`
+            	**type**\:   :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Filter>`
             
             .. attribute:: flow_spec
             
             	Flow Spec Information
-            	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.FlowSpec>`
+            	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.FlowSpec>`
             
             .. attribute:: generic_flow_spec
             
             	Generic Flow Spec Information
-            	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec>`
+            	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec>`
             
             .. attribute:: output_interface
             
@@ -20044,17 +20196,17 @@ class RsvpStandby(object):
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -20073,7 +20225,7 @@ class RsvpStandby(object):
             .. attribute:: style
             
             	RSVP Style
-            	**type**\:  :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Style>`
+            	**type**\:   :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Style>`
             
             .. attribute:: sub_group_id
             
@@ -20138,7 +20290,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession>`
                 
                 
 
@@ -20160,27 +20312,27 @@ class RsvpStandby(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -20582,6 +20734,8 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
@@ -20610,10 +20764,12 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_qos
                 
                 	The Flow Quality of Service
-                	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                 
                 .. attribute:: flow_requested_rate
                 
@@ -20621,6 +20777,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 .. attribute:: flow_slack
                 
@@ -20698,12 +20856,12 @@ class RsvpStandby(object):
                 .. attribute:: flow_spec_type
                 
                 	FlowSpecType
-                	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                 
                 .. attribute:: g709otn_flow_spec
                 
                 	G709 OTN FlowSpec
-                	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec>`
+                	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec>`
                 
                 
 
@@ -20829,7 +20987,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter>`
                 
                 
 
@@ -20851,17 +21009,17 @@ class RsvpStandby(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestBriefs.RequestBrief.Filter.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -21070,7 +21228,7 @@ class RsvpStandby(object):
                 .. attribute:: reservation_type
                 
                 	The Reservation Type\: WF, SE or FF
-                	**type**\:  :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
                 
                 
 
@@ -21210,7 +21368,7 @@ class RsvpStandby(object):
         .. attribute:: request_detail
         
         	Detail info for a request
-        	**type**\: list of  :py:class:`RequestDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail>`
+        	**type**\: list of    :py:class:`RequestDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail>`
         
         
 
@@ -21254,27 +21412,27 @@ class RsvpStandby(object):
             .. attribute:: filter
             
             	RSVP Filter
-            	**type**\:  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Filter>`
+            	**type**\:   :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Filter>`
             
             .. attribute:: flow_spec
             
             	Flow Spec Information
-            	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.FlowSpec>`
+            	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.FlowSpec>`
             
             .. attribute:: generic_flow_spec
             
             	Generic Flow Spec Information
-            	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec>`
+            	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec>`
             
             .. attribute:: header
             
             	RSVP Header Information
-            	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Header>`
+            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Header>`
             
             .. attribute:: hop
             
             	Hop Infomation
-            	**type**\:  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Hop>`
+            	**type**\:   :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Hop>`
             
             .. attribute:: output_interface
             
@@ -21291,17 +21449,17 @@ class RsvpStandby(object):
             .. attribute:: policy_flags
             
             	RSVP Policy Flags
-            	**type**\:  :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.PolicyFlags>`
+            	**type**\:   :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.PolicyFlags>`
             
             .. attribute:: policy_query_flags
             
             	RSVP Query Flags
-            	**type**\:  :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.PolicyQueryFlags>`
+            	**type**\:   :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.PolicyQueryFlags>`
             
             .. attribute:: policy_sources
             
             	RSVP Policy Sources
-            	**type**\:  :py:class:`PolicySources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.PolicySources>`
+            	**type**\:   :py:class:`PolicySources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.PolicySources>`
             
             .. attribute:: protocol
             
@@ -21313,32 +21471,32 @@ class RsvpStandby(object):
             .. attribute:: psb_key
             
             	List of RSB keys
-            	**type**\: list of  :py:class:`PsbKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.PsbKey>`
+            	**type**\: list of    :py:class:`PsbKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.PsbKey>`
             
             .. attribute:: req_flags
             
             	Request flags
-            	**type**\:  :py:class:`ReqFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.ReqFlags>`
+            	**type**\:   :py:class:`ReqFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.ReqFlags>`
             
             .. attribute:: rsb_key
             
             	List of RSB keys
-            	**type**\: list of  :py:class:`RsbKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.RsbKey>`
+            	**type**\: list of    :py:class:`RsbKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.RsbKey>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -21357,7 +21515,7 @@ class RsvpStandby(object):
             .. attribute:: style
             
             	RSVP Style
-            	**type**\:  :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Style>`
+            	**type**\:   :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Style>`
             
             .. attribute:: sub_group_id
             
@@ -21440,7 +21598,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession>`
                 
                 
 
@@ -21462,27 +21620,27 @@ class RsvpStandby(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -21884,6 +22042,8 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
@@ -21912,10 +22072,12 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_qos
                 
                 	The Flow Quality of Service
-                	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                 
                 .. attribute:: flow_requested_rate
                 
@@ -21923,6 +22085,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 .. attribute:: flow_slack
                 
@@ -22000,12 +22164,12 @@ class RsvpStandby(object):
                 .. attribute:: flow_spec_type
                 
                 	FlowSpecType
-                	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                 
                 .. attribute:: g709otn_flow_spec
                 
                 	G709 OTN FlowSpec
-                	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec>`
+                	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec>`
                 
                 
 
@@ -22131,7 +22295,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter>`
                 
                 
 
@@ -22153,17 +22317,17 @@ class RsvpStandby(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.RequestDetails.RequestDetail.Filter.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -22372,7 +22536,7 @@ class RsvpStandby(object):
                 .. attribute:: reservation_type
                 
                 	The Reservation Type\: WF, SE or FF
-                	**type**\:  :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
                 
                 
 
@@ -22976,7 +23140,7 @@ class RsvpStandby(object):
                 .. attribute:: session_type
                 
                 	Session Type (e.g. LSP, OUNI or UDP)
-                	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                 
                 .. attribute:: source_address
                 
@@ -23129,7 +23293,7 @@ class RsvpStandby(object):
                 .. attribute:: session_type
                 
                 	Session Type (e.g. LSP, OUNI or UDP)
-                	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                 
                 .. attribute:: source_address
                 
@@ -23366,7 +23530,7 @@ class RsvpStandby(object):
         .. attribute:: interface_brief
         
         	Brief info about an RSVP\-enabled interface
-        	**type**\: list of  :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs.InterfaceBrief>`
+        	**type**\: list of    :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs.InterfaceBrief>`
         
         
 
@@ -23396,7 +23560,7 @@ class RsvpStandby(object):
             .. attribute:: bandwidth_information
             
             	Interface bandwidth information
-            	**type**\:  :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs.InterfaceBrief.BandwidthInformation>`
+            	**type**\:   :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs.InterfaceBrief.BandwidthInformation>`
             
             .. attribute:: interface_name_xr
             
@@ -23425,17 +23589,17 @@ class RsvpStandby(object):
                 .. attribute:: dste_mode
                 
                 	DSTEMode
-                	**type**\:  :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
+                	**type**\:   :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
                 
                 .. attribute:: pre_standard_dste_interface
                 
                 	Prestandard DSTE interface information
-                	**type**\:  :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs.InterfaceBrief.BandwidthInformation.PreStandardDsteInterface>`
+                	**type**\:   :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs.InterfaceBrief.BandwidthInformation.PreStandardDsteInterface>`
                 
                 .. attribute:: standard_dste_interface
                 
                 	Standard DSTE interface information
-                	**type**\:  :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs.InterfaceBrief.BandwidthInformation.StandardDsteInterface>`
+                	**type**\:   :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.InterfaceBriefs.InterfaceBrief.BandwidthInformation.StandardDsteInterface>`
                 
                 
 
@@ -23464,6 +23628,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -23481,6 +23647,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
@@ -23488,12 +23656,16 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -23562,6 +23734,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -23584,12 +23758,16 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: max_pool0_bandwidth
                     
@@ -23598,12 +23776,16 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -23760,7 +23942,7 @@ class RsvpStandby(object):
         .. attribute:: session_detailed
         
         	Detailed info about session
-        	**type**\: list of  :py:class:`SessionDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed>`
+        	**type**\: list of    :py:class:`SessionDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed>`
         
         
 
@@ -23783,7 +23965,7 @@ class RsvpStandby(object):
             .. attribute:: compact
             
             	Compact session data
-            	**type**\:  :py:class:`Compact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact>`
+            	**type**\:   :py:class:`Compact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact>`
             
             .. attribute:: destination_address
             
@@ -23823,17 +24005,17 @@ class RsvpStandby(object):
             .. attribute:: psb_rsb_info
             
             	Path and Reservation Info
-            	**type**\: list of  :py:class:`PsbRsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo>`
+            	**type**\: list of    :py:class:`PsbRsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.S2LSubLsp>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: vrf_name
             
@@ -23902,7 +24084,7 @@ class RsvpStandby(object):
                 .. attribute:: session
                 
                 	RSVP Session Information
-                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session>`
+                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session>`
                 
                 
 
@@ -23928,7 +24110,7 @@ class RsvpStandby(object):
                     .. attribute:: rsvp_session
                     
                     	RSVP Session
-                    	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession>`
+                    	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession>`
                     
                     
 
@@ -23950,27 +24132,27 @@ class RsvpStandby(object):
                         .. attribute:: ipv4
                         
                         	UDP IPv4 session
-                        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4>`
+                        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4>`
                         
                         .. attribute:: ipv4_lsp_session
                         
                         	IPv4 LSP session
-                        	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4LspSession>`
+                        	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4LspSession>`
                         
                         .. attribute:: ipv4_p2mp_lsp_session
                         
                         	IPv4 P2MP LSP session
-                        	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession>`
+                        	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession>`
                         
                         .. attribute:: ipv4_uni_session
                         
                         	IPv4 UNI session
-                        	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4UniSession>`
+                        	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4UniSession>`
                         
                         .. attribute:: session_type
                         
                         	SessionType
-                        	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                         
                         
 
@@ -24402,12 +24584,12 @@ class RsvpStandby(object):
                 .. attribute:: psb_info
                 
                 	Path Info
-                	**type**\: list of  :py:class:`PsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo>`
+                	**type**\: list of    :py:class:`PsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo>`
                 
                 .. attribute:: rsb_info
                 
                 	Reservation Info
-                	**type**\: list of  :py:class:`RsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo>`
+                	**type**\: list of    :py:class:`RsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo>`
                 
                 
 
@@ -24433,7 +24615,7 @@ class RsvpStandby(object):
                     .. attribute:: association
                     
                     	Association object
-                    	**type**\:  :py:class:`Association <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association>`
+                    	**type**\:   :py:class:`Association <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association>`
                     
                     .. attribute:: destination_address
                     
@@ -24445,17 +24627,17 @@ class RsvpStandby(object):
                     .. attribute:: ero
                     
                     	Explicit Route Sub Objects
-                    	**type**\: list of  :py:class:`Ero <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero>`
+                    	**type**\: list of    :py:class:`Ero <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero>`
                     
                     .. attribute:: generic_in_label
                     
                     	Generic Label for inbound traffic
-                    	**type**\:  :py:class:`GenericInLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel>`
+                    	**type**\:   :py:class:`GenericInLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel>`
                     
                     .. attribute:: generic_traffic_spec
                     
                     	Generic Traffic Spec object
-                    	**type**\:  :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec>`
+                    	**type**\:   :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec>`
                     
                     .. attribute:: in_interface
                     
@@ -24527,17 +24709,17 @@ class RsvpStandby(object):
                     .. attribute:: protection
                     
                     	Protection object
-                    	**type**\:  :py:class:`Protection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection>`
+                    	**type**\:   :py:class:`Protection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection>`
                     
                     .. attribute:: reverse_lsp
                     
                     	Reverse LSP object
-                    	**type**\:  :py:class:`ReverseLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp>`
+                    	**type**\:   :py:class:`ReverseLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp>`
                     
                     .. attribute:: rro
                     
                     	Record Route Sub Objects
-                    	**type**\: list of  :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro>`
+                    	**type**\: list of    :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro>`
                     
                     .. attribute:: sub_group_id
                     
@@ -24549,7 +24731,7 @@ class RsvpStandby(object):
                     .. attribute:: traffic_spec
                     
                     	Traffic Spec object
-                    	**type**\:  :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.TrafficSpec>`
+                    	**type**\:   :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.TrafficSpec>`
                     
                     .. attribute:: tunnel_name
                     
@@ -24606,12 +24788,12 @@ class RsvpStandby(object):
                         .. attribute:: generalized_label
                         
                         	Generalized Label
-                        	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel.GeneralizedLabel>`
+                        	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel.GeneralizedLabel>`
                         
                         .. attribute:: generic_label_type
                         
                         	GenericLabelType
-                        	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                         
                         
 
@@ -24712,6 +24894,8 @@ class RsvpStandby(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte/s
+                        
                         .. attribute:: traffic_max_burst
                         
                         	Traffic Maximum Burst
@@ -24739,6 +24923,8 @@ class RsvpStandby(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte/s
                         
                         
 
@@ -24797,17 +24983,17 @@ class RsvpStandby(object):
                         .. attribute:: g709otn_tspec
                         
                         	G709 OTN Sender Tspec
-                        	**type**\:  :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec>`
+                        	**type**\:   :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec>`
                         
                         .. attribute:: intsrv_tspec
                         
                         	Integrated Services Sender Tspec
-                        	**type**\:  :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.IntsrvTspec>`
+                        	**type**\:   :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.IntsrvTspec>`
                         
                         .. attribute:: tspec_type
                         
                         	TspecType
-                        	**type**\:  :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
                         
                         
 
@@ -24914,6 +25100,8 @@ class RsvpStandby(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte/s
+                            
                             .. attribute:: traffic_max_burst
                             
                             	Traffic Maximum Burst
@@ -24941,6 +25129,8 @@ class RsvpStandby(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte/s
                             
                             
 
@@ -25027,27 +25217,27 @@ class RsvpStandby(object):
                         .. attribute:: association_type
                         
                         	AssociationType
-                        	**type**\:  :py:class:`RsvpMgmtAssociationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAssociationEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtAssociationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAssociationEnum>`
                         
                         .. attribute:: extended_ipv4
                         
                         	EXTENDED IPV4 ASSOCIATION Object
-                        	**type**\:  :py:class:`ExtendedIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv4>`
+                        	**type**\:   :py:class:`ExtendedIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv4>`
                         
                         .. attribute:: extended_ipv6
                         
                         	EXTENDED IPV6 ASSOCIATION Object
-                        	**type**\:  :py:class:`ExtendedIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv6>`
+                        	**type**\:   :py:class:`ExtendedIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv6>`
                         
                         .. attribute:: ipv4
                         
                         	IPV4 ASSOCIATION Object
-                        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv4>`
+                        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv4>`
                         
                         .. attribute:: ipv6
                         
                         	IPV6 ASSOCIATION Object
-                        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv6>`
+                        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv6>`
                         
                         
 
@@ -25430,12 +25620,12 @@ class RsvpStandby(object):
                         .. attribute:: link_flags
                         
                         	PROTECTION Object Link Flags
-                        	**type**\:  :py:class:`LinkFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LinkFlags>`
+                        	**type**\:   :py:class:`LinkFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LinkFlags>`
                         
                         .. attribute:: lsp_flags
                         
                         	PROTECTION Object LSP Flags
-                        	**type**\:  :py:class:`LspFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LspFlags>`
+                        	**type**\:   :py:class:`LspFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LspFlags>`
                         
                         .. attribute:: n
                         
@@ -25705,17 +25895,17 @@ class RsvpStandby(object):
                         .. attribute:: ero
                         
                         	Explicit Route Sub Objects
-                        	**type**\: list of  :py:class:`Ero <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero>`
+                        	**type**\: list of    :py:class:`Ero <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero>`
                         
                         .. attribute:: generic_traffic_spec
                         
                         	Generic Traffic Spec object
-                        	**type**\:  :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec>`
+                        	**type**\:   :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec>`
                         
                         .. attribute:: unsup_sub_object
                         
                         	Unsupported REVERSE\_LSP Sub Objects
-                        	**type**\: list of  :py:class:`UnsupSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.UnsupSubObject>`
+                        	**type**\: list of    :py:class:`UnsupSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.UnsupSubObject>`
                         
                         
 
@@ -25743,17 +25933,17 @@ class RsvpStandby(object):
                             .. attribute:: g709otn_tspec
                             
                             	G709 OTN Sender Tspec
-                            	**type**\:  :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec>`
+                            	**type**\:   :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec>`
                             
                             .. attribute:: intsrv_tspec
                             
                             	Integrated Services Sender Tspec
-                            	**type**\:  :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.IntsrvTspec>`
+                            	**type**\:   :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.IntsrvTspec>`
                             
                             .. attribute:: tspec_type
                             
                             	TspecType
-                            	**type**\:  :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
+                            	**type**\:   :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
                             
                             
 
@@ -25860,6 +26050,8 @@ class RsvpStandby(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: byte/s
+                                
                                 .. attribute:: traffic_max_burst
                                 
                                 	Traffic Maximum Burst
@@ -25887,6 +26079,8 @@ class RsvpStandby(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte/s
                                 
                                 
 
@@ -25973,17 +26167,17 @@ class RsvpStandby(object):
                             .. attribute:: ero_type
                             
                             	EROType
-                            	**type**\:  :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
+                            	**type**\:   :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
                             
                             .. attribute:: ipv4ero_sub_object
                             
                             	IPV4 ERO Sub Object
-                            	**type**\:  :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject>`
+                            	**type**\:   :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject>`
                             
                             .. attribute:: unnumbered_ero_sub_object
                             
                             	Unnumbered ERO Sub Object
-                            	**type**\:  :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.UnnumberedEroSubObject>`
+                            	**type**\:   :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.UnnumberedEroSubObject>`
                             
                             
 
@@ -26092,7 +26286,7 @@ class RsvpStandby(object):
                                 .. attribute:: status
                                 
                                 	Status of ERO
-                                	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                                	**type**\:   :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
                                 
                                 
 
@@ -26256,17 +26450,17 @@ class RsvpStandby(object):
                         .. attribute:: ero_type
                         
                         	EROType
-                        	**type**\:  :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
                         
                         .. attribute:: ipv4ero_sub_object
                         
                         	IPV4 ERO Sub Object
-                        	**type**\:  :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject>`
+                        	**type**\:   :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject>`
                         
                         .. attribute:: unnumbered_ero_sub_object
                         
                         	Unnumbered ERO Sub Object
-                        	**type**\:  :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.UnnumberedEroSubObject>`
+                        	**type**\:   :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.UnnumberedEroSubObject>`
                         
                         
 
@@ -26375,7 +26569,7 @@ class RsvpStandby(object):
                             .. attribute:: status
                             
                             	Status of ERO
-                            	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                            	**type**\:   :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
                             
                             
 
@@ -26458,27 +26652,27 @@ class RsvpStandby(object):
                         .. attribute:: ipv4rro_sub_object
                         
                         	IPV4 RRO Sub Object
-                        	**type**\:  :py:class:`Ipv4RroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject>`
+                        	**type**\:   :py:class:`Ipv4RroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject>`
                         
                         .. attribute:: label_rro_sub_object
                         
                         	Label RRO Sub Object
-                        	**type**\:  :py:class:`LabelRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject>`
+                        	**type**\:   :py:class:`LabelRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject>`
                         
                         .. attribute:: rro_type
                         
                         	RROType
-                        	**type**\:  :py:class:`RsvpMgmtRroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRroSubobjEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtRroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRroSubobjEnum>`
                         
                         .. attribute:: srlg_rro_sub_object
                         
                         	SRLG RRO Sub Object
-                        	**type**\:  :py:class:`SrlgRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.SrlgRroSubObject>`
+                        	**type**\:   :py:class:`SrlgRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.SrlgRroSubObject>`
                         
                         .. attribute:: unnumbered_rro_sub_object
                         
                         	Unnumbered RRO Sub Object
-                        	**type**\:  :py:class:`UnnumberedRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject>`
+                        	**type**\:   :py:class:`UnnumberedRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject>`
                         
                         
 
@@ -26507,7 +26701,7 @@ class RsvpStandby(object):
                             .. attribute:: flags
                             
                             	The RRO IPV4 Subobject Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags>`
                             
                             .. attribute:: rro_address
                             
@@ -26641,7 +26835,7 @@ class RsvpStandby(object):
                             .. attribute:: flags
                             
                             	The RRO Subobject Label Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject.Flags>`
                             
                             .. attribute:: is_label_variable_length
                             
@@ -26763,7 +26957,7 @@ class RsvpStandby(object):
                             .. attribute:: flags
                             
                             	The RRO Subobject Unnumbered Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject.Flags>`
                             
                             .. attribute:: interface_address
                             
@@ -27101,17 +27295,17 @@ class RsvpStandby(object):
                     .. attribute:: flow_spec
                     
                     	Flow spec object
-                    	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.FlowSpec>`
+                    	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.FlowSpec>`
                     
                     .. attribute:: generic_flow_spec
                     
                     	Generic Flow Spec object
-                    	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec>`
+                    	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec>`
                     
                     .. attribute:: generic_out_label
                     
                     	Generic Label for outbound traffic
-                    	**type**\:  :py:class:`GenericOutLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel>`
+                    	**type**\:   :py:class:`GenericOutLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel>`
                     
                     .. attribute:: is_flow_spec_valid
                     
@@ -27145,7 +27339,7 @@ class RsvpStandby(object):
                     .. attribute:: rro
                     
                     	Record route object
-                    	**type**\: list of  :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro>`
+                    	**type**\: list of    :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro>`
                     
                     
 
@@ -27182,12 +27376,12 @@ class RsvpStandby(object):
                         .. attribute:: generalized_label
                         
                         	Generalized Label
-                        	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel.GeneralizedLabel>`
+                        	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel.GeneralizedLabel>`
                         
                         .. attribute:: generic_label_type
                         
                         	GenericLabelType
-                        	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                         
                         
 
@@ -27288,6 +27482,8 @@ class RsvpStandby(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte/s
+                        
                         .. attribute:: flow_max_burst
                         
                         	The Flow Maximum Burst
@@ -27316,10 +27512,12 @@ class RsvpStandby(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte/s
+                        
                         .. attribute:: flow_qos
                         
                         	The Flow Quality of Service
-                        	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                         
                         .. attribute:: flow_requested_rate
                         
@@ -27327,6 +27525,8 @@ class RsvpStandby(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte/s
                         
                         .. attribute:: flow_slack
                         
@@ -27404,12 +27604,12 @@ class RsvpStandby(object):
                         .. attribute:: flow_spec_type
                         
                         	FlowSpecType
-                        	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                         
                         .. attribute:: g709otn_flow_spec
                         
                         	G709 OTN FlowSpec
-                        	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec>`
+                        	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec>`
                         
                         
 
@@ -27535,27 +27735,27 @@ class RsvpStandby(object):
                         .. attribute:: ipv4rro_sub_object
                         
                         	IPV4 RRO Sub Object
-                        	**type**\:  :py:class:`Ipv4RroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject>`
+                        	**type**\:   :py:class:`Ipv4RroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject>`
                         
                         .. attribute:: label_rro_sub_object
                         
                         	Label RRO Sub Object
-                        	**type**\:  :py:class:`LabelRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject>`
+                        	**type**\:   :py:class:`LabelRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject>`
                         
                         .. attribute:: rro_type
                         
                         	RROType
-                        	**type**\:  :py:class:`RsvpMgmtRroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRroSubobjEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtRroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRroSubobjEnum>`
                         
                         .. attribute:: srlg_rro_sub_object
                         
                         	SRLG RRO Sub Object
-                        	**type**\:  :py:class:`SrlgRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.SrlgRroSubObject>`
+                        	**type**\:   :py:class:`SrlgRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.SrlgRroSubObject>`
                         
                         .. attribute:: unnumbered_rro_sub_object
                         
                         	Unnumbered RRO Sub Object
-                        	**type**\:  :py:class:`UnnumberedRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject>`
+                        	**type**\:   :py:class:`UnnumberedRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject>`
                         
                         
 
@@ -27584,7 +27784,7 @@ class RsvpStandby(object):
                             .. attribute:: flags
                             
                             	The RRO IPV4 Subobject Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags>`
                             
                             .. attribute:: rro_address
                             
@@ -27718,7 +27918,7 @@ class RsvpStandby(object):
                             .. attribute:: flags
                             
                             	The RRO Subobject Label Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject.Flags>`
                             
                             .. attribute:: is_label_variable_length
                             
@@ -27840,7 +28040,7 @@ class RsvpStandby(object):
                             .. attribute:: flags
                             
                             	The RRO Subobject Unnumbered Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject.Flags>`
                             
                             .. attribute:: interface_address
                             
@@ -28229,7 +28429,7 @@ class RsvpStandby(object):
         .. attribute:: hello_instance_detail
         
         	Detailed info for a single hello instance
-        	**type**\: list of  :py:class:`HelloInstanceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceDetails.HelloInstanceDetail>`
+        	**type**\: list of    :py:class:`HelloInstanceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceDetails.HelloInstanceDetail>`
         
         
 
@@ -28287,12 +28487,12 @@ class RsvpStandby(object):
             .. attribute:: communication_lost_reason
             
             	Reason why communication was lost
-            	**type**\:  :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
             
             .. attribute:: communication_lost_time
             
             	Time when communication was lost
-            	**type**\:  :py:class:`CommunicationLostTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceDetails.HelloInstanceDetail.CommunicationLostTime>`
+            	**type**\:   :py:class:`CommunicationLostTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceDetails.HelloInstanceDetail.CommunicationLostTime>`
             
             .. attribute:: communication_lost_wrong_destination_inst
             
@@ -28325,7 +28525,7 @@ class RsvpStandby(object):
             .. attribute:: hello_instance_owner
             
             	Hello instance owner
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceOwnerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceOwnerEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceOwnerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceOwnerEnum>`
             
             .. attribute:: hello_interface
             
@@ -28365,7 +28565,7 @@ class RsvpStandby(object):
             .. attribute:: instance_type
             
             	Hello instance type
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
             
             .. attribute:: missed_acks_allowed
             
@@ -28377,7 +28577,7 @@ class RsvpStandby(object):
             .. attribute:: neighbor_hello_state
             
             	Neighbor Hello state
-            	**type**\:  :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
             
             .. attribute:: source_address_xr
             
@@ -28403,7 +28603,7 @@ class RsvpStandby(object):
             .. attribute:: up_time
             
             	Hello up time
-            	**type**\:  :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceDetails.HelloInstanceDetail.UpTime>`
+            	**type**\:   :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.HelloInstanceDetails.HelloInstanceDetail.UpTime>`
             
             
 
@@ -28453,12 +28653,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -28511,12 +28715,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -28684,7 +28892,7 @@ class RsvpStandby(object):
         .. attribute:: global_neighbor_detail
         
         	Detail info for a single global neighbor
-        	**type**\: list of  :py:class:`GlobalNeighborDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail>`
+        	**type**\: list of    :py:class:`GlobalNeighborDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail>`
         
         
 
@@ -28714,7 +28922,7 @@ class RsvpStandby(object):
             .. attribute:: global_neighbor_flags
             
             	Global Neighbor Flags
-            	**type**\:  :py:class:`GlobalNeighborFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.GlobalNeighborFlags>`
+            	**type**\:   :py:class:`GlobalNeighborFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.GlobalNeighborFlags>`
             
             .. attribute:: hello_interval
             
@@ -28722,6 +28930,8 @@ class RsvpStandby(object):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: millisecond
             
             .. attribute:: interface_neighbor
             
@@ -28755,12 +28965,12 @@ class RsvpStandby(object):
             .. attribute:: lost_communication_reason
             
             	Reason why communication was lost
-            	**type**\:  list of :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
+            	**type**\:  list of   :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
             
             .. attribute:: lost_communication_time
             
             	Time when communication was lost
-            	**type**\: list of  :py:class:`LostCommunicationTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.LostCommunicationTime>`
+            	**type**\: list of    :py:class:`LostCommunicationTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.LostCommunicationTime>`
             
             .. attribute:: lost_communication_total
             
@@ -28779,7 +28989,7 @@ class RsvpStandby(object):
             .. attribute:: neighbor_hello_state
             
             	Neighbor's hello state
-            	**type**\:  list of :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
+            	**type**\:  list of   :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
             
             .. attribute:: node_address
             
@@ -28802,20 +29012,22 @@ class RsvpStandby(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: millisecond
+            
             .. attribute:: recovery_time_left
             
             	How much recovery timer remains
-            	**type**\:  :py:class:`RecoveryTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.RecoveryTimeLeft>`
+            	**type**\:   :py:class:`RecoveryTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.RecoveryTimeLeft>`
             
             .. attribute:: recovery_timer_exp_time
             
             	Time at which recovery timer will expire
-            	**type**\:  :py:class:`RecoveryTimerExpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.RecoveryTimerExpTime>`
+            	**type**\:   :py:class:`RecoveryTimerExpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.RecoveryTimerExpTime>`
             
             .. attribute:: restart_state
             
             	Current restart state
-            	**type**\:  :py:class:`RsvpMgmtRestartStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRestartStateEnum>`
+            	**type**\:   :py:class:`RsvpMgmtRestartStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRestartStateEnum>`
             
             .. attribute:: restart_time
             
@@ -28824,20 +29036,22 @@ class RsvpStandby(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: millisecond
+            
             .. attribute:: restart_time_left
             
             	How much restart time remains
-            	**type**\:  :py:class:`RestartTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.RestartTimeLeft>`
+            	**type**\:   :py:class:`RestartTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.RestartTimeLeft>`
             
             .. attribute:: restart_timer_expiry_time
             
             	When will restart timer expire
-            	**type**\:  :py:class:`RestartTimerExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.RestartTimerExpiryTime>`
+            	**type**\:   :py:class:`RestartTimerExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.RestartTimerExpiryTime>`
             
             .. attribute:: up_time
             
             	Hello up time
-            	**type**\: list of  :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.UpTime>`
+            	**type**\: list of    :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborDetails.GlobalNeighborDetail.UpTime>`
             
             
 
@@ -28957,12 +29171,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -29015,12 +29233,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -29073,12 +29295,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -29131,12 +29357,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -29189,12 +29419,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -29247,12 +29481,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -29429,7 +29667,7 @@ class RsvpStandby(object):
         .. attribute:: psb_brief
         
         	Brief info for a single path state block
-        	**type**\: list of  :py:class:`PsbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief>`
+        	**type**\: list of    :py:class:`PsbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief>`
         
         
 
@@ -29473,7 +29711,7 @@ class RsvpStandby(object):
             .. attribute:: generic_traffic_spec
             
             	RSVP Generic Traffic Spec Info
-            	**type**\:  :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec>`
+            	**type**\:   :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec>`
             
             .. attribute:: input_interface
             
@@ -29497,22 +29735,22 @@ class RsvpStandby(object):
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session>`
             
             .. attribute:: session_attribute
             
             	RSVP Session Attribute
-            	**type**\:  :py:class:`SessionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.SessionAttribute>`
+            	**type**\:   :py:class:`SessionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.SessionAttribute>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -29545,12 +29783,12 @@ class RsvpStandby(object):
             .. attribute:: template
             
             	RSVP Template
-            	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Template>`
+            	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Template>`
             
             .. attribute:: traffic_spec
             
             	RSVP Traffic Spec Info
-            	**type**\:  :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.TrafficSpec>`
+            	**type**\:   :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.TrafficSpec>`
             
             .. attribute:: vrf_name
             
@@ -29601,7 +29839,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession>`
                 
                 
 
@@ -29623,27 +29861,27 @@ class RsvpStandby(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -30041,7 +30279,7 @@ class RsvpStandby(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter>`
                 
                 
 
@@ -30063,17 +30301,17 @@ class RsvpStandby(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.Template.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -30289,7 +30527,7 @@ class RsvpStandby(object):
                 .. attribute:: sess_attribute_flags
                 
                 	Session Attributes
-                	**type**\:  :py:class:`SessAttributeFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.SessionAttribute.SessAttributeFlags>`
+                	**type**\:   :py:class:`SessAttributeFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.SessionAttribute.SessAttributeFlags>`
                 
                 .. attribute:: setup_priority
                 
@@ -30431,6 +30669,8 @@ class RsvpStandby(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
@@ -30458,6 +30698,8 @@ class RsvpStandby(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 
 
@@ -30516,17 +30758,17 @@ class RsvpStandby(object):
                 .. attribute:: g709otn_tspec
                 
                 	G709 OTN Sender Tspec
-                	**type**\:  :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec>`
+                	**type**\:   :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec>`
                 
                 .. attribute:: intsrv_tspec
                 
                 	Integrated Services Sender Tspec
-                	**type**\:  :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.IntsrvTspec>`
+                	**type**\:   :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.PsbBriefs.PsbBrief.GenericTrafficSpec.IntsrvTspec>`
                 
                 .. attribute:: tspec_type
                 
                 	TspecType
-                	**type**\:  :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
                 
                 
 
@@ -30633,6 +30875,8 @@ class RsvpStandby(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte/s
+                    
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
@@ -30660,6 +30904,8 @@ class RsvpStandby(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte/s
                     
                     
 
@@ -30843,7 +31089,7 @@ class RsvpStandby(object):
         .. attribute:: global_neighbor_brief
         
         	Brief info for a single global neighbor
-        	**type**\: list of  :py:class:`GlobalNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief>`
+        	**type**\: list of    :py:class:`GlobalNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief>`
         
         
 
@@ -30873,7 +31119,7 @@ class RsvpStandby(object):
             .. attribute:: global_neighbor_flags
             
             	Global Neighbor Flags
-            	**type**\:  :py:class:`GlobalNeighborFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief.GlobalNeighborFlags>`
+            	**type**\:   :py:class:`GlobalNeighborFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief.GlobalNeighborFlags>`
             
             .. attribute:: is_gr_enabled
             
@@ -30890,12 +31136,12 @@ class RsvpStandby(object):
             .. attribute:: lost_communication_reason
             
             	Reason why communication was lost
-            	**type**\:  list of :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
+            	**type**\:  list of   :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
             
             .. attribute:: lost_communication_time
             
             	Time when communication was lost
-            	**type**\: list of  :py:class:`LostCommunicationTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief.LostCommunicationTime>`
+            	**type**\: list of    :py:class:`LostCommunicationTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief.LostCommunicationTime>`
             
             .. attribute:: lost_communication_total
             
@@ -30907,7 +31153,7 @@ class RsvpStandby(object):
             .. attribute:: neighbor_hello_state
             
             	Neighbor Hello state
-            	**type**\:  list of :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
+            	**type**\:  list of   :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
             
             .. attribute:: node_address
             
@@ -30919,12 +31165,12 @@ class RsvpStandby(object):
             .. attribute:: restart_state
             
             	Restart state
-            	**type**\:  :py:class:`RsvpMgmtRestartStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRestartStateEnum>`
+            	**type**\:   :py:class:`RsvpMgmtRestartStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRestartStateEnum>`
             
             .. attribute:: up_time
             
             	Time hellos have been up
-            	**type**\: list of  :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief.UpTime>`
+            	**type**\: list of    :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpStandby.GlobalNeighborBriefs.GlobalNeighborBrief.UpTime>`
             
             
 
@@ -31026,12 +31272,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -31084,12 +31334,16 @@ class RsvpStandby(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -31331,177 +31585,177 @@ class Rsvp(object):
     .. attribute:: authentication_briefs
     
     	Table for Authentication related information
-    	**type**\:  :py:class:`AuthenticationBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationBriefs>`
+    	**type**\:   :py:class:`AuthenticationBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationBriefs>`
     
     .. attribute:: authentication_details
     
     	Table for detailed authentication related information
-    	**type**\:  :py:class:`AuthenticationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails>`
+    	**type**\:   :py:class:`AuthenticationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails>`
     
     .. attribute:: bw_pool_info
     
     	All B/W Pool info
-    	**type**\:  :py:class:`BwPoolInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.BwPoolInfo>`
+    	**type**\:   :py:class:`BwPoolInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.BwPoolInfo>`
     
     .. attribute:: controller_briefs
     
     	Table of brief info about RSVP\-enabled controller
-    	**type**\:  :py:class:`ControllerBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs>`
+    	**type**\:   :py:class:`ControllerBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs>`
     
     .. attribute:: controller_detaileds
     
     	Table of detailed info about RSVP\-enabled controllers
-    	**type**\:  :py:class:`ControllerDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds>`
+    	**type**\:   :py:class:`ControllerDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds>`
     
     .. attribute:: controller_summaries
     
     	Table of summary info about RSVP\-enabled controllers
-    	**type**\:  :py:class:`ControllerSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries>`
+    	**type**\:   :py:class:`ControllerSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries>`
     
     .. attribute:: counters
     
     	Counters
-    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters>`
+    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters>`
     
     .. attribute:: frr_summary
     
     	Fast Re\-Route Summary State Information
-    	**type**\:  :py:class:`FrrSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.FrrSummary>`
+    	**type**\:   :py:class:`FrrSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.FrrSummary>`
     
     .. attribute:: frrs
     
     	Table of detailed info about Fast Re\-route states
-    	**type**\:  :py:class:`Frrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs>`
+    	**type**\:   :py:class:`Frrs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs>`
     
     .. attribute:: global_neighbor_briefs
     
     	Table of brief info about global neighbors
-    	**type**\:  :py:class:`GlobalNeighborBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs>`
+    	**type**\:   :py:class:`GlobalNeighborBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs>`
     
     .. attribute:: global_neighbor_details
     
     	Table of detailed info about global neighbors
-    	**type**\:  :py:class:`GlobalNeighborDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails>`
+    	**type**\:   :py:class:`GlobalNeighborDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails>`
     
     .. attribute:: graceful_restart
     
     	Info about graceful\-restart
-    	**type**\:  :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GracefulRestart>`
+    	**type**\:   :py:class:`GracefulRestart <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GracefulRestart>`
     
     .. attribute:: hello_instance_briefs
     
     	Table of brief info about hello instances
-    	**type**\:  :py:class:`HelloInstanceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceBriefs>`
+    	**type**\:   :py:class:`HelloInstanceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceBriefs>`
     
     .. attribute:: hello_instance_details
     
     	Table of detailed info about hello instances
-    	**type**\:  :py:class:`HelloInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceDetails>`
+    	**type**\:   :py:class:`HelloInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceDetails>`
     
     .. attribute:: hello_interface_instance_briefs
     
     	Table of brief info about i/f\-based hello instances
-    	**type**\:  :py:class:`HelloInterfaceInstanceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceBriefs>`
+    	**type**\:   :py:class:`HelloInterfaceInstanceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceBriefs>`
     
     .. attribute:: hello_interface_instance_details
     
     	Table of detailed info about i/f\-based hello instances
-    	**type**\:  :py:class:`HelloInterfaceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceDetails>`
+    	**type**\:   :py:class:`HelloInterfaceInstanceDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceDetails>`
     
     .. attribute:: interface_briefs
     
     	Table of brief info about RSVP\-enabled interfaces
-    	**type**\:  :py:class:`InterfaceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs>`
+    	**type**\:   :py:class:`InterfaceBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs>`
     
     .. attribute:: interface_detaileds
     
     	Table of detailed info about RSVP\-enabled interfaces
-    	**type**\:  :py:class:`InterfaceDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds>`
+    	**type**\:   :py:class:`InterfaceDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds>`
     
     .. attribute:: interface_neighbor_briefs
     
     	Table of brief info about I/F neighbors
-    	**type**\:  :py:class:`InterfaceNeighborBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborBriefs>`
+    	**type**\:   :py:class:`InterfaceNeighborBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborBriefs>`
     
     .. attribute:: interface_neighbor_details
     
     	Table of detailed info about I/F neighbors
-    	**type**\:  :py:class:`InterfaceNeighborDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborDetails>`
+    	**type**\:   :py:class:`InterfaceNeighborDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborDetails>`
     
     .. attribute:: interface_summaries
     
     	Table of summary info about RSVP\-enabled interfaces
-    	**type**\:  :py:class:`InterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries>`
+    	**type**\:   :py:class:`InterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries>`
     
     .. attribute:: issu
     
     	RSVP ISSU information
-    	**type**\:  :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Issu>`
+    	**type**\:   :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Issu>`
     
     .. attribute:: nsr
     
     	RSVP NSR information
-    	**type**\:  :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Nsr>`
+    	**type**\:   :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Nsr>`
     
     .. attribute:: open_config
     
     	OpenConfig info
-    	**type**\:  :py:class:`OpenConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig>`
+    	**type**\:   :py:class:`OpenConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig>`
     
     .. attribute:: psb_briefs
     
     	Table of brief info about path state blocks
-    	**type**\:  :py:class:`PsbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs>`
+    	**type**\:   :py:class:`PsbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs>`
     
     .. attribute:: psb_detaileds
     
     	Table of detailed info about path state blocks
-    	**type**\:  :py:class:`PsbDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds>`
+    	**type**\:   :py:class:`PsbDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds>`
     
     .. attribute:: pxsb_details
     
     	Table of detailed PXSB info
-    	**type**\:  :py:class:`PxsbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails>`
+    	**type**\:   :py:class:`PxsbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails>`
     
     .. attribute:: request_briefs
     
     	Table of brief info about requests
-    	**type**\:  :py:class:`RequestBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs>`
+    	**type**\:   :py:class:`RequestBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs>`
     
     .. attribute:: request_details
     
     	Table of detail info about requests
-    	**type**\:  :py:class:`RequestDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails>`
+    	**type**\:   :py:class:`RequestDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails>`
     
     .. attribute:: rsb_briefs
     
     	Table of brief info about reservation state blocks
-    	**type**\:  :py:class:`RsbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs>`
+    	**type**\:   :py:class:`RsbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs>`
     
     .. attribute:: rsb_detaileds
     
     	Table of detailed info about reservation state blocks
-    	**type**\:  :py:class:`RsbDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds>`
+    	**type**\:   :py:class:`RsbDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds>`
     
     .. attribute:: rxsb_details
     
     	Table of detailed RXSB info
-    	**type**\:  :py:class:`RxsbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails>`
+    	**type**\:   :py:class:`RxsbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails>`
     
     .. attribute:: session_briefs
     
     	Table of brief info about sessions
-    	**type**\:  :py:class:`SessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs>`
+    	**type**\:   :py:class:`SessionBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs>`
     
     .. attribute:: session_detaileds
     
     	Table of detailed info about sessions
-    	**type**\:  :py:class:`SessionDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds>`
+    	**type**\:   :py:class:`SessionDetaileds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds>`
     
     .. attribute:: summary
     
     	RSVP summary information
-    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary>`
+    	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary>`
     
     
 
@@ -31591,7 +31845,7 @@ class Rsvp(object):
         .. attribute:: controller_summary
         
         	Summary info about an RSVP\-enabled controller
-        	**type**\: list of  :py:class:`ControllerSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries.ControllerSummary>`
+        	**type**\: list of    :py:class:`ControllerSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries.ControllerSummary>`
         
         
 
@@ -31621,7 +31875,7 @@ class Rsvp(object):
             .. attribute:: bandwidth_information
             
             	Interface bandwidth information
-            	**type**\:  :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries.ControllerSummary.BandwidthInformation>`
+            	**type**\:   :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries.ControllerSummary.BandwidthInformation>`
             
             .. attribute:: interface_name_xr
             
@@ -31682,17 +31936,17 @@ class Rsvp(object):
                 .. attribute:: dste_mode
                 
                 	DSTEMode
-                	**type**\:  :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
+                	**type**\:   :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
                 
                 .. attribute:: pre_standard_dste_interface
                 
                 	Prestandard DSTE interface information
-                	**type**\:  :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries.ControllerSummary.BandwidthInformation.PreStandardDsteInterface>`
+                	**type**\:   :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries.ControllerSummary.BandwidthInformation.PreStandardDsteInterface>`
                 
                 .. attribute:: standard_dste_interface
                 
                 	Standard DSTE interface information
-                	**type**\:  :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries.ControllerSummary.BandwidthInformation.StandardDsteInterface>`
+                	**type**\:   :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerSummaries.ControllerSummary.BandwidthInformation.StandardDsteInterface>`
                 
                 
 
@@ -31721,6 +31975,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -31738,6 +31994,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
@@ -31745,12 +32003,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -31819,6 +32081,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -31841,12 +32105,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: max_pool0_bandwidth
                     
@@ -31855,12 +32123,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -32029,7 +32301,7 @@ class Rsvp(object):
         .. attribute:: status
         
         	RSVP ISSU status information
-        	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Issu.Status>`
+        	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Issu.Status>`
         
         
 
@@ -32051,17 +32323,17 @@ class Rsvp(object):
             .. attribute:: idt_status
             
             	IDT status
-            	**type**\:  :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Issu.Status.IdtStatus>`
+            	**type**\:   :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Issu.Status.IdtStatus>`
             
             .. attribute:: previous_idt_status
             
             	Previous IDT status
-            	**type**\:  :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Issu.Status.PreviousIdtStatus>`
+            	**type**\:   :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Issu.Status.PreviousIdtStatus>`
             
             .. attribute:: role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             
 
@@ -32090,12 +32362,16 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -32104,15 +32380,17 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -32120,6 +32398,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -32186,12 +32466,16 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -32200,15 +32484,17 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -32216,6 +32502,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -32329,7 +32617,7 @@ class Rsvp(object):
         .. attribute:: controller_detailed
         
         	Detailed info about an RSVP\-enabled controller
-        	**type**\: list of  :py:class:`ControllerDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed>`
+        	**type**\: list of    :py:class:`ControllerDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed>`
         
         
 
@@ -32373,7 +32661,7 @@ class Rsvp(object):
             .. attribute:: bandwidth_information
             
             	Interface bandwidth information
-            	**type**\:  :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.BandwidthInformation>`
+            	**type**\:   :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.BandwidthInformation>`
             
             .. attribute:: bundle_message_max_size
             
@@ -32381,6 +32669,8 @@ class Rsvp(object):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: byte
             
             .. attribute:: expiry_drops_tolerated
             
@@ -32396,6 +32686,8 @@ class Rsvp(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: millisecond
+            
             .. attribute:: expiry_states
             
             	Number of states for expiry check
@@ -32406,12 +32698,12 @@ class Rsvp(object):
             .. attribute:: expiry_timer_state
             
             	Expiry timer state
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             .. attribute:: flags
             
             	Interface flags
-            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.Flags>`
+            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.Flags>`
             
             .. attribute:: integrity_receive_password
             
@@ -32442,7 +32734,7 @@ class Rsvp(object):
             .. attribute:: neighbor_array
             
             	Neighbor array
-            	**type**\: list of  :py:class:`NeighborArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.NeighborArray>`
+            	**type**\: list of    :py:class:`NeighborArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.NeighborArray>`
             
             .. attribute:: out_of_band_expiry_drops_tolerated
             
@@ -32458,12 +32750,16 @@ class Rsvp(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: millisecond
+            
             .. attribute:: pacing_interval
             
             	Pacing interval in msecs
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: millisecond
             
             .. attribute:: pacing_message_rate
             
@@ -32482,7 +32778,7 @@ class Rsvp(object):
             .. attribute:: pacing_timer_state
             
             	State of pacing timer
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             .. attribute:: refresh_interval
             
@@ -32491,10 +32787,12 @@ class Rsvp(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: millisecond
+            
             .. attribute:: refresh_timer_state
             
             	Refresh timer state
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             .. attribute:: retransmit_time
             
@@ -32517,10 +32815,12 @@ class Rsvp(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: byte
+            
             .. attribute:: summary_refresh_timer_state
             
             	Summary refresh timer state
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             
 
@@ -32571,17 +32871,17 @@ class Rsvp(object):
                 .. attribute:: dste_mode
                 
                 	DSTEMode
-                	**type**\:  :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
+                	**type**\:   :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
                 
                 .. attribute:: pre_standard_dste_interface
                 
                 	Prestandard DSTE interface information
-                	**type**\:  :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.BandwidthInformation.PreStandardDsteInterface>`
+                	**type**\:   :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.BandwidthInformation.PreStandardDsteInterface>`
                 
                 .. attribute:: standard_dste_interface
                 
                 	Standard DSTE interface information
-                	**type**\:  :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.BandwidthInformation.StandardDsteInterface>`
+                	**type**\:   :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.BandwidthInformation.StandardDsteInterface>`
                 
                 
 
@@ -32610,6 +32910,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -32627,6 +32929,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
@@ -32634,12 +32938,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -32708,6 +33016,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -32730,12 +33040,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: max_pool0_bandwidth
                     
@@ -32744,12 +33058,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -32996,7 +33314,7 @@ class Rsvp(object):
                 .. attribute:: expiry_time
                 
                 	Expiry time
-                	**type**\:  :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.NeighborArray.ExpiryTime>`
+                	**type**\:   :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.NeighborArray.ExpiryTime>`
                 
                 .. attribute:: is_neighbor_refresh_reduction_capable
                 
@@ -33020,7 +33338,7 @@ class Rsvp(object):
                 .. attribute:: neighbor_message_id
                 
                 	List of Neighbor MessageIDs
-                	**type**\: list of  :py:class:`NeighborMessageId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.NeighborArray.NeighborMessageId>`
+                	**type**\: list of    :py:class:`NeighborMessageId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerDetaileds.ControllerDetailed.NeighborArray.NeighborMessageId>`
                 
                 .. attribute:: outgoing_states
                 
@@ -33060,12 +33378,16 @@ class Rsvp(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Time Value in Seconds
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**units**\: second
                     
                     
 
@@ -33330,7 +33652,7 @@ class Rsvp(object):
         .. attribute:: bandwidth_configuration_model
         
         	Bandwith configuration model currently in use (MAM/RDM)
-        	**type**\:  :py:class:`IgpteLibBwModelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.IgpteLibBwModelEnum>`
+        	**type**\:   :py:class:`IgpteLibBwModelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.IgpteLibBwModelEnum>`
         
         .. attribute:: bc0_percent
         
@@ -33339,12 +33661,16 @@ class Rsvp(object):
         
         	**range:** 0..4294967295
         
+        	**units**\: percentage
+        
         .. attribute:: bc1_percent
         
         	BC1 I/F percent B/W
         	**type**\:  int
         
         	**range:** 0..4294967295
+        
+        	**units**\: percentage
         
         .. attribute:: is_bc0_percent_configured
         
@@ -33367,6 +33693,8 @@ class Rsvp(object):
         	**type**\:  int
         
         	**range:** 0..4294967295
+        
+        	**units**\: percentage
         
         
 
@@ -33434,7 +33762,7 @@ class Rsvp(object):
         .. attribute:: controller_brief
         
         	Brief info about an RSVP\-enabled controller
-        	**type**\: list of  :py:class:`ControllerBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs.ControllerBrief>`
+        	**type**\: list of    :py:class:`ControllerBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs.ControllerBrief>`
         
         
 
@@ -33464,7 +33792,7 @@ class Rsvp(object):
             .. attribute:: bandwidth_information
             
             	Interface bandwidth information
-            	**type**\:  :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs.ControllerBrief.BandwidthInformation>`
+            	**type**\:   :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs.ControllerBrief.BandwidthInformation>`
             
             .. attribute:: interface_name_xr
             
@@ -33493,17 +33821,17 @@ class Rsvp(object):
                 .. attribute:: dste_mode
                 
                 	DSTEMode
-                	**type**\:  :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
+                	**type**\:   :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
                 
                 .. attribute:: pre_standard_dste_interface
                 
                 	Prestandard DSTE interface information
-                	**type**\:  :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs.ControllerBrief.BandwidthInformation.PreStandardDsteInterface>`
+                	**type**\:   :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs.ControllerBrief.BandwidthInformation.PreStandardDsteInterface>`
                 
                 .. attribute:: standard_dste_interface
                 
                 	Standard DSTE interface information
-                	**type**\:  :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs.ControllerBrief.BandwidthInformation.StandardDsteInterface>`
+                	**type**\:   :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.ControllerBriefs.ControllerBrief.BandwidthInformation.StandardDsteInterface>`
                 
                 
 
@@ -33532,6 +33860,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -33549,6 +33879,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
@@ -33556,12 +33888,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -33630,6 +33966,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -33652,12 +33990,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: max_pool0_bandwidth
                     
@@ -33666,12 +34008,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -33828,7 +34174,7 @@ class Rsvp(object):
         .. attribute:: pxsb_detail
         
         	Detailed PXSB info
-        	**type**\: list of  :py:class:`PxsbDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail>`
+        	**type**\: list of    :py:class:`PxsbDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail>`
         
         
 
@@ -33879,12 +34225,12 @@ class Rsvp(object):
             .. attribute:: generic_traffic_spec
             
             	RSVP Generic Traffic Spec Info
-            	**type**\:  :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec>`
+            	**type**\:   :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec>`
             
             .. attribute:: hop
             
             	Path Hop Info
-            	**type**\:  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Hop>`
+            	**type**\:   :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Hop>`
             
             .. attribute:: input_interface
             
@@ -33908,22 +34254,22 @@ class Rsvp(object):
             .. attribute:: rsvp_header
             
             	RSVP Header
-            	**type**\:  :py:class:`RsvpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.RsvpHeader>`
+            	**type**\:   :py:class:`RsvpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.RsvpHeader>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -33956,12 +34302,12 @@ class Rsvp(object):
             .. attribute:: template
             
             	RSVP Template
-            	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Template>`
+            	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Template>`
             
             .. attribute:: traffic_spec
             
             	RSVP Traffic Spec Info
-            	**type**\:  :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.TrafficSpec>`
+            	**type**\:   :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.TrafficSpec>`
             
             .. attribute:: vrf_name
             
@@ -34015,7 +34361,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession>`
                 
                 
 
@@ -34037,27 +34383,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -34455,7 +34801,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter>`
                 
                 
 
@@ -34477,17 +34823,17 @@ class Rsvp(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.Template.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -34700,6 +35046,8 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
@@ -34727,6 +35075,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 
 
@@ -34785,17 +35135,17 @@ class Rsvp(object):
                 .. attribute:: g709otn_tspec
                 
                 	G709 OTN Sender Tspec
-                	**type**\:  :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709OtnTspec>`
+                	**type**\:   :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.G709OtnTspec>`
                 
                 .. attribute:: intsrv_tspec
                 
                 	Integrated Services Sender Tspec
-                	**type**\:  :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.IntsrvTspec>`
+                	**type**\:   :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PxsbDetails.PxsbDetail.GenericTrafficSpec.IntsrvTspec>`
                 
                 .. attribute:: tspec_type
                 
                 	TspecType
-                	**type**\:  :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
                 
                 
 
@@ -34902,6 +35252,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte/s
+                    
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
@@ -34929,6 +35281,8 @@ class Rsvp(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte/s
                     
                     
 
@@ -35285,7 +35639,7 @@ class Rsvp(object):
         .. attribute:: rxsb_detail
         
         	Detailed RXSB info
-        	**type**\: list of  :py:class:`RxsbDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail>`
+        	**type**\: list of    :py:class:`RxsbDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail>`
         
         
 
@@ -35336,22 +35690,22 @@ class Rsvp(object):
             .. attribute:: filter
             
             	RSVP Filter
-            	**type**\:  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Filter>`
+            	**type**\:   :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Filter>`
             
             .. attribute:: flow_spec
             
             	Flow Spec Information
-            	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.FlowSpec>`
+            	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.FlowSpec>`
             
             .. attribute:: generic_flow_spec
             
             	Generic Flow Spec Information
-            	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec>`
+            	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec>`
             
             .. attribute:: hop
             
             	Path Hop Info
-            	**type**\:  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Hop>`
+            	**type**\:   :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Hop>`
             
             .. attribute:: input_interface
             
@@ -35375,22 +35729,22 @@ class Rsvp(object):
             .. attribute:: rsvp_header
             
             	RSVP Header
-            	**type**\:  :py:class:`RsvpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.RsvpHeader>`
+            	**type**\:   :py:class:`RsvpHeader <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.RsvpHeader>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -35409,7 +35763,7 @@ class Rsvp(object):
             .. attribute:: style
             
             	RSVP Style
-            	**type**\:  :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Style>`
+            	**type**\:   :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Style>`
             
             .. attribute:: sub_group_id
             
@@ -35479,7 +35833,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession>`
                 
                 
 
@@ -35501,27 +35855,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -35919,7 +36273,7 @@ class Rsvp(object):
                 .. attribute:: reservation_type
                 
                 	The Reservation Type\: WF, SE or FF
-                	**type**\:  :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
                 
                 
 
@@ -35962,7 +36316,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter>`
                 
                 
 
@@ -35984,17 +36338,17 @@ class Rsvp(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.Filter.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -36207,6 +36561,8 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
@@ -36235,10 +36591,12 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_qos
                 
                 	The Flow Quality of Service
-                	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                 
                 .. attribute:: flow_requested_rate
                 
@@ -36246,6 +36604,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 .. attribute:: flow_slack
                 
@@ -36323,12 +36683,12 @@ class Rsvp(object):
                 .. attribute:: flow_spec_type
                 
                 	FlowSpecType
-                	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                 
                 .. attribute:: g709otn_flow_spec
                 
                 	G709 OTN FlowSpec
-                	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709OtnFlowSpec>`
+                	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RxsbDetails.RxsbDetail.GenericFlowSpec.G709OtnFlowSpec>`
                 
                 
 
@@ -36727,7 +37087,7 @@ class Rsvp(object):
         .. attribute:: interface_neighbor_brief
         
         	Brief info for a single interface neighbor
-        	**type**\: list of  :py:class:`InterfaceNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborBriefs.InterfaceNeighborBrief>`
+        	**type**\: list of    :py:class:`InterfaceNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborBriefs.InterfaceNeighborBrief>`
         
         
 
@@ -36757,7 +37117,7 @@ class Rsvp(object):
             .. attribute:: interface_neighbor_list_compact
             
             	Compact list of I/F Neighbors
-            	**type**\: list of  :py:class:`InterfaceNeighborListCompact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborBriefs.InterfaceNeighborBrief.InterfaceNeighborListCompact>`
+            	**type**\: list of    :py:class:`InterfaceNeighborListCompact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborBriefs.InterfaceNeighborBrief.InterfaceNeighborListCompact>`
             
             .. attribute:: node_address
             
@@ -36903,7 +37263,7 @@ class Rsvp(object):
         .. attribute:: authentication_brief
         
         	Brief Authentication information
-        	**type**\: list of  :py:class:`AuthenticationBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationBriefs.AuthenticationBrief>`
+        	**type**\: list of    :py:class:`AuthenticationBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationBriefs.AuthenticationBrief>`
         
         
 
@@ -36940,7 +37300,7 @@ class Rsvp(object):
             .. attribute:: mode_id  <key>
             
             	Mode (Tx or Rx)
-            	**type**\:  :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
+            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
             
             .. attribute:: source_address  <key>
             
@@ -36959,7 +37319,7 @@ class Rsvp(object):
             .. attribute:: direction
             
             	Direction
-            	**type**\:  :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
+            	**type**\:   :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
             
             .. attribute:: key_id
             
@@ -36983,7 +37343,7 @@ class Rsvp(object):
             .. attribute:: key_type
             
             	Key type
-            	**type**\:  :py:class:`RsvpMgmtAuthKiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthKiEnum>`
+            	**type**\:   :py:class:`RsvpMgmtAuthKiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthKiEnum>`
             
             .. attribute:: neighbor_address
             
@@ -37116,7 +37476,7 @@ class Rsvp(object):
         .. attribute:: session_brief
         
         	Brief info about session
-        	**type**\: list of  :py:class:`SessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief>`
+        	**type**\: list of    :py:class:`SessionBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief>`
         
         
 
@@ -37202,12 +37562,12 @@ class Rsvp(object):
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: vrf_name
             
@@ -37247,7 +37607,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession>`
                 
                 
 
@@ -37269,27 +37629,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionBriefs.SessionBrief.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -37721,7 +38081,7 @@ class Rsvp(object):
         .. attribute:: psb_detailed
         
         	Detailed info for a single path state block
-        	**type**\: list of  :py:class:`PsbDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed>`
+        	**type**\: list of    :py:class:`PsbDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed>`
         
         
 
@@ -37749,7 +38109,7 @@ class Rsvp(object):
             .. attribute:: class_type
             
             	DS\-TE Class\-Type
-            	**type**\:  :py:class:`ClassType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.ClassType>`
+            	**type**\:   :py:class:`ClassType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.ClassType>`
             
             .. attribute:: destination_address
             
@@ -37768,7 +38128,7 @@ class Rsvp(object):
             .. attribute:: expiry_time
             
             	Expiry Time
-            	**type**\:  :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.ExpiryTime>`
+            	**type**\:   :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.ExpiryTime>`
             
             .. attribute:: extended_tunnel_id
             
@@ -37780,22 +38140,22 @@ class Rsvp(object):
             .. attribute:: generic_traffic_spec
             
             	RSVP Generic Traffic Spec Info
-            	**type**\:  :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec>`
+            	**type**\:   :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec>`
             
             .. attribute:: header
             
             	RSVP Header Info
-            	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Header>`
+            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Header>`
             
             .. attribute:: hop
             
             	Path Hop Info
-            	**type**\:  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Hop>`
+            	**type**\:   :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Hop>`
             
             .. attribute:: in_ero
             
             	Incoming Explicit Route Sub Objects
-            	**type**\: list of  :py:class:`InEro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.InEro>`
+            	**type**\: list of    :py:class:`InEro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.InEro>`
             
             .. attribute:: input_interface
             
@@ -37815,12 +38175,12 @@ class Rsvp(object):
             .. attribute:: label_info
             
             	Label Information
-            	**type**\:  :py:class:`LabelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo>`
+            	**type**\:   :py:class:`LabelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo>`
             
             .. attribute:: out_ero
             
             	Outgoing Explicit Route Sub Objects
-            	**type**\: list of  :py:class:`OutEro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.OutEro>`
+            	**type**\: list of    :py:class:`OutEro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.OutEro>`
             
             .. attribute:: p2mp_id
             
@@ -37832,27 +38192,27 @@ class Rsvp(object):
             .. attribute:: path_flags
             
             	Path Flags
-            	**type**\:  :py:class:`PathFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.PathFlags>`
+            	**type**\:   :py:class:`PathFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.PathFlags>`
             
             .. attribute:: pfc
             
             	Path Forwarding Contexts
-            	**type**\: list of  :py:class:`Pfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Pfc>`
+            	**type**\: list of    :py:class:`Pfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Pfc>`
             
             .. attribute:: policy_flags
             
             	Policy Flags
-            	**type**\:  :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.PolicyFlags>`
+            	**type**\:   :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.PolicyFlags>`
             
             .. attribute:: policy_query_flags
             
             	Policy Query Flags
-            	**type**\:  :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.PolicyQueryFlags>`
+            	**type**\:   :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.PolicyQueryFlags>`
             
             .. attribute:: policy_source_info
             
             	Policy Sources Info
-            	**type**\:  :py:class:`PolicySourceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.PolicySourceInfo>`
+            	**type**\:   :py:class:`PolicySourceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.PolicySourceInfo>`
             
             .. attribute:: protocol
             
@@ -37864,22 +38224,22 @@ class Rsvp(object):
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session>`
             
             .. attribute:: session_attribute
             
             	RSVP Session Attribute
-            	**type**\:  :py:class:`SessionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.SessionAttribute>`
+            	**type**\:   :py:class:`SessionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.SessionAttribute>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -37912,12 +38272,12 @@ class Rsvp(object):
             .. attribute:: template
             
             	RSVP Template
-            	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Template>`
+            	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Template>`
             
             .. attribute:: traffic_spec
             
             	RSVP Traffic Spec Info
-            	**type**\:  :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.TrafficSpec>`
+            	**type**\:   :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.TrafficSpec>`
             
             .. attribute:: vrf_name
             
@@ -37998,7 +38358,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession>`
                 
                 
 
@@ -38020,27 +38380,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -38438,7 +38798,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter>`
                 
                 
 
@@ -38460,17 +38820,17 @@ class Rsvp(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Template.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -38686,7 +39046,7 @@ class Rsvp(object):
                 .. attribute:: sess_attribute_flags
                 
                 	Session Attributes
-                	**type**\:  :py:class:`SessAttributeFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.SessionAttribute.SessAttributeFlags>`
+                	**type**\:   :py:class:`SessAttributeFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.SessionAttribute.SessAttributeFlags>`
                 
                 .. attribute:: setup_priority
                 
@@ -38828,6 +39188,8 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
@@ -38855,6 +39217,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 
 
@@ -38913,17 +39277,17 @@ class Rsvp(object):
                 .. attribute:: g709otn_tspec
                 
                 	G709 OTN Sender Tspec
-                	**type**\:  :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec>`
+                	**type**\:   :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.G709OtnTspec>`
                 
                 .. attribute:: intsrv_tspec
                 
                 	Integrated Services Sender Tspec
-                	**type**\:  :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.IntsrvTspec>`
+                	**type**\:   :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.GenericTrafficSpec.IntsrvTspec>`
                 
                 .. attribute:: tspec_type
                 
                 	TspecType
-                	**type**\:  :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
                 
                 
 
@@ -39030,6 +39394,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte/s
+                    
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
@@ -39057,6 +39423,8 @@ class Rsvp(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte/s
                     
                     
 
@@ -39481,12 +39849,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -39664,32 +40036,32 @@ class Rsvp(object):
                 .. attribute:: generic_local_downstream_label
                 
                 	Generic Local Downstream Label
-                	**type**\:  :py:class:`GenericLocalDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel>`
+                	**type**\:   :py:class:`GenericLocalDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel>`
                 
                 .. attribute:: generic_local_upstream_label
                 
                 	Generic Local Upstream Label
-                	**type**\:  :py:class:`GenericLocalUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel>`
+                	**type**\:   :py:class:`GenericLocalUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel>`
                 
                 .. attribute:: generic_merge_point_label
                 
                 	Generic MergePoint Label
-                	**type**\:  :py:class:`GenericMergePointLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLabel>`
+                	**type**\:   :py:class:`GenericMergePointLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLabel>`
                 
                 .. attribute:: generic_outgoing_downstream_label
                 
                 	Generic Outgoing Downstream Label
-                	**type**\:  :py:class:`GenericOutgoingDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel>`
+                	**type**\:   :py:class:`GenericOutgoingDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel>`
                 
                 .. attribute:: generic_outgoing_upstream_label
                 
                 	Generic Outgoing Upstream Label
-                	**type**\:  :py:class:`GenericOutgoingUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel>`
+                	**type**\:   :py:class:`GenericOutgoingUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel>`
                 
                 .. attribute:: generic_recovery_label
                 
                 	Generic Recovery Label
-                	**type**\:  :py:class:`GenericRecoveryLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel>`
+                	**type**\:   :py:class:`GenericRecoveryLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel>`
                 
                 .. attribute:: is_valid
                 
@@ -39783,12 +40155,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -39885,12 +40257,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -39987,12 +40359,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -40089,12 +40461,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -40191,12 +40563,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -40293,12 +40665,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.LabelInfo.GenericRecoveryLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -40515,12 +40887,12 @@ class Rsvp(object):
                 .. attribute:: policy_flags
                 
                 	Policy Flags
-                	**type**\:  :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Pfc.PolicyFlags>`
+                	**type**\:   :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Pfc.PolicyFlags>`
                 
                 .. attribute:: policy_query_flags
                 
                 	Policy Query Flags
-                	**type**\:  :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Pfc.PolicyQueryFlags>`
+                	**type**\:   :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.Pfc.PolicyQueryFlags>`
                 
                 
 
@@ -40704,17 +41076,17 @@ class Rsvp(object):
                 .. attribute:: ero_type
                 
                 	EROType
-                	**type**\:  :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
+                	**type**\:   :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
                 
                 .. attribute:: ipv4ero_sub_object
                 
                 	IPV4 ERO Sub Object
-                	**type**\:  :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject>`
+                	**type**\:   :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.InEro.Ipv4EroSubObject>`
                 
                 .. attribute:: unnumbered_ero_sub_object
                 
                 	Unnumbered ERO Sub Object
-                	**type**\:  :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.InEro.UnnumberedEroSubObject>`
+                	**type**\:   :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.InEro.UnnumberedEroSubObject>`
                 
                 
 
@@ -40823,7 +41195,7 @@ class Rsvp(object):
                     .. attribute:: status
                     
                     	Status of ERO
-                    	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
                     
                     
 
@@ -40906,17 +41278,17 @@ class Rsvp(object):
                 .. attribute:: ero_type
                 
                 	EROType
-                	**type**\:  :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
+                	**type**\:   :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
                 
                 .. attribute:: ipv4ero_sub_object
                 
                 	IPV4 ERO Sub Object
-                	**type**\:  :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject>`
+                	**type**\:   :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.OutEro.Ipv4EroSubObject>`
                 
                 .. attribute:: unnumbered_ero_sub_object
                 
                 	Unnumbered ERO Sub Object
-                	**type**\:  :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.OutEro.UnnumberedEroSubObject>`
+                	**type**\:   :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbDetaileds.PsbDetailed.OutEro.UnnumberedEroSubObject>`
                 
                 
 
@@ -41025,7 +41397,7 @@ class Rsvp(object):
                     .. attribute:: status
                     
                     	Status of ERO
-                    	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
                     
                     
 
@@ -41256,12 +41628,12 @@ class Rsvp(object):
         .. attribute:: path_states
         
         	Path state counters
-        	**type**\:  :py:class:`PathStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.FrrSummary.PathStates>`
+        	**type**\:   :py:class:`PathStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.FrrSummary.PathStates>`
         
         .. attribute:: reservation_states
         
         	Rerservation state counters
-        	**type**\:  :py:class:`ReservationStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.FrrSummary.ReservationStates>`
+        	**type**\:   :py:class:`ReservationStates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.FrrSummary.ReservationStates>`
         
         
 
@@ -41467,7 +41839,7 @@ class Rsvp(object):
         .. attribute:: rsb_detailed
         
         	Detailed info for a single reservation state block
-        	**type**\: list of  :py:class:`RsbDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed>`
+        	**type**\: list of    :py:class:`RsbDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed>`
         
         
 
@@ -41505,7 +41877,7 @@ class Rsvp(object):
             .. attribute:: expiry_time
             
             	Expiry Time
-            	**type**\:  :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.ExpiryTime>`
+            	**type**\:   :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.ExpiryTime>`
             
             .. attribute:: extended_tunnel_id
             
@@ -41517,27 +41889,27 @@ class Rsvp(object):
             .. attribute:: filter
             
             	RSVP Filter
-            	**type**\:  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Filter>`
+            	**type**\:   :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Filter>`
             
             .. attribute:: flow_spec
             
             	Flow Spec Information
-            	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.FlowSpec>`
+            	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.FlowSpec>`
             
             .. attribute:: generic_flow_spec
             
             	Generic Flow Spec Information
-            	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec>`
+            	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec>`
             
             .. attribute:: header
             
             	RSVP Header Information
-            	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Header>`
+            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Header>`
             
             .. attribute:: hop
             
             	Hop Infomation
-            	**type**\:  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Hop>`
+            	**type**\:   :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Hop>`
             
             .. attribute:: input_adjusted_interface
             
@@ -41552,7 +41924,7 @@ class Rsvp(object):
             .. attribute:: label_info
             
             	Label Information
-            	**type**\:  :py:class:`LabelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo>`
+            	**type**\:   :py:class:`LabelInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo>`
             
             .. attribute:: p2mp_id
             
@@ -41564,17 +41936,17 @@ class Rsvp(object):
             .. attribute:: policy_flags
             
             	RSVP Policy Flags
-            	**type**\:  :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.PolicyFlags>`
+            	**type**\:   :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.PolicyFlags>`
             
             .. attribute:: policy_query_flags
             
             	RSVP Query Flags
-            	**type**\:  :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.PolicyQueryFlags>`
+            	**type**\:   :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.PolicyQueryFlags>`
             
             .. attribute:: policy_sources
             
             	RSVP Policy Sources
-            	**type**\:  :py:class:`PolicySources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.PolicySources>`
+            	**type**\:   :py:class:`PolicySources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.PolicySources>`
             
             .. attribute:: protocol
             
@@ -41586,22 +41958,22 @@ class Rsvp(object):
             .. attribute:: rsb_flags
             
             	Reservation State Block Flags
-            	**type**\:  :py:class:`RsbFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.RsbFlags>`
+            	**type**\:   :py:class:`RsbFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.RsbFlags>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -41620,7 +41992,7 @@ class Rsvp(object):
             .. attribute:: style
             
             	RSVP Style
-            	**type**\:  :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Style>`
+            	**type**\:   :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Style>`
             
             .. attribute:: sub_group_id
             
@@ -41706,6 +42078,8 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
@@ -41734,10 +42108,12 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_qos
                 
                 	The Flow Quality of Service
-                	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                 
                 .. attribute:: flow_requested_rate
                 
@@ -41745,6 +42121,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 .. attribute:: flow_slack
                 
@@ -41822,12 +42200,12 @@ class Rsvp(object):
                 .. attribute:: flow_spec_type
                 
                 	FlowSpecType
-                	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                 
                 .. attribute:: g709otn_flow_spec
                 
                 	G709 OTN FlowSpec
-                	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec>`
+                	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.GenericFlowSpec.G709OtnFlowSpec>`
                 
                 
 
@@ -41953,7 +42331,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession>`
                 
                 
 
@@ -41975,27 +42353,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -42393,7 +42771,7 @@ class Rsvp(object):
                 .. attribute:: reservation_type
                 
                 	The Reservation Type\: WF, SE or FF
-                	**type**\:  :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
                 
                 
 
@@ -42436,7 +42814,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter>`
                 
                 
 
@@ -42458,17 +42836,17 @@ class Rsvp(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.Filter.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -43067,12 +43445,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -43189,32 +43571,32 @@ class Rsvp(object):
                 .. attribute:: generic_local_downstream_label
                 
                 	Generic Local Downstream Label
-                	**type**\:  :py:class:`GenericLocalDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel>`
+                	**type**\:   :py:class:`GenericLocalDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel>`
                 
                 .. attribute:: generic_local_upstream_label
                 
                 	Generic Local Upstream Label
-                	**type**\:  :py:class:`GenericLocalUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel>`
+                	**type**\:   :py:class:`GenericLocalUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel>`
                 
                 .. attribute:: generic_merge_point_label
                 
                 	Generic MergePoint Label
-                	**type**\:  :py:class:`GenericMergePointLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel>`
+                	**type**\:   :py:class:`GenericMergePointLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel>`
                 
                 .. attribute:: generic_outgoing_downstream_label
                 
                 	Generic Outgoing Downstream Label
-                	**type**\:  :py:class:`GenericOutgoingDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel>`
+                	**type**\:   :py:class:`GenericOutgoingDownstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel>`
                 
                 .. attribute:: generic_outgoing_upstream_label
                 
                 	Generic Outgoing Upstream Label
-                	**type**\:  :py:class:`GenericOutgoingUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel>`
+                	**type**\:   :py:class:`GenericOutgoingUpstreamLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel>`
                 
                 .. attribute:: generic_recovery_label
                 
                 	Generic Recovery Label
-                	**type**\:  :py:class:`GenericRecoveryLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel>`
+                	**type**\:   :py:class:`GenericRecoveryLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel>`
                 
                 .. attribute:: is_valid
                 
@@ -43308,12 +43690,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalDownstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -43410,12 +43792,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingDownstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -43512,12 +43894,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericMergePointLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -43614,12 +43996,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericOutgoingUpstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -43716,12 +44098,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericLocalUpstreamLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -43818,12 +44200,12 @@ class Rsvp(object):
                     .. attribute:: generalized_label
                     
                     	Generalized Label
-                    	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel.GeneralizedLabel>`
+                    	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbDetaileds.RsbDetailed.LabelInfo.GenericRecoveryLabel.GeneralizedLabel>`
                     
                     .. attribute:: generic_label_type
                     
                     	GenericLabelType
-                    	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                     
                     
 
@@ -44106,7 +44488,7 @@ class Rsvp(object):
         .. attribute:: interface_summary
         
         	Summary info about an RSVP\-enabled interface
-        	**type**\: list of  :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries.InterfaceSummary>`
+        	**type**\: list of    :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries.InterfaceSummary>`
         
         
 
@@ -44136,7 +44518,7 @@ class Rsvp(object):
             .. attribute:: bandwidth_information
             
             	Interface bandwidth information
-            	**type**\:  :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries.InterfaceSummary.BandwidthInformation>`
+            	**type**\:   :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries.InterfaceSummary.BandwidthInformation>`
             
             .. attribute:: interface_name_xr
             
@@ -44197,17 +44579,17 @@ class Rsvp(object):
                 .. attribute:: dste_mode
                 
                 	DSTEMode
-                	**type**\:  :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
+                	**type**\:   :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
                 
                 .. attribute:: pre_standard_dste_interface
                 
                 	Prestandard DSTE interface information
-                	**type**\:  :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries.InterfaceSummary.BandwidthInformation.PreStandardDsteInterface>`
+                	**type**\:   :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries.InterfaceSummary.BandwidthInformation.PreStandardDsteInterface>`
                 
                 .. attribute:: standard_dste_interface
                 
                 	Standard DSTE interface information
-                	**type**\:  :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries.InterfaceSummary.BandwidthInformation.StandardDsteInterface>`
+                	**type**\:   :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceSummaries.InterfaceSummary.BandwidthInformation.StandardDsteInterface>`
                 
                 
 
@@ -44236,6 +44618,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -44253,6 +44637,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
@@ -44260,12 +44646,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -44334,6 +44724,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -44356,12 +44748,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: max_pool0_bandwidth
                     
@@ -44370,12 +44766,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -44544,7 +44944,7 @@ class Rsvp(object):
         .. attribute:: hello_instance_brief
         
         	Brief info for a single hello instance
-        	**type**\: list of  :py:class:`HelloInstanceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceBriefs.HelloInstanceBrief>`
+        	**type**\: list of    :py:class:`HelloInstanceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceBriefs.HelloInstanceBrief>`
         
         
 
@@ -44595,7 +44995,7 @@ class Rsvp(object):
             .. attribute:: instance_type
             
             	Hello instance type
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
             
             .. attribute:: lost_communication_total
             
@@ -44607,7 +45007,7 @@ class Rsvp(object):
             .. attribute:: neighbor_hello_state
             
             	Neighbor Hello state
-            	**type**\:  :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
             
             .. attribute:: source_address_xr
             
@@ -44714,7 +45114,7 @@ class Rsvp(object):
         .. attribute:: authentication_detail
         
         	Brief Authentication information
-        	**type**\: list of  :py:class:`AuthenticationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail>`
+        	**type**\: list of    :py:class:`AuthenticationDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail>`
         
         
 
@@ -44751,7 +45151,7 @@ class Rsvp(object):
             .. attribute:: mode_id  <key>
             
             	Mode (Tx or Rx)
-            	**type**\:  :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
+            	**type**\:   :py:class:`RsvpModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpModeEnum>`
             
             .. attribute:: source_address  <key>
             
@@ -44763,17 +45163,17 @@ class Rsvp(object):
             .. attribute:: auth_compact
             
             	Basic authentication data
-            	**type**\:  :py:class:`AuthCompact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.AuthCompact>`
+            	**type**\:   :py:class:`AuthCompact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.AuthCompact>`
             
             .. attribute:: challenge_status
             
             	Challenge status
-            	**type**\:  :py:class:`RsvpMgmtAuthChallengeStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthChallengeStatusEnum>`
+            	**type**\:   :py:class:`RsvpMgmtAuthChallengeStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthChallengeStatusEnum>`
             
             .. attribute:: direction_info
             
             	direction info
-            	**type**\:  :py:class:`DirectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo>`
+            	**type**\:   :py:class:`DirectionInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo>`
             
             .. attribute:: key_digest_info
             
@@ -44796,12 +45196,16 @@ class Rsvp(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: lifetime_left
             
             	Remaining lifetime (seconds)
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: second
             
             
 
@@ -44841,7 +45245,7 @@ class Rsvp(object):
                 .. attribute:: direction
                 
                 	Direction
-                	**type**\:  :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
+                	**type**\:   :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
                 
                 .. attribute:: key_id
                 
@@ -44865,7 +45269,7 @@ class Rsvp(object):
                 .. attribute:: key_type
                 
                 	Key type
-                	**type**\:  :py:class:`RsvpMgmtAuthKiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthKiEnum>`
+                	**type**\:   :py:class:`RsvpMgmtAuthKiEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthKiEnum>`
                 
                 .. attribute:: neighbor_address
                 
@@ -44952,17 +45356,17 @@ class Rsvp(object):
                 .. attribute:: auth_direction
                 
                 	AuthDirection
-                	**type**\:  :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
+                	**type**\:   :py:class:`RsvpMgmtAuthDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAuthDirectionEnum>`
                 
                 .. attribute:: receive_info
                 
                 	receive info
-                	**type**\:  :py:class:`ReceiveInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo.ReceiveInfo>`
+                	**type**\:   :py:class:`ReceiveInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo.ReceiveInfo>`
                 
                 .. attribute:: send_info
                 
                 	send info
-                	**type**\:  :py:class:`SendInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo.SendInfo>`
+                	**type**\:   :py:class:`SendInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo.SendInfo>`
                 
                 
 
@@ -44987,7 +45391,7 @@ class Rsvp(object):
                     .. attribute:: counters
                     
                     	Counters
-                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo.SendInfo.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo.SendInfo.Counters>`
                     
                     .. attribute:: sequence
                     
@@ -45124,7 +45528,7 @@ class Rsvp(object):
                     .. attribute:: counters
                     
                     	Counters
-                    	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo.ReceiveInfo.Counters>`
+                    	**type**\:   :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.AuthenticationDetails.AuthenticationDetail.DirectionInfo.ReceiveInfo.Counters>`
                     
                     .. attribute:: sequence
                     
@@ -45545,7 +45949,7 @@ class Rsvp(object):
         .. attribute:: rsb_brief
         
         	Brief info for a single reservation state block
-        	**type**\: list of  :py:class:`RsbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief>`
+        	**type**\: list of    :py:class:`RsbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief>`
         
         
 
@@ -45589,17 +45993,17 @@ class Rsvp(object):
             .. attribute:: filter
             
             	RSVP Filter
-            	**type**\:  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Filter>`
+            	**type**\:   :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Filter>`
             
             .. attribute:: flow_spec
             
             	Flow Spec Information
-            	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.FlowSpec>`
+            	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.FlowSpec>`
             
             .. attribute:: generic_flow_spec
             
             	Generic Flow Spec Info
-            	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec>`
+            	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec>`
             
             .. attribute:: input_interface
             
@@ -45623,17 +46027,17 @@ class Rsvp(object):
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -45652,7 +46056,7 @@ class Rsvp(object):
             .. attribute:: style
             
             	RSVP Style
-            	**type**\:  :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Style>`
+            	**type**\:   :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Style>`
             
             .. attribute:: sub_group_id
             
@@ -45717,7 +46121,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession>`
                 
                 
 
@@ -45739,27 +46143,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -46161,6 +46565,8 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
@@ -46189,10 +46595,12 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_qos
                 
                 	The Flow Quality of Service
-                	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                 
                 .. attribute:: flow_requested_rate
                 
@@ -46200,6 +46608,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 .. attribute:: flow_slack
                 
@@ -46277,12 +46687,12 @@ class Rsvp(object):
                 .. attribute:: flow_spec_type
                 
                 	FlowSpecType
-                	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                 
                 .. attribute:: g709otn_flow_spec
                 
                 	G709 OTN FlowSpec
-                	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec>`
+                	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.GenericFlowSpec.G709OtnFlowSpec>`
                 
                 
 
@@ -46408,7 +46818,7 @@ class Rsvp(object):
                 .. attribute:: reservation_type
                 
                 	The Reservation Type\: WF, SE or FF
-                	**type**\:  :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
                 
                 
 
@@ -46451,7 +46861,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter>`
                 
                 
 
@@ -46473,17 +46883,17 @@ class Rsvp(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RsbBriefs.RsbBrief.Filter.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -46789,12 +47199,12 @@ class Rsvp(object):
         .. attribute:: global_counters
         
         	Platform wide RSVP statistics and counters
-        	**type**\:  :py:class:`GlobalCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig.GlobalCounters>`
+        	**type**\:   :py:class:`GlobalCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig.GlobalCounters>`
         
         .. attribute:: interface_counters
         
         	Table of info about RSVP\-enabled interface counters for OpenConfig
-        	**type**\:  :py:class:`InterfaceCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig.InterfaceCounters>`
+        	**type**\:   :py:class:`InterfaceCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig.InterfaceCounters>`
         
         
 
@@ -47084,7 +47494,7 @@ class Rsvp(object):
             .. attribute:: interface_counter
             
             	Info about an RSVP\-enabled interface counters
-            	**type**\: list of  :py:class:`InterfaceCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig.InterfaceCounters.InterfaceCounter>`
+            	**type**\: list of    :py:class:`InterfaceCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.OpenConfig.InterfaceCounters.InterfaceCounter>`
             
             
 
@@ -47410,47 +47820,47 @@ class Rsvp(object):
         .. attribute:: database
         
         	Summary information for all RSVP database counters
-        	**type**\:  :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.Database>`
+        	**type**\:   :py:class:`Database <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.Database>`
         
         .. attribute:: event_syncs
         
         	Table containing event sync counters
-        	**type**\:  :py:class:`EventSyncs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.EventSyncs>`
+        	**type**\:   :py:class:`EventSyncs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.EventSyncs>`
         
         .. attribute:: interface_events
         
         	Event counters
-        	**type**\:  :py:class:`InterfaceEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceEvents>`
+        	**type**\:   :py:class:`InterfaceEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceEvents>`
         
         .. attribute:: interface_messages
         
         	Table of message counters
-        	**type**\:  :py:class:`InterfaceMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages>`
+        	**type**\:   :py:class:`InterfaceMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages>`
         
         .. attribute:: issu
         
         	Summary information for all RSVP ISSU counters
-        	**type**\:  :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.Issu>`
+        	**type**\:   :py:class:`Issu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.Issu>`
         
         .. attribute:: message_summary
         
         	Summary information for all RSVP message counters
-        	**type**\:  :py:class:`MessageSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary>`
+        	**type**\:   :py:class:`MessageSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary>`
         
         .. attribute:: nsr
         
         	Summary information for all RSVP NSR counters
-        	**type**\:  :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.Nsr>`
+        	**type**\:   :py:class:`Nsr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.Nsr>`
         
         .. attribute:: out_of_resource
         
         	Out of resource counters
-        	**type**\:  :py:class:`OutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource>`
+        	**type**\:   :py:class:`OutOfResource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource>`
         
         .. attribute:: prefix_filtering
         
         	Prefix filtering counters
-        	**type**\:  :py:class:`PrefixFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering>`
+        	**type**\:   :py:class:`PrefixFiltering <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering>`
         
         
 
@@ -47488,7 +47898,7 @@ class Rsvp(object):
             .. attribute:: interface_message
             
             	Interface message counters
-            	**type**\: list of  :py:class:`InterfaceMessage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage>`
+            	**type**\: list of    :py:class:`InterfaceMessage <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage>`
             
             
 
@@ -47518,12 +47928,12 @@ class Rsvp(object):
                 .. attribute:: bundle_received_messages
                 
                 	Count of Bundle messages received
-                	**type**\:  :py:class:`BundleReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage.BundleReceivedMessages>`
+                	**type**\:   :py:class:`BundleReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage.BundleReceivedMessages>`
                 
                 .. attribute:: bundle_transmitted_messages
                 
                 	Count of Bundle messages transmitted
-                	**type**\:  :py:class:`BundleTransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage.BundleTransmittedMessages>`
+                	**type**\:   :py:class:`BundleTransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage.BundleTransmittedMessages>`
                 
                 .. attribute:: out_of_order_messages
                 
@@ -47542,7 +47952,7 @@ class Rsvp(object):
                 .. attribute:: received_messages
                 
                 	Count of messages received
-                	**type**\:  :py:class:`ReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages>`
+                	**type**\:   :py:class:`ReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage.ReceivedMessages>`
                 
                 .. attribute:: retransmitted_messages
                 
@@ -47554,7 +47964,7 @@ class Rsvp(object):
                 .. attribute:: transmitted_messages
                 
                 	Count of messages transmitted
-                	**type**\:  :py:class:`TransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage.TransmittedMessages>`
+                	**type**\:   :py:class:`TransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceMessages.InterfaceMessage.TransmittedMessages>`
                 
                 
 
@@ -48372,12 +48782,12 @@ class Rsvp(object):
             .. attribute:: bundle_received_messages
             
             	Count of Bundle messages received
-            	**type**\:  :py:class:`BundleReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary.BundleReceivedMessages>`
+            	**type**\:   :py:class:`BundleReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary.BundleReceivedMessages>`
             
             .. attribute:: bundle_transmitted_messages
             
             	Count of Bundle messages transmitted
-            	**type**\:  :py:class:`BundleTransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary.BundleTransmittedMessages>`
+            	**type**\:   :py:class:`BundleTransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary.BundleTransmittedMessages>`
             
             .. attribute:: out_of_order_messages
             
@@ -48396,7 +48806,7 @@ class Rsvp(object):
             .. attribute:: received_messages
             
             	Count of messages received
-            	**type**\:  :py:class:`ReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary.ReceivedMessages>`
+            	**type**\:   :py:class:`ReceivedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary.ReceivedMessages>`
             
             .. attribute:: retransmitted_messages
             
@@ -48408,7 +48818,7 @@ class Rsvp(object):
             .. attribute:: transmitted_messages
             
             	Count of messages transmitted
-            	**type**\:  :py:class:`TransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary.TransmittedMessages>`
+            	**type**\:   :py:class:`TransmittedMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.MessageSummary.TransmittedMessages>`
             
             
 
@@ -49187,12 +49597,12 @@ class Rsvp(object):
             .. attribute:: accesses
             
             	AccessList specific prefix filtering counters
-            	**type**\:  :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses>`
+            	**type**\:   :py:class:`Accesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses>`
             
             .. attribute:: interfaces
             
             	Interface specific prefix filtering counters
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces>`
             
             
 
@@ -49216,7 +49626,7 @@ class Rsvp(object):
                 .. attribute:: access
                 
                 	Prefix filtering counters for a specific AccessList
-                	**type**\: list of  :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access>`
+                	**type**\: list of    :py:class:`Access <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access>`
                 
                 
 
@@ -49247,22 +49657,22 @@ class Rsvp(object):
                     .. attribute:: dropped
                     
                     	Count of messages dropped
-                    	**type**\:  :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access.Dropped>`
+                    	**type**\:   :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access.Dropped>`
                     
                     .. attribute:: forwarded
                     
                     	Count of messages which got forwarded
-                    	**type**\:  :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access.Forwarded>`
+                    	**type**\:   :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access.Forwarded>`
                     
                     .. attribute:: locally_destined
                     
                     	Count of locally destined messages
-                    	**type**\:  :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access.LocallyDestined>`
+                    	**type**\:   :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access.LocallyDestined>`
                     
                     .. attribute:: total
                     
                     	Count of total messages
-                    	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access.Total>`
+                    	**type**\:   :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Accesses.Access.Total>`
                     
                     
 
@@ -49671,12 +50081,12 @@ class Rsvp(object):
                 .. attribute:: interfaces
                 
                 	Table of interface specific prefix filtering counters
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces>`
+                	**type**\:   :py:class:`Interfaces_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_>`
                 
                 .. attribute:: summary
                 
                 	Summary of prefix filtering counts for all interfaces
-                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary>`
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary>`
                 
                 
 
@@ -49687,7 +50097,7 @@ class Rsvp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.interfaces = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces()
+                    self.interfaces = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_()
                     self.interfaces.parent = self
                     self.summary = Rsvp.Counters.PrefixFiltering.Interfaces.Summary()
                     self.summary.parent = self
@@ -49701,32 +50111,32 @@ class Rsvp(object):
                     .. attribute:: default_action_dropped
                     
                     	Count of messages which got dropped due to default ACL action
-                    	**type**\:  :py:class:`DefaultActionDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionDropped>`
+                    	**type**\:   :py:class:`DefaultActionDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionDropped>`
                     
                     .. attribute:: default_action_processed
                     
                     	Count of messages which were processed due to default ACL action
-                    	**type**\:  :py:class:`DefaultActionProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionProcessed>`
+                    	**type**\:   :py:class:`DefaultActionProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.DefaultActionProcessed>`
                     
                     .. attribute:: dropped
                     
                     	Count of messages dropped
-                    	**type**\:  :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.Dropped>`
+                    	**type**\:   :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.Dropped>`
                     
                     .. attribute:: forwarded
                     
                     	Count of messages which got forwarded
-                    	**type**\:  :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.Forwarded>`
+                    	**type**\:   :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.Forwarded>`
                     
                     .. attribute:: locally_destined
                     
                     	Count of locally destined messages
-                    	**type**\:  :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.LocallyDestined>`
+                    	**type**\:   :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.LocallyDestined>`
                     
                     .. attribute:: total
                     
                     	Count of total messages
-                    	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.Total>`
+                    	**type**\:   :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Summary.Total>`
                     
                     
 
@@ -50258,7 +50668,7 @@ class Rsvp(object):
                         return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Summary']['meta_info']
 
 
-                class Interfaces(object):
+                class Interfaces_(object):
                     """
                     Table of interface specific prefix filtering
                     counters
@@ -50266,7 +50676,7 @@ class Rsvp(object):
                     .. attribute:: interface
                     
                     	Prefix filtering counters for a specific interface
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface>`
                     
                     
 
@@ -50297,32 +50707,32 @@ class Rsvp(object):
                         .. attribute:: default_action_dropped
                         
                         	Count of messages which got dropped due to default ACL action
-                        	**type**\:  :py:class:`DefaultActionDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped>`
+                        	**type**\:   :py:class:`DefaultActionDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped>`
                         
                         .. attribute:: default_action_processed
                         
                         	Count of messages which were processed due to default ACL action
-                        	**type**\:  :py:class:`DefaultActionProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed>`
+                        	**type**\:   :py:class:`DefaultActionProcessed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed>`
                         
                         .. attribute:: dropped
                         
                         	Count of messages dropped
-                        	**type**\:  :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped>`
+                        	**type**\:   :py:class:`Dropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped>`
                         
                         .. attribute:: forwarded
                         
                         	Count of messages which got forwarded
-                        	**type**\:  :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded>`
+                        	**type**\:   :py:class:`Forwarded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded>`
                         
                         .. attribute:: locally_destined
                         
                         	Count of locally destined messages
-                        	**type**\:  :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined>`
+                        	**type**\:   :py:class:`LocallyDestined <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined>`
                         
                         .. attribute:: total
                         
                         	Count of total messages
-                        	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total>`
+                        	**type**\:   :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total>`
                         
                         
 
@@ -50334,17 +50744,17 @@ class Rsvp(object):
                         def __init__(self):
                             self.parent = None
                             self.interface_name = None
-                            self.default_action_dropped = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped()
+                            self.default_action_dropped = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped()
                             self.default_action_dropped.parent = self
-                            self.default_action_processed = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed()
+                            self.default_action_processed = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed()
                             self.default_action_processed.parent = self
-                            self.dropped = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped()
+                            self.dropped = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped()
                             self.dropped.parent = self
-                            self.forwarded = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded()
+                            self.forwarded = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded()
                             self.forwarded.parent = self
-                            self.locally_destined = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined()
+                            self.locally_destined = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined()
                             self.locally_destined.parent = self
-                            self.total = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total()
+                            self.total = Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total()
                             self.total.parent = self
 
 
@@ -50425,7 +50835,7 @@ class Rsvp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Forwarded']['meta_info']
+                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Forwarded']['meta_info']
 
 
                         class LocallyDestined(object):
@@ -50505,7 +50915,7 @@ class Rsvp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.LocallyDestined']['meta_info']
+                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.LocallyDestined']['meta_info']
 
 
                         class Dropped(object):
@@ -50585,7 +50995,7 @@ class Rsvp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Dropped']['meta_info']
+                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Dropped']['meta_info']
 
 
                         class DefaultActionDropped(object):
@@ -50666,7 +51076,7 @@ class Rsvp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionDropped']['meta_info']
+                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionDropped']['meta_info']
 
 
                         class DefaultActionProcessed(object):
@@ -50747,7 +51157,7 @@ class Rsvp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.DefaultActionProcessed']['meta_info']
+                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.DefaultActionProcessed']['meta_info']
 
 
                         class Total(object):
@@ -50827,7 +51237,7 @@ class Rsvp(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface.Total']['meta_info']
+                                return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface.Total']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -50869,7 +51279,7 @@ class Rsvp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                            return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces.Interface']['meta_info']
+                            return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_.Interface']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -50893,7 +51303,7 @@ class Rsvp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                        return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces']['meta_info']
+                        return meta._meta_table['Rsvp.Counters.PrefixFiltering.Interfaces.Interfaces_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -50953,7 +51363,7 @@ class Rsvp(object):
             .. attribute:: interfaces
             
             	Interface specific out of resource counters
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource.Interfaces>`
             
             
 
@@ -50975,12 +51385,12 @@ class Rsvp(object):
                 .. attribute:: interfaces
                 
                 	Table of interface specific out of resource counters
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource.Interfaces.Interfaces>`
+                	**type**\:   :py:class:`Interfaces_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource.Interfaces.Interfaces_>`
                 
                 .. attribute:: summary
                 
                 	Summary of out of resource counts for all interfaces
-                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource.Interfaces.Summary>`
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource.Interfaces.Summary>`
                 
                 
 
@@ -50991,7 +51401,7 @@ class Rsvp(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.interfaces = Rsvp.Counters.OutOfResource.Interfaces.Interfaces()
+                    self.interfaces = Rsvp.Counters.OutOfResource.Interfaces.Interfaces_()
                     self.interfaces.parent = self
                     self.summary = Rsvp.Counters.OutOfResource.Interfaces.Summary()
                     self.summary.parent = self
@@ -51043,7 +51453,7 @@ class Rsvp(object):
                         return meta._meta_table['Rsvp.Counters.OutOfResource.Interfaces.Summary']['meta_info']
 
 
-                class Interfaces(object):
+                class Interfaces_(object):
                     """
                     Table of interface specific out of resource
                     counters
@@ -51051,7 +51461,7 @@ class Rsvp(object):
                     .. attribute:: interface
                     
                     	Out of resource counters for a specific interface
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource.Interfaces.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.OutOfResource.Interfaces.Interfaces_.Interface>`
                     
                     
 
@@ -51123,7 +51533,7 @@ class Rsvp(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                            return meta._meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces.Interface']['meta_info']
+                            return meta._meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces_.Interface']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -51147,7 +51557,7 @@ class Rsvp(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_rsvp_oper as meta
-                        return meta._meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces']['meta_info']
+                        return meta._meta_table['Rsvp.Counters.OutOfResource.Interfaces.Interfaces_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -51204,7 +51614,7 @@ class Rsvp(object):
             .. attribute:: interface_event
             
             	Event counters for an interface
-            	**type**\: list of  :py:class:`InterfaceEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceEvents.InterfaceEvent>`
+            	**type**\: list of    :py:class:`InterfaceEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.InterfaceEvents.InterfaceEvent>`
             
             
 
@@ -51335,6 +51745,8 @@ class Rsvp(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: last_idt_states
             
             	Last IDT number of states
@@ -51345,7 +51757,7 @@ class Rsvp(object):
             .. attribute:: rsvp_process_role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             .. attribute:: total_deletions
             
@@ -51444,6 +51856,8 @@ class Rsvp(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: second
+            
             .. attribute:: last_idt_states
             
             	Last IDT number of states
@@ -51454,7 +51868,7 @@ class Rsvp(object):
             .. attribute:: rsvp_process_role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             .. attribute:: total_deletions
             
@@ -51650,7 +52064,7 @@ class Rsvp(object):
             .. attribute:: event_sync
             
             	Event sync counters
-            	**type**\: list of  :py:class:`EventSync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.EventSyncs.EventSync>`
+            	**type**\: list of    :py:class:`EventSync <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Counters.EventSyncs.EventSync>`
             
             
 
@@ -51824,7 +52238,7 @@ class Rsvp(object):
         .. attribute:: interface_detailed
         
         	Detailed info about an RSVP\-enabled interface
-        	**type**\: list of  :py:class:`InterfaceDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed>`
+        	**type**\: list of    :py:class:`InterfaceDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed>`
         
         
 
@@ -51868,7 +52282,7 @@ class Rsvp(object):
             .. attribute:: bandwidth_information
             
             	Interface bandwidth information
-            	**type**\:  :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation>`
+            	**type**\:   :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation>`
             
             .. attribute:: bundle_message_max_size
             
@@ -51876,6 +52290,8 @@ class Rsvp(object):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: byte
             
             .. attribute:: expiry_drops_tolerated
             
@@ -51891,6 +52307,8 @@ class Rsvp(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: millisecond
+            
             .. attribute:: expiry_states
             
             	Number of states for expiry check
@@ -51901,12 +52319,12 @@ class Rsvp(object):
             .. attribute:: expiry_timer_state
             
             	Expiry timer state
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             .. attribute:: flags
             
             	Interface flags
-            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.Flags>`
+            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.Flags>`
             
             .. attribute:: integrity_receive_password
             
@@ -51937,7 +52355,7 @@ class Rsvp(object):
             .. attribute:: neighbor_array
             
             	Neighbor array
-            	**type**\: list of  :py:class:`NeighborArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.NeighborArray>`
+            	**type**\: list of    :py:class:`NeighborArray <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.NeighborArray>`
             
             .. attribute:: out_of_band_expiry_drops_tolerated
             
@@ -51953,12 +52371,16 @@ class Rsvp(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: millisecond
+            
             .. attribute:: pacing_interval
             
             	Pacing interval in msecs
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: millisecond
             
             .. attribute:: pacing_message_rate
             
@@ -51977,7 +52399,7 @@ class Rsvp(object):
             .. attribute:: pacing_timer_state
             
             	State of pacing timer
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             .. attribute:: refresh_interval
             
@@ -51986,10 +52408,12 @@ class Rsvp(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: millisecond
+            
             .. attribute:: refresh_timer_state
             
             	Refresh timer state
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             .. attribute:: retransmit_time
             
@@ -52012,10 +52436,12 @@ class Rsvp(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: byte
+            
             .. attribute:: summary_refresh_timer_state
             
             	Summary refresh timer state
-            	**type**\:  :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
+            	**type**\:   :py:class:`RsvpTimerStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpTimerStateEnum>`
             
             
 
@@ -52066,17 +52492,17 @@ class Rsvp(object):
                 .. attribute:: dste_mode
                 
                 	DSTEMode
-                	**type**\:  :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
+                	**type**\:   :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
                 
                 .. attribute:: pre_standard_dste_interface
                 
                 	Prestandard DSTE interface information
-                	**type**\:  :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.PreStandardDsteInterface>`
+                	**type**\:   :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.PreStandardDsteInterface>`
                 
                 .. attribute:: standard_dste_interface
                 
                 	Standard DSTE interface information
-                	**type**\:  :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.StandardDsteInterface>`
+                	**type**\:   :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.BandwidthInformation.StandardDsteInterface>`
                 
                 
 
@@ -52105,6 +52531,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -52122,6 +52550,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
@@ -52129,12 +52559,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -52203,6 +52637,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -52225,12 +52661,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: max_pool0_bandwidth
                     
@@ -52239,12 +52679,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -52491,7 +52935,7 @@ class Rsvp(object):
                 .. attribute:: expiry_time
                 
                 	Expiry time
-                	**type**\:  :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.NeighborArray.ExpiryTime>`
+                	**type**\:   :py:class:`ExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.NeighborArray.ExpiryTime>`
                 
                 .. attribute:: is_neighbor_refresh_reduction_capable
                 
@@ -52515,7 +52959,7 @@ class Rsvp(object):
                 .. attribute:: neighbor_message_id
                 
                 	List of Neighbor MessageIDs
-                	**type**\: list of  :py:class:`NeighborMessageId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.NeighborArray.NeighborMessageId>`
+                	**type**\: list of    :py:class:`NeighborMessageId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceDetaileds.InterfaceDetailed.NeighborArray.NeighborMessageId>`
                 
                 .. attribute:: outgoing_states
                 
@@ -52555,12 +52999,16 @@ class Rsvp(object):
                     
                     	**range:** \-2147483648..2147483647
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: seconds
                     
                     	Time Value in Seconds
                     	**type**\:  int
                     
                     	**range:** \-2147483648..2147483647
+                    
+                    	**units**\: second
                     
                     
 
@@ -52849,7 +53297,7 @@ class Rsvp(object):
         .. attribute:: local_node_address
         
         	Local node address
-        	**type**\: list of  :py:class:`LocalNodeAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GracefulRestart.LocalNodeAddress>`
+        	**type**\: list of    :py:class:`LocalNodeAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GracefulRestart.LocalNodeAddress>`
         
         .. attribute:: missed_hellos
         
@@ -52872,15 +53320,17 @@ class Rsvp(object):
         
         	**range:** 0..4294967295
         
+        	**units**\: millisecond
+        
         .. attribute:: recovery_time_left
         
         	How much recovery timer remains
-        	**type**\:  :py:class:`RecoveryTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GracefulRestart.RecoveryTimeLeft>`
+        	**type**\:   :py:class:`RecoveryTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GracefulRestart.RecoveryTimeLeft>`
         
         .. attribute:: recovery_timer_exp_time
         
         	Time at which recovery timer will expire
-        	**type**\:  :py:class:`RecoveryTimerExpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GracefulRestart.RecoveryTimerExpTime>`
+        	**type**\:   :py:class:`RecoveryTimerExpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GracefulRestart.RecoveryTimerExpTime>`
         
         .. attribute:: restart_time
         
@@ -52888,6 +53338,8 @@ class Rsvp(object):
         	**type**\:  int
         
         	**range:** 0..4294967295
+        
+        	**units**\: millisecond
         
         
 
@@ -52926,12 +53378,16 @@ class Rsvp(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: nanosecond
+            
             .. attribute:: seconds
             
             	Time Value in Seconds
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
+            
+            	**units**\: second
             
             
 
@@ -52982,12 +53438,16 @@ class Rsvp(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: nanosecond
+            
             .. attribute:: seconds
             
             	Time Value in Seconds
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
+            
+            	**units**\: second
             
             
 
@@ -53034,7 +53494,7 @@ class Rsvp(object):
             .. attribute:: application_type
             
             	GR local node\-id app type
-            	**type**\:  :py:class:`RsvpMgmtGrAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGrAppEnum>`
+            	**type**\:   :py:class:`RsvpMgmtGrAppEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGrAppEnum>`
             
             .. attribute:: local_node_ip_address
             
@@ -53143,7 +53603,7 @@ class Rsvp(object):
         .. attribute:: hello_interface_instance_brief
         
         	Brief info for a single interface\-based hello instance
-        	**type**\: list of  :py:class:`HelloInterfaceInstanceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceBriefs.HelloInterfaceInstanceBrief>`
+        	**type**\: list of    :py:class:`HelloInterfaceInstanceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceBriefs.HelloInterfaceInstanceBrief>`
         
         
 
@@ -53195,7 +53655,7 @@ class Rsvp(object):
             .. attribute:: instance_type
             
             	Hello instance type
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
             
             .. attribute:: source_address_xr
             
@@ -53294,7 +53754,7 @@ class Rsvp(object):
         .. attribute:: hello_interface_instance_detail
         
         	Detailed info for a single interface\-based hello instance
-        	**type**\: list of  :py:class:`HelloInterfaceInstanceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceDetails.HelloInterfaceInstanceDetail>`
+        	**type**\: list of    :py:class:`HelloInterfaceInstanceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceDetails.HelloInterfaceInstanceDetail>`
         
         
 
@@ -53374,12 +53834,12 @@ class Rsvp(object):
             .. attribute:: instance_type
             
             	Hello instance type
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
             
             .. attribute:: last_message_sent_time
             
             	Last Ack/msg sent time
-            	**type**\:  :py:class:`LastMessageSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceDetails.HelloInterfaceInstanceDetail.LastMessageSentTime>`
+            	**type**\:   :py:class:`LastMessageSentTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInterfaceInstanceDetails.HelloInterfaceInstanceDetail.LastMessageSentTime>`
             
             .. attribute:: source_address_xr
             
@@ -53430,12 +53890,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -53567,7 +54031,7 @@ class Rsvp(object):
         .. attribute:: interface_neighbor_detail
         
         	Detailed info for a single interface neighbor
-        	**type**\: list of  :py:class:`InterfaceNeighborDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborDetails.InterfaceNeighborDetail>`
+        	**type**\: list of    :py:class:`InterfaceNeighborDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborDetails.InterfaceNeighborDetail>`
         
         
 
@@ -53597,7 +54061,7 @@ class Rsvp(object):
             .. attribute:: interface_neighbor_list_detail
             
             	Detail list of I/F Neighbors
-            	**type**\: list of  :py:class:`InterfaceNeighborListDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborDetails.InterfaceNeighborDetail.InterfaceNeighborListDetail>`
+            	**type**\: list of    :py:class:`InterfaceNeighborListDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceNeighborDetails.InterfaceNeighborDetail.InterfaceNeighborListDetail>`
             
             .. attribute:: node_address
             
@@ -53785,7 +54249,7 @@ class Rsvp(object):
         .. attribute:: status
         
         	RSVP NSR status information
-        	**type**\:  :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Nsr.Status>`
+        	**type**\:   :py:class:`Status <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Nsr.Status>`
         
         
 
@@ -53807,17 +54271,17 @@ class Rsvp(object):
             .. attribute:: idt_status
             
             	IDT status
-            	**type**\:  :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Nsr.Status.IdtStatus>`
+            	**type**\:   :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Nsr.Status.IdtStatus>`
             
             .. attribute:: previous_idt_status
             
             	Previous IDT status
-            	**type**\:  :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Nsr.Status.PreviousIdtStatus>`
+            	**type**\:   :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Nsr.Status.PreviousIdtStatus>`
             
             .. attribute:: role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             
 
@@ -53846,12 +54310,16 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -53860,15 +54328,17 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -53876,6 +54346,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -53942,12 +54414,16 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -53956,15 +54432,17 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -53972,6 +54450,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -54084,7 +54564,7 @@ class Rsvp(object):
         .. attribute:: database_counters
         
         	All database counters
-        	**type**\:  :py:class:`DatabaseCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.DatabaseCounters>`
+        	**type**\:   :py:class:`DatabaseCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.DatabaseCounters>`
         
         .. attribute:: interfaces
         
@@ -54096,7 +54576,7 @@ class Rsvp(object):
         .. attribute:: issu_status
         
         	Issu status
-        	**type**\:  :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.IssuStatus>`
+        	**type**\:   :py:class:`IssuStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.IssuStatus>`
         
         .. attribute:: ls_ps
         
@@ -54108,7 +54588,7 @@ class Rsvp(object):
         .. attribute:: nsr_status
         
         	NSR status
-        	**type**\:  :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.NsrStatus>`
+        	**type**\:   :py:class:`NsrStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.NsrStatus>`
         
         
 
@@ -54136,17 +54616,17 @@ class Rsvp(object):
             .. attribute:: idt_status
             
             	IDT status
-            	**type**\:  :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.IssuStatus.IdtStatus>`
+            	**type**\:   :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.IssuStatus.IdtStatus>`
             
             .. attribute:: previous_idt_status
             
             	Previous IDT status
-            	**type**\:  :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.IssuStatus.PreviousIdtStatus>`
+            	**type**\:   :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.IssuStatus.PreviousIdtStatus>`
             
             .. attribute:: role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             
 
@@ -54175,12 +54655,16 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -54189,15 +54673,17 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -54205,6 +54691,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -54271,12 +54759,16 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -54285,15 +54777,17 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -54301,6 +54795,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -54391,17 +54887,17 @@ class Rsvp(object):
             .. attribute:: idt_status
             
             	IDT status
-            	**type**\:  :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.NsrStatus.IdtStatus>`
+            	**type**\:   :py:class:`IdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.NsrStatus.IdtStatus>`
             
             .. attribute:: previous_idt_status
             
             	Previous IDT status
-            	**type**\:  :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.NsrStatus.PreviousIdtStatus>`
+            	**type**\:   :py:class:`PreviousIdtStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Summary.NsrStatus.PreviousIdtStatus>`
             
             .. attribute:: role
             
             	Process role
-            	**type**\:  :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
+            	**type**\:   :py:class:`RsvpProcRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcRoleEnum>`
             
             
 
@@ -54430,12 +54926,16 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -54444,15 +54944,17 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -54460,6 +54962,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -54526,12 +55030,16 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: idt_end_time
                 
                 	IDT end timestamp in seconds
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: idt_start_time
                 
@@ -54540,15 +55048,17 @@ class Rsvp(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: not_ready_reason
                 
                 	Not ready reason
-                	**type**\:  :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
+                	**type**\:   :py:class:`RsvpProcNsrNotReadyReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpProcNsrNotReadyReasonEnum>`
                 
                 .. attribute:: sync_status
                 
                 	Sync status
-                	**type**\:  :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
+                	**type**\:   :py:class:`RsvpSyncStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSyncStatusEnum>`
                 
                 .. attribute:: withdraw_time
                 
@@ -54556,6 +55066,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -54781,7 +55293,7 @@ class Rsvp(object):
         .. attribute:: frr
         
         	Detailed info for a single Fast Re\-route state
-        	**type**\: list of  :py:class:`Frr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr>`
+        	**type**\: list of    :py:class:`Frr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr>`
         
         
 
@@ -54832,7 +55344,7 @@ class Rsvp(object):
             .. attribute:: path_status
             
             	RSVP FRR Path States
-            	**type**\:  :py:class:`RsvpMgmtFrrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFrrStateEnumEnum>`
+            	**type**\:   :py:class:`RsvpMgmtFrrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFrrStateEnumEnum>`
             
             .. attribute:: protocol
             
@@ -54844,22 +55356,22 @@ class Rsvp(object):
             .. attribute:: reservation_status
             
             	RSVP FRR Reservation States
-            	**type**\:  :py:class:`RsvpMgmtFrrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFrrStateEnumEnum>`
+            	**type**\:   :py:class:`RsvpMgmtFrrStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFrrStateEnumEnum>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -54931,7 +55443,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession>`
                 
                 
 
@@ -54953,27 +55465,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.Frrs.Frr.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -55459,7 +55971,7 @@ class Rsvp(object):
         .. attribute:: request_brief
         
         	Brief info for a request
-        	**type**\: list of  :py:class:`RequestBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief>`
+        	**type**\: list of    :py:class:`RequestBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief>`
         
         
 
@@ -55503,17 +56015,17 @@ class Rsvp(object):
             .. attribute:: filter
             
             	RSVP Filter
-            	**type**\:  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Filter>`
+            	**type**\:   :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Filter>`
             
             .. attribute:: flow_spec
             
             	Flow Spec Information
-            	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.FlowSpec>`
+            	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.FlowSpec>`
             
             .. attribute:: generic_flow_spec
             
             	Generic Flow Spec Information
-            	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec>`
+            	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec>`
             
             .. attribute:: output_interface
             
@@ -55537,17 +56049,17 @@ class Rsvp(object):
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -55566,7 +56078,7 @@ class Rsvp(object):
             .. attribute:: style
             
             	RSVP Style
-            	**type**\:  :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Style>`
+            	**type**\:   :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Style>`
             
             .. attribute:: sub_group_id
             
@@ -55631,7 +56143,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession>`
                 
                 
 
@@ -55653,27 +56165,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -56075,6 +56587,8 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
@@ -56103,10 +56617,12 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_qos
                 
                 	The Flow Quality of Service
-                	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                 
                 .. attribute:: flow_requested_rate
                 
@@ -56114,6 +56630,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 .. attribute:: flow_slack
                 
@@ -56191,12 +56709,12 @@ class Rsvp(object):
                 .. attribute:: flow_spec_type
                 
                 	FlowSpecType
-                	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                 
                 .. attribute:: g709otn_flow_spec
                 
                 	G709 OTN FlowSpec
-                	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec>`
+                	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.GenericFlowSpec.G709OtnFlowSpec>`
                 
                 
 
@@ -56322,7 +56840,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter>`
                 
                 
 
@@ -56344,17 +56862,17 @@ class Rsvp(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestBriefs.RequestBrief.Filter.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -56563,7 +57081,7 @@ class Rsvp(object):
                 .. attribute:: reservation_type
                 
                 	The Reservation Type\: WF, SE or FF
-                	**type**\:  :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
                 
                 
 
@@ -56703,7 +57221,7 @@ class Rsvp(object):
         .. attribute:: request_detail
         
         	Detail info for a request
-        	**type**\: list of  :py:class:`RequestDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail>`
+        	**type**\: list of    :py:class:`RequestDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail>`
         
         
 
@@ -56747,27 +57265,27 @@ class Rsvp(object):
             .. attribute:: filter
             
             	RSVP Filter
-            	**type**\:  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Filter>`
+            	**type**\:   :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Filter>`
             
             .. attribute:: flow_spec
             
             	Flow Spec Information
-            	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.FlowSpec>`
+            	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.FlowSpec>`
             
             .. attribute:: generic_flow_spec
             
             	Generic Flow Spec Information
-            	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.GenericFlowSpec>`
+            	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.GenericFlowSpec>`
             
             .. attribute:: header
             
             	RSVP Header Information
-            	**type**\:  :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Header>`
+            	**type**\:   :py:class:`Header <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Header>`
             
             .. attribute:: hop
             
             	Hop Infomation
-            	**type**\:  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Hop>`
+            	**type**\:   :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Hop>`
             
             .. attribute:: output_interface
             
@@ -56784,17 +57302,17 @@ class Rsvp(object):
             .. attribute:: policy_flags
             
             	RSVP Policy Flags
-            	**type**\:  :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.PolicyFlags>`
+            	**type**\:   :py:class:`PolicyFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.PolicyFlags>`
             
             .. attribute:: policy_query_flags
             
             	RSVP Query Flags
-            	**type**\:  :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.PolicyQueryFlags>`
+            	**type**\:   :py:class:`PolicyQueryFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.PolicyQueryFlags>`
             
             .. attribute:: policy_sources
             
             	RSVP Policy Sources
-            	**type**\:  :py:class:`PolicySources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.PolicySources>`
+            	**type**\:   :py:class:`PolicySources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.PolicySources>`
             
             .. attribute:: protocol
             
@@ -56806,32 +57324,32 @@ class Rsvp(object):
             .. attribute:: psb_key
             
             	List of RSB keys
-            	**type**\: list of  :py:class:`PsbKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.PsbKey>`
+            	**type**\: list of    :py:class:`PsbKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.PsbKey>`
             
             .. attribute:: req_flags
             
             	Request flags
-            	**type**\:  :py:class:`ReqFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.ReqFlags>`
+            	**type**\:   :py:class:`ReqFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.ReqFlags>`
             
             .. attribute:: rsb_key
             
             	List of RSB keys
-            	**type**\: list of  :py:class:`RsbKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.RsbKey>`
+            	**type**\: list of    :py:class:`RsbKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.RsbKey>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -56850,7 +57368,7 @@ class Rsvp(object):
             .. attribute:: style
             
             	RSVP Style
-            	**type**\:  :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Style>`
+            	**type**\:   :py:class:`Style <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Style>`
             
             .. attribute:: sub_group_id
             
@@ -56933,7 +57451,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession>`
                 
                 
 
@@ -56955,27 +57473,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -57377,6 +57895,8 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_max_burst
                 
                 	The Flow Maximum Burst
@@ -57405,10 +57925,12 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: flow_qos
                 
                 	The Flow Quality of Service
-                	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                 
                 .. attribute:: flow_requested_rate
                 
@@ -57416,6 +57938,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 .. attribute:: flow_slack
                 
@@ -57493,12 +58017,12 @@ class Rsvp(object):
                 .. attribute:: flow_spec_type
                 
                 	FlowSpecType
-                	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                 
                 .. attribute:: g709otn_flow_spec
                 
                 	G709 OTN FlowSpec
-                	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec>`
+                	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.GenericFlowSpec.G709OtnFlowSpec>`
                 
                 
 
@@ -57624,7 +58148,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter>`
                 
                 
 
@@ -57646,17 +58170,17 @@ class Rsvp(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.RequestDetails.RequestDetail.Filter.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -57865,7 +58389,7 @@ class Rsvp(object):
                 .. attribute:: reservation_type
                 
                 	The Reservation Type\: WF, SE or FF
-                	**type**\:  :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
+                	**type**\:   :py:class:`RsvpMgmtReservationTypeEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtReservationTypeEnumEnum>`
                 
                 
 
@@ -58469,7 +58993,7 @@ class Rsvp(object):
                 .. attribute:: session_type
                 
                 	Session Type (e.g. LSP, OUNI or UDP)
-                	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                 
                 .. attribute:: source_address
                 
@@ -58622,7 +59146,7 @@ class Rsvp(object):
                 .. attribute:: session_type
                 
                 	Session Type (e.g. LSP, OUNI or UDP)
-                	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                 
                 .. attribute:: source_address
                 
@@ -58859,7 +59383,7 @@ class Rsvp(object):
         .. attribute:: interface_brief
         
         	Brief info about an RSVP\-enabled interface
-        	**type**\: list of  :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs.InterfaceBrief>`
+        	**type**\: list of    :py:class:`InterfaceBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs.InterfaceBrief>`
         
         
 
@@ -58889,7 +59413,7 @@ class Rsvp(object):
             .. attribute:: bandwidth_information
             
             	Interface bandwidth information
-            	**type**\:  :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs.InterfaceBrief.BandwidthInformation>`
+            	**type**\:   :py:class:`BandwidthInformation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs.InterfaceBrief.BandwidthInformation>`
             
             .. attribute:: interface_name_xr
             
@@ -58918,17 +59442,17 @@ class Rsvp(object):
                 .. attribute:: dste_mode
                 
                 	DSTEMode
-                	**type**\:  :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
+                	**type**\:   :py:class:`RsvpMgmtDsteModesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtDsteModesEnum>`
                 
                 .. attribute:: pre_standard_dste_interface
                 
                 	Prestandard DSTE interface information
-                	**type**\:  :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs.InterfaceBrief.BandwidthInformation.PreStandardDsteInterface>`
+                	**type**\:   :py:class:`PreStandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs.InterfaceBrief.BandwidthInformation.PreStandardDsteInterface>`
                 
                 .. attribute:: standard_dste_interface
                 
                 	Standard DSTE interface information
-                	**type**\:  :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs.InterfaceBrief.BandwidthInformation.StandardDsteInterface>`
+                	**type**\:   :py:class:`StandardDsteInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.InterfaceBriefs.InterfaceBrief.BandwidthInformation.StandardDsteInterface>`
                 
                 
 
@@ -58957,6 +59481,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -58974,6 +59500,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
@@ -58981,12 +59509,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_subpool_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in subpool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -59055,6 +59587,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: is_max_bandwidth_absolute
                     
                     	True if the Max B/W is an absolute value and false if its a percentage
@@ -59077,12 +59611,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_flow_bandwidth
                     
                     	Max bandwidth (bits per second) allowed per flow
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: max_pool0_bandwidth
                     
@@ -59091,12 +59629,16 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: max_pool1_bandwidth
                     
                     	Max bandwidth (bits per second) allowed in BC1 pool
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     
 
@@ -59253,7 +59795,7 @@ class Rsvp(object):
         .. attribute:: session_detailed
         
         	Detailed info about session
-        	**type**\: list of  :py:class:`SessionDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed>`
+        	**type**\: list of    :py:class:`SessionDetailed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed>`
         
         
 
@@ -59276,7 +59818,7 @@ class Rsvp(object):
             .. attribute:: compact
             
             	Compact session data
-            	**type**\:  :py:class:`Compact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact>`
+            	**type**\:   :py:class:`Compact <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact>`
             
             .. attribute:: destination_address
             
@@ -59316,17 +59858,17 @@ class Rsvp(object):
             .. attribute:: psb_rsb_info
             
             	Path and Reservation Info
-            	**type**\: list of  :py:class:`PsbRsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo>`
+            	**type**\: list of    :py:class:`PsbRsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo>`
             
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.S2LSubLsp>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: vrf_name
             
@@ -59395,7 +59937,7 @@ class Rsvp(object):
                 .. attribute:: session
                 
                 	RSVP Session Information
-                	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session>`
+                	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session>`
                 
                 
 
@@ -59421,7 +59963,7 @@ class Rsvp(object):
                     .. attribute:: rsvp_session
                     
                     	RSVP Session
-                    	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession>`
+                    	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession>`
                     
                     
 
@@ -59443,27 +59985,27 @@ class Rsvp(object):
                         .. attribute:: ipv4
                         
                         	UDP IPv4 session
-                        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4>`
+                        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4>`
                         
                         .. attribute:: ipv4_lsp_session
                         
                         	IPv4 LSP session
-                        	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4LspSession>`
+                        	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4LspSession>`
                         
                         .. attribute:: ipv4_p2mp_lsp_session
                         
                         	IPv4 P2MP LSP session
-                        	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession>`
+                        	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4P2MpLspSession>`
                         
                         .. attribute:: ipv4_uni_session
                         
                         	IPv4 UNI session
-                        	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4UniSession>`
+                        	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.Compact.Session.RsvpSession.Ipv4UniSession>`
                         
                         .. attribute:: session_type
                         
                         	SessionType
-                        	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                         
                         
 
@@ -59895,12 +60437,12 @@ class Rsvp(object):
                 .. attribute:: psb_info
                 
                 	Path Info
-                	**type**\: list of  :py:class:`PsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo>`
+                	**type**\: list of    :py:class:`PsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo>`
                 
                 .. attribute:: rsb_info
                 
                 	Reservation Info
-                	**type**\: list of  :py:class:`RsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo>`
+                	**type**\: list of    :py:class:`RsbInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo>`
                 
                 
 
@@ -59926,7 +60468,7 @@ class Rsvp(object):
                     .. attribute:: association
                     
                     	Association object
-                    	**type**\:  :py:class:`Association <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association>`
+                    	**type**\:   :py:class:`Association <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association>`
                     
                     .. attribute:: destination_address
                     
@@ -59938,17 +60480,17 @@ class Rsvp(object):
                     .. attribute:: ero
                     
                     	Explicit Route Sub Objects
-                    	**type**\: list of  :py:class:`Ero <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero>`
+                    	**type**\: list of    :py:class:`Ero <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero>`
                     
                     .. attribute:: generic_in_label
                     
                     	Generic Label for inbound traffic
-                    	**type**\:  :py:class:`GenericInLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel>`
+                    	**type**\:   :py:class:`GenericInLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel>`
                     
                     .. attribute:: generic_traffic_spec
                     
                     	Generic Traffic Spec object
-                    	**type**\:  :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec>`
+                    	**type**\:   :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec>`
                     
                     .. attribute:: in_interface
                     
@@ -60020,17 +60562,17 @@ class Rsvp(object):
                     .. attribute:: protection
                     
                     	Protection object
-                    	**type**\:  :py:class:`Protection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection>`
+                    	**type**\:   :py:class:`Protection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection>`
                     
                     .. attribute:: reverse_lsp
                     
                     	Reverse LSP object
-                    	**type**\:  :py:class:`ReverseLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp>`
+                    	**type**\:   :py:class:`ReverseLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp>`
                     
                     .. attribute:: rro
                     
                     	Record Route Sub Objects
-                    	**type**\: list of  :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro>`
+                    	**type**\: list of    :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro>`
                     
                     .. attribute:: sub_group_id
                     
@@ -60042,7 +60584,7 @@ class Rsvp(object):
                     .. attribute:: traffic_spec
                     
                     	Traffic Spec object
-                    	**type**\:  :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.TrafficSpec>`
+                    	**type**\:   :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.TrafficSpec>`
                     
                     .. attribute:: tunnel_name
                     
@@ -60099,12 +60641,12 @@ class Rsvp(object):
                         .. attribute:: generalized_label
                         
                         	Generalized Label
-                        	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel.GeneralizedLabel>`
+                        	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericInLabel.GeneralizedLabel>`
                         
                         .. attribute:: generic_label_type
                         
                         	GenericLabelType
-                        	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                         
                         
 
@@ -60205,6 +60747,8 @@ class Rsvp(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte/s
+                        
                         .. attribute:: traffic_max_burst
                         
                         	Traffic Maximum Burst
@@ -60232,6 +60776,8 @@ class Rsvp(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte/s
                         
                         
 
@@ -60290,17 +60836,17 @@ class Rsvp(object):
                         .. attribute:: g709otn_tspec
                         
                         	G709 OTN Sender Tspec
-                        	**type**\:  :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec>`
+                        	**type**\:   :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.G709OtnTspec>`
                         
                         .. attribute:: intsrv_tspec
                         
                         	Integrated Services Sender Tspec
-                        	**type**\:  :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.IntsrvTspec>`
+                        	**type**\:   :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.GenericTrafficSpec.IntsrvTspec>`
                         
                         .. attribute:: tspec_type
                         
                         	TspecType
-                        	**type**\:  :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
                         
                         
 
@@ -60407,6 +60953,8 @@ class Rsvp(object):
                             
                             	**range:** 0..18446744073709551615
                             
+                            	**units**\: byte/s
+                            
                             .. attribute:: traffic_max_burst
                             
                             	Traffic Maximum Burst
@@ -60434,6 +60982,8 @@ class Rsvp(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte/s
                             
                             
 
@@ -60520,27 +61070,27 @@ class Rsvp(object):
                         .. attribute:: association_type
                         
                         	AssociationType
-                        	**type**\:  :py:class:`RsvpMgmtAssociationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAssociationEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtAssociationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtAssociationEnum>`
                         
                         .. attribute:: extended_ipv4
                         
                         	EXTENDED IPV4 ASSOCIATION Object
-                        	**type**\:  :py:class:`ExtendedIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv4>`
+                        	**type**\:   :py:class:`ExtendedIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv4>`
                         
                         .. attribute:: extended_ipv6
                         
                         	EXTENDED IPV6 ASSOCIATION Object
-                        	**type**\:  :py:class:`ExtendedIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv6>`
+                        	**type**\:   :py:class:`ExtendedIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.ExtendedIpv6>`
                         
                         .. attribute:: ipv4
                         
                         	IPV4 ASSOCIATION Object
-                        	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv4>`
+                        	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv4>`
                         
                         .. attribute:: ipv6
                         
                         	IPV6 ASSOCIATION Object
-                        	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv6>`
+                        	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Association.Ipv6>`
                         
                         
 
@@ -60923,12 +61473,12 @@ class Rsvp(object):
                         .. attribute:: link_flags
                         
                         	PROTECTION Object Link Flags
-                        	**type**\:  :py:class:`LinkFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LinkFlags>`
+                        	**type**\:   :py:class:`LinkFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LinkFlags>`
                         
                         .. attribute:: lsp_flags
                         
                         	PROTECTION Object LSP Flags
-                        	**type**\:  :py:class:`LspFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LspFlags>`
+                        	**type**\:   :py:class:`LspFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Protection.LspFlags>`
                         
                         .. attribute:: n
                         
@@ -61198,17 +61748,17 @@ class Rsvp(object):
                         .. attribute:: ero
                         
                         	Explicit Route Sub Objects
-                        	**type**\: list of  :py:class:`Ero <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero>`
+                        	**type**\: list of    :py:class:`Ero <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero>`
                         
                         .. attribute:: generic_traffic_spec
                         
                         	Generic Traffic Spec object
-                        	**type**\:  :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec>`
+                        	**type**\:   :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec>`
                         
                         .. attribute:: unsup_sub_object
                         
                         	Unsupported REVERSE\_LSP Sub Objects
-                        	**type**\: list of  :py:class:`UnsupSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.UnsupSubObject>`
+                        	**type**\: list of    :py:class:`UnsupSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.UnsupSubObject>`
                         
                         
 
@@ -61236,17 +61786,17 @@ class Rsvp(object):
                             .. attribute:: g709otn_tspec
                             
                             	G709 OTN Sender Tspec
-                            	**type**\:  :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec>`
+                            	**type**\:   :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.G709OtnTspec>`
                             
                             .. attribute:: intsrv_tspec
                             
                             	Integrated Services Sender Tspec
-                            	**type**\:  :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.IntsrvTspec>`
+                            	**type**\:   :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.GenericTrafficSpec.IntsrvTspec>`
                             
                             .. attribute:: tspec_type
                             
                             	TspecType
-                            	**type**\:  :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
+                            	**type**\:   :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
                             
                             
 
@@ -61353,6 +61903,8 @@ class Rsvp(object):
                                 
                                 	**range:** 0..18446744073709551615
                                 
+                                	**units**\: byte/s
+                                
                                 .. attribute:: traffic_max_burst
                                 
                                 	Traffic Maximum Burst
@@ -61380,6 +61932,8 @@ class Rsvp(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..18446744073709551615
+                                
+                                	**units**\: byte/s
                                 
                                 
 
@@ -61466,17 +62020,17 @@ class Rsvp(object):
                             .. attribute:: ero_type
                             
                             	EROType
-                            	**type**\:  :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
+                            	**type**\:   :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
                             
                             .. attribute:: ipv4ero_sub_object
                             
                             	IPV4 ERO Sub Object
-                            	**type**\:  :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject>`
+                            	**type**\:   :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.Ipv4EroSubObject>`
                             
                             .. attribute:: unnumbered_ero_sub_object
                             
                             	Unnumbered ERO Sub Object
-                            	**type**\:  :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.UnnumberedEroSubObject>`
+                            	**type**\:   :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.ReverseLsp.Ero.UnnumberedEroSubObject>`
                             
                             
 
@@ -61585,7 +62139,7 @@ class Rsvp(object):
                                 .. attribute:: status
                                 
                                 	Status of ERO
-                                	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                                	**type**\:   :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
                                 
                                 
 
@@ -61749,17 +62303,17 @@ class Rsvp(object):
                         .. attribute:: ero_type
                         
                         	EROType
-                        	**type**\:  :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtEroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjEnum>`
                         
                         .. attribute:: ipv4ero_sub_object
                         
                         	IPV4 ERO Sub Object
-                        	**type**\:  :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject>`
+                        	**type**\:   :py:class:`Ipv4EroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.Ipv4EroSubObject>`
                         
                         .. attribute:: unnumbered_ero_sub_object
                         
                         	Unnumbered ERO Sub Object
-                        	**type**\:  :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.UnnumberedEroSubObject>`
+                        	**type**\:   :py:class:`UnnumberedEroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Ero.UnnumberedEroSubObject>`
                         
                         
 
@@ -61868,7 +62422,7 @@ class Rsvp(object):
                             .. attribute:: status
                             
                             	Status of ERO
-                            	**type**\:  :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
+                            	**type**\:   :py:class:`RsvpMgmtEroSubobjStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtEroSubobjStatusEnum>`
                             
                             
 
@@ -61951,27 +62505,27 @@ class Rsvp(object):
                         .. attribute:: ipv4rro_sub_object
                         
                         	IPV4 RRO Sub Object
-                        	**type**\:  :py:class:`Ipv4RroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject>`
+                        	**type**\:   :py:class:`Ipv4RroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject>`
                         
                         .. attribute:: label_rro_sub_object
                         
                         	Label RRO Sub Object
-                        	**type**\:  :py:class:`LabelRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject>`
+                        	**type**\:   :py:class:`LabelRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject>`
                         
                         .. attribute:: rro_type
                         
                         	RROType
-                        	**type**\:  :py:class:`RsvpMgmtRroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRroSubobjEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtRroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRroSubobjEnum>`
                         
                         .. attribute:: srlg_rro_sub_object
                         
                         	SRLG RRO Sub Object
-                        	**type**\:  :py:class:`SrlgRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.SrlgRroSubObject>`
+                        	**type**\:   :py:class:`SrlgRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.SrlgRroSubObject>`
                         
                         .. attribute:: unnumbered_rro_sub_object
                         
                         	Unnumbered RRO Sub Object
-                        	**type**\:  :py:class:`UnnumberedRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject>`
+                        	**type**\:   :py:class:`UnnumberedRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject>`
                         
                         
 
@@ -62000,7 +62554,7 @@ class Rsvp(object):
                             .. attribute:: flags
                             
                             	The RRO IPV4 Subobject Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.Ipv4RroSubObject.Flags>`
                             
                             .. attribute:: rro_address
                             
@@ -62134,7 +62688,7 @@ class Rsvp(object):
                             .. attribute:: flags
                             
                             	The RRO Subobject Label Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.LabelRroSubObject.Flags>`
                             
                             .. attribute:: is_label_variable_length
                             
@@ -62256,7 +62810,7 @@ class Rsvp(object):
                             .. attribute:: flags
                             
                             	The RRO Subobject Unnumbered Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.PsbInfo.Rro.UnnumberedRroSubObject.Flags>`
                             
                             .. attribute:: interface_address
                             
@@ -62594,17 +63148,17 @@ class Rsvp(object):
                     .. attribute:: flow_spec
                     
                     	Flow spec object
-                    	**type**\:  :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.FlowSpec>`
+                    	**type**\:   :py:class:`FlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.FlowSpec>`
                     
                     .. attribute:: generic_flow_spec
                     
                     	Generic Flow Spec object
-                    	**type**\:  :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec>`
+                    	**type**\:   :py:class:`GenericFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec>`
                     
                     .. attribute:: generic_out_label
                     
                     	Generic Label for outbound traffic
-                    	**type**\:  :py:class:`GenericOutLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel>`
+                    	**type**\:   :py:class:`GenericOutLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel>`
                     
                     .. attribute:: is_flow_spec_valid
                     
@@ -62638,7 +63192,7 @@ class Rsvp(object):
                     .. attribute:: rro
                     
                     	Record route object
-                    	**type**\: list of  :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro>`
+                    	**type**\: list of    :py:class:`Rro <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro>`
                     
                     
 
@@ -62675,12 +63229,12 @@ class Rsvp(object):
                         .. attribute:: generalized_label
                         
                         	Generalized Label
-                        	**type**\:  :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel.GeneralizedLabel>`
+                        	**type**\:   :py:class:`GeneralizedLabel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericOutLabel.GeneralizedLabel>`
                         
                         .. attribute:: generic_label_type
                         
                         	GenericLabelType
-                        	**type**\:  :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtGenericLabelEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtGenericLabelEnum>`
                         
                         
 
@@ -62781,6 +63335,8 @@ class Rsvp(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte/s
+                        
                         .. attribute:: flow_max_burst
                         
                         	The Flow Maximum Burst
@@ -62809,10 +63365,12 @@ class Rsvp(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte/s
+                        
                         .. attribute:: flow_qos
                         
                         	The Flow Quality of Service
-                        	**type**\:  :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtQosServiceEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtQosServiceEnumEnum>`
                         
                         .. attribute:: flow_requested_rate
                         
@@ -62820,6 +63378,8 @@ class Rsvp(object):
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte/s
                         
                         .. attribute:: flow_slack
                         
@@ -62897,12 +63457,12 @@ class Rsvp(object):
                         .. attribute:: flow_spec_type
                         
                         	FlowSpecType
-                        	**type**\:  :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtFlowSpecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFlowSpecEnum>`
                         
                         .. attribute:: g709otn_flow_spec
                         
                         	G709 OTN FlowSpec
-                        	**type**\:  :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec>`
+                        	**type**\:   :py:class:`G709OtnFlowSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.GenericFlowSpec.G709OtnFlowSpec>`
                         
                         
 
@@ -63028,27 +63588,27 @@ class Rsvp(object):
                         .. attribute:: ipv4rro_sub_object
                         
                         	IPV4 RRO Sub Object
-                        	**type**\:  :py:class:`Ipv4RroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject>`
+                        	**type**\:   :py:class:`Ipv4RroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject>`
                         
                         .. attribute:: label_rro_sub_object
                         
                         	Label RRO Sub Object
-                        	**type**\:  :py:class:`LabelRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject>`
+                        	**type**\:   :py:class:`LabelRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject>`
                         
                         .. attribute:: rro_type
                         
                         	RROType
-                        	**type**\:  :py:class:`RsvpMgmtRroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRroSubobjEnum>`
+                        	**type**\:   :py:class:`RsvpMgmtRroSubobjEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRroSubobjEnum>`
                         
                         .. attribute:: srlg_rro_sub_object
                         
                         	SRLG RRO Sub Object
-                        	**type**\:  :py:class:`SrlgRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.SrlgRroSubObject>`
+                        	**type**\:   :py:class:`SrlgRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.SrlgRroSubObject>`
                         
                         .. attribute:: unnumbered_rro_sub_object
                         
                         	Unnumbered RRO Sub Object
-                        	**type**\:  :py:class:`UnnumberedRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject>`
+                        	**type**\:   :py:class:`UnnumberedRroSubObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject>`
                         
                         
 
@@ -63077,7 +63637,7 @@ class Rsvp(object):
                             .. attribute:: flags
                             
                             	The RRO IPV4 Subobject Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.Ipv4RroSubObject.Flags>`
                             
                             .. attribute:: rro_address
                             
@@ -63211,7 +63771,7 @@ class Rsvp(object):
                             .. attribute:: flags
                             
                             	The RRO Subobject Label Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.LabelRroSubObject.Flags>`
                             
                             .. attribute:: is_label_variable_length
                             
@@ -63333,7 +63893,7 @@ class Rsvp(object):
                             .. attribute:: flags
                             
                             	The RRO Subobject Unnumbered Flags
-                            	**type**\:  :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject.Flags>`
+                            	**type**\:   :py:class:`Flags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.SessionDetaileds.SessionDetailed.PsbRsbInfo.RsbInfo.Rro.UnnumberedRroSubObject.Flags>`
                             
                             .. attribute:: interface_address
                             
@@ -63722,7 +64282,7 @@ class Rsvp(object):
         .. attribute:: hello_instance_detail
         
         	Detailed info for a single hello instance
-        	**type**\: list of  :py:class:`HelloInstanceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceDetails.HelloInstanceDetail>`
+        	**type**\: list of    :py:class:`HelloInstanceDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceDetails.HelloInstanceDetail>`
         
         
 
@@ -63780,12 +64340,12 @@ class Rsvp(object):
             .. attribute:: communication_lost_reason
             
             	Reason why communication was lost
-            	**type**\:  :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
             
             .. attribute:: communication_lost_time
             
             	Time when communication was lost
-            	**type**\:  :py:class:`CommunicationLostTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceDetails.HelloInstanceDetail.CommunicationLostTime>`
+            	**type**\:   :py:class:`CommunicationLostTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceDetails.HelloInstanceDetail.CommunicationLostTime>`
             
             .. attribute:: communication_lost_wrong_destination_inst
             
@@ -63818,7 +64378,7 @@ class Rsvp(object):
             .. attribute:: hello_instance_owner
             
             	Hello instance owner
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceOwnerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceOwnerEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceOwnerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceOwnerEnum>`
             
             .. attribute:: hello_interface
             
@@ -63858,7 +64418,7 @@ class Rsvp(object):
             .. attribute:: instance_type
             
             	Hello instance type
-            	**type**\:  :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloInstanceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloInstanceEnum>`
             
             .. attribute:: missed_acks_allowed
             
@@ -63870,7 +64430,7 @@ class Rsvp(object):
             .. attribute:: neighbor_hello_state
             
             	Neighbor Hello state
-            	**type**\:  :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
+            	**type**\:   :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
             
             .. attribute:: source_address_xr
             
@@ -63896,7 +64456,7 @@ class Rsvp(object):
             .. attribute:: up_time
             
             	Hello up time
-            	**type**\:  :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceDetails.HelloInstanceDetail.UpTime>`
+            	**type**\:   :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.HelloInstanceDetails.HelloInstanceDetail.UpTime>`
             
             
 
@@ -63946,12 +64506,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -64004,12 +64568,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -64177,7 +64745,7 @@ class Rsvp(object):
         .. attribute:: global_neighbor_detail
         
         	Detail info for a single global neighbor
-        	**type**\: list of  :py:class:`GlobalNeighborDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail>`
+        	**type**\: list of    :py:class:`GlobalNeighborDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail>`
         
         
 
@@ -64207,7 +64775,7 @@ class Rsvp(object):
             .. attribute:: global_neighbor_flags
             
             	Global Neighbor Flags
-            	**type**\:  :py:class:`GlobalNeighborFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.GlobalNeighborFlags>`
+            	**type**\:   :py:class:`GlobalNeighborFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.GlobalNeighborFlags>`
             
             .. attribute:: hello_interval
             
@@ -64215,6 +64783,8 @@ class Rsvp(object):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: millisecond
             
             .. attribute:: interface_neighbor
             
@@ -64248,12 +64818,12 @@ class Rsvp(object):
             .. attribute:: lost_communication_reason
             
             	Reason why communication was lost
-            	**type**\:  list of :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
+            	**type**\:  list of   :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
             
             .. attribute:: lost_communication_time
             
             	Time when communication was lost
-            	**type**\: list of  :py:class:`LostCommunicationTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.LostCommunicationTime>`
+            	**type**\: list of    :py:class:`LostCommunicationTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.LostCommunicationTime>`
             
             .. attribute:: lost_communication_total
             
@@ -64272,7 +64842,7 @@ class Rsvp(object):
             .. attribute:: neighbor_hello_state
             
             	Neighbor's hello state
-            	**type**\:  list of :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
+            	**type**\:  list of   :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
             
             .. attribute:: node_address
             
@@ -64295,20 +64865,22 @@ class Rsvp(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: millisecond
+            
             .. attribute:: recovery_time_left
             
             	How much recovery timer remains
-            	**type**\:  :py:class:`RecoveryTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.RecoveryTimeLeft>`
+            	**type**\:   :py:class:`RecoveryTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.RecoveryTimeLeft>`
             
             .. attribute:: recovery_timer_exp_time
             
             	Time at which recovery timer will expire
-            	**type**\:  :py:class:`RecoveryTimerExpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.RecoveryTimerExpTime>`
+            	**type**\:   :py:class:`RecoveryTimerExpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.RecoveryTimerExpTime>`
             
             .. attribute:: restart_state
             
             	Current restart state
-            	**type**\:  :py:class:`RsvpMgmtRestartStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRestartStateEnum>`
+            	**type**\:   :py:class:`RsvpMgmtRestartStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRestartStateEnum>`
             
             .. attribute:: restart_time
             
@@ -64317,20 +64889,22 @@ class Rsvp(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: millisecond
+            
             .. attribute:: restart_time_left
             
             	How much restart time remains
-            	**type**\:  :py:class:`RestartTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.RestartTimeLeft>`
+            	**type**\:   :py:class:`RestartTimeLeft <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.RestartTimeLeft>`
             
             .. attribute:: restart_timer_expiry_time
             
             	When will restart timer expire
-            	**type**\:  :py:class:`RestartTimerExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.RestartTimerExpiryTime>`
+            	**type**\:   :py:class:`RestartTimerExpiryTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.RestartTimerExpiryTime>`
             
             .. attribute:: up_time
             
             	Hello up time
-            	**type**\: list of  :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.UpTime>`
+            	**type**\: list of    :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborDetails.GlobalNeighborDetail.UpTime>`
             
             
 
@@ -64450,12 +65024,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -64508,12 +65086,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -64566,12 +65148,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -64624,12 +65210,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -64682,12 +65272,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -64740,12 +65334,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -64922,7 +65520,7 @@ class Rsvp(object):
         .. attribute:: psb_brief
         
         	Brief info for a single path state block
-        	**type**\: list of  :py:class:`PsbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief>`
+        	**type**\: list of    :py:class:`PsbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief>`
         
         
 
@@ -64966,7 +65564,7 @@ class Rsvp(object):
             .. attribute:: generic_traffic_spec
             
             	RSVP Generic Traffic Spec Info
-            	**type**\:  :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec>`
+            	**type**\:   :py:class:`GenericTrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec>`
             
             .. attribute:: input_interface
             
@@ -64990,22 +65588,22 @@ class Rsvp(object):
             .. attribute:: s2l_sub_lsp
             
             	RSVP S2L Sub\-LSP information
-            	**type**\:  :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.S2LSubLsp>`
+            	**type**\:   :py:class:`S2LSubLsp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.S2LSubLsp>`
             
             .. attribute:: session
             
             	RSVP Session Information
-            	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session>`
+            	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session>`
             
             .. attribute:: session_attribute
             
             	RSVP Session Attribute
-            	**type**\:  :py:class:`SessionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.SessionAttribute>`
+            	**type**\:   :py:class:`SessionAttribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.SessionAttribute>`
             
             .. attribute:: session_type
             
             	Session Type
-            	**type**\:  :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
+            	**type**\:   :py:class:`RsvpSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpSessionEnum>`
             
             .. attribute:: source_address
             
@@ -65038,12 +65636,12 @@ class Rsvp(object):
             .. attribute:: template
             
             	RSVP Template
-            	**type**\:  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Template>`
+            	**type**\:   :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Template>`
             
             .. attribute:: traffic_spec
             
             	RSVP Traffic Spec Info
-            	**type**\:  :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.TrafficSpec>`
+            	**type**\:   :py:class:`TrafficSpec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.TrafficSpec>`
             
             .. attribute:: vrf_name
             
@@ -65094,7 +65692,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_session
                 
                 	RSVP Session
-                	**type**\:  :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession>`
+                	**type**\:   :py:class:`RsvpSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession>`
                 
                 
 
@@ -65116,27 +65714,27 @@ class Rsvp(object):
                     .. attribute:: ipv4
                     
                     	UDP IPv4 session
-                    	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4>`
+                    	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4>`
                     
                     .. attribute:: ipv4_lsp_session
                     
                     	IPv4 LSP session
-                    	**type**\:  :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4LspSession>`
+                    	**type**\:   :py:class:`Ipv4LspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4LspSession>`
                     
                     .. attribute:: ipv4_p2mp_lsp_session
                     
                     	IPv4 P2MP LSP session
-                    	**type**\:  :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
+                    	**type**\:   :py:class:`Ipv4P2MpLspSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4P2MpLspSession>`
                     
                     .. attribute:: ipv4_uni_session
                     
                     	IPv4 UNI session
-                    	**type**\:  :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4UniSession>`
+                    	**type**\:   :py:class:`Ipv4UniSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Session.RsvpSession.Ipv4UniSession>`
                     
                     .. attribute:: session_type
                     
                     	SessionType
-                    	**type**\:  :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtSessionEnum>`
                     
                     
 
@@ -65534,7 +66132,7 @@ class Rsvp(object):
                 .. attribute:: rsvp_filter
                 
                 	RSVP Filter
-                	**type**\:  :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter>`
+                	**type**\:   :py:class:`RsvpFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter>`
                 
                 
 
@@ -65556,17 +66154,17 @@ class Rsvp(object):
                     .. attribute:: filter_type
                     
                     	FilterType
-                    	**type**\:  :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
+                    	**type**\:   :py:class:`RsvpMgmtFilterEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtFilterEnum>`
                     
                     .. attribute:: p2mp_ipv4_session
                     
                     	IPv4 P2MP LSP FilterSpec
-                    	**type**\:  :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session>`
+                    	**type**\:   :py:class:`P2MpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.P2MpIpv4Session>`
                     
                     .. attribute:: udp_ipv4_session
                     
                     	UDP IPV4 FilterSpec
-                    	**type**\:  :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.UdpIpv4Session>`
+                    	**type**\:   :py:class:`UdpIpv4Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.Template.RsvpFilter.UdpIpv4Session>`
                     
                     
 
@@ -65782,7 +66380,7 @@ class Rsvp(object):
                 .. attribute:: sess_attribute_flags
                 
                 	Session Attributes
-                	**type**\:  :py:class:`SessAttributeFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.SessionAttribute.SessAttributeFlags>`
+                	**type**\:   :py:class:`SessAttributeFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.SessionAttribute.SessAttributeFlags>`
                 
                 .. attribute:: setup_priority
                 
@@ -65924,6 +66522,8 @@ class Rsvp(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte/s
+                
                 .. attribute:: traffic_max_burst
                 
                 	Traffic Maximum Burst
@@ -65951,6 +66551,8 @@ class Rsvp(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte/s
                 
                 
 
@@ -66009,17 +66611,17 @@ class Rsvp(object):
                 .. attribute:: g709otn_tspec
                 
                 	G709 OTN Sender Tspec
-                	**type**\:  :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec>`
+                	**type**\:   :py:class:`G709OtnTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.G709OtnTspec>`
                 
                 .. attribute:: intsrv_tspec
                 
                 	Integrated Services Sender Tspec
-                	**type**\:  :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.IntsrvTspec>`
+                	**type**\:   :py:class:`IntsrvTspec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.PsbBriefs.PsbBrief.GenericTrafficSpec.IntsrvTspec>`
                 
                 .. attribute:: tspec_type
                 
                 	TspecType
-                	**type**\:  :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
+                	**type**\:   :py:class:`RsvpMgmtTspecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtTspecEnum>`
                 
                 
 
@@ -66126,6 +66728,8 @@ class Rsvp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte/s
+                    
                     .. attribute:: traffic_max_burst
                     
                     	Traffic Maximum Burst
@@ -66153,6 +66757,8 @@ class Rsvp(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte/s
                     
                     
 
@@ -66336,7 +66942,7 @@ class Rsvp(object):
         .. attribute:: global_neighbor_brief
         
         	Brief info for a single global neighbor
-        	**type**\: list of  :py:class:`GlobalNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief>`
+        	**type**\: list of    :py:class:`GlobalNeighborBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief>`
         
         
 
@@ -66366,7 +66972,7 @@ class Rsvp(object):
             .. attribute:: global_neighbor_flags
             
             	Global Neighbor Flags
-            	**type**\:  :py:class:`GlobalNeighborFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief.GlobalNeighborFlags>`
+            	**type**\:   :py:class:`GlobalNeighborFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief.GlobalNeighborFlags>`
             
             .. attribute:: is_gr_enabled
             
@@ -66383,12 +66989,12 @@ class Rsvp(object):
             .. attribute:: lost_communication_reason
             
             	Reason why communication was lost
-            	**type**\:  list of :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
+            	**type**\:  list of   :py:class:`RsvpMgmtHelloDownReasonEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloDownReasonEnum>`
             
             .. attribute:: lost_communication_time
             
             	Time when communication was lost
-            	**type**\: list of  :py:class:`LostCommunicationTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief.LostCommunicationTime>`
+            	**type**\: list of    :py:class:`LostCommunicationTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief.LostCommunicationTime>`
             
             .. attribute:: lost_communication_total
             
@@ -66400,7 +67006,7 @@ class Rsvp(object):
             .. attribute:: neighbor_hello_state
             
             	Neighbor Hello state
-            	**type**\:  list of :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
+            	**type**\:  list of   :py:class:`RsvpMgmtHelloStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtHelloStateEnum>`
             
             .. attribute:: node_address
             
@@ -66412,12 +67018,12 @@ class Rsvp(object):
             .. attribute:: restart_state
             
             	Restart state
-            	**type**\:  :py:class:`RsvpMgmtRestartStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRestartStateEnum>`
+            	**type**\:   :py:class:`RsvpMgmtRestartStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.RsvpMgmtRestartStateEnum>`
             
             .. attribute:: up_time
             
             	Time hellos have been up
-            	**type**\: list of  :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief.UpTime>`
+            	**type**\: list of    :py:class:`UpTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_oper.Rsvp.GlobalNeighborBriefs.GlobalNeighborBrief.UpTime>`
             
             
 
@@ -66519,12 +67125,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 
@@ -66577,12 +67187,16 @@ class Rsvp(object):
                 
                 	**range:** \-2147483648..2147483647
                 
+                	**units**\: nanosecond
+                
                 .. attribute:: seconds
                 
                 	Time Value in Seconds
                 	**type**\:  int
                 
                 	**range:** \-2147483648..2147483647
+                
+                	**units**\: second
                 
                 
 

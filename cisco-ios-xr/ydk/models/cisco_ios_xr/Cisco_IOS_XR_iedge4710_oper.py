@@ -31,103 +31,103 @@ class AaaAuthServiceEnum(Enum):
 
     AAA authorization service types
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: LOGIN = 1
+    .. data:: login = 1
 
     	Login
 
-    .. data:: FRAMED = 2
+    .. data:: framed = 2
 
     	Framed
 
-    .. data:: CALLBACK_LOGIN = 3
+    .. data:: callback_login = 3
 
     	Callback login
 
-    .. data:: CALLBACK_FRAMED = 4
+    .. data:: callback_framed = 4
 
     	Callback framed
 
-    .. data:: OUTBOUND = 5
+    .. data:: outbound = 5
 
     	Outbound
 
-    .. data:: ADMINISTRATOR = 6
+    .. data:: administrator = 6
 
     	Administrator
 
-    .. data:: PROMPT = 7
+    .. data:: prompt = 7
 
     	Prompt
 
-    .. data:: AUTHENTICATION_ONLY = 8
+    .. data:: authentication_only = 8
 
     	Authentication only
 
-    .. data:: CALLBACK_NAS_PROMPT = 9
+    .. data:: callback_nas_prompt = 9
 
     	Callback NAS prompt
 
-    .. data:: CALL_CHECK = 10
+    .. data:: call_check = 10
 
     	Call check
 
-    .. data:: CALLBACK_ADMINISTRATOR = 11
+    .. data:: callback_administrator = 11
 
     	Callback administrator
 
-    .. data:: VOICE = 12
+    .. data:: voice = 12
 
     	Voice
 
-    .. data:: FAX = 13
+    .. data:: fax = 13
 
     	Fax
 
-    .. data:: MODEM_RELAY = 14
+    .. data:: modem_relay = 14
 
     	Modem relay
 
-    .. data:: EAP_OVER_UDP = 15
+    .. data:: eap_over_udp = 15
 
     	EAP over UDP
 
     """
 
-    NONE = 0
+    none = 0
 
-    LOGIN = 1
+    login = 1
 
-    FRAMED = 2
+    framed = 2
 
-    CALLBACK_LOGIN = 3
+    callback_login = 3
 
-    CALLBACK_FRAMED = 4
+    callback_framed = 4
 
-    OUTBOUND = 5
+    outbound = 5
 
-    ADMINISTRATOR = 6
+    administrator = 6
 
-    PROMPT = 7
+    prompt = 7
 
-    AUTHENTICATION_ONLY = 8
+    authentication_only = 8
 
-    CALLBACK_NAS_PROMPT = 9
+    callback_nas_prompt = 9
 
-    CALL_CHECK = 10
+    call_check = 10
 
-    CALLBACK_ADMINISTRATOR = 11
+    callback_administrator = 11
 
-    VOICE = 12
+    voice = 12
 
-    FAX = 13
+    fax = 13
 
-    MODEM_RELAY = 14
+    modem_relay = 14
 
-    EAP_OVER_UDP = 15
+    eap_over_udp = 15
 
 
     @staticmethod
@@ -142,175 +142,175 @@ class AaaInterfaceEnum(Enum):
 
     AAA interface types
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: PRIMARY_RATE = 1
+    .. data:: primary_rate = 1
 
     	Primary rate
 
-    .. data:: BASIC_RATE = 2
+    .. data:: basic_rate = 2
 
     	Basic rate
 
-    .. data:: SERIAL = 3
+    .. data:: serial = 3
 
     	Serial
 
-    .. data:: ASYNCHRONOUS = 4
+    .. data:: asynchronous = 4
 
     	Asynchronous
 
-    .. data:: VTY = 5
+    .. data:: vty = 5
 
     	VTY
 
-    .. data:: ATM = 6
+    .. data:: atm = 6
 
     	ATM
 
-    .. data:: ETHERNET = 7
+    .. data:: ethernet = 7
 
     	Ethernet
 
-    .. data:: PPP_OVER_ATM = 8
+    .. data:: ppp_over_atm = 8
 
     	PPP over ATM
 
-    .. data:: PPPOE_OVER_ATM = 9
+    .. data:: pppoe_over_atm = 9
 
     	PPPoE over ATM
 
-    .. data:: PPPOE_OVER_ETHERNET = 10
+    .. data:: pppoe_over_ethernet = 10
 
     	PPPoE over ethernet
 
-    .. data:: PPP_OVER_VLAN = 11
+    .. data:: ppp_over_vlan = 11
 
     	PPP over VLAN
 
-    .. data:: PPP_OVER_QINQ = 12
+    .. data:: ppp_over_qinq = 12
 
     	PPP over Q in Q
 
-    .. data:: V120 = 13
+    .. data:: v120 = 13
 
     	V120
 
-    .. data:: V110 = 14
+    .. data:: v110 = 14
 
     	V110
 
-    .. data:: PIAFS = 15
+    .. data:: piafs = 15
 
     	PHS internet access forum standard
 
-    .. data:: X75 = 16
+    .. data:: x75 = 16
 
     	X75
 
-    .. data:: IP_SEC = 17
+    .. data:: ip_sec = 17
 
     	IP sec
 
-    .. data:: OTHER = 18
+    .. data:: other = 18
 
     	Other
 
-    .. data:: VIRTUAL_PPPOE_OVER_ETHERNET = 19
+    .. data:: virtual_pppoe_over_ethernet = 19
 
     	Virtual PPPoE over ethernet
 
-    .. data:: VIRTUAL_PPPOE_OVER_VLAN = 20
+    .. data:: virtual_pppoe_over_vlan = 20
 
     	Virtual PPPoE over VLAN
 
-    .. data:: VIRTUAL_PPPOE_OVER_QINQ = 21
+    .. data:: virtual_pppoe_over_qinq = 21
 
     	Virtual PPPoE over Q in Q
 
-    .. data:: IPO_E_OVER_ETHERNET = 22
+    .. data:: ipo_e_over_ethernet = 22
 
     	IPoE over ethernet
 
-    .. data:: IPO_E_OVER_VLAN = 23
+    .. data:: ipo_e_over_vlan = 23
 
     	IPoE over VLAN
 
-    .. data:: IPO_E_OVER_QINQ = 24
+    .. data:: ipo_e_over_qinq = 24
 
     	IPoE over Q in Q
 
-    .. data:: VIRTUAL_I_PO_E_OVER_ETHERNET = 25
+    .. data:: virtual_i_po_e_over_ethernet = 25
 
     	Virtual IPoE over ethernet
 
-    .. data:: VIRTUAL_I_PO_E_OVER_VLAN = 26
+    .. data:: virtual_i_po_e_over_vlan = 26
 
     	Virtual IPoE over VLAN
 
-    .. data:: VIRTUAL_I_PO_E_OVER_QINQ = 27
+    .. data:: virtual_i_po_e_over_qinq = 27
 
     	Virtual IPoE over Q in Q
 
     """
 
-    NONE = 0
+    none = 0
 
-    PRIMARY_RATE = 1
+    primary_rate = 1
 
-    BASIC_RATE = 2
+    basic_rate = 2
 
-    SERIAL = 3
+    serial = 3
 
-    ASYNCHRONOUS = 4
+    asynchronous = 4
 
-    VTY = 5
+    vty = 5
 
-    ATM = 6
+    atm = 6
 
-    ETHERNET = 7
+    ethernet = 7
 
-    PPP_OVER_ATM = 8
+    ppp_over_atm = 8
 
-    PPPOE_OVER_ATM = 9
+    pppoe_over_atm = 9
 
-    PPPOE_OVER_ETHERNET = 10
+    pppoe_over_ethernet = 10
 
-    PPP_OVER_VLAN = 11
+    ppp_over_vlan = 11
 
-    PPP_OVER_QINQ = 12
+    ppp_over_qinq = 12
 
-    V120 = 13
+    v120 = 13
 
-    V110 = 14
+    v110 = 14
 
-    PIAFS = 15
+    piafs = 15
 
-    X75 = 16
+    x75 = 16
 
-    IP_SEC = 17
+    ip_sec = 17
 
-    OTHER = 18
+    other = 18
 
-    VIRTUAL_PPPOE_OVER_ETHERNET = 19
+    virtual_pppoe_over_ethernet = 19
 
-    VIRTUAL_PPPOE_OVER_VLAN = 20
+    virtual_pppoe_over_vlan = 20
 
-    VIRTUAL_PPPOE_OVER_QINQ = 21
+    virtual_pppoe_over_qinq = 21
 
-    IPO_E_OVER_ETHERNET = 22
+    ipo_e_over_ethernet = 22
 
-    IPO_E_OVER_VLAN = 23
+    ipo_e_over_vlan = 23
 
-    IPO_E_OVER_QINQ = 24
+    ipo_e_over_qinq = 24
 
-    VIRTUAL_I_PO_E_OVER_ETHERNET = 25
+    virtual_i_po_e_over_ethernet = 25
 
-    VIRTUAL_I_PO_E_OVER_VLAN = 26
+    virtual_i_po_e_over_vlan = 26
 
-    VIRTUAL_I_PO_E_OVER_QINQ = 27
+    virtual_i_po_e_over_qinq = 27
 
 
     @staticmethod
@@ -325,145 +325,145 @@ class AaaTerminateCauseEnum(Enum):
 
     AAA terminate cause types
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: USER_REQUEST = 1
+    .. data:: user_request = 1
 
     	User request
 
-    .. data:: LOST_CARRIER = 2
+    .. data:: lost_carrier = 2
 
     	Lost carrier
 
-    .. data:: LOST_SERVICE = 3
+    .. data:: lost_service = 3
 
     	Lost service
 
-    .. data:: IDLE_TIMEOUT = 4
+    .. data:: idle_timeout = 4
 
     	Idle timeout
 
-    .. data:: SESSION_TIMEOUT = 5
+    .. data:: session_timeout = 5
 
     	Session timeout
 
-    .. data:: ADMIN_RESET = 6
+    .. data:: admin_reset = 6
 
     	Admin reset
 
-    .. data:: ADMIN_REBOOT = 7
+    .. data:: admin_reboot = 7
 
     	Admin reboot
 
-    .. data:: PORT_ERROR = 8
+    .. data:: port_error = 8
 
     	Port error
 
-    .. data:: NAS_ERROR = 9
+    .. data:: nas_error = 9
 
     	NAS error
 
-    .. data:: NAS_REQUEST = 10
+    .. data:: nas_request = 10
 
     	NAS request
 
-    .. data:: NAS_REBOOT = 11
+    .. data:: nas_reboot = 11
 
     	NAS reboot
 
-    .. data:: PORT_UNNEEDED = 12
+    .. data:: port_unneeded = 12
 
     	Port unneeded
 
-    .. data:: PORT_PREEMPTED = 13
+    .. data:: port_preempted = 13
 
     	Port preempted
 
-    .. data:: PORT_SUSPENDED = 14
+    .. data:: port_suspended = 14
 
     	Port suspended
 
-    .. data:: SERVICE_UNAVAILABLE = 15
+    .. data:: service_unavailable = 15
 
     	Service unavailable
 
-    .. data:: CALLBACK = 16
+    .. data:: callback = 16
 
     	Callback
 
-    .. data:: USER_ERROR = 17
+    .. data:: user_error = 17
 
     	User error
 
-    .. data:: HOST_REQUEST = 18
+    .. data:: host_request = 18
 
     	Host request
 
-    .. data:: SUPPLICANT_RESTART = 19
+    .. data:: supplicant_restart = 19
 
     	Supplicant restart
 
-    .. data:: REAUTHORIZATION_FAILURE = 20
+    .. data:: reauthorization_failure = 20
 
     	Reauthorization failure
 
-    .. data:: PORT_REINITIALIZED = 21
+    .. data:: port_reinitialized = 21
 
     	Port reinitialized
 
-    .. data:: ADMIN_DISABLED = 22
+    .. data:: admin_disabled = 22
 
     	Admin disabled
 
     """
 
-    NONE = 0
+    none = 0
 
-    USER_REQUEST = 1
+    user_request = 1
 
-    LOST_CARRIER = 2
+    lost_carrier = 2
 
-    LOST_SERVICE = 3
+    lost_service = 3
 
-    IDLE_TIMEOUT = 4
+    idle_timeout = 4
 
-    SESSION_TIMEOUT = 5
+    session_timeout = 5
 
-    ADMIN_RESET = 6
+    admin_reset = 6
 
-    ADMIN_REBOOT = 7
+    admin_reboot = 7
 
-    PORT_ERROR = 8
+    port_error = 8
 
-    NAS_ERROR = 9
+    nas_error = 9
 
-    NAS_REQUEST = 10
+    nas_request = 10
 
-    NAS_REBOOT = 11
+    nas_reboot = 11
 
-    PORT_UNNEEDED = 12
+    port_unneeded = 12
 
-    PORT_PREEMPTED = 13
+    port_preempted = 13
 
-    PORT_SUSPENDED = 14
+    port_suspended = 14
 
-    SERVICE_UNAVAILABLE = 15
+    service_unavailable = 15
 
-    CALLBACK = 16
+    callback = 16
 
-    USER_ERROR = 17
+    user_error = 17
 
-    HOST_REQUEST = 18
+    host_request = 18
 
-    SUPPLICANT_RESTART = 19
+    supplicant_restart = 19
 
-    REAUTHORIZATION_FAILURE = 20
+    reauthorization_failure = 20
 
-    PORT_REINITIALIZED = 21
+    port_reinitialized = 21
 
-    ADMIN_DISABLED = 22
+    admin_disabled = 22
 
 
     @staticmethod
@@ -478,49 +478,49 @@ class AaaTunnelMediumEnum(Enum):
 
     Tunnel medium types
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	IPv4
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	IPv6
 
-    .. data:: NSAP = 3
+    .. data:: nsap = 3
 
     	NSAP
 
-    .. data:: HDLC = 4
+    .. data:: hdlc = 4
 
     	HDLC
 
-    .. data:: BBN = 5
+    .. data:: bbn = 5
 
     	BBN
 
-    .. data:: ALL802 = 6
+    .. data:: all802 = 6
 
     	ALL 802
 
     """
 
-    NONE = 0
+    none = 0
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
-    NSAP = 3
+    nsap = 3
 
-    HDLC = 4
+    hdlc = 4
 
-    BBN = 5
+    bbn = 5
 
-    ALL802 = 6
+    all802 = 6
 
 
     @staticmethod
@@ -535,91 +535,91 @@ class AaaTunnelProtoEnum(Enum):
 
     Tunnel protocol types
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	None
 
-    .. data:: PPTP = 1
+    .. data:: pptp = 1
 
     	Point-to-point tunneling protocol
 
-    .. data:: L2F = 2
+    .. data:: l2f = 2
 
     	Layer 2 forwarding
 
-    .. data:: L2TP = 3
+    .. data:: l2tp = 3
 
     	Layer 2 tunneling protocol
 
-    .. data:: ATMP = 4
+    .. data:: atmp = 4
 
     	Ascend tunnel management protocol
 
-    .. data:: VTP = 5
+    .. data:: vtp = 5
 
     	VLAN trunk protocol
 
-    .. data:: AH = 6
+    .. data:: ah = 6
 
     	Authentication header
 
-    .. data:: IP_OVER_IP = 7
+    .. data:: ip_over_ip = 7
 
     	IP over IP
 
-    .. data:: MINIMUM_IP_OVER_IP = 8
+    .. data:: minimum_ip_over_ip = 8
 
     	Minimum IP over IP
 
-    .. data:: ESP = 9
+    .. data:: esp = 9
 
     	Encapsulating security payload
 
-    .. data:: GRE = 10
+    .. data:: gre = 10
 
     	Generic routing encapsulation
 
-    .. data:: BAY_DVS = 11
+    .. data:: bay_dvs = 11
 
     	Bay dial virtual services
 
-    .. data:: IP_IN_IP = 12
+    .. data:: ip_in_ip = 12
 
     	IP in IP
 
-    .. data:: VLAN = 13
+    .. data:: vlan = 13
 
     	VLAN
 
     """
 
-    NONE = 0
+    none = 0
 
-    PPTP = 1
+    pptp = 1
 
-    L2F = 2
+    l2f = 2
 
-    L2TP = 3
+    l2tp = 3
 
-    ATMP = 4
+    atmp = 4
 
-    VTP = 5
+    vtp = 5
 
-    AH = 6
+    ah = 6
 
-    IP_OVER_IP = 7
+    ip_over_ip = 7
 
-    MINIMUM_IP_OVER_IP = 8
+    minimum_ip_over_ip = 8
 
-    ESP = 9
+    esp = 9
 
-    GRE = 10
+    gre = 10
 
-    BAY_DVS = 11
+    bay_dvs = 11
 
-    IP_IN_IP = 12
+    ip_in_ip = 12
 
-    VLAN = 13
+    vlan = 13
 
 
     @staticmethod
@@ -634,31 +634,31 @@ class IedgeOperSessionAfStateEnum(Enum):
 
     Subscriber session address family state
 
-    .. data:: NOT_STARTED = 0
+    .. data:: not_started = 0
 
     	Not started
 
-    .. data:: DOWN = 1
+    .. data:: down = 1
 
     	Down
 
-    .. data:: UP_PENDING = 2
+    .. data:: up_pending = 2
 
     	Up Pending
 
-    .. data:: UP = 3
+    .. data:: up = 3
 
     	Up
 
     """
 
-    NOT_STARTED = 0
+    not_started = 0
 
-    DOWN = 1
+    down = 1
 
-    UP_PENDING = 2
+    up_pending = 2
 
-    UP = 3
+    up = 3
 
 
     @staticmethod
@@ -673,37 +673,37 @@ class IedgeOperSessionEnum(Enum):
 
     Subscriber session types
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Unknown
 
-    .. data:: PPPOE = 1
+    .. data:: pppoe = 1
 
     	PPPoE/PPP client
 
-    .. data:: PPP = 2
+    .. data:: ppp = 2
 
     	PPP serial client
 
-    .. data:: IP_PACKET_TRIGGER = 3
+    .. data:: ip_packet_trigger = 3
 
     	IP subscriber - packet trigger
 
-    .. data:: IP_PACKET_DHCP_TRIGGER = 4
+    .. data:: ip_packet_dhcp_trigger = 4
 
     	IP subscriber - DHCP trigger
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    PPPOE = 1
+    pppoe = 1
 
-    PPP = 2
+    ppp = 2
 
-    IP_PACKET_TRIGGER = 3
+    ip_packet_trigger = 3
 
-    IP_PACKET_DHCP_TRIGGER = 4
+    ip_packet_dhcp_trigger = 4
 
 
     @staticmethod
@@ -718,49 +718,49 @@ class IedgeOperSessionStateEnum(Enum):
 
     Subscriber session states
 
-    .. data:: INITIALIZE = 0
+    .. data:: initialize = 0
 
     	Initialize
 
-    .. data:: CONNECTING = 1
+    .. data:: connecting = 1
 
     	Connecting
 
-    .. data:: CONNECTED = 2
+    .. data:: connected = 2
 
     	Connected
 
-    .. data:: ACTIVATED = 3
+    .. data:: activated = 3
 
     	Activated
 
-    .. data:: IDLE = 4
+    .. data:: idle = 4
 
     	Idle
 
-    .. data:: DISCONNECTING = 5
+    .. data:: disconnecting = 5
 
     	Disconnecting
 
-    .. data:: END = 6
+    .. data:: end = 6
 
     	End
 
     """
 
-    INITIALIZE = 0
+    initialize = 0
 
-    CONNECTING = 1
+    connecting = 1
 
-    CONNECTED = 2
+    connected = 2
 
-    ACTIVATED = 3
+    activated = 3
 
-    IDLE = 4
+    idle = 4
 
-    DISCONNECTING = 5
+    disconnecting = 5
 
-    END = 6
+    end = 6
 
 
     @staticmethod
@@ -775,19 +775,19 @@ class IedgePppSubEnum(Enum):
 
     PPPoE sub types
 
-    .. data:: PTA = 0
+    .. data:: pta = 0
 
     	PPP termination and aggregation
 
-    .. data:: LAC = 1
+    .. data:: lac = 1
 
     	L2TP access controller
 
     """
 
-    PTA = 0
+    pta = 0
 
-    LAC = 1
+    lac = 1
 
 
     @staticmethod
@@ -802,55 +802,55 @@ class SubscriberAddressFamilyFilterFlagEnum(Enum):
 
     Subscriber address family filter flag
 
-    .. data:: IPV4_ONLY = 0
+    .. data:: ipv4_only = 0
 
     	IPv4 only
 
-    .. data:: IPV6_ONLY = 1
+    .. data:: ipv6_only = 1
 
     	IPv6 only
 
-    .. data:: IPV4_ALL = 2
+    .. data:: ipv4_all = 2
 
     	IPv4 all
 
-    .. data:: IPV6_ALL = 3
+    .. data:: ipv6_all = 3
 
     	IPv6 all
 
-    .. data:: DUAL_ALL = 4
+    .. data:: dual_all = 4
 
     	Dual all
 
-    .. data:: DUAL_PART_UP = 5
+    .. data:: dual_part_up = 5
 
     	Dual part up
 
-    .. data:: DUAL_UP = 6
+    .. data:: dual_up = 6
 
     	Dual up
 
-    .. data:: LAC = 7
+    .. data:: lac = 7
 
     	LAC
 
     """
 
-    IPV4_ONLY = 0
+    ipv4_only = 0
 
-    IPV6_ONLY = 1
+    ipv6_only = 1
 
-    IPV4_ALL = 2
+    ipv4_all = 2
 
-    IPV6_ALL = 3
+    ipv6_all = 3
 
-    DUAL_ALL = 4
+    dual_all = 4
 
-    DUAL_PART_UP = 5
+    dual_part_up = 5
 
-    DUAL_UP = 6
+    dual_up = 6
 
-    LAC = 7
+    lac = 7
 
 
     @staticmethod
@@ -865,19 +865,19 @@ class SubscriberAuthenStateFilterFlagEnum(Enum):
 
     Subscriber authen state filter flag
 
-    .. data:: UN_AUTHENTICATED = 0
+    .. data:: un_authenticated = 0
 
     	UnAuthenticated
 
-    .. data:: AUTHENTICATED = 1
+    .. data:: authenticated = 1
 
     	Authenticated
 
     """
 
-    UN_AUTHENTICATED = 0
+    un_authenticated = 0
 
-    AUTHENTICATED = 1
+    authenticated = 1
 
 
     @staticmethod
@@ -892,19 +892,19 @@ class SubscriberAuthorStateFilterFlagEnum(Enum):
 
     Subscriber author state filter flag
 
-    .. data:: UN_AUTHORIZED = 0
+    .. data:: un_authorized = 0
 
     	UnAuthorized
 
-    .. data:: AUTHORIZED = 1
+    .. data:: authorized = 1
 
     	Authorized
 
     """
 
-    UN_AUTHORIZED = 0
+    un_authorized = 0
 
-    AUTHORIZED = 1
+    authorized = 1
 
 
     @staticmethod
@@ -919,49 +919,49 @@ class SubscriberStateFilterFlagEnum(Enum):
 
     Subscriber state filter flag
 
-    .. data:: INITIALIZING = 0
+    .. data:: initializing = 0
 
     	Initializing
 
-    .. data:: CONNECTING = 1
+    .. data:: connecting = 1
 
     	Connecting
 
-    .. data:: CONNECTED = 2
+    .. data:: connected = 2
 
     	Connected
 
-    .. data:: ACTIVATED = 3
+    .. data:: activated = 3
 
     	Activated
 
-    .. data:: IDLE = 4
+    .. data:: idle = 4
 
     	Idle
 
-    .. data:: DISCONNECTING = 5
+    .. data:: disconnecting = 5
 
     	Disconnecting
 
-    .. data:: END = 6
+    .. data:: end = 6
 
     	End
 
     """
 
-    INITIALIZING = 0
+    initializing = 0
 
-    CONNECTING = 1
+    connecting = 1
 
-    CONNECTED = 2
+    connected = 2
 
-    ACTIVATED = 3
+    activated = 3
 
-    IDLE = 4
+    idle = 4
 
-    DISCONNECTING = 5
+    disconnecting = 5
 
-    END = 6
+    end = 6
 
 
     @staticmethod
@@ -978,12 +978,12 @@ class Subscriber(object):
     .. attribute:: manager
     
     	Subscriber manager operational data
-    	**type**\:  :py:class:`Manager <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager>`
+    	**type**\:   :py:class:`Manager <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager>`
     
     .. attribute:: session
     
     	Subscriber session operational data
-    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session>`
+    	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session>`
     
     
 
@@ -1006,7 +1006,7 @@ class Subscriber(object):
         .. attribute:: nodes
         
         	Subscriber manager list of nodes
-        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes>`
+        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes>`
         
         
 
@@ -1028,7 +1028,7 @@ class Subscriber(object):
             .. attribute:: node
             
             	Subscriber manager operational data for a particular node
-            	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node>`
+            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node>`
             
             
 
@@ -1059,7 +1059,7 @@ class Subscriber(object):
                 .. attribute:: statistics
                 
                 	Subscriber manager statistics
-                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics>`
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics>`
                 
                 
 
@@ -1082,17 +1082,17 @@ class Subscriber(object):
                     .. attribute:: aaa
                     
                     	AAA statistics
-                    	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa>`
+                    	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa>`
                     
                     .. attribute:: aggregate_summary
                     
                     	Aggregate summary of statistics
-                    	**type**\:  :py:class:`AggregateSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary>`
+                    	**type**\:   :py:class:`AggregateSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary>`
                     
                     .. attribute:: srg
                     
                     	Geo Redundancy statistics
-                    	**type**\:  :py:class:`Srg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Srg>`
+                    	**type**\:   :py:class:`Srg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Srg>`
                     
                     
 
@@ -1118,52 +1118,52 @@ class Subscriber(object):
                         .. attribute:: accounting
                         
                         	Accounting statistics
-                        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting>`
+                        	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting>`
                         
                         .. attribute:: aggregate_accounting
                         
                         	Aggregate accounting statistics
-                        	**type**\:  :py:class:`AggregateAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting>`
+                        	**type**\:   :py:class:`AggregateAccounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting>`
                         
                         .. attribute:: aggregate_authentication
                         
                         	Aggregate authentication statistics
-                        	**type**\:  :py:class:`AggregateAuthentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication>`
+                        	**type**\:   :py:class:`AggregateAuthentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication>`
                         
                         .. attribute:: aggregate_authorization
                         
                         	Aggregate authorization statistics
-                        	**type**\:  :py:class:`AggregateAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization>`
+                        	**type**\:   :py:class:`AggregateAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization>`
                         
                         .. attribute:: aggregate_change_of_authorization
                         
                         	Aggregate change of authorization (COA) statistics
-                        	**type**\:  :py:class:`AggregateChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization>`
+                        	**type**\:   :py:class:`AggregateChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization>`
                         
                         .. attribute:: aggregate_mobility
                         
                         	Aggregate mobility statistics
-                        	**type**\:  :py:class:`AggregateMobility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility>`
+                        	**type**\:   :py:class:`AggregateMobility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility>`
                         
                         .. attribute:: authentication
                         
                         	Authentication statistics
-                        	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication>`
+                        	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication>`
                         
                         .. attribute:: authorization
                         
                         	Authorization statistics
-                        	**type**\:  :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization>`
+                        	**type**\:   :py:class:`Authorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization>`
                         
                         .. attribute:: change_of_authorization
                         
                         	Change of authorization (COA) statistics
-                        	**type**\:  :py:class:`ChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization>`
+                        	**type**\:   :py:class:`ChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization>`
                         
                         .. attribute:: mobility
                         
                         	Mobility statistics
-                        	**type**\:  :py:class:`Mobility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility>`
+                        	**type**\:   :py:class:`Mobility <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility>`
                         
                         
 
@@ -1210,17 +1210,17 @@ class Subscriber(object):
                             .. attribute:: interim
                             
                             	Interim statistics
-                            	**type**\:  :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim>`
+                            	**type**\:   :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim>`
                             
                             .. attribute:: interim_inflight
                             
                             	Interim inflight details
-                            	**type**\:  :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight>`
+                            	**type**\:   :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight>`
                             
                             .. attribute:: pass_through
                             
                             	Pass\-through statistics
-                            	**type**\:  :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough>`
+                            	**type**\:   :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough>`
                             
                             .. attribute:: policy_plane_errored_requests
                             
@@ -1239,7 +1239,7 @@ class Subscriber(object):
                             .. attribute:: start
                             
                             	Start statistics
-                            	**type**\:  :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start>`
+                            	**type**\:   :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start>`
                             
                             .. attribute:: started_sessions
                             
@@ -1251,7 +1251,7 @@ class Subscriber(object):
                             .. attribute:: stop
                             
                             	Stop statistics
-                            	**type**\:  :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop>`
+                            	**type**\:   :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop>`
                             
                             .. attribute:: stopped_sessions
                             
@@ -1263,7 +1263,7 @@ class Subscriber(object):
                             .. attribute:: update
                             
                             	Update statistics
-                            	**type**\:  :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update>`
+                            	**type**\:   :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update>`
                             
                             
 
@@ -2294,17 +2294,17 @@ class Subscriber(object):
                             .. attribute:: account_logoff
                             
                             	Account logoff request statistics
-                            	**type**\:  :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff>`
+                            	**type**\:   :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff>`
                             
                             .. attribute:: account_logon
                             
                             	Account logon request statistics
-                            	**type**\:  :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon>`
+                            	**type**\:   :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon>`
                             
                             .. attribute:: account_update
                             
                             	Account update request statistics
-                            	**type**\:  :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate>`
+                            	**type**\:   :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate>`
                             
                             .. attribute:: attr_list_retrieve_failure_resps
                             
@@ -2351,7 +2351,7 @@ class Subscriber(object):
                             .. attribute:: service_multi
                             
                             	MA\-CoA Service request statistics
-                            	**type**\:  :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti>`
+                            	**type**\:   :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti>`
                             
                             .. attribute:: service_profile_push_failure_resps
                             
@@ -2363,22 +2363,22 @@ class Subscriber(object):
                             .. attribute:: session_disconnect
                             
                             	Session disconnect request statistics
-                            	**type**\:  :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect>`
+                            	**type**\:   :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect>`
                             
                             .. attribute:: single_service_logoff
                             
                             	Single Service logoff request statistics
-                            	**type**\:  :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff>`
+                            	**type**\:   :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff>`
                             
                             .. attribute:: single_service_logon
                             
                             	Service logon request statistics
-                            	**type**\:  :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon>`
+                            	**type**\:   :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon>`
                             
                             .. attribute:: single_service_modify
                             
                             	Single Service Modify request statistics
-                            	**type**\:  :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify>`
+                            	**type**\:   :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify>`
                             
                             .. attribute:: unknown_account_cmd_resps
                             
@@ -3327,17 +3327,17 @@ class Subscriber(object):
                             .. attribute:: interim
                             
                             	Interim statistics
-                            	**type**\:  :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim>`
+                            	**type**\:   :py:class:`Interim <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim>`
                             
                             .. attribute:: interim_inflight
                             
                             	Interim inflight details
-                            	**type**\:  :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight>`
+                            	**type**\:   :py:class:`InterimInflight <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight>`
                             
                             .. attribute:: pass_through
                             
                             	Pass\-through statistics
-                            	**type**\:  :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough>`
+                            	**type**\:   :py:class:`PassThrough <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough>`
                             
                             .. attribute:: policy_plane_errored_requests
                             
@@ -3356,7 +3356,7 @@ class Subscriber(object):
                             .. attribute:: start
                             
                             	Start statistics
-                            	**type**\:  :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start>`
+                            	**type**\:   :py:class:`Start <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start>`
                             
                             .. attribute:: started_sessions
                             
@@ -3368,7 +3368,7 @@ class Subscriber(object):
                             .. attribute:: stop
                             
                             	Stop statistics
-                            	**type**\:  :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop>`
+                            	**type**\:   :py:class:`Stop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop>`
                             
                             .. attribute:: stopped_sessions
                             
@@ -3380,7 +3380,7 @@ class Subscriber(object):
                             .. attribute:: update
                             
                             	Update statistics
-                            	**type**\:  :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update>`
+                            	**type**\:   :py:class:`Update <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update>`
                             
                             
 
@@ -4164,17 +4164,17 @@ class Subscriber(object):
                             .. attribute:: account_logoff
                             
                             	Account logoff request statistics
-                            	**type**\:  :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff>`
+                            	**type**\:   :py:class:`AccountLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff>`
                             
                             .. attribute:: account_logon
                             
                             	Account logon request statistics
-                            	**type**\:  :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon>`
+                            	**type**\:   :py:class:`AccountLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon>`
                             
                             .. attribute:: account_update
                             
                             	Account update request statistics
-                            	**type**\:  :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate>`
+                            	**type**\:   :py:class:`AccountUpdate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate>`
                             
                             .. attribute:: attr_list_retrieve_failure_resps
                             
@@ -4221,7 +4221,7 @@ class Subscriber(object):
                             .. attribute:: service_multi
                             
                             	MA\-CoA Service request statistics
-                            	**type**\:  :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti>`
+                            	**type**\:   :py:class:`ServiceMulti <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti>`
                             
                             .. attribute:: service_profile_push_failure_resps
                             
@@ -4233,22 +4233,22 @@ class Subscriber(object):
                             .. attribute:: session_disconnect
                             
                             	Session disconnect request statistics
-                            	**type**\:  :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect>`
+                            	**type**\:   :py:class:`SessionDisconnect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect>`
                             
                             .. attribute:: single_service_logoff
                             
                             	Single Service logoff request statistics
-                            	**type**\:  :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff>`
+                            	**type**\:   :py:class:`SingleServiceLogoff <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff>`
                             
                             .. attribute:: single_service_logon
                             
                             	Service logon request statistics
-                            	**type**\:  :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon>`
+                            	**type**\:   :py:class:`SingleServiceLogon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon>`
                             
                             .. attribute:: single_service_modify
                             
                             	Single Service Modify request statistics
-                            	**type**\:  :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify>`
+                            	**type**\:   :py:class:`SingleServiceModify <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify>`
                             
                             .. attribute:: unknown_account_cmd_resps
                             
@@ -5947,7 +5947,7 @@ class Subscriber(object):
         .. attribute:: nodes
         
         	List of subscriber session supported nodes
-        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes>`
+        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes>`
         
         
 
@@ -5969,7 +5969,7 @@ class Subscriber(object):
             .. attribute:: node
             
             	Subscriber session operational data for a particular node
-            	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node>`
+            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node>`
             
             
 
@@ -6000,67 +6000,67 @@ class Subscriber(object):
                 .. attribute:: access_interface_summaries
                 
                 	Summary information filtered by access interface
-                	**type**\:  :py:class:`AccessInterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries>`
+                	**type**\:   :py:class:`AccessInterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries>`
                 
                 .. attribute:: address_family_summaries
                 
                 	Summary information filtered by address family
-                	**type**\:  :py:class:`AddressFamilySummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries>`
+                	**type**\:   :py:class:`AddressFamilySummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries>`
                 
                 .. attribute:: authentication_summaries
                 
                 	Summary information filtered by authentication state
-                	**type**\:  :py:class:`AuthenticationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries>`
+                	**type**\:   :py:class:`AuthenticationSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries>`
                 
                 .. attribute:: author_summaries
                 
                 	Summary information filtered by authorization state
-                	**type**\:  :py:class:`AuthorSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries>`
+                	**type**\:   :py:class:`AuthorSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries>`
                 
                 .. attribute:: interface_summaries
                 
                 	Summary information filtered by interface
-                	**type**\:  :py:class:`InterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries>`
+                	**type**\:   :py:class:`InterfaceSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries>`
                 
                 .. attribute:: ipv4_address_summaries
                 
                 	Summary information filtered by subscriber IPv4 address
-                	**type**\:  :py:class:`Ipv4AddressSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries>`
+                	**type**\:   :py:class:`Ipv4AddressSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries>`
                 
                 .. attribute:: ipv4_address_vrf_summaries
                 
                 	Summary information filtered by IPv4 address and VRF
-                	**type**\:  :py:class:`Ipv4AddressVrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries>`
+                	**type**\:   :py:class:`Ipv4AddressVrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries>`
                 
                 .. attribute:: mac_summaries
                 
                 	Summary information filtered by MAC address
-                	**type**\:  :py:class:`MacSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries>`
+                	**type**\:   :py:class:`MacSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries>`
                 
                 .. attribute:: sessions
                 
                 	IP subscriber sessions
-                	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions>`
+                	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions>`
                 
                 .. attribute:: state_summaries
                 
                 	Summary information filtered by session state
-                	**type**\:  :py:class:`StateSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries>`
+                	**type**\:   :py:class:`StateSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries>`
                 
                 .. attribute:: summary
                 
                 	Subscriber session summary information
-                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary>`
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary>`
                 
                 .. attribute:: username_summaries
                 
                 	Summary information filtered by username
-                	**type**\:  :py:class:`UsernameSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries>`
+                	**type**\:   :py:class:`UsernameSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries>`
                 
                 .. attribute:: vrf_summaries
                 
                 	Summary information filtered by VRF
-                	**type**\:  :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries>`
+                	**type**\:   :py:class:`VrfSummaries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries>`
                 
                 
 
@@ -6108,7 +6108,7 @@ class Subscriber(object):
                     .. attribute:: author_summary
                     
                     	authorization summary
-                    	**type**\: list of  :py:class:`AuthorSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary>`
+                    	**type**\: list of    :py:class:`AuthorSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary>`
                     
                     
 
@@ -6131,17 +6131,17 @@ class Subscriber(object):
                         .. attribute:: author_state  <key>
                         
                         	Authorization state
-                        	**type**\:  :py:class:`SubscriberAuthorStateFilterFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthorStateFilterFlagEnum>`
+                        	**type**\:   :py:class:`SubscriberAuthorStateFilterFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthorStateFilterFlagEnum>`
                         
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr>`
                         
                         
 
@@ -6166,17 +6166,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe>`
                             
                             
 
@@ -6571,17 +6571,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -7001,12 +7001,12 @@ class Subscriber(object):
                     .. attribute:: address_family_xr
                     
                     	Address family summary
-                    	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr>`
+                    	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr>`
                     
                     .. attribute:: state_xr
                     
                     	State summary
-                    	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr>`
+                    	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr>`
                     
                     
 
@@ -7030,17 +7030,17 @@ class Subscriber(object):
                         .. attribute:: ip_subscriber_dhcp
                         
                         	IP subscriber DHCP summary
-                        	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp>`
+                        	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp>`
                         
                         .. attribute:: ip_subscriber_packet
                         
                         	IP subscriber packet summary
-                        	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket>`
+                        	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket>`
                         
                         .. attribute:: pppoe
                         
                         	PPPoE summary
-                        	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe>`
+                        	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe>`
                         
                         
 
@@ -7435,17 +7435,17 @@ class Subscriber(object):
                         .. attribute:: ip_subscriber_dhcp
                         
                         	IP subscriber DHCP summary
-                        	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp>`
+                        	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp>`
                         
                         .. attribute:: ip_subscriber_packet
                         
                         	IP subscriber packet summary
-                        	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket>`
+                        	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket>`
                         
                         .. attribute:: pppoe
                         
                         	PPPoE summary
-                        	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe>`
+                        	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe>`
                         
                         
 
@@ -7834,7 +7834,7 @@ class Subscriber(object):
                     .. attribute:: mac_summary
                     
                     	MAC address summary
-                    	**type**\: list of  :py:class:`MacSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary>`
+                    	**type**\: list of    :py:class:`MacSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary>`
                     
                     
 
@@ -7864,12 +7864,12 @@ class Subscriber(object):
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr>`
                         
                         
 
@@ -7894,17 +7894,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe>`
                             
                             
 
@@ -8299,17 +8299,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -8729,7 +8729,7 @@ class Subscriber(object):
                     .. attribute:: interface_summary
                     
                     	Interface summary
-                    	**type**\: list of  :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary>`
+                    	**type**\: list of    :py:class:`InterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary>`
                     
                     
 
@@ -8759,12 +8759,12 @@ class Subscriber(object):
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr>`
                         
                         
 
@@ -8789,17 +8789,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe>`
                             
                             
 
@@ -9194,17 +9194,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -9625,7 +9625,7 @@ class Subscriber(object):
                     .. attribute:: authentication_summary
                     
                     	authentication summary
-                    	**type**\: list of  :py:class:`AuthenticationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary>`
+                    	**type**\: list of    :py:class:`AuthenticationSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary>`
                     
                     
 
@@ -9648,17 +9648,17 @@ class Subscriber(object):
                         .. attribute:: authentication_state  <key>
                         
                         	Authentication state
-                        	**type**\:  :py:class:`SubscriberAuthenStateFilterFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthenStateFilterFlagEnum>`
+                        	**type**\:   :py:class:`SubscriberAuthenStateFilterFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAuthenStateFilterFlagEnum>`
                         
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr>`
                         
                         
 
@@ -9683,17 +9683,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe>`
                             
                             
 
@@ -10088,17 +10088,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -10518,7 +10518,7 @@ class Subscriber(object):
                     .. attribute:: state_summary
                     
                     	State summary
-                    	**type**\: list of  :py:class:`StateSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary>`
+                    	**type**\: list of    :py:class:`StateSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary>`
                     
                     
 
@@ -10541,17 +10541,17 @@ class Subscriber(object):
                         .. attribute:: state  <key>
                         
                         	Subscriber state
-                        	**type**\:  :py:class:`SubscriberStateFilterFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberStateFilterFlagEnum>`
+                        	**type**\:   :py:class:`SubscriberStateFilterFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberStateFilterFlagEnum>`
                         
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr>`
                         
                         
 
@@ -10576,17 +10576,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe>`
                             
                             
 
@@ -10981,17 +10981,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -11412,7 +11412,7 @@ class Subscriber(object):
                     .. attribute:: ipv4_address_vrf_summary
                     
                     	IPv4 address and VRF summary
-                    	**type**\: list of  :py:class:`Ipv4AddressVrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary>`
+                    	**type**\: list of    :py:class:`Ipv4AddressVrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary>`
                     
                     
 
@@ -11442,12 +11442,12 @@ class Subscriber(object):
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr>`
                         
                         .. attribute:: vrf_name
                         
@@ -11480,17 +11480,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe>`
                             
                             
 
@@ -11885,17 +11885,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -12317,7 +12317,7 @@ class Subscriber(object):
                     .. attribute:: address_family_summary
                     
                     	Address family summary
-                    	**type**\: list of  :py:class:`AddressFamilySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary>`
+                    	**type**\: list of    :py:class:`AddressFamilySummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary>`
                     
                     
 
@@ -12340,17 +12340,17 @@ class Subscriber(object):
                         .. attribute:: address_family  <key>
                         
                         	Address family
-                        	**type**\:  :py:class:`SubscriberAddressFamilyFilterFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAddressFamilyFilterFlagEnum>`
+                        	**type**\:   :py:class:`SubscriberAddressFamilyFilterFlagEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.SubscriberAddressFamilyFilterFlagEnum>`
                         
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr>`
                         
                         
 
@@ -12375,17 +12375,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe>`
                             
                             
 
@@ -12780,17 +12780,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -13210,7 +13210,7 @@ class Subscriber(object):
                     .. attribute:: username_summary
                     
                     	Username summary
-                    	**type**\: list of  :py:class:`UsernameSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary>`
+                    	**type**\: list of    :py:class:`UsernameSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary>`
                     
                     
 
@@ -13240,12 +13240,12 @@ class Subscriber(object):
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr>`
                         
                         
 
@@ -13270,17 +13270,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe>`
                             
                             
 
@@ -13675,17 +13675,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -14106,7 +14106,7 @@ class Subscriber(object):
                     .. attribute:: access_interface_summary
                     
                     	Access interface summary
-                    	**type**\: list of  :py:class:`AccessInterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary>`
+                    	**type**\: list of    :py:class:`AccessInterfaceSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary>`
                     
                     
 
@@ -14136,12 +14136,12 @@ class Subscriber(object):
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr>`
                         
                         
 
@@ -14166,17 +14166,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe>`
                             
                             
 
@@ -14571,17 +14571,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -15002,7 +15002,7 @@ class Subscriber(object):
                     .. attribute:: ipv4_address_summary
                     
                     	IPv4 address summary
-                    	**type**\: list of  :py:class:`Ipv4AddressSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary>`
+                    	**type**\: list of    :py:class:`Ipv4AddressSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary>`
                     
                     
 
@@ -15032,12 +15032,12 @@ class Subscriber(object):
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr>`
                         
                         
 
@@ -15062,17 +15062,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe>`
                             
                             
 
@@ -15467,17 +15467,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -15897,7 +15897,7 @@ class Subscriber(object):
                     .. attribute:: vrf_summary
                     
                     	VRF summary
-                    	**type**\: list of  :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary>`
+                    	**type**\: list of    :py:class:`VrfSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary>`
                     
                     
 
@@ -15927,12 +15927,12 @@ class Subscriber(object):
                         .. attribute:: address_family_xr
                         
                         	Address family summary
-                        	**type**\:  :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr>`
+                        	**type**\:   :py:class:`AddressFamilyXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr>`
                         
                         .. attribute:: state_xr
                         
                         	State summary
-                        	**type**\:  :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr>`
+                        	**type**\:   :py:class:`StateXr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr>`
                         
                         
 
@@ -15957,17 +15957,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe>`
                             
                             
 
@@ -16362,17 +16362,17 @@ class Subscriber(object):
                             .. attribute:: ip_subscriber_dhcp
                             
                             	IP subscriber DHCP summary
-                            	**type**\:  :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp>`
+                            	**type**\:   :py:class:`IpSubscriberDhcp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp>`
                             
                             .. attribute:: ip_subscriber_packet
                             
                             	IP subscriber packet summary
-                            	**type**\:  :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket>`
+                            	**type**\:   :py:class:`IpSubscriberPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket>`
                             
                             .. attribute:: pppoe
                             
                             	PPPoE summary
-                            	**type**\:  :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe>`
+                            	**type**\:   :py:class:`Pppoe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe>`
                             
                             
 
@@ -16792,7 +16792,7 @@ class Subscriber(object):
                     .. attribute:: session
                     
                     	Subscriber session information
-                    	**type**\: list of  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session>`
+                    	**type**\: list of    :py:class:`Session_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_>`
                     
                     
 
@@ -16808,7 +16808,7 @@ class Subscriber(object):
                         self.session.name = 'session'
 
 
-                    class Session(object):
+                    class Session_(object):
                         """
                         Subscriber session information
                         
@@ -16834,7 +16834,7 @@ class Subscriber(object):
                         .. attribute:: accounting
                         
                         	Accounting information
-                        	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.Accounting>`
+                        	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting>`
                         
                         .. attribute:: af_up_status
                         
@@ -16916,7 +16916,7 @@ class Subscriber(object):
                         .. attribute:: mobility_attributes
                         
                         	List of mobility attributes collected for subscriber session
-                        	**type**\:  :py:class:`MobilityAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.MobilityAttributes>`
+                        	**type**\:   :py:class:`MobilityAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes>`
                         
                         .. attribute:: nas_port
                         
@@ -16933,7 +16933,7 @@ class Subscriber(object):
                         .. attribute:: pppoe_sub_type
                         
                         	PPPoE sub type
-                        	**type**\:  :py:class:`IedgePppSubEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgePppSubEnum>`
+                        	**type**\:   :py:class:`IedgePppSubEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgePppSubEnum>`
                         
                         .. attribute:: remote_id
                         
@@ -16943,7 +16943,7 @@ class Subscriber(object):
                         .. attribute:: session_change_of_authorization
                         
                         	Subscriber change of authorization information
-                        	**type**\: list of  :py:class:`SessionChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.SessionChangeOfAuthorization>`
+                        	**type**\: list of    :py:class:`SessionChangeOfAuthorization <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization>`
                         
                         .. attribute:: session_creation_time
                         
@@ -16960,7 +16960,7 @@ class Subscriber(object):
                         .. attribute:: session_ipv4_state
                         
                         	Session IPv4 state
-                        	**type**\:  :py:class:`IedgeOperSessionAfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionAfStateEnum>`
+                        	**type**\:   :py:class:`IedgeOperSessionAfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionAfStateEnum>`
                         
                         .. attribute:: session_ipv6_address
                         
@@ -16975,17 +16975,17 @@ class Subscriber(object):
                         .. attribute:: session_ipv6_state
                         
                         	Session IPv6 state
-                        	**type**\:  :py:class:`IedgeOperSessionAfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionAfStateEnum>`
+                        	**type**\:   :py:class:`IedgeOperSessionAfStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionAfStateEnum>`
                         
                         .. attribute:: session_state
                         
                         	Session state
-                        	**type**\:  :py:class:`IedgeOperSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionStateEnum>`
+                        	**type**\:   :py:class:`IedgeOperSessionStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionStateEnum>`
                         
                         .. attribute:: session_type
                         
                         	Subscriber session type
-                        	**type**\:  :py:class:`IedgeOperSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionEnum>`
+                        	**type**\:   :py:class:`IedgeOperSessionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeOperSessionEnum>`
                         
                         .. attribute:: total_session_idle_time
                         
@@ -16993,6 +16993,8 @@ class Subscriber(object):
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: tunnel_client_authentication_id
                         
@@ -17007,7 +17009,7 @@ class Subscriber(object):
                         .. attribute:: user_profile_attributes
                         
                         	List of user profile attributes collected for subscriber session
-                        	**type**\:  :py:class:`UserProfileAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.UserProfileAttributes>`
+                        	**type**\:   :py:class:`UserProfileAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes>`
                         
                         .. attribute:: username
                         
@@ -17031,7 +17033,7 @@ class Subscriber(object):
                             self.session_id = None
                             self.access_interface_name = None
                             self.account_session_id = None
-                            self.accounting = Subscriber.Session.Nodes.Node.Sessions.Session.Accounting()
+                            self.accounting = Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting()
                             self.accounting.parent = self
                             self.af_up_status = None
                             self.circuit_id = None
@@ -17046,7 +17048,7 @@ class Subscriber(object):
                             self.lac_address = None
                             self.lns_address = None
                             self.mac_address = None
-                            self.mobility_attributes = Subscriber.Session.Nodes.Node.Sessions.Session.MobilityAttributes()
+                            self.mobility_attributes = Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes()
                             self.mobility_attributes.parent = self
                             self.nas_port = None
                             self.pending_callbacks = None
@@ -17066,7 +17068,7 @@ class Subscriber(object):
                             self.total_session_idle_time = None
                             self.tunnel_client_authentication_id = None
                             self.tunnel_server_authentication_id = None
-                            self.user_profile_attributes = Subscriber.Session.Nodes.Node.Sessions.Session.UserProfileAttributes()
+                            self.user_profile_attributes = Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes()
                             self.user_profile_attributes.parent = self
                             self.username = None
                             self.vrf_name = None
@@ -17079,7 +17081,7 @@ class Subscriber(object):
                             .. attribute:: accounting_session
                             
                             	Accounting information
-                            	**type**\: list of  :py:class:`AccountingSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session.Accounting.AccountingSession>`
+                            	**type**\: list of    :py:class:`AccountingSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession>`
                             
                             
 
@@ -17137,6 +17139,8 @@ class Subscriber(object):
                                 
                                 	**range:** 0..4294967295
                                 
+                                	**units**\: minute
+                                
                                 .. attribute:: is_interim_accounting_enabled
                                 
                                 	True if interim accounting is enabled
@@ -17163,6 +17167,8 @@ class Subscriber(object):
                                 	**type**\:  int
                                 
                                 	**range:** 0..4294967295
+                                
+                                	**units**\: second
                                 
                                 .. attribute:: record_context_name
                                 
@@ -17279,7 +17285,7 @@ class Subscriber(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
-                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session.Accounting.AccountingSession']['meta_info']
+                                    return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession']['meta_info']
 
                             @property
                             def _common_path(self):
@@ -17305,7 +17311,7 @@ class Subscriber(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
-                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session.Accounting']['meta_info']
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting']['meta_info']
 
 
                         class UserProfileAttributes(object):
@@ -17325,12 +17331,16 @@ class Subscriber(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: Mbit/s
+                            
                             .. attribute:: actual_data_rate_upstream
                             
                             	Actual data rate upstream (in Mbps)
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: Mbit/s
                             
                             .. attribute:: attainable_data_rate_downstream
                             
@@ -17339,6 +17349,8 @@ class Subscriber(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: Mbit/s
+                            
                             .. attribute:: attainable_data_rate_upstream
                             
                             	Attainable data rate upstream (in Mbps)
@@ -17346,10 +17358,12 @@ class Subscriber(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: Mbit/s
+                            
                             .. attribute:: authorization_service_type
                             
                             	Authorization service type
-                            	**type**\:  :py:class:`AaaAuthServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaAuthServiceEnum>`
+                            	**type**\:   :py:class:`AaaAuthServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaAuthServiceEnum>`
                             
                             .. attribute:: circuit_id
                             
@@ -17408,7 +17422,7 @@ class Subscriber(object):
                             .. attribute:: interface_type
                             
                             	Interface type
-                            	**type**\:  :py:class:`AaaInterfaceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaInterfaceEnum>`
+                            	**type**\:   :py:class:`AaaInterfaceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaInterfaceEnum>`
                             
                             .. attribute:: interim_accounting_interval
                             
@@ -17448,12 +17462,16 @@ class Subscriber(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: Mbit/s
+                            
                             .. attribute:: max_data_rate_upstream
                             
                             	Maximum data rate upstream (in Mbps)
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: Mbit/s
                             
                             .. attribute:: max_interleaving_delay_downstream
                             
@@ -17462,12 +17480,16 @@ class Subscriber(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: Mbit/s
+                            
                             .. attribute:: max_interleaving_delay_upstream
                             
                             	Maximum interleaving delay upstream (in Mbps)
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: Mbit/s
                             
                             .. attribute:: min_data_rate_downstream
                             
@@ -17476,6 +17498,8 @@ class Subscriber(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: Mbit/s
+                            
                             .. attribute:: min_data_rate_downstream_low_power
                             
                             	Minimum data rate downstream low power (in Mbps)
@@ -17483,12 +17507,16 @@ class Subscriber(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: Mbit/s
+                            
                             .. attribute:: min_data_rate_upstream_low_power
                             
                             	Minimum data rate upstream low power (in Mbps)
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: Mbit/s
                             
                             .. attribute:: parent_interface_name
                             
@@ -17543,7 +17571,7 @@ class Subscriber(object):
                             .. attribute:: session_termination_cause
                             
                             	Session termination cause
-                            	**type**\:  :py:class:`AaaTerminateCauseEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTerminateCauseEnum>`
+                            	**type**\:   :py:class:`AaaTerminateCauseEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTerminateCauseEnum>`
                             
                             .. attribute:: session_timeout
                             
@@ -17551,6 +17579,8 @@ class Subscriber(object):
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: second
                             
                             .. attribute:: strict_rpf_packets
                             
@@ -17574,7 +17604,7 @@ class Subscriber(object):
                             .. attribute:: tunnel_medium
                             
                             	Tunnel medium
-                            	**type**\:  :py:class:`AaaTunnelMediumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTunnelMediumEnum>`
+                            	**type**\:   :py:class:`AaaTunnelMediumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTunnelMediumEnum>`
                             
                             .. attribute:: tunnel_preference
                             
@@ -17586,7 +17616,7 @@ class Subscriber(object):
                             .. attribute:: tunnel_protocol
                             
                             	Tunnel protocol
-                            	**type**\:  :py:class:`AaaTunnelProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTunnelProtoEnum>`
+                            	**type**\:   :py:class:`AaaTunnelProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.AaaTunnelProtoEnum>`
                             
                             .. attribute:: tunnel_server_endpoint
                             
@@ -17837,7 +17867,7 @@ class Subscriber(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
-                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session.UserProfileAttributes']['meta_info']
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes']['meta_info']
 
 
                         class MobilityAttributes(object):
@@ -17859,6 +17889,8 @@ class Subscriber(object):
                             
                             	Duration of lease in seconds
                             	**type**\:  str
+                            
+                            	**units**\: second
                             
                             .. attribute:: mobility_default_ipv4_gateway
                             
@@ -17964,7 +17996,7 @@ class Subscriber(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
-                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session.MobilityAttributes']['meta_info']
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes']['meta_info']
 
 
                         class SessionChangeOfAuthorization(object):
@@ -18049,7 +18081,7 @@ class Subscriber(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
-                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session.SessionChangeOfAuthorization']['meta_info']
+                                return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -18185,7 +18217,7 @@ class Subscriber(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_iedge4710_oper as meta
-                            return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session']['meta_info']
+                            return meta._meta_table['Subscriber.Session.Nodes.Node.Sessions.Session_']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -18355,7 +18387,7 @@ class IedgeLicenseManager(object):
     .. attribute:: nodes
     
     	Session License Manager operational data for a location
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeLicenseManager.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeLicenseManager.Nodes>`
     
     
 
@@ -18377,7 +18409,7 @@ class IedgeLicenseManager(object):
         .. attribute:: node
         
         	Location. For example, 0/1/CPU0
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeLicenseManager.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeLicenseManager.Nodes.Node>`
         
         
 
@@ -18407,7 +18439,7 @@ class IedgeLicenseManager(object):
             .. attribute:: iedge_license_manager_summary
             
             	Display Session License Manager summary data
-            	**type**\:  :py:class:`IedgeLicenseManagerSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary>`
+            	**type**\:   :py:class:`IedgeLicenseManagerSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper.IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary>`
             
             
 

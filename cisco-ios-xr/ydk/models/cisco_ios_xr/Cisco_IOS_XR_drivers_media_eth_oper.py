@@ -30,25 +30,25 @@ class EthCtrlrAlarmStateEnum(Enum):
 
     Ethernet alarm state
 
-    .. data:: ALARM_NOT_SUPPORTED = 0
+    .. data:: alarm_not_supported = 0
 
     	Not supported on this interface
 
-    .. data:: ALARM_SET = 1
+    .. data:: alarm_set = 1
 
     	Alarm set
 
-    .. data:: ALARM_NOT_SET = 2
+    .. data:: alarm_not_set = 2
 
     	Alarm not set
 
     """
 
-    ALARM_NOT_SUPPORTED = 0
+    alarm_not_supported = 0
 
-    ALARM_SET = 1
+    alarm_set = 1
 
-    ALARM_NOT_SET = 2
+    alarm_not_set = 2
 
 
     @staticmethod
@@ -63,25 +63,25 @@ class EtherAinsStatusEnum(Enum):
 
     Ether ains status
 
-    .. data:: AINS_SOAK_STATUS_NONE = 0
+    .. data:: ains_soak_status_none = 0
 
     	AINS Soak timer not running
 
-    .. data:: AINS_SOAK_STATUS_PENDING = 1
+    .. data:: ains_soak_status_pending = 1
 
     	AINS Soak timer pending
 
-    .. data:: AINS_SOAK_STATUS_RUNNING = 2
+    .. data:: ains_soak_status_running = 2
 
     	AINS Soak timer running
 
     """
 
-    AINS_SOAK_STATUS_NONE = 0
+    ains_soak_status_none = 0
 
-    AINS_SOAK_STATUS_PENDING = 1
+    ains_soak_status_pending = 1
 
-    AINS_SOAK_STATUS_RUNNING = 2
+    ains_soak_status_running = 2
 
 
     @staticmethod
@@ -96,43 +96,43 @@ class EtherDomAlarmEnum(Enum):
 
     Ether dom alarm
 
-    .. data:: NO_INFORMATION = 0
+    .. data:: no_information = 0
 
     	DOM Alarm information is not available
 
-    .. data:: ALARM_HIGH = 1
+    .. data:: alarm_high = 1
 
     	Alarm high
 
-    .. data:: WARNING_HIGH = 2
+    .. data:: warning_high = 2
 
     	Warning high
 
-    .. data:: NORMAL = 3
+    .. data:: normal = 3
 
     	Within normal parameters
 
-    .. data:: WARNING_LOW = 4
+    .. data:: warning_low = 4
 
     	Warning low
 
-    .. data:: ALARM_LOW = 5
+    .. data:: alarm_low = 5
 
     	Alarm low
 
     """
 
-    NO_INFORMATION = 0
+    no_information = 0
 
-    ALARM_HIGH = 1
+    alarm_high = 1
 
-    WARNING_HIGH = 2
+    warning_high = 2
 
-    NORMAL = 3
+    normal = 3
 
-    WARNING_LOW = 4
+    warning_low = 4
 
-    ALARM_LOW = 5
+    alarm_low = 5
 
 
     @staticmethod
@@ -147,31 +147,31 @@ class EtherFlowcontrolEnum(Enum):
 
     Flowcontrol type
 
-    .. data:: NO_FLOWCONTROL = 0
+    .. data:: no_flowcontrol = 0
 
     	No flow control (disabled)
 
-    .. data:: EGRESS = 1
+    .. data:: egress = 1
 
     	Traffic egress (pause frames ingress)
 
-    .. data:: INGRESS = 2
+    .. data:: ingress = 2
 
     	Traffic ingress (pause frames egress)
 
-    .. data:: BIDIRECTIONAL = 3
+    .. data:: bidirectional = 3
 
     	On both ingress and egress
 
     """
 
-    NO_FLOWCONTROL = 0
+    no_flowcontrol = 0
 
-    EGRESS = 1
+    egress = 1
 
-    INGRESS = 2
+    ingress = 2
 
-    BIDIRECTIONAL = 3
+    bidirectional = 3
 
 
     @staticmethod
@@ -186,55 +186,55 @@ class EtherLedStateEnum(Enum):
 
     Ether led state
 
-    .. data:: LED_STATE_UNKNOWN = 0
+    .. data:: led_state_unknown = 0
 
     	LED state is unknown
 
-    .. data:: LED_OFF = 1
+    .. data:: led_off = 1
 
     	LED is off
 
-    .. data:: GREEN_ON = 2
+    .. data:: green_on = 2
 
     	LED is green
 
-    .. data:: GREEN_FLASHING = 3
+    .. data:: green_flashing = 3
 
     	LED is flashing green
 
-    .. data:: YELLOW_ON = 4
+    .. data:: yellow_on = 4
 
     	LED is yellow
 
-    .. data:: YELLOW_FLASHING = 5
+    .. data:: yellow_flashing = 5
 
     	LED is flashing yellow
 
-    .. data:: RED_ON = 6
+    .. data:: red_on = 6
 
     	LED is red
 
-    .. data:: RED_FLASHING = 7
+    .. data:: red_flashing = 7
 
     	LED is flashing red
 
     """
 
-    LED_STATE_UNKNOWN = 0
+    led_state_unknown = 0
 
-    LED_OFF = 1
+    led_off = 1
 
-    GREEN_ON = 2
+    green_on = 2
 
-    GREEN_FLASHING = 3
+    green_flashing = 3
 
-    YELLOW_ON = 4
+    yellow_on = 4
 
-    YELLOW_FLASHING = 5
+    yellow_flashing = 5
 
-    RED_ON = 6
+    red_on = 6
 
-    RED_FLASHING = 7
+    red_flashing = 7
 
 
     @staticmethod
@@ -251,179 +251,179 @@ class EtherLinkStateEnum(Enum):
 
     .5.1.1.4
 
-    .. data:: STATE_UNDEFINED = 0
+    .. data:: state_undefined = 0
 
     	State undefined
 
-    .. data:: UNKNOWN_STATE = 1
+    .. data:: unknown_state = 1
 
     	Initializing, true state not yet known
 
-    .. data:: AVAILABLE = 2
+    .. data:: available = 2
 
     	Link or light normal, loopback normal
 
-    .. data:: NOT_AVAILABLE = 3
+    .. data:: not_available = 3
 
     	Link loss or low light, no loopback
 
-    .. data:: REMOTE_FAULT = 4
+    .. data:: remote_fault = 4
 
     	Remote fault with no detail
 
-    .. data:: INVALID_SIGNAL = 5
+    .. data:: invalid_signal = 5
 
     	Invalid signal, applies only to 10BASE-FB
 
-    .. data:: REMOTE_JABBER = 6
+    .. data:: remote_jabber = 6
 
     	Remote fault, reason known to be jabber
 
-    .. data:: LINK_LOSS = 7
+    .. data:: link_loss = 7
 
     	Remote fault, reason known to be far-end link
 
     	loss
 
-    .. data:: REMOTE_TEST = 8
+    .. data:: remote_test = 8
 
     	Remote fault, reason known to be test
 
-    .. data:: OFFLINE = 9
+    .. data:: offline = 9
 
     	Offline (applies to auto-negotiation)
 
-    .. data:: AUTO_NEG_ERROR = 10
+    .. data:: auto_neg_error = 10
 
     	Auto-Negotiation Error
 
-    .. data:: PMD_LINK_FAULT = 11
+    .. data:: pmd_link_fault = 11
 
     	PMD/PMA receive link fault
 
-    .. data:: FRAME_LOSS = 12
+    .. data:: frame_loss = 12
 
     	WIS loss of frames
 
-    .. data:: SIGNAL_LOSS = 13
+    .. data:: signal_loss = 13
 
     	WIS loss of signal
 
-    .. data:: LINK_FAULT = 14
+    .. data:: link_fault = 14
 
     	PCS receive link fault
 
-    .. data:: EXCESSIVE_BER = 15
+    .. data:: excessive_ber = 15
 
     	PCS Bit Error Rate monitor reporting excessive
 
     	error rate
 
-    .. data:: DXS_LINK_FAULT = 16
+    .. data:: dxs_link_fault = 16
 
     	DTE XGXS receive link fault
 
-    .. data:: PXS_LINK_FAULT = 17
+    .. data:: pxs_link_fault = 17
 
     	PHY XGXS transmit link fault
 
-    .. data:: SECURITY = 18
+    .. data:: security = 18
 
     	Security failure (not a valid part)
 
-    .. data:: PHY_NOT_PRESENT = 19
+    .. data:: phy_not_present = 19
 
     	The optics for the port are not present
 
-    .. data:: NO_OPTIC_LICENSE = 20
+    .. data:: no_optic_license = 20
 
     	License error (No advanced optical license)
 
-    .. data:: UNSUPPORTED_MODULE = 21
+    .. data:: unsupported_module = 21
 
     	Module is not supported
 
-    .. data:: DWDM_LASER_SHUT = 22
+    .. data:: dwdm_laser_shut = 22
 
     	DWDM Laser shutdown
 
-    .. data:: WANPHY_LASER_SHUT = 23
+    .. data:: wanphy_laser_shut = 23
 
     	WANPHY Laser shutdown
 
-    .. data:: INCOMPATIBLE_CONFIG = 24
+    .. data:: incompatible_config = 24
 
     	Incompatible configuration
 
-    .. data:: SYSTEM_ERROR = 25
+    .. data:: system_error = 25
 
     	System error
 
-    .. data:: WAN_FRAMING_ERROR = 26
+    .. data:: wan_framing_error = 26
 
     	WAN Framing Error
 
-    .. data:: OTN_FRAMING_ERROR = 27
+    .. data:: otn_framing_error = 27
 
     	OTN Framing Error
 
     """
 
-    STATE_UNDEFINED = 0
+    state_undefined = 0
 
-    UNKNOWN_STATE = 1
+    unknown_state = 1
 
-    AVAILABLE = 2
+    available = 2
 
-    NOT_AVAILABLE = 3
+    not_available = 3
 
-    REMOTE_FAULT = 4
+    remote_fault = 4
 
-    INVALID_SIGNAL = 5
+    invalid_signal = 5
 
-    REMOTE_JABBER = 6
+    remote_jabber = 6
 
-    LINK_LOSS = 7
+    link_loss = 7
 
-    REMOTE_TEST = 8
+    remote_test = 8
 
-    OFFLINE = 9
+    offline = 9
 
-    AUTO_NEG_ERROR = 10
+    auto_neg_error = 10
 
-    PMD_LINK_FAULT = 11
+    pmd_link_fault = 11
 
-    FRAME_LOSS = 12
+    frame_loss = 12
 
-    SIGNAL_LOSS = 13
+    signal_loss = 13
 
-    LINK_FAULT = 14
+    link_fault = 14
 
-    EXCESSIVE_BER = 15
+    excessive_ber = 15
 
-    DXS_LINK_FAULT = 16
+    dxs_link_fault = 16
 
-    PXS_LINK_FAULT = 17
+    pxs_link_fault = 17
 
-    SECURITY = 18
+    security = 18
 
-    PHY_NOT_PRESENT = 19
+    phy_not_present = 19
 
-    NO_OPTIC_LICENSE = 20
+    no_optic_license = 20
 
-    UNSUPPORTED_MODULE = 21
+    unsupported_module = 21
 
-    DWDM_LASER_SHUT = 22
+    dwdm_laser_shut = 22
 
-    WANPHY_LASER_SHUT = 23
+    wanphy_laser_shut = 23
 
-    INCOMPATIBLE_CONFIG = 24
+    incompatible_config = 24
 
-    SYSTEM_ERROR = 25
+    system_error = 25
 
-    WAN_FRAMING_ERROR = 26
+    wan_framing_error = 26
 
-    OTN_FRAMING_ERROR = 27
+    otn_framing_error = 27
 
 
     @staticmethod
@@ -438,19 +438,19 @@ class EtherPfcEnum(Enum):
 
     Priority flowcontrol type
 
-    .. data:: NO_PFC = 0
+    .. data:: no_pfc = 0
 
     	No priority flow control (disabled)
 
-    .. data:: ON = 1
+    .. data:: on = 1
 
     	Priority flow control enabled
 
     """
 
-    NO_PFC = 0
+    no_pfc = 0
 
-    ON = 1
+    on = 1
 
 
     @staticmethod
@@ -465,25 +465,25 @@ class EtherPhyPresentEnum(Enum):
 
     Ether phy present
 
-    .. data:: PHY_NOT_PRESENT = 0
+    .. data:: phy_not_present = 0
 
     	No PHY present
 
-    .. data:: PHY_PRESENT = 1
+    .. data:: phy_present = 1
 
     	PHY is present
 
-    .. data:: NO_INFORMATION = 2
+    .. data:: no_information = 2
 
     	State is unknown
 
     """
 
-    PHY_NOT_PRESENT = 0
+    phy_not_present = 0
 
-    PHY_PRESENT = 1
+    phy_present = 1
 
-    NO_INFORMATION = 2
+    no_information = 2
 
 
     @staticmethod
@@ -498,37 +498,37 @@ class EthernetBertErrCntEnum(Enum):
 
     Ethernet bert err cnt
 
-    .. data:: NO_COUNT_TYPE = 0
+    .. data:: no_count_type = 0
 
     	no count type
 
-    .. data:: BIT_ERROR_COUNT = 1
+    .. data:: bit_error_count = 1
 
     	bit error count
 
-    .. data:: FRAME_ERROR_COUNT = 2
+    .. data:: frame_error_count = 2
 
     	frame error count
 
-    .. data:: BLOCK_ERROR_COUNT = 3
+    .. data:: block_error_count = 3
 
     	block error count
 
-    .. data:: ETHERNET_BERT_ERR_CNT_TYPES = 4
+    .. data:: ethernet_bert_err_cnt_types = 4
 
     	ethernet bert err cnt types
 
     """
 
-    NO_COUNT_TYPE = 0
+    no_count_type = 0
 
-    BIT_ERROR_COUNT = 1
+    bit_error_count = 1
 
-    FRAME_ERROR_COUNT = 2
+    frame_error_count = 2
 
-    BLOCK_ERROR_COUNT = 3
+    block_error_count = 3
 
-    ETHERNET_BERT_ERR_CNT_TYPES = 4
+    ethernet_bert_err_cnt_types = 4
 
 
     @staticmethod
@@ -543,91 +543,91 @@ class EthernetBertPatternEnum(Enum):
 
     Ethernet test patterns (IEEE spec 36A/48A)
 
-    .. data:: NO_TEST_PATTERN = 0
+    .. data:: no_test_pattern = 0
 
     	no test pattern
 
-    .. data:: HIGH_FREQUENCY = 1
+    .. data:: high_frequency = 1
 
     	high frequency
 
-    .. data:: LOW_FREQUENCY = 2
+    .. data:: low_frequency = 2
 
     	low frequency
 
-    .. data:: MIXED_FREQUENCY = 3
+    .. data:: mixed_frequency = 3
 
     	mixed frequency
 
-    .. data:: CONTINUOUS_RANDOM = 4
+    .. data:: continuous_random = 4
 
     	continuous random
 
-    .. data:: CONTINUOUS_JITTER = 5
+    .. data:: continuous_jitter = 5
 
     	continuous jitter
 
-    .. data:: LONG_CONTINUOUS_RANDOM = 6
+    .. data:: long_continuous_random = 6
 
     	long continuous random
 
-    .. data:: SHORT_CONTINUOUS_RANDOM = 7
+    .. data:: short_continuous_random = 7
 
     	short continuous random
 
-    .. data:: PSEUDORANDOM_SEED_A = 8
+    .. data:: pseudorandom_seed_a = 8
 
     	pseudorandom seed a
 
-    .. data:: PSEUDORANDOM_SEED_B = 9
+    .. data:: pseudorandom_seed_b = 9
 
     	pseudorandom seed b
 
-    .. data:: PRBS31 = 10
+    .. data:: prbs31 = 10
 
     	prbs31
 
-    .. data:: SQUARE_WAVE = 11
+    .. data:: square_wave = 11
 
     	square wave
 
-    .. data:: PSEUDORANDOM = 12
+    .. data:: pseudorandom = 12
 
     	pseudorandom
 
-    .. data:: ETHERNET_BERT_PATTERN_TYPES = 13
+    .. data:: ethernet_bert_pattern_types = 13
 
     	ethernet bert pattern types
 
     """
 
-    NO_TEST_PATTERN = 0
+    no_test_pattern = 0
 
-    HIGH_FREQUENCY = 1
+    high_frequency = 1
 
-    LOW_FREQUENCY = 2
+    low_frequency = 2
 
-    MIXED_FREQUENCY = 3
+    mixed_frequency = 3
 
-    CONTINUOUS_RANDOM = 4
+    continuous_random = 4
 
-    CONTINUOUS_JITTER = 5
+    continuous_jitter = 5
 
-    LONG_CONTINUOUS_RANDOM = 6
+    long_continuous_random = 6
 
-    SHORT_CONTINUOUS_RANDOM = 7
+    short_continuous_random = 7
 
-    PSEUDORANDOM_SEED_A = 8
+    pseudorandom_seed_a = 8
 
-    PSEUDORANDOM_SEED_B = 9
+    pseudorandom_seed_b = 9
 
-    PRBS31 = 10
+    prbs31 = 10
 
-    SQUARE_WAVE = 11
+    square_wave = 11
 
-    PSEUDORANDOM = 12
+    pseudorandom = 12
 
-    ETHERNET_BERT_PATTERN_TYPES = 13
+    ethernet_bert_pattern_types = 13
 
 
     @staticmethod
@@ -642,49 +642,49 @@ class EthernetDevEnum(Enum):
 
     Ethernet dev
 
-    .. data:: NO_DEVICE = 0
+    .. data:: no_device = 0
 
     	no device
 
-    .. data:: PMA_PMD = 1
+    .. data:: pma_pmd = 1
 
     	pma pmd
 
-    .. data:: WIS = 2
+    .. data:: wis = 2
 
     	wis
 
-    .. data:: PCS = 3
+    .. data:: pcs = 3
 
     	pcs
 
-    .. data:: PHY_XS = 4
+    .. data:: phy_xs = 4
 
     	phy xs
 
-    .. data:: DTE_XS = 5
+    .. data:: dte_xs = 5
 
     	dte xs
 
-    .. data:: ETHERNET_NUM_DEV = 6
+    .. data:: ethernet_num_dev = 6
 
     	ethernet num dev
 
     """
 
-    NO_DEVICE = 0
+    no_device = 0
 
-    PMA_PMD = 1
+    pma_pmd = 1
 
-    WIS = 2
+    wis = 2
 
-    PCS = 3
+    pcs = 3
 
-    PHY_XS = 4
+    phy_xs = 4
 
-    DTE_XS = 5
+    dte_xs = 5
 
-    ETHERNET_NUM_DEV = 6
+    ethernet_num_dev = 6
 
 
     @staticmethod
@@ -699,31 +699,31 @@ class EthernetDevIfEnum(Enum):
 
     Ethernet dev if
 
-    .. data:: NO_INTERFACE = 0
+    .. data:: no_interface = 0
 
     	no interface
 
-    .. data:: XGMII = 1
+    .. data:: xgmii = 1
 
     	xgmii
 
-    .. data:: XAUI = 2
+    .. data:: xaui = 2
 
     	xaui
 
-    .. data:: ETHERNET_NUM_DEV_IF = 3
+    .. data:: ethernet_num_dev_if = 3
 
     	ethernet num dev if
 
     """
 
-    NO_INTERFACE = 0
+    no_interface = 0
 
-    XGMII = 1
+    xgmii = 1
 
-    XAUI = 2
+    xaui = 2
 
-    ETHERNET_NUM_DEV_IF = 3
+    ethernet_num_dev_if = 3
 
 
     @staticmethod
@@ -738,25 +738,25 @@ class EthernetDuplexEnum(Enum):
 
     Duplexity
 
-    .. data:: ETHERNET_DUPLEX_INVALID = 0
+    .. data:: ethernet_duplex_invalid = 0
 
     	ethernet duplex invalid
 
-    .. data:: HALF_DUPLEX = 1
+    .. data:: half_duplex = 1
 
     	half duplex
 
-    .. data:: FULL_DUPLEX = 2
+    .. data:: full_duplex = 2
 
     	full duplex
 
     """
 
-    ETHERNET_DUPLEX_INVALID = 0
+    ethernet_duplex_invalid = 0
 
-    HALF_DUPLEX = 1
+    half_duplex = 1
 
-    FULL_DUPLEX = 2
+    full_duplex = 2
 
 
     @staticmethod
@@ -771,31 +771,31 @@ class EthernetFecEnum(Enum):
 
     FEC type
 
-    .. data:: NOT_CONFIGURED = 0
+    .. data:: not_configured = 0
 
     	FEC not configured
 
-    .. data:: STANDARD = 1
+    .. data:: standard = 1
 
     	Reed-Solomon encoding
 
-    .. data:: DISABLED = 2
+    .. data:: disabled = 2
 
     	FEC explicitly disabled
 
-    .. data:: BASE_R = 3
+    .. data:: base_r = 3
 
     	BASE-R encoding
 
     """
 
-    NOT_CONFIGURED = 0
+    not_configured = 0
 
-    STANDARD = 1
+    standard = 1
 
-    DISABLED = 2
+    disabled = 2
 
-    BASE_R = 3
+    base_r = 3
 
 
     @staticmethod
@@ -810,19 +810,19 @@ class EthernetIpgEnum(Enum):
 
     Inter packet gap
 
-    .. data:: STANDARD = 0
+    .. data:: standard = 0
 
     	IEEE standard value of 12
 
-    .. data:: NON_STANDARD = 1
+    .. data:: non_standard = 1
 
     	Non-standard value of 16
 
     """
 
-    STANDARD = 0
+    standard = 0
 
-    NON_STANDARD = 1
+    non_standard = 1
 
 
     @staticmethod
@@ -837,31 +837,31 @@ class EthernetLoopbackEnum(Enum):
 
     Loopback type
 
-    .. data:: NO_LOOPBACK = 0
+    .. data:: no_loopback = 0
 
     	Disabled
 
-    .. data:: INTERNAL = 1
+    .. data:: internal = 1
 
     	Loopback in the framer
 
-    .. data:: LINE = 2
+    .. data:: line = 2
 
     	Loops peer's packets back to them
 
-    .. data:: EXTERNAL = 3
+    .. data:: external = 3
 
     	tx externally connected to rx
 
     """
 
-    NO_LOOPBACK = 0
+    no_loopback = 0
 
-    INTERNAL = 1
+    internal = 1
 
-    LINE = 2
+    line = 2
 
-    EXTERNAL = 3
+    external = 3
 
 
     @staticmethod
@@ -878,2083 +878,2083 @@ class EthernetMediaEnum(Enum):
 
     30.5.1.1.2
 
-    .. data:: ETHERNET_OTHER = 0
+    .. data:: ethernet_other = 0
 
     	IEEE 802.3/802.3ae clause 30.2.5
 
-    .. data:: ETHERNET_UNKNOWN = 1
+    .. data:: ethernet_unknown = 1
 
     	Initializing, true state or type not yet known
 
-    .. data:: ETHERNET_AUI = 2
+    .. data:: ethernet_aui = 2
 
     	No internal MAU, view from AUI
 
-    .. data:: ETHERNET_10BASE5 = 3
+    .. data:: ethernet_10base5 = 3
 
     	Thick coax MAU
 
-    .. data:: ETHERNET_FOIRL = 4
+    .. data:: ethernet_foirl = 4
 
     	FOIRL MAU as specified in 9.9
 
-    .. data:: ETHERNET_10BASE2 = 5
+    .. data:: ethernet_10base2 = 5
 
     	Thin coax MAU
 
-    .. data:: ETHERNET_10BROAD36 = 6
+    .. data:: ethernet_10broad36 = 6
 
     	Broadband DTE MAU
 
-    .. data:: ETHERNET_10BASE = 7
+    .. data:: ethernet_10base = 7
 
     	UTP MAU, duplexity unknown
 
-    .. data:: ETHERNET_10BASE_THD = 8
+    .. data:: ethernet_10base_thd = 8
 
     	UTP MAU, half duplex
 
-    .. data:: ETHERNET_10BASE_TFD = 9
+    .. data:: ethernet_10base_tfd = 9
 
     	UTP MAU, full duplex
 
-    .. data:: ETHERNET_10BASE_FP = 10
+    .. data:: ethernet_10base_fp = 10
 
     	Passive fiber MAU
 
-    .. data:: ETHERNET_10BASE_FB = 11
+    .. data:: ethernet_10base_fb = 11
 
     	Synchronous fiber MAU
 
-    .. data:: ETHERNET_10BASE_FL = 12
+    .. data:: ethernet_10base_fl = 12
 
     	Asynchronous fiber MAU, duplexity unknown
 
-    .. data:: ETHERNET_10BASE_FLHD = 13
+    .. data:: ethernet_10base_flhd = 13
 
     	Asynchronous fiber MAU, half duplex
 
-    .. data:: ETHERNET_10BASE_FLFD = 14
+    .. data:: ethernet_10base_flfd = 14
 
     	Asynchronous fiber MAU, full duplex
 
-    .. data:: ETHERNET_100BASE_T4 = 15
+    .. data:: ethernet_100base_t4 = 15
 
     	Four-pair Category 3 UTP
 
-    .. data:: ETHERNET_100BASE_TX = 16
+    .. data:: ethernet_100base_tx = 16
 
     	Two-pair Category 5 UTP, duplexity unknown
 
-    .. data:: ETHERNET_100BASE_TXHD = 17
+    .. data:: ethernet_100base_txhd = 17
 
     	Two-pair Category 5 UTP, half duplex
 
-    .. data:: ETHERNET_100BASE_TXFD = 18
+    .. data:: ethernet_100base_txfd = 18
 
     	Two-pair Category 5 UTP, full duplex
 
-    .. data:: ETHERNET_100BASE_FX = 19
+    .. data:: ethernet_100base_fx = 19
 
     	X fiber over PMD, duplexity unknown
 
-    .. data:: ETHERNET_100BASE_FXHD = 20
+    .. data:: ethernet_100base_fxhd = 20
 
     	X fiber over PMD, half duplex
 
-    .. data:: ETHERNET_100BASE_FXFD = 21
+    .. data:: ethernet_100base_fxfd = 21
 
     	X fiber over PMD, full duplex
 
-    .. data:: ETHERNET_100BASE_EX = 22
+    .. data:: ethernet_100base_ex = 22
 
     	X fiber over PMD (40km), duplexity unknown
 
-    .. data:: ETHERNET_100BASE_EXHD = 23
+    .. data:: ethernet_100base_exhd = 23
 
     	X fiber over PMD (40km), half duplex
 
-    .. data:: ETHERNET_100BASE_EXFD = 24
+    .. data:: ethernet_100base_exfd = 24
 
     	X fiber over PMD (40km), full duplex
 
-    .. data:: ETHERNET_100BASE_T2 = 25
+    .. data:: ethernet_100base_t2 = 25
 
     	Two-pair Category 3 UTP, duplexity unknown
 
-    .. data:: ETHERNET_100BASE_T2HD = 26
+    .. data:: ethernet_100base_t2hd = 26
 
     	Two-pair Category 3 UTP, half duplex
 
-    .. data:: ETHERNET_100BASE_T2FD = 27
+    .. data:: ethernet_100base_t2fd = 27
 
     	Two-pair Category 3 UTP, full duplex
 
-    .. data:: ETHERNET_1000BASE_X = 28
+    .. data:: ethernet_1000base_x = 28
 
     	X PCS/PMA, duplexity unknown
 
-    .. data:: ETHERNET_1000BASE_XHD = 29
+    .. data:: ethernet_1000base_xhd = 29
 
     	X 1000BASE-XHDX PCS/PMA, half duplex
 
-    .. data:: ETHERNET_1000BASE_XFD = 30
+    .. data:: ethernet_1000base_xfd = 30
 
     	X PCS/PMA, full duplex
 
-    .. data:: ETHERNET_1000BASE_LX = 31
+    .. data:: ethernet_1000base_lx = 31
 
     	X fiber over long-wl laser PMD, duplexity
 
     	unknown
 
-    .. data:: ETHERNET_1000BASE_LXHD = 32
+    .. data:: ethernet_1000base_lxhd = 32
 
     	X fiber over long-wl laser PMD, half duplex
 
-    .. data:: ETHERNET_1000BASE_LXFD = 33
+    .. data:: ethernet_1000base_lxfd = 33
 
     	X fiber over long-wl laser PMD, full duplex
 
-    .. data:: ETHERNET_1000BASE_SX = 34
+    .. data:: ethernet_1000base_sx = 34
 
     	X fiber over short-wl laser PMD, duplexity
 
     	unknown
 
-    .. data:: ETHERNET_1000BASE_SXHD = 35
+    .. data:: ethernet_1000base_sxhd = 35
 
     	X fiber over short-wl laser PMD, half duplex
 
-    .. data:: ETHERNET_1000BASE_SXFD = 36
+    .. data:: ethernet_1000base_sxfd = 36
 
     	X fiber over short-wl laser PMD, full duplex
 
-    .. data:: ETHERNET_1000BASE_CX = 37
+    .. data:: ethernet_1000base_cx = 37
 
     	X copper over 150-Ohm balanced PMD, duplexity
 
     	unknown
 
-    .. data:: ETHERNET_1000BASE_CXHD = 38
+    .. data:: ethernet_1000base_cxhd = 38
 
     	X copper over 150-Ohm balancedPMD, half duplex
 
-    .. data:: ETHERNET_1000BASE_CXFD = 39
+    .. data:: ethernet_1000base_cxfd = 39
 
     	X copper over 150-Ohm balancedPMD, full duplex
 
-    .. data:: ETHERNET_1000BASE = 40
+    .. data:: ethernet_1000base = 40
 
     	Four-pair Category 5 UTP PHY, duplexity unknown
 
-    .. data:: ETHERNET_1000BASE_THD = 41
+    .. data:: ethernet_1000base_thd = 41
 
     	Four-pair Category 5 UTP PHY, half duplex
 
-    .. data:: ETHERNET_1000BASE_TFD = 42
+    .. data:: ethernet_1000base_tfd = 42
 
     	Four-pair Category 5 UTP PHY, full duplex
 
-    .. data:: ETHERNET_10GBASE_X = 43
+    .. data:: ethernet_10gbase_x = 43
 
     	X PCS/PMA 
 
-    .. data:: ETHERNET_10GBASE_LX4 = 44
+    .. data:: ethernet_10gbase_lx4 = 44
 
     	X fiber over 4 lane 1310nm optics
 
-    .. data:: ETHERNET_10GBASE_R = 45
+    .. data:: ethernet_10gbase_r = 45
 
     	R PCS/PMA
 
-    .. data:: ETHERNET_10GBASE_ER = 46
+    .. data:: ethernet_10gbase_er = 46
 
     	R fiber over 1550nm optics
 
-    .. data:: ETHERNET_10GBASE_LR = 47
+    .. data:: ethernet_10gbase_lr = 47
 
     	R fiber over 1310nm optics
 
-    .. data:: ETHERNET_10GBASE_SR = 48
+    .. data:: ethernet_10gbase_sr = 48
 
     	R fiber over 850nm optics
 
-    .. data:: ETHERNET_10GBASE_W = 49
+    .. data:: ethernet_10gbase_w = 49
 
     	W PCS/PMA
 
-    .. data:: ETHERNET_10GBASE_EW = 50
+    .. data:: ethernet_10gbase_ew = 50
 
     	W fiber over 1550nm optics
 
-    .. data:: ETHERNET_10GBASE_LW = 51
+    .. data:: ethernet_10gbase_lw = 51
 
     	W fiber over 1310nm optics
 
-    .. data:: ETHERNET_10GBASE_SW = 52
+    .. data:: ethernet_10gbase_sw = 52
 
     	W fiber over 850nm optics
 
-    .. data:: ETHERNET_1000BASE_ZX = 53
+    .. data:: ethernet_1000base_zx = 53
 
     	Single-mode fiber over 1550nm optics (Cisco)
 
-    .. data:: ETHERNET_1000BASE_CWDM = 54
+    .. data:: ethernet_1000base_cwdm = 54
 
     	CWDM with unknown wavelength optics
 
-    .. data:: ETHERNET_1000BASE_CWDM_1470 = 55
+    .. data:: ethernet_1000base_cwdm_1470 = 55
 
     	CWDM with 1470nm optics
 
-    .. data:: ETHERNET_1000BASE_CWDM_1490 = 56
+    .. data:: ethernet_1000base_cwdm_1490 = 56
 
     	CWDM with 1490nm optics
 
-    .. data:: ETHERNET_1000BASE_CWDM_1510 = 57
+    .. data:: ethernet_1000base_cwdm_1510 = 57
 
     	CWDM with 1510nm optics
 
-    .. data:: ETHERNET_1000BASE_CWDM_1530 = 58
+    .. data:: ethernet_1000base_cwdm_1530 = 58
 
     	CWDM with 1530nm optics
 
-    .. data:: ETHERNET_1000BASE_CWDM_1550 = 59
+    .. data:: ethernet_1000base_cwdm_1550 = 59
 
     	CWDM with 1550nm optics
 
-    .. data:: ETHERNET_1000BASE_CWDM_1570 = 60
+    .. data:: ethernet_1000base_cwdm_1570 = 60
 
     	CWDM with 1570nm optics
 
-    .. data:: ETHERNET_1000BASE_CWDM_1590 = 61
+    .. data:: ethernet_1000base_cwdm_1590 = 61
 
     	CWDM with 1590nm optics
 
-    .. data:: ETHERNET_1000BASE_CWDM_1610 = 62
+    .. data:: ethernet_1000base_cwdm_1610 = 62
 
     	CWDM with 1610nm optics
 
-    .. data:: ETHERNET_10GBASE_ZR = 63
+    .. data:: ethernet_10gbase_zr = 63
 
     	Cisco-defined, over 1550nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM = 64
+    .. data:: ethernet_10gbase_dwdm = 64
 
     	DWDM optics
 
-    .. data:: ETHERNET_100GBASE_LR4 = 65
+    .. data:: ethernet_100gbase_lr4 = 65
 
     	fiber over 4 lane optics (long reach)
 
-    .. data:: ETHERNET_1000BASE_DWDM = 66
+    .. data:: ethernet_1000base_dwdm = 66
 
     	DWDM optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1533 = 67
+    .. data:: ethernet_1000base_dwdm_1533 = 67
 
     	DWDM with 1533nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1537 = 68
+    .. data:: ethernet_1000base_dwdm_1537 = 68
 
     	DWDM with 1537nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1541 = 69
+    .. data:: ethernet_1000base_dwdm_1541 = 69
 
     	DWDM with 1541nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1545 = 70
+    .. data:: ethernet_1000base_dwdm_1545 = 70
 
     	DWDM with 1545nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1549 = 71
+    .. data:: ethernet_1000base_dwdm_1549 = 71
 
     	DWDM with 1549nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1553 = 72
+    .. data:: ethernet_1000base_dwdm_1553 = 72
 
     	DWDM with 1553nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1557 = 73
+    .. data:: ethernet_1000base_dwdm_1557 = 73
 
     	DWDM with 1557nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1561 = 74
+    .. data:: ethernet_1000base_dwdm_1561 = 74
 
     	DWDM with 1561nm optics
 
-    .. data:: ETHERNET_40GBASE_LR4 = 75
+    .. data:: ethernet_40gbase_lr4 = 75
 
     	fiber over 4 lane optics (long reach)
 
-    .. data:: ETHERNET_40GBASE_ER4 = 76
+    .. data:: ethernet_40gbase_er4 = 76
 
     	fiber over 4 lane optics (extended reach)
 
-    .. data:: ETHERNET_100GBASE_ER4 = 77
+    .. data:: ethernet_100gbase_er4 = 77
 
     	fiber over 4 lane optics (extended reach)
 
-    .. data:: ETHERNET_1000BASE_EX = 78
+    .. data:: ethernet_1000base_ex = 78
 
     	X fiber over 1310nm optics
 
-    .. data:: ETHERNET_1000BASE_BX10_D = 79
+    .. data:: ethernet_1000base_bx10_d = 79
 
     	X fibre (D, 10km)
 
-    .. data:: ETHERNET_1000BASE_BX10_U = 80
+    .. data:: ethernet_1000base_bx10_u = 80
 
     	X fibre (U, 10km)
 
-    .. data:: ETHERNET_1000BASE_DWDM_1561_42 = 81
+    .. data:: ethernet_1000base_dwdm_1561_42 = 81
 
     	DWDM with 1561.42nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1560_61 = 82
+    .. data:: ethernet_1000base_dwdm_1560_61 = 82
 
     	DWDM with 1560.61nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1559_79 = 83
+    .. data:: ethernet_1000base_dwdm_1559_79 = 83
 
     	DWDM with 1559.79nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1558_98 = 84
+    .. data:: ethernet_1000base_dwdm_1558_98 = 84
 
     	DWDM with 1558.98nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1558_17 = 85
+    .. data:: ethernet_1000base_dwdm_1558_17 = 85
 
     	DWDM with 1558.17nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1557_36 = 86
+    .. data:: ethernet_1000base_dwdm_1557_36 = 86
 
     	DWDM with 1557.36nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1556_55 = 87
+    .. data:: ethernet_1000base_dwdm_1556_55 = 87
 
     	DWDM with 1556.55nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1555_75 = 88
+    .. data:: ethernet_1000base_dwdm_1555_75 = 88
 
     	DWDM with 1555.75nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1554_94 = 89
+    .. data:: ethernet_1000base_dwdm_1554_94 = 89
 
     	DWDM with 1554.94nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1554_13 = 90
+    .. data:: ethernet_1000base_dwdm_1554_13 = 90
 
     	DWDM with 1554.13nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1553_33 = 91
+    .. data:: ethernet_1000base_dwdm_1553_33 = 91
 
     	DWDM with 1553.33nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1552_52 = 92
+    .. data:: ethernet_1000base_dwdm_1552_52 = 92
 
     	DWDM with 1552.52nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1551_72 = 93
+    .. data:: ethernet_1000base_dwdm_1551_72 = 93
 
     	DWDM with 1551.72nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1550_92 = 94
+    .. data:: ethernet_1000base_dwdm_1550_92 = 94
 
     	DWDM with 1550.92nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1550_12 = 95
+    .. data:: ethernet_1000base_dwdm_1550_12 = 95
 
     	DWDM with 1550.12nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1549_32 = 96
+    .. data:: ethernet_1000base_dwdm_1549_32 = 96
 
     	DWDM with 1549.32nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1548_51 = 97
+    .. data:: ethernet_1000base_dwdm_1548_51 = 97
 
     	DWDM with 1548.51nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1547_72 = 98
+    .. data:: ethernet_1000base_dwdm_1547_72 = 98
 
     	DWDM with 1547.72nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1546_92 = 99
+    .. data:: ethernet_1000base_dwdm_1546_92 = 99
 
     	DWDM with 1546.92nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1546_12 = 100
+    .. data:: ethernet_1000base_dwdm_1546_12 = 100
 
     	DWDM with 1546.12nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1545_32 = 101
+    .. data:: ethernet_1000base_dwdm_1545_32 = 101
 
     	DWDM with 1545.32nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1544_53 = 102
+    .. data:: ethernet_1000base_dwdm_1544_53 = 102
 
     	DWDM with 1544.53nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1543_73 = 103
+    .. data:: ethernet_1000base_dwdm_1543_73 = 103
 
     	DWDM with 1543.73nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1542_94 = 104
+    .. data:: ethernet_1000base_dwdm_1542_94 = 104
 
     	DWDM with 1542.94nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1542_14 = 105
+    .. data:: ethernet_1000base_dwdm_1542_14 = 105
 
     	DWDM with 1542.14nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1541_35 = 106
+    .. data:: ethernet_1000base_dwdm_1541_35 = 106
 
     	DWDM with 1541.35nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1540_56 = 107
+    .. data:: ethernet_1000base_dwdm_1540_56 = 107
 
     	DWDM with 1540.56nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1539_77 = 108
+    .. data:: ethernet_1000base_dwdm_1539_77 = 108
 
     	DWDM with 1539.77nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1538_98 = 109
+    .. data:: ethernet_1000base_dwdm_1538_98 = 109
 
     	DWDM with 1538.98nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1538_19 = 110
+    .. data:: ethernet_1000base_dwdm_1538_19 = 110
 
     	DWDM with 1538.19nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1537_40 = 111
+    .. data:: ethernet_1000base_dwdm_1537_40 = 111
 
     	DWDM with 1537.40nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1536_61 = 112
+    .. data:: ethernet_1000base_dwdm_1536_61 = 112
 
     	DWDM with 1536.61nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1535_82 = 113
+    .. data:: ethernet_1000base_dwdm_1535_82 = 113
 
     	DWDM with 1535.82nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1535_04 = 114
+    .. data:: ethernet_1000base_dwdm_1535_04 = 114
 
     	DWDM with 1535.04nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1534_25 = 115
+    .. data:: ethernet_1000base_dwdm_1534_25 = 115
 
     	DWDM with 1534.25nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1533_47 = 116
+    .. data:: ethernet_1000base_dwdm_1533_47 = 116
 
     	DWDM with 1533.47nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1532_68 = 117
+    .. data:: ethernet_1000base_dwdm_1532_68 = 117
 
     	DWDM with 1532.68nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1531_90 = 118
+    .. data:: ethernet_1000base_dwdm_1531_90 = 118
 
     	DWDM with 1531.90nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1531_12 = 119
+    .. data:: ethernet_1000base_dwdm_1531_12 = 119
 
     	DWDM with 1531.12nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_1530_33 = 120
+    .. data:: ethernet_1000base_dwdm_1530_33 = 120
 
     	DWDM with 1530.33nm optics
 
-    .. data:: ETHERNET_1000BASE_DWDM_TUNABLE = 121
+    .. data:: ethernet_1000base_dwdm_tunable = 121
 
     	DWDM with tunable optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1561_42 = 122
+    .. data:: ethernet_10gbase_dwdm_1561_42 = 122
 
     	DWDM with 1561.42nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1560_61 = 123
+    .. data:: ethernet_10gbase_dwdm_1560_61 = 123
 
     	DWDM with 1560.61nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1559_79 = 124
+    .. data:: ethernet_10gbase_dwdm_1559_79 = 124
 
     	DWDM with 1559.79nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1558_98 = 125
+    .. data:: ethernet_10gbase_dwdm_1558_98 = 125
 
     	DWDM with 1558.98nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1558_17 = 126
+    .. data:: ethernet_10gbase_dwdm_1558_17 = 126
 
     	DWDM with 1558.17nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1557_36 = 127
+    .. data:: ethernet_10gbase_dwdm_1557_36 = 127
 
     	DWDM with 1557.36nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1556_55 = 128
+    .. data:: ethernet_10gbase_dwdm_1556_55 = 128
 
     	DWDM with 1556.55nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1555_75 = 129
+    .. data:: ethernet_10gbase_dwdm_1555_75 = 129
 
     	DWDM with 1555.75nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1554_94 = 130
+    .. data:: ethernet_10gbase_dwdm_1554_94 = 130
 
     	DWDM with 1554.94nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1554_13 = 131
+    .. data:: ethernet_10gbase_dwdm_1554_13 = 131
 
     	DWDM with 1554.13nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1553_33 = 132
+    .. data:: ethernet_10gbase_dwdm_1553_33 = 132
 
     	DWDM with 1553.33nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1552_52 = 133
+    .. data:: ethernet_10gbase_dwdm_1552_52 = 133
 
     	DWDM with 1552.52nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1551_72 = 134
+    .. data:: ethernet_10gbase_dwdm_1551_72 = 134
 
     	DWDM with 1551.72nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1550_92 = 135
+    .. data:: ethernet_10gbase_dwdm_1550_92 = 135
 
     	DWDM with 1550.92nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1550_12 = 136
+    .. data:: ethernet_10gbase_dwdm_1550_12 = 136
 
     	DWDM with 1550.12nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1549_32 = 137
+    .. data:: ethernet_10gbase_dwdm_1549_32 = 137
 
     	DWDM with 1549.32nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1548_51 = 138
+    .. data:: ethernet_10gbase_dwdm_1548_51 = 138
 
     	DWDM with 1548.51nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1547_72 = 139
+    .. data:: ethernet_10gbase_dwdm_1547_72 = 139
 
     	DWDM with 1547.72nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1546_92 = 140
+    .. data:: ethernet_10gbase_dwdm_1546_92 = 140
 
     	DWDM with 1546.92nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1546_12 = 141
+    .. data:: ethernet_10gbase_dwdm_1546_12 = 141
 
     	DWDM with 1546.12nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1545_32 = 142
+    .. data:: ethernet_10gbase_dwdm_1545_32 = 142
 
     	DWDM with 1545.32nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1544_53 = 143
+    .. data:: ethernet_10gbase_dwdm_1544_53 = 143
 
     	DWDM with 1544.53nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1543_73 = 144
+    .. data:: ethernet_10gbase_dwdm_1543_73 = 144
 
     	DWDM with 1543.73nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1542_94 = 145
+    .. data:: ethernet_10gbase_dwdm_1542_94 = 145
 
     	DWDM with 1542.94nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1542_14 = 146
+    .. data:: ethernet_10gbase_dwdm_1542_14 = 146
 
     	DWDM with 1542.14nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1541_35 = 147
+    .. data:: ethernet_10gbase_dwdm_1541_35 = 147
 
     	DWDM with 1541.35nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1540_56 = 148
+    .. data:: ethernet_10gbase_dwdm_1540_56 = 148
 
     	DWDM with 1540.56nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1539_77 = 149
+    .. data:: ethernet_10gbase_dwdm_1539_77 = 149
 
     	DWDM with 1539.77nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1538_98 = 150
+    .. data:: ethernet_10gbase_dwdm_1538_98 = 150
 
     	DWDM with 1538.98nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1538_19 = 151
+    .. data:: ethernet_10gbase_dwdm_1538_19 = 151
 
     	DWDM with 1538.19nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1537_40 = 152
+    .. data:: ethernet_10gbase_dwdm_1537_40 = 152
 
     	DWDM with 1537.40nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1536_61 = 153
+    .. data:: ethernet_10gbase_dwdm_1536_61 = 153
 
     	DWDM with 1536.61nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1535_82 = 154
+    .. data:: ethernet_10gbase_dwdm_1535_82 = 154
 
     	DWDM with 1535.82nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1535_04 = 155
+    .. data:: ethernet_10gbase_dwdm_1535_04 = 155
 
     	DWDM with 1535.04nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1534_25 = 156
+    .. data:: ethernet_10gbase_dwdm_1534_25 = 156
 
     	DWDM with 1534.25nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1533_47 = 157
+    .. data:: ethernet_10gbase_dwdm_1533_47 = 157
 
     	DWDM with 1533.47nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1532_68 = 158
+    .. data:: ethernet_10gbase_dwdm_1532_68 = 158
 
     	DWDM with 1532.68nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1531_90 = 159
+    .. data:: ethernet_10gbase_dwdm_1531_90 = 159
 
     	DWDM with 1531.90nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1531_12 = 160
+    .. data:: ethernet_10gbase_dwdm_1531_12 = 160
 
     	DWDM with 1531.12nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_1530_33 = 161
+    .. data:: ethernet_10gbase_dwdm_1530_33 = 161
 
     	DWDM with 1530.33nm optics
 
-    .. data:: ETHERNET_10GBASE_DWDM_TUNABLE = 162
+    .. data:: ethernet_10gbase_dwdm_tunable = 162
 
     	DWDM with tunable optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1561_42 = 163
+    .. data:: ethernet_40gbase_dwdm_1561_42 = 163
 
     	DWDM with 1561.42nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1560_61 = 164
+    .. data:: ethernet_40gbase_dwdm_1560_61 = 164
 
     	DWDM with 1560.61nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1559_79 = 165
+    .. data:: ethernet_40gbase_dwdm_1559_79 = 165
 
     	DWDM with 1559.79nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1558_98 = 166
+    .. data:: ethernet_40gbase_dwdm_1558_98 = 166
 
     	DWDM with 1558.98nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1558_17 = 167
+    .. data:: ethernet_40gbase_dwdm_1558_17 = 167
 
     	DWDM with 1558.17nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1557_36 = 168
+    .. data:: ethernet_40gbase_dwdm_1557_36 = 168
 
     	DWDM with 1557.36nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1556_55 = 169
+    .. data:: ethernet_40gbase_dwdm_1556_55 = 169
 
     	DWDM with 1556.55nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1555_75 = 170
+    .. data:: ethernet_40gbase_dwdm_1555_75 = 170
 
     	DWDM with 1555.75nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1554_94 = 171
+    .. data:: ethernet_40gbase_dwdm_1554_94 = 171
 
     	DWDM with 1554.94nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1554_13 = 172
+    .. data:: ethernet_40gbase_dwdm_1554_13 = 172
 
     	DWDM with 1554.13nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1553_33 = 173
+    .. data:: ethernet_40gbase_dwdm_1553_33 = 173
 
     	DWDM with 1553.33nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1552_52 = 174
+    .. data:: ethernet_40gbase_dwdm_1552_52 = 174
 
     	DWDM with 1552.52nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1551_72 = 175
+    .. data:: ethernet_40gbase_dwdm_1551_72 = 175
 
     	DWDM with 1551.72nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1550_92 = 176
+    .. data:: ethernet_40gbase_dwdm_1550_92 = 176
 
     	DWDM with 1550.92nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1550_12 = 177
+    .. data:: ethernet_40gbase_dwdm_1550_12 = 177
 
     	DWDM with 1550.12nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1549_32 = 178
+    .. data:: ethernet_40gbase_dwdm_1549_32 = 178
 
     	DWDM with 1549.32nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1548_51 = 179
+    .. data:: ethernet_40gbase_dwdm_1548_51 = 179
 
     	DWDM with 1548.51nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1547_72 = 180
+    .. data:: ethernet_40gbase_dwdm_1547_72 = 180
 
     	DWDM with 1547.72nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1546_92 = 181
+    .. data:: ethernet_40gbase_dwdm_1546_92 = 181
 
     	DWDM with 1546.92nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1546_12 = 182
+    .. data:: ethernet_40gbase_dwdm_1546_12 = 182
 
     	DWDM with 1546.12nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1545_32 = 183
+    .. data:: ethernet_40gbase_dwdm_1545_32 = 183
 
     	DWDM with 1545.32nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1544_53 = 184
+    .. data:: ethernet_40gbase_dwdm_1544_53 = 184
 
     	DWDM with 1544.53nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1543_73 = 185
+    .. data:: ethernet_40gbase_dwdm_1543_73 = 185
 
     	DWDM with 1543.73nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1542_94 = 186
+    .. data:: ethernet_40gbase_dwdm_1542_94 = 186
 
     	DWDM with 1542.94nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1542_14 = 187
+    .. data:: ethernet_40gbase_dwdm_1542_14 = 187
 
     	DWDM with 1542.14nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1541_35 = 188
+    .. data:: ethernet_40gbase_dwdm_1541_35 = 188
 
     	DWDM with 1541.35nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1540_56 = 189
+    .. data:: ethernet_40gbase_dwdm_1540_56 = 189
 
     	DWDM with 1540.56nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1539_77 = 190
+    .. data:: ethernet_40gbase_dwdm_1539_77 = 190
 
     	DWDM with 1539.77nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1538_98 = 191
+    .. data:: ethernet_40gbase_dwdm_1538_98 = 191
 
     	DWDM with 1538.98nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1538_19 = 192
+    .. data:: ethernet_40gbase_dwdm_1538_19 = 192
 
     	DWDM with 1538.19nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1537_40 = 193
+    .. data:: ethernet_40gbase_dwdm_1537_40 = 193
 
     	DWDM with 1537.40nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1536_61 = 194
+    .. data:: ethernet_40gbase_dwdm_1536_61 = 194
 
     	DWDM with 1536.61nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1535_82 = 195
+    .. data:: ethernet_40gbase_dwdm_1535_82 = 195
 
     	DWDM with 1535.82nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1535_04 = 196
+    .. data:: ethernet_40gbase_dwdm_1535_04 = 196
 
     	DWDM with 1535.04nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1534_25 = 197
+    .. data:: ethernet_40gbase_dwdm_1534_25 = 197
 
     	DWDM with 1534.25nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1533_47 = 198
+    .. data:: ethernet_40gbase_dwdm_1533_47 = 198
 
     	DWDM with 1533.47nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1532_68 = 199
+    .. data:: ethernet_40gbase_dwdm_1532_68 = 199
 
     	DWDM with 1532.68nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1531_90 = 200
+    .. data:: ethernet_40gbase_dwdm_1531_90 = 200
 
     	DWDM with 1531.90nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1531_12 = 201
+    .. data:: ethernet_40gbase_dwdm_1531_12 = 201
 
     	DWDM with 1531.12nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_1530_33 = 202
+    .. data:: ethernet_40gbase_dwdm_1530_33 = 202
 
     	DWDM with 1530.33nm optics
 
-    .. data:: ETHERNET_40GBASE_DWDM_TUNABLE = 203
+    .. data:: ethernet_40gbase_dwdm_tunable = 203
 
     	DWDM with tunable optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1561_42 = 204
+    .. data:: ethernet_100gbase_dwdm_1561_42 = 204
 
     	DWDM with 1561.42nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1560_61 = 205
+    .. data:: ethernet_100gbase_dwdm_1560_61 = 205
 
     	DWDM with 1560.61nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1559_79 = 206
+    .. data:: ethernet_100gbase_dwdm_1559_79 = 206
 
     	DWDM with 1559.79nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1558_98 = 207
+    .. data:: ethernet_100gbase_dwdm_1558_98 = 207
 
     	DWDM with 1558.98nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1558_17 = 208
+    .. data:: ethernet_100gbase_dwdm_1558_17 = 208
 
     	DWDM with 1558.17nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1557_36 = 209
+    .. data:: ethernet_100gbase_dwdm_1557_36 = 209
 
     	DWDM with 1557.36nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1556_55 = 210
+    .. data:: ethernet_100gbase_dwdm_1556_55 = 210
 
     	DWDM with 1556.55nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1555_75 = 211
+    .. data:: ethernet_100gbase_dwdm_1555_75 = 211
 
     	DWDM with 1555.75nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1554_94 = 212
+    .. data:: ethernet_100gbase_dwdm_1554_94 = 212
 
     	DWDM with 1554.94nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1554_13 = 213
+    .. data:: ethernet_100gbase_dwdm_1554_13 = 213
 
     	DWDM with 1554.13nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1553_33 = 214
+    .. data:: ethernet_100gbase_dwdm_1553_33 = 214
 
     	DWDM with 1553.33nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1552_52 = 215
+    .. data:: ethernet_100gbase_dwdm_1552_52 = 215
 
     	DWDM with 1552.52nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1551_72 = 216
+    .. data:: ethernet_100gbase_dwdm_1551_72 = 216
 
     	DWDM with 1551.72nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1550_92 = 217
+    .. data:: ethernet_100gbase_dwdm_1550_92 = 217
 
     	DWDM with 1550.92nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1550_12 = 218
+    .. data:: ethernet_100gbase_dwdm_1550_12 = 218
 
     	DWDM with 1550.12nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1549_32 = 219
+    .. data:: ethernet_100gbase_dwdm_1549_32 = 219
 
     	DWDM with 1549.32nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1548_51 = 220
+    .. data:: ethernet_100gbase_dwdm_1548_51 = 220
 
     	DWDM with 1548.51nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1547_72 = 221
+    .. data:: ethernet_100gbase_dwdm_1547_72 = 221
 
     	DWDM with 1547.72nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1546_92 = 222
+    .. data:: ethernet_100gbase_dwdm_1546_92 = 222
 
     	DWDM with 1546.92nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1546_12 = 223
+    .. data:: ethernet_100gbase_dwdm_1546_12 = 223
 
     	DWDM with 1546.12nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1545_32 = 224
+    .. data:: ethernet_100gbase_dwdm_1545_32 = 224
 
     	DWDM with 1545.32nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1544_53 = 225
+    .. data:: ethernet_100gbase_dwdm_1544_53 = 225
 
     	DWDM with 1544.53nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1543_73 = 226
+    .. data:: ethernet_100gbase_dwdm_1543_73 = 226
 
     	DWDM with 1543.73nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1542_94 = 227
+    .. data:: ethernet_100gbase_dwdm_1542_94 = 227
 
     	DWDM with 1542.94nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1542_14 = 228
+    .. data:: ethernet_100gbase_dwdm_1542_14 = 228
 
     	DWDM with 1542.14nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1541_35 = 229
+    .. data:: ethernet_100gbase_dwdm_1541_35 = 229
 
     	DWDM with 1541.35nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1540_56 = 230
+    .. data:: ethernet_100gbase_dwdm_1540_56 = 230
 
     	DWDM with 1540.56nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1539_77 = 231
+    .. data:: ethernet_100gbase_dwdm_1539_77 = 231
 
     	DWDM with 1539.77nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1538_98 = 232
+    .. data:: ethernet_100gbase_dwdm_1538_98 = 232
 
     	DWDM with 1538.98nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1538_19 = 233
+    .. data:: ethernet_100gbase_dwdm_1538_19 = 233
 
     	DWDM with 1538.19nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1537_40 = 234
+    .. data:: ethernet_100gbase_dwdm_1537_40 = 234
 
     	DWDM with 1537.40nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1536_61 = 235
+    .. data:: ethernet_100gbase_dwdm_1536_61 = 235
 
     	DWDM with 1536.61nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1535_82 = 236
+    .. data:: ethernet_100gbase_dwdm_1535_82 = 236
 
     	DWDM with 1535.82nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1535_04 = 237
+    .. data:: ethernet_100gbase_dwdm_1535_04 = 237
 
     	DWDM with 1535.04nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1534_25 = 238
+    .. data:: ethernet_100gbase_dwdm_1534_25 = 238
 
     	DWDM with 1534.25nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1533_47 = 239
+    .. data:: ethernet_100gbase_dwdm_1533_47 = 239
 
     	DWDM with 1533.47nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1532_68 = 240
+    .. data:: ethernet_100gbase_dwdm_1532_68 = 240
 
     	DWDM with 1532.68nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1531_90 = 241
+    .. data:: ethernet_100gbase_dwdm_1531_90 = 241
 
     	DWDM with 1531.90nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1531_12 = 242
+    .. data:: ethernet_100gbase_dwdm_1531_12 = 242
 
     	DWDM with 1531.12nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_1530_33 = 243
+    .. data:: ethernet_100gbase_dwdm_1530_33 = 243
 
     	DWDM with 1530.33nm optics
 
-    .. data:: ETHERNET_100GBASE_DWDM_TUNABLE = 244
+    .. data:: ethernet_100gbase_dwdm_tunable = 244
 
     	DWDM with tunable optics
 
-    .. data:: ETHERNET_40GBASE_KR4 = 245
+    .. data:: ethernet_40gbase_kr4 = 245
 
     	4 lane copper (backplane)
 
-    .. data:: ETHERNET_40GBASE_CR4 = 246
+    .. data:: ethernet_40gbase_cr4 = 246
 
     	4 lane copper (very short reach)
 
-    .. data:: ETHERNET_40GBASE_SR4 = 247
+    .. data:: ethernet_40gbase_sr4 = 247
 
     	fiber over 4 lane optics (short reach)
 
-    .. data:: ETHERNET_40GBASE_FR = 248
+    .. data:: ethernet_40gbase_fr = 248
 
     	serial fiber (2+ km)
 
-    .. data:: ETHERNET_100GBASE_CR10 = 249
+    .. data:: ethernet_100gbase_cr10 = 249
 
     	10 lane copper (very short reach)
 
-    .. data:: ETHERNET_100GBASE_SR10 = 250
+    .. data:: ethernet_100gbase_sr10 = 250
 
     	MMF fiber over 10 lane optics (short reach)
 
-    .. data:: ETHERNET_40GBASE_CSR4 = 251
+    .. data:: ethernet_40gbase_csr4 = 251
 
     	fiber over 4 lane optics (extended short reach)
 
-    .. data:: ETHERNET_10GBASE_CWDM = 252
+    .. data:: ethernet_10gbase_cwdm = 252
 
     	CWDM optics
 
-    .. data:: ETHERNET_10GBASE_CWDM_TUNABLE = 253
+    .. data:: ethernet_10gbase_cwdm_tunable = 253
 
     	CWDM with tunable optics
 
-    .. data:: ETHERNET_10GBASE_CWDM_1470 = 254
+    .. data:: ethernet_10gbase_cwdm_1470 = 254
 
     	CWDM with 1470nm optics
 
-    .. data:: ETHERNET_10GBASE_CWDM_1490 = 255
+    .. data:: ethernet_10gbase_cwdm_1490 = 255
 
     	CWDM with 1490nm optics
 
-    .. data:: ETHERNET_10GBASE_CWDM_1510 = 256
+    .. data:: ethernet_10gbase_cwdm_1510 = 256
 
     	CWDM with 1510nm optics
 
-    .. data:: ETHERNET_10GBASE_CWDM_1530 = 257
+    .. data:: ethernet_10gbase_cwdm_1530 = 257
 
     	CWDM with 1530nm optics
 
-    .. data:: ETHERNET_10GBASE_CWDM_1550 = 258
+    .. data:: ethernet_10gbase_cwdm_1550 = 258
 
     	CWDM with 1550nm optics
 
-    .. data:: ETHERNET_10GBASE_CWDM_1570 = 259
+    .. data:: ethernet_10gbase_cwdm_1570 = 259
 
     	CWDM with 1570nm optics
 
-    .. data:: ETHERNET_10GBASE_CWDM_1590 = 260
+    .. data:: ethernet_10gbase_cwdm_1590 = 260
 
     	CWDM with 1590nm optics
 
-    .. data:: ETHERNET_10GBASE_CWDM_1610 = 261
+    .. data:: ethernet_10gbase_cwdm_1610 = 261
 
     	CWDM with 1610nm optics
 
-    .. data:: ETHERNET_40GBASE_CWDM = 262
+    .. data:: ethernet_40gbase_cwdm = 262
 
     	CWDM optics
 
-    .. data:: ETHERNET_40GBASE_CWDM_TUNABLE = 263
+    .. data:: ethernet_40gbase_cwdm_tunable = 263
 
     	CWDM with tunable optics
 
-    .. data:: ETHERNET_40GBASE_CWDM_1470 = 264
+    .. data:: ethernet_40gbase_cwdm_1470 = 264
 
     	CWDM with 1470nm optics
 
-    .. data:: ETHERNET_40GBASE_CWDM_1490 = 265
+    .. data:: ethernet_40gbase_cwdm_1490 = 265
 
     	CWDM with 1490nm optics
 
-    .. data:: ETHERNET_40GBASE_CWDM_1510 = 266
+    .. data:: ethernet_40gbase_cwdm_1510 = 266
 
     	CWDM with 1510nm optics
 
-    .. data:: ETHERNET_40GBASE_CWDM_1530 = 267
+    .. data:: ethernet_40gbase_cwdm_1530 = 267
 
     	CWDM with 1530nm optics
 
-    .. data:: ETHERNET_40GBASE_CWDM_1550 = 268
+    .. data:: ethernet_40gbase_cwdm_1550 = 268
 
     	CWDM with 1550nm optics
 
-    .. data:: ETHERNET_40GBASE_CWDM_1570 = 269
+    .. data:: ethernet_40gbase_cwdm_1570 = 269
 
     	CWDM with 1570nm optics
 
-    .. data:: ETHERNET_40GBASE_CWDM_1590 = 270
+    .. data:: ethernet_40gbase_cwdm_1590 = 270
 
     	CWDM with 1590nm optics
 
-    .. data:: ETHERNET_40GBASE_CWDM_1610 = 271
+    .. data:: ethernet_40gbase_cwdm_1610 = 271
 
     	CWDM with 1610nm optics
 
-    .. data:: ETHERNET_100GBASE_CWDM = 272
+    .. data:: ethernet_100gbase_cwdm = 272
 
     	CWDM optics
 
-    .. data:: ETHERNET_100GBASE_CWDM_TUNABLE = 273
+    .. data:: ethernet_100gbase_cwdm_tunable = 273
 
     	CWDM with tunable optics
 
-    .. data:: ETHERNET_100GBASE_CWDM_1470 = 274
+    .. data:: ethernet_100gbase_cwdm_1470 = 274
 
     	CWDM with 1470nm optics
 
-    .. data:: ETHERNET_100GBASE_CWDM_1490 = 275
+    .. data:: ethernet_100gbase_cwdm_1490 = 275
 
     	CWDM with 1490nm optics
 
-    .. data:: ETHERNET_100GBASE_CWDM_1510 = 276
+    .. data:: ethernet_100gbase_cwdm_1510 = 276
 
     	CWDM with 1510nm optics
 
-    .. data:: ETHERNET_100GBASE_CWDM_1530 = 277
+    .. data:: ethernet_100gbase_cwdm_1530 = 277
 
     	CWDM with 1530nm optics
 
-    .. data:: ETHERNET_100GBASE_CWDM_1550 = 278
+    .. data:: ethernet_100gbase_cwdm_1550 = 278
 
     	CWDM with 1550nm optics
 
-    .. data:: ETHERNET_100GBASE_CWDM_1570 = 279
+    .. data:: ethernet_100gbase_cwdm_1570 = 279
 
     	CWDM with 1570nm optics
 
-    .. data:: ETHERNET_100GBASE_CWDM_1590 = 280
+    .. data:: ethernet_100gbase_cwdm_1590 = 280
 
     	CWDM with 1590nm optics
 
-    .. data:: ETHERNET_100GBASE_CWDM_1610 = 281
+    .. data:: ethernet_100gbase_cwdm_1610 = 281
 
     	CWDM with 1610nm optics
 
-    .. data:: ETHERNET_40GBASE_ELPB = 282
+    .. data:: ethernet_40gbase_elpb = 282
 
     	Electrical loopback
 
-    .. data:: ETHERNET_100GBASE_ELPB = 283
+    .. data:: ethernet_100gbase_elpb = 283
 
     	Electrical loopback
 
-    .. data:: ETHERNET_100GBASE_LR10 = 284
+    .. data:: ethernet_100gbase_lr10 = 284
 
     	Fiber over 10 lane optics (long reach)
 
-    .. data:: ETHERNET_40GBASE = 285
+    .. data:: ethernet_40gbase = 285
 
     	Four-pair Category 8 STP
 
-    .. data:: ETHERNET_100GBASE_KP4 = 286
+    .. data:: ethernet_100gbase_kp4 = 286
 
     	4 lane copper (backplane)
 
-    .. data:: ETHERNET_100GBASE_KR4 = 287
+    .. data:: ethernet_100gbase_kr4 = 287
 
     	Improved 4 lane copper (backplane)
 
-    .. data:: ETHERNET_10GBASE_LRM = 288
+    .. data:: ethernet_10gbase_lrm = 288
 
     	Multimode fiber with 1310nm optics (long reach)
 
-    .. data:: ETHERNET_10GBASE_CX4 = 289
+    .. data:: ethernet_10gbase_cx4 = 289
 
     	4 lane X copper
 
-    .. data:: ETHERNET_10GBASE = 290
+    .. data:: ethernet_10gbase = 290
 
     	Four-pair Category 6+ UTP
 
-    .. data:: ETHERNET_10GBASE_KX4 = 291
+    .. data:: ethernet_10gbase_kx4 = 291
 
     	4 lane X copper (backplane)
 
-    .. data:: ETHERNET_10GBASE_KR = 292
+    .. data:: ethernet_10gbase_kr = 292
 
     	Copper (backplane)
 
-    .. data:: ETHERNET_10GBASE_PR = 293
+    .. data:: ethernet_10gbase_pr = 293
 
     	Passive optical network
 
-    .. data:: ETHERNET_100BASE_LX = 294
+    .. data:: ethernet_100base_lx = 294
 
     	X fiber over 4 lane 1310nm optics
 
-    .. data:: ETHERNET_100BASE_ZX = 295
+    .. data:: ethernet_100base_zx = 295
 
     	Single-mode fiber over 1550nm optics (Cisco)
 
-    .. data:: ETHERNET_1000BASE_BX_D = 296
+    .. data:: ethernet_1000base_bx_d = 296
 
     	X fibre (D)
 
-    .. data:: ETHERNET_1000BASE_BX_U = 297
+    .. data:: ethernet_1000base_bx_u = 297
 
     	X fibre (U)
 
-    .. data:: ETHERNET_1000BASE_BX20_D = 298
+    .. data:: ethernet_1000base_bx20_d = 298
 
     	X fibre (D, 20km)
 
-    .. data:: ETHERNET_1000BASE_BX20_U = 299
+    .. data:: ethernet_1000base_bx20_u = 299
 
     	X fibre (U, 20km)
 
-    .. data:: ETHERNET_1000BASE_BX40_D = 300
+    .. data:: ethernet_1000base_bx40_d = 300
 
     	X fibre (D, 40km)
 
-    .. data:: ETHERNET_1000BASE_BX40_DA = 301
+    .. data:: ethernet_1000base_bx40_da = 301
 
     	X fibre (D, 40km)
 
-    .. data:: ETHERNET_1000BASE_BX40_U = 302
+    .. data:: ethernet_1000base_bx40_u = 302
 
     	X fibre (U, 40km)
 
-    .. data:: ETHERNET_1000BASE_BX80_D = 303
+    .. data:: ethernet_1000base_bx80_d = 303
 
     	X fibre (D, 80km)
 
-    .. data:: ETHERNET_1000BASE_BX80_U = 304
+    .. data:: ethernet_1000base_bx80_u = 304
 
     	X fibre (U, 80km)
 
-    .. data:: ETHERNET_1000BASE_BX120_D = 305
+    .. data:: ethernet_1000base_bx120_d = 305
 
     	X fibre (D, 120km)
 
-    .. data:: ETHERNET_1000BASE_BX120_U = 306
+    .. data:: ethernet_1000base_bx120_u = 306
 
     	X fibre (U, 120km)
 
-    .. data:: ETHERNET_10GBASE_BX_D = 307
+    .. data:: ethernet_10gbase_bx_d = 307
 
     	X fibre (D)
 
-    .. data:: ETHERNET_10GBASE_BX_U = 308
+    .. data:: ethernet_10gbase_bx_u = 308
 
     	X fibre (U)
 
-    .. data:: ETHERNET_10GBASE_BX10_D = 309
+    .. data:: ethernet_10gbase_bx10_d = 309
 
     	X fibre (D, 10km)
 
-    .. data:: ETHERNET_10GBASE_BX10_U = 310
+    .. data:: ethernet_10gbase_bx10_u = 310
 
     	X fibre (U, 10km)
 
-    .. data:: ETHERNET_10GBASE_BX20_D = 311
+    .. data:: ethernet_10gbase_bx20_d = 311
 
     	X fibre (D, 20km)
 
-    .. data:: ETHERNET_10GBASE_BX20_U = 312
+    .. data:: ethernet_10gbase_bx20_u = 312
 
     	X fibre (U, 20km)
 
-    .. data:: ETHERNET_10GBASE_BX40_D = 313
+    .. data:: ethernet_10gbase_bx40_d = 313
 
     	X fibre (D, 40km)
 
-    .. data:: ETHERNET_10GBASE_BX40_U = 314
+    .. data:: ethernet_10gbase_bx40_u = 314
 
     	X fibre (U, 40km)
 
-    .. data:: ETHERNET_10GBASE_BX80_D = 315
+    .. data:: ethernet_10gbase_bx80_d = 315
 
     	X fibre (D, 80km)
 
-    .. data:: ETHERNET_10GBASE_BX80_U = 316
+    .. data:: ethernet_10gbase_bx80_u = 316
 
     	X fibre (U, 80km)
 
-    .. data:: ETHERNET_10GBASE_BX120_D = 317
+    .. data:: ethernet_10gbase_bx120_d = 317
 
     	X fibre (D, 120km)
 
-    .. data:: ETHERNET_10GBASE_BX120_U = 318
+    .. data:: ethernet_10gbase_bx120_u = 318
 
     	X fibre (U, 120km)
 
-    .. data:: ETHERNET_1000BASE_DR_LX = 319
+    .. data:: ethernet_1000base_dr_lx = 319
 
     	X fiber over long-wl laser PMD, duplexity
 
     	unknown, dual rate
 
-    .. data:: ETHERNET_100GBASE_ER4L = 320
+    .. data:: ethernet_100gbase_er4l = 320
 
     	fiber over 4 lane optics (25km reach) (lite)
 
-    .. data:: ETHERNET_100GBASE_SR4 = 321
+    .. data:: ethernet_100gbase_sr4 = 321
 
     	fiber over 4 lane optics (short reach)
 
-    .. data:: ETHERNET_40GBASE_SR_BD = 322
+    .. data:: ethernet_40gbase_sr_bd = 322
 
     	Bi-directional fiber over 2 lane optics (short
 
     	reach)
 
-    .. data:: ETHERNET_25GBASE_CR = 323
+    .. data:: ethernet_25gbase_cr = 323
 
     	Twinaxial copper cabling
 
-    .. data:: ETHERNET_25GBASE_CR_S = 324
+    .. data:: ethernet_25gbase_cr_s = 324
 
     	Twinaxial copper cabling (no RS-FEC)
 
-    .. data:: ETHERNET_25GBASE_KR = 325
+    .. data:: ethernet_25gbase_kr = 325
 
     	One lane electrical backplane
 
-    .. data:: ETHERNET_25GBASE_KR_S = 326
+    .. data:: ethernet_25gbase_kr_s = 326
 
     	One lane electrical backplane (no RS-FEC)
 
-    .. data:: ETHERNET_25GBASE_R = 327
+    .. data:: ethernet_25gbase_r = 327
 
     	One lane fiber
 
-    .. data:: ETHERNET_25GBASE_SR = 328
+    .. data:: ethernet_25gbase_sr = 328
 
     	Multimode fiber
 
-    .. data:: ETHERNET_25GBASE_DWDM = 329
+    .. data:: ethernet_25gbase_dwdm = 329
 
     	DWDM optics
 
-    .. data:: ETHERNET_25GBASE_DWDM_TUNABLE = 330
+    .. data:: ethernet_25gbase_dwdm_tunable = 330
 
     	DWDM with tunable optics
 
-    .. data:: ETHERNET_25GBASE_CWDM = 331
+    .. data:: ethernet_25gbase_cwdm = 331
 
     	CWDM optics
 
-    .. data:: ETHERNET_25GBASE_CWDM_TUNABLE = 332
+    .. data:: ethernet_25gbase_cwdm_tunable = 332
 
     	CWDM with tunable optics
 
-    .. data:: ETHERNET_100GBASE_PSM4 = 333
+    .. data:: ethernet_100gbase_psm4 = 333
 
     	4 parallel single mode fibers
 
-    .. data:: ETHERNET_100GBASE_ER10 = 334
+    .. data:: ethernet_100gbase_er10 = 334
 
     	Fiber over 10 lane optics (extended reach)
 
-    .. data:: ETHERNET_100GBASE_ER10L = 335
+    .. data:: ethernet_100gbase_er10l = 335
 
     	Fiber over 10 lane optics (extended reach)
 
     	(lite)
 
-    .. data:: ETHERNET_100GBASE_ACC = 336
+    .. data:: ethernet_100gbase_acc = 336
 
     	Active copper cable
 
-    .. data:: ETHERNET_100GBASE_AOC = 337
+    .. data:: ethernet_100gbase_aoc = 337
 
     	Active optical cable
 
-    .. data:: ETHERNET_100GBASE_CWDM4 = 338
+    .. data:: ethernet_100gbase_cwdm4 = 338
 
     	4 lane CWDM cable
 
-    .. data:: ETHERNET_40GBASE_PSM4 = 339
+    .. data:: ethernet_40gbase_psm4 = 339
 
     	4 parallel single mode fibers
 
-    .. data:: ETHERNET_100GBASE_CR4 = 340
+    .. data:: ethernet_100gbase_cr4 = 340
 
     	4 lane copper (very short reach)
 
-    .. data:: ETHERNET_100GBASE_ACT_LOOP = 341
+    .. data:: ethernet_100gbase_act_loop = 341
 
     	Active loopback
 
-    .. data:: ETHERNET_100GBASE_PAS_LOOP = 342
+    .. data:: ethernet_100gbase_pas_loop = 342
 
     	Passive loopback
 
-    .. data:: ETHERNET_BASE_MAX = 343
+    .. data:: ethernet_base_max = 343
 
     	ethernet base max
 
     """
 
-    ETHERNET_OTHER = 0
+    ethernet_other = 0
 
-    ETHERNET_UNKNOWN = 1
+    ethernet_unknown = 1
 
-    ETHERNET_AUI = 2
+    ethernet_aui = 2
 
-    ETHERNET_10BASE5 = 3
+    ethernet_10base5 = 3
 
-    ETHERNET_FOIRL = 4
+    ethernet_foirl = 4
 
-    ETHERNET_10BASE2 = 5
+    ethernet_10base2 = 5
 
-    ETHERNET_10BROAD36 = 6
+    ethernet_10broad36 = 6
 
-    ETHERNET_10BASE = 7
+    ethernet_10base = 7
 
-    ETHERNET_10BASE_THD = 8
+    ethernet_10base_thd = 8
 
-    ETHERNET_10BASE_TFD = 9
+    ethernet_10base_tfd = 9
 
-    ETHERNET_10BASE_FP = 10
+    ethernet_10base_fp = 10
 
-    ETHERNET_10BASE_FB = 11
+    ethernet_10base_fb = 11
 
-    ETHERNET_10BASE_FL = 12
+    ethernet_10base_fl = 12
 
-    ETHERNET_10BASE_FLHD = 13
+    ethernet_10base_flhd = 13
 
-    ETHERNET_10BASE_FLFD = 14
+    ethernet_10base_flfd = 14
 
-    ETHERNET_100BASE_T4 = 15
+    ethernet_100base_t4 = 15
 
-    ETHERNET_100BASE_TX = 16
+    ethernet_100base_tx = 16
 
-    ETHERNET_100BASE_TXHD = 17
+    ethernet_100base_txhd = 17
 
-    ETHERNET_100BASE_TXFD = 18
+    ethernet_100base_txfd = 18
 
-    ETHERNET_100BASE_FX = 19
+    ethernet_100base_fx = 19
 
-    ETHERNET_100BASE_FXHD = 20
+    ethernet_100base_fxhd = 20
 
-    ETHERNET_100BASE_FXFD = 21
+    ethernet_100base_fxfd = 21
 
-    ETHERNET_100BASE_EX = 22
+    ethernet_100base_ex = 22
 
-    ETHERNET_100BASE_EXHD = 23
+    ethernet_100base_exhd = 23
 
-    ETHERNET_100BASE_EXFD = 24
+    ethernet_100base_exfd = 24
 
-    ETHERNET_100BASE_T2 = 25
+    ethernet_100base_t2 = 25
 
-    ETHERNET_100BASE_T2HD = 26
+    ethernet_100base_t2hd = 26
 
-    ETHERNET_100BASE_T2FD = 27
+    ethernet_100base_t2fd = 27
 
-    ETHERNET_1000BASE_X = 28
+    ethernet_1000base_x = 28
 
-    ETHERNET_1000BASE_XHD = 29
+    ethernet_1000base_xhd = 29
 
-    ETHERNET_1000BASE_XFD = 30
+    ethernet_1000base_xfd = 30
 
-    ETHERNET_1000BASE_LX = 31
+    ethernet_1000base_lx = 31
 
-    ETHERNET_1000BASE_LXHD = 32
+    ethernet_1000base_lxhd = 32
 
-    ETHERNET_1000BASE_LXFD = 33
+    ethernet_1000base_lxfd = 33
 
-    ETHERNET_1000BASE_SX = 34
+    ethernet_1000base_sx = 34
 
-    ETHERNET_1000BASE_SXHD = 35
+    ethernet_1000base_sxhd = 35
 
-    ETHERNET_1000BASE_SXFD = 36
+    ethernet_1000base_sxfd = 36
 
-    ETHERNET_1000BASE_CX = 37
+    ethernet_1000base_cx = 37
 
-    ETHERNET_1000BASE_CXHD = 38
+    ethernet_1000base_cxhd = 38
 
-    ETHERNET_1000BASE_CXFD = 39
+    ethernet_1000base_cxfd = 39
 
-    ETHERNET_1000BASE = 40
+    ethernet_1000base = 40
 
-    ETHERNET_1000BASE_THD = 41
+    ethernet_1000base_thd = 41
 
-    ETHERNET_1000BASE_TFD = 42
+    ethernet_1000base_tfd = 42
 
-    ETHERNET_10GBASE_X = 43
+    ethernet_10gbase_x = 43
 
-    ETHERNET_10GBASE_LX4 = 44
+    ethernet_10gbase_lx4 = 44
 
-    ETHERNET_10GBASE_R = 45
+    ethernet_10gbase_r = 45
 
-    ETHERNET_10GBASE_ER = 46
+    ethernet_10gbase_er = 46
 
-    ETHERNET_10GBASE_LR = 47
+    ethernet_10gbase_lr = 47
 
-    ETHERNET_10GBASE_SR = 48
+    ethernet_10gbase_sr = 48
 
-    ETHERNET_10GBASE_W = 49
+    ethernet_10gbase_w = 49
 
-    ETHERNET_10GBASE_EW = 50
+    ethernet_10gbase_ew = 50
 
-    ETHERNET_10GBASE_LW = 51
+    ethernet_10gbase_lw = 51
 
-    ETHERNET_10GBASE_SW = 52
+    ethernet_10gbase_sw = 52
 
-    ETHERNET_1000BASE_ZX = 53
+    ethernet_1000base_zx = 53
 
-    ETHERNET_1000BASE_CWDM = 54
+    ethernet_1000base_cwdm = 54
 
-    ETHERNET_1000BASE_CWDM_1470 = 55
+    ethernet_1000base_cwdm_1470 = 55
 
-    ETHERNET_1000BASE_CWDM_1490 = 56
+    ethernet_1000base_cwdm_1490 = 56
 
-    ETHERNET_1000BASE_CWDM_1510 = 57
+    ethernet_1000base_cwdm_1510 = 57
 
-    ETHERNET_1000BASE_CWDM_1530 = 58
+    ethernet_1000base_cwdm_1530 = 58
 
-    ETHERNET_1000BASE_CWDM_1550 = 59
+    ethernet_1000base_cwdm_1550 = 59
 
-    ETHERNET_1000BASE_CWDM_1570 = 60
+    ethernet_1000base_cwdm_1570 = 60
 
-    ETHERNET_1000BASE_CWDM_1590 = 61
+    ethernet_1000base_cwdm_1590 = 61
 
-    ETHERNET_1000BASE_CWDM_1610 = 62
+    ethernet_1000base_cwdm_1610 = 62
 
-    ETHERNET_10GBASE_ZR = 63
+    ethernet_10gbase_zr = 63
 
-    ETHERNET_10GBASE_DWDM = 64
+    ethernet_10gbase_dwdm = 64
 
-    ETHERNET_100GBASE_LR4 = 65
+    ethernet_100gbase_lr4 = 65
 
-    ETHERNET_1000BASE_DWDM = 66
+    ethernet_1000base_dwdm = 66
 
-    ETHERNET_1000BASE_DWDM_1533 = 67
+    ethernet_1000base_dwdm_1533 = 67
 
-    ETHERNET_1000BASE_DWDM_1537 = 68
+    ethernet_1000base_dwdm_1537 = 68
 
-    ETHERNET_1000BASE_DWDM_1541 = 69
+    ethernet_1000base_dwdm_1541 = 69
 
-    ETHERNET_1000BASE_DWDM_1545 = 70
+    ethernet_1000base_dwdm_1545 = 70
 
-    ETHERNET_1000BASE_DWDM_1549 = 71
+    ethernet_1000base_dwdm_1549 = 71
 
-    ETHERNET_1000BASE_DWDM_1553 = 72
+    ethernet_1000base_dwdm_1553 = 72
 
-    ETHERNET_1000BASE_DWDM_1557 = 73
+    ethernet_1000base_dwdm_1557 = 73
 
-    ETHERNET_1000BASE_DWDM_1561 = 74
+    ethernet_1000base_dwdm_1561 = 74
 
-    ETHERNET_40GBASE_LR4 = 75
+    ethernet_40gbase_lr4 = 75
 
-    ETHERNET_40GBASE_ER4 = 76
+    ethernet_40gbase_er4 = 76
 
-    ETHERNET_100GBASE_ER4 = 77
+    ethernet_100gbase_er4 = 77
 
-    ETHERNET_1000BASE_EX = 78
+    ethernet_1000base_ex = 78
 
-    ETHERNET_1000BASE_BX10_D = 79
+    ethernet_1000base_bx10_d = 79
 
-    ETHERNET_1000BASE_BX10_U = 80
+    ethernet_1000base_bx10_u = 80
 
-    ETHERNET_1000BASE_DWDM_1561_42 = 81
+    ethernet_1000base_dwdm_1561_42 = 81
 
-    ETHERNET_1000BASE_DWDM_1560_61 = 82
+    ethernet_1000base_dwdm_1560_61 = 82
 
-    ETHERNET_1000BASE_DWDM_1559_79 = 83
+    ethernet_1000base_dwdm_1559_79 = 83
 
-    ETHERNET_1000BASE_DWDM_1558_98 = 84
+    ethernet_1000base_dwdm_1558_98 = 84
 
-    ETHERNET_1000BASE_DWDM_1558_17 = 85
+    ethernet_1000base_dwdm_1558_17 = 85
 
-    ETHERNET_1000BASE_DWDM_1557_36 = 86
+    ethernet_1000base_dwdm_1557_36 = 86
 
-    ETHERNET_1000BASE_DWDM_1556_55 = 87
+    ethernet_1000base_dwdm_1556_55 = 87
 
-    ETHERNET_1000BASE_DWDM_1555_75 = 88
+    ethernet_1000base_dwdm_1555_75 = 88
 
-    ETHERNET_1000BASE_DWDM_1554_94 = 89
+    ethernet_1000base_dwdm_1554_94 = 89
 
-    ETHERNET_1000BASE_DWDM_1554_13 = 90
+    ethernet_1000base_dwdm_1554_13 = 90
 
-    ETHERNET_1000BASE_DWDM_1553_33 = 91
+    ethernet_1000base_dwdm_1553_33 = 91
 
-    ETHERNET_1000BASE_DWDM_1552_52 = 92
+    ethernet_1000base_dwdm_1552_52 = 92
 
-    ETHERNET_1000BASE_DWDM_1551_72 = 93
+    ethernet_1000base_dwdm_1551_72 = 93
 
-    ETHERNET_1000BASE_DWDM_1550_92 = 94
+    ethernet_1000base_dwdm_1550_92 = 94
 
-    ETHERNET_1000BASE_DWDM_1550_12 = 95
+    ethernet_1000base_dwdm_1550_12 = 95
 
-    ETHERNET_1000BASE_DWDM_1549_32 = 96
+    ethernet_1000base_dwdm_1549_32 = 96
 
-    ETHERNET_1000BASE_DWDM_1548_51 = 97
+    ethernet_1000base_dwdm_1548_51 = 97
 
-    ETHERNET_1000BASE_DWDM_1547_72 = 98
+    ethernet_1000base_dwdm_1547_72 = 98
 
-    ETHERNET_1000BASE_DWDM_1546_92 = 99
+    ethernet_1000base_dwdm_1546_92 = 99
 
-    ETHERNET_1000BASE_DWDM_1546_12 = 100
+    ethernet_1000base_dwdm_1546_12 = 100
 
-    ETHERNET_1000BASE_DWDM_1545_32 = 101
+    ethernet_1000base_dwdm_1545_32 = 101
 
-    ETHERNET_1000BASE_DWDM_1544_53 = 102
+    ethernet_1000base_dwdm_1544_53 = 102
 
-    ETHERNET_1000BASE_DWDM_1543_73 = 103
+    ethernet_1000base_dwdm_1543_73 = 103
 
-    ETHERNET_1000BASE_DWDM_1542_94 = 104
+    ethernet_1000base_dwdm_1542_94 = 104
 
-    ETHERNET_1000BASE_DWDM_1542_14 = 105
+    ethernet_1000base_dwdm_1542_14 = 105
 
-    ETHERNET_1000BASE_DWDM_1541_35 = 106
+    ethernet_1000base_dwdm_1541_35 = 106
 
-    ETHERNET_1000BASE_DWDM_1540_56 = 107
+    ethernet_1000base_dwdm_1540_56 = 107
 
-    ETHERNET_1000BASE_DWDM_1539_77 = 108
+    ethernet_1000base_dwdm_1539_77 = 108
 
-    ETHERNET_1000BASE_DWDM_1538_98 = 109
+    ethernet_1000base_dwdm_1538_98 = 109
 
-    ETHERNET_1000BASE_DWDM_1538_19 = 110
+    ethernet_1000base_dwdm_1538_19 = 110
 
-    ETHERNET_1000BASE_DWDM_1537_40 = 111
+    ethernet_1000base_dwdm_1537_40 = 111
 
-    ETHERNET_1000BASE_DWDM_1536_61 = 112
+    ethernet_1000base_dwdm_1536_61 = 112
 
-    ETHERNET_1000BASE_DWDM_1535_82 = 113
+    ethernet_1000base_dwdm_1535_82 = 113
 
-    ETHERNET_1000BASE_DWDM_1535_04 = 114
+    ethernet_1000base_dwdm_1535_04 = 114
 
-    ETHERNET_1000BASE_DWDM_1534_25 = 115
+    ethernet_1000base_dwdm_1534_25 = 115
 
-    ETHERNET_1000BASE_DWDM_1533_47 = 116
+    ethernet_1000base_dwdm_1533_47 = 116
 
-    ETHERNET_1000BASE_DWDM_1532_68 = 117
+    ethernet_1000base_dwdm_1532_68 = 117
 
-    ETHERNET_1000BASE_DWDM_1531_90 = 118
+    ethernet_1000base_dwdm_1531_90 = 118
 
-    ETHERNET_1000BASE_DWDM_1531_12 = 119
+    ethernet_1000base_dwdm_1531_12 = 119
 
-    ETHERNET_1000BASE_DWDM_1530_33 = 120
+    ethernet_1000base_dwdm_1530_33 = 120
 
-    ETHERNET_1000BASE_DWDM_TUNABLE = 121
+    ethernet_1000base_dwdm_tunable = 121
 
-    ETHERNET_10GBASE_DWDM_1561_42 = 122
+    ethernet_10gbase_dwdm_1561_42 = 122
 
-    ETHERNET_10GBASE_DWDM_1560_61 = 123
+    ethernet_10gbase_dwdm_1560_61 = 123
 
-    ETHERNET_10GBASE_DWDM_1559_79 = 124
+    ethernet_10gbase_dwdm_1559_79 = 124
 
-    ETHERNET_10GBASE_DWDM_1558_98 = 125
+    ethernet_10gbase_dwdm_1558_98 = 125
 
-    ETHERNET_10GBASE_DWDM_1558_17 = 126
+    ethernet_10gbase_dwdm_1558_17 = 126
 
-    ETHERNET_10GBASE_DWDM_1557_36 = 127
+    ethernet_10gbase_dwdm_1557_36 = 127
 
-    ETHERNET_10GBASE_DWDM_1556_55 = 128
+    ethernet_10gbase_dwdm_1556_55 = 128
 
-    ETHERNET_10GBASE_DWDM_1555_75 = 129
+    ethernet_10gbase_dwdm_1555_75 = 129
 
-    ETHERNET_10GBASE_DWDM_1554_94 = 130
+    ethernet_10gbase_dwdm_1554_94 = 130
 
-    ETHERNET_10GBASE_DWDM_1554_13 = 131
+    ethernet_10gbase_dwdm_1554_13 = 131
 
-    ETHERNET_10GBASE_DWDM_1553_33 = 132
+    ethernet_10gbase_dwdm_1553_33 = 132
 
-    ETHERNET_10GBASE_DWDM_1552_52 = 133
+    ethernet_10gbase_dwdm_1552_52 = 133
 
-    ETHERNET_10GBASE_DWDM_1551_72 = 134
+    ethernet_10gbase_dwdm_1551_72 = 134
 
-    ETHERNET_10GBASE_DWDM_1550_92 = 135
+    ethernet_10gbase_dwdm_1550_92 = 135
 
-    ETHERNET_10GBASE_DWDM_1550_12 = 136
+    ethernet_10gbase_dwdm_1550_12 = 136
 
-    ETHERNET_10GBASE_DWDM_1549_32 = 137
+    ethernet_10gbase_dwdm_1549_32 = 137
 
-    ETHERNET_10GBASE_DWDM_1548_51 = 138
+    ethernet_10gbase_dwdm_1548_51 = 138
 
-    ETHERNET_10GBASE_DWDM_1547_72 = 139
+    ethernet_10gbase_dwdm_1547_72 = 139
 
-    ETHERNET_10GBASE_DWDM_1546_92 = 140
+    ethernet_10gbase_dwdm_1546_92 = 140
 
-    ETHERNET_10GBASE_DWDM_1546_12 = 141
+    ethernet_10gbase_dwdm_1546_12 = 141
 
-    ETHERNET_10GBASE_DWDM_1545_32 = 142
+    ethernet_10gbase_dwdm_1545_32 = 142
 
-    ETHERNET_10GBASE_DWDM_1544_53 = 143
+    ethernet_10gbase_dwdm_1544_53 = 143
 
-    ETHERNET_10GBASE_DWDM_1543_73 = 144
+    ethernet_10gbase_dwdm_1543_73 = 144
 
-    ETHERNET_10GBASE_DWDM_1542_94 = 145
+    ethernet_10gbase_dwdm_1542_94 = 145
 
-    ETHERNET_10GBASE_DWDM_1542_14 = 146
+    ethernet_10gbase_dwdm_1542_14 = 146
 
-    ETHERNET_10GBASE_DWDM_1541_35 = 147
+    ethernet_10gbase_dwdm_1541_35 = 147
 
-    ETHERNET_10GBASE_DWDM_1540_56 = 148
+    ethernet_10gbase_dwdm_1540_56 = 148
 
-    ETHERNET_10GBASE_DWDM_1539_77 = 149
+    ethernet_10gbase_dwdm_1539_77 = 149
 
-    ETHERNET_10GBASE_DWDM_1538_98 = 150
+    ethernet_10gbase_dwdm_1538_98 = 150
 
-    ETHERNET_10GBASE_DWDM_1538_19 = 151
+    ethernet_10gbase_dwdm_1538_19 = 151
 
-    ETHERNET_10GBASE_DWDM_1537_40 = 152
+    ethernet_10gbase_dwdm_1537_40 = 152
 
-    ETHERNET_10GBASE_DWDM_1536_61 = 153
+    ethernet_10gbase_dwdm_1536_61 = 153
 
-    ETHERNET_10GBASE_DWDM_1535_82 = 154
+    ethernet_10gbase_dwdm_1535_82 = 154
 
-    ETHERNET_10GBASE_DWDM_1535_04 = 155
+    ethernet_10gbase_dwdm_1535_04 = 155
 
-    ETHERNET_10GBASE_DWDM_1534_25 = 156
+    ethernet_10gbase_dwdm_1534_25 = 156
 
-    ETHERNET_10GBASE_DWDM_1533_47 = 157
+    ethernet_10gbase_dwdm_1533_47 = 157
 
-    ETHERNET_10GBASE_DWDM_1532_68 = 158
+    ethernet_10gbase_dwdm_1532_68 = 158
 
-    ETHERNET_10GBASE_DWDM_1531_90 = 159
+    ethernet_10gbase_dwdm_1531_90 = 159
 
-    ETHERNET_10GBASE_DWDM_1531_12 = 160
+    ethernet_10gbase_dwdm_1531_12 = 160
 
-    ETHERNET_10GBASE_DWDM_1530_33 = 161
+    ethernet_10gbase_dwdm_1530_33 = 161
 
-    ETHERNET_10GBASE_DWDM_TUNABLE = 162
+    ethernet_10gbase_dwdm_tunable = 162
 
-    ETHERNET_40GBASE_DWDM_1561_42 = 163
+    ethernet_40gbase_dwdm_1561_42 = 163
 
-    ETHERNET_40GBASE_DWDM_1560_61 = 164
+    ethernet_40gbase_dwdm_1560_61 = 164
 
-    ETHERNET_40GBASE_DWDM_1559_79 = 165
+    ethernet_40gbase_dwdm_1559_79 = 165
 
-    ETHERNET_40GBASE_DWDM_1558_98 = 166
+    ethernet_40gbase_dwdm_1558_98 = 166
 
-    ETHERNET_40GBASE_DWDM_1558_17 = 167
+    ethernet_40gbase_dwdm_1558_17 = 167
 
-    ETHERNET_40GBASE_DWDM_1557_36 = 168
+    ethernet_40gbase_dwdm_1557_36 = 168
 
-    ETHERNET_40GBASE_DWDM_1556_55 = 169
+    ethernet_40gbase_dwdm_1556_55 = 169
 
-    ETHERNET_40GBASE_DWDM_1555_75 = 170
+    ethernet_40gbase_dwdm_1555_75 = 170
 
-    ETHERNET_40GBASE_DWDM_1554_94 = 171
+    ethernet_40gbase_dwdm_1554_94 = 171
 
-    ETHERNET_40GBASE_DWDM_1554_13 = 172
+    ethernet_40gbase_dwdm_1554_13 = 172
 
-    ETHERNET_40GBASE_DWDM_1553_33 = 173
+    ethernet_40gbase_dwdm_1553_33 = 173
 
-    ETHERNET_40GBASE_DWDM_1552_52 = 174
+    ethernet_40gbase_dwdm_1552_52 = 174
 
-    ETHERNET_40GBASE_DWDM_1551_72 = 175
+    ethernet_40gbase_dwdm_1551_72 = 175
 
-    ETHERNET_40GBASE_DWDM_1550_92 = 176
+    ethernet_40gbase_dwdm_1550_92 = 176
 
-    ETHERNET_40GBASE_DWDM_1550_12 = 177
+    ethernet_40gbase_dwdm_1550_12 = 177
 
-    ETHERNET_40GBASE_DWDM_1549_32 = 178
+    ethernet_40gbase_dwdm_1549_32 = 178
 
-    ETHERNET_40GBASE_DWDM_1548_51 = 179
+    ethernet_40gbase_dwdm_1548_51 = 179
 
-    ETHERNET_40GBASE_DWDM_1547_72 = 180
+    ethernet_40gbase_dwdm_1547_72 = 180
 
-    ETHERNET_40GBASE_DWDM_1546_92 = 181
+    ethernet_40gbase_dwdm_1546_92 = 181
 
-    ETHERNET_40GBASE_DWDM_1546_12 = 182
+    ethernet_40gbase_dwdm_1546_12 = 182
 
-    ETHERNET_40GBASE_DWDM_1545_32 = 183
+    ethernet_40gbase_dwdm_1545_32 = 183
 
-    ETHERNET_40GBASE_DWDM_1544_53 = 184
+    ethernet_40gbase_dwdm_1544_53 = 184
 
-    ETHERNET_40GBASE_DWDM_1543_73 = 185
+    ethernet_40gbase_dwdm_1543_73 = 185
 
-    ETHERNET_40GBASE_DWDM_1542_94 = 186
+    ethernet_40gbase_dwdm_1542_94 = 186
 
-    ETHERNET_40GBASE_DWDM_1542_14 = 187
+    ethernet_40gbase_dwdm_1542_14 = 187
 
-    ETHERNET_40GBASE_DWDM_1541_35 = 188
+    ethernet_40gbase_dwdm_1541_35 = 188
 
-    ETHERNET_40GBASE_DWDM_1540_56 = 189
+    ethernet_40gbase_dwdm_1540_56 = 189
 
-    ETHERNET_40GBASE_DWDM_1539_77 = 190
+    ethernet_40gbase_dwdm_1539_77 = 190
 
-    ETHERNET_40GBASE_DWDM_1538_98 = 191
+    ethernet_40gbase_dwdm_1538_98 = 191
 
-    ETHERNET_40GBASE_DWDM_1538_19 = 192
+    ethernet_40gbase_dwdm_1538_19 = 192
 
-    ETHERNET_40GBASE_DWDM_1537_40 = 193
+    ethernet_40gbase_dwdm_1537_40 = 193
 
-    ETHERNET_40GBASE_DWDM_1536_61 = 194
+    ethernet_40gbase_dwdm_1536_61 = 194
 
-    ETHERNET_40GBASE_DWDM_1535_82 = 195
+    ethernet_40gbase_dwdm_1535_82 = 195
 
-    ETHERNET_40GBASE_DWDM_1535_04 = 196
+    ethernet_40gbase_dwdm_1535_04 = 196
 
-    ETHERNET_40GBASE_DWDM_1534_25 = 197
+    ethernet_40gbase_dwdm_1534_25 = 197
 
-    ETHERNET_40GBASE_DWDM_1533_47 = 198
+    ethernet_40gbase_dwdm_1533_47 = 198
 
-    ETHERNET_40GBASE_DWDM_1532_68 = 199
+    ethernet_40gbase_dwdm_1532_68 = 199
 
-    ETHERNET_40GBASE_DWDM_1531_90 = 200
+    ethernet_40gbase_dwdm_1531_90 = 200
 
-    ETHERNET_40GBASE_DWDM_1531_12 = 201
+    ethernet_40gbase_dwdm_1531_12 = 201
 
-    ETHERNET_40GBASE_DWDM_1530_33 = 202
+    ethernet_40gbase_dwdm_1530_33 = 202
 
-    ETHERNET_40GBASE_DWDM_TUNABLE = 203
+    ethernet_40gbase_dwdm_tunable = 203
 
-    ETHERNET_100GBASE_DWDM_1561_42 = 204
+    ethernet_100gbase_dwdm_1561_42 = 204
 
-    ETHERNET_100GBASE_DWDM_1560_61 = 205
+    ethernet_100gbase_dwdm_1560_61 = 205
 
-    ETHERNET_100GBASE_DWDM_1559_79 = 206
+    ethernet_100gbase_dwdm_1559_79 = 206
 
-    ETHERNET_100GBASE_DWDM_1558_98 = 207
+    ethernet_100gbase_dwdm_1558_98 = 207
 
-    ETHERNET_100GBASE_DWDM_1558_17 = 208
+    ethernet_100gbase_dwdm_1558_17 = 208
 
-    ETHERNET_100GBASE_DWDM_1557_36 = 209
+    ethernet_100gbase_dwdm_1557_36 = 209
 
-    ETHERNET_100GBASE_DWDM_1556_55 = 210
+    ethernet_100gbase_dwdm_1556_55 = 210
 
-    ETHERNET_100GBASE_DWDM_1555_75 = 211
+    ethernet_100gbase_dwdm_1555_75 = 211
 
-    ETHERNET_100GBASE_DWDM_1554_94 = 212
+    ethernet_100gbase_dwdm_1554_94 = 212
 
-    ETHERNET_100GBASE_DWDM_1554_13 = 213
+    ethernet_100gbase_dwdm_1554_13 = 213
 
-    ETHERNET_100GBASE_DWDM_1553_33 = 214
+    ethernet_100gbase_dwdm_1553_33 = 214
 
-    ETHERNET_100GBASE_DWDM_1552_52 = 215
+    ethernet_100gbase_dwdm_1552_52 = 215
 
-    ETHERNET_100GBASE_DWDM_1551_72 = 216
+    ethernet_100gbase_dwdm_1551_72 = 216
 
-    ETHERNET_100GBASE_DWDM_1550_92 = 217
+    ethernet_100gbase_dwdm_1550_92 = 217
 
-    ETHERNET_100GBASE_DWDM_1550_12 = 218
+    ethernet_100gbase_dwdm_1550_12 = 218
 
-    ETHERNET_100GBASE_DWDM_1549_32 = 219
+    ethernet_100gbase_dwdm_1549_32 = 219
 
-    ETHERNET_100GBASE_DWDM_1548_51 = 220
+    ethernet_100gbase_dwdm_1548_51 = 220
 
-    ETHERNET_100GBASE_DWDM_1547_72 = 221
+    ethernet_100gbase_dwdm_1547_72 = 221
 
-    ETHERNET_100GBASE_DWDM_1546_92 = 222
+    ethernet_100gbase_dwdm_1546_92 = 222
 
-    ETHERNET_100GBASE_DWDM_1546_12 = 223
+    ethernet_100gbase_dwdm_1546_12 = 223
 
-    ETHERNET_100GBASE_DWDM_1545_32 = 224
+    ethernet_100gbase_dwdm_1545_32 = 224
 
-    ETHERNET_100GBASE_DWDM_1544_53 = 225
+    ethernet_100gbase_dwdm_1544_53 = 225
 
-    ETHERNET_100GBASE_DWDM_1543_73 = 226
+    ethernet_100gbase_dwdm_1543_73 = 226
 
-    ETHERNET_100GBASE_DWDM_1542_94 = 227
+    ethernet_100gbase_dwdm_1542_94 = 227
 
-    ETHERNET_100GBASE_DWDM_1542_14 = 228
+    ethernet_100gbase_dwdm_1542_14 = 228
 
-    ETHERNET_100GBASE_DWDM_1541_35 = 229
+    ethernet_100gbase_dwdm_1541_35 = 229
 
-    ETHERNET_100GBASE_DWDM_1540_56 = 230
+    ethernet_100gbase_dwdm_1540_56 = 230
 
-    ETHERNET_100GBASE_DWDM_1539_77 = 231
+    ethernet_100gbase_dwdm_1539_77 = 231
 
-    ETHERNET_100GBASE_DWDM_1538_98 = 232
+    ethernet_100gbase_dwdm_1538_98 = 232
 
-    ETHERNET_100GBASE_DWDM_1538_19 = 233
+    ethernet_100gbase_dwdm_1538_19 = 233
 
-    ETHERNET_100GBASE_DWDM_1537_40 = 234
+    ethernet_100gbase_dwdm_1537_40 = 234
 
-    ETHERNET_100GBASE_DWDM_1536_61 = 235
+    ethernet_100gbase_dwdm_1536_61 = 235
 
-    ETHERNET_100GBASE_DWDM_1535_82 = 236
+    ethernet_100gbase_dwdm_1535_82 = 236
 
-    ETHERNET_100GBASE_DWDM_1535_04 = 237
+    ethernet_100gbase_dwdm_1535_04 = 237
 
-    ETHERNET_100GBASE_DWDM_1534_25 = 238
+    ethernet_100gbase_dwdm_1534_25 = 238
 
-    ETHERNET_100GBASE_DWDM_1533_47 = 239
+    ethernet_100gbase_dwdm_1533_47 = 239
 
-    ETHERNET_100GBASE_DWDM_1532_68 = 240
+    ethernet_100gbase_dwdm_1532_68 = 240
 
-    ETHERNET_100GBASE_DWDM_1531_90 = 241
+    ethernet_100gbase_dwdm_1531_90 = 241
 
-    ETHERNET_100GBASE_DWDM_1531_12 = 242
+    ethernet_100gbase_dwdm_1531_12 = 242
 
-    ETHERNET_100GBASE_DWDM_1530_33 = 243
+    ethernet_100gbase_dwdm_1530_33 = 243
 
-    ETHERNET_100GBASE_DWDM_TUNABLE = 244
+    ethernet_100gbase_dwdm_tunable = 244
 
-    ETHERNET_40GBASE_KR4 = 245
+    ethernet_40gbase_kr4 = 245
 
-    ETHERNET_40GBASE_CR4 = 246
+    ethernet_40gbase_cr4 = 246
 
-    ETHERNET_40GBASE_SR4 = 247
+    ethernet_40gbase_sr4 = 247
 
-    ETHERNET_40GBASE_FR = 248
+    ethernet_40gbase_fr = 248
 
-    ETHERNET_100GBASE_CR10 = 249
+    ethernet_100gbase_cr10 = 249
 
-    ETHERNET_100GBASE_SR10 = 250
+    ethernet_100gbase_sr10 = 250
 
-    ETHERNET_40GBASE_CSR4 = 251
+    ethernet_40gbase_csr4 = 251
 
-    ETHERNET_10GBASE_CWDM = 252
+    ethernet_10gbase_cwdm = 252
 
-    ETHERNET_10GBASE_CWDM_TUNABLE = 253
+    ethernet_10gbase_cwdm_tunable = 253
 
-    ETHERNET_10GBASE_CWDM_1470 = 254
+    ethernet_10gbase_cwdm_1470 = 254
 
-    ETHERNET_10GBASE_CWDM_1490 = 255
+    ethernet_10gbase_cwdm_1490 = 255
 
-    ETHERNET_10GBASE_CWDM_1510 = 256
+    ethernet_10gbase_cwdm_1510 = 256
 
-    ETHERNET_10GBASE_CWDM_1530 = 257
+    ethernet_10gbase_cwdm_1530 = 257
 
-    ETHERNET_10GBASE_CWDM_1550 = 258
+    ethernet_10gbase_cwdm_1550 = 258
 
-    ETHERNET_10GBASE_CWDM_1570 = 259
+    ethernet_10gbase_cwdm_1570 = 259
 
-    ETHERNET_10GBASE_CWDM_1590 = 260
+    ethernet_10gbase_cwdm_1590 = 260
 
-    ETHERNET_10GBASE_CWDM_1610 = 261
+    ethernet_10gbase_cwdm_1610 = 261
 
-    ETHERNET_40GBASE_CWDM = 262
+    ethernet_40gbase_cwdm = 262
 
-    ETHERNET_40GBASE_CWDM_TUNABLE = 263
+    ethernet_40gbase_cwdm_tunable = 263
 
-    ETHERNET_40GBASE_CWDM_1470 = 264
+    ethernet_40gbase_cwdm_1470 = 264
 
-    ETHERNET_40GBASE_CWDM_1490 = 265
+    ethernet_40gbase_cwdm_1490 = 265
 
-    ETHERNET_40GBASE_CWDM_1510 = 266
+    ethernet_40gbase_cwdm_1510 = 266
 
-    ETHERNET_40GBASE_CWDM_1530 = 267
+    ethernet_40gbase_cwdm_1530 = 267
 
-    ETHERNET_40GBASE_CWDM_1550 = 268
+    ethernet_40gbase_cwdm_1550 = 268
 
-    ETHERNET_40GBASE_CWDM_1570 = 269
+    ethernet_40gbase_cwdm_1570 = 269
 
-    ETHERNET_40GBASE_CWDM_1590 = 270
+    ethernet_40gbase_cwdm_1590 = 270
 
-    ETHERNET_40GBASE_CWDM_1610 = 271
+    ethernet_40gbase_cwdm_1610 = 271
 
-    ETHERNET_100GBASE_CWDM = 272
+    ethernet_100gbase_cwdm = 272
 
-    ETHERNET_100GBASE_CWDM_TUNABLE = 273
+    ethernet_100gbase_cwdm_tunable = 273
 
-    ETHERNET_100GBASE_CWDM_1470 = 274
+    ethernet_100gbase_cwdm_1470 = 274
 
-    ETHERNET_100GBASE_CWDM_1490 = 275
+    ethernet_100gbase_cwdm_1490 = 275
 
-    ETHERNET_100GBASE_CWDM_1510 = 276
+    ethernet_100gbase_cwdm_1510 = 276
 
-    ETHERNET_100GBASE_CWDM_1530 = 277
+    ethernet_100gbase_cwdm_1530 = 277
 
-    ETHERNET_100GBASE_CWDM_1550 = 278
+    ethernet_100gbase_cwdm_1550 = 278
 
-    ETHERNET_100GBASE_CWDM_1570 = 279
+    ethernet_100gbase_cwdm_1570 = 279
 
-    ETHERNET_100GBASE_CWDM_1590 = 280
+    ethernet_100gbase_cwdm_1590 = 280
 
-    ETHERNET_100GBASE_CWDM_1610 = 281
+    ethernet_100gbase_cwdm_1610 = 281
 
-    ETHERNET_40GBASE_ELPB = 282
+    ethernet_40gbase_elpb = 282
 
-    ETHERNET_100GBASE_ELPB = 283
+    ethernet_100gbase_elpb = 283
 
-    ETHERNET_100GBASE_LR10 = 284
+    ethernet_100gbase_lr10 = 284
 
-    ETHERNET_40GBASE = 285
+    ethernet_40gbase = 285
 
-    ETHERNET_100GBASE_KP4 = 286
+    ethernet_100gbase_kp4 = 286
 
-    ETHERNET_100GBASE_KR4 = 287
+    ethernet_100gbase_kr4 = 287
 
-    ETHERNET_10GBASE_LRM = 288
+    ethernet_10gbase_lrm = 288
 
-    ETHERNET_10GBASE_CX4 = 289
+    ethernet_10gbase_cx4 = 289
 
-    ETHERNET_10GBASE = 290
+    ethernet_10gbase = 290
 
-    ETHERNET_10GBASE_KX4 = 291
+    ethernet_10gbase_kx4 = 291
 
-    ETHERNET_10GBASE_KR = 292
+    ethernet_10gbase_kr = 292
 
-    ETHERNET_10GBASE_PR = 293
+    ethernet_10gbase_pr = 293
 
-    ETHERNET_100BASE_LX = 294
+    ethernet_100base_lx = 294
 
-    ETHERNET_100BASE_ZX = 295
+    ethernet_100base_zx = 295
 
-    ETHERNET_1000BASE_BX_D = 296
+    ethernet_1000base_bx_d = 296
 
-    ETHERNET_1000BASE_BX_U = 297
+    ethernet_1000base_bx_u = 297
 
-    ETHERNET_1000BASE_BX20_D = 298
+    ethernet_1000base_bx20_d = 298
 
-    ETHERNET_1000BASE_BX20_U = 299
+    ethernet_1000base_bx20_u = 299
 
-    ETHERNET_1000BASE_BX40_D = 300
+    ethernet_1000base_bx40_d = 300
 
-    ETHERNET_1000BASE_BX40_DA = 301
+    ethernet_1000base_bx40_da = 301
 
-    ETHERNET_1000BASE_BX40_U = 302
+    ethernet_1000base_bx40_u = 302
 
-    ETHERNET_1000BASE_BX80_D = 303
+    ethernet_1000base_bx80_d = 303
 
-    ETHERNET_1000BASE_BX80_U = 304
+    ethernet_1000base_bx80_u = 304
 
-    ETHERNET_1000BASE_BX120_D = 305
+    ethernet_1000base_bx120_d = 305
 
-    ETHERNET_1000BASE_BX120_U = 306
+    ethernet_1000base_bx120_u = 306
 
-    ETHERNET_10GBASE_BX_D = 307
+    ethernet_10gbase_bx_d = 307
 
-    ETHERNET_10GBASE_BX_U = 308
+    ethernet_10gbase_bx_u = 308
 
-    ETHERNET_10GBASE_BX10_D = 309
+    ethernet_10gbase_bx10_d = 309
 
-    ETHERNET_10GBASE_BX10_U = 310
+    ethernet_10gbase_bx10_u = 310
 
-    ETHERNET_10GBASE_BX20_D = 311
+    ethernet_10gbase_bx20_d = 311
 
-    ETHERNET_10GBASE_BX20_U = 312
+    ethernet_10gbase_bx20_u = 312
 
-    ETHERNET_10GBASE_BX40_D = 313
+    ethernet_10gbase_bx40_d = 313
 
-    ETHERNET_10GBASE_BX40_U = 314
+    ethernet_10gbase_bx40_u = 314
 
-    ETHERNET_10GBASE_BX80_D = 315
+    ethernet_10gbase_bx80_d = 315
 
-    ETHERNET_10GBASE_BX80_U = 316
+    ethernet_10gbase_bx80_u = 316
 
-    ETHERNET_10GBASE_BX120_D = 317
+    ethernet_10gbase_bx120_d = 317
 
-    ETHERNET_10GBASE_BX120_U = 318
+    ethernet_10gbase_bx120_u = 318
 
-    ETHERNET_1000BASE_DR_LX = 319
+    ethernet_1000base_dr_lx = 319
 
-    ETHERNET_100GBASE_ER4L = 320
+    ethernet_100gbase_er4l = 320
 
-    ETHERNET_100GBASE_SR4 = 321
+    ethernet_100gbase_sr4 = 321
 
-    ETHERNET_40GBASE_SR_BD = 322
+    ethernet_40gbase_sr_bd = 322
 
-    ETHERNET_25GBASE_CR = 323
+    ethernet_25gbase_cr = 323
 
-    ETHERNET_25GBASE_CR_S = 324
+    ethernet_25gbase_cr_s = 324
 
-    ETHERNET_25GBASE_KR = 325
+    ethernet_25gbase_kr = 325
 
-    ETHERNET_25GBASE_KR_S = 326
+    ethernet_25gbase_kr_s = 326
 
-    ETHERNET_25GBASE_R = 327
+    ethernet_25gbase_r = 327
 
-    ETHERNET_25GBASE_SR = 328
+    ethernet_25gbase_sr = 328
 
-    ETHERNET_25GBASE_DWDM = 329
+    ethernet_25gbase_dwdm = 329
 
-    ETHERNET_25GBASE_DWDM_TUNABLE = 330
+    ethernet_25gbase_dwdm_tunable = 330
 
-    ETHERNET_25GBASE_CWDM = 331
+    ethernet_25gbase_cwdm = 331
 
-    ETHERNET_25GBASE_CWDM_TUNABLE = 332
+    ethernet_25gbase_cwdm_tunable = 332
 
-    ETHERNET_100GBASE_PSM4 = 333
+    ethernet_100gbase_psm4 = 333
 
-    ETHERNET_100GBASE_ER10 = 334
+    ethernet_100gbase_er10 = 334
 
-    ETHERNET_100GBASE_ER10L = 335
+    ethernet_100gbase_er10l = 335
 
-    ETHERNET_100GBASE_ACC = 336
+    ethernet_100gbase_acc = 336
 
-    ETHERNET_100GBASE_AOC = 337
+    ethernet_100gbase_aoc = 337
 
-    ETHERNET_100GBASE_CWDM4 = 338
+    ethernet_100gbase_cwdm4 = 338
 
-    ETHERNET_40GBASE_PSM4 = 339
+    ethernet_40gbase_psm4 = 339
 
-    ETHERNET_100GBASE_CR4 = 340
+    ethernet_100gbase_cr4 = 340
 
-    ETHERNET_100GBASE_ACT_LOOP = 341
+    ethernet_100gbase_act_loop = 341
 
-    ETHERNET_100GBASE_PAS_LOOP = 342
+    ethernet_100gbase_pas_loop = 342
 
-    ETHERNET_BASE_MAX = 343
+    ethernet_base_max = 343
 
 
     @staticmethod
@@ -2969,31 +2969,31 @@ class EthernetPortEnableEnum(Enum):
 
     Port admin state
 
-    .. data:: DISABLED = 0
+    .. data:: disabled = 0
 
     	Port disabled, both directions
 
-    .. data:: RX_ENABLED = 1
+    .. data:: rx_enabled = 1
 
     	Port enabled rx direction only
 
-    .. data:: TX_ENABLED = 2
+    .. data:: tx_enabled = 2
 
     	Port enabled tx direction only
 
-    .. data:: ENABLED = 3
+    .. data:: enabled = 3
 
     	Port enabled, both directions
 
     """
 
-    DISABLED = 0
+    disabled = 0
 
-    RX_ENABLED = 1
+    rx_enabled = 1
 
-    TX_ENABLED = 2
+    tx_enabled = 2
 
-    ENABLED = 3
+    enabled = 3
 
 
     @staticmethod
@@ -3008,67 +3008,67 @@ class EthernetSpeedEnum(Enum):
 
     Speed
 
-    .. data:: ETHERNET_SPEED_INVALID = 0
+    .. data:: ethernet_speed_invalid = 0
 
     	ethernet speed invalid
 
-    .. data:: TEN_MBPS = 1
+    .. data:: ten_mbps = 1
 
     	ten mbps
 
-    .. data:: HUNDRED_MBPS = 2
+    .. data:: hundred_mbps = 2
 
     	hundred mbps
 
-    .. data:: ONE_GBPS = 3
+    .. data:: one_gbps = 3
 
     	one gbps
 
-    .. data:: TEN_GBPS = 4
+    .. data:: ten_gbps = 4
 
     	ten gbps
 
-    .. data:: TWENTY_FIVE_GBPS = 5
+    .. data:: twenty_five_gbps = 5
 
     	twenty five gbps
 
-    .. data:: FORTY_GBPS = 6
+    .. data:: forty_gbps = 6
 
     	forty gbps
 
-    .. data:: FIFTY_GBPS = 7
+    .. data:: fifty_gbps = 7
 
     	fifty gbps
 
-    .. data:: HUNDRED_GBPS = 8
+    .. data:: hundred_gbps = 8
 
     	hundred gbps
 
-    .. data:: ETHERNET_SPEED_TYPES_COUNT = 9
+    .. data:: ethernet_speed_types_count = 9
 
     	ethernet speed types count
 
     """
 
-    ETHERNET_SPEED_INVALID = 0
+    ethernet_speed_invalid = 0
 
-    TEN_MBPS = 1
+    ten_mbps = 1
 
-    HUNDRED_MBPS = 2
+    hundred_mbps = 2
 
-    ONE_GBPS = 3
+    one_gbps = 3
 
-    TEN_GBPS = 4
+    ten_gbps = 4
 
-    TWENTY_FIVE_GBPS = 5
+    twenty_five_gbps = 5
 
-    FORTY_GBPS = 6
+    forty_gbps = 6
 
-    FIFTY_GBPS = 7
+    fifty_gbps = 7
 
-    HUNDRED_GBPS = 8
+    hundred_gbps = 8
 
-    ETHERNET_SPEED_TYPES_COUNT = 9
+    ethernet_speed_types_count = 9
 
 
     @staticmethod
@@ -3085,17 +3085,17 @@ class EthernetInterface(object):
     .. attribute:: berts
     
     	Ethernet controller BERT table
-    	**type**\:  :py:class:`Berts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts>`
+    	**type**\:   :py:class:`Berts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts>`
     
     .. attribute:: interfaces
     
     	Ethernet controller info table
-    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces>`
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces>`
     
     .. attribute:: statistics
     
     	Ethernet controller statistics table
-    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics>`
+    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics>`
     
     
 
@@ -3120,7 +3120,7 @@ class EthernetInterface(object):
         .. attribute:: statistic
         
         	Ethernet statistics information
-        	**type**\: list of  :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics.Statistic>`
+        	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Statistics.Statistic>`
         
         
 
@@ -3819,7 +3819,7 @@ class EthernetInterface(object):
         .. attribute:: interface
         
         	Ethernet controller information
-        	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface>`
+        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface>`
         
         
 
@@ -3849,17 +3849,17 @@ class EthernetInterface(object):
             .. attribute:: admin_state
             
             	Port Administrative State
-            	**type**\:  :py:class:`EthernetPortEnableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetPortEnableEnum>`
+            	**type**\:   :py:class:`EthernetPortEnableEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetPortEnableEnum>`
             
             .. attribute:: layer1_info
             
             	Layer 1 information
-            	**type**\:  :py:class:`Layer1Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info>`
+            	**type**\:   :py:class:`Layer1Info <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info>`
             
             .. attribute:: mac_info
             
             	MAC Layer information
-            	**type**\:  :py:class:`MacInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo>`
+            	**type**\:   :py:class:`MacInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo>`
             
             .. attribute:: oper_state_up
             
@@ -3869,12 +3869,12 @@ class EthernetInterface(object):
             .. attribute:: phy_info
             
             	PHY information
-            	**type**\:  :py:class:`PhyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo>`
+            	**type**\:   :py:class:`PhyInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo>`
             
             .. attribute:: transport_info
             
             	Transport state information
-            	**type**\:  :py:class:`TransportInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.TransportInfo>`
+            	**type**\:   :py:class:`TransportInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.TransportInfo>`
             
             
 
@@ -3905,27 +3905,27 @@ class EthernetInterface(object):
                 .. attribute:: fec_details
                 
                 	Forward Error Correction information
-                	**type**\:  :py:class:`FecDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails>`
+                	**type**\:   :py:class:`FecDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails>`
                 
                 .. attribute:: loopback
                 
                 	Port operational loopback
-                	**type**\:  :py:class:`EthernetLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopbackEnum>`
+                	**type**\:   :py:class:`EthernetLoopbackEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopbackEnum>`
                 
                 .. attribute:: media_type
                 
                 	Port media type
-                	**type**\:  :py:class:`EthernetMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetMediaEnum>`
+                	**type**\:   :py:class:`EthernetMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetMediaEnum>`
                 
                 .. attribute:: phy_details
                 
                 	Details about the PHY
-                	**type**\:  :py:class:`PhyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails>`
+                	**type**\:   :py:class:`PhyDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails>`
                 
                 .. attribute:: phy_present
                 
                 	Presence of PHY
-                	**type**\:  :py:class:`EtherPhyPresentEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPhyPresentEnum>`
+                	**type**\:   :py:class:`EtherPhyPresentEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPhyPresentEnum>`
                 
                 
 
@@ -3952,22 +3952,22 @@ class EthernetInterface(object):
                     .. attribute:: dig_opt_mon_alarm_thresholds
                     
                     	Digital Optical Monitoring alarm thresholds
-                    	**type**\:  :py:class:`DigOptMonAlarmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds>`
+                    	**type**\:   :py:class:`DigOptMonAlarmThresholds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds>`
                     
                     .. attribute:: dig_opt_mon_alarms
                     
                     	Digital Optical Monitoring alarms
-                    	**type**\:  :py:class:`DigOptMonAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms>`
+                    	**type**\:   :py:class:`DigOptMonAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms>`
                     
                     .. attribute:: lane
                     
                     	Digital Optical Monitoring (per lane information)
-                    	**type**\: list of  :py:class:`Lane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane>`
+                    	**type**\: list of    :py:class:`Lane <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane>`
                     
                     .. attribute:: lane_field_validity
                     
                     	Digital Optical Monitoring (per lane information) validity
-                    	**type**\:  :py:class:`LaneFieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity>`
+                    	**type**\:   :py:class:`LaneFieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity>`
                     
                     .. attribute:: optics_wavelength
                     
@@ -4143,7 +4143,7 @@ class EthernetInterface(object):
                         .. attribute:: field_validity
                         
                         	Field validity
-                        	**type**\:  :py:class:`FieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity>`
+                        	**type**\:   :py:class:`FieldValidity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity>`
                         
                         .. attribute:: laser_bias_alarm_high
                         
@@ -4500,27 +4500,27 @@ class EthernetInterface(object):
                         .. attribute:: laser_bias_current
                         
                         	Laser Bias Current Alarm
-                        	**type**\:  :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
+                        	**type**\:   :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                         
                         .. attribute:: received_laser_power
                         
                         	Received Optical Power Alarm
-                        	**type**\:  :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
+                        	**type**\:   :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                         
                         .. attribute:: transceiver_temperature
                         
                         	Transceiver Temperature Alarm
-                        	**type**\:  :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
+                        	**type**\:   :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                         
                         .. attribute:: transceiver_voltage
                         
                         	Transceiver Voltage Alarm
-                        	**type**\:  :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
+                        	**type**\:   :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                         
                         .. attribute:: transmit_laser_power
                         
                         	Transmit Laser Power Alarm
-                        	**type**\:  :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
+                        	**type**\:   :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                         
                         
 
@@ -4589,7 +4589,7 @@ class EthernetInterface(object):
                         .. attribute:: dig_opt_mon_alarm
                         
                         	Digital Optical Monitoring alarms
-                        	**type**\:  :py:class:`DigOptMonAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
+                        	**type**\:   :py:class:`DigOptMonAlarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm>`
                         
                         .. attribute:: laser_bias_current
                         
@@ -4636,17 +4636,17 @@ class EthernetInterface(object):
                             .. attribute:: laser_bias_current
                             
                             	Laser Bias Current Alarm
-                            	**type**\:  :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
+                            	**type**\:   :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                             
                             .. attribute:: received_laser_power
                             
                             	Received Optical Power Alarm
-                            	**type**\:  :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
+                            	**type**\:   :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                             
                             .. attribute:: transmit_laser_power
                             
                             	Transmit Laser Power Alarm
-                            	**type**\:  :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
+                            	**type**\:   :py:class:`EtherDomAlarmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherDomAlarmEnum>`
                             
                             
 
@@ -4804,7 +4804,7 @@ class EthernetInterface(object):
                     .. attribute:: fec
                     
                     	Port operational FEC type
-                    	**type**\:  :py:class:`EthernetFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFecEnum>`
+                    	**type**\:   :py:class:`EthernetFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFecEnum>`
                     
                     .. attribute:: uncorrected_codeword_count
                     
@@ -4900,7 +4900,7 @@ class EthernetInterface(object):
                 .. attribute:: autoneg
                 
                 	Port autonegotiation configuration settings
-                	**type**\:  :py:class:`Autoneg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg>`
+                	**type**\:   :py:class:`Autoneg <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg>`
                 
                 .. attribute:: bandwidth
                 
@@ -4916,35 +4916,37 @@ class EthernetInterface(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: percentage
+                
                 .. attribute:: ber_monitoring
                 
                 	BER monitoring details
-                	**type**\:  :py:class:`BerMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring>`
+                	**type**\:   :py:class:`BerMonitoring <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring>`
                 
                 .. attribute:: current_alarms
                 
                 	Current alarms
-                	**type**\:  :py:class:`CurrentAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms>`
+                	**type**\:   :py:class:`CurrentAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms>`
                 
                 .. attribute:: duplex
                 
                 	Port operational duplexity
-                	**type**\:  :py:class:`EthernetDuplexEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplexEnum>`
+                	**type**\:   :py:class:`EthernetDuplexEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplexEnum>`
                 
                 .. attribute:: error_counts
                 
                 	Statistics for detected errors
-                	**type**\:  :py:class:`ErrorCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts>`
+                	**type**\:   :py:class:`ErrorCounts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts>`
                 
                 .. attribute:: flowcontrol
                 
                 	Port operational flow control
-                	**type**\:  :py:class:`EtherFlowcontrolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrolEnum>`
+                	**type**\:   :py:class:`EtherFlowcontrolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrolEnum>`
                 
                 .. attribute:: ipg
                 
                 	Port operational inter\-packet\-gap
-                	**type**\:  :py:class:`EthernetIpgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetIpgEnum>`
+                	**type**\:   :py:class:`EthernetIpgEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetIpgEnum>`
                 
                 .. attribute:: laser_squelch_enabled
                 
@@ -4954,27 +4956,27 @@ class EthernetInterface(object):
                 .. attribute:: led_state
                 
                 	State of the LED
-                	**type**\:  :py:class:`EtherLedStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLedStateEnum>`
+                	**type**\:   :py:class:`EtherLedStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLedStateEnum>`
                 
                 .. attribute:: link_state
                 
                 	Link state
-                	**type**\:  :py:class:`EtherLinkStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkStateEnum>`
+                	**type**\:   :py:class:`EtherLinkStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherLinkStateEnum>`
                 
                 .. attribute:: pfc_info
                 
                 	Priority flow control information
-                	**type**\:  :py:class:`PfcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo>`
+                	**type**\:   :py:class:`PfcInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo>`
                 
                 .. attribute:: previous_alarms
                 
                 	Previous alarms
-                	**type**\:  :py:class:`PreviousAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms>`
+                	**type**\:   :py:class:`PreviousAlarms <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms>`
                 
                 .. attribute:: speed
                 
                 	Port operational speed
-                	**type**\:  :py:class:`EthernetSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeedEnum>`
+                	**type**\:   :py:class:`EthernetSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeedEnum>`
                 
                 
 
@@ -5029,17 +5031,17 @@ class EthernetInterface(object):
                     .. attribute:: duplex
                     
                     	Restricted duplex (if relevant bit is set in mask)
-                    	**type**\:  :py:class:`EthernetDuplexEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplexEnum>`
+                    	**type**\:   :py:class:`EthernetDuplexEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDuplexEnum>`
                     
                     .. attribute:: fec
                     
                     	Restricted FEC (if revelevant bit is set in mask)
-                    	**type**\:  :py:class:`EthernetFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFecEnum>`
+                    	**type**\:   :py:class:`EthernetFecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetFecEnum>`
                     
                     .. attribute:: flowcontrol
                     
                     	Restricted flowcontrol (if relevant bit is set in mask)
-                    	**type**\:  :py:class:`EtherFlowcontrolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrolEnum>`
+                    	**type**\:   :py:class:`EtherFlowcontrolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherFlowcontrolEnum>`
                     
                     .. attribute:: mask
                     
@@ -5051,7 +5053,7 @@ class EthernetInterface(object):
                     .. attribute:: speed
                     
                     	Restricted speed (if relevant bit is set in mask)
-                    	**type**\:  :py:class:`EthernetSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeedEnum>`
+                    	**type**\:   :py:class:`EthernetSpeedEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetSpeedEnum>`
                     
                     
 
@@ -5120,47 +5122,47 @@ class EthernetInterface(object):
                     .. attribute:: hi_ber_alarm
                     
                     	Hi BER
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: local_fault_alarm
                     
                     	Local Fault
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: loss_of_synchronization_data_alarm
                     
                     	Loss of Synchronization Data
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: pcs_loss_of_block_lock_alarm
                     
                     	PCS Loss of Block Lock
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: received_loss_of_signal_alarm
                     
                     	Received Loss of Signal
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: remote_fault_alarm
                     
                     	Remote Fault
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: sd_ber_alarm
                     
                     	SD BER
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: sf_ber_alarm
                     
                     	SF BER
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: squelch_alarm
                     
                     	Squelch
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     
 
@@ -5237,47 +5239,47 @@ class EthernetInterface(object):
                     .. attribute:: hi_ber_alarm
                     
                     	Hi BER
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: local_fault_alarm
                     
                     	Local Fault
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: loss_of_synchronization_data_alarm
                     
                     	Loss of Synchronization Data
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: pcs_loss_of_block_lock_alarm
                     
                     	PCS Loss of Block Lock
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: received_loss_of_signal_alarm
                     
                     	Received Loss of Signal
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: remote_fault_alarm
                     
                     	Remote Fault
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: sd_ber_alarm
                     
                     	SD BER
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: sf_ber_alarm
                     
                     	SF BER
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     .. attribute:: squelch_alarm
                     
                     	Squelch
-                    	**type**\:  :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
+                    	**type**\:   :py:class:`EthCtrlrAlarmStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthCtrlrAlarmStateEnum>`
                     
                     
 
@@ -5412,7 +5414,7 @@ class EthernetInterface(object):
                     .. attribute:: settings
                     
                     	The BER monitoring settings to be applied
-                    	**type**\:  :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings>`
+                    	**type**\:   :py:class:`Settings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings>`
                     
                     .. attribute:: supported
                     
@@ -5567,7 +5569,7 @@ class EthernetInterface(object):
                     .. attribute:: priority_flowcontrol
                     
                     	Port operational priority flow control
-                    	**type**\:  :py:class:`EtherPfcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPfcEnum>`
+                    	**type**\:   :py:class:`EtherPfcEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherPfcEnum>`
                     
                     .. attribute:: rx_frame
                     
@@ -5733,7 +5735,7 @@ class EthernetInterface(object):
                 .. attribute:: multicast_mac_filters
                 
                 	Port multicast MAC filter information
-                	**type**\:  :py:class:`MulticastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters>`
+                	**type**\:   :py:class:`MulticastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters>`
                 
                 .. attribute:: operational_mac_address
                 
@@ -5745,7 +5747,7 @@ class EthernetInterface(object):
                 .. attribute:: unicast_mac_filters
                 
                 	Port unicast MAC filter information
-                	**type**\:  :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters>`
+                	**type**\:   :py:class:`UnicastMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters>`
                 
                 
 
@@ -5824,7 +5826,7 @@ class EthernetInterface(object):
                     .. attribute:: multicast_mac_address
                     
                     	MAC addresses in the multicast ingress destination MAC filter
-                    	**type**\: list of  :py:class:`MulticastMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress>`
+                    	**type**\: list of    :py:class:`MulticastMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress>`
                     
                     .. attribute:: multicast_promiscuous
                     
@@ -5980,7 +5982,7 @@ class EthernetInterface(object):
                 .. attribute:: ains_status
                 
                 	AINS Soak status
-                	**type**\:  :py:class:`EtherAinsStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherAinsStatusEnum>`
+                	**type**\:   :py:class:`EtherAinsStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EtherAinsStatusEnum>`
                 
                 .. attribute:: maintenance_mode_enabled
                 
@@ -5994,12 +5996,16 @@ class EthernetInterface(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: total_duration
                 
                 	Total duration (seconds) of AINS soak timer
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 
 
@@ -6122,7 +6128,7 @@ class EthernetInterface(object):
         .. attribute:: bert
         
         	Ethernet BERT information
-        	**type**\: list of  :py:class:`Bert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert>`
+        	**type**\: list of    :py:class:`Bert <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert>`
         
         
 
@@ -6152,7 +6158,7 @@ class EthernetInterface(object):
             .. attribute:: bert_status
             
             	Current test status
-            	**type**\:  :py:class:`BertStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert.BertStatus>`
+            	**type**\:   :py:class:`BertStatus <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetInterface.Berts.Bert.BertStatus>`
             
             .. attribute:: port_bert_interval
             
@@ -6167,6 +6173,8 @@ class EthernetInterface(object):
             	**type**\:  int
             
             	**range:** 0..4294967295
+            
+            	**units**\: second
             
             
 
@@ -6203,17 +6211,17 @@ class EthernetInterface(object):
                 .. attribute:: device_under_test
                 
                 	Device being tested
-                	**type**\:  :py:class:`EthernetDevEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevEnum>`
+                	**type**\:   :py:class:`EthernetDevEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevEnum>`
                 
                 .. attribute:: error_type
                 
                 	Bit, block or frame error
-                	**type**\:  :py:class:`EthernetBertErrCntEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertErrCntEnum>`
+                	**type**\:   :py:class:`EthernetBertErrCntEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertErrCntEnum>`
                 
                 .. attribute:: interface_device
                 
                 	Interface being tested
-                	**type**\:  :py:class:`EthernetDevIfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevIfEnum>`
+                	**type**\:   :py:class:`EthernetDevIfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetDevIfEnum>`
                 
                 .. attribute:: receive_count
                 
@@ -6232,7 +6240,7 @@ class EthernetInterface(object):
                 .. attribute:: test_pattern
                 
                 	Test pattern
-                	**type**\:  :py:class:`EthernetBertPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertPatternEnum>`
+                	**type**\:   :py:class:`EthernetBertPatternEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetBertPatternEnum>`
                 
                 .. attribute:: transmit_count
                 

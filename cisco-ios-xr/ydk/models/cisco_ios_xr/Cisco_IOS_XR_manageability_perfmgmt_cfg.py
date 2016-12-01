@@ -30,49 +30,49 @@ class PmThresholdOpEnum(Enum):
 
     Pm threshold op
 
-    .. data:: EQ = 1
+    .. data:: eq = 1
 
     	Equal to
 
-    .. data:: NE = 2
+    .. data:: ne = 2
 
     	Not equal to
 
-    .. data:: LT = 3
+    .. data:: lt = 3
 
     	Less than
 
-    .. data:: LE = 4
+    .. data:: le = 4
 
     	Less than or equal to
 
-    .. data:: GT = 5
+    .. data:: gt = 5
 
     	Greater than
 
-    .. data:: GE = 6
+    .. data:: ge = 6
 
     	Greater than or equal to
 
-    .. data:: RG = 7
+    .. data:: rg = 7
 
     	Not in Range
 
     """
 
-    EQ = 1
+    eq = 1
 
-    NE = 2
+    ne = 2
 
-    LT = 3
+    lt = 3
 
-    LE = 4
+    le = 4
 
-    GT = 5
+    gt = 5
 
-    GE = 6
+    ge = 6
 
-    RG = 7
+    rg = 7
 
 
     @staticmethod
@@ -87,15 +87,15 @@ class PmThresholdRearmEnum(Enum):
 
     Pm threshold rearm
 
-    .. data:: ALWAYS = 0
+    .. data:: always = 0
 
     	Rearm Always
 
-    .. data:: WINDOW = 1
+    .. data:: window = 1
 
     	Rearm after window of sampling periods
 
-    .. data:: TOGGLE = 2
+    .. data:: toggle = 2
 
     	Rearm after the first period when condition is
 
@@ -103,11 +103,11 @@ class PmThresholdRearmEnum(Enum):
 
     """
 
-    ALWAYS = 0
+    always = 0
 
-    WINDOW = 1
+    window = 1
 
-    TOGGLE = 2
+    toggle = 2
 
 
     @staticmethod
@@ -124,27 +124,27 @@ class PerfMgmt(object):
     .. attribute:: enable
     
     	Start data collection and/or threshold monitoring
-    	**type**\:  :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable>`
+    	**type**\:   :py:class:`Enable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable>`
     
     .. attribute:: reg_exp_groups
     
     	Configure regular expression group
-    	**type**\:  :py:class:`RegExpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.RegExpGroups>`
+    	**type**\:   :py:class:`RegExpGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.RegExpGroups>`
     
     .. attribute:: resources
     
     	Resources configuration
-    	**type**\:  :py:class:`Resources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Resources>`
+    	**type**\:   :py:class:`Resources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Resources>`
     
     .. attribute:: statistics
     
     	Templates for collection of statistics
-    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics>`
+    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics>`
     
     .. attribute:: threshold
     
     	Container for threshold templates
-    	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold>`
+    	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold>`
     
     
 
@@ -173,17 +173,19 @@ class PerfMgmt(object):
         .. attribute:: dump_local
         
         	Configure local dump parameters
-        	**type**\:  :py:class:`DumpLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Resources.DumpLocal>`
+        	**type**\:   :py:class:`DumpLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Resources.DumpLocal>`
         
         .. attribute:: memory_resources
         
         	Configure the memory usage limits of performance management
-        	**type**\:  :py:class:`MemoryResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Resources.MemoryResources>`
+        	**type**\:   :py:class:`MemoryResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Resources.MemoryResources>`
         
         .. attribute:: tftp_resources
         
         	Configure the TFTP server IP address and directory name
-        	**type**\:  :py:class:`TftpResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Resources.TftpResources>`
+        	**type**\:   :py:class:`TftpResources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Resources.TftpResources>`
+        
+        	**presence node**\: True
         
         
 
@@ -288,7 +290,7 @@ class PerfMgmt(object):
             .. attribute:: enable
             
             	Enable data dump onto local filesystem
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -336,12 +338,16 @@ class PerfMgmt(object):
             
             	**range:** \-2147483648..2147483647
             
+            	**units**\: kilobyte
+            
             .. attribute:: min_reserved
             
             	Specify a minimum free memory (Kbytes) to be ensured before allowing a collection request
             	**type**\:  int
             
             	**range:** \-2147483648..2147483647
+            
+            	**units**\: kilobyte
             
             
 
@@ -416,52 +422,52 @@ class PerfMgmt(object):
         .. attribute:: basic_counter_interface
         
         	Interface BasicCounter collection templates
-        	**type**\:  :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.BasicCounterInterface>`
+        	**type**\:   :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.BasicCounterInterface>`
         
         .. attribute:: bgp
         
         	BGP collection templates
-        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Bgp>`
+        	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Bgp>`
         
         .. attribute:: cpu_node
         
         	Node CPU collection templates
-        	**type**\:  :py:class:`CpuNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.CpuNode>`
+        	**type**\:   :py:class:`CpuNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.CpuNode>`
         
         .. attribute:: data_rate_interface
         
         	Interface DataRate collection templates
-        	**type**\:  :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.DataRateInterface>`
+        	**type**\:   :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.DataRateInterface>`
         
         .. attribute:: generic_counter_interface
         
         	Interface Generic GenericCounter collection templates
-        	**type**\:  :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.GenericCounterInterface>`
+        	**type**\:   :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.GenericCounterInterface>`
         
         .. attribute:: ldp_mpls
         
         	MPLS LDP collection templates
-        	**type**\:  :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.LdpMpls>`
+        	**type**\:   :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.LdpMpls>`
         
         .. attribute:: memory_node
         
         	Node Memory collection templates
-        	**type**\:  :py:class:`MemoryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.MemoryNode>`
+        	**type**\:   :py:class:`MemoryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.MemoryNode>`
         
         .. attribute:: ospfv2_protocol
         
         	OSPF v2 Protocol collection templates
-        	**type**\:  :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv2Protocol>`
+        	**type**\:   :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv2Protocol>`
         
         .. attribute:: ospfv3_protocol
         
         	OSPF v3 Protocol collection templates
-        	**type**\:  :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv3Protocol>`
+        	**type**\:   :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv3Protocol>`
         
         .. attribute:: process_node
         
         	Node Process collection templates
-        	**type**\:  :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.ProcessNode>`
+        	**type**\:   :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.ProcessNode>`
         
         
 
@@ -502,7 +508,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.GenericCounterInterface.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.GenericCounterInterface.Templates>`
             
             
 
@@ -524,7 +530,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.GenericCounterInterface.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.GenericCounterInterface.Templates.Template>`
                 
                 
 
@@ -554,7 +560,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -569,6 +575,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -693,7 +701,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.ProcessNode.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.ProcessNode.Templates>`
             
             
 
@@ -715,7 +723,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.ProcessNode.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.ProcessNode.Templates.Template>`
                 
                 
 
@@ -745,7 +753,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -760,6 +768,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -884,7 +894,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.BasicCounterInterface.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.BasicCounterInterface.Templates>`
             
             
 
@@ -906,7 +916,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.BasicCounterInterface.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.BasicCounterInterface.Templates.Template>`
                 
                 
 
@@ -936,7 +946,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -951,6 +961,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -1075,7 +1087,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv3Protocol.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv3Protocol.Templates>`
             
             
 
@@ -1097,7 +1109,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template>`
                 
                 
 
@@ -1127,7 +1139,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -1142,6 +1154,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -1266,7 +1280,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.CpuNode.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.CpuNode.Templates>`
             
             
 
@@ -1288,7 +1302,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.CpuNode.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.CpuNode.Templates.Template>`
                 
                 
 
@@ -1318,7 +1332,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -1333,6 +1347,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -1457,7 +1473,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.DataRateInterface.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.DataRateInterface.Templates>`
             
             
 
@@ -1479,7 +1495,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.DataRateInterface.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.DataRateInterface.Templates.Template>`
                 
                 
 
@@ -1509,7 +1525,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -1524,6 +1540,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -1648,7 +1666,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.MemoryNode.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.MemoryNode.Templates>`
             
             
 
@@ -1670,7 +1688,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.MemoryNode.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.MemoryNode.Templates.Template>`
                 
                 
 
@@ -1700,7 +1718,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -1715,6 +1733,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -1839,7 +1859,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.LdpMpls.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.LdpMpls.Templates>`
             
             
 
@@ -1861,7 +1881,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.LdpMpls.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.LdpMpls.Templates.Template>`
                 
                 
 
@@ -1891,7 +1911,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -1906,6 +1926,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -2030,7 +2052,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Bgp.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Bgp.Templates>`
             
             
 
@@ -2052,7 +2074,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Bgp.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Bgp.Templates.Template>`
                 
                 
 
@@ -2082,7 +2104,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -2097,6 +2119,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -2221,7 +2245,7 @@ class PerfMgmt(object):
             .. attribute:: templates
             
             	Template name
-            	**type**\:  :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv2Protocol.Templates>`
+            	**type**\:   :py:class:`Templates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv2Protocol.Templates>`
             
             
 
@@ -2243,7 +2267,7 @@ class PerfMgmt(object):
                 .. attribute:: template
                 
                 	A template instance
-                	**type**\: list of  :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template>`
+                	**type**\: list of    :py:class:`Template <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template>`
                 
                 
 
@@ -2273,7 +2297,7 @@ class PerfMgmt(object):
                     .. attribute:: history_persistent
                     
                     	Enable persistent history statistics
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: reg_exp_group
                     
@@ -2288,6 +2312,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: sample_size
                     
@@ -2462,17 +2488,17 @@ class PerfMgmt(object):
         .. attribute:: monitor_enable
         
         	Start data collection for a monitored instance
-        	**type**\:  :py:class:`MonitorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable>`
+        	**type**\:   :py:class:`MonitorEnable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable>`
         
         .. attribute:: statistics
         
         	Start periodic collection using a defined a template
-        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics>`
+        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics>`
         
         .. attribute:: threshold
         
         	Start threshold monitoring using a defined template
-        	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold>`
+        	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold>`
         
         
 
@@ -2499,52 +2525,52 @@ class PerfMgmt(object):
             .. attribute:: basic_counter_interface
             
             	Threshold monitoring for Interface basic\-counters
-            	**type**\:  :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.BasicCounterInterface>`
+            	**type**\:   :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.BasicCounterInterface>`
             
             .. attribute:: bgp
             
             	Threshold monitoring for BGP
-            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.Bgp>`
+            	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.Bgp>`
             
             .. attribute:: cpu_node
             
             	Threshold monitoring for CPU
-            	**type**\:  :py:class:`CpuNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.CpuNode>`
+            	**type**\:   :py:class:`CpuNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.CpuNode>`
             
             .. attribute:: data_rate_interface
             
             	Threshold monitoring for Interface  data\-rates
-            	**type**\:  :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.DataRateInterface>`
+            	**type**\:   :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.DataRateInterface>`
             
             .. attribute:: generic_counter_interface
             
             	Threshold monitoring for Interface generic\-counters
-            	**type**\:  :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.GenericCounterInterface>`
+            	**type**\:   :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.GenericCounterInterface>`
             
             .. attribute:: ldp_mpls
             
             	Threshold monitoring for LDP
-            	**type**\:  :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.LdpMpls>`
+            	**type**\:   :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.LdpMpls>`
             
             .. attribute:: memory_node
             
             	Threshold monitoring for memory
-            	**type**\:  :py:class:`MemoryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.MemoryNode>`
+            	**type**\:   :py:class:`MemoryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.MemoryNode>`
             
             .. attribute:: ospfv2_protocol
             
             	Threshold monitoring for OSPF v2 Protocol
-            	**type**\:  :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.Ospfv2Protocol>`
+            	**type**\:   :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.Ospfv2Protocol>`
             
             .. attribute:: ospfv3_protocol
             
             	Threshold monitoring for OSPF v3 Protocol
-            	**type**\:  :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.Ospfv3Protocol>`
+            	**type**\:   :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.Ospfv3Protocol>`
             
             .. attribute:: process_node
             
             	Threshold monitoring for process
-            	**type**\:  :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.ProcessNode>`
+            	**type**\:   :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.ProcessNode>`
             
             
 
@@ -2756,12 +2782,12 @@ class PerfMgmt(object):
                 .. attribute:: node_all
                 
                 	All the the nodes
-                	**type**\:  :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.MemoryNode.NodeAll>`
+                	**type**\:   :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.MemoryNode.NodeAll>`
                 
                 .. attribute:: nodes
                 
                 	Node specification
-                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.MemoryNode.Nodes>`
+                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.MemoryNode.Nodes>`
                 
                 
 
@@ -2785,7 +2811,7 @@ class PerfMgmt(object):
                     .. attribute:: node
                     
                     	Node instance
-                    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node>`
+                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node>`
                     
                     
 
@@ -3000,12 +3026,12 @@ class PerfMgmt(object):
                 .. attribute:: node_all
                 
                 	All the the nodes
-                	**type**\:  :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.CpuNode.NodeAll>`
+                	**type**\:   :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.CpuNode.NodeAll>`
                 
                 .. attribute:: nodes
                 
                 	Node specification
-                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.CpuNode.Nodes>`
+                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.CpuNode.Nodes>`
                 
                 
 
@@ -3029,7 +3055,7 @@ class PerfMgmt(object):
                     .. attribute:: node
                     
                     	Node instance
-                    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node>`
+                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node>`
                     
                     
 
@@ -3243,12 +3269,12 @@ class PerfMgmt(object):
                 .. attribute:: node_all
                 
                 	All the the nodes
-                	**type**\:  :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.ProcessNode.NodeAll>`
+                	**type**\:   :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.ProcessNode.NodeAll>`
                 
                 .. attribute:: nodes
                 
                 	Node specification
-                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.ProcessNode.Nodes>`
+                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.ProcessNode.Nodes>`
                 
                 
 
@@ -3272,7 +3298,7 @@ class PerfMgmt(object):
                     .. attribute:: node
                     
                     	Node instance
-                    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node>`
+                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node>`
                     
                     
 
@@ -3537,52 +3563,52 @@ class PerfMgmt(object):
             .. attribute:: basic_counter_interface
             
             	Statistics collection for basic\-counters
-            	**type**\:  :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.BasicCounterInterface>`
+            	**type**\:   :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.BasicCounterInterface>`
             
             .. attribute:: bgp
             
             	Data collection for BGP
-            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.Bgp>`
+            	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.Bgp>`
             
             .. attribute:: cpu_node
             
             	Collection for CPU
-            	**type**\:  :py:class:`CpuNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.CpuNode>`
+            	**type**\:   :py:class:`CpuNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.CpuNode>`
             
             .. attribute:: data_rate_interface
             
             	Statistics collection for generic\-counters
-            	**type**\:  :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.DataRateInterface>`
+            	**type**\:   :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.DataRateInterface>`
             
             .. attribute:: generic_counter_interface
             
             	Statistics collection for generic\-counters
-            	**type**\:  :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.GenericCounterInterface>`
+            	**type**\:   :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.GenericCounterInterface>`
             
             .. attribute:: ldp_mpls
             
             	Collection for labels distribution protocol
-            	**type**\:  :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.LdpMpls>`
+            	**type**\:   :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.LdpMpls>`
             
             .. attribute:: memory_node
             
             	Collection for memory
-            	**type**\:  :py:class:`MemoryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.MemoryNode>`
+            	**type**\:   :py:class:`MemoryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.MemoryNode>`
             
             .. attribute:: ospfv2_protocol
             
             	Data collection for OSPF v2 Protocol
-            	**type**\:  :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.Ospfv2Protocol>`
+            	**type**\:   :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.Ospfv2Protocol>`
             
             .. attribute:: ospfv3_protocol
             
             	Data collection for OSPF v3 Protocol
-            	**type**\:  :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.Ospfv3Protocol>`
+            	**type**\:   :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.Ospfv3Protocol>`
             
             .. attribute:: process_node
             
             	Collection for process
-            	**type**\:  :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.ProcessNode>`
+            	**type**\:   :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.ProcessNode>`
             
             
 
@@ -3794,12 +3820,12 @@ class PerfMgmt(object):
                 .. attribute:: node_all
                 
                 	All the the nodes
-                	**type**\:  :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.CpuNode.NodeAll>`
+                	**type**\:   :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.CpuNode.NodeAll>`
                 
                 .. attribute:: nodes
                 
                 	Node specification
-                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.CpuNode.Nodes>`
+                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.CpuNode.Nodes>`
                 
                 
 
@@ -3866,7 +3892,7 @@ class PerfMgmt(object):
                     .. attribute:: node
                     
                     	Node instance
-                    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node>`
+                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node>`
                     
                     
 
@@ -4037,12 +4063,12 @@ class PerfMgmt(object):
                 .. attribute:: node_all
                 
                 	All the the nodes
-                	**type**\:  :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.ProcessNode.NodeAll>`
+                	**type**\:   :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.ProcessNode.NodeAll>`
                 
                 .. attribute:: nodes
                 
                 	Node specification
-                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.ProcessNode.Nodes>`
+                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.ProcessNode.Nodes>`
                 
                 
 
@@ -4109,7 +4135,7 @@ class PerfMgmt(object):
                     .. attribute:: node
                     
                     	Node instance
-                    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node>`
+                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node>`
                     
                     
 
@@ -4280,12 +4306,12 @@ class PerfMgmt(object):
                 .. attribute:: node_all
                 
                 	All the the nodes
-                	**type**\:  :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.MemoryNode.NodeAll>`
+                	**type**\:   :py:class:`NodeAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.MemoryNode.NodeAll>`
                 
                 .. attribute:: nodes
                 
                 	Node specification
-                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.MemoryNode.Nodes>`
+                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.MemoryNode.Nodes>`
                 
                 
 
@@ -4352,7 +4378,7 @@ class PerfMgmt(object):
                     .. attribute:: node
                     
                     	Node instance
-                    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node>`
+                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node>`
                     
                     
 
@@ -4572,52 +4598,52 @@ class PerfMgmt(object):
             .. attribute:: basic_counters
             
             	Monitoring for basic\-counters
-            	**type**\:  :py:class:`BasicCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.BasicCounters>`
+            	**type**\:   :py:class:`BasicCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.BasicCounters>`
             
             .. attribute:: bgp
             
             	Monitor BGP protocol
-            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Bgp>`
+            	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Bgp>`
             
             .. attribute:: cpu
             
             	Collection for CPU
-            	**type**\:  :py:class:`Cpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Cpu>`
+            	**type**\:   :py:class:`Cpu <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Cpu>`
             
             .. attribute:: data_rates
             
             	Monitoring for data\-rates
-            	**type**\:  :py:class:`DataRates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.DataRates>`
+            	**type**\:   :py:class:`DataRates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.DataRates>`
             
             .. attribute:: generic_counters
             
             	Monitoring for generic\-counters
-            	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.GenericCounters>`
+            	**type**\:   :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.GenericCounters>`
             
             .. attribute:: ldp_mpls
             
             	Monitoring for LDP
-            	**type**\:  :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.LdpMpls>`
+            	**type**\:   :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.LdpMpls>`
             
             .. attribute:: memory
             
             	Collection for memory
-            	**type**\:  :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Memory>`
+            	**type**\:   :py:class:`Memory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Memory>`
             
             .. attribute:: ospfv2_protocol
             
             	Monitor OSPF v2 Protocol
-            	**type**\:  :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol>`
+            	**type**\:   :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol>`
             
             .. attribute:: ospfv3_protocol
             
             	Monitor OSPF v3 Protocol
-            	**type**\:  :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol>`
+            	**type**\:   :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol>`
             
             .. attribute:: process
             
             	Collection for a single process
-            	**type**\:  :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process>`
+            	**type**\:   :py:class:`Process <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process>`
             
             
 
@@ -4657,7 +4683,7 @@ class PerfMgmt(object):
                 .. attribute:: sessions
                 
                 	LDP session specification
-                	**type**\:  :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions>`
+                	**type**\:   :py:class:`Sessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions>`
                 
                 
 
@@ -4679,7 +4705,7 @@ class PerfMgmt(object):
                     .. attribute:: session
                     
                     	IP address of the LDP Session
-                    	**type**\: list of  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session>`
+                    	**type**\: list of    :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session>`
                     
                     
 
@@ -4804,7 +4830,7 @@ class PerfMgmt(object):
                 .. attribute:: ospf_instances
                 
                 	Monitor an instance
-                	**type**\:  :py:class:`OspfInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances>`
+                	**type**\:   :py:class:`OspfInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances>`
                 
                 
 
@@ -4826,7 +4852,7 @@ class PerfMgmt(object):
                     .. attribute:: ospf_instance
                     
                     	Instance being monitored
-                    	**type**\: list of  :py:class:`OspfInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance>`
+                    	**type**\: list of    :py:class:`OspfInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance>`
                     
                     
 
@@ -4951,7 +4977,7 @@ class PerfMgmt(object):
                 .. attribute:: interfaces
                 
                 	Monitor an Interface
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces>`
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces>`
                 
                 
 
@@ -4973,7 +4999,7 @@ class PerfMgmt(object):
                     .. attribute:: interface
                     
                     	Interface being Monitored
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface>`
                     
                     
 
@@ -5098,7 +5124,7 @@ class PerfMgmt(object):
                 .. attribute:: process_nodes
                 
                 	Node specification
-                	**type**\:  :py:class:`ProcessNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes>`
+                	**type**\:   :py:class:`ProcessNodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes>`
                 
                 
 
@@ -5120,7 +5146,7 @@ class PerfMgmt(object):
                     .. attribute:: process_node
                     
                     	Node instance
-                    	**type**\: list of  :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode>`
+                    	**type**\: list of    :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode>`
                     
                     
 
@@ -5150,7 +5176,7 @@ class PerfMgmt(object):
                         .. attribute:: pids
                         
                         	Process ID specification
-                        	**type**\:  :py:class:`Pids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids>`
+                        	**type**\:   :py:class:`Pids <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids>`
                         
                         
 
@@ -5173,7 +5199,7 @@ class PerfMgmt(object):
                             .. attribute:: pid
                             
                             	Specify an existing template for data collection
-                            	**type**\: list of  :py:class:`Pid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid>`
+                            	**type**\: list of    :py:class:`Pid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid>`
                             
                             
 
@@ -5354,7 +5380,7 @@ class PerfMgmt(object):
                 .. attribute:: interfaces
                 
                 	Monitor an Interface
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces>`
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces>`
                 
                 
 
@@ -5376,7 +5402,7 @@ class PerfMgmt(object):
                     .. attribute:: interface
                     
                     	Interface being Monitored
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface>`
                     
                     
 
@@ -5501,7 +5527,7 @@ class PerfMgmt(object):
                 .. attribute:: nodes
                 
                 	Node specification
-                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Memory.Nodes>`
+                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Memory.Nodes>`
                 
                 
 
@@ -5523,7 +5549,7 @@ class PerfMgmt(object):
                     .. attribute:: node
                     
                     	Node instance
-                    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node>`
+                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node>`
                     
                     
 
@@ -5648,7 +5674,7 @@ class PerfMgmt(object):
                 .. attribute:: ospf_instances
                 
                 	Monitor an instance
-                	**type**\:  :py:class:`OspfInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances>`
+                	**type**\:   :py:class:`OspfInstances <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances>`
                 
                 
 
@@ -5670,7 +5696,7 @@ class PerfMgmt(object):
                     .. attribute:: ospf_instance
                     
                     	Instance being monitored
-                    	**type**\: list of  :py:class:`OspfInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance>`
+                    	**type**\: list of    :py:class:`OspfInstance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance>`
                     
                     
 
@@ -5795,7 +5821,7 @@ class PerfMgmt(object):
                 .. attribute:: nodes
                 
                 	Node specification
-                	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Cpu.Nodes>`
+                	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Cpu.Nodes>`
                 
                 
 
@@ -5817,7 +5843,7 @@ class PerfMgmt(object):
                     .. attribute:: node
                     
                     	Node instance
-                    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node>`
+                    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node>`
                     
                     
 
@@ -5942,7 +5968,7 @@ class PerfMgmt(object):
                 .. attribute:: neighbors
                 
                 	Monitor BGP protocol for a BGP peer
-                	**type**\:  :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors>`
+                	**type**\:   :py:class:`Neighbors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors>`
                 
                 
 
@@ -5964,7 +5990,7 @@ class PerfMgmt(object):
                     .. attribute:: neighbor
                     
                     	Neighbor being monitored
-                    	**type**\: list of  :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor>`
+                    	**type**\: list of    :py:class:`Neighbor <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor>`
                     
                     
 
@@ -6089,7 +6115,7 @@ class PerfMgmt(object):
                 .. attribute:: interfaces
                 
                 	Monitor an Interface
-                	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces>`
+                	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces>`
                 
                 
 
@@ -6111,7 +6137,7 @@ class PerfMgmt(object):
                     .. attribute:: interface
                     
                     	Interface being Monitored
-                    	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface>`
+                    	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface>`
                     
                     
 
@@ -6313,7 +6339,7 @@ class PerfMgmt(object):
         .. attribute:: reg_exp_group
         
         	Specify regular expression group name
-        	**type**\: list of  :py:class:`RegExpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.RegExpGroups.RegExpGroup>`
+        	**type**\: list of    :py:class:`RegExpGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.RegExpGroups.RegExpGroup>`
         
         
 
@@ -6343,7 +6369,7 @@ class PerfMgmt(object):
             .. attribute:: reg_exps
             
             	Configure regular expression
-            	**type**\:  :py:class:`RegExps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.RegExpGroups.RegExpGroup.RegExps>`
+            	**type**\:   :py:class:`RegExps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.RegExpGroups.RegExpGroup.RegExps>`
             
             
 
@@ -6366,7 +6392,7 @@ class PerfMgmt(object):
                 .. attribute:: reg_exp
                 
                 	Specify regular expression index number
-                	**type**\: list of  :py:class:`RegExp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp>`
+                	**type**\: list of    :py:class:`RegExp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp>`
                 
                 
 
@@ -6528,52 +6554,52 @@ class PerfMgmt(object):
         .. attribute:: basic_counter_interface
         
         	Interface Basic Counter threshold configuration
-        	**type**\:  :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface>`
+        	**type**\:   :py:class:`BasicCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface>`
         
         .. attribute:: bgp
         
         	BGP threshold configuration
-        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp>`
+        	**type**\:   :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp>`
         
         .. attribute:: cpu_node
         
         	Node CPU threshold configuration
-        	**type**\:  :py:class:`CpuNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode>`
+        	**type**\:   :py:class:`CpuNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode>`
         
         .. attribute:: data_rate_interface
         
         	Interface Data Rates threshold configuration
-        	**type**\:  :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface>`
+        	**type**\:   :py:class:`DataRateInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface>`
         
         .. attribute:: generic_counter_interface
         
         	Interface Generic Counter threshold configuration
-        	**type**\:  :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface>`
+        	**type**\:   :py:class:`GenericCounterInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface>`
         
         .. attribute:: ldp_mpls
         
         	MPLS LDP threshold configuration
-        	**type**\:  :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls>`
+        	**type**\:   :py:class:`LdpMpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls>`
         
         .. attribute:: memory_node
         
         	Node Memory threshold configuration
-        	**type**\:  :py:class:`MemoryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode>`
+        	**type**\:   :py:class:`MemoryNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode>`
         
         .. attribute:: ospfv2_protocol
         
         	OSPF v2 Protocol threshold configuration
-        	**type**\:  :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol>`
+        	**type**\:   :py:class:`Ospfv2Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol>`
         
         .. attribute:: ospfv3_protocol
         
         	OSPF v2 Protocol threshold configuration
-        	**type**\:  :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol>`
+        	**type**\:   :py:class:`Ospfv3Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol>`
         
         .. attribute:: process_node
         
         	Node Process threshold configuration
-        	**type**\:  :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode>`
+        	**type**\:   :py:class:`ProcessNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode>`
         
         
 
@@ -6614,7 +6640,7 @@ class PerfMgmt(object):
             .. attribute:: generic_counter_interface_templates
             
             	Interface Generic Counter threshold templates
-            	**type**\:  :py:class:`GenericCounterInterfaceTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates>`
+            	**type**\:   :py:class:`GenericCounterInterfaceTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates>`
             
             
 
@@ -6636,7 +6662,7 @@ class PerfMgmt(object):
                 .. attribute:: generic_counter_interface_template
                 
                 	Interface Generic Counter threshold template instance
-                	**type**\: list of  :py:class:`GenericCounterInterfaceTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate>`
+                	**type**\: list of    :py:class:`GenericCounterInterfaceTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate>`
                 
                 
 
@@ -6667,102 +6693,142 @@ class PerfMgmt(object):
                     .. attribute:: in_broadcast_pkts
                     
                     	Number of inbound broadcast packets
-                    	**type**\:  :py:class:`InBroadcastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts>`
+                    	**type**\:   :py:class:`InBroadcastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: in_multicast_pkts
                     
                     	Number of inbound multicast packets
-                    	**type**\:  :py:class:`InMulticastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts>`
+                    	**type**\:   :py:class:`InMulticastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: in_octets
                     
                     	Number of inbound octets/bytes
-                    	**type**\:  :py:class:`InOctets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets>`
+                    	**type**\:   :py:class:`InOctets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: in_packets
                     
                     	Number of inbound packets
-                    	**type**\:  :py:class:`InPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets>`
+                    	**type**\:   :py:class:`InPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: in_ucast_pkts
                     
                     	Number of inbound unicast packets
-                    	**type**\:  :py:class:`InUcastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts>`
+                    	**type**\:   :py:class:`InUcastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_crc
                     
                     	Number of inbound packets discarded with incorrect CRC
-                    	**type**\:  :py:class:`InputCrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc>`
+                    	**type**\:   :py:class:`InputCrc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_frame
                     
                     	Number of inbound packets with framing errors
-                    	**type**\:  :py:class:`InputFrame <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame>`
+                    	**type**\:   :py:class:`InputFrame <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_overrun
                     
                     	Number of inbound packets with overrun errors
-                    	**type**\:  :py:class:`InputOverrun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun>`
+                    	**type**\:   :py:class:`InputOverrun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_queue_drops
                     
                     	Number of input queue drops
-                    	**type**\:  :py:class:`InputQueueDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops>`
+                    	**type**\:   :py:class:`InputQueueDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_total_drops
                     
                     	Number of inbound correct packets discarded
-                    	**type**\:  :py:class:`InputTotalDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops>`
+                    	**type**\:   :py:class:`InputTotalDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_total_errors
                     
                     	Number of inbound incorrect packets discarded
-                    	**type**\:  :py:class:`InputTotalErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors>`
+                    	**type**\:   :py:class:`InputTotalErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_unknown_proto
                     
                     	Number of inbound packets discarded with unknown protocol
-                    	**type**\:  :py:class:`InputUnknownProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto>`
+                    	**type**\:   :py:class:`InputUnknownProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: out_broadcast_pkts
                     
                     	Number of outbound broadcast packets
-                    	**type**\:  :py:class:`OutBroadcastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts>`
+                    	**type**\:   :py:class:`OutBroadcastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: out_multicast_pkts
                     
                     	Number of outbound multicast packets
-                    	**type**\:  :py:class:`OutMulticastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts>`
+                    	**type**\:   :py:class:`OutMulticastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: out_octets
                     
                     	Number of outbound octets/bytes
-                    	**type**\:  :py:class:`OutOctets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets>`
+                    	**type**\:   :py:class:`OutOctets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: out_packets
                     
                     	Number of outbound packets
-                    	**type**\:  :py:class:`OutPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets>`
+                    	**type**\:   :py:class:`OutPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: out_ucast_pkts
                     
                     	Number of outbound unicast packets
-                    	**type**\:  :py:class:`OutUcastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts>`
+                    	**type**\:   :py:class:`OutUcastPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_total_drops
                     
                     	Number of outbound correct packets discarded
-                    	**type**\:  :py:class:`OutputTotalDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops>`
+                    	**type**\:   :py:class:`OutputTotalDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_total_errors
                     
                     	Number of outbound incorrect packets discarded
-                    	**type**\:  :py:class:`OutputTotalErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors>`
+                    	**type**\:   :py:class:`OutputTotalErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_underrun
                     
                     	Number of outbound packets with underrun errors
-                    	**type**\:  :py:class:`OutputUnderrun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun>`
+                    	**type**\:   :py:class:`OutputUnderrun <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: reg_exp_group
                     
@@ -6777,6 +6843,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: vrf_group
                     
@@ -6831,10 +6899,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -6844,7 +6912,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -6878,7 +6946,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -6903,7 +6971,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -6937,10 +7005,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -6950,7 +7018,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -6984,7 +7052,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7009,7 +7077,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -7043,10 +7111,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -7056,7 +7124,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -7090,7 +7158,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7115,7 +7183,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -7149,10 +7217,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -7162,7 +7230,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -7196,7 +7264,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7221,7 +7289,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -7255,10 +7323,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -7268,7 +7336,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -7302,7 +7370,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7327,7 +7395,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -7362,10 +7430,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -7375,7 +7443,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -7409,7 +7477,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7434,7 +7502,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -7468,10 +7536,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -7481,7 +7549,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -7515,7 +7583,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7540,7 +7608,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -7575,10 +7643,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -7588,7 +7656,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -7622,7 +7690,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7647,7 +7715,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -7682,10 +7750,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -7695,7 +7763,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -7729,7 +7797,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7754,7 +7822,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -7788,10 +7856,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -7801,7 +7869,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -7835,7 +7903,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7860,7 +7928,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -7895,10 +7963,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -7908,7 +7976,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -7942,7 +8010,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -7967,7 +8035,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -8001,10 +8069,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -8014,7 +8082,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -8048,7 +8116,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -8073,7 +8141,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -8107,10 +8175,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -8120,7 +8188,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -8154,7 +8222,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -8179,7 +8247,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -8213,10 +8281,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -8226,7 +8294,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -8260,7 +8328,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -8285,7 +8353,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -8320,10 +8388,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -8333,7 +8401,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -8367,7 +8435,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -8392,7 +8460,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -8426,10 +8494,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -8439,7 +8507,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -8473,7 +8541,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -8498,7 +8566,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -8533,10 +8601,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -8546,7 +8614,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -8580,7 +8648,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -8605,7 +8673,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -8639,10 +8707,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -8652,7 +8720,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -8686,7 +8754,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -8711,7 +8779,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -8745,10 +8813,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -8758,7 +8826,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -8792,7 +8860,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -8817,7 +8885,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -8852,10 +8920,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -8865,7 +8933,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -8899,7 +8967,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -8924,7 +8992,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -9093,7 +9161,7 @@ class PerfMgmt(object):
             .. attribute:: ldp_mpls_templates
             
             	MPLS LDP threshold templates
-            	**type**\:  :py:class:`LdpMplsTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates>`
+            	**type**\:   :py:class:`LdpMplsTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates>`
             
             
 
@@ -9115,7 +9183,7 @@ class PerfMgmt(object):
                 .. attribute:: ldp_mpls_template
                 
                 	MPLS LDP threshold template instance
-                	**type**\: list of  :py:class:`LdpMplsTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate>`
+                	**type**\: list of    :py:class:`LdpMplsTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate>`
                 
                 
 
@@ -9145,82 +9213,114 @@ class PerfMgmt(object):
                     .. attribute:: address_msgs_rcvd
                     
                     	Number of Address messages received
-                    	**type**\:  :py:class:`AddressMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd>`
+                    	**type**\:   :py:class:`AddressMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: address_msgs_sent
                     
                     	Number of Address messages sent
-                    	**type**\:  :py:class:`AddressMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent>`
+                    	**type**\:   :py:class:`AddressMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: address_withdraw_msgs_rcvd
                     
                     	Number of Address Withdraw messages received
-                    	**type**\:  :py:class:`AddressWithdrawMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd>`
+                    	**type**\:   :py:class:`AddressWithdrawMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: address_withdraw_msgs_sent
                     
                     	Number of Address Withdraw messages sent
-                    	**type**\:  :py:class:`AddressWithdrawMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent>`
+                    	**type**\:   :py:class:`AddressWithdrawMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: init_msgs_rcvd
                     
                     	Number of Init messages received
-                    	**type**\:  :py:class:`InitMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd>`
+                    	**type**\:   :py:class:`InitMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: init_msgs_sent
                     
                     	Number of Init messages sent
-                    	**type**\:  :py:class:`InitMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent>`
+                    	**type**\:   :py:class:`InitMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: keepalive_msgs_rcvd
                     
                     	Number of Keepalive messages received
-                    	**type**\:  :py:class:`KeepaliveMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd>`
+                    	**type**\:   :py:class:`KeepaliveMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: keepalive_msgs_sent
                     
                     	Number of Keepalive messages sent
-                    	**type**\:  :py:class:`KeepaliveMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent>`
+                    	**type**\:   :py:class:`KeepaliveMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: label_mapping_msgs_rcvd
                     
                     	Number of Label Mapping messages received
-                    	**type**\:  :py:class:`LabelMappingMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd>`
+                    	**type**\:   :py:class:`LabelMappingMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: label_mapping_msgs_sent
                     
                     	Number of Label Mapping messages sent
-                    	**type**\:  :py:class:`LabelMappingMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent>`
+                    	**type**\:   :py:class:`LabelMappingMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: label_release_msgs_rcvd
                     
                     	Number of LAbel Release messages received
-                    	**type**\:  :py:class:`LabelReleaseMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd>`
+                    	**type**\:   :py:class:`LabelReleaseMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: label_release_msgs_sent
                     
                     	Number of Label Release messages sent
-                    	**type**\:  :py:class:`LabelReleaseMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent>`
+                    	**type**\:   :py:class:`LabelReleaseMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: label_withdraw_msgs_rcvd
                     
                     	Number of Label Withdraw messages received
-                    	**type**\:  :py:class:`LabelWithdrawMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd>`
+                    	**type**\:   :py:class:`LabelWithdrawMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: label_withdraw_msgs_sent
                     
                     	Number of Label Withdraw messages sent
-                    	**type**\:  :py:class:`LabelWithdrawMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent>`
+                    	**type**\:   :py:class:`LabelWithdrawMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: notification_msgs_rcvd
                     
                     	Number of Notification messages received
-                    	**type**\:  :py:class:`NotificationMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd>`
+                    	**type**\:   :py:class:`NotificationMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: notification_msgs_sent
                     
                     	Number of Notification messages sent
-                    	**type**\:  :py:class:`NotificationMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent>`
+                    	**type**\:   :py:class:`NotificationMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: sample_interval
                     
@@ -9229,15 +9329,21 @@ class PerfMgmt(object):
                     
                     	**range:** 1..60
                     
+                    	**units**\: minute
+                    
                     .. attribute:: total_msgs_rcvd
                     
                     	Total number of messages received
-                    	**type**\:  :py:class:`TotalMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd>`
+                    	**type**\:   :py:class:`TotalMsgsRcvd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: total_msgs_sent
                     
                     	Total number of messages sent
-                    	**type**\:  :py:class:`TotalMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent>`
+                    	**type**\:   :py:class:`TotalMsgsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent>`
+                    
+                    	**presence node**\: True
                     
                     
 
@@ -9281,10 +9387,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -9294,7 +9400,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -9328,7 +9434,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -9353,7 +9459,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -9387,10 +9493,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -9400,7 +9506,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -9434,7 +9540,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -9459,7 +9565,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -9493,10 +9599,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -9506,7 +9612,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -9540,7 +9646,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -9565,7 +9671,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -9599,10 +9705,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -9612,7 +9718,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -9646,7 +9752,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -9671,7 +9777,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -9705,10 +9811,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -9718,7 +9824,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -9752,7 +9858,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -9777,7 +9883,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -9811,10 +9917,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..65536
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -9824,7 +9930,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -9858,7 +9964,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -9883,7 +9989,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -9917,10 +10023,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -9930,7 +10036,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -9964,7 +10070,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -9989,7 +10095,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10023,10 +10129,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10036,7 +10142,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -10070,7 +10176,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -10095,7 +10201,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10129,10 +10235,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10142,7 +10248,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -10176,7 +10282,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -10201,7 +10307,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10235,10 +10341,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10248,7 +10354,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -10282,7 +10388,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -10307,7 +10413,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10341,10 +10447,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10354,7 +10460,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -10388,7 +10494,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -10413,7 +10519,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10447,10 +10553,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10460,7 +10566,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -10494,7 +10600,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -10519,7 +10625,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10553,10 +10659,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10566,7 +10672,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -10600,7 +10706,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -10625,7 +10731,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10659,10 +10765,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10672,7 +10778,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -10706,7 +10812,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -10731,7 +10837,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10765,10 +10871,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10778,7 +10884,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -10812,7 +10918,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -10837,7 +10943,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10871,10 +10977,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10884,7 +10990,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -10918,7 +11024,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -10943,7 +11049,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -10977,10 +11083,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -10990,7 +11096,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -11024,7 +11130,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -11049,7 +11155,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -11083,10 +11189,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -11096,7 +11202,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -11130,7 +11236,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -11155,7 +11261,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -11312,7 +11418,7 @@ class PerfMgmt(object):
             .. attribute:: basic_counter_interface_templates
             
             	Interface Basic Counter threshold templates
-            	**type**\:  :py:class:`BasicCounterInterfaceTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates>`
+            	**type**\:   :py:class:`BasicCounterInterfaceTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates>`
             
             
 
@@ -11334,7 +11440,7 @@ class PerfMgmt(object):
                 .. attribute:: basic_counter_interface_template
                 
                 	Interface Basic Counter threshold template instance
-                	**type**\: list of  :py:class:`BasicCounterInterfaceTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate>`
+                	**type**\: list of    :py:class:`BasicCounterInterfaceTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate>`
                 
                 
 
@@ -11365,52 +11471,72 @@ class PerfMgmt(object):
                     .. attribute:: in_octets
                     
                     	Number of inbound octets/bytes
-                    	**type**\:  :py:class:`InOctets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets>`
+                    	**type**\:   :py:class:`InOctets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: in_packets
                     
                     	Number of inbound packets
-                    	**type**\:  :py:class:`InPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets>`
+                    	**type**\:   :py:class:`InPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_queue_drops
                     
                     	Number of input queue drops
-                    	**type**\:  :py:class:`InputQueueDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops>`
+                    	**type**\:   :py:class:`InputQueueDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_total_drops
                     
                     	Number of inbound correct packets discarded
-                    	**type**\:  :py:class:`InputTotalDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops>`
+                    	**type**\:   :py:class:`InputTotalDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_total_errors
                     
                     	Number of inbound incorrect packets discarded
-                    	**type**\:  :py:class:`InputTotalErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors>`
+                    	**type**\:   :py:class:`InputTotalErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: out_octets
                     
                     	Number of outbound octets/bytes
-                    	**type**\:  :py:class:`OutOctets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets>`
+                    	**type**\:   :py:class:`OutOctets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: out_packets
                     
                     	Number of outbound packets
-                    	**type**\:  :py:class:`OutPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets>`
+                    	**type**\:   :py:class:`OutPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_queue_drops
                     
                     	Number of outbound queue drops
-                    	**type**\:  :py:class:`OutputQueueDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops>`
+                    	**type**\:   :py:class:`OutputQueueDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_total_drops
                     
                     	Number of outbound correct packets discarded
-                    	**type**\:  :py:class:`OutputTotalDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops>`
+                    	**type**\:   :py:class:`OutputTotalDrops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_total_errors
                     
                     	Number of outbound incorrect packets discarded
-                    	**type**\:  :py:class:`OutputTotalErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors>`
+                    	**type**\:   :py:class:`OutputTotalErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: reg_exp_group
                     
@@ -11425,6 +11551,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: vrf_group
                     
@@ -11469,10 +11597,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -11482,7 +11610,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -11516,7 +11644,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -11541,7 +11669,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -11575,10 +11703,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -11588,7 +11716,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -11622,7 +11750,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -11647,7 +11775,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -11681,10 +11809,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -11694,7 +11822,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -11728,7 +11856,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -11753,7 +11881,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -11788,10 +11916,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -11801,7 +11929,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -11835,7 +11963,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -11860,7 +11988,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -11894,10 +12022,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -11907,7 +12035,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -11941,7 +12069,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -11966,7 +12094,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -12000,10 +12128,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -12013,7 +12141,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -12047,7 +12175,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -12072,7 +12200,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -12107,10 +12235,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -12120,7 +12248,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -12154,7 +12282,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -12179,7 +12307,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -12213,10 +12341,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -12226,7 +12354,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -12260,7 +12388,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -12285,7 +12413,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -12319,10 +12447,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -12332,7 +12460,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -12366,7 +12494,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -12391,7 +12519,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -12425,10 +12553,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -12438,7 +12566,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -12472,7 +12600,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -12497,7 +12625,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -12636,7 +12764,7 @@ class PerfMgmt(object):
             .. attribute:: bgp_templates
             
             	BGP threshold templates
-            	**type**\:  :py:class:`BgpTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates>`
+            	**type**\:   :py:class:`BgpTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates>`
             
             
 
@@ -12658,7 +12786,7 @@ class PerfMgmt(object):
                 .. attribute:: bgp_template
                 
                 	BGP threshold template instance
-                	**type**\: list of  :py:class:`BgpTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate>`
+                	**type**\: list of    :py:class:`BgpTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate>`
                 
                 
 
@@ -12688,42 +12816,58 @@ class PerfMgmt(object):
                     .. attribute:: conn_dropped
                     
                     	Number of times the connection was dropped
-                    	**type**\:  :py:class:`ConnDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped>`
+                    	**type**\:   :py:class:`ConnDropped <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: conn_established
                     
                     	Number of times the connection was established
-                    	**type**\:  :py:class:`ConnEstablished <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished>`
+                    	**type**\:   :py:class:`ConnEstablished <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: errors_received
                     
                     	Number of error notifications received
-                    	**type**\:  :py:class:`ErrorsReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived>`
+                    	**type**\:   :py:class:`ErrorsReceived <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: errors_sent
                     
                     	Number of error notifications sent
-                    	**type**\:  :py:class:`ErrorsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent>`
+                    	**type**\:   :py:class:`ErrorsSent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_messages
                     
                     	Number of messages received
-                    	**type**\:  :py:class:`InputMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages>`
+                    	**type**\:   :py:class:`InputMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_update_messages
                     
                     	Number of update messages received
-                    	**type**\:  :py:class:`InputUpdateMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages>`
+                    	**type**\:   :py:class:`InputUpdateMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_messages
                     
                     	Number of messages sent
-                    	**type**\:  :py:class:`OutputMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages>`
+                    	**type**\:   :py:class:`OutputMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_update_messages
                     
                     	Number of update messages sent
-                    	**type**\:  :py:class:`OutputUpdateMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages>`
+                    	**type**\:   :py:class:`OutputUpdateMessages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: sample_interval
                     
@@ -12731,6 +12875,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     
 
@@ -12764,10 +12910,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -12777,7 +12923,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -12811,7 +12957,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -12836,7 +12982,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -12870,10 +13016,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -12883,7 +13029,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -12917,7 +13063,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -12942,7 +13088,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -12977,10 +13123,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -12990,7 +13136,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -13024,7 +13170,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -13049,7 +13195,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -13083,10 +13229,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -13096,7 +13242,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -13130,7 +13276,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -13155,7 +13301,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -13189,10 +13335,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -13202,7 +13348,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -13236,7 +13382,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -13261,7 +13407,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -13295,10 +13441,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -13308,7 +13454,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -13342,7 +13488,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -13367,7 +13513,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -13401,10 +13547,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -13414,7 +13560,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -13448,7 +13594,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -13473,7 +13619,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -13507,10 +13653,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -13520,7 +13666,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -13554,7 +13700,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -13579,7 +13725,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -13706,7 +13852,7 @@ class PerfMgmt(object):
             .. attribute:: ospfv2_protocol_templates
             
             	OSPF v2 Protocol threshold templates
-            	**type**\:  :py:class:`Ospfv2ProtocolTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates>`
+            	**type**\:   :py:class:`Ospfv2ProtocolTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates>`
             
             
 
@@ -13728,7 +13874,7 @@ class PerfMgmt(object):
                 .. attribute:: ospfv2_protocol_template
                 
                 	OSPF v2 Protocol threshold template instance
-                	**type**\: list of  :py:class:`Ospfv2ProtocolTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate>`
+                	**type**\: list of    :py:class:`Ospfv2ProtocolTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate>`
                 
                 
 
@@ -13758,107 +13904,149 @@ class PerfMgmt(object):
                     .. attribute:: checksum_errors
                     
                     	Number of packets received with checksum errors
-                    	**type**\:  :py:class:`ChecksumErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors>`
+                    	**type**\:   :py:class:`ChecksumErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_db_ds
                     
                     	Number of DBD packets received
-                    	**type**\:  :py:class:`InputDbDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs>`
+                    	**type**\:   :py:class:`InputDbDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_db_ds_lsa
                     
                     	Number of LSA received in DBD packets
-                    	**type**\:  :py:class:`InputDbDsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa>`
+                    	**type**\:   :py:class:`InputDbDsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_hello_packets
                     
                     	Number of Hello packets received
-                    	**type**\:  :py:class:`InputHelloPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets>`
+                    	**type**\:   :py:class:`InputHelloPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_ls_requests
                     
                     	Number of LS Requests received
-                    	**type**\:  :py:class:`InputLsRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests>`
+                    	**type**\:   :py:class:`InputLsRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_ls_requests_lsa
                     
                     	Number of LSA received in LS Requests
-                    	**type**\:  :py:class:`InputLsRequestsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa>`
+                    	**type**\:   :py:class:`InputLsRequestsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_lsa_acks
                     
                     	Number of LSA Acknowledgements received
-                    	**type**\:  :py:class:`InputLsaAcks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks>`
+                    	**type**\:   :py:class:`InputLsaAcks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_lsa_acks_lsa
                     
                     	Number of LSA received in LSA Acknowledgements
-                    	**type**\:  :py:class:`InputLsaAcksLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa>`
+                    	**type**\:   :py:class:`InputLsaAcksLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_lsa_updates
                     
                     	Number of LSA Updates received
-                    	**type**\:  :py:class:`InputLsaUpdates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates>`
+                    	**type**\:   :py:class:`InputLsaUpdates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_lsa_updates_lsa
                     
                     	Number of LSA received in LSA Updates
-                    	**type**\:  :py:class:`InputLsaUpdatesLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa>`
+                    	**type**\:   :py:class:`InputLsaUpdatesLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_packets
                     
                     	Total number of packets received
-                    	**type**\:  :py:class:`InputPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets>`
+                    	**type**\:   :py:class:`InputPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_db_ds
                     
                     	Number of DBD packets sent
-                    	**type**\:  :py:class:`OutputDbDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs>`
+                    	**type**\:   :py:class:`OutputDbDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_db_ds_lsa
                     
                     	Number of LSA sent in DBD packets
-                    	**type**\:  :py:class:`OutputDbDsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa>`
+                    	**type**\:   :py:class:`OutputDbDsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_hello_packets
                     
                     	Total number of packets sent
-                    	**type**\:  :py:class:`OutputHelloPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets>`
+                    	**type**\:   :py:class:`OutputHelloPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_ls_requests
                     
                     	Number of LS Requests sent
-                    	**type**\:  :py:class:`OutputLsRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests>`
+                    	**type**\:   :py:class:`OutputLsRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_ls_requests_lsa
                     
                     	Number of LSA sent in LS Requests
-                    	**type**\:  :py:class:`OutputLsRequestsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa>`
+                    	**type**\:   :py:class:`OutputLsRequestsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_lsa_acks
                     
                     	Number of LSA Acknowledgements sent
-                    	**type**\:  :py:class:`OutputLsaAcks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks>`
+                    	**type**\:   :py:class:`OutputLsaAcks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_lsa_acks_lsa
                     
                     	Number of LSA sent in LSA Acknowledgements
-                    	**type**\:  :py:class:`OutputLsaAcksLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa>`
+                    	**type**\:   :py:class:`OutputLsaAcksLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_lsa_updates
                     
                     	Number of LSA Updates sent
-                    	**type**\:  :py:class:`OutputLsaUpdates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates>`
+                    	**type**\:   :py:class:`OutputLsaUpdates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_lsa_updates_lsa
                     
                     	Number of LSA sent in LSA Updates
-                    	**type**\:  :py:class:`OutputLsaUpdatesLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa>`
+                    	**type**\:   :py:class:`OutputLsaUpdatesLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_packets
                     
                     	Total number of packets sent
-                    	**type**\:  :py:class:`OutputPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets>`
+                    	**type**\:   :py:class:`OutputPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: sample_interval
                     
@@ -13866,6 +14054,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     
 
@@ -13913,10 +14103,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -13926,7 +14116,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -13960,7 +14150,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -13985,7 +14175,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14019,10 +14209,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14032,7 +14222,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -14066,7 +14256,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -14091,7 +14281,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14125,10 +14315,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14138,7 +14328,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -14172,7 +14362,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -14197,7 +14387,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14231,10 +14421,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14244,7 +14434,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -14278,7 +14468,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -14303,7 +14493,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14337,10 +14527,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14350,7 +14540,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -14384,7 +14574,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -14409,7 +14599,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14443,10 +14633,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14456,7 +14646,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -14490,7 +14680,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -14515,7 +14705,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14549,10 +14739,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14562,7 +14752,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -14596,7 +14786,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -14621,7 +14811,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14655,10 +14845,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14668,7 +14858,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -14702,7 +14892,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -14727,7 +14917,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14761,10 +14951,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14774,7 +14964,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -14808,7 +14998,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -14833,7 +15023,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14867,10 +15057,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14880,7 +15070,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -14914,7 +15104,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -14939,7 +15129,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -14973,10 +15163,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -14986,7 +15176,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15020,7 +15210,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15045,7 +15235,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -15079,10 +15269,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -15092,7 +15282,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15126,7 +15316,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15151,7 +15341,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -15185,10 +15375,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -15198,7 +15388,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15232,7 +15422,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15257,7 +15447,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -15291,10 +15481,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -15304,7 +15494,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15338,7 +15528,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15363,7 +15553,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -15397,10 +15587,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -15410,7 +15600,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15444,7 +15634,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15469,7 +15659,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -15503,10 +15693,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -15516,7 +15706,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15550,7 +15740,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15575,7 +15765,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -15609,10 +15799,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -15622,7 +15812,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15656,7 +15846,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15681,7 +15871,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -15715,10 +15905,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -15728,7 +15918,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15762,7 +15952,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15787,7 +15977,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -15821,10 +16011,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -15834,7 +16024,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15868,7 +16058,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15893,7 +16083,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -15927,10 +16117,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -15940,7 +16130,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -15974,7 +16164,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -15999,7 +16189,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -16033,10 +16223,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -16046,7 +16236,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -16080,7 +16270,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -16105,7 +16295,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -16271,7 +16461,7 @@ class PerfMgmt(object):
             .. attribute:: cpu_node_templates
             
             	Node CPU threshold configuration templates
-            	**type**\:  :py:class:`CpuNodeTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode.CpuNodeTemplates>`
+            	**type**\:   :py:class:`CpuNodeTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode.CpuNodeTemplates>`
             
             
 
@@ -16293,7 +16483,7 @@ class PerfMgmt(object):
                 .. attribute:: cpu_node_template
                 
                 	Node CPU threshold configuration template instances
-                	**type**\: list of  :py:class:`CpuNodeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate>`
+                	**type**\: list of    :py:class:`CpuNodeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate>`
                 
                 
 
@@ -16324,12 +16514,16 @@ class PerfMgmt(object):
                     .. attribute:: average_cpu_used
                     
                     	Average %CPU utilization
-                    	**type**\:  :py:class:`AverageCpuUsed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed>`
+                    	**type**\:   :py:class:`AverageCpuUsed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: no_processes
                     
                     	Number of processes
-                    	**type**\:  :py:class:`NoProcesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses>`
+                    	**type**\:   :py:class:`NoProcesses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: sample_interval
                     
@@ -16337,6 +16531,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     
 
@@ -16364,10 +16560,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..100
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -16377,7 +16573,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -16411,7 +16607,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -16436,7 +16632,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -16470,10 +16666,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -16483,7 +16679,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -16517,7 +16713,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -16542,7 +16738,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -16651,7 +16847,7 @@ class PerfMgmt(object):
             .. attribute:: data_rate_interface_templates
             
             	Interface Data Rates threshold templates
-            	**type**\:  :py:class:`DataRateInterfaceTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates>`
+            	**type**\:   :py:class:`DataRateInterfaceTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates>`
             
             
 
@@ -16673,7 +16869,7 @@ class PerfMgmt(object):
                 .. attribute:: data_rate_interface_template
                 
                 	Interface Data Rates threshold template instance
-                	**type**\: list of  :py:class:`DataRateInterfaceTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate>`
+                	**type**\: list of    :py:class:`DataRateInterfaceTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate>`
                 
                 
 
@@ -16704,47 +16900,65 @@ class PerfMgmt(object):
                     .. attribute:: bandwidth
                     
                     	Bandwidth in kbps
-                    	**type**\:  :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth>`
+                    	**type**\:   :py:class:`Bandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_data_rate
                     
                     	Input data rate in kbps
-                    	**type**\:  :py:class:`InputDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate>`
+                    	**type**\:   :py:class:`InputDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_packet_rate
                     
                     	Number of input packets per second
-                    	**type**\:  :py:class:`InputPacketRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate>`
+                    	**type**\:   :py:class:`InputPacketRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_peak_pkts
                     
                     	Maximum number of input packets per second
-                    	**type**\:  :py:class:`InputPeakPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts>`
+                    	**type**\:   :py:class:`InputPeakPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_peak_rate
                     
                     	Peak input data rate in kbps
-                    	**type**\:  :py:class:`InputPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate>`
+                    	**type**\:   :py:class:`InputPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_data_rate
                     
                     	Output data rate in kbps
-                    	**type**\:  :py:class:`OutputDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate>`
+                    	**type**\:   :py:class:`OutputDataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_packet_rate
                     
                     	Number of Output packets per second
-                    	**type**\:  :py:class:`OutputPacketRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate>`
+                    	**type**\:   :py:class:`OutputPacketRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_peak_pkts
                     
                     	Maximum number of output packets per second
-                    	**type**\:  :py:class:`OutputPeakPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts>`
+                    	**type**\:   :py:class:`OutputPeakPkts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_peak_rate
                     
                     	Peak output data rate in kbps
-                    	**type**\:  :py:class:`OutputPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate>`
+                    	**type**\:   :py:class:`OutputPeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: reg_exp_group
                     
@@ -16759,6 +16973,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     .. attribute:: vrf_group
                     
@@ -16802,10 +17018,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -16815,7 +17031,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -16849,7 +17065,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -16874,7 +17090,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -16908,10 +17124,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -16921,7 +17137,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -16955,7 +17171,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -16980,7 +17196,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -17014,10 +17230,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -17027,7 +17243,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -17061,7 +17277,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -17086,7 +17302,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -17120,10 +17336,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -17133,7 +17349,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -17167,7 +17383,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -17192,7 +17408,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -17226,10 +17442,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -17239,7 +17455,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -17273,7 +17489,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -17298,7 +17514,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -17332,10 +17548,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -17345,7 +17561,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -17379,7 +17595,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -17404,7 +17620,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -17438,10 +17654,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -17451,7 +17667,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -17485,7 +17701,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -17510,7 +17726,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -17544,10 +17760,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -17557,7 +17773,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -17591,7 +17807,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -17616,7 +17832,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -17650,10 +17866,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -17663,7 +17879,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -17697,7 +17913,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -17722,7 +17938,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -17858,7 +18074,7 @@ class PerfMgmt(object):
             .. attribute:: process_node_templates
             
             	Node Memory threshold templates
-            	**type**\:  :py:class:`ProcessNodeTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates>`
+            	**type**\:   :py:class:`ProcessNodeTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates>`
             
             
 
@@ -17880,7 +18096,7 @@ class PerfMgmt(object):
                 .. attribute:: process_node_template
                 
                 	Node Memory threshold template instance
-                	**type**\: list of  :py:class:`ProcessNodeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate>`
+                	**type**\: list of    :py:class:`ProcessNodeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate>`
                 
                 
 
@@ -17910,17 +18126,23 @@ class PerfMgmt(object):
                     .. attribute:: average_cpu_used
                     
                     	Average %CPU utilization
-                    	**type**\:  :py:class:`AverageCpuUsed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed>`
+                    	**type**\:   :py:class:`AverageCpuUsed <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: no_threads
                     
                     	Number of threads
-                    	**type**\:  :py:class:`NoThreads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads>`
+                    	**type**\:   :py:class:`NoThreads <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: peak_memory
                     
                     	Max memory (KBytes) used since startup time
-                    	**type**\:  :py:class:`PeakMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory>`
+                    	**type**\:   :py:class:`PeakMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: sample_interval
                     
@@ -17928,6 +18150,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     
 
@@ -17956,10 +18180,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..100
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -17969,7 +18193,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -18003,7 +18227,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -18028,7 +18252,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -18062,10 +18286,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -18075,7 +18299,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -18109,7 +18333,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -18134,7 +18358,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -18168,10 +18392,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..32767
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -18181,7 +18405,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -18215,7 +18439,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -18240,7 +18464,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -18352,7 +18576,7 @@ class PerfMgmt(object):
             .. attribute:: memory_node_templates
             
             	Node Memory threshold configuration templates
-            	**type**\:  :py:class:`MemoryNodeTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates>`
+            	**type**\:   :py:class:`MemoryNodeTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates>`
             
             
 
@@ -18374,7 +18598,7 @@ class PerfMgmt(object):
                 .. attribute:: memory_node_template
                 
                 	Node Memory threshold configuration template instance
-                	**type**\: list of  :py:class:`MemoryNodeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate>`
+                	**type**\: list of    :py:class:`MemoryNodeTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate>`
                 
                 
 
@@ -18405,12 +18629,16 @@ class PerfMgmt(object):
                     .. attribute:: curr_memory
                     
                     	Current memory (Bytes) in use
-                    	**type**\:  :py:class:`CurrMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory>`
+                    	**type**\:   :py:class:`CurrMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: peak_memory
                     
                     	Maximum memory (KBytes) used
-                    	**type**\:  :py:class:`PeakMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory>`
+                    	**type**\:   :py:class:`PeakMemory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: sample_interval
                     
@@ -18418,6 +18646,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     
 
@@ -18445,10 +18675,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4194304
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -18458,7 +18688,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -18492,7 +18722,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -18517,7 +18747,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -18551,10 +18781,10 @@ class PerfMgmt(object):
                         
                         	**range:** \-2147483648..2147483647
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -18564,7 +18794,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -18598,7 +18828,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -18623,7 +18853,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -18732,7 +18962,7 @@ class PerfMgmt(object):
             .. attribute:: ospfv3_protocol_templates
             
             	OSPF v2 Protocol threshold templates
-            	**type**\:  :py:class:`Ospfv3ProtocolTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates>`
+            	**type**\:   :py:class:`Ospfv3ProtocolTemplates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates>`
             
             
 
@@ -18754,7 +18984,7 @@ class PerfMgmt(object):
                 .. attribute:: ospfv3_protocol_template
                 
                 	OSPF v2 Protocol threshold template instance
-                	**type**\: list of  :py:class:`Ospfv3ProtocolTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate>`
+                	**type**\: list of    :py:class:`Ospfv3ProtocolTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate>`
                 
                 
 
@@ -18784,102 +19014,142 @@ class PerfMgmt(object):
                     .. attribute:: input_db_ds
                     
                     	Number of DBD packets received
-                    	**type**\:  :py:class:`InputDbDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs>`
+                    	**type**\:   :py:class:`InputDbDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_db_ds_lsa
                     
                     	Number of LSA received in DBD packets
-                    	**type**\:  :py:class:`InputDbDsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa>`
+                    	**type**\:   :py:class:`InputDbDsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_hello_packets
                     
                     	Number of Hello packets received
-                    	**type**\:  :py:class:`InputHelloPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets>`
+                    	**type**\:   :py:class:`InputHelloPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_ls_requests
                     
                     	Number of LS Requests received
-                    	**type**\:  :py:class:`InputLsRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests>`
+                    	**type**\:   :py:class:`InputLsRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_ls_requests_lsa
                     
                     	Number of LSA received in LS Requests
-                    	**type**\:  :py:class:`InputLsRequestsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa>`
+                    	**type**\:   :py:class:`InputLsRequestsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_lsa_acks
                     
                     	Number of LSA Acknowledgements received
-                    	**type**\:  :py:class:`InputLsaAcks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks>`
+                    	**type**\:   :py:class:`InputLsaAcks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_lsa_acks_lsa
                     
                     	Number of LSA received in LSA Acknowledgements
-                    	**type**\:  :py:class:`InputLsaAcksLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa>`
+                    	**type**\:   :py:class:`InputLsaAcksLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_lsa_updates
                     
                     	Number of LSA Updates received
-                    	**type**\:  :py:class:`InputLsaUpdates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates>`
+                    	**type**\:   :py:class:`InputLsaUpdates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_lsa_updates_lsa
                     
                     	Number of LSA received in LSA Updates
-                    	**type**\:  :py:class:`InputLsaUpdatesLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa>`
+                    	**type**\:   :py:class:`InputLsaUpdatesLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: input_packets
                     
                     	Total number of packets received
-                    	**type**\:  :py:class:`InputPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets>`
+                    	**type**\:   :py:class:`InputPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_db_ds
                     
                     	Number of DBD packets sent
-                    	**type**\:  :py:class:`OutputDbDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs>`
+                    	**type**\:   :py:class:`OutputDbDs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_db_ds_lsa
                     
                     	Number of LSA sent in DBD packets
-                    	**type**\:  :py:class:`OutputDbDsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa>`
+                    	**type**\:   :py:class:`OutputDbDsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_hello_packets
                     
                     	Total number of packets sent
-                    	**type**\:  :py:class:`OutputHelloPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets>`
+                    	**type**\:   :py:class:`OutputHelloPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_ls_requests
                     
                     	Number of LS Requests sent
-                    	**type**\:  :py:class:`OutputLsRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests>`
+                    	**type**\:   :py:class:`OutputLsRequests <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_ls_requests_lsa
                     
                     	Number of LSA sent in LS Requests
-                    	**type**\:  :py:class:`OutputLsRequestsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa>`
+                    	**type**\:   :py:class:`OutputLsRequestsLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_lsa_acks
                     
                     	Number of LSA Acknowledgements sent
-                    	**type**\:  :py:class:`OutputLsaAcks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks>`
+                    	**type**\:   :py:class:`OutputLsaAcks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_lsa_acks_lsa
                     
                     	Number of LSA sent in LSA Acknowledgements
-                    	**type**\:  :py:class:`OutputLsaAcksLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa>`
+                    	**type**\:   :py:class:`OutputLsaAcksLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_lsa_updates
                     
                     	Number of LSA Updates sent
-                    	**type**\:  :py:class:`OutputLsaUpdates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates>`
+                    	**type**\:   :py:class:`OutputLsaUpdates <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_lsa_updates_lsa
                     
                     	Number of LSA sent in LSA Updates
-                    	**type**\:  :py:class:`OutputLsaUpdatesLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa>`
+                    	**type**\:   :py:class:`OutputLsaUpdatesLsa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: output_packets
                     
                     	Total number of packets sent
-                    	**type**\:  :py:class:`OutputPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets>`
+                    	**type**\:   :py:class:`OutputPackets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets>`
+                    
+                    	**presence node**\: True
                     
                     .. attribute:: sample_interval
                     
@@ -18887,6 +19157,8 @@ class PerfMgmt(object):
                     	**type**\:  int
                     
                     	**range:** 1..60
+                    
+                    	**units**\: minute
                     
                     
 
@@ -18932,10 +19204,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -18945,7 +19217,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -18979,7 +19251,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19004,7 +19276,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19038,10 +19310,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -19051,7 +19323,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -19085,7 +19357,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19110,7 +19382,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19144,10 +19416,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -19157,7 +19429,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -19191,7 +19463,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19216,7 +19488,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19250,10 +19522,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -19263,7 +19535,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -19297,7 +19569,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19322,7 +19594,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19356,10 +19628,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -19369,7 +19641,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -19403,7 +19675,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19428,7 +19700,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19462,10 +19734,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -19475,7 +19747,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -19509,7 +19781,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19534,7 +19806,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19568,10 +19840,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -19581,7 +19853,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -19615,7 +19887,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19640,7 +19912,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19674,10 +19946,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -19687,7 +19959,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -19721,7 +19993,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19746,7 +20018,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19780,10 +20052,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -19793,7 +20065,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -19827,7 +20099,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19852,7 +20124,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19886,10 +20158,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -19899,7 +20171,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -19933,7 +20205,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -19958,7 +20230,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -19992,10 +20264,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20005,7 +20277,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20039,7 +20311,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -20064,7 +20336,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -20098,10 +20370,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20111,7 +20383,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20145,7 +20417,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -20170,7 +20442,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -20204,10 +20476,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20217,7 +20489,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20251,7 +20523,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -20276,7 +20548,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -20310,10 +20582,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20323,7 +20595,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20357,7 +20629,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -20382,7 +20654,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -20416,10 +20688,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20429,7 +20701,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20463,7 +20735,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -20488,7 +20760,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -20522,10 +20794,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20535,7 +20807,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20569,7 +20841,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -20594,7 +20866,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -20628,10 +20900,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20641,7 +20913,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20675,7 +20947,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -20700,7 +20972,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -20734,10 +21006,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20747,7 +21019,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20781,7 +21053,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -20806,7 +21078,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -20840,10 +21112,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20853,7 +21125,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20887,7 +21159,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -20912,7 +21184,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:
@@ -20946,10 +21218,10 @@ class PerfMgmt(object):
                         
                         	**range:** 0..4294967295
                         
-                        .. attribute:: operator_
+                        .. attribute:: operator
                         
                         	Operator
-                        	**type**\:  :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
+                        	**type**\:   :py:class:`PmThresholdOpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdOpEnum>`
                         
                         .. attribute:: percent
                         
@@ -20959,7 +21231,7 @@ class PerfMgmt(object):
                         .. attribute:: rearm_type
                         
                         	Configure the Rearm type
-                        	**type**\:  :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
+                        	**type**\:   :py:class:`PmThresholdRearmEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg.PmThresholdRearmEnum>`
                         
                         .. attribute:: rearm_window
                         
@@ -20993,7 +21265,7 @@ class PerfMgmt(object):
                             self.parent = None
                             self._is_presence = True
                             self.end_range_value = None
-                            self.operator_ = None
+                            self.operator = None
                             self.percent = None
                             self.rearm_type = None
                             self.rearm_window = None
@@ -21018,7 +21290,7 @@ class PerfMgmt(object):
                             if self.end_range_value is not None:
                                 return True
 
-                            if self.operator_ is not None:
+                            if self.operator is not None:
                                 return True
 
                             if self.percent is not None:

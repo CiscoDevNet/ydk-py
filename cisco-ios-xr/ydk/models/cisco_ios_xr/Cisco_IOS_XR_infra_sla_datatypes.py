@@ -26,21 +26,21 @@ class SlaBucketsSizeUnitsEnumEnum(Enum):
 
     Sla buckets size units enum
 
-    .. data:: BUCKETS_PER_PROBE = 0
+    .. data:: buckets_per_probe = 0
 
     	Store results as a number of buckets per probe
 
     	- note that this option has been DEPRECATED
 
-    .. data:: PROBES_PER_BUCKET = 1
+    .. data:: probes_per_bucket = 1
 
     	Store results as a number of probes per bucket
 
     """
 
-    BUCKETS_PER_PROBE = 0
+    buckets_per_probe = 0
 
-    PROBES_PER_BUCKET = 1
+    probes_per_bucket = 1
 
 
     @staticmethod
@@ -55,29 +55,29 @@ class SlaBurstIntervalUnitsEnumEnum(Enum):
 
     Sla burst interval units enum
 
-    .. data:: ONCE = 1
+    .. data:: once = 1
 
     	Send one burst per probe
 
-    .. data:: MILLISECONDS = 2
+    .. data:: milliseconds = 2
 
     	Send bursts within a probe with an interval
 
     	unit of milliseconds
 
-    .. data:: SECONDS = 3
+    .. data:: seconds = 3
 
     	Send bursts within a probe with an interval
 
     	unit of seconds
 
-    .. data:: MINUTES = 4
+    .. data:: minutes = 4
 
     	Send bursts within a probe with an interval
 
     	unit of minutes
 
-    .. data:: HOURS = 5
+    .. data:: hours = 5
 
     	Send bursts within a probe with an interval
 
@@ -85,15 +85,15 @@ class SlaBurstIntervalUnitsEnumEnum(Enum):
 
     """
 
-    ONCE = 1
+    once = 1
 
-    MILLISECONDS = 2
+    milliseconds = 2
 
-    SECONDS = 3
+    seconds = 3
 
-    MINUTES = 4
+    minutes = 4
 
-    HOURS = 5
+    hours = 5
 
 
     @staticmethod
@@ -108,19 +108,19 @@ class SlaOnDemandProbeDurationUnitsEnumEnum(Enum):
 
     Sla on demand probe duration units enum
 
-    .. data:: SECONDS = 3
+    .. data:: seconds = 3
 
     	Schedule probes to run with a duration unit of
 
     	seconds
 
-    .. data:: MINUTES = 4
+    .. data:: minutes = 4
 
     	Schedule probes to run with a duration unit of
 
     	minutes
 
-    .. data:: HOURS = 5
+    .. data:: hours = 5
 
     	Schedule probes to run with a duration unit of
 
@@ -128,11 +128,11 @@ class SlaOnDemandProbeDurationUnitsEnumEnum(Enum):
 
     """
 
-    SECONDS = 3
+    seconds = 3
 
-    MINUTES = 4
+    minutes = 4
 
-    HOURS = 5
+    hours = 5
 
 
     @staticmethod
@@ -147,19 +147,19 @@ class SlaOnDemandRepeatIntervalUnitsEnumEnum(Enum):
 
     Sla on demand repeat interval units enum
 
-    .. data:: SECONDS = 3
+    .. data:: seconds = 3
 
     	Schedule probes to repeat with an interval unit
 
     	of seconds
 
-    .. data:: MINUTES = 4
+    .. data:: minutes = 4
 
     	Schedule probes to repeat with an interval unit
 
     	of minutes
 
-    .. data:: HOURS = 5
+    .. data:: hours = 5
 
     	Schedule probes to repeat with an interval unit
 
@@ -167,11 +167,11 @@ class SlaOnDemandRepeatIntervalUnitsEnumEnum(Enum):
 
     """
 
-    SECONDS = 3
+    seconds = 3
 
-    MINUTES = 4
+    minutes = 4
 
-    HOURS = 5
+    hours = 5
 
 
     @staticmethod
@@ -186,79 +186,79 @@ class SlaOnDemandStartMonthEnumEnum(Enum):
 
     Sla on demand start month enum
 
-    .. data:: JANUARY = 0
+    .. data:: january = 0
 
     	January
 
-    .. data:: FEBRUARY = 1
+    .. data:: february = 1
 
     	February
 
-    .. data:: MARCH = 2
+    .. data:: march = 2
 
     	March
 
-    .. data:: APRIL = 3
+    .. data:: april = 3
 
     	April
 
-    .. data:: MAY = 4
+    .. data:: may = 4
 
     	May
 
-    .. data:: JUNE = 5
+    .. data:: june = 5
 
     	June
 
-    .. data:: JULY = 6
+    .. data:: july = 6
 
     	July
 
-    .. data:: AUGUST = 7
+    .. data:: august = 7
 
     	August
 
-    .. data:: SEPTEMBER = 8
+    .. data:: september = 8
 
     	September
 
-    .. data:: OCTOBER = 9
+    .. data:: october = 9
 
     	October
 
-    .. data:: NOVEMBER = 10
+    .. data:: november = 10
 
     	November
 
-    .. data:: DECEMBER = 11
+    .. data:: december = 11
 
     	December
 
     """
 
-    JANUARY = 0
+    january = 0
 
-    FEBRUARY = 1
+    february = 1
 
-    MARCH = 2
+    march = 2
 
-    APRIL = 3
+    april = 3
 
-    MAY = 4
+    may = 4
 
-    JUNE = 5
+    june = 5
 
-    JULY = 6
+    july = 6
 
-    AUGUST = 7
+    august = 7
 
-    SEPTEMBER = 8
+    september = 8
 
-    OCTOBER = 9
+    october = 9
 
-    NOVEMBER = 10
+    november = 10
 
-    DECEMBER = 11
+    december = 11
 
 
     @staticmethod
@@ -273,25 +273,25 @@ class SlaOnDemandStartTimeRelativeUnitsEnumEnum(Enum):
 
     Sla on demand start time relative units enum
 
-    .. data:: SECONDS = 3
+    .. data:: seconds = 3
 
     	Schedule probe to start after a unit of seconds
 
-    .. data:: MINUTES = 4
+    .. data:: minutes = 4
 
     	Schedule probe to start after a unit of minutes
 
-    .. data:: HOURS = 5
+    .. data:: hours = 5
 
     	Schedule probe to start after a unit of hours
 
     """
 
-    SECONDS = 3
+    seconds = 3
 
-    MINUTES = 4
+    minutes = 4
 
-    HOURS = 5
+    hours = 5
 
 
     @staticmethod
@@ -306,25 +306,25 @@ class SlaOnDemandStartTimeTypesEnumEnum(Enum):
 
     Sla on demand start time types enum
 
-    .. data:: NOW = 0
+    .. data:: now = 0
 
     	Start immediately
 
-    .. data:: ABSOLUTE = 1
+    .. data:: absolute = 1
 
     	Start at a specified time
 
-    .. data:: RELATIVE = 2
+    .. data:: relative = 2
 
     	Start after a specified period
 
     """
 
-    NOW = 0
+    now = 0
 
-    ABSOLUTE = 1
+    absolute = 1
 
-    RELATIVE = 2
+    relative = 2
 
 
     @staticmethod
@@ -339,39 +339,39 @@ class SlaPacketIntervalUnitsEnumEnum(Enum):
 
     Sla packet interval units enum
 
-    .. data:: ONCE = 1
+    .. data:: once = 1
 
     	Send one packet per burst
 
-    .. data:: MILLISECONDS = 2
+    .. data:: milliseconds = 2
 
     	Send packets with an interval unit of
 
     	milliseconds
 
-    .. data:: SECONDS = 3
+    .. data:: seconds = 3
 
     	Send packets with an interval unit of seconds
 
-    .. data:: MINUTES = 4
+    .. data:: minutes = 4
 
     	Send packets with an interval unit of minutes
 
-    .. data:: HOURS = 5
+    .. data:: hours = 5
 
     	Send packets with an interval unit of hours
 
     """
 
-    ONCE = 1
+    once = 1
 
-    MILLISECONDS = 2
+    milliseconds = 2
 
-    SECONDS = 3
+    seconds = 3
 
-    MINUTES = 4
+    minutes = 4
 
-    HOURS = 5
+    hours = 5
 
 
     @staticmethod
@@ -386,13 +386,13 @@ class SlaPaddingPatternEnum(Enum):
 
     Sla padding pattern
 
-    .. data:: HEX = 0
+    .. data:: hex = 0
 
     	Use an optionally specified hex pattern for
 
     	packet padding
 
-    .. data:: PSEUDO_RANDOM = 1
+    .. data:: pseudo_random = 1
 
     	Use a pseudo-random bit sequence for packet
 
@@ -400,9 +400,9 @@ class SlaPaddingPatternEnum(Enum):
 
     """
 
-    HEX = 0
+    hex = 0
 
-    PSEUDO_RANDOM = 1
+    pseudo_random = 1
 
 
     @staticmethod
@@ -417,43 +417,43 @@ class SlaProbeDurationUnitsEnumEnum(Enum):
 
     Sla probe duration units enum
 
-    .. data:: SECONDS = 3
+    .. data:: seconds = 3
 
     	Schedule probes to run with a duration unit of
 
     	seconds
 
-    .. data:: MINUTES = 4
+    .. data:: minutes = 4
 
     	Schedule probes to run with a duration unit of
 
     	minutes
 
-    .. data:: HOURS = 5
+    .. data:: hours = 5
 
     	Schedule probes to run with a duration unit of
 
     	hours
 
-    .. data:: DAY = 6
+    .. data:: day = 6
 
     	Schedule probes to run for a duration of 1 day
 
-    .. data:: WEEK = 7
+    .. data:: week = 7
 
     	Schedule probes to run for a duration of 1 week
 
     """
 
-    SECONDS = 3
+    seconds = 3
 
-    MINUTES = 4
+    minutes = 4
 
-    HOURS = 5
+    hours = 5
 
-    DAY = 6
+    day = 6
 
-    WEEK = 7
+    week = 7
 
 
     @staticmethod
@@ -468,49 +468,49 @@ class SlaProbeIntervalDayEnumEnum(Enum):
 
     Sla probe interval day enum
 
-    .. data:: MONDAY = 1
+    .. data:: monday = 1
 
     	Schedule every Monday
 
-    .. data:: TUESDAY = 2
+    .. data:: tuesday = 2
 
     	Schedule every Tuesday
 
-    .. data:: WEDNESDAY = 3
+    .. data:: wednesday = 3
 
     	Schedule every Wednesday
 
-    .. data:: THURSDAY = 4
+    .. data:: thursday = 4
 
     	Schedule every Thursday
 
-    .. data:: FRIDAY = 5
+    .. data:: friday = 5
 
     	Schedule every Friday
 
-    .. data:: SATURDAY = 6
+    .. data:: saturday = 6
 
     	Schedule every Saturday
 
-    .. data:: SUNDAY = 7
+    .. data:: sunday = 7
 
     	Schedule every Sunday
 
     """
 
-    MONDAY = 1
+    monday = 1
 
-    TUESDAY = 2
+    tuesday = 2
 
-    WEDNESDAY = 3
+    wednesday = 3
 
-    THURSDAY = 4
+    thursday = 4
 
-    FRIDAY = 5
+    friday = 5
 
-    SATURDAY = 6
+    saturday = 6
 
-    SUNDAY = 7
+    sunday = 7
 
 
     @staticmethod
@@ -525,35 +525,35 @@ class SlaProbeIntervalUnitsEnumEnum(Enum):
 
     Sla probe interval units enum
 
-    .. data:: MINUTES = 4
+    .. data:: minutes = 4
 
     	Schedule probes to run with an interval unit of
 
     	minutes
 
-    .. data:: HOURS = 5
+    .. data:: hours = 5
 
     	Schedule probes to run with an interval unit of
 
     	hours
 
-    .. data:: DAY = 6
+    .. data:: day = 6
 
     	Schedule probes to run every day
 
-    .. data:: WEEK = 7
+    .. data:: week = 7
 
     	Schedule probes to run every week
 
     """
 
-    MINUTES = 4
+    minutes = 4
 
-    HOURS = 5
+    hours = 5
 
-    DAY = 6
+    day = 6
 
-    WEEK = 7
+    week = 7
 
 
     @staticmethod
@@ -568,19 +568,19 @@ class SlaSendEnum(Enum):
 
     Sla send
 
-    .. data:: PACKET = 0
+    .. data:: packet = 0
 
     	Send individual packets
 
-    .. data:: BURST = 1
+    .. data:: burst = 1
 
     	Send bursts of packets
 
     """
 
-    PACKET = 0
+    packet = 0
 
-    BURST = 1
+    burst = 1
 
 
     @staticmethod
@@ -595,55 +595,55 @@ class SlaStatisticTypeEnumEnum(Enum):
 
     Sla statistic type enum
 
-    .. data:: ROUND_TRIP_DELAY = 1
+    .. data:: round_trip_delay = 1
 
     	Collect round trip delay metric data
 
-    .. data:: ONE_WAY_DELAY_SD = 2
+    .. data:: one_way_delay_sd = 2
 
     	Collect one way delay source->dest metric data
 
-    .. data:: ONE_WAY_DELAY_DS = 3
+    .. data:: one_way_delay_ds = 3
 
     	Collect one way delay dest->source metric data
 
-    .. data:: ROUND_TRIP_JITTER = 4
+    .. data:: round_trip_jitter = 4
 
     	Collect round trip delay metric data
 
-    .. data:: ONE_WAY_JITTER_SD = 5
+    .. data:: one_way_jitter_sd = 5
 
     	Collect one way jitter source->dest metric data
 
-    .. data:: ONE_WAY_JITTER_DS = 6
+    .. data:: one_way_jitter_ds = 6
 
     	Collect one way jitter dest->source metric data
 
-    .. data:: ONE_WAY_LOSS_SD = 7
+    .. data:: one_way_loss_sd = 7
 
     	Collect one way loss source->dest metric data
 
-    .. data:: ONE_WAY_LOSS_DS = 8
+    .. data:: one_way_loss_ds = 8
 
     	Collect one way loss dest->source metric data
 
     """
 
-    ROUND_TRIP_DELAY = 1
+    round_trip_delay = 1
 
-    ONE_WAY_DELAY_SD = 2
+    one_way_delay_sd = 2
 
-    ONE_WAY_DELAY_DS = 3
+    one_way_delay_ds = 3
 
-    ROUND_TRIP_JITTER = 4
+    round_trip_jitter = 4
 
-    ONE_WAY_JITTER_SD = 5
+    one_way_jitter_sd = 5
 
-    ONE_WAY_JITTER_DS = 6
+    one_way_jitter_ds = 6
 
-    ONE_WAY_LOSS_SD = 7
+    one_way_loss_sd = 7
 
-    ONE_WAY_LOSS_DS = 8
+    one_way_loss_ds = 8
 
 
     @staticmethod

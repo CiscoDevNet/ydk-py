@@ -26,19 +26,19 @@ class MplsLdpOperAfNameEnum(Enum):
 
     Mpls ldp oper af name
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	IPv4
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	IPv6
 
     """
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
 
     @staticmethod

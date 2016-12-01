@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'CryptoSamActionEnum' : _MetaInfoEnum('CryptoSamActionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg',
         {
-            'proceed':'PROCEED',
-            'terminate':'TERMINATE',
+            'proceed':'proceed',
+            'terminate':'terminate',
         }, 'Cisco-IOS-XR-crypto-sam-cfg', _yang_ns._namespaces['Cisco-IOS-XR-crypto-sam-cfg']),
     'Crypto.Sam.PromptInterval' : {
         'meta_info' : _MetaInfoClass('Crypto.Sam.PromptInterval',

@@ -132,8 +132,7 @@ _meta_table = {
                 'Cisco-IOS-XR-crypto-macsec-mka-oper', False),
             _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
                 [], [], 
-                '''                Interface on which macsec is                    
-                configured
+                '''                macsec configured interface
                 ''',
                 'interface_name',
                 'Cisco-IOS-XR-crypto-macsec-mka-oper', False),

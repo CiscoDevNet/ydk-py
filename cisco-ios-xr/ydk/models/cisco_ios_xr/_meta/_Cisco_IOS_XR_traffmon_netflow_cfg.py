@@ -16,12 +16,12 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'NfSamplingModeEnum' : _MetaInfoEnum('NfSamplingModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg',
         {
-            'random':'RANDOM',
+            'random':'random',
         }, 'Cisco-IOS-XR-traffmon-netflow-cfg', _yang_ns._namespaces['Cisco-IOS-XR-traffmon-netflow-cfg']),
     'NfCacheAgingModeEnum' : _MetaInfoEnum('NfCacheAgingModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_traffmon_netflow_cfg',
         {
-            'normal':'NORMAL',
-            'permanent':'PERMANENT',
+            'normal':'normal',
+            'permanent':'permanent',
         }, 'Cisco-IOS-XR-traffmon-netflow-cfg', _yang_ns._namespaces['Cisco-IOS-XR-traffmon-netflow-cfg']),
     'NetFlow.FlowExporterMaps.FlowExporterMap.Udp' : {
         'meta_info' : _MetaInfoClass('NetFlow.FlowExporterMaps.FlowExporterMap.Udp',

@@ -30,31 +30,31 @@ class EncapOptEnum(Enum):
 
     Encap opt
 
-    .. data:: GREIPV4 = 4
+    .. data:: greipv4 = 4
 
     	GRE IPv4 tunnel encap
 
-    .. data:: GREIPV6 = 5
+    .. data:: greipv6 = 5
 
     	GRE IPv6 tunnel encap
 
-    .. data:: MGREIPV4 = 7
+    .. data:: mgreipv4 = 7
 
     	mGRE IPv4 tunnel encap
 
-    .. data:: MGREIPV6 = 8
+    .. data:: mgreipv6 = 8
 
     	mGRE IPv6 tunnel encap
 
     """
 
-    GREIPV4 = 4
+    greipv4 = 4
 
-    GREIPV6 = 5
+    greipv6 = 5
 
-    MGREIPV4 = 7
+    mgreipv4 = 7
 
-    MGREIPV6 = 8
+    mgreipv6 = 8
 
 
     @staticmethod
@@ -69,79 +69,79 @@ class LmaRatEnum(Enum):
 
     Lma rat
 
-    .. data:: VIRTUAL = 0
+    .. data:: virtual = 0
 
     	VIRTUAL rat
 
-    .. data:: PPP = 1
+    .. data:: ppp = 1
 
     	PPP rat
 
-    .. data:: ETHERNET = 2
+    .. data:: ethernet = 2
 
     	ETHERNET rat
 
-    .. data:: WLAN = 3
+    .. data:: wlan = 3
 
     	WLAN rat
 
-    .. data:: WI_MAX = 4
+    .. data:: wi_max = 4
 
     	WIMAX rat
 
-    .. data:: Y_3GPPGERAN = 5
+    .. data:: Y_3gppgeran = 5
 
     	3GPP_GERAN rat
 
-    .. data:: Y_3GPPUTRAN = 6
+    .. data:: Y_3gpputran = 6
 
     	3GPP_UTRAN rat
 
-    .. data:: Y_3GPPEUTRAN = 7
+    .. data:: Y_3gppeutran = 7
 
     	3GPP_E_UTRAN rat
 
-    .. data:: Y_3GPP2EHRPD = 8
+    .. data:: Y_3gpp2ehrpd = 8
 
     	3GPP2_EHRPD rat
 
-    .. data:: Y_3GPP2HRPD = 9
+    .. data:: Y_3gpp2hrpd = 9
 
     	3GPP2_HRPD rat
 
-    .. data:: Y_3GPP21RTT = 10
+    .. data:: Y_3gpp21rtt = 10
 
     	3GPP2_1RTT rat
 
-    .. data:: Y_3GPP2UMB = 11
+    .. data:: Y_3gpp2umb = 11
 
     	3GPP2_UMB rat
 
     """
 
-    VIRTUAL = 0
+    virtual = 0
 
-    PPP = 1
+    ppp = 1
 
-    ETHERNET = 2
+    ethernet = 2
 
-    WLAN = 3
+    wlan = 3
 
-    WI_MAX = 4
+    wi_max = 4
 
-    Y_3GPPGERAN = 5
+    Y_3gppgeran = 5
 
-    Y_3GPPUTRAN = 6
+    Y_3gpputran = 6
 
-    Y_3GPPEUTRAN = 7
+    Y_3gppeutran = 7
 
-    Y_3GPP2EHRPD = 8
+    Y_3gpp2ehrpd = 8
 
-    Y_3GPP2HRPD = 9
+    Y_3gpp2hrpd = 9
 
-    Y_3GPP21RTT = 10
+    Y_3gpp21rtt = 10
 
-    Y_3GPP2UMB = 11
+    Y_3gpp2umb = 11
 
 
     @staticmethod
@@ -156,13 +156,13 @@ class LmaRoleEnum(Enum):
 
     Lma role
 
-    .. data:: Y_3GMA = 0
+    .. data:: Y_3gma = 0
 
     	3GMA mode
 
     """
 
-    Y_3GMA = 0
+    Y_3gma = 0
 
 
     @staticmethod
@@ -177,13 +177,13 @@ class LmaServiceEnum(Enum):
 
     Lma service
 
-    .. data:: SERVICE_MLL = 1
+    .. data:: service_mll = 1
 
     	Wireless Private Routing service
 
     """
 
-    SERVICE_MLL = 1
+    service_mll = 1
 
 
     @staticmethod
@@ -198,25 +198,25 @@ class ServiceTypeEnum(Enum):
 
     Service type
 
-    .. data:: IPV4 = 1
+    .. data:: ipv4 = 1
 
     	ipv4 service type
 
-    .. data:: IPV6 = 2
+    .. data:: ipv6 = 2
 
     	ipv6 service type
 
-    .. data:: DUAL = 3
+    .. data:: dual = 3
 
     	dual service type
 
     """
 
-    IPV4 = 1
+    ipv4 = 1
 
-    IPV6 = 2
+    ipv6 = 2
 
-    DUAL = 3
+    dual = 3
 
 
     @staticmethod
@@ -233,12 +233,12 @@ class MobileIp(object):
     .. attribute:: domains
     
     	Table of Domain
-    	**type**\:  :py:class:`Domains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains>`
+    	**type**\:   :py:class:`Domains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains>`
     
     .. attribute:: lmas
     
     	Table of LMA
-    	**type**\:  :py:class:`Lmas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas>`
+    	**type**\:   :py:class:`Lmas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas>`
     
     
 
@@ -261,7 +261,7 @@ class MobileIp(object):
         .. attribute:: domain
         
         	PMIPv6 domain configuration
-        	**type**\: list of  :py:class:`Domain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain>`
+        	**type**\: list of    :py:class:`Domain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain>`
         
         
 
@@ -291,27 +291,27 @@ class MobileIp(object):
             .. attribute:: authenticate_option
             
             	Authentication option between PMIPV6 entities
-            	**type**\:  :py:class:`AuthenticateOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.AuthenticateOption>`
+            	**type**\:   :py:class:`AuthenticateOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.AuthenticateOption>`
             
             .. attribute:: enable
             
             	Enable PMIPv6 domain configuration. Deletion of this object also causes deletion of all associated objects under Domain
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: lmas
             
             	Table of LMA
-            	**type**\:  :py:class:`Lmas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Lmas>`
+            	**type**\:   :py:class:`Lmas <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Lmas>`
             
             .. attribute:: mags
             
             	Table of MAG
-            	**type**\:  :py:class:`Mags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Mags>`
+            	**type**\:   :py:class:`Mags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Mags>`
             
             .. attribute:: nais
             
             	Table of NAI
-            	**type**\:  :py:class:`Nais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Nais>`
+            	**type**\:   :py:class:`Nais <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Nais>`
             
             
 
@@ -341,7 +341,7 @@ class MobileIp(object):
                 .. attribute:: mag
                 
                 	MAG within domain
-                	**type**\: list of  :py:class:`Mag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Mags.Mag>`
+                	**type**\: list of    :py:class:`Mag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Mags.Mag>`
                 
                 
 
@@ -439,7 +439,7 @@ class MobileIp(object):
                 .. attribute:: nai
                 
                 	Network access identifier or Realm
-                	**type**\: list of  :py:class:`Nai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Nais.Nai>`
+                	**type**\: list of    :py:class:`Nai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Nais.Nai>`
                 
                 
 
@@ -497,7 +497,7 @@ class MobileIp(object):
                     .. attribute:: service
                     
                     	Service type for this MN
-                    	**type**\:  :py:class:`ServiceTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.ServiceTypeEnum>`
+                    	**type**\:   :py:class:`ServiceTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.ServiceTypeEnum>`
                     
                     
 
@@ -648,7 +648,7 @@ class MobileIp(object):
                 .. attribute:: lma
                 
                 	LMA within domain
-                	**type**\: list of  :py:class:`Lma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Lmas.Lma>`
+                	**type**\: list of    :py:class:`Lma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Domains.Domain.Lmas.Lma>`
                 
                 
 
@@ -809,7 +809,7 @@ class MobileIp(object):
         .. attribute:: lma
         
         	PMIPv6 LMA configuration
-        	**type**\: list of  :py:class:`Lma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma>`
+        	**type**\: list of    :py:class:`Lma <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma>`
         
         
 
@@ -846,22 +846,22 @@ class MobileIp(object):
             .. attribute:: aaa
             
             	aaa config attributes for this LMA
-            	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Aaa>`
+            	**type**\:   :py:class:`Aaa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Aaa>`
             
             .. attribute:: ani
             
             	enable ani option processing in LMA
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: binding_attributes
             
             	LMA binding attributes
-            	**type**\:  :py:class:`BindingAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingAttributes>`
+            	**type**\:   :py:class:`BindingAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingAttributes>`
             
             .. attribute:: binding_revocation_attributes
             
             	LMA Binding Revocation Attributes
-            	**type**\:  :py:class:`BindingRevocationAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingRevocationAttributes>`
+            	**type**\:   :py:class:`BindingRevocationAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingRevocationAttributes>`
             
             .. attribute:: default_profile
             
@@ -873,32 +873,32 @@ class MobileIp(object):
             .. attribute:: dscp
             
             	DSCP for packets originating from this LMA
-            	**type**\:  :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Dscp>`
+            	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Dscp>`
             
             .. attribute:: dynamic
             
             	enable dynamic mag learning for LMA
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: enforce
             
             	enforce heartbeat values to MAG
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: generate
             
             	generate gre key for LMA bindings
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: heart_beat_attributes
             
             	heartbeat config for this LMA
-            	**type**\:  :py:class:`HeartBeatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.HeartBeatAttributes>`
+            	**type**\:   :py:class:`HeartBeatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.HeartBeatAttributes>`
             
             .. attribute:: hnp
             
             	LMA HNP options
-            	**type**\:  :py:class:`Hnp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Hnp>`
+            	**type**\:   :py:class:`Hnp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Hnp>`
             
             .. attribute:: interface
             
@@ -910,17 +910,17 @@ class MobileIp(object):
             .. attribute:: lmaipv4_addresses
             
             	Table of LMAIPv4Address
-            	**type**\:  :py:class:`Lmaipv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv4Addresses>`
+            	**type**\:   :py:class:`Lmaipv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv4Addresses>`
             
             .. attribute:: lmaipv6_addresses
             
             	Table of LMAIPv6Address
-            	**type**\:  :py:class:`Lmaipv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv6Addresses>`
+            	**type**\:   :py:class:`Lmaipv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv6Addresses>`
             
             .. attribute:: mags
             
             	Table of MAG
-            	**type**\:  :py:class:`Mags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags>`
+            	**type**\:   :py:class:`Mags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags>`
             
             .. attribute:: mobile_map
             
@@ -939,47 +939,47 @@ class MobileIp(object):
             .. attribute:: multipath
             
             	enable multipath support for LMA
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: networks
             
             	Table of Network
-            	**type**\:  :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks>`
+            	**type**\:   :py:class:`Networks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks>`
             
             .. attribute:: pgw_subs_cont
             
             	Feature related to interface with PGW
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: rat_attributes
             
             	Radio access technology type config  this LMA
-            	**type**\:  :py:class:`RatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.RatAttributes>`
+            	**type**\:   :py:class:`RatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.RatAttributes>`
             
             .. attribute:: redistribute
             
             	Redistribute routes
-            	**type**\:  :py:class:`Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Redistribute>`
+            	**type**\:   :py:class:`Redistribute <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Redistribute>`
             
             .. attribute:: replay_protection
             
             	Replay Protection Method
-            	**type**\:  :py:class:`ReplayProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.ReplayProtection>`
+            	**type**\:   :py:class:`ReplayProtection <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.ReplayProtection>`
             
             .. attribute:: roles
             
             	Table of Role
-            	**type**\:  :py:class:`Roles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Roles>`
+            	**type**\:   :py:class:`Roles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Roles>`
             
             .. attribute:: services
             
             	Table of Service
-            	**type**\:  :py:class:`Services <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services>`
+            	**type**\:   :py:class:`Services <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services>`
             
             .. attribute:: tunnel_attributes
             
             	tunnel attributes
-            	**type**\:  :py:class:`TunnelAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.TunnelAttributes>`
+            	**type**\:   :py:class:`TunnelAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.TunnelAttributes>`
             
             
 
@@ -1043,7 +1043,7 @@ class MobileIp(object):
                 .. attribute:: delay
                 
                 	Time to wait before Retransmitting BRI Message
-                	**type**\:  :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay>`
+                	**type**\:   :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay>`
                 
                 .. attribute:: retry
                 
@@ -1159,7 +1159,7 @@ class MobileIp(object):
                 .. attribute:: lma_rat
                 
                 	LMA rat type
-                	**type**\:  :py:class:`LmaRatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRatEnum>`
+                	**type**\:   :py:class:`LmaRatEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRatEnum>`
                 
                 .. attribute:: priority_value
                 
@@ -1284,7 +1284,7 @@ class MobileIp(object):
                 .. attribute:: lmaipv6_address
                 
                 	Configure IPv6 address for this LMA
-                	**type**\: list of  :py:class:`Lmaipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address>`
+                	**type**\: list of    :py:class:`Lmaipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address>`
                 
                 
 
@@ -1545,7 +1545,7 @@ class MobileIp(object):
                 .. attribute:: lmaipv4_address
                 
                 	Configure IPv4 address for this LMA
-                	**type**\: list of  :py:class:`Lmaipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address>`
+                	**type**\: list of    :py:class:`Lmaipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address>`
                 
                 
 
@@ -1643,7 +1643,7 @@ class MobileIp(object):
                 .. attribute:: role
                 
                 	Role of this LMA
-                	**type**\: list of  :py:class:`Role <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Roles.Role>`
+                	**type**\: list of    :py:class:`Role <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Roles.Role>`
                 
                 
 
@@ -1666,7 +1666,7 @@ class MobileIp(object):
                     .. attribute:: lma_role  <key>
                     
                     	LMA role mode
-                    	**type**\:  :py:class:`LmaRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRoleEnum>`
+                    	**type**\:   :py:class:`LmaRoleEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaRoleEnum>`
                     
                     
 
@@ -1757,6 +1757,8 @@ class MobileIp(object):
                 
                 	**range:** 10..65535
                 
+                	**units**\: second
+                
                 .. attribute:: maximum
                 
                 	Specify max. number of bindings
@@ -1770,6 +1772,8 @@ class MobileIp(object):
                 	**type**\:  int
                 
                 	**range:** 4..65000
+                
+                	**units**\: second
                 
                 
 
@@ -1888,7 +1892,7 @@ class MobileIp(object):
                 .. attribute:: mag
                 
                 	MAG within LMA
-                	**type**\: list of  :py:class:`Mag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags.Mag>`
+                	**type**\: list of    :py:class:`Mag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags.Mag>`
                 
                 
 
@@ -1925,17 +1929,17 @@ class MobileIp(object):
                     .. attribute:: authenticate_option
                     
                     	Authentication option between PMIPV6 entities
-                    	**type**\:  :py:class:`AuthenticateOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption>`
+                    	**type**\:   :py:class:`AuthenticateOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption>`
                     
                     .. attribute:: dscp
                     
                     	DSCP for packets originating from this MAG
-                    	**type**\:  :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags.Mag.Dscp>`
+                    	**type**\:   :py:class:`Dscp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Mags.Mag.Dscp>`
                     
                     .. attribute:: encap_option
                     
                     	Encapsulation option between PMIPV6 entities
-                    	**type**\:  :py:class:`EncapOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.EncapOptEnum>`
+                    	**type**\:   :py:class:`EncapOptEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.EncapOptEnum>`
                     
                     .. attribute:: ipv4_address
                     
@@ -2236,7 +2240,7 @@ class MobileIp(object):
                 .. attribute:: service
                 
                 	Service of this LMA
-                	**type**\: list of  :py:class:`Service <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service>`
+                	**type**\: list of    :py:class:`Service <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service>`
                 
                 
 
@@ -2259,17 +2263,17 @@ class MobileIp(object):
                     .. attribute:: lma_service  <key>
                     
                     	LMA service mode
-                    	**type**\:  :py:class:`LmaServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaServiceEnum>`
+                    	**type**\:   :py:class:`LmaServiceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.LmaServiceEnum>`
                     
                     .. attribute:: customers
                     
                     	Table of Customer
-                    	**type**\:  :py:class:`Customers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers>`
+                    	**type**\:   :py:class:`Customers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers>`
                     
                     .. attribute:: ignore
                     
                     	ignore options for mobile local loop service
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: mnp_customer
                     
@@ -2341,7 +2345,7 @@ class MobileIp(object):
                         .. attribute:: customer
                         
                         	customer configuration on this mobile local loop service
-                        	**type**\: list of  :py:class:`Customer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer>`
+                        	**type**\: list of    :py:class:`Customer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer>`
                         
                         
 
@@ -2379,7 +2383,7 @@ class MobileIp(object):
                             .. attribute:: authenticate_option
                             
                             	Authentication option between PMIPV6 entities
-                            	**type**\:  :py:class:`AuthenticateOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption>`
+                            	**type**\:   :py:class:`AuthenticateOption <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption>`
                             
                             .. attribute:: bandwidth_aggregate
                             
@@ -2388,20 +2392,22 @@ class MobileIp(object):
                             
                             	**range:** \-2147483648..2147483647
                             
+                            	**units**\: kbit/s
+                            
                             .. attribute:: binding_attributes
                             
                             	Customer specific binding attributes
-                            	**type**\:  :py:class:`BindingAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes>`
+                            	**type**\:   :py:class:`BindingAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes>`
                             
                             .. attribute:: gre_key
                             
                             	Customer specific GRE key
-                            	**type**\:  :py:class:`GreKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey>`
+                            	**type**\:   :py:class:`GreKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey>`
                             
                             .. attribute:: heart_beat_attributes
                             
                             	heartbeat config for this Customer
-                            	**type**\:  :py:class:`HeartBeatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes>`
+                            	**type**\:   :py:class:`HeartBeatAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes>`
                             
                             .. attribute:: mnp_customer
                             
@@ -2455,12 +2461,12 @@ class MobileIp(object):
                             .. attribute:: network_attributes
                             
                             	network parameters for the customer
-                            	**type**\:  :py:class:`NetworkAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes>`
+                            	**type**\:   :py:class:`NetworkAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes>`
                             
                             .. attribute:: transports
                             
                             	Table of Transport
-                            	**type**\:  :py:class:`Transports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports>`
+                            	**type**\:   :py:class:`Transports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports>`
                             
                             
 
@@ -2630,7 +2636,7 @@ class MobileIp(object):
                                 .. attribute:: transport
                                 
                                 	Customer transport attributes
-                                	**type**\: list of  :py:class:`Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport>`
+                                	**type**\: list of    :py:class:`Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport>`
                                 
                                 
 
@@ -2750,12 +2756,12 @@ class MobileIp(object):
                                 .. attribute:: authorizes
                                 
                                 	Table of Authorize
-                                	**type**\:  :py:class:`Authorizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes>`
+                                	**type**\:   :py:class:`Authorizes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes>`
                                 
                                 .. attribute:: unauthorize
                                 
                                 	not authorize the network prefixes
-                                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                                 
                                 
 
@@ -2778,7 +2784,7 @@ class MobileIp(object):
                                     .. attribute:: authorize
                                     
                                     	not authorize the network prefixes
-                                    	**type**\: list of  :py:class:`Authorize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize>`
+                                    	**type**\: list of    :py:class:`Authorize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize>`
                                     
                                     
 
@@ -2808,7 +2814,7 @@ class MobileIp(object):
                                         .. attribute:: pool_attributes
                                         
                                         	Pool configs for this network
-                                        	**type**\:  :py:class:`PoolAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes>`
+                                        	**type**\:   :py:class:`PoolAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes>`
                                         
                                         
 
@@ -2831,12 +2837,12 @@ class MobileIp(object):
                                             .. attribute:: mobile_network
                                             
                                             	pool configs for the mobile network
-                                            	**type**\:  :py:class:`MobileNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork>`
+                                            	**type**\:   :py:class:`MobileNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork>`
                                             
                                             .. attribute:: mobile_node
                                             
                                             	pool configs for the mobile nodes
-                                            	**type**\:  :py:class:`MobileNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode>`
+                                            	**type**\:   :py:class:`MobileNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode>`
                                             
                                             
 
@@ -2860,12 +2866,12 @@ class MobileIp(object):
                                                 .. attribute:: ipv4_pool
                                                 
                                                 	None
-                                                	**type**\:  :py:class:`Ipv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool>`
+                                                	**type**\:   :py:class:`Ipv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool>`
                                                 
                                                 .. attribute:: ipv6_pool
                                                 
                                                 	None
-                                                	**type**\:  :py:class:`Ipv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool>`
+                                                	**type**\:   :py:class:`Ipv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool>`
                                                 
                                                 
 
@@ -3032,12 +3038,12 @@ class MobileIp(object):
                                                 .. attribute:: mripv4_pools
                                                 
                                                 	Table of MRIPV4Pool
-                                                	**type**\:  :py:class:`Mripv4Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools>`
+                                                	**type**\:   :py:class:`Mripv4Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools>`
                                                 
                                                 .. attribute:: mripv6_pools
                                                 
                                                 	Table of MRIPV6Pool
-                                                	**type**\:  :py:class:`Mripv6Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools>`
+                                                	**type**\:   :py:class:`Mripv6Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools>`
                                                 
                                                 
 
@@ -3061,7 +3067,7 @@ class MobileIp(object):
                                                     .. attribute:: mripv4_pool
                                                     
                                                     	ipv4 pool
-                                                    	**type**\: list of  :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
+                                                    	**type**\: list of    :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
                                                     
                                                     
 
@@ -3181,7 +3187,7 @@ class MobileIp(object):
                                                     .. attribute:: mripv6_pool
                                                     
                                                     	ipv6 pool
-                                                    	**type**\: list of  :py:class:`Mripv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool>`
+                                                    	**type**\: list of    :py:class:`Mripv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool>`
                                                     
                                                     
 
@@ -3499,6 +3505,8 @@ class MobileIp(object):
                                 
                                 	**range:** 10..65535
                                 
+                                	**units**\: second
+                                
                                 
 
                                 """
@@ -3728,6 +3736,8 @@ class MobileIp(object):
                 
                 	**range:** 1..255
                 
+                	**units**\: second
+                
                 
 
                 """
@@ -3775,7 +3785,7 @@ class MobileIp(object):
                 .. attribute:: network
                 
                 	network for this LMA
-                	**type**\: list of  :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network>`
+                	**type**\: list of    :py:class:`Network <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network>`
                 
                 
 
@@ -3805,7 +3815,7 @@ class MobileIp(object):
                     .. attribute:: pool_attributes
                     
                     	Pool configs for this network
-                    	**type**\:  :py:class:`PoolAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes>`
+                    	**type**\:   :py:class:`PoolAttributes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes>`
                     
                     
 
@@ -3828,12 +3838,12 @@ class MobileIp(object):
                         .. attribute:: mobile_network
                         
                         	pool configs for the mobile network
-                        	**type**\:  :py:class:`MobileNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork>`
+                        	**type**\:   :py:class:`MobileNetwork <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork>`
                         
                         .. attribute:: mobile_node
                         
                         	pool configs for the mobile nodes
-                        	**type**\:  :py:class:`MobileNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode>`
+                        	**type**\:   :py:class:`MobileNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode>`
                         
                         
 
@@ -3857,12 +3867,12 @@ class MobileIp(object):
                             .. attribute:: ipv4_pool
                             
                             	None
-                            	**type**\:  :py:class:`Ipv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool>`
+                            	**type**\:   :py:class:`Ipv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool>`
                             
                             .. attribute:: ipv6_pool
                             
                             	None
-                            	**type**\:  :py:class:`Ipv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool>`
+                            	**type**\:   :py:class:`Ipv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool>`
                             
                             
 
@@ -4029,12 +4039,12 @@ class MobileIp(object):
                             .. attribute:: mripv4_pools
                             
                             	Table of MRIPV4Pool
-                            	**type**\:  :py:class:`Mripv4Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools>`
+                            	**type**\:   :py:class:`Mripv4Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools>`
                             
                             .. attribute:: mripv6_pools
                             
                             	Table of MRIPV6Pool
-                            	**type**\:  :py:class:`Mripv6Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools>`
+                            	**type**\:   :py:class:`Mripv6Pools <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools>`
                             
                             
 
@@ -4058,7 +4068,7 @@ class MobileIp(object):
                                 .. attribute:: mripv6_pool
                                 
                                 	ipv6 pool
-                                	**type**\: list of  :py:class:`Mripv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool>`
+                                	**type**\: list of    :py:class:`Mripv6Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool>`
                                 
                                 
 
@@ -4178,7 +4188,7 @@ class MobileIp(object):
                                 .. attribute:: mripv4_pool
                                 
                                 	ipv4 pool
-                                	**type**\: list of  :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
+                                	**type**\: list of    :py:class:`Mripv4Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg.MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool>`
                                 
                                 
 

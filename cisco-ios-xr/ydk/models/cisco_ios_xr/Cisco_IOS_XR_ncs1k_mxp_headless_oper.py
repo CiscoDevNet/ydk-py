@@ -33,19 +33,19 @@ class HeadlessFuncData(object):
     .. attribute:: ethernet_port_names
     
     	Ethernet Statistics collected during last headless operation
-    	**type**\:  :py:class:`EthernetPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames>`
+    	**type**\:   :py:class:`EthernetPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames>`
     
     .. attribute:: otn_port_names
     
     	OTN Statistics collected during last headless operation
-    	**type**\:  :py:class:`OtnPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames>`
+    	**type**\:   :py:class:`OtnPortNames <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames>`
     
     
 
     """
 
     _prefix = 'ncs1k-mxp-headless-oper'
-    _revision = '2016-03-23'
+    _revision = '2016-08-26'
 
     def __init__(self):
         self.ethernet_port_names = HeadlessFuncData.EthernetPortNames()
@@ -62,14 +62,14 @@ class HeadlessFuncData(object):
         .. attribute:: otn_port_name
         
         	port Name
-        	**type**\: list of  :py:class:`OtnPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName>`
+        	**type**\: list of    :py:class:`OtnPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName>`
         
         
 
         """
 
         _prefix = 'ncs1k-mxp-headless-oper'
-        _revision = '2016-03-23'
+        _revision = '2016-08-26'
 
         def __init__(self):
             self.parent = None
@@ -106,7 +106,7 @@ class HeadlessFuncData(object):
             .. attribute:: otn_statistics
             
             	OTN statistics
-            	**type**\:  :py:class:`OtnStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics>`
+            	**type**\:   :py:class:`OtnStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.OtnPortNames.OtnPortName.OtnStatistics>`
             
             .. attribute:: started_stateful
             
@@ -118,7 +118,7 @@ class HeadlessFuncData(object):
             """
 
             _prefix = 'ncs1k-mxp-headless-oper'
-            _revision = '2016-03-23'
+            _revision = '2016-08-26'
 
             def __init__(self):
                 self.parent = None
@@ -167,7 +167,7 @@ class HeadlessFuncData(object):
                 """
 
                 _prefix = 'ncs1k-mxp-headless-oper'
-                _revision = '2016-03-23'
+                _revision = '2016-08-26'
 
                 def __init__(self):
                     self.parent = None
@@ -278,14 +278,14 @@ class HeadlessFuncData(object):
         .. attribute:: ethernet_port_name
         
         	Port Name
-        	**type**\: list of  :py:class:`EthernetPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName>`
+        	**type**\: list of    :py:class:`EthernetPortName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName>`
         
         
 
         """
 
         _prefix = 'ncs1k-mxp-headless-oper'
-        _revision = '2016-03-23'
+        _revision = '2016-08-26'
 
         def __init__(self):
             self.parent = None
@@ -308,7 +308,7 @@ class HeadlessFuncData(object):
             .. attribute:: ether_statistics
             
             	Ether Statistics
-            	**type**\:  :py:class:`EtherStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics>`
+            	**type**\:   :py:class:`EtherStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper.HeadlessFuncData.EthernetPortNames.EthernetPortName.EtherStatistics>`
             
             .. attribute:: headless_end_time
             
@@ -334,7 +334,7 @@ class HeadlessFuncData(object):
             """
 
             _prefix = 'ncs1k-mxp-headless-oper'
-            _revision = '2016-03-23'
+            _revision = '2016-08-26'
 
             def __init__(self):
                 self.parent = None
@@ -360,6 +360,13 @@ class HeadlessFuncData(object):
                 .. attribute:: rx_error_jabbers
                 
                 	RxErrorJabbers
+                	**type**\:  int
+                
+                	**range:** 0..18446744073709551615
+                
+                .. attribute:: rx_lldp_pkt
+                
+                	RxLldpPkt
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
@@ -565,12 +572,13 @@ class HeadlessFuncData(object):
                 """
 
                 _prefix = 'ncs1k-mxp-headless-oper'
-                _revision = '2016-03-23'
+                _revision = '2016-08-26'
 
                 def __init__(self):
                     self.parent = None
                     self.rx_bytes_good = None
                     self.rx_error_jabbers = None
+                    self.rx_lldp_pkt = None
                     self.rx_packets = None
                     self.rx_pause = None
                     self.rx_pkt_drop = None
@@ -618,6 +626,9 @@ class HeadlessFuncData(object):
                         return True
 
                     if self.rx_error_jabbers is not None:
+                        return True
+
+                    if self.rx_lldp_pkt is not None:
                         return True
 
                     if self.rx_packets is not None:

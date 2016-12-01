@@ -36,12 +36,12 @@ class Vrrp(object):
     .. attribute:: interfaces
     
     	Interface configuration table
-    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces>`
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces>`
     
     .. attribute:: logging
     
     	VRRP logging options
-    	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Logging>`
+    	**type**\:   :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Logging>`
     
     
 
@@ -64,7 +64,7 @@ class Vrrp(object):
         .. attribute:: state_change_disable
         
         	VRRP state change IOS messages disable
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -107,7 +107,7 @@ class Vrrp(object):
         .. attribute:: interface
         
         	The interface being configured
-        	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface>`
+        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface>`
         
         
 
@@ -137,22 +137,22 @@ class Vrrp(object):
             .. attribute:: bfd
             
             	BFD configuration
-            	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Bfd>`
+            	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Bfd>`
             
             .. attribute:: delay
             
             	Minimum and Reload Delay
-            	**type**\:  :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Delay>`
+            	**type**\:   :py:class:`Delay <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Delay>`
             
             .. attribute:: ipv4
             
             	IPv4 VRRP configuration
-            	**type**\:  :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4>`
+            	**type**\:   :py:class:`Ipv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4>`
             
             .. attribute:: ipv6
             
             	IPv6 VRRP configuration
-            	**type**\:  :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6>`
+            	**type**\:   :py:class:`Ipv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6>`
             
             .. attribute:: mac_refresh
             
@@ -160,6 +160,10 @@ class Vrrp(object):
             	**type**\:  int
             
             	**range:** 0..10000
+            
+            	**units**\: second
+            
+            	**default value**\: 60
             
             
 
@@ -189,12 +193,12 @@ class Vrrp(object):
                 .. attribute:: slave_virtual_routers
                 
                 	The VRRP slave group configuration table
-                	**type**\:  :py:class:`SlaveVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters>`
+                	**type**\:   :py:class:`SlaveVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters>`
                 
                 .. attribute:: version3
                 
                 	Version 3 VRRP configuration
-                	**type**\:  :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3>`
+                	**type**\:   :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3>`
                 
                 
 
@@ -218,7 +222,7 @@ class Vrrp(object):
                     .. attribute:: virtual_routers
                     
                     	The VRRP virtual router configuration table
-                    	**type**\:  :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters>`
+                    	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters>`
                     
                     
 
@@ -240,7 +244,7 @@ class Vrrp(object):
                         .. attribute:: virtual_router
                         
                         	The VRRP virtual router being configured
-                        	**type**\: list of  :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter>`
+                        	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter>`
                         
                         
 
@@ -270,7 +274,7 @@ class Vrrp(object):
                             .. attribute:: accept_mode_disable
                             
                             	Disable Accept Mode for this virtual IPAddress
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: bfd
                             
@@ -292,12 +296,12 @@ class Vrrp(object):
                             .. attribute:: global_ipv6_addresses
                             
                             	The table of VRRP virtual global IPv6 addresses
-                            	**type**\:  :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses>`
+                            	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses>`
                             
                             .. attribute:: link_local_ipv6_address
                             
                             	The VRRP IPv6 virtual linklocal address
-                            	**type**\:  :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address>`
+                            	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address>`
                             
                             .. attribute:: preempt
                             
@@ -306,12 +310,16 @@ class Vrrp(object):
                             
                             	**range:** 0..3600
                             
+                            	**default value**\: 0
+                            
                             .. attribute:: priority
                             
                             	Priority value
                             	**type**\:  int
                             
                             	**range:** 1..254
+                            
+                            	**default value**\: 100
                             
                             .. attribute:: session_name
                             
@@ -323,17 +331,17 @@ class Vrrp(object):
                             .. attribute:: timer
                             
                             	Set advertisement timer
-                            	**type**\:  :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer>`
+                            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer>`
                             
                             .. attribute:: tracked_objects
                             
                             	Track an object, reducing priority if it goes down
-                            	**type**\:  :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects>`
+                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects>`
                             
                             .. attribute:: tracks
                             
                             	Track an item, reducing priority if it goes down
-                            	**type**\:  :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks>`
+                            	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks>`
                             
                             
 
@@ -370,7 +378,7 @@ class Vrrp(object):
                                 .. attribute:: global_ipv6_address
                                 
                                 	A VRRP virtual global IPv6 IP address
-                                	**type**\: list of  :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
+                                	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
                                 
                                 
 
@@ -479,7 +487,7 @@ class Vrrp(object):
                                 .. attribute:: track
                                 
                                 	Object to be tracked
-                                	**type**\: list of  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track>`
+                                	**type**\: list of    :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track>`
                                 
                                 
 
@@ -594,6 +602,8 @@ class Vrrp(object):
                                 
                                 	**range:** 100..3000
                                 
+                                	**units**\: millisecond
+                                
                                 .. attribute:: advertisement_time_in_sec
                                 
                                 	Advertisement time in seconds
@@ -601,15 +611,21 @@ class Vrrp(object):
                                 
                                 	**range:** 1..40
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: forced
                                 
                                 	TRUE \- Force configured timer values to be used, required when configured in milliseconds
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: in_msec
                                 
                                 	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 
 
@@ -667,7 +683,7 @@ class Vrrp(object):
                                 .. attribute:: tracked_object
                                 
                                 	Object to be tracked
-                                	**type**\: list of  :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
+                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
                                 
                                 
 
@@ -779,6 +795,8 @@ class Vrrp(object):
                                 
                                 	TRUE if the virtual linklocal address is to be autoconfigured FALSE if an IPv6 virtual linklocal address is configured
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 .. attribute:: ip_address
                                 
@@ -950,7 +968,7 @@ class Vrrp(object):
                     .. attribute:: slave_virtual_router
                     
                     	The VRRP slave being configured
-                    	**type**\: list of  :py:class:`SlaveVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter>`
+                    	**type**\: list of    :py:class:`SlaveVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter>`
                     
                     
 
@@ -980,7 +998,7 @@ class Vrrp(object):
                         .. attribute:: accept_mode_disable
                         
                         	Disable Accept Mode for this virtual IPAddress
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: follow
                         
@@ -990,12 +1008,12 @@ class Vrrp(object):
                         .. attribute:: global_ipv6_addresses
                         
                         	The table of VRRP virtual global IPv6 addresses
-                        	**type**\:  :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses>`
+                        	**type**\:   :py:class:`GlobalIpv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses>`
                         
                         .. attribute:: link_local_ipv6_address
                         
                         	The VRRP IPv6 virtual linklocal address
-                        	**type**\:  :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address>`
+                        	**type**\:   :py:class:`LinkLocalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address>`
                         
                         
 
@@ -1023,6 +1041,8 @@ class Vrrp(object):
                             
                             	TRUE if the virtual linklocal address is to be autoconfigured FALSE if an IPv6 virtual linklocal address is configured
                             	**type**\:  bool
+                            
+                            	**default value**\: false
                             
                             .. attribute:: ip_address
                             
@@ -1089,7 +1109,7 @@ class Vrrp(object):
                             .. attribute:: global_ipv6_address
                             
                             	A VRRP virtual global IPv6 IP address
-                            	**type**\: list of  :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
+                            	**type**\: list of    :py:class:`GlobalIpv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address>`
                             
                             
 
@@ -1292,12 +1312,16 @@ class Vrrp(object):
                 
                 	**range:** 0..10000
                 
+                	**units**\: second
+                
                 .. attribute:: reload_delay
                 
                 	Reload delay in seconds
                 	**type**\:  int
                 
                 	**range:** 0..10000
+                
+                	**units**\: second
                 
                 
 
@@ -1346,17 +1370,17 @@ class Vrrp(object):
                 .. attribute:: slave_virtual_routers
                 
                 	The VRRP slave group configuration table
-                	**type**\:  :py:class:`SlaveVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters>`
+                	**type**\:   :py:class:`SlaveVirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters>`
                 
                 .. attribute:: version2
                 
                 	Version 2 VRRP configuration
-                	**type**\:  :py:class:`Version2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2>`
+                	**type**\:   :py:class:`Version2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2>`
                 
                 .. attribute:: version3
                 
                 	Version 3 VRRP configuration
-                	**type**\:  :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3>`
+                	**type**\:   :py:class:`Version3 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3>`
                 
                 
 
@@ -1382,7 +1406,7 @@ class Vrrp(object):
                     .. attribute:: virtual_routers
                     
                     	The VRRP virtual router configuration table
-                    	**type**\:  :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters>`
+                    	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters>`
                     
                     
 
@@ -1404,7 +1428,7 @@ class Vrrp(object):
                         .. attribute:: virtual_router
                         
                         	The VRRP virtual router being configured
-                        	**type**\: list of  :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter>`
+                        	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter>`
                         
                         
 
@@ -1434,7 +1458,7 @@ class Vrrp(object):
                             .. attribute:: accept_mode_disable
                             
                             	Disable Accept Mode for this virtual IPAddress
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: bfd
                             
@@ -1450,6 +1474,8 @@ class Vrrp(object):
                             
                             	**range:** 0..3600
                             
+                            	**default value**\: 0
+                            
                             .. attribute:: primary_ipv4_address
                             
                             	The Primary VRRP IPv4 address
@@ -1464,10 +1490,12 @@ class Vrrp(object):
                             
                             	**range:** 1..254
                             
+                            	**default value**\: 100
+                            
                             .. attribute:: secondary_ipv4_addresses
                             
                             	The table of VRRP secondary IPv4 addresses
-                            	**type**\:  :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses>`
+                            	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses>`
                             
                             .. attribute:: session_name
                             
@@ -1479,17 +1507,17 @@ class Vrrp(object):
                             .. attribute:: timer
                             
                             	Set advertisement timer
-                            	**type**\:  :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer>`
+                            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer>`
                             
                             .. attribute:: tracked_objects
                             
                             	Track an object, reducing priority if it goes down
-                            	**type**\:  :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects>`
+                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects>`
                             
                             .. attribute:: tracks
                             
                             	Track an item, reducing priority if it goes down
-                            	**type**\:  :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks>`
+                            	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks>`
                             
                             
 
@@ -1528,6 +1556,8 @@ class Vrrp(object):
                                 
                                 	**range:** 100..3000
                                 
+                                	**units**\: millisecond
+                                
                                 .. attribute:: advertisement_time_in_sec
                                 
                                 	Advertisement time in seconds
@@ -1535,15 +1565,21 @@ class Vrrp(object):
                                 
                                 	**range:** 1..40
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: forced
                                 
                                 	TRUE \- Force configured timer values to be used, required when configured in milliseconds
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: in_msec
                                 
                                 	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 
 
@@ -1600,7 +1636,7 @@ class Vrrp(object):
                                 .. attribute:: secondary_ipv4_address
                                 
                                 	A VRRP secondary IPv4 address
-                                	**type**\: list of  :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
+                                	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
                                 
                                 
 
@@ -1699,7 +1735,7 @@ class Vrrp(object):
                                 .. attribute:: tracked_object
                                 
                                 	Object to be tracked
-                                	**type**\: list of  :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
+                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
                                 
                                 
 
@@ -1811,7 +1847,7 @@ class Vrrp(object):
                                 .. attribute:: track
                                 
                                 	Object to be tracked
-                                	**type**\: list of  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track>`
+                                	**type**\: list of    :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track>`
                                 
                                 
 
@@ -2028,7 +2064,7 @@ class Vrrp(object):
                     .. attribute:: slave_virtual_router
                     
                     	The VRRP slave being configured
-                    	**type**\: list of  :py:class:`SlaveVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter>`
+                    	**type**\: list of    :py:class:`SlaveVirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter>`
                     
                     
 
@@ -2058,7 +2094,7 @@ class Vrrp(object):
                         .. attribute:: accept_mode_disable
                         
                         	Disable Accept Mode for this virtual IPAddress
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: follow
                         
@@ -2075,7 +2111,7 @@ class Vrrp(object):
                         .. attribute:: secondary_ipv4_addresses
                         
                         	The table of VRRP secondary IPv4 addresses
-                        	**type**\:  :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses>`
+                        	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses>`
                         
                         
 
@@ -2101,7 +2137,7 @@ class Vrrp(object):
                             .. attribute:: secondary_ipv4_address
                             
                             	A VRRP secondary IPv4 address
-                            	**type**\: list of  :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
+                            	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
                             
                             
 
@@ -2263,7 +2299,7 @@ class Vrrp(object):
                     .. attribute:: virtual_routers
                     
                     	The VRRP virtual router configuration table
-                    	**type**\:  :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters>`
+                    	**type**\:   :py:class:`VirtualRouters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters>`
                     
                     
 
@@ -2285,7 +2321,7 @@ class Vrrp(object):
                         .. attribute:: virtual_router
                         
                         	The VRRP virtual router being configured
-                        	**type**\: list of  :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter>`
+                        	**type**\: list of    :py:class:`VirtualRouter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter>`
                         
                         
 
@@ -2315,7 +2351,7 @@ class Vrrp(object):
                             .. attribute:: accept_mode_disable
                             
                             	Disable Accept Mode for this virtual IPAddress
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: bfd
                             
@@ -2331,6 +2367,8 @@ class Vrrp(object):
                             
                             	**range:** 0..3600
                             
+                            	**default value**\: 0
+                            
                             .. attribute:: primary_ipv4_address
                             
                             	The Primary VRRP IPv4 address
@@ -2345,10 +2383,12 @@ class Vrrp(object):
                             
                             	**range:** 1..254
                             
+                            	**default value**\: 100
+                            
                             .. attribute:: secondary_ipv4_addresses
                             
                             	The table of VRRP secondary IPv4 addresses
-                            	**type**\:  :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses>`
+                            	**type**\:   :py:class:`SecondaryIpv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses>`
                             
                             .. attribute:: session_name
                             
@@ -2365,17 +2405,17 @@ class Vrrp(object):
                             .. attribute:: timer
                             
                             	Set advertisement timer
-                            	**type**\:  :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer>`
+                            	**type**\:   :py:class:`Timer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer>`
                             
                             .. attribute:: tracked_objects
                             
                             	Track an object, reducing priority if it goes down
-                            	**type**\:  :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects>`
+                            	**type**\:   :py:class:`TrackedObjects <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects>`
                             
                             .. attribute:: tracks
                             
                             	Track an item, reducing priority if it goes down
-                            	**type**\:  :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks>`
+                            	**type**\:   :py:class:`Tracks <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks>`
                             
                             
 
@@ -2415,6 +2455,8 @@ class Vrrp(object):
                                 
                                 	**range:** 100..3000
                                 
+                                	**units**\: millisecond
+                                
                                 .. attribute:: advertisement_time_in_sec
                                 
                                 	Advertisement time in seconds
@@ -2422,15 +2464,21 @@ class Vrrp(object):
                                 
                                 	**range:** 1..255
                                 
+                                	**units**\: second
+                                
                                 .. attribute:: forced
                                 
                                 	TRUE \- Force configured timer values to be used, required when configured in milliseconds
                                 	**type**\:  bool
                                 
+                                	**default value**\: false
+                                
                                 .. attribute:: in_msec
                                 
                                 	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
                                 	**type**\:  bool
+                                
+                                	**default value**\: false
                                 
                                 
 
@@ -2487,7 +2535,7 @@ class Vrrp(object):
                                 .. attribute:: secondary_ipv4_address
                                 
                                 	A VRRP secondary IPv4 address
-                                	**type**\: list of  :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
+                                	**type**\: list of    :py:class:`SecondaryIpv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address>`
                                 
                                 
 
@@ -2586,7 +2634,7 @@ class Vrrp(object):
                                 .. attribute:: track
                                 
                                 	Object to be tracked
-                                	**type**\: list of  :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track>`
+                                	**type**\: list of    :py:class:`Track <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track>`
                                 
                                 
 
@@ -2698,7 +2746,7 @@ class Vrrp(object):
                                 .. attribute:: tracked_object
                                 
                                 	Object to be tracked
-                                	**type**\: list of  :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
+                                	**type**\: list of    :py:class:`TrackedObject <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject>`
                                 
                                 
 
@@ -2958,6 +3006,8 @@ class Vrrp(object):
                 	**type**\:  int
                 
                 	**range:** 3..30000
+                
+                	**units**\: millisecond
                 
                 
 

@@ -16,45 +16,45 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MgmtMplsStaticLabelStatusEnum' : _MetaInfoEnum('MgmtMplsStaticLabelStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper',
         {
-            'not-created':'NOT_CREATED',
-            'vrf-down':'VRF_DOWN',
-            'rewrite-vrf-down':'REWRITE_VRF_DOWN',
-            'lsd-disconnected':'LSD_DISCONNECTED',
-            'lsd-failed':'LSD_FAILED',
-            'wait-for-lsd-reply':'WAIT_FOR_LSD_REPLY',
-            'label-created':'LABEL_CREATED',
-            'label-create-failed':'LABEL_CREATE_FAILED',
-            'label-rewrite-failed':'LABEL_REWRITE_FAILED',
-            'rewrite-next-hop-interface-missing':'REWRITE_NEXT_HOP_INTERFACE_MISSING',
-            'label-discrepancy':'LABEL_DISCREPANCY',
-            'rewrite-discrepancy':'REWRITE_DISCREPANCY',
-            'label-status-unknown':'LABEL_STATUS_UNKNOWN',
+            'not-created':'not_created',
+            'vrf-down':'vrf_down',
+            'rewrite-vrf-down':'rewrite_vrf_down',
+            'lsd-disconnected':'lsd_disconnected',
+            'lsd-failed':'lsd_failed',
+            'wait-for-lsd-reply':'wait_for_lsd_reply',
+            'label-created':'label_created',
+            'label-create-failed':'label_create_failed',
+            'label-rewrite-failed':'label_rewrite_failed',
+            'rewrite-next-hop-interface-missing':'rewrite_next_hop_interface_missing',
+            'label-discrepancy':'label_discrepancy',
+            'rewrite-discrepancy':'rewrite_discrepancy',
+            'label-status-unknown':'label_status_unknown',
         }, 'Cisco-IOS-XR-mpls-static-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-oper']),
     'MgmtStaticPathEnum' : _MetaInfoEnum('MgmtStaticPathEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper',
         {
-            'cross-connect-path':'CROSS_CONNECT_PATH',
-            'pop-lookup-path':'POP_LOOKUP_PATH',
+            'cross-connect-path':'cross_connect_path',
+            'pop-lookup-path':'pop_lookup_path',
         }, 'Cisco-IOS-XR-mpls-static-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-oper']),
     'MgmtStaticNhLblEnum' : _MetaInfoEnum('MgmtStaticNhLblEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper',
         {
-            'out-label':'OUT_LABEL',
-            'out-pop':'OUT_POP',
-            'out-explicit-null':'OUT_EXPLICIT_NULL',
+            'out-label':'out_label',
+            'out-pop':'out_pop',
+            'out-explicit-null':'out_explicit_null',
         }, 'Cisco-IOS-XR-mpls-static-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-oper']),
     'MgmtStaticAddrEnum' : _MetaInfoEnum('MgmtStaticAddrEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-mpls-static-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-oper']),
     'MgmtMplsStaticLabelModeEnum' : _MetaInfoEnum('MgmtMplsStaticLabelModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper',
         {
-            'none':'NONE',
-            'per-prefix':'PER_PREFIX',
-            'per-vrf':'PER_VRF',
-            'cross-connect':'CROSS_CONNECT',
+            'none':'none',
+            'per-prefix':'per_prefix',
+            'per-vrf':'per_vrf',
+            'cross-connect':'cross_connect',
         }, 'Cisco-IOS-XR-mpls-static-oper', _yang_ns._namespaces['Cisco-IOS-XR-mpls-static-oper']),
-    'MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix' : {
-        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix',
+    'MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MgmtStaticAddrEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddrEnum', 
@@ -86,7 +86,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix',
             False, 
             [
-            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix', 
+            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_', 
                 [], [], 
                 '''                Prefix
                 ''',
@@ -251,8 +251,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper'
         ),
     },
-    'MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix' : {
-        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix',
+    'MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MgmtStaticAddrEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddrEnum', 
@@ -284,7 +284,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix',
             False, 
             [
-            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix', 
+            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_', 
                 [], [], 
                 '''                Prefix
                 ''',
@@ -549,8 +549,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper'
         ),
     },
-    'MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix' : {
-        'meta_info' : _MetaInfoClass('MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix',
+    'MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_' : {
+        'meta_info' : _MetaInfoClass('MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_',
             False, 
             [
             _MetaInfoClassMember('af-name', REFERENCE_ENUM_CLASS, 'MgmtStaticAddrEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddrEnum', 
@@ -582,7 +582,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('MplsStatic.LocalLabels.LocalLabel.Prefix',
             False, 
             [
-            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix', 
+            _MetaInfoClassMember('prefix', REFERENCE_CLASS, 'Prefix_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_', 
                 [], [], 
                 '''                Prefix
                 ''',
@@ -754,19 +754,19 @@ _meta_table = {
         ),
     },
 }
-_meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix']['meta_info']
+_meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Lsps.Lsp']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.Lsps']['meta_info']
-_meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix']['meta_info']
+_meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf.LocalLabels']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.Lsps']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf.LocalLabels']['meta_info'].parent =_meta_table['MplsStatic.Vrfs.Vrf']['meta_info']
 _meta_table['MplsStatic.Vrfs.Vrf']['meta_info'].parent =_meta_table['MplsStatic.Vrfs']['meta_info']
-_meta_table['MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix']['meta_info'].parent =_meta_table['MplsStatic.LocalLabels.LocalLabel.Prefix']['meta_info']
+_meta_table['MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_']['meta_info'].parent =_meta_table['MplsStatic.LocalLabels.LocalLabel.Prefix']['meta_info']
 _meta_table['MplsStatic.LocalLabels.LocalLabel.Prefix']['meta_info'].parent =_meta_table['MplsStatic.LocalLabels.LocalLabel']['meta_info']
 _meta_table['MplsStatic.LocalLabels.LocalLabel.PathInfo']['meta_info'].parent =_meta_table['MplsStatic.LocalLabels.LocalLabel']['meta_info']
 _meta_table['MplsStatic.LocalLabels.LocalLabel']['meta_info'].parent =_meta_table['MplsStatic.LocalLabels']['meta_info']

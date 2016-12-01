@@ -30,67 +30,67 @@ class LptsPifibEnum(Enum):
 
     Lpts pifib
 
-    .. data:: ISIS = 0
+    .. data:: isis = 0
 
     	ISIS packets
 
-    .. data:: IPV4_FRAG = 1
+    .. data:: ipv4_frag = 1
 
     	IPv4 fragmented packets
 
-    .. data:: IPV4_ECHO = 2
+    .. data:: ipv4_echo = 2
 
     	IPv4 ICMP Echo packets
 
-    .. data:: IPV4_ANY = 3
+    .. data:: ipv4_any = 3
 
     	All IPv4 packets
 
-    .. data:: IPV6_FRAG = 4
+    .. data:: ipv6_frag = 4
 
     	IPv6 fragmented packets
 
-    .. data:: IPV6_ECHO = 5
+    .. data:: ipv6_echo = 5
 
     	IPv6 ICMP Echo packets
 
-    .. data:: IPV6_ND = 6
+    .. data:: ipv6_nd = 6
 
     	IPv6 ND packets
 
-    .. data:: IPV6_ANY = 7
+    .. data:: ipv6_any = 7
 
     	All IPv6 packets
 
-    .. data:: BFD_ANY = 8
+    .. data:: bfd_any = 8
 
     	BFD packets
 
-    .. data:: ALL = 9
+    .. data:: all = 9
 
     	All packets
 
     """
 
-    ISIS = 0
+    isis = 0
 
-    IPV4_FRAG = 1
+    ipv4_frag = 1
 
-    IPV4_ECHO = 2
+    ipv4_echo = 2
 
-    IPV4_ANY = 3
+    ipv4_any = 3
 
-    IPV6_FRAG = 4
+    ipv6_frag = 4
 
-    IPV6_ECHO = 5
+    ipv6_echo = 5
 
-    IPV6_ND = 6
+    ipv6_nd = 6
 
-    IPV6_ANY = 7
+    ipv6_any = 7
 
-    BFD_ANY = 8
+    bfd_any = 8
 
-    ALL = 9
+    all = 9
 
 
     @staticmethod
@@ -107,7 +107,7 @@ class LptsPifib(object):
     .. attribute:: nodes
     
     	List of Pre\-ifib Nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes>`
     
     
 
@@ -128,7 +128,7 @@ class LptsPifib(object):
         .. attribute:: node
         
         	Pre\-ifib data for particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node>`
         
         
 
@@ -158,12 +158,12 @@ class LptsPifib(object):
             .. attribute:: hardware
             
             	Hardware specific
-            	**type**\:  :py:class:`Hardware <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware>`
+            	**type**\:   :py:class:`Hardware <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware>`
             
             .. attribute:: type_values
             
             	Type specific
-            	**type**\:  :py:class:`TypeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.TypeValues>`
+            	**type**\:   :py:class:`TypeValues <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.TypeValues>`
             
             
 
@@ -188,7 +188,7 @@ class LptsPifib(object):
                 .. attribute:: type_value
                 
                 	pifib types
-                	**type**\: list of  :py:class:`TypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.TypeValues.TypeValue>`
+                	**type**\: list of    :py:class:`TypeValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.TypeValues.TypeValue>`
                 
                 
 
@@ -211,12 +211,12 @@ class LptsPifib(object):
                     .. attribute:: pifib_type  <key>
                     
                     	Type value
-                    	**type**\:  :py:class:`LptsPifibEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifibEnum>`
+                    	**type**\:   :py:class:`LptsPifibEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifibEnum>`
                     
                     .. attribute:: entry
                     
                     	Data for single pre\-ifib entry
-                    	**type**\: list of  :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry>`
+                    	**type**\: list of    :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry>`
                     
                     
 
@@ -421,8 +421,8 @@ class LptsPifib(object):
                         
                         .. attribute:: utime
                         
-                        	Creatation or Update Time
-                        	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime>`
+                        	Creation or Update Time
+                        	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.TypeValues.TypeValue.Entry.Utime>`
                         
                         .. attribute:: vid
                         
@@ -473,18 +473,18 @@ class LptsPifib(object):
 
                         class Utime(object):
                             """
-                            Creatation or Update Time
+                            Creation or Update Time
                             
-                            .. attribute:: umilitime
+                            .. attribute:: tv_nsec
                             
-                            	Mili Time
+                            	Time Nanosec
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
                             
-                            .. attribute:: usectime
+                            .. attribute:: tv_sec
                             
-                            	Time
+                            	Time Sec
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
@@ -498,8 +498,8 @@ class LptsPifib(object):
 
                             def __init__(self):
                                 self.parent = None
-                                self.umilitime = None
-                                self.usectime = None
+                                self.tv_nsec = None
+                                self.tv_sec = None
 
                             @property
                             def _common_path(self):
@@ -515,10 +515,10 @@ class LptsPifib(object):
                             def _has_data(self):
                                 if not self.is_config():
                                     return False
-                                if self.umilitime is not None:
+                                if self.tv_nsec is not None:
                                     return True
 
-                                if self.usectime is not None:
+                                if self.tv_sec is not None:
                                     return True
 
                                 return False
@@ -700,32 +700,32 @@ class LptsPifib(object):
                 .. attribute:: bfd
                 
                 	Bfd details
-                	**type**\:  :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Bfd>`
+                	**type**\:   :py:class:`Bfd <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Bfd>`
                 
                 .. attribute:: index_entries
                 
                 	Hardware Entry options
-                	**type**\:  :py:class:`IndexEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.IndexEntries>`
+                	**type**\:   :py:class:`IndexEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.IndexEntries>`
                 
                 .. attribute:: police
                 
                 	Police details
-                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Police>`
+                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Police>`
                 
                 .. attribute:: static_police
                 
                 	Static Police details
-                	**type**\:  :py:class:`StaticPolice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.StaticPolice>`
+                	**type**\:   :py:class:`StaticPolice <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.StaticPolice>`
                 
                 .. attribute:: statistics
                 
                 	Hardware Entry type
-                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Statistics>`
+                	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Statistics>`
                 
                 .. attribute:: usage_entries
                 
                 	Usage Table options
-                	**type**\:  :py:class:`UsageEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.UsageEntries>`
+                	**type**\:   :py:class:`UsageEntries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.UsageEntries>`
                 
                 
 
@@ -757,7 +757,7 @@ class LptsPifib(object):
                     .. attribute:: usage_entry
                     
                     	Usage details
-                    	**type**\: list of  :py:class:`UsageEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.UsageEntries.UsageEntry>`
+                    	**type**\: list of    :py:class:`UsageEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.UsageEntries.UsageEntry>`
                     
                     
 
@@ -780,12 +780,12 @@ class LptsPifib(object):
                         .. attribute:: region_id  <key>
                         
                         	Region ID
-                        	**type**\:  :py:class:`UsageAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_platform_pifib_oper.UsageAddressFamilyEnum>`
+                        	**type**\:   :py:class:`UsageAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_platform_pifib_oper.UsageAddressFamilyEnum>`
                         
                         .. attribute:: usage_info
                         
                         	Per TCAM type usage info
-                        	**type**\: list of  :py:class:`UsageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo>`
+                        	**type**\: list of    :py:class:`UsageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo>`
                         
                         
 
@@ -957,7 +957,7 @@ class LptsPifib(object):
                     .. attribute:: police_info
                     
                     	Per flow type police info
-                    	**type**\: list of  :py:class:`PoliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Police.PoliceInfo>`
+                    	**type**\: list of    :py:class:`PoliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Police.PoliceInfo>`
                     
                     
 
@@ -1163,7 +1163,7 @@ class LptsPifib(object):
                     .. attribute:: static_info
                     
                     	Per punt reason info
-                    	**type**\: list of  :py:class:`StaticInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.StaticPolice.StaticInfo>`
+                    	**type**\: list of    :py:class:`StaticInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.StaticPolice.StaticInfo>`
                     
                     
 
@@ -1336,7 +1336,7 @@ class LptsPifib(object):
                     .. attribute:: bfd_entry_info
                     
                     	Per bfd disc entry info
-                    	**type**\: list of  :py:class:`BfdEntryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Bfd.BfdEntryInfo>`
+                    	**type**\: list of    :py:class:`BfdEntryInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.Bfd.BfdEntryInfo>`
                     
                     
 
@@ -1556,7 +1556,7 @@ class LptsPifib(object):
                     .. attribute:: index_entry
                     
                     	Entry options
-                    	**type**\: list of  :py:class:`IndexEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.IndexEntries.IndexEntry>`
+                    	**type**\: list of    :py:class:`IndexEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.IndexEntries.IndexEntry>`
                     
                     
 
@@ -1640,7 +1640,7 @@ class LptsPifib(object):
                         .. attribute:: hw_info
                         
                         	Per pipe type hardware info
-                        	**type**\: list of  :py:class:`HwInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo>`
+                        	**type**\: list of    :py:class:`HwInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper.LptsPifib.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo>`
                         
                         .. attribute:: intf_handle
                         

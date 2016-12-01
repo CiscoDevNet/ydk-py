@@ -31,49 +31,49 @@ class ArpGmpBagEncapEnum(Enum):
 
     ARP encapsulation
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No encapsulation
 
-    .. data:: ARPA = 1
+    .. data:: arpa = 1
 
     	ARPA
 
-    .. data:: SNAP = 2
+    .. data:: snap = 2
 
     	SNAP
 
-    .. data:: IEEE802_1Q = 3
+    .. data:: ieee802_1q = 3
 
     	802 1Q
 
-    .. data:: SRP = 4
+    .. data:: srp = 4
 
     	SRP
 
-    .. data:: SRPA = 5
+    .. data:: srpa = 5
 
     	SRPA
 
-    .. data:: SRPB = 6
+    .. data:: srpb = 6
 
     	SRPB
 
     """
 
-    NONE = 0
+    none = 0
 
-    ARPA = 1
+    arpa = 1
 
-    SNAP = 2
+    snap = 2
 
-    IEEE802_1Q = 3
+    ieee802_1q = 3
 
-    SRP = 4
+    srp = 4
 
-    SRPA = 5
+    srpa = 5
 
-    SRPB = 6
+    srpb = 6
 
 
     @staticmethod
@@ -88,25 +88,25 @@ class ArpGmpBagEntryEnum(Enum):
 
     ARP Entry type
 
-    .. data:: NULL = 0
+    .. data:: null = 0
 
     	No state
 
-    .. data:: STATIC = 1
+    .. data:: static = 1
 
     	Static
 
-    .. data:: ALIAS = 2
+    .. data:: alias = 2
 
     	Alias
 
     """
 
-    NULL = 0
+    null = 0
 
-    STATIC = 1
+    static = 1
 
-    ALIAS = 2
+    alias = 2
 
 
     @staticmethod
@@ -121,151 +121,151 @@ class ArpResolutionHistoryStatusEnum(Enum):
 
     Arp resolution history status
 
-    .. data:: STATUS_NONE = 0
+    .. data:: status_none = 0
 
     	No Status
 
-    .. data:: STATUS_RESOLUTION_REQUEST = 1
+    .. data:: status_resolution_request = 1
 
     	Resolution Request Received
 
-    .. data:: STATUS_RESOLVED_REPLY = 2
+    .. data:: status_resolved_reply = 2
 
     	Resolved with ARP reply
 
-    .. data:: STATUS_RESOLVED_GRAT_ARP = 3
+    .. data:: status_resolved_grat_arp = 3
 
     	Resolved with Grat ARP
 
-    .. data:: STATUS_RESOLVED_REQUEST = 4
+    .. data:: status_resolved_request = 4
 
     	Resolved with ARP Request
 
-    .. data:: STATUS_RESOLVED_LC_SYNC = 5
+    .. data:: status_resolved_lc_sync = 5
 
     	Resolved via a Linecard sync
 
-    .. data:: STATUS_RESOLVED_LC_SYNC_PURGE_DELAY = 6
+    .. data:: status_resolved_lc_sync_purge_delay = 6
 
     	Resolved via a Linecard sync while purge
 
     	delayed
 
-    .. data:: STATUS_RESOLVED_CLIENT = 7
+    .. data:: status_resolved_client = 7
 
     	Resolved from an ARP API client
 
-    .. data:: STATUS_REMOVED_CLIENT = 8
+    .. data:: status_removed_client = 8
 
     	Removed by an ARP API client
 
-    .. data:: STATUS_ALREADY_RESOLVED = 9
+    .. data:: status_already_resolved = 9
 
     	Already Resolved
 
-    .. data:: STATUS_FAILED = 10
+    .. data:: status_failed = 10
 
     	Resolution Failed
 
-    .. data:: STATUS_DROPPED_INTERFACE_DOWN = 11
+    .. data:: status_dropped_interface_down = 11
 
     	Dropped because the Interface was down
 
-    .. data:: STATUS_DROPPED_BROADCAST_DISABLED = 12
+    .. data:: status_dropped_broadcast_disabled = 12
 
     	Dropped because the Interface was broadcast
 
     	disabled
 
-    .. data:: STATUS_DROPPED_INTERFACE_UNAVAILABLE = 13
+    .. data:: status_dropped_interface_unavailable = 13
 
     	Dropped because the Interface was unavailable
 
     	to arp
 
-    .. data:: STATUS_DROPPED_BAD_SUBNET = 14
+    .. data:: status_dropped_bad_subnet = 14
 
     	The requested IP address didn't belong to the
 
     	subnet
 
-    .. data:: STATUS_DROPPED_DYNAMIC_LEARNING_DISABLED = 15
+    .. data:: status_dropped_dynamic_learning_disabled = 15
 
     	Dynamic learning of ARP entries is disabled on
 
     	the interface
 
-    .. data:: STATUS_DROPPED_OUT_OF_SUBNET_DISABLED = 16
+    .. data:: status_dropped_out_of_subnet_disabled = 16
 
     	Out of Subnet address learning is disabled on
 
     	the interface
 
-    .. data:: STATUS_REMOVED_CLIENT_SWEEP = 17
+    .. data:: status_removed_client_sweep = 17
 
     	Removed by an ARP API client during a resync
 
-    .. data:: STATUS_ADDED_CLIENT = 18
+    .. data:: status_added_client = 18
 
     	Added by an ARP API client
 
-    .. data:: STATUS_ADDED_V1 = 19
+    .. data:: status_added_v1 = 19
 
     	Added by replication from ARP V1 during ISSU
 
-    .. data:: STATUS_REMOVED_V1 = 20
+    .. data:: status_removed_v1 = 20
 
     	Removed by replication from ARP V1 during ISSU
 
-    .. data:: STATUS_RESOLVED_PEER_SYNC = 21
+    .. data:: status_resolved_peer_sync = 21
 
     	Resolved via a Peer Router sync
 
     """
 
-    STATUS_NONE = 0
+    status_none = 0
 
-    STATUS_RESOLUTION_REQUEST = 1
+    status_resolution_request = 1
 
-    STATUS_RESOLVED_REPLY = 2
+    status_resolved_reply = 2
 
-    STATUS_RESOLVED_GRAT_ARP = 3
+    status_resolved_grat_arp = 3
 
-    STATUS_RESOLVED_REQUEST = 4
+    status_resolved_request = 4
 
-    STATUS_RESOLVED_LC_SYNC = 5
+    status_resolved_lc_sync = 5
 
-    STATUS_RESOLVED_LC_SYNC_PURGE_DELAY = 6
+    status_resolved_lc_sync_purge_delay = 6
 
-    STATUS_RESOLVED_CLIENT = 7
+    status_resolved_client = 7
 
-    STATUS_REMOVED_CLIENT = 8
+    status_removed_client = 8
 
-    STATUS_ALREADY_RESOLVED = 9
+    status_already_resolved = 9
 
-    STATUS_FAILED = 10
+    status_failed = 10
 
-    STATUS_DROPPED_INTERFACE_DOWN = 11
+    status_dropped_interface_down = 11
 
-    STATUS_DROPPED_BROADCAST_DISABLED = 12
+    status_dropped_broadcast_disabled = 12
 
-    STATUS_DROPPED_INTERFACE_UNAVAILABLE = 13
+    status_dropped_interface_unavailable = 13
 
-    STATUS_DROPPED_BAD_SUBNET = 14
+    status_dropped_bad_subnet = 14
 
-    STATUS_DROPPED_DYNAMIC_LEARNING_DISABLED = 15
+    status_dropped_dynamic_learning_disabled = 15
 
-    STATUS_DROPPED_OUT_OF_SUBNET_DISABLED = 16
+    status_dropped_out_of_subnet_disabled = 16
 
-    STATUS_REMOVED_CLIENT_SWEEP = 17
+    status_removed_client_sweep = 17
 
-    STATUS_ADDED_CLIENT = 18
+    status_added_client = 18
 
-    STATUS_ADDED_V1 = 19
+    status_added_v1 = 19
 
-    STATUS_REMOVED_V1 = 20
+    status_removed_v1 = 20
 
-    STATUS_RESOLVED_PEER_SYNC = 21
+    status_resolved_peer_sync = 21
 
 
     @staticmethod
@@ -280,49 +280,49 @@ class IpArpBagEncapEnum(Enum):
 
     ARP encapsulation
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No encapsulation
 
-    .. data:: ARPA = 1
+    .. data:: arpa = 1
 
     	ARPA
 
-    .. data:: SNAP = 2
+    .. data:: snap = 2
 
     	SNAP
 
-    .. data:: IEEE802_1Q = 3
+    .. data:: ieee802_1q = 3
 
     	802 1Q
 
-    .. data:: SRP = 4
+    .. data:: srp = 4
 
     	SRP
 
-    .. data:: SRPA = 5
+    .. data:: srpa = 5
 
     	SRPA
 
-    .. data:: SRPB = 6
+    .. data:: srpb = 6
 
     	SRPB
 
     """
 
-    NONE = 0
+    none = 0
 
-    ARPA = 1
+    arpa = 1
 
-    SNAP = 2
+    snap = 2
 
-    IEEE802_1Q = 3
+    ieee802_1q = 3
 
-    SRP = 4
+    srp = 4
 
-    SRPA = 5
+    srpa = 5
 
-    SRPB = 6
+    srpb = 6
 
 
     @staticmethod
@@ -337,25 +337,25 @@ class IpArpBagMediaEnum(Enum):
 
     ARP media type
 
-    .. data:: MEDIA_ARPA = 0
+    .. data:: media_arpa = 0
 
     	ARPA
 
-    .. data:: MEDIA_SRP = 1
+    .. data:: media_srp = 1
 
     	SRP
 
-    .. data:: MEDIA_UNKNOWN = 2
+    .. data:: media_unknown = 2
 
     	Unknown
 
     """
 
-    MEDIA_ARPA = 0
+    media_arpa = 0
 
-    MEDIA_SRP = 1
+    media_srp = 1
 
-    MEDIA_UNKNOWN = 2
+    media_unknown = 2
 
 
     @staticmethod
@@ -370,103 +370,103 @@ class IpArpBagStateEnum(Enum):
 
     ARP state
 
-    .. data:: STATE_NONE = 0
+    .. data:: state_none = 0
 
     	No state
 
-    .. data:: STATE_INTERFACE = 1
+    .. data:: state_interface = 1
 
     	Interface
 
-    .. data:: STATE_STANDBY = 2
+    .. data:: state_standby = 2
 
     	Standby
 
-    .. data:: STATE_STATIC = 3
+    .. data:: state_static = 3
 
     	Static
 
-    .. data:: STATE_ALIAS = 4
+    .. data:: state_alias = 4
 
     	Alias
 
-    .. data:: STATE_MOBILE = 5
+    .. data:: state_mobile = 5
 
     	Mobile
 
-    .. data:: STATE_INCOMPLETE = 6
+    .. data:: state_incomplete = 6
 
     	Incomplete
 
-    .. data:: STATE_DELETED = 7
+    .. data:: state_deleted = 7
 
     	Deleted
 
-    .. data:: STATE_DYNAMIC = 8
+    .. data:: state_dynamic = 8
 
     	Dynamic
 
-    .. data:: STATE_PROBE = 9
+    .. data:: state_probe = 9
 
     	Probe
 
-    .. data:: STATE_PURGE_DELAYED = 10
+    .. data:: state_purge_delayed = 10
 
     	Purge delayed
 
-    .. data:: STATE_DHCP = 11
+    .. data:: state_dhcp = 11
 
     	DHCP installed
 
-    .. data:: STATE_VXLAN = 12
+    .. data:: state_vxlan = 12
 
     	VXLAN installed
 
-    .. data:: STATE_SAT = 13
+    .. data:: state_sat = 13
 
     	Satellite installed
 
-    .. data:: STATE_R_SYNC = 14
+    .. data:: state_r_sync = 14
 
     	Geo-redundancy sync'ed
 
-    .. data:: STATE_MAX = 15
+    .. data:: state_max = 15
 
     	Maximum state number
 
     """
 
-    STATE_NONE = 0
+    state_none = 0
 
-    STATE_INTERFACE = 1
+    state_interface = 1
 
-    STATE_STANDBY = 2
+    state_standby = 2
 
-    STATE_STATIC = 3
+    state_static = 3
 
-    STATE_ALIAS = 4
+    state_alias = 4
 
-    STATE_MOBILE = 5
+    state_mobile = 5
 
-    STATE_INCOMPLETE = 6
+    state_incomplete = 6
 
-    STATE_DELETED = 7
+    state_deleted = 7
 
-    STATE_DYNAMIC = 8
+    state_dynamic = 8
 
-    STATE_PROBE = 9
+    state_probe = 9
 
-    STATE_PURGE_DELAYED = 10
+    state_purge_delayed = 10
 
-    STATE_DHCP = 11
+    state_dhcp = 11
 
-    STATE_VXLAN = 12
+    state_vxlan = 12
 
-    STATE_SAT = 13
+    state_sat = 13
 
-    STATE_R_SYNC = 14
+    state_r_sync = 14
 
-    STATE_MAX = 15
+    state_max = 15
 
 
     @staticmethod
@@ -483,12 +483,12 @@ class ArpGmp(object):
     .. attribute:: vrf_infos
     
     	Table of VRF related ARP\-GMP operational data
-    	**type**\:  :py:class:`VrfInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.VrfInfos>`
+    	**type**\:   :py:class:`VrfInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.VrfInfos>`
     
     .. attribute:: vrfs
     
     	Table of per VRF ARP\-GMP operational data
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs>`
     
     
 
@@ -511,7 +511,7 @@ class ArpGmp(object):
         .. attribute:: vrf_info
         
         	VRF related ARP\-GMP operational data
-        	**type**\: list of  :py:class:`VrfInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.VrfInfos.VrfInfo>`
+        	**type**\: list of    :py:class:`VrfInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.VrfInfos.VrfInfo>`
         
         
 
@@ -658,7 +658,7 @@ class ArpGmp(object):
         .. attribute:: vrf
         
         	Per VRF ARP\-GMP operational data
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf>`
         
         
 
@@ -688,17 +688,17 @@ class ArpGmp(object):
             .. attribute:: configured_ip_addresses
             
             	Table of ARP\-GMP configured IP addresses information
-            	**type**\:  :py:class:`ConfiguredIpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses>`
+            	**type**\:   :py:class:`ConfiguredIpAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses>`
             
             .. attribute:: interface_configured_ips
             
             	Table of ARP GMP interface and associated configured IP data
-            	**type**\:  :py:class:`InterfaceConfiguredIps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps>`
+            	**type**\:   :py:class:`InterfaceConfiguredIps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps>`
             
             .. attribute:: routes
             
             	Table of ARP GMP route information
-            	**type**\:  :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.Routes>`
+            	**type**\:   :py:class:`Routes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.Routes>`
             
             
 
@@ -726,7 +726,7 @@ class ArpGmp(object):
                 .. attribute:: configured_ip_address
                 
                 	ARP\-GMP configured IP address information
-                	**type**\: list of  :py:class:`ConfiguredIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress>`
+                	**type**\: list of    :py:class:`ConfiguredIpAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress>`
                 
                 
 
@@ -756,12 +756,12 @@ class ArpGmp(object):
                     .. attribute:: encapsulation_type
                     
                     	Encap type
-                    	**type**\:  :py:class:`ArpGmpBagEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncapEnum>`
+                    	**type**\:   :py:class:`ArpGmpBagEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncapEnum>`
                     
                     .. attribute:: entry_type
                     
                     	Entry type static/alias
-                    	**type**\:  :py:class:`ArpGmpBagEntryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntryEnum>`
+                    	**type**\:   :py:class:`ArpGmpBagEntryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntryEnum>`
                     
                     .. attribute:: hardware_address
                     
@@ -864,7 +864,7 @@ class ArpGmp(object):
                 .. attribute:: route
                 
                 	ARP GMP route information
-                	**type**\: list of  :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.Routes.Route>`
+                	**type**\: list of    :py:class:`Route <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.Routes.Route>`
                 
                 
 
@@ -1020,7 +1020,7 @@ class ArpGmp(object):
                 .. attribute:: interface_configured_ip
                 
                 	ARP GMP interface and associated configured IP data
-                	**type**\: list of  :py:class:`InterfaceConfiguredIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp>`
+                	**type**\: list of    :py:class:`InterfaceConfiguredIp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp>`
                 
                 
 
@@ -1051,7 +1051,7 @@ class ArpGmp(object):
                     .. attribute:: associated_configuration_entry
                     
                     	Associated configuration entry
-                    	**type**\:  :py:class:`AssociatedConfigurationEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry>`
+                    	**type**\:   :py:class:`AssociatedConfigurationEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry>`
                     
                     .. attribute:: interface_name
                     
@@ -1098,12 +1098,12 @@ class ArpGmp(object):
                         .. attribute:: encapsulation_type
                         
                         	Encap type
-                        	**type**\:  :py:class:`ArpGmpBagEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncapEnum>`
+                        	**type**\:   :py:class:`ArpGmpBagEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEncapEnum>`
                         
                         .. attribute:: entry_type
                         
                         	Entry type static/alias
-                        	**type**\:  :py:class:`ArpGmpBagEntryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntryEnum>`
+                        	**type**\:   :py:class:`ArpGmpBagEntryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpGmpBagEntryEnum>`
                         
                         .. attribute:: hardware_address
                         
@@ -1318,7 +1318,7 @@ class Arp(object):
     .. attribute:: nodes
     
     	Table of per\-node ARP operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes>`
     
     
 
@@ -1339,7 +1339,7 @@ class Arp(object):
         .. attribute:: node
         
         	Per\-node ARP operational data
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node>`
         
         
 
@@ -1369,32 +1369,32 @@ class Arp(object):
             .. attribute:: entries
             
             	Table of ARP entries
-            	**type**\:  :py:class:`Entries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.Entries>`
+            	**type**\:   :py:class:`Entries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.Entries>`
             
             .. attribute:: resolution_history_client
             
             	Per node client\-installed ARP resolution history data
-            	**type**\:  :py:class:`ResolutionHistoryClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryClient>`
+            	**type**\:   :py:class:`ResolutionHistoryClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryClient>`
             
             .. attribute:: resolution_history_dynamic
             
             	Per node dynamically\-resolved ARP resolution history data
-            	**type**\:  :py:class:`ResolutionHistoryDynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryDynamic>`
+            	**type**\:   :py:class:`ResolutionHistoryDynamic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryDynamic>`
             
             .. attribute:: traffic_interfaces
             
             	ARP Traffic information per interface
-            	**type**\:  :py:class:`TrafficInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficInterfaces>`
+            	**type**\:   :py:class:`TrafficInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficInterfaces>`
             
             .. attribute:: traffic_node
             
             	Per node ARP Traffic data
-            	**type**\:  :py:class:`TrafficNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficNode>`
+            	**type**\:   :py:class:`TrafficNode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficNode>`
             
             .. attribute:: traffic_vrfs
             
             	ARP Traffic information per VRF
-            	**type**\:  :py:class:`TrafficVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficVrfs>`
+            	**type**\:   :py:class:`TrafficVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficVrfs>`
             
             
 
@@ -1428,7 +1428,7 @@ class Arp(object):
                 .. attribute:: arp_entry
                 
                 	Resolution history array
-                	**type**\: list of  :py:class:`ArpEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry>`
+                	**type**\: list of    :py:class:`ArpEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry>`
                 
                 
 
@@ -1490,6 +1490,8 @@ class Arp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: resolution_request_count
                     
                     	Resolution Request count
@@ -1500,7 +1502,7 @@ class Arp(object):
                     .. attribute:: status
                     
                     	Resolution status
-                    	**type**\:  :py:class:`ArpResolutionHistoryStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatusEnum>`
+                    	**type**\:   :py:class:`ArpResolutionHistoryStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatusEnum>`
                     
                     
 
@@ -1599,7 +1601,7 @@ class Arp(object):
                 .. attribute:: traffic_vrf
                 
                 	Per VRF traffic data
-                	**type**\: list of  :py:class:`TrafficVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficVrfs.TrafficVrf>`
+                	**type**\: list of    :py:class:`TrafficVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficVrfs.TrafficVrf>`
                 
                 
 
@@ -2348,7 +2350,7 @@ class Arp(object):
                 .. attribute:: arp_entry
                 
                 	Resolution history array
-                	**type**\: list of  :py:class:`ArpEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry>`
+                	**type**\: list of    :py:class:`ArpEntry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry>`
                 
                 
 
@@ -2410,6 +2412,8 @@ class Arp(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: nanosecond
+                    
                     .. attribute:: resolution_request_count
                     
                     	Resolution Request count
@@ -2420,7 +2424,7 @@ class Arp(object):
                     .. attribute:: status
                     
                     	Resolution status
-                    	**type**\:  :py:class:`ArpResolutionHistoryStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatusEnum>`
+                    	**type**\:   :py:class:`ArpResolutionHistoryStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.ArpResolutionHistoryStatusEnum>`
                     
                     
 
@@ -2519,7 +2523,7 @@ class Arp(object):
                 .. attribute:: entry
                 
                 	ARP entry
-                	**type**\: list of  :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.Entries.Entry>`
+                	**type**\: list of    :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.Entries.Entry>`
                 
                 
 
@@ -2563,7 +2567,7 @@ class Arp(object):
                     .. attribute:: encapsulation_type
                     
                     	Source encapsulation type
-                    	**type**\:  :py:class:`IpArpBagEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagEncapEnum>`
+                    	**type**\:   :py:class:`IpArpBagEncapEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagEncapEnum>`
                     
                     .. attribute:: hardware_address
                     
@@ -2582,12 +2586,12 @@ class Arp(object):
                     .. attribute:: media_type
                     
                     	Media type for this entry
-                    	**type**\:  :py:class:`IpArpBagMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagMediaEnum>`
+                    	**type**\:   :py:class:`IpArpBagMediaEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagMediaEnum>`
                     
                     .. attribute:: state
                     
                     	State of this entry
-                    	**type**\:  :py:class:`IpArpBagStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagStateEnum>`
+                    	**type**\:   :py:class:`IpArpBagStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.IpArpBagStateEnum>`
                     
                     
 
@@ -2690,7 +2694,7 @@ class Arp(object):
                 .. attribute:: traffic_interface
                 
                 	Per interface traffic data
-                	**type**\: list of  :py:class:`TrafficInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficInterfaces.TrafficInterface>`
+                	**type**\: list of    :py:class:`TrafficInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper.Arp.Nodes.Node.TrafficInterfaces.TrafficInterface>`
                 
                 
 

@@ -16,15 +16,15 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'RcmdPriorityEnum' : _MetaInfoEnum('RcmdPriorityEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg',
         {
-            'critical':'CRITICAL',
-            'high':'HIGH',
-            'medium':'MEDIUM',
-            'low':'LOW',
+            'critical':'critical',
+            'high':'high',
+            'medium':'medium',
+            'low':'low',
         }, 'Cisco-IOS-XR-infra-rcmd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-cfg']),
     'ProtocolNameEnum' : _MetaInfoEnum('ProtocolNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg',
         {
-            'ospf':'OSPF',
-            'isis':'ISIS',
+            'ospf':'ospf',
+            'isis':'isis',
         }, 'Cisco-IOS-XR-infra-rcmd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-rcmd-cfg']),
     'RouterConvergence.Protocols.Protocol.Priorities.Priority' : {
         'meta_info' : _MetaInfoClass('RouterConvergence.Protocols.Protocol.Priorities.Priority',

@@ -30,37 +30,37 @@ class IpIepHopEnum(Enum):
 
     Ip iep hop
 
-    .. data:: NEXT_STRICT = 2
+    .. data:: next_strict = 2
 
     	NextStrict
 
-    .. data:: NEXT_LOOSE = 3
+    .. data:: next_loose = 3
 
     	NextLoose
 
-    .. data:: EXCLUDE = 4
+    .. data:: exclude = 4
 
     	Exclude
 
-    .. data:: EXCLUDE_SRLG = 5
+    .. data:: exclude_srlg = 5
 
     	Exclude Shared Risk Link Group
 
-    .. data:: NEXT_LABEL = 6
+    .. data:: next_label = 6
 
     	NextLabel
 
     """
 
-    NEXT_STRICT = 2
+    next_strict = 2
 
-    NEXT_LOOSE = 3
+    next_loose = 3
 
-    EXCLUDE = 4
+    exclude = 4
 
-    EXCLUDE_SRLG = 5
+    exclude_srlg = 5
 
-    NEXT_LABEL = 6
+    next_label = 6
 
 
     @staticmethod
@@ -75,19 +75,19 @@ class IpIepNumEnum(Enum):
 
     Ip iep num
 
-    .. data:: UNNUMBERED = 1
+    .. data:: unnumbered = 1
 
     	Unnumbered
 
-    .. data:: NUMBERED = 2
+    .. data:: numbered = 2
 
     	Numbered
 
     """
 
-    UNNUMBERED = 1
+    unnumbered = 1
 
-    NUMBERED = 2
+    numbered = 2
 
 
     @staticmethod
@@ -102,19 +102,19 @@ class IpIepPathEnum(Enum):
 
     Ip iep path
 
-    .. data:: IDENTIFIER = 1
+    .. data:: identifier = 1
 
     	Identifier
 
-    .. data:: NAME = 2
+    .. data:: name = 2
 
     	Name
 
     """
 
-    IDENTIFIER = 1
+    identifier = 1
 
-    NAME = 2
+    name = 2
 
 
     @staticmethod
@@ -131,7 +131,7 @@ class IpExplicitPaths(object):
     .. attribute:: paths
     
     	A list of explicit paths
-    	**type**\:  :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths>`
+    	**type**\:   :py:class:`Paths <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths>`
     
     
 
@@ -152,7 +152,7 @@ class IpExplicitPaths(object):
         .. attribute:: path
         
         	Config data for a specific explicit path
-        	**type**\: list of  :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path>`
+        	**type**\: list of    :py:class:`Path <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path>`
         
         
 
@@ -175,17 +175,17 @@ class IpExplicitPaths(object):
             .. attribute:: type  <key>
             
             	Path type
-            	**type**\:  :py:class:`IpIepPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepPathEnum>`
+            	**type**\:   :py:class:`IpIepPathEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepPathEnum>`
             
             .. attribute:: identifier
             
             	identifier
-            	**type**\: list of  :py:class:`Identifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier>`
+            	**type**\: list of    :py:class:`Identifier <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier>`
             
             .. attribute:: name
             
             	name
-            	**type**\: list of  :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name>`
+            	**type**\: list of    :py:class:`Name <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name>`
             
             
 
@@ -219,12 +219,12 @@ class IpExplicitPaths(object):
                 .. attribute:: disable
                 
                 	Disable the explicit path
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: hops
                 
                 	List of Hops
-                	**type**\:  :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name.Hops>`
+                	**type**\:   :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name.Hops>`
                 
                 
 
@@ -248,7 +248,7 @@ class IpExplicitPaths(object):
                     .. attribute:: hop
                     
                     	Hop Information
-                    	**type**\: list of  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name.Hops.Hop>`
+                    	**type**\: list of    :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Name.Hops.Hop>`
                     
                     
 
@@ -278,7 +278,9 @@ class IpExplicitPaths(object):
                         .. attribute:: hop_type
                         
                         	Include or exclude this hop in the path
-                        	**type**\:  :py:class:`IpIepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHopEnum>`
+                        	**type**\:   :py:class:`IpIepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHopEnum>`
+                        
+                        	**default value**\: next-strict
                         
                         .. attribute:: if_index
                         
@@ -287,12 +289,16 @@ class IpExplicitPaths(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**default value**\: 0
+                        
                         .. attribute:: ip_address
                         
                         	IP address of the hop
                         	**type**\:  str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**default value**\: 0.0.0.0
                         
                         .. attribute:: mpls_label
                         
@@ -304,7 +310,9 @@ class IpExplicitPaths(object):
                         .. attribute:: num_type
                         
                         	Number type Numbered or Unnumbered
-                        	**type**\:  :py:class:`IpIepNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
+                        	**type**\:   :py:class:`IpIepNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
+                        
+                        	**default value**\: numbered
                         
                         
 
@@ -436,12 +444,12 @@ class IpExplicitPaths(object):
                 .. attribute:: disable
                 
                 	Disable the explicit path
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: hops
                 
                 	List of Hops
-                	**type**\:  :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops>`
+                	**type**\:   :py:class:`Hops <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops>`
                 
                 
 
@@ -465,7 +473,7 @@ class IpExplicitPaths(object):
                     .. attribute:: hop
                     
                     	Hop Information
-                    	**type**\: list of  :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops.Hop>`
+                    	**type**\: list of    :py:class:`Hop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpExplicitPaths.Paths.Path.Identifier.Hops.Hop>`
                     
                     
 
@@ -495,7 +503,9 @@ class IpExplicitPaths(object):
                         .. attribute:: hop_type
                         
                         	Include or exclude this hop in the path
-                        	**type**\:  :py:class:`IpIepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHopEnum>`
+                        	**type**\:   :py:class:`IpIepHopEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepHopEnum>`
+                        
+                        	**default value**\: next-strict
                         
                         .. attribute:: if_index
                         
@@ -504,12 +514,16 @@ class IpExplicitPaths(object):
                         
                         	**range:** \-2147483648..2147483647
                         
+                        	**default value**\: 0
+                        
                         .. attribute:: ip_address
                         
                         	IP address of the hop
                         	**type**\:  str
                         
                         	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        	**default value**\: 0.0.0.0
                         
                         .. attribute:: mpls_label
                         
@@ -521,7 +535,9 @@ class IpExplicitPaths(object):
                         .. attribute:: num_type
                         
                         	Number type Numbered or Unnumbered
-                        	**type**\:  :py:class:`IpIepNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
+                        	**type**\:   :py:class:`IpIepNumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg.IpIepNumEnum>`
+                        
+                        	**default value**\: numbered
                         
                         
 

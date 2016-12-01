@@ -37,7 +37,7 @@ class SubscriberManager(object):
     .. attribute:: accounting
     
     	iEdge accounting feature
-    	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting>`
+    	**type**\:   :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting>`
     
     
 
@@ -58,7 +58,7 @@ class SubscriberManager(object):
         .. attribute:: send_stop
         
         	Accounting send stop feature
-        	**type**\:  :py:class:`SendStop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop>`
+        	**type**\:   :py:class:`SendStop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.SubscriberManager.Accounting.SendStop>`
         
         
 
@@ -167,7 +167,7 @@ class IedgeLicenseManager(object):
     .. attribute:: node
     
     	Location. For eg., 0/1/CPU0
-    	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.IedgeLicenseManager.Node>`
+    	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_cfg.IedgeLicenseManager.Node>`
     
     
 

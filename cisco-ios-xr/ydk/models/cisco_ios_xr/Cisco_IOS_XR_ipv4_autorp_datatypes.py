@@ -26,19 +26,19 @@ class AutoRpProtocolModeEnum(Enum):
 
     Auto rp protocol mode
 
-    .. data:: SPARSE = 0
+    .. data:: sparse = 0
 
     	Sparse Mode
 
-    .. data:: BIDIRECTIONAL = 1
+    .. data:: bidirectional = 1
 
     	Bidirectional Mode
 
     """
 
-    SPARSE = 0
+    sparse = 0
 
-    BIDIRECTIONAL = 1
+    bidirectional = 1
 
 
     @staticmethod

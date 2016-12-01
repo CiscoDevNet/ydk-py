@@ -16,12 +16,12 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SpanSessionClassOldEnum' : _MetaInfoEnum('SpanSessionClassOldEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes',
         {
-            'true':'TRUE',
+            'true':'true',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-datatypes']),
     'SpanSessionClassEnum' : _MetaInfoEnum('SpanSessionClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes',
         {
-            'ethernet':'ETHERNET',
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ethernet':'ethernet',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-Ethernet-SPAN-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-Ethernet-SPAN-datatypes']),
 }

@@ -14,8 +14,8 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
-    'Redundancy.Nodes.Node.Redundancy.Groupinfo' : {
-        'meta_info' : _MetaInfoClass('Redundancy.Nodes.Node.Redundancy.Groupinfo',
+    'Redundancy.Nodes.Node.Redundancy_.Groupinfo' : {
+        'meta_info' : _MetaInfoClass('Redundancy.Nodes.Node.Redundancy_.Groupinfo',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'str' , None, None, 
@@ -49,8 +49,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper'
         ),
     },
-    'Redundancy.Nodes.Node.Redundancy' : {
-        'meta_info' : _MetaInfoClass('Redundancy.Nodes.Node.Redundancy',
+    'Redundancy.Nodes.Node.Redundancy_' : {
+        'meta_info' : _MetaInfoClass('Redundancy.Nodes.Node.Redundancy_',
             False, 
             [
             _MetaInfoClassMember('active', ATTRIBUTE, 'str' , None, None, 
@@ -59,7 +59,7 @@ _meta_table = {
                 ''',
                 'active',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('groupinfo', REFERENCE_LIST, 'Groupinfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Nodes.Node.Redundancy.Groupinfo', 
+            _MetaInfoClassMember('groupinfo', REFERENCE_LIST, 'Groupinfo' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Nodes.Node.Redundancy_.Groupinfo', 
                 [], [], 
                 '''                groupinfo
                 ''',
@@ -118,7 +118,7 @@ _meta_table = {
                 ''',
                 'log',
                 'Cisco-IOS-XR-infra-rmf-oper', False),
-            _MetaInfoClassMember('redundancy', REFERENCE_CLASS, 'Redundancy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Nodes.Node.Redundancy', 
+            _MetaInfoClassMember('redundancy', REFERENCE_CLASS, 'Redundancy_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rmf_oper', 'Redundancy.Nodes.Node.Redundancy_', 
                 [], [], 
                 '''                Row information
                 ''',
@@ -277,8 +277,8 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Redundancy.Nodes.Node.Redundancy.Groupinfo']['meta_info'].parent =_meta_table['Redundancy.Nodes.Node.Redundancy']['meta_info']
-_meta_table['Redundancy.Nodes.Node.Redundancy']['meta_info'].parent =_meta_table['Redundancy.Nodes.Node']['meta_info']
+_meta_table['Redundancy.Nodes.Node.Redundancy_.Groupinfo']['meta_info'].parent =_meta_table['Redundancy.Nodes.Node.Redundancy_']['meta_info']
+_meta_table['Redundancy.Nodes.Node.Redundancy_']['meta_info'].parent =_meta_table['Redundancy.Nodes.Node']['meta_info']
 _meta_table['Redundancy.Nodes.Node']['meta_info'].parent =_meta_table['Redundancy.Nodes']['meta_info']
 _meta_table['Redundancy.Summary.RedPair.Groupinfo']['meta_info'].parent =_meta_table['Redundancy.Summary.RedPair']['meta_info']
 _meta_table['Redundancy.Summary.RedPair']['meta_info'].parent =_meta_table['Redundancy.Summary']['meta_info']

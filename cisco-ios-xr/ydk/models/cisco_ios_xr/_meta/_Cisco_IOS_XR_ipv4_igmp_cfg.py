@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'IgmpFilterEnum' : _MetaInfoEnum('IgmpFilterEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg',
         {
-            'include':'INCLUDE',
-            'exclude':'EXCLUDE',
+            'include':'include',
+            'exclude':'exclude',
         }, 'Cisco-IOS-XR-ipv4-igmp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg']),
     'Igmp.Vrfs.Vrf.Traffic' : {
         'meta_info' : _MetaInfoClass('Igmp.Vrfs.Vrf.Traffic',
@@ -2429,6 +2429,1134 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
         ),
     },
+    'Mld.Vrfs.Vrf.Traffic' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Traffic',
+            False, 
+            [
+            _MetaInfoClassMember('profile', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Configure the route-policy profile
+                ''',
+                'profile',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'traffic',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor',
+            False, 
+            [
+            _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Access-list to account for
+                ''',
+                'access_list_name',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('maximum-groups', ATTRIBUTE, 'int' , None, None, 
+                [('1', '40000')], [], 
+                '''                Maximum number of groups accepted per interface
+                by this router
+                ''',
+                'maximum_groups',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('1', '40000')], [], 
+                '''                 WarningThreshold for number of groups accepted
+                per interface by this router
+                ''',
+                'warning_threshold',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'maximum-groups-per-interface-oor',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking',
+            False, 
+            [
+            _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Access list specifying tracking group range
+                ''',
+                'access_list_name',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enabled or disabled, when value is TRUE or
+                FALSE respectively
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'explicit-tracking',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.InheritableDefaults' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.InheritableDefaults',
+            False, 
+            [
+            _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Access list specifying access group range
+                ''',
+                'access_group',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('explicit-tracking', REFERENCE_CLASS, 'ExplicitTracking' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking', 
+                [], [], 
+                '''                IGMPv3 explicit host tracking
+                ''',
+                'explicit_tracking',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('maximum-groups-per-interface-oor', REFERENCE_CLASS, 'MaximumGroupsPerInterfaceOor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor', 
+                [], [], 
+                '''                Configure maximum number of groups accepted per
+                interface by this router
+                ''',
+                'maximum_groups_per_interface_oor',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('query-interval', ATTRIBUTE, 'int' , None, None, 
+                [('1', '3600')], [], 
+                '''                Query interval in seconds
+                ''',
+                'query_interval',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('query-max-response-time', ATTRIBUTE, 'int' , None, None, 
+                [('1', '12')], [], 
+                '''                Query response value in seconds
+                ''',
+                'query_max_response_time',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('query-timeout', ATTRIBUTE, 'int' , None, None, 
+                [('60', '300')], [], 
+                '''                IGMP previous querier timeout
+                ''',
+                'query_timeout',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('router-enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enabled or disabled, when value is TRUE or FALSE
+                respectively
+                ''',
+                'router_enable',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
+                [('1', '3')], [], 
+                '''                Version number
+                ''',
+                'version',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'inheritable-defaults',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup',
+            False, 
+            [
+            _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP source address
+                ''',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Access list specifying access group
+                ''',
+                'access_list_name',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'ssm-access-group',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.SsmAccessGroups' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.SsmAccessGroups',
+            False, 
+            [
+            _MetaInfoClassMember('ssm-access-group', REFERENCE_LIST, 'SsmAccessGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup', 
+                [], [], 
+                '''                SSM static Access Group
+                ''',
+                'ssm_access_group',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'ssm-access-groups',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Maximum' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Maximum',
+            False, 
+            [
+            _MetaInfoClassMember('maximum-groups', ATTRIBUTE, 'int' , None, None, 
+                [('1', '75000')], [], 
+                '''                Configure maximum number of groups accepted by
+                this router
+                ''',
+                'maximum_groups',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'maximum',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.UnicastQosAdjust' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.UnicastQosAdjust',
+            False, 
+            [
+            _MetaInfoClassMember('adjustment-delay', ATTRIBUTE, 'int' , None, None, 
+                [('0', '10')], [], 
+                '''                Configure the QoS delay before programming (in
+                seconds)
+                ''',
+                'adjustment_delay',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('download-interval', ATTRIBUTE, 'int' , None, None, 
+                [('10', '500')], [], 
+                '''                Configure the QoS download interval (in
+                milliseconds)
+                ''',
+                'download_interval',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('hold-off', ATTRIBUTE, 'int' , None, None, 
+                [('5', '1800')], [], 
+                '''                Configure the QoS hold off time (in seconds)
+                ''',
+                'hold_off',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'unicast-qos-adjust',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Accounting' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Accounting',
+            False, 
+            [
+            _MetaInfoClassMember('max-history', ATTRIBUTE, 'int' , None, None, 
+                [('0', '365')], [], 
+                '''                Configure IGMP accounting Maximum History
+                setting
+                ''',
+                'max_history',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'accounting',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup',
+            False, 
+            [
+            _MetaInfoClassMember('group-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP group address
+                ''',
+                'group_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'IgmpFilterEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilterEnum', 
+                [], [], 
+                '''                Filter mode
+                ''',
+                'mode',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'join-group',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress',
+            False, 
+            [
+            _MetaInfoClassMember('group-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP group address
+                ''',
+                'group_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP source address
+                ''',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('mode', REFERENCE_ENUM_CLASS, 'IgmpFilterEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilterEnum', 
+                [], [], 
+                '''                Filter mode
+                ''',
+                'mode',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'join-group-source-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups',
+            False, 
+            [
+            _MetaInfoClassMember('join-group', REFERENCE_LIST, 'JoinGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup', 
+                [], [], 
+                '''                IP group address and optional source address
+                to include
+                ''',
+                'join_group',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('join-group-source-address', REFERENCE_LIST, 'JoinGroupSourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress', 
+                [], [], 
+                '''                IP group address and optional source address
+                to include
+                ''',
+                'join_group_source_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'join-groups',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress',
+            False, 
+            [
+            _MetaInfoClassMember('group-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP group address
+                ''',
+                'group_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of groups to join if mask is present.
+                ''',
+                'group_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of sources to join if mask is present
+                .
+                ''',
+                'source_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('suppress-report', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Suppress reports
+                ''',
+                'suppress_report',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'static-group-group-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress',
+            False, 
+            [
+            _MetaInfoClassMember('group-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP group address
+                ''',
+                'group_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP source address
+                ''',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of groups to join if mask is present.
+                ''',
+                'group_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of sources to join if mask is present
+                .
+                ''',
+                'source_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('suppress-report', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Suppress reports
+                ''',
+                'suppress_report',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'static-group-group-address-source-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask',
+            False, 
+            [
+            _MetaInfoClassMember('group-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP group address
+                ''',
+                'group_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP source address
+                ''',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('source-address-mask', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Mask for Source Address
+                ''',
+                'source_address_mask',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('source-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Source Address
+                        ''',
+                        'source_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('source-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Source Address
+                        ''',
+                        'source_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of groups to join if mask is present.
+                ''',
+                'group_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of sources to join if mask is present
+                .
+                ''',
+                'source_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('suppress-report', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Suppress reports
+                ''',
+                'suppress_report',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'static-group-group-address-source-address-source-address-mask',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask',
+            False, 
+            [
+            _MetaInfoClassMember('group-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP group address
+                ''',
+                'group_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('group-address-mask', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Mask for Group Address
+                ''',
+                'group_address_mask',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Group Address
+                        ''',
+                        'group_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Group Address
+                        ''',
+                        'group_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of groups to join if mask is present.
+                ''',
+                'group_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of sources to join if mask is present
+                .
+                ''',
+                'source_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('suppress-report', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Suppress reports
+                ''',
+                'suppress_report',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'static-group-group-address-group-address-mask',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress',
+            False, 
+            [
+            _MetaInfoClassMember('group-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP group address
+                ''',
+                'group_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('group-address-mask', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Mask for Group Address
+                ''',
+                'group_address_mask',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Group Address
+                        ''',
+                        'group_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Group Address
+                        ''',
+                        'group_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP source address
+                ''',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of groups to join if mask is present.
+                ''',
+                'group_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of sources to join if mask is present
+                .
+                ''',
+                'source_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('suppress-report', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Suppress reports
+                ''',
+                'suppress_report',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'static-group-group-address-group-address-mask-source-address',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask',
+            False, 
+            [
+            _MetaInfoClassMember('group-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP group address
+                ''',
+                'group_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP group address
+                        ''',
+                        'group_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('group-address-mask', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Mask for Group Address
+                ''',
+                'group_address_mask',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('group-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Group Address
+                        ''',
+                        'group_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('group-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Group Address
+                        ''',
+                        'group_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('source-address', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                IP source address
+                ''',
+                'source_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('source-address', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        IP source address
+                        ''',
+                        'source_address',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('source-address-mask', REFERENCE_UNION, 'str' , None, None, 
+                [], [], 
+                '''                Mask for Source Address
+                ''',
+                'source_address_mask',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True, [
+                    _MetaInfoClassMember('source-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Source Address
+                        ''',
+                        'source_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                    _MetaInfoClassMember('source-address-mask', ATTRIBUTE, 'str' , None, None, 
+                        [], ['((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'], 
+                        '''                        Mask for Source Address
+                        ''',
+                        'source_address_mask',
+                        'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+                ]),
+            _MetaInfoClassMember('group-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of groups to join if mask is present.
+                ''',
+                'group_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('source-count', ATTRIBUTE, 'int' , None, None, 
+                [('1', '512')], [], 
+                '''                Number of sources to join if mask is present
+                .
+                ''',
+                'source_count',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('suppress-report', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Suppress reports
+                ''',
+                'suppress_report',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'static-group-group-address-group-address-mask-source-address-source-address-mask',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses',
+            False, 
+            [
+            _MetaInfoClassMember('static-group-group-address', REFERENCE_LIST, 'StaticGroupGroupAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress', 
+                [], [], 
+                '''                IP group address and optional source address
+                to include
+                ''',
+                'static_group_group_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('static-group-group-address-group-address-mask', REFERENCE_LIST, 'StaticGroupGroupAddressGroupAddressMask' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask', 
+                [], [], 
+                '''                IP group address and optional source address
+                to include
+                ''',
+                'static_group_group_address_group_address_mask',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('static-group-group-address-group-address-mask-source-address', REFERENCE_LIST, 'StaticGroupGroupAddressGroupAddressMaskSourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress', 
+                [], [], 
+                '''                IP group address and optional source address
+                to include
+                ''',
+                'static_group_group_address_group_address_mask_source_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('static-group-group-address-group-address-mask-source-address-source-address-mask', REFERENCE_LIST, 'StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask', 
+                [], [], 
+                '''                IP group address and optional source address
+                to include
+                ''',
+                'static_group_group_address_group_address_mask_source_address_source_address_mask',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('static-group-group-address-source-address', REFERENCE_LIST, 'StaticGroupGroupAddressSourceAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress', 
+                [], [], 
+                '''                IP group address and optional source address
+                to include
+                ''',
+                'static_group_group_address_source_address',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('static-group-group-address-source-address-source-address-mask', REFERENCE_LIST, 'StaticGroupGroupAddressSourceAddressSourceAddressMask' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask', 
+                [], [], 
+                '''                IP group address and optional source address
+                to include
+                ''',
+                'static_group_group_address_source_address_source_address_mask',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'static-group-group-addresses',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor',
+            False, 
+            [
+            _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Access-list to account for
+                ''',
+                'access_list_name',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('maximum-groups', ATTRIBUTE, 'int' , None, None, 
+                [('1', '40000')], [], 
+                '''                Maximum number of groups accepted per interface
+                by this router
+                ''',
+                'maximum_groups',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('warning-threshold', ATTRIBUTE, 'int' , None, None, 
+                [('1', '40000')], [], 
+                '''                 WarningThreshold for number of groups accepted
+                per interface by this router
+                ''',
+                'warning_threshold',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'maximum-groups-per-interface-oor',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking',
+            False, 
+            [
+            _MetaInfoClassMember('access-list-name', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Access list specifying tracking group range
+                ''',
+                'access_list_name',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enabled or disabled, when value is TRUE or
+                FALSE respectively
+                ''',
+                'enable',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'explicit-tracking',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces.Interface' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces.Interface',
+            False, 
+            [
+            _MetaInfoClassMember('interface-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['(([a-zA-Z0-9_]*\\d+/){3,4}\\d+)|(([a-zA-Z0-9_]*\\d+/){3,4}\\d+\\.\\d+)|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]*\\d+))|(([a-zA-Z0-9_]*\\d+/){2}([a-zA-Z0-9_]+))|([a-zA-Z0-9_-]*\\d+)|([a-zA-Z0-9_-]*\\d+\\.\\d+)|(mpls)|(dwdm)'], 
+                '''                Name of the interface
+                ''',
+                'interface_name',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+            _MetaInfoClassMember('access-group', ATTRIBUTE, 'str' , None, None, 
+                [], [], 
+                '''                Access list specifying access group range
+                ''',
+                'access_group',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('explicit-tracking', REFERENCE_CLASS, 'ExplicitTracking' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking', 
+                [], [], 
+                '''                IGMPv3 explicit host tracking
+                ''',
+                'explicit_tracking',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('join-groups', REFERENCE_CLASS, 'JoinGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups', 
+                [], [], 
+                '''                IGMP join multicast group
+                ''',
+                'join_groups',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('maximum-groups-per-interface-oor', REFERENCE_CLASS, 'MaximumGroupsPerInterfaceOor' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor', 
+                [], [], 
+                '''                Configure maximum number of groups accepted per
+                interface by this router
+                ''',
+                'maximum_groups_per_interface_oor',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('query-interval', ATTRIBUTE, 'int' , None, None, 
+                [('1', '3600')], [], 
+                '''                Query interval in seconds
+                ''',
+                'query_interval',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('query-max-response-time', ATTRIBUTE, 'int' , None, None, 
+                [('1', '12')], [], 
+                '''                Query response value in seconds
+                ''',
+                'query_max_response_time',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('query-timeout', ATTRIBUTE, 'int' , None, None, 
+                [('60', '300')], [], 
+                '''                IGMP previous querier timeout
+                ''',
+                'query_timeout',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('router-enable', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                Enabled or disabled, when value is TRUE or FALSE
+                respectively
+                ''',
+                'router_enable',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('static-group-group-addresses', REFERENCE_CLASS, 'StaticGroupGroupAddresses' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses', 
+                [], [], 
+                '''                IGMP static multicast group
+                ''',
+                'static_group_group_addresses',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('version', ATTRIBUTE, 'int' , None, None, 
+                [('1', '3')], [], 
+                '''                Version number
+                ''',
+                'version',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'interface',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf.Interfaces' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf.Interfaces',
+            False, 
+            [
+            _MetaInfoClassMember('interface', REFERENCE_LIST, 'Interface' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces.Interface', 
+                [], [], 
+                '''                The name of the interface
+                ''',
+                'interface',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'interfaces',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs.Vrf' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs.Vrf',
+            False, 
+            [
+            _MetaInfoClassMember('vrf-name', ATTRIBUTE, 'str' , None, None, 
+                [], ['[\\w\\-\\.:,_@#%$\\+=\\|;]+'], 
+                '''                Name for this vrf
+                ''',
+                'vrf_name',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', True),
+            _MetaInfoClassMember('accounting', REFERENCE_CLASS, 'Accounting' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Accounting', 
+                [], [], 
+                '''                Configure IGMP accounting for logging join/leave
+                records
+                ''',
+                'accounting',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('inheritable-defaults', REFERENCE_CLASS, 'InheritableDefaults' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.InheritableDefaults', 
+                [], [], 
+                '''                Inheritable Defaults
+                ''',
+                'inheritable_defaults',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('interfaces', REFERENCE_CLASS, 'Interfaces' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Interfaces', 
+                [], [], 
+                '''                Interface-level configuration
+                ''',
+                'interfaces',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('maximum', REFERENCE_CLASS, 'Maximum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Maximum', 
+                [], [], 
+                '''                Configure IGMP State Limits
+                ''',
+                'maximum',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('robustness', ATTRIBUTE, 'int' , None, None, 
+                [('2', '10')], [], 
+                '''                Configure IGMP Robustness variable
+                ''',
+                'robustness',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('ssm-access-groups', REFERENCE_CLASS, 'SsmAccessGroups' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.SsmAccessGroups', 
+                [], [], 
+                '''                IGMP Source specific mode
+                ''',
+                'ssm_access_groups',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('ssmdns-query-group', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Enable SSM mapping using DNS Query
+                ''',
+                'ssmdns_query_group',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('traffic', REFERENCE_CLASS, 'Traffic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.Traffic', 
+                [], [], 
+                '''                Configure IGMP Traffic variables
+                ''',
+                'traffic',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('unicast-qos-adjust', REFERENCE_CLASS, 'UnicastQosAdjust' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf.UnicastQosAdjust', 
+                [], [], 
+                '''                Configure IGMP QoS shapers for subscriber
+                interfaces
+                ''',
+                'unicast_qos_adjust',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'vrf',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
+    'Mld.Vrfs' : {
+        'meta_info' : _MetaInfoClass('Mld.Vrfs',
+            False, 
+            [
+            _MetaInfoClassMember('vrf', REFERENCE_LIST, 'Vrf' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs.Vrf', 
+                [], [], 
+                '''                Configuration for a particular vrf
+                ''',
+                'vrf',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            ],
+            'Cisco-IOS-XR-ipv4-igmp-cfg',
+            'vrfs',
+            _yang_ns._namespaces['Cisco-IOS-XR-ipv4-igmp-cfg'],
+        'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg'
+        ),
+    },
     'Mld.DefaultContext.Nsf' : {
         'meta_info' : _MetaInfoClass('Mld.DefaultContext.Nsf',
             False, 
@@ -3567,6 +4695,12 @@ _meta_table = {
                 ''',
                 'default_context',
                 'Cisco-IOS-XR-ipv4-igmp-cfg', False),
+            _MetaInfoClassMember('vrfs', REFERENCE_CLASS, 'Vrfs' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'Mld.Vrfs', 
+                [], [], 
+                '''                VRF related configuration
+                ''',
+                'vrfs',
+                'Cisco-IOS-XR-ipv4-igmp-cfg', False),
             ],
             'Cisco-IOS-XR-ipv4-igmp-cfg',
             'mld',
@@ -3627,6 +4761,30 @@ _meta_table['Igmp.Vrfs']['meta_info'].parent =_meta_table['Igmp']['meta_info']
 _meta_table['Igmp.DefaultContext']['meta_info'].parent =_meta_table['Igmp']['meta_info']
 _meta_table['Amt.RelayAdvAdd']['meta_info'].parent =_meta_table['Amt']['meta_info']
 _meta_table['Amt.RelayAnycastPrefix']['meta_info'].parent =_meta_table['Amt']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.InheritableDefaults']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.InheritableDefaults']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.SsmAccessGroups']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces.Interface']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf.Interfaces']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Traffic']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.InheritableDefaults']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.SsmAccessGroups']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Maximum']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.UnicastQosAdjust']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Accounting']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
+_meta_table['Mld.Vrfs.Vrf.Interfaces']['meta_info'].parent =_meta_table['Mld.Vrfs.Vrf']['meta_info']
+_meta_table['Mld.Vrfs.Vrf']['meta_info'].parent =_meta_table['Mld.Vrfs']['meta_info']
 _meta_table['Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor']['meta_info'].parent =_meta_table['Mld.DefaultContext.InheritableDefaults']['meta_info']
 _meta_table['Mld.DefaultContext.InheritableDefaults.ExplicitTracking']['meta_info'].parent =_meta_table['Mld.DefaultContext.InheritableDefaults']['meta_info']
 _meta_table['Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup']['meta_info'].parent =_meta_table['Mld.DefaultContext.SsmAccessGroups']['meta_info']
@@ -3651,4 +4809,5 @@ _meta_table['Mld.DefaultContext.Maximum']['meta_info'].parent =_meta_table['Mld.
 _meta_table['Mld.DefaultContext.UnicastQosAdjust']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
 _meta_table['Mld.DefaultContext.Accounting']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
 _meta_table['Mld.DefaultContext.Interfaces']['meta_info'].parent =_meta_table['Mld.DefaultContext']['meta_info']
+_meta_table['Mld.Vrfs']['meta_info'].parent =_meta_table['Mld']['meta_info']
 _meta_table['Mld.DefaultContext']['meta_info'].parent =_meta_table['Mld']['meta_info']

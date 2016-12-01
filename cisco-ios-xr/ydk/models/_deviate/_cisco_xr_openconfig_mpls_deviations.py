@@ -7,13 +7,13 @@ from ydk.providers._importer import _yang_ns
 
 
 _deviation_table = {
-    'Mpls.Global.Config.null_label' : {
+    'Mpls.Global_.Config.null_label' : {
         'deviation_typ' : 'not_supported',
     },
-    'Mpls.Global.MplsInterfaceAttributes.Interface' : {
+    'Mpls.Global_.MplsInterfaceAttributes.Interface' : {
         'deviation_typ' : 'not_supported',
     },
-    'Mpls.Global.State.null_label' : {
+    'Mpls.Global_.State.null_label' : {
         'deviation_typ' : 'not_supported',
     },
     'Mpls.Lsps.ConstrainedPath.Tunnel.Bandwidth.Config.specification_type' : {
@@ -100,10 +100,10 @@ _deviation_table = {
     'Mpls.Lsps.UnconstrainedPath.PathSetupProtocol.SegmentRouting.Tunnel.tunnel_type' : {
         'deviation_typ' : 'not_supported',
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.Hellos.Config.refresh_reduction' : {
+    'Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.Config.refresh_reduction' : {
         'deviation_typ' : 'not_supported',
     },
-    'Mpls.SignalingProtocols.RsvpTe.Global.Hellos.State.refresh_reduction' : {
+    'Mpls.SignalingProtocols.RsvpTe.Global_.Hellos.State.refresh_reduction' : {
         'deviation_typ' : 'not_supported',
     },
     'Mpls.SignalingProtocols.RsvpTe.InterfaceAttributes.Interface.Hellos.Config.hello_interval' : {

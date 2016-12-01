@@ -16,24 +16,24 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'BfdEchoStartupValidateEnum' : _MetaInfoEnum('BfdEchoStartupValidateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg',
         {
-            'off':'OFF',
-            'on':'ON',
-            'force':'FORCE',
+            'off':'off',
+            'on':'on',
+            'force':'force',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
     'BfdIfIpv6ChecksumUsageEnum' : _MetaInfoEnum('BfdIfIpv6ChecksumUsageEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg',
         {
-            'disable':'DISABLE',
-            'enable':'ENABLE',
+            'disable':'disable',
+            'enable':'enable',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
     'BfdIfEchoUsageEnum' : _MetaInfoEnum('BfdIfEchoUsageEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg',
         {
-            'enable':'ENABLE',
-            'disable':'DISABLE',
+            'enable':'enable',
+            'disable':'disable',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
     'BfdBundleCoexistenceBobBlbEnum' : _MetaInfoEnum('BfdBundleCoexistenceBobBlbEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_cfg',
         {
-            'inherited':'INHERITED',
-            'logical':'LOGICAL',
+            'inherited':'inherited',
+            'logical':'logical',
         }, 'Cisco-IOS-XR-ip-bfd-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-bfd-cfg']),
     'Bfd.FlapDamp.BundleMember' : {
         'meta_info' : _MetaInfoClass('Bfd.FlapDamp.BundleMember',

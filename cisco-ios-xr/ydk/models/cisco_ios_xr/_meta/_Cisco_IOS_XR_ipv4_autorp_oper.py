@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'AutorpProtocolModeEnum' : _MetaInfoEnum('AutorpProtocolModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper',
         {
-            'sparse':'SPARSE',
-            'bidirectional':'BIDIRECTIONAL',
+            'sparse':'sparse',
+            'bidirectional':'bidirectional',
         }, 'Cisco-IOS-XR-ipv4-autorp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-autorp-oper']),
     'AutoRp.Standby.CandidateRps.CandidateRp' : {
         'meta_info' : _MetaInfoClass('AutoRp.Standby.CandidateRps.CandidateRp',

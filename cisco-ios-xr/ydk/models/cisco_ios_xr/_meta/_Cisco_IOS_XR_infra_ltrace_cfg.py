@@ -25,7 +25,7 @@ _meta_table = {
         }, 'Cisco-IOS-XR-infra-ltrace-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-ltrace-cfg']),
     'InfraLtraceModeEnum' : _MetaInfoEnum('InfraLtraceModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg',
         {
-            'static':'STATIC',
-            'dynamic':'DYNAMIC',
+            'static':'static',
+            'dynamic':'dynamic',
         }, 'Cisco-IOS-XR-infra-ltrace-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-ltrace-cfg']),
 }

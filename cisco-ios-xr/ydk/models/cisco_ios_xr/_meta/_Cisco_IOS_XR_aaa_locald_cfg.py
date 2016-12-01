@@ -16,9 +16,9 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'AaaLocaldTaskClassEnum' : _MetaInfoEnum('AaaLocaldTaskClassEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_cfg',
         {
-            'read':'READ',
-            'write':'WRITE',
-            'execute':'EXECUTE',
-            'debug':'DEBUG',
+            'read':'read',
+            'write':'write',
+            'execute':'execute',
+            'debug':'debug',
         }, 'Cisco-IOS-XR-aaa-locald-cfg', _yang_ns._namespaces['Cisco-IOS-XR-aaa-locald-cfg']),
 }

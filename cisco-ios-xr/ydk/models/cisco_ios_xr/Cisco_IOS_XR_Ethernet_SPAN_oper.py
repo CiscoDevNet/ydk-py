@@ -30,37 +30,37 @@ class DestinationClassEnum(Enum):
 
     Destination class
 
-    .. data:: INTERFACE_CLASS = 0
+    .. data:: interface_class = 0
 
     	Destination is an interface
 
-    .. data:: PSEUDOWIRE_CLASS = 1
+    .. data:: pseudowire_class = 1
 
     	Destination is a pseudowire
 
-    .. data:: NEXT_HOP_IPV4_CLASS = 2
+    .. data:: next_hop_ipv4_class = 2
 
     	Destination is a next-hop IPv4 address
 
-    .. data:: NEXT_HOP_IPV6_CLASS = 3
+    .. data:: next_hop_ipv6_class = 3
 
     	Destination is a next-hop IPv6 address
 
-    .. data:: INVALID_CLASS = 255
+    .. data:: invalid_class = 255
 
     	Destination is not specified
 
     """
 
-    INTERFACE_CLASS = 0
+    interface_class = 0
 
-    PSEUDOWIRE_CLASS = 1
+    pseudowire_class = 1
 
-    NEXT_HOP_IPV4_CLASS = 2
+    next_hop_ipv4_class = 2
 
-    NEXT_HOP_IPV6_CLASS = 3
+    next_hop_ipv6_class = 3
 
-    INVALID_CLASS = 255
+    invalid_class = 255
 
 
     @staticmethod
@@ -75,121 +75,121 @@ class ImStateEnumEnum(Enum):
 
     Im state enum
 
-    .. data:: IM_STATE_NOT_READY = 0
+    .. data:: im_state_not_ready = 0
 
     	im state not ready
 
-    .. data:: IM_STATE_ADMIN_DOWN = 1
+    .. data:: im_state_admin_down = 1
 
     	im state admin down
 
-    .. data:: IM_STATE_DOWN = 2
+    .. data:: im_state_down = 2
 
     	im state down
 
-    .. data:: IM_STATE_UP = 3
+    .. data:: im_state_up = 3
 
     	im state up
 
-    .. data:: IM_STATE_SHUTDOWN = 4
+    .. data:: im_state_shutdown = 4
 
     	im state shutdown
 
-    .. data:: IM_STATE_ERR_DISABLE = 5
+    .. data:: im_state_err_disable = 5
 
     	im state err disable
 
-    .. data:: IM_STATE_DOWN_IMMEDIATE = 6
+    .. data:: im_state_down_immediate = 6
 
     	im state down immediate
 
-    .. data:: IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
+    .. data:: im_state_down_immediate_admin = 7
 
     	im state down immediate admin
 
-    .. data:: IM_STATE_DOWN_GRACEFUL = 8
+    .. data:: im_state_down_graceful = 8
 
     	im state down graceful
 
-    .. data:: IM_STATE_BEGIN_SHUTDOWN = 9
+    .. data:: im_state_begin_shutdown = 9
 
     	im state begin shutdown
 
-    .. data:: IM_STATE_END_SHUTDOWN = 10
+    .. data:: im_state_end_shutdown = 10
 
     	im state end shutdown
 
-    .. data:: IM_STATE_BEGIN_ERROR_DISABLE = 11
+    .. data:: im_state_begin_error_disable = 11
 
     	im state begin error disable
 
-    .. data:: IM_STATE_END_ERROR_DISABLE = 12
+    .. data:: im_state_end_error_disable = 12
 
     	im state end error disable
 
-    .. data:: IM_STATE_BEGIN_DOWN_GRACEFUL = 13
+    .. data:: im_state_begin_down_graceful = 13
 
     	im state begin down graceful
 
-    .. data:: IM_STATE_RESET = 14
+    .. data:: im_state_reset = 14
 
     	im state reset
 
-    .. data:: IM_STATE_OPERATIONAL = 15
+    .. data:: im_state_operational = 15
 
     	im state operational
 
-    .. data:: IM_STATE_NOT_OPERATIONAL = 16
+    .. data:: im_state_not_operational = 16
 
     	im state not operational
 
-    .. data:: IM_STATE_UNKNOWN = 17
+    .. data:: im_state_unknown = 17
 
     	im state unknown
 
-    .. data:: IM_STATE_LAST = 18
+    .. data:: im_state_last = 18
 
     	im state last
 
     """
 
-    IM_STATE_NOT_READY = 0
+    im_state_not_ready = 0
 
-    IM_STATE_ADMIN_DOWN = 1
+    im_state_admin_down = 1
 
-    IM_STATE_DOWN = 2
+    im_state_down = 2
 
-    IM_STATE_UP = 3
+    im_state_up = 3
 
-    IM_STATE_SHUTDOWN = 4
+    im_state_shutdown = 4
 
-    IM_STATE_ERR_DISABLE = 5
+    im_state_err_disable = 5
 
-    IM_STATE_DOWN_IMMEDIATE = 6
+    im_state_down_immediate = 6
 
-    IM_STATE_DOWN_IMMEDIATE_ADMIN = 7
+    im_state_down_immediate_admin = 7
 
-    IM_STATE_DOWN_GRACEFUL = 8
+    im_state_down_graceful = 8
 
-    IM_STATE_BEGIN_SHUTDOWN = 9
+    im_state_begin_shutdown = 9
 
-    IM_STATE_END_SHUTDOWN = 10
+    im_state_end_shutdown = 10
 
-    IM_STATE_BEGIN_ERROR_DISABLE = 11
+    im_state_begin_error_disable = 11
 
-    IM_STATE_END_ERROR_DISABLE = 12
+    im_state_end_error_disable = 12
 
-    IM_STATE_BEGIN_DOWN_GRACEFUL = 13
+    im_state_begin_down_graceful = 13
 
-    IM_STATE_RESET = 14
+    im_state_reset = 14
 
-    IM_STATE_OPERATIONAL = 15
+    im_state_operational = 15
 
-    IM_STATE_NOT_OPERATIONAL = 16
+    im_state_not_operational = 16
 
-    IM_STATE_UNKNOWN = 17
+    im_state_unknown = 17
 
-    IM_STATE_LAST = 18
+    im_state_last = 18
 
 
     @staticmethod
@@ -204,49 +204,49 @@ class MirrorIntervalEnum(Enum):
 
     Monitor\-session mirror intervals
 
-    .. data:: MIRROR_INTERVAL_ALL = 0
+    .. data:: mirror_interval_all = 0
 
     	Mirror all packets
 
-    .. data:: MIRROR_INTERVAL512 = 1
+    .. data:: mirror_interval512 = 1
 
     	Mirror Interval 512
 
-    .. data:: MIRROR_INTERVAL1K = 2
+    .. data:: mirror_interval1k = 2
 
     	Mirror Interval 1K
 
-    .. data:: MIRROR_INTERVAL2K = 3
+    .. data:: mirror_interval2k = 3
 
     	Mirror Interval 2K
 
-    .. data:: MIRROR_INTERVAL4K = 4
+    .. data:: mirror_interval4k = 4
 
     	Mirror Interval 4K
 
-    .. data:: MIRROR_INTERVAL8K = 5
+    .. data:: mirror_interval8k = 5
 
     	Mirror Interval 8K
 
-    .. data:: MIRROR_INTERVAL16K = 6
+    .. data:: mirror_interval16k = 6
 
     	Mirror Interval 16K
 
     """
 
-    MIRROR_INTERVAL_ALL = 0
+    mirror_interval_all = 0
 
-    MIRROR_INTERVAL512 = 1
+    mirror_interval512 = 1
 
-    MIRROR_INTERVAL1K = 2
+    mirror_interval1k = 2
 
-    MIRROR_INTERVAL2K = 3
+    mirror_interval2k = 3
 
-    MIRROR_INTERVAL4K = 4
+    mirror_interval4k = 4
 
-    MIRROR_INTERVAL8K = 5
+    mirror_interval8k = 5
 
-    MIRROR_INTERVAL16K = 6
+    mirror_interval16k = 6
 
 
     @staticmethod
@@ -261,31 +261,31 @@ class SessionClassEnum(Enum):
 
     Session class
 
-    .. data:: ETHERNET_CLASS = 0
+    .. data:: ethernet_class = 0
 
     	Ethernet mirroring session
 
-    .. data:: IPV4_CLASS = 1
+    .. data:: ipv4_class = 1
 
     	IPv4 mirroring session
 
-    .. data:: IPV6_CLASS = 2
+    .. data:: ipv6_class = 2
 
     	IPv6 mirroring session
 
-    .. data:: INVALID_CLASS = 65535
+    .. data:: invalid_class = 65535
 
     	Invalid session class
 
     """
 
-    ETHERNET_CLASS = 0
+    ethernet_class = 0
 
-    IPV4_CLASS = 1
+    ipv4_class = 1
 
-    IPV6_CLASS = 2
+    ipv6_class = 2
 
-    INVALID_CLASS = 65535
+    invalid_class = 65535
 
 
     @staticmethod
@@ -300,31 +300,31 @@ class TrafficDirectionEnum(Enum):
 
     Monitor\-session traffic directions
 
-    .. data:: INVALID = 0
+    .. data:: invalid = 0
 
     	Invalid
 
-    .. data:: RX_ONLY = 1
+    .. data:: rx_only = 1
 
     	Received
 
-    .. data:: TX_ONLY = 2
+    .. data:: tx_only = 2
 
     	Transmitted
 
-    .. data:: BOTH = 3
+    .. data:: both = 3
 
     	Both
 
     """
 
-    INVALID = 0
+    invalid = 0
 
-    RX_ONLY = 1
+    rx_only = 1
 
-    TX_ONLY = 2
+    tx_only = 2
 
-    BOTH = 3
+    both = 3
 
 
     @staticmethod
@@ -341,12 +341,12 @@ class SpanMonitorSession(object):
     .. attribute:: global_
     
     	Global operational data
-    	**type**\:  :py:class:`Global <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global>`
+    	**type**\:   :py:class:`Global_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_>`
     
     .. attribute:: nodes
     
     	Node table for node\-specific operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes>`
     
     
 
@@ -356,25 +356,25 @@ class SpanMonitorSession(object):
     _revision = '2015-11-09'
 
     def __init__(self):
-        self.global_ = SpanMonitorSession.Global()
+        self.global_ = SpanMonitorSession.Global_()
         self.global_.parent = self
         self.nodes = SpanMonitorSession.Nodes()
         self.nodes.parent = self
 
 
-    class Global(object):
+    class Global_(object):
         """
         Global operational data
         
         .. attribute:: global_sessions
         
         	Global Monitor Sessions table
-        	**type**\:  :py:class:`GlobalSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions>`
+        	**type**\:   :py:class:`GlobalSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions>`
         
         .. attribute:: statistics
         
         	Table of statistics for source interfaces
-        	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.Statistics>`
+        	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.Statistics>`
         
         
 
@@ -385,9 +385,9 @@ class SpanMonitorSession(object):
 
         def __init__(self):
             self.parent = None
-            self.global_sessions = SpanMonitorSession.Global.GlobalSessions()
+            self.global_sessions = SpanMonitorSession.Global_.GlobalSessions()
             self.global_sessions.parent = self
-            self.statistics = SpanMonitorSession.Global.Statistics()
+            self.statistics = SpanMonitorSession.Global_.Statistics()
             self.statistics.parent = self
 
 
@@ -398,7 +398,7 @@ class SpanMonitorSession(object):
             .. attribute:: statistic
             
             	Statistics for a particular source interface
-            	**type**\: list of  :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.Statistics.Statistic>`
+            	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.Statistics.Statistic>`
             
             
 
@@ -537,7 +537,7 @@ class SpanMonitorSession(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                    return meta._meta_table['SpanMonitorSession.Global.Statistics.Statistic']['meta_info']
+                    return meta._meta_table['SpanMonitorSession.Global_.Statistics.Statistic']['meta_info']
 
             @property
             def _common_path(self):
@@ -561,7 +561,7 @@ class SpanMonitorSession(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                return meta._meta_table['SpanMonitorSession.Global.Statistics']['meta_info']
+                return meta._meta_table['SpanMonitorSession.Global_.Statistics']['meta_info']
 
 
         class GlobalSessions(object):
@@ -571,7 +571,7 @@ class SpanMonitorSession(object):
             .. attribute:: global_session
             
             	Information about a globally\-configured monitor session
-            	**type**\: list of  :py:class:`GlobalSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions.GlobalSession>`
+            	**type**\: list of    :py:class:`GlobalSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession>`
             
             
 
@@ -602,7 +602,7 @@ class SpanMonitorSession(object):
                 .. attribute:: destination_data
                 
                 	Destination data
-                	**type**\:  :py:class:`DestinationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData>`
+                	**type**\:   :py:class:`DestinationData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData>`
                 
                 .. attribute:: destination_error
                 
@@ -614,7 +614,7 @@ class SpanMonitorSession(object):
                 .. attribute:: destination_id
                 
                 	Destination ID
-                	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId>`
+                	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId>`
                 
                 .. attribute:: destination_interface_handle
                 
@@ -650,7 +650,7 @@ class SpanMonitorSession(object):
                 .. attribute:: session_class
                 
                 	Session class
-                	**type**\:  :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                 
                 
 
@@ -662,10 +662,10 @@ class SpanMonitorSession(object):
                 def __init__(self):
                     self.parent = None
                     self.session = None
-                    self.destination_data = SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData()
+                    self.destination_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData()
                     self.destination_data.parent = self
                     self.destination_error = None
-                    self.destination_id = SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId()
+                    self.destination_id = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId()
                     self.destination_id.parent = self
                     self.destination_interface_handle = None
                     self.destination_interface_name = None
@@ -682,12 +682,12 @@ class SpanMonitorSession(object):
                     .. attribute:: destination_class
                     
                     	DestinationClass
-                    	**type**\:  :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                    	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                     
                     .. attribute:: interface_data
                     
                     	Interface data
-                    	**type**\:  :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData>`
+                    	**type**\:   :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData>`
                     
                     .. attribute:: invalid_value
                     
@@ -699,17 +699,17 @@ class SpanMonitorSession(object):
                     .. attribute:: next_hop_ipv4_data
                     
                     	Next\-hop IPv4 data
-                    	**type**\:  :py:class:`NextHopIpv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data>`
+                    	**type**\:   :py:class:`NextHopIpv4Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data>`
                     
                     .. attribute:: next_hop_ipv6_data
                     
                     	Next\-hop IPv6 data
-                    	**type**\:  :py:class:`NextHopIpv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data>`
+                    	**type**\:   :py:class:`NextHopIpv6Data <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data>`
                     
                     .. attribute:: pseudowire_data
                     
                     	Pseudowire data
-                    	**type**\:  :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData>`
+                    	**type**\:   :py:class:`PseudowireData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData>`
                     
                     
 
@@ -721,14 +721,14 @@ class SpanMonitorSession(object):
                     def __init__(self):
                         self.parent = None
                         self.destination_class = None
-                        self.interface_data = SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData()
+                        self.interface_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData()
                         self.interface_data.parent = self
                         self.invalid_value = None
-                        self.next_hop_ipv4_data = SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data()
+                        self.next_hop_ipv4_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data()
                         self.next_hop_ipv4_data.parent = self
-                        self.next_hop_ipv6_data = SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data()
+                        self.next_hop_ipv6_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data()
                         self.next_hop_ipv6_data.parent = self
-                        self.pseudowire_data = SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData()
+                        self.pseudowire_data = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData()
                         self.pseudowire_data.parent = self
 
 
@@ -744,7 +744,7 @@ class SpanMonitorSession(object):
                         .. attribute:: interface_state
                         
                         	Interface State
-                        	**type**\:  :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnumEnum>`
+                        	**type**\:   :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnumEnum>`
                         
                         
 
@@ -783,7 +783,7 @@ class SpanMonitorSession(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData']['meta_info']
+                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.InterfaceData']['meta_info']
 
 
                     class PseudowireData(object):
@@ -837,7 +837,7 @@ class SpanMonitorSession(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData']['meta_info']
+                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.PseudowireData']['meta_info']
 
 
                     class NextHopIpv4Data(object):
@@ -902,7 +902,7 @@ class SpanMonitorSession(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data']['meta_info']
+                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data']['meta_info']
 
 
                     class NextHopIpv6Data(object):
@@ -967,7 +967,7 @@ class SpanMonitorSession(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data']['meta_info']
+                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1006,7 +1006,7 @@ class SpanMonitorSession(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                        return meta._meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData']['meta_info']
+                        return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationData']['meta_info']
 
 
                 class DestinationId(object):
@@ -1016,7 +1016,7 @@ class SpanMonitorSession(object):
                     .. attribute:: destination_class
                     
                     	DestinationClass
-                    	**type**\:  :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                    	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                     
                     .. attribute:: interface
                     
@@ -1035,12 +1035,12 @@ class SpanMonitorSession(object):
                     .. attribute:: ipv4_address_and_vrf
                     
                     	IPv4 address
-                    	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf>`
+                    	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf>`
                     
                     .. attribute:: ipv6_address_and_vrf
                     
                     	IPv6 address
-                    	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf>`
+                    	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf>`
                     
                     .. attribute:: pseudowire_id
                     
@@ -1061,9 +1061,9 @@ class SpanMonitorSession(object):
                         self.destination_class = None
                         self.interface = None
                         self.invalid_value = None
-                        self.ipv4_address_and_vrf = SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf()
+                        self.ipv4_address_and_vrf = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf()
                         self.ipv4_address_and_vrf.parent = self
-                        self.ipv6_address_and_vrf = SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf()
+                        self.ipv6_address_and_vrf = SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf()
                         self.ipv6_address_and_vrf.parent = self
                         self.pseudowire_id = None
 
@@ -1121,7 +1121,7 @@ class SpanMonitorSession(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf']['meta_info']
+                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf']['meta_info']
 
 
                     class Ipv6AddressAndVrf(object):
@@ -1177,7 +1177,7 @@ class SpanMonitorSession(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                            return meta._meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf']['meta_info']
+                            return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -1216,7 +1216,7 @@ class SpanMonitorSession(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                        return meta._meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId']['meta_info']
+                        return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession.DestinationId']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -1267,7 +1267,7 @@ class SpanMonitorSession(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                    return meta._meta_table['SpanMonitorSession.Global.GlobalSessions.GlobalSession']['meta_info']
+                    return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions.GlobalSession']['meta_info']
 
             @property
             def _common_path(self):
@@ -1291,7 +1291,7 @@ class SpanMonitorSession(object):
             @staticmethod
             def _meta_info():
                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-                return meta._meta_table['SpanMonitorSession.Global.GlobalSessions']['meta_info']
+                return meta._meta_table['SpanMonitorSession.Global_.GlobalSessions']['meta_info']
 
         @property
         def _common_path(self):
@@ -1316,7 +1316,7 @@ class SpanMonitorSession(object):
         @staticmethod
         def _meta_info():
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_Ethernet_SPAN_oper as meta
-            return meta._meta_table['SpanMonitorSession.Global']['meta_info']
+            return meta._meta_table['SpanMonitorSession.Global_']['meta_info']
 
 
     class Nodes(object):
@@ -1326,7 +1326,7 @@ class SpanMonitorSession(object):
         .. attribute:: node
         
         	Node\-specific data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node>`
         
         
 
@@ -1356,17 +1356,17 @@ class SpanMonitorSession(object):
             .. attribute:: attachments
             
             	Table of source interfaces configured as attached to a session
-            	**type**\:  :py:class:`Attachments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments>`
+            	**type**\:   :py:class:`Attachments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments>`
             
             .. attribute:: hardware_sessions
             
             	Table of sessions set up in the hardware.  When all sessions are operating correctly the entries in this table should match those entries in GlobalSessionTable that have a destination configured
-            	**type**\:  :py:class:`HardwareSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions>`
+            	**type**\:   :py:class:`HardwareSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions>`
             
             .. attribute:: interfaces
             
             	Table of source interfaces set up in the hardware.  The entries in this table should match the entries in AttachmentTable when all sessions are operating correctly
-            	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces>`
+            	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces>`
             
             
 
@@ -1394,7 +1394,7 @@ class SpanMonitorSession(object):
                 .. attribute:: attachment
                 
                 	Information about a particular source interface configured as attached to monitor session
-                	**type**\: list of  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment>`
+                	**type**\: list of    :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment>`
                 
                 
 
@@ -1438,7 +1438,7 @@ class SpanMonitorSession(object):
                     .. attribute:: destination_id
                     
                     	Destination ID
-                    	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId>`
+                    	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId>`
                     
                     .. attribute:: destination_interface
                     
@@ -1450,7 +1450,7 @@ class SpanMonitorSession(object):
                     .. attribute:: global_class
                     
                     	Global session class
-                    	**type**\:  :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                    	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                     
                     .. attribute:: id
                     
@@ -1462,7 +1462,7 @@ class SpanMonitorSession(object):
                     .. attribute:: local_class
                     
                     	Local attachment class
-                    	**type**\:  :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                    	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                     
                     .. attribute:: name
                     
@@ -1491,17 +1491,17 @@ class SpanMonitorSession(object):
                     .. attribute:: source_interface_state
                     
                     	Source interface state
-                    	**type**\:  :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnumEnum>`
+                    	**type**\:   :py:class:`ImStateEnumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.ImStateEnumEnum>`
                     
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by TrafficParameters)
-                    	**type**\:  :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                    	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                     
                     .. attribute:: traffic_parameters
                     
                     	Traffic mirroring parameters
-                    	**type**\:  :py:class:`TrafficParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters>`
+                    	**type**\:   :py:class:`TrafficParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters>`
                     
                     
 
@@ -1547,10 +1547,12 @@ class SpanMonitorSession(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: byte
+                        
                         .. attribute:: mirror_interval
                         
                         	Interval between mirrored packets
-                        	**type**\:  :py:class:`MirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
+                        	**type**\:   :py:class:`MirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
                         
                         .. attribute:: port_level
                         
@@ -1560,7 +1562,7 @@ class SpanMonitorSession(object):
                         .. attribute:: traffic_direction
                         
                         	Direction
-                        	**type**\:  :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                        	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                         
                         
 
@@ -1621,7 +1623,7 @@ class SpanMonitorSession(object):
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\:  :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                        	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                         
                         .. attribute:: interface
                         
@@ -1640,12 +1642,12 @@ class SpanMonitorSession(object):
                         .. attribute:: ipv4_address_and_vrf
                         
                         	IPv4 address
-                        	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf>`
+                        	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf>`
                         
                         .. attribute:: ipv6_address_and_vrf
                         
                         	IPv6 address
-                        	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf>`
+                        	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf>`
                         
                         .. attribute:: pseudowire_id
                         
@@ -1931,7 +1933,7 @@ class SpanMonitorSession(object):
                 .. attribute:: hardware_session
                 
                 	Information about a particular session that is set up in the hardware
-                	**type**\: list of  :py:class:`HardwareSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession>`
+                	**type**\: list of    :py:class:`HardwareSession <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession>`
                 
                 
 
@@ -1955,7 +1957,7 @@ class SpanMonitorSession(object):
                     .. attribute:: destination_id
                     
                     	Destination ID
-                    	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId>`
+                    	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId>`
                     
                     .. attribute:: destination_interface
                     
@@ -1986,12 +1988,12 @@ class SpanMonitorSession(object):
                     .. attribute:: session_class
                     
                     	Sesssion class
-                    	**type**\:  :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
+                    	**type**\:   :py:class:`SpanSessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes.SpanSessionClassEnum>`
                     
                     .. attribute:: session_class_xr
                     
                     	Session class
-                    	**type**\:  :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                    	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                     
                     .. attribute:: session_id
                     
@@ -2027,7 +2029,7 @@ class SpanMonitorSession(object):
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\:  :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                        	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                         
                         .. attribute:: interface
                         
@@ -2046,12 +2048,12 @@ class SpanMonitorSession(object):
                         .. attribute:: ipv4_address_and_vrf
                         
                         	IPv4 address
-                        	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf>`
+                        	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf>`
                         
                         .. attribute:: ipv6_address_and_vrf
                         
                         	IPv6 address
-                        	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf>`
+                        	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf>`
                         
                         .. attribute:: pseudowire_id
                         
@@ -2311,7 +2313,7 @@ class SpanMonitorSession(object):
                 .. attribute:: interface
                 
                 	Information about a particular interface that is set up in the hardware
-                	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface>`
+                	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface>`
                 
                 
 
@@ -2342,12 +2344,12 @@ class SpanMonitorSession(object):
                     .. attribute:: attachment
                     
                     	Attachment information
-                    	**type**\: list of  :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment>`
+                    	**type**\: list of    :py:class:`Attachment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment>`
                     
                     .. attribute:: destination_id
                     
                     	Destination ID (deprecated by Attachment)
-                    	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId>`
+                    	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId>`
                     
                     .. attribute:: destination_interface
                     
@@ -2373,12 +2375,12 @@ class SpanMonitorSession(object):
                     .. attribute:: traffic_direction
                     
                     	Traffic mirroring direction (deprecated by Attachment)
-                    	**type**\:  :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                    	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                     
                     .. attribute:: traffic_mirroring_parameters
                     
                     	Traffic mirroring parameters (deprecated by Attachment)
-                    	**type**\:  :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters>`
+                    	**type**\:   :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters>`
                     
                     
 
@@ -2410,7 +2412,7 @@ class SpanMonitorSession(object):
                         .. attribute:: destination_class
                         
                         	DestinationClass
-                        	**type**\:  :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                        	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                         
                         .. attribute:: interface
                         
@@ -2429,12 +2431,12 @@ class SpanMonitorSession(object):
                         .. attribute:: ipv4_address_and_vrf
                         
                         	IPv4 address
-                        	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf>`
+                        	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf>`
                         
                         .. attribute:: ipv6_address_and_vrf
                         
                         	IPv6 address
-                        	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf>`
+                        	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf>`
                         
                         .. attribute:: pseudowire_id
                         
@@ -2630,10 +2632,12 @@ class SpanMonitorSession(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: byte
+                        
                         .. attribute:: mirror_interval
                         
                         	Interval between mirrored packets
-                        	**type**\:  :py:class:`MirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
+                        	**type**\:   :py:class:`MirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
                         
                         .. attribute:: port_level
                         
@@ -2643,7 +2647,7 @@ class SpanMonitorSession(object):
                         .. attribute:: traffic_direction
                         
                         	Direction
-                        	**type**\:  :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                        	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                         
                         
 
@@ -2704,17 +2708,17 @@ class SpanMonitorSession(object):
                         .. attribute:: class_
                         
                         	Attachment class
-                        	**type**\:  :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
+                        	**type**\:   :py:class:`SessionClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SessionClassEnum>`
                         
                         .. attribute:: destination_id
                         
                         	Destination ID
-                        	**type**\:  :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId>`
+                        	**type**\:   :py:class:`DestinationId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId>`
                         
                         .. attribute:: traffic_mirroring_parameters
                         
                         	Traffic mirroring parameters
-                        	**type**\:  :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters>`
+                        	**type**\:   :py:class:`TrafficMirroringParameters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters>`
                         
                         
 
@@ -2739,7 +2743,7 @@ class SpanMonitorSession(object):
                             .. attribute:: destination_class
                             
                             	DestinationClass
-                            	**type**\:  :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
+                            	**type**\:   :py:class:`DestinationClassEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.DestinationClassEnum>`
                             
                             .. attribute:: interface
                             
@@ -2758,12 +2762,12 @@ class SpanMonitorSession(object):
                             .. attribute:: ipv4_address_and_vrf
                             
                             	IPv4 address
-                            	**type**\:  :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf>`
+                            	**type**\:   :py:class:`Ipv4AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf>`
                             
                             .. attribute:: ipv6_address_and_vrf
                             
                             	IPv6 address
-                            	**type**\:  :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf>`
+                            	**type**\:   :py:class:`Ipv6AddressAndVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf>`
                             
                             .. attribute:: pseudowire_id
                             
@@ -2958,10 +2962,12 @@ class SpanMonitorSession(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: byte
+                            
                             .. attribute:: mirror_interval
                             
                             	Interval between mirrored packets
-                            	**type**\:  :py:class:`MirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
+                            	**type**\:   :py:class:`MirrorIntervalEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.MirrorIntervalEnum>`
                             
                             .. attribute:: port_level
                             
@@ -2971,7 +2977,7 @@ class SpanMonitorSession(object):
                             .. attribute:: traffic_direction
                             
                             	Direction
-                            	**type**\:  :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
+                            	**type**\:   :py:class:`TrafficDirectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper.TrafficDirectionEnum>`
                             
                             
 

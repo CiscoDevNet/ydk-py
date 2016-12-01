@@ -16,69 +16,69 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'WredEnum' : _MetaInfoEnum('WredEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
-            'wred-cos-cmd':'WRED_COS_CMD',
-            'wred-dscp-cmd':'WRED_DSCP_CMD',
-            'wred-precedence-cmd':'WRED_PRECEDENCE_CMD',
-            'wred-discard-class-cmd':'WRED_DISCARD_CLASS_CMD',
-            'wred-mpls-exp-cmd':'WRED_MPLS_EXP_CMD',
-            'red-with-user-min-max':'RED_WITH_USER_MIN_MAX',
-            'red-with-default-min-max':'RED_WITH_DEFAULT_MIN_MAX',
-            'wred-dei-cmd':'WRED_DEI_CMD',
-            'wred-ecn-cmd':'WRED_ECN_CMD',
-            'wred-invalid-cmd':'WRED_INVALID_CMD',
+            'wred-cos-cmd':'wred_cos_cmd',
+            'wred-dscp-cmd':'wred_dscp_cmd',
+            'wred-precedence-cmd':'wred_precedence_cmd',
+            'wred-discard-class-cmd':'wred_discard_class_cmd',
+            'wred-mpls-exp-cmd':'wred_mpls_exp_cmd',
+            'red-with-user-min-max':'red_with_user_min_max',
+            'red-with-default-min-max':'red_with_default_min_max',
+            'wred-dei-cmd':'wred_dei_cmd',
+            'wred-ecn-cmd':'wred_ecn_cmd',
+            'wred-invalid-cmd':'wred_invalid_cmd',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
     'PolicyParamUnitEnum' : _MetaInfoEnum('PolicyParamUnitEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
-            'policy-param-unit-invalid':'POLICY_PARAM_UNIT_INVALID',
-            'policy-param-unit-bytes':'POLICY_PARAM_UNIT_BYTES',
-            'policy-param-unit-kbytes':'POLICY_PARAM_UNIT_KBYTES',
-            'policy-param-unit-mbytes':'POLICY_PARAM_UNIT_MBYTES',
-            'policy-param-unit-gbytes':'POLICY_PARAM_UNIT_GBYTES',
-            'policy-param-unit-bitsps':'POLICY_PARAM_UNIT_BITSPS',
-            'policy-param-unit-kbitsps':'POLICY_PARAM_UNIT_KBITSPS',
-            'policy-param-unit-mbitsps':'POLICY_PARAM_UNIT_MBITSPS',
-            'policy-param-unit-gbitsps':'POLICY_PARAM_UNIT_GBITSPS',
-            'policy-param-unit-cells-ps':'POLICY_PARAM_UNIT_CELLS_PS',
-            'policy-param-unit-packets-ps':'POLICY_PARAM_UNIT_PACKETS_PS',
-            'policy-param-unit-us':'POLICY_PARAM_UNIT_US',
-            'policy-param-unit-ms':'POLICY_PARAM_UNIT_MS',
-            'policy-param-unit-seconds':'POLICY_PARAM_UNIT_SECONDS',
-            'policy-param-unit-packets':'POLICY_PARAM_UNIT_PACKETS',
-            'policy-param-unit-cells':'POLICY_PARAM_UNIT_CELLS',
-            'policy-param-unit-percent':'POLICY_PARAM_UNIT_PERCENT',
-            'policy-param-unit-per-thousand':'POLICY_PARAM_UNIT_PER_THOUSAND',
-            'policy-param-unit-per-million':'POLICY_PARAM_UNIT_PER_MILLION',
-            'policy-param-unit-hz':'POLICY_PARAM_UNIT_HZ',
-            'policy-param-unit-khz':'POLICY_PARAM_UNIT_KHZ',
-            'policy-param-unit-mhz':'POLICY_PARAM_UNIT_MHZ',
-            'policy-param-unit-ratio':'POLICY_PARAM_UNIT_RATIO',
-            'policy-param-unit-max':'POLICY_PARAM_UNIT_MAX',
+            'policy-param-unit-invalid':'policy_param_unit_invalid',
+            'policy-param-unit-bytes':'policy_param_unit_bytes',
+            'policy-param-unit-kbytes':'policy_param_unit_kbytes',
+            'policy-param-unit-mbytes':'policy_param_unit_mbytes',
+            'policy-param-unit-gbytes':'policy_param_unit_gbytes',
+            'policy-param-unit-bitsps':'policy_param_unit_bitsps',
+            'policy-param-unit-kbitsps':'policy_param_unit_kbitsps',
+            'policy-param-unit-mbitsps':'policy_param_unit_mbitsps',
+            'policy-param-unit-gbitsps':'policy_param_unit_gbitsps',
+            'policy-param-unit-cells-ps':'policy_param_unit_cells_ps',
+            'policy-param-unit-packets-ps':'policy_param_unit_packets_ps',
+            'policy-param-unit-us':'policy_param_unit_us',
+            'policy-param-unit-ms':'policy_param_unit_ms',
+            'policy-param-unit-seconds':'policy_param_unit_seconds',
+            'policy-param-unit-packets':'policy_param_unit_packets',
+            'policy-param-unit-cells':'policy_param_unit_cells',
+            'policy-param-unit-percent':'policy_param_unit_percent',
+            'policy-param-unit-per-thousand':'policy_param_unit_per_thousand',
+            'policy-param-unit-per-million':'policy_param_unit_per_million',
+            'policy-param-unit-hz':'policy_param_unit_hz',
+            'policy-param-unit-khz':'policy_param_unit_khz',
+            'policy-param-unit-mhz':'policy_param_unit_mhz',
+            'policy-param-unit-ratio':'policy_param_unit_ratio',
+            'policy-param-unit-max':'policy_param_unit_max',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
     'QosCapsOperationEnumEnum' : _MetaInfoEnum('QosCapsOperationEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
-            'add':'ADD',
-            'remove':'REMOVE',
-            'replace':'REPLACE',
-            'modify':'MODIFY',
-            'unknown':'UNKNOWN',
+            'add':'add',
+            'remove':'remove',
+            'replace':'replace',
+            'modify':'modify',
+            'unknown':'unknown',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
     'CacStateEnum' : _MetaInfoEnum('CacStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
-            'unknown':'UNKNOWN',
-            'admit':'ADMIT',
-            'redirect':'REDIRECT',
-            'ubrl':'UBRL',
+            'unknown':'unknown',
+            'admit':'admit',
+            'redirect':'redirect',
+            'ubrl':'ubrl',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
     'QosMaSatCapsTypeEnumEnum' : _MetaInfoEnum('QosMaSatCapsTypeEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
-            'input':'INPUT',
-            'output':'OUTPUT',
-            'unknown':'UNKNOWN',
+            'input':'input',
+            'output':'output',
+            'unknown':'unknown',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
     'PolicyStateEnum' : _MetaInfoEnum('PolicyStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper',
         {
-            'active':'ACTIVE',
-            'suspended':'SUSPENDED',
+            'active':'active',
+            'suspended':'suspended',
         }, 'Cisco-IOS-XR-qos-ma-oper', _yang_ns._namespaces['Cisco-IOS-XR-qos-ma-oper']),
     'Qos.NvInterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.GeneralStats' : {
         'meta_info' : _MetaInfoClass('Qos.NvInterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.GeneralStats',
@@ -21646,8 +21646,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.GeneralStats' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.GeneralStats',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.GeneralStats' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.GeneralStats',
             False, 
             [
             _MetaInfoClassMember('match-data-rate', ATTRIBUTE, 'int' , None, None, 
@@ -21711,8 +21711,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.IphcStats' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.IphcStats',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.IphcStats' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.IphcStats',
             False, 
             [
             _MetaInfoClassMember('non-tcp-bytes-saved', ATTRIBUTE, 'int' , None, None, 
@@ -21794,8 +21794,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.ChildPolicy' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.ChildPolicy',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.ChildPolicy' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.ChildPolicy',
             False, 
             [
             ],
@@ -21805,8 +21805,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.CacStats' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.CacStats',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.CacStats' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.CacStats',
             False, 
             [
             _MetaInfoClassMember('admit-bytes', ATTRIBUTE, 'int' , None, None, 
@@ -21852,8 +21852,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
             _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'PolicyParamUnitEnum', 
@@ -21875,8 +21875,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
             _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'PolicyParamUnitEnum', 
@@ -21898,8 +21898,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
             _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'PolicyParamUnitEnum', 
@@ -21921,8 +21921,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray',
             False, 
             [
             _MetaInfoClassMember('atm-clp0-drop-bytes', ATTRIBUTE, 'int' , None, None, 
@@ -22006,7 +22006,7 @@ _meta_table = {
                 ''',
                 'max_threshold_packets',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('queue-average-length', REFERENCE_LIST, 'QueueAverageLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength', 
+            _MetaInfoClassMember('queue-average-length', REFERENCE_LIST, 'QueueAverageLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength', 
                 [], [], 
                 '''                Queue average length
                 ''',
@@ -22024,13 +22024,13 @@ _meta_table = {
                 ''',
                 'queue_id',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('queue-instance-length', REFERENCE_LIST, 'QueueInstanceLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength', 
+            _MetaInfoClassMember('queue-instance-length', REFERENCE_LIST, 'QueueInstanceLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength', 
                 [], [], 
                 '''                Queue instance length
                 ''',
                 'queue_instance_length',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('queue-max-length', REFERENCE_LIST, 'QueueMaxLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength', 
+            _MetaInfoClassMember('queue-max-length', REFERENCE_LIST, 'QueueMaxLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength', 
                 [], [], 
                 '''                Queue maximum length
                 ''',
@@ -22067,8 +22067,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.PoliceStatsArray.ColorClassStats' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.PoliceStatsArray.ColorClassStats',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.PoliceStatsArray.ColorClassStats' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.PoliceStatsArray.ColorClassStats',
             False, 
             [
             _MetaInfoClassMember('conform-class-conform-bytes', ATTRIBUTE, 'int' , None, None, 
@@ -22198,11 +22198,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.PoliceStatsArray' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.PoliceStatsArray',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.PoliceStatsArray' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.PoliceStatsArray',
             False, 
             [
-            _MetaInfoClassMember('color-class-stats', REFERENCE_CLASS, 'ColorClassStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.PoliceStatsArray.ColorClassStats', 
+            _MetaInfoClassMember('color-class-stats', REFERENCE_CLASS, 'ColorClassStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.PoliceStatsArray.ColorClassStats', 
                 [], [], 
                 '''                color class stats
                 ''',
@@ -22293,8 +22293,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.WredStatsArray.RedLabel' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.WredStatsArray.RedLabel',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.WredStatsArray.RedLabel' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.WredStatsArray.RedLabel',
             False, 
             [
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
@@ -22316,8 +22316,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.WredStatsArray' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.WredStatsArray',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.WredStatsArray' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.WredStatsArray',
             False, 
             [
             _MetaInfoClassMember('max-threshold-bytes', ATTRIBUTE, 'int' , None, None, 
@@ -22364,7 +22364,7 @@ _meta_table = {
                 ''',
                 'red_ecn_marked_packets',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('red-label', REFERENCE_LIST, 'RedLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.WredStatsArray.RedLabel', 
+            _MetaInfoClassMember('red-label', REFERENCE_LIST, 'RedLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.WredStatsArray.RedLabel', 
                 [], [], 
                 '''                Array of WRED Typevalues as in PRP stats is
                 available per threshold   
@@ -22390,8 +22390,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat',
             False, 
             [
             _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'CacStateEnum', 
@@ -22400,13 +22400,13 @@ _meta_table = {
                 ''',
                 'cac_state',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('cac-stats', REFERENCE_CLASS, 'CacStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.CacStats', 
+            _MetaInfoClassMember('cac-stats', REFERENCE_CLASS, 'CacStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.CacStats', 
                 [], [], 
                 '''                bag for cac stats
                 ''',
                 'cac_stats',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('child-policy', REFERENCE_CLASS, 'ChildPolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.ChildPolicy', 
+            _MetaInfoClassMember('child-policy', REFERENCE_CLASS, 'ChildPolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.ChildPolicy', 
                 [], [], 
                 '''                child policy
                 ''',
@@ -22468,19 +22468,19 @@ _meta_table = {
                 ''',
                 'counter_validity_bitmask',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('general-stats', REFERENCE_CLASS, 'GeneralStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.GeneralStats', 
+            _MetaInfoClassMember('general-stats', REFERENCE_CLASS, 'GeneralStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.GeneralStats', 
                 [], [], 
                 '''                general stats
                 ''',
                 'general_stats',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('iphc-stats', REFERENCE_CLASS, 'IphcStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.IphcStats', 
+            _MetaInfoClassMember('iphc-stats', REFERENCE_CLASS, 'IphcStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.IphcStats', 
                 [], [], 
                 '''                IPHC stats
                 ''',
                 'iphc_stats',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('police-stats-array', REFERENCE_LIST, 'PoliceStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.PoliceStatsArray', 
+            _MetaInfoClassMember('police-stats-array', REFERENCE_LIST, 'PoliceStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.PoliceStatsArray', 
                 [], [], 
                 '''                array of police stats
                 ''',
@@ -22492,7 +22492,7 @@ _meta_table = {
                 ''',
                 'queue_descr',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('queue-stats-array', REFERENCE_LIST, 'QueueStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray', 
+            _MetaInfoClassMember('queue-stats-array', REFERENCE_LIST, 'QueueStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray', 
                 [], [], 
                 '''                array of queue stats
                 ''',
@@ -22504,7 +22504,7 @@ _meta_table = {
                 ''',
                 'shared_queue_id',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('wred-stats-array', REFERENCE_LIST, 'WredStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.WredStatsArray', 
+            _MetaInfoClassMember('wred-stats-array', REFERENCE_LIST, 'WredStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.WredStatsArray', 
                 [], [], 
                 '''                array of red stats
                 ''',
@@ -22517,11 +22517,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics',
             False, 
             [
-            _MetaInfoClassMember('class-stat', REFERENCE_LIST, 'ClassStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat', 
+            _MetaInfoClassMember('class-stat', REFERENCE_LIST, 'ClassStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat', 
                 [], [], 
                 '''                array of classes contained in policy
                 ''',
@@ -22558,11 +22558,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input',
             False, 
             [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics', 
                 [], [], 
                 '''                Policy-map statistics operational data for an
                 interface
@@ -22576,8 +22576,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.GeneralStats' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.GeneralStats',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.GeneralStats' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.GeneralStats',
             False, 
             [
             _MetaInfoClassMember('match-data-rate', ATTRIBUTE, 'int' , None, None, 
@@ -22641,8 +22641,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.IphcStats' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.IphcStats',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.IphcStats' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.IphcStats',
             False, 
             [
             _MetaInfoClassMember('non-tcp-bytes-saved', ATTRIBUTE, 'int' , None, None, 
@@ -22724,8 +22724,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.ChildPolicy' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.ChildPolicy',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.ChildPolicy' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.ChildPolicy',
             False, 
             [
             ],
@@ -22735,8 +22735,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.CacStats' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.CacStats',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.CacStats' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.CacStats',
             False, 
             [
             _MetaInfoClassMember('admit-bytes', ATTRIBUTE, 'int' , None, None, 
@@ -22782,8 +22782,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength',
             False, 
             [
             _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'PolicyParamUnitEnum', 
@@ -22805,8 +22805,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength',
             False, 
             [
             _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'PolicyParamUnitEnum', 
@@ -22828,8 +22828,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength',
             False, 
             [
             _MetaInfoClassMember('unit', REFERENCE_ENUM_CLASS, 'PolicyParamUnitEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'PolicyParamUnitEnum', 
@@ -22851,8 +22851,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray',
             False, 
             [
             _MetaInfoClassMember('atm-clp0-drop-bytes', ATTRIBUTE, 'int' , None, None, 
@@ -22936,7 +22936,7 @@ _meta_table = {
                 ''',
                 'max_threshold_packets',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('queue-average-length', REFERENCE_LIST, 'QueueAverageLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength', 
+            _MetaInfoClassMember('queue-average-length', REFERENCE_LIST, 'QueueAverageLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength', 
                 [], [], 
                 '''                Queue average length
                 ''',
@@ -22954,13 +22954,13 @@ _meta_table = {
                 ''',
                 'queue_id',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('queue-instance-length', REFERENCE_LIST, 'QueueInstanceLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength', 
+            _MetaInfoClassMember('queue-instance-length', REFERENCE_LIST, 'QueueInstanceLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength', 
                 [], [], 
                 '''                Queue instance length
                 ''',
                 'queue_instance_length',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('queue-max-length', REFERENCE_LIST, 'QueueMaxLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength', 
+            _MetaInfoClassMember('queue-max-length', REFERENCE_LIST, 'QueueMaxLength' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength', 
                 [], [], 
                 '''                Queue maximum length
                 ''',
@@ -22997,8 +22997,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.PoliceStatsArray.ColorClassStats' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.PoliceStatsArray.ColorClassStats',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.PoliceStatsArray.ColorClassStats' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.PoliceStatsArray.ColorClassStats',
             False, 
             [
             _MetaInfoClassMember('conform-class-conform-bytes', ATTRIBUTE, 'int' , None, None, 
@@ -23128,11 +23128,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.PoliceStatsArray' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.PoliceStatsArray',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.PoliceStatsArray' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.PoliceStatsArray',
             False, 
             [
-            _MetaInfoClassMember('color-class-stats', REFERENCE_CLASS, 'ColorClassStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.PoliceStatsArray.ColorClassStats', 
+            _MetaInfoClassMember('color-class-stats', REFERENCE_CLASS, 'ColorClassStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.PoliceStatsArray.ColorClassStats', 
                 [], [], 
                 '''                color class stats
                 ''',
@@ -23223,8 +23223,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.WredStatsArray.RedLabel' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.WredStatsArray.RedLabel',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.WredStatsArray.RedLabel' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.WredStatsArray.RedLabel',
             False, 
             [
             _MetaInfoClassMember('value', ATTRIBUTE, 'int' , None, None, 
@@ -23246,8 +23246,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.WredStatsArray' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.WredStatsArray',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.WredStatsArray' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.WredStatsArray',
             False, 
             [
             _MetaInfoClassMember('max-threshold-bytes', ATTRIBUTE, 'int' , None, None, 
@@ -23294,7 +23294,7 @@ _meta_table = {
                 ''',
                 'red_ecn_marked_packets',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('red-label', REFERENCE_LIST, 'RedLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.WredStatsArray.RedLabel', 
+            _MetaInfoClassMember('red-label', REFERENCE_LIST, 'RedLabel' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.WredStatsArray.RedLabel', 
                 [], [], 
                 '''                Array of WRED Typevalues as in PRP stats is
                 available per threshold   
@@ -23320,8 +23320,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat',
             False, 
             [
             _MetaInfoClassMember('cac-state', REFERENCE_ENUM_CLASS, 'CacStateEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'CacStateEnum', 
@@ -23330,13 +23330,13 @@ _meta_table = {
                 ''',
                 'cac_state',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('cac-stats', REFERENCE_CLASS, 'CacStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.CacStats', 
+            _MetaInfoClassMember('cac-stats', REFERENCE_CLASS, 'CacStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.CacStats', 
                 [], [], 
                 '''                bag for cac stats
                 ''',
                 'cac_stats',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('child-policy', REFERENCE_CLASS, 'ChildPolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.ChildPolicy', 
+            _MetaInfoClassMember('child-policy', REFERENCE_CLASS, 'ChildPolicy' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.ChildPolicy', 
                 [], [], 
                 '''                child policy
                 ''',
@@ -23398,19 +23398,19 @@ _meta_table = {
                 ''',
                 'counter_validity_bitmask',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('general-stats', REFERENCE_CLASS, 'GeneralStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.GeneralStats', 
+            _MetaInfoClassMember('general-stats', REFERENCE_CLASS, 'GeneralStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.GeneralStats', 
                 [], [], 
                 '''                general stats
                 ''',
                 'general_stats',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('iphc-stats', REFERENCE_CLASS, 'IphcStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.IphcStats', 
+            _MetaInfoClassMember('iphc-stats', REFERENCE_CLASS, 'IphcStats' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.IphcStats', 
                 [], [], 
                 '''                IPHC stats
                 ''',
                 'iphc_stats',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('police-stats-array', REFERENCE_LIST, 'PoliceStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.PoliceStatsArray', 
+            _MetaInfoClassMember('police-stats-array', REFERENCE_LIST, 'PoliceStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.PoliceStatsArray', 
                 [], [], 
                 '''                array of police stats
                 ''',
@@ -23422,7 +23422,7 @@ _meta_table = {
                 ''',
                 'queue_descr',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('queue-stats-array', REFERENCE_LIST, 'QueueStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray', 
+            _MetaInfoClassMember('queue-stats-array', REFERENCE_LIST, 'QueueStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray', 
                 [], [], 
                 '''                array of queue stats
                 ''',
@@ -23434,7 +23434,7 @@ _meta_table = {
                 ''',
                 'shared_queue_id',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('wred-stats-array', REFERENCE_LIST, 'WredStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.WredStatsArray', 
+            _MetaInfoClassMember('wred-stats-array', REFERENCE_LIST, 'WredStatsArray' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.WredStatsArray', 
                 [], [], 
                 '''                array of red stats
                 ''',
@@ -23447,11 +23447,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics',
             False, 
             [
-            _MetaInfoClassMember('class-stat', REFERENCE_LIST, 'ClassStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat', 
+            _MetaInfoClassMember('class-stat', REFERENCE_LIST, 'ClassStat' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat', 
                 [], [], 
                 '''                array of classes contained in policy
                 ''',
@@ -23488,11 +23488,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output',
             False, 
             [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics', 
                 [], [], 
                 '''                Policy-map statistics operational data for an
                 interface
@@ -23506,8 +23506,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_',
             False, 
             [
             _MetaInfoClassMember('node-name', ATTRIBUTE, 'str' , None, None, 
@@ -23516,14 +23516,14 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-qos-ma-oper', True),
-            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input', 
+            _MetaInfoClassMember('input', REFERENCE_CLASS, 'Input' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input', 
                 [], [], 
                 '''                A piece of QoS policy-map operational data for
                 an interface
                 ''',
                 'input',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output', 
+            _MetaInfoClassMember('output', REFERENCE_CLASS, 'Output' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output', 
                 [], [], 
                 '''                A piece of QoS policy-map operational data for
                 an interface
@@ -23537,11 +23537,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper'
         ),
     },
-    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes' : {
-        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes',
+    'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_' : {
+        'meta_info' : _MetaInfoClass('Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_',
             False, 
             [
-            _MetaInfoClassMember('node', REFERENCE_LIST, 'Node' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node', 
+            _MetaInfoClassMember('node', REFERENCE_LIST, 'Node_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_', 
                 [], [], 
                 '''                QoS operational data for a particular node
                 ''',
@@ -31167,7 +31167,7 @@ _meta_table = {
                 ''',
                 'member_interfaces',
                 'Cisco-IOS-XR-qos-ma-oper', False),
-            _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes', 
+            _MetaInfoClassMember('nodes', REFERENCE_CLASS, 'Nodes_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper', 'Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_', 
                 [], [], 
                 '''                QoS policy-map node table
                 ''',
@@ -44205,37 +44205,37 @@ _meta_table['Qos.Nodes.Node.PolicyMap.SharedPolicyInstances.SharedPolicyInstance
 _meta_table['Qos.Nodes.Node.PolicyMap.SharedPolicyInstances.SharedPolicyInstance.Input']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.SharedPolicyInstances.SharedPolicyInstance']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.SharedPolicyInstances.SharedPolicyInstance.Output']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.SharedPolicyInstances.SharedPolicyInstance']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.SharedPolicyInstances.SharedPolicyInstance']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.SharedPolicyInstances']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.PoliceStatsArray.ColorClassStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.PoliceStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.WredStatsArray.RedLabel']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.WredStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.GeneralStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.IphcStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.ChildPolicy']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.CacStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.QueueStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.PoliceStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat.WredStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics.ClassStat']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input.Statistics']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.PoliceStatsArray.ColorClassStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.PoliceStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.WredStatsArray.RedLabel']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.WredStatsArray']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.GeneralStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.IphcStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.ChildPolicy']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.CacStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.QueueStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.PoliceStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat.WredStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics.ClassStat']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output.Statistics']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Input']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node.Output']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes.Node']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.PoliceStatsArray.ColorClassStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.PoliceStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.WredStatsArray.RedLabel']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.WredStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.GeneralStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.IphcStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.ChildPolicy']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.CacStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.QueueStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.PoliceStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat.WredStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics.ClassStat']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input.Statistics']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueAverageLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray.QueueMaxLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.PoliceStatsArray.ColorClassStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.PoliceStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.WredStatsArray.RedLabel']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.WredStatsArray']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.GeneralStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.IphcStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.ChildPolicy']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.CacStats']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.QueueStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.PoliceStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat.WredStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics.ClassStat']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output.Statistics']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Input']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_.Output']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_.Node_']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueInstanceLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueAverageLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray.QueueMaxLength']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces.MemberInterface.SatelliteIds.SatelliteId.Input.Statistics.ClassStat.QueueStatsArray']['meta_info']
@@ -44358,7 +44358,7 @@ _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics
 _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics.ClassStat.WredStatsArray']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics.ClassStat']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics.ClassStat']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output.Statistics']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Output']['meta_info']
-_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface']['meta_info']
+_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Nodes_']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.MemberInterfaces']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.SatelliteIds']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface']['meta_info']
 _meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface.Input']['meta_info'].parent =_meta_table['Qos.Nodes.Node.PolicyMap.InterfaceTable.Interface']['meta_info']

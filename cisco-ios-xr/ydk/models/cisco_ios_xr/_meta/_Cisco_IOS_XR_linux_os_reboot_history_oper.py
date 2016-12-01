@@ -14,8 +14,8 @@ from ydk.errors import YPYError, YPYModelError
 from ydk.providers._importer import _yang_ns
 
 _meta_table = {
-    'RebootHistory.Node.RebootHistory' : {
-        'meta_info' : _MetaInfoClass('RebootHistory.Node.RebootHistory',
+    'RebootHistory.Node.RebootHistory_' : {
+        'meta_info' : _MetaInfoClass('RebootHistory.Node.RebootHistory_',
             False, 
             [
             _MetaInfoClassMember('cause-code', ATTRIBUTE, 'int' , None, None, 
@@ -59,7 +59,7 @@ _meta_table = {
                 ''',
                 'node_name',
                 'Cisco-IOS-XR-linux-os-reboot-history-oper', True),
-            _MetaInfoClassMember('reboot-history', REFERENCE_LIST, 'RebootHistory' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper', 'RebootHistory.Node.RebootHistory', 
+            _MetaInfoClassMember('reboot-history', REFERENCE_LIST, 'RebootHistory_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_linux_os_reboot_history_oper', 'RebootHistory.Node.RebootHistory_', 
                 [], [], 
                 '''                Last Reboots
                 ''',
@@ -90,5 +90,5 @@ _meta_table = {
         ),
     },
 }
-_meta_table['RebootHistory.Node.RebootHistory']['meta_info'].parent =_meta_table['RebootHistory.Node']['meta_info']
+_meta_table['RebootHistory.Node.RebootHistory_']['meta_info'].parent =_meta_table['RebootHistory.Node']['meta_info']
 _meta_table['RebootHistory.Node']['meta_info'].parent =_meta_table['RebootHistory']['meta_info']

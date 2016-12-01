@@ -35,12 +35,12 @@ class Sbfd(object):
     .. attribute:: local_discriminator
     
     	Configure local discriminator
-    	**type**\:  :py:class:`LocalDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator>`
+    	**type**\:   :py:class:`LocalDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator>`
     
     .. attribute:: remote_target
     
     	configure remote target
-    	**type**\:  :py:class:`RemoteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget>`
+    	**type**\:   :py:class:`RemoteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget>`
     
     
 
@@ -63,12 +63,12 @@ class Sbfd(object):
         .. attribute:: ipv4_addresses
         
         	ipv4 address as target
-        	**type**\:  :py:class:`Ipv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv4Addresses>`
+        	**type**\:   :py:class:`Ipv4Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv4Addresses>`
         
         .. attribute:: ipv6_addresses
         
         	ipv6 address as target
-        	**type**\:  :py:class:`Ipv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv6Addresses>`
+        	**type**\:   :py:class:`Ipv6Addresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv6Addresses>`
         
         
 
@@ -92,7 +92,7 @@ class Sbfd(object):
             .. attribute:: ipv4_address
             
             	IP Address Value for RemoteDiscriminatorTable
-            	**type**\: list of  :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address>`
+            	**type**\: list of    :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address>`
             
             
 
@@ -122,7 +122,7 @@ class Sbfd(object):
                 .. attribute:: remote_discriminator
                 
                 	Remote Discriminator value
-                	**type**\: list of  :py:class:`RemoteDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator>`
+                	**type**\: list of    :py:class:`RemoteDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv4Addresses.Ipv4Address.RemoteDiscriminator>`
                 
                 
 
@@ -248,7 +248,7 @@ class Sbfd(object):
             .. attribute:: ipv6_address
             
             	IP Address Value for RemoteDiscriminatorTable
-            	**type**\: list of  :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address>`
+            	**type**\: list of    :py:class:`Ipv6Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address>`
             
             
 
@@ -278,7 +278,7 @@ class Sbfd(object):
                 .. attribute:: remote_discriminator
                 
                 	Remote Discriminator value
-                	**type**\: list of  :py:class:`RemoteDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator>`
+                	**type**\: list of    :py:class:`RemoteDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.RemoteTarget.Ipv6Addresses.Ipv6Address.RemoteDiscriminator>`
                 
                 
 
@@ -429,22 +429,22 @@ class Sbfd(object):
         .. attribute:: dynamic_discriminators
         
         	Configure local discriminator dynamically
-        	**type**\:  :py:class:`DynamicDiscriminators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.DynamicDiscriminators>`
+        	**type**\:   :py:class:`DynamicDiscriminators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.DynamicDiscriminators>`
         
         .. attribute:: intf_discriminators
         
         	Configure local discriminator from interface address
-        	**type**\:  :py:class:`IntfDiscriminators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.IntfDiscriminators>`
+        	**type**\:   :py:class:`IntfDiscriminators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.IntfDiscriminators>`
         
         .. attribute:: ipv4_discriminators
         
         	Configure local discriminator as an ipv4 address
-        	**type**\:  :py:class:`Ipv4Discriminators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.Ipv4Discriminators>`
+        	**type**\:   :py:class:`Ipv4Discriminators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.Ipv4Discriminators>`
         
         .. attribute:: val32_discriminators
         
         	Configure local discriminator as an integer
-        	**type**\:  :py:class:`Val32Discriminators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.Val32Discriminators>`
+        	**type**\:   :py:class:`Val32Discriminators <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.Val32Discriminators>`
         
         
 
@@ -473,7 +473,7 @@ class Sbfd(object):
             .. attribute:: intf_discriminator
             
             	interface address as discriminator
-            	**type**\: list of  :py:class:`IntfDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.IntfDiscriminators.IntfDiscriminator>`
+            	**type**\: list of    :py:class:`IntfDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.IntfDiscriminators.IntfDiscriminator>`
             
             
 
@@ -567,7 +567,7 @@ class Sbfd(object):
             .. attribute:: dynamic_discriminator
             
             	Local discriminator value
-            	**type**\: list of  :py:class:`DynamicDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.DynamicDiscriminators.DynamicDiscriminator>`
+            	**type**\: list of    :py:class:`DynamicDiscriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.DynamicDiscriminators.DynamicDiscriminator>`
             
             
 
@@ -662,7 +662,7 @@ class Sbfd(object):
             .. attribute:: ipv4_discriminator
             
             	ipv4 address as discriminator
-            	**type**\: list of  :py:class:`Ipv4Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.Ipv4Discriminators.Ipv4Discriminator>`
+            	**type**\: list of    :py:class:`Ipv4Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.Ipv4Discriminators.Ipv4Discriminator>`
             
             
 
@@ -766,7 +766,7 @@ class Sbfd(object):
             .. attribute:: val32_discriminator
             
             	Local discriminator value
-            	**type**\: list of  :py:class:`Val32Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.Val32Discriminators.Val32Discriminator>`
+            	**type**\: list of    :py:class:`Val32Discriminator <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg.Sbfd.LocalDiscriminator.Val32Discriminators.Val32Discriminator>`
             
             
 

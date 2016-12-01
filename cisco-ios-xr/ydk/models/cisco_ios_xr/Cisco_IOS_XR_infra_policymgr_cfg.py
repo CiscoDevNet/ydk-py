@@ -26,49 +26,49 @@ class AuthorizeIdentifierEnum(Enum):
 
     Authorize identifier.
 
-    .. data:: CIRCUIT_ID = 0
+    .. data:: circuit_id = 0
 
     	Authorize circuit ID.
 
-    .. data:: DHCP_CLIENT_ID = 1
+    .. data:: dhcp_client_id = 1
 
     	Authorize dhcp client ID.
 
-    .. data:: REMOTE_ID = 2
+    .. data:: remote_id = 2
 
     	Authorize remote ID.
 
-    .. data:: SOURCE_ADDRESS_IPV4 = 3
+    .. data:: source_address_ipv4 = 3
 
     	Authorize source IPv4 address.
 
-    .. data:: SOURCE_ADDRESS_IPV6 = 4
+    .. data:: source_address_ipv6 = 4
 
     	Authorize source IPv6 address.
 
-    .. data:: SOURCE_ADDRESS_MAC = 5
+    .. data:: source_address_mac = 5
 
     	Authorize source MAC address.
 
-    .. data:: USERNAME = 6
+    .. data:: username = 6
 
     	Authorize username.
 
     """
 
-    CIRCUIT_ID = 0
+    circuit_id = 0
 
-    DHCP_CLIENT_ID = 1
+    dhcp_client_id = 1
 
-    REMOTE_ID = 2
+    remote_id = 2
 
-    SOURCE_ADDRESS_IPV4 = 3
+    source_address_ipv4 = 3
 
-    SOURCE_ADDRESS_IPV6 = 4
+    source_address_ipv6 = 4
 
-    SOURCE_ADDRESS_MAC = 5
+    source_address_mac = 5
 
-    USERNAME = 6
+    username = 6
 
 
     @staticmethod
@@ -83,25 +83,25 @@ class ClassMapTypeEnum(Enum):
 
     Policy manager class\-map type.
 
-    .. data:: QOS = 1
+    .. data:: qos = 1
 
     	QoS Classmap.
 
-    .. data:: TRAFFIC = 3
+    .. data:: traffic = 3
 
     	TRAFFIC Classmap.
 
-    .. data:: CONTROL = 4
+    .. data:: control = 4
 
     	Control Subscriber Classmap.
 
     """
 
-    QOS = 1
+    qos = 1
 
-    TRAFFIC = 3
+    traffic = 3
 
-    CONTROL = 4
+    control = 4
 
 
     @staticmethod
@@ -116,103 +116,103 @@ class EventTypeEnum(Enum):
 
     Event type.
 
-    .. data:: ACCOUNT_LOGOFF = 0
+    .. data:: account_logoff = 0
 
     	Account logoff event.
 
-    .. data:: ACCOUNT_LOGON = 1
+    .. data:: account_logon = 1
 
     	Account logon event.
 
-    .. data:: AUTHENTICATION_FAILURE = 2
+    .. data:: authentication_failure = 2
 
     	Authentication failure event.
 
-    .. data:: AUTHENTICATION_NO_RESPONSE = 3
+    .. data:: authentication_no_response = 3
 
     	Authentication no response event.
 
-    .. data:: AUTHORIZATION_FAILURE = 4
+    .. data:: authorization_failure = 4
 
     	Authorization failure event.
 
-    .. data:: AUTHORIZATION_NO_RESPONSE = 5
+    .. data:: authorization_no_response = 5
 
     	Authorization no response event.
 
-    .. data:: CREDIT_EXHAUSTED = 6
+    .. data:: credit_exhausted = 6
 
     	Credit exhaustion event.
 
-    .. data:: EXCEPTION = 7
+    .. data:: exception = 7
 
     	Exception event.
 
-    .. data:: IDLE_TIMEOUT = 8
+    .. data:: idle_timeout = 8
 
     	Idle timeout event.
 
-    .. data:: QUOTA_DEPLETED = 9
+    .. data:: quota_depleted = 9
 
     	Quota depletion event.
 
-    .. data:: SERVICE_START = 10
+    .. data:: service_start = 10
 
     	Service start event.
 
-    .. data:: SERVICE_STOP = 11
+    .. data:: service_stop = 11
 
     	Service stop event.
 
-    .. data:: SESSION_ACTIVATE = 12
+    .. data:: session_activate = 12
 
     	Session activate event.
 
-    .. data:: SESSION_START = 13
+    .. data:: session_start = 13
 
     	Session start event.
 
-    .. data:: SESSION_STOP = 14
+    .. data:: session_stop = 14
 
     	Session stop event.
 
-    .. data:: TIMER_EXPIRY = 15
+    .. data:: timer_expiry = 15
 
     	Timer expiry event.
 
     """
 
-    ACCOUNT_LOGOFF = 0
+    account_logoff = 0
 
-    ACCOUNT_LOGON = 1
+    account_logon = 1
 
-    AUTHENTICATION_FAILURE = 2
+    authentication_failure = 2
 
-    AUTHENTICATION_NO_RESPONSE = 3
+    authentication_no_response = 3
 
-    AUTHORIZATION_FAILURE = 4
+    authorization_failure = 4
 
-    AUTHORIZATION_NO_RESPONSE = 5
+    authorization_no_response = 5
 
-    CREDIT_EXHAUSTED = 6
+    credit_exhausted = 6
 
-    EXCEPTION = 7
+    exception = 7
 
-    IDLE_TIMEOUT = 8
+    idle_timeout = 8
 
-    QUOTA_DEPLETED = 9
+    quota_depleted = 9
 
-    SERVICE_START = 10
+    service_start = 10
 
-    SERVICE_STOP = 11
+    service_stop = 11
 
-    SESSION_ACTIVATE = 12
+    session_activate = 12
 
-    SESSION_START = 13
+    session_start = 13
 
-    SESSION_STOP = 14
+    session_stop = 14
 
-    TIMER_EXPIRY = 15
+    timer_expiry = 15
 
 
     @staticmethod
@@ -227,25 +227,25 @@ class ExecutionStrategyEnum(Enum):
 
     Executuion strategy.
 
-    .. data:: DO_ALL = 0
+    .. data:: do_all = 0
 
     	Do all actions.
 
-    .. data:: DO_UNTIL_FAILURE = 1
+    .. data:: do_until_failure = 1
 
     	Do all actions until failure.
 
-    .. data:: DO_UNTIL_SUCCESS = 2
+    .. data:: do_until_success = 2
 
     	Do all actions until success.
 
     """
 
-    DO_ALL = 0
+    do_all = 0
 
-    DO_UNTIL_FAILURE = 1
+    do_until_failure = 1
 
-    DO_UNTIL_SUCCESS = 2
+    do_until_success = 2
 
 
     @staticmethod
@@ -260,25 +260,25 @@ class PmapClassMapTypeEnum(Enum):
 
     Policy manager class\-map type.
 
-    .. data:: QOS = 1
+    .. data:: qos = 1
 
     	QoS Classmap.
 
-    .. data:: TRAFFIC = 2
+    .. data:: traffic = 2
 
     	TRAFFIC Classmap.
 
-    .. data:: SUBSCRIBER_CONTROL = 3
+    .. data:: subscriber_control = 3
 
     	Subscriber Control Classmap.
 
     """
 
-    QOS = 1
+    qos = 1
 
-    TRAFFIC = 2
+    traffic = 2
 
-    SUBSCRIBER_CONTROL = 3
+    subscriber_control = 3
 
 
     @staticmethod
@@ -293,43 +293,43 @@ class PolicyMapTypeEnum(Enum):
 
     Policy manager policy\-map type.
 
-    .. data:: QOS = 1
+    .. data:: qos = 1
 
     	QoS Policymap
 
-    .. data:: PBR = 2
+    .. data:: pbr = 2
 
     	PBR Policymap
 
-    .. data:: TRAFFIC = 3
+    .. data:: traffic = 3
 
     	TRAFFIC Policymap
 
-    .. data:: SUBSCRIBER_CONTROL = 4
+    .. data:: subscriber_control = 4
 
     	SUBSCRIBER-CONTROL Policymap
 
-    .. data:: REDIRECT = 6
+    .. data:: redirect = 6
 
     	REDIRECT Policy map
 
-    .. data:: FLOW_MONITOR = 7
+    .. data:: flow_monitor = 7
 
     	FLOWMONITOR Policy map
 
     """
 
-    QOS = 1
+    qos = 1
 
-    PBR = 2
+    pbr = 2
 
-    TRAFFIC = 3
+    traffic = 3
 
-    SUBSCRIBER_CONTROL = 4
+    subscriber_control = 4
 
-    REDIRECT = 6
+    redirect = 6
 
-    FLOW_MONITOR = 7
+    flow_monitor = 7
 
 
     @staticmethod
@@ -346,12 +346,12 @@ class PolicyManager(object):
     .. attribute:: class_maps
     
     	Class\-maps configuration
-    	**type**\:  :py:class:`ClassMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps>`
+    	**type**\:   :py:class:`ClassMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps>`
     
     .. attribute:: policy_maps
     
     	Policy\-maps configuration
-    	**type**\:  :py:class:`PolicyMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps>`
+    	**type**\:   :py:class:`PolicyMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps>`
     
     
 
@@ -374,7 +374,7 @@ class PolicyManager(object):
         .. attribute:: class_map
         
         	Class\-map configuration
-        	**type**\: list of  :py:class:`ClassMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap>`
+        	**type**\: list of    :py:class:`ClassMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap>`
         
         
 
@@ -404,17 +404,17 @@ class PolicyManager(object):
             .. attribute:: type  <key>
             
             	Type of class\-map
-            	**type**\:  :py:class:`ClassMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ClassMapTypeEnum>`
+            	**type**\:   :py:class:`ClassMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ClassMapTypeEnum>`
             
             .. attribute:: class_map_mode_match_all
             
             	Match any match criteria
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: class_map_mode_match_any
             
             	Match all match criteria
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: description
             
@@ -424,12 +424,12 @@ class PolicyManager(object):
             .. attribute:: match
             
             	Match rules
-            	**type**\:  :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match>`
+            	**type**\:   :py:class:`Match <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match>`
             
             .. attribute:: match_not
             
             	Match not rules
-            	**type**\:  :py:class:`MatchNot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot>`
+            	**type**\:   :py:class:`MatchNot <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot>`
             
             
 
@@ -465,7 +465,7 @@ class PolicyManager(object):
                 .. attribute:: atm_oam
                 
                 	Match ATM OAM
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: authen_status
                 
@@ -477,12 +477,12 @@ class PolicyManager(object):
                 .. attribute:: cac_admit
                 
                 	Match CAC admitted
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: cac_unadmit
                 
                 	Match CAC unadmitted
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: circuit_id
                 
@@ -522,12 +522,12 @@ class PolicyManager(object):
                 .. attribute:: destination_address_ipv4
                 
                 	Match destination IPv4 address
-                	**type**\: list of  :py:class:`DestinationAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4>`
+                	**type**\: list of    :py:class:`DestinationAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4>`
                 
                 .. attribute:: destination_address_ipv6
                 
                 	Match destination IPv6 address
-                	**type**\: list of  :py:class:`DestinationAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6>`
+                	**type**\: list of    :py:class:`DestinationAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv6>`
                 
                 .. attribute:: destination_mac
                 
@@ -565,12 +565,12 @@ class PolicyManager(object):
                 .. attribute:: domain_name
                 
                 	Match domain name
-                	**type**\: list of  :py:class:`DomainName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainName>`
+                	**type**\: list of    :py:class:`DomainName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainName>`
                 
                 .. attribute:: domain_name_regex
                 
                 	Match domain name
-                	**type**\: list of  :py:class:`DomainNameRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex>`
+                	**type**\: list of    :py:class:`DomainNameRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.DomainNameRegex>`
                 
                 .. attribute:: dscp
                 
@@ -596,7 +596,7 @@ class PolicyManager(object):
                 .. attribute:: flow
                 
                 	Match flow
-                	**type**\:  :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow>`
+                	**type**\:   :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow>`
                 
                 .. attribute:: flow_tag
                 
@@ -841,12 +841,12 @@ class PolicyManager(object):
                 .. attribute:: source_address_ipv4
                 
                 	Match source IPv4 address
-                	**type**\: list of  :py:class:`SourceAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4>`
+                	**type**\: list of    :py:class:`SourceAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv4>`
                 
                 .. attribute:: source_address_ipv6
                 
                 	Match source IPv6 address
-                	**type**\: list of  :py:class:`SourceAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6>`
+                	**type**\: list of    :py:class:`SourceAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.SourceAddressIpv6>`
                 
                 .. attribute:: source_mac
                 
@@ -881,6 +881,13 @@ class PolicyManager(object):
                 
                 	**range:** 1..32
                 
+                .. attribute:: traffic_class
+                
+                	Match Traffic Class. Should be value 0..7 or range
+                	**type**\:  list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
                 .. attribute:: user_name
                 
                 	Match user name
@@ -901,6 +908,31 @@ class PolicyManager(object):
                 	**type**\:  list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: vpls_broadcast
+                
+                	Match VPLS Broadcast
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: vpls_control
+                
+                	Match VPLS control
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: vpls_known
+                
+                	Match VPLS Known
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: vpls_multicast
+                
+                	Match VPLS Multicast
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: vpls_unknown
+                
+                	Match VPLS Unknown
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -1058,6 +1090,9 @@ class PolicyManager(object):
                     self.timer_regex = YLeafList()
                     self.timer_regex.parent = self
                     self.timer_regex.name = 'timer_regex'
+                    self.traffic_class = YLeafList()
+                    self.traffic_class.parent = self
+                    self.traffic_class.name = 'traffic_class'
                     self.user_name = YLeafList()
                     self.user_name.parent = self
                     self.user_name.name = 'user_name'
@@ -1067,6 +1102,11 @@ class PolicyManager(object):
                     self.vlan = YLeafList()
                     self.vlan.parent = self
                     self.vlan.name = 'vlan'
+                    self.vpls_broadcast = None
+                    self.vpls_control = None
+                    self.vpls_known = None
+                    self.vpls_multicast = None
+                    self.vpls_unknown = None
 
 
                 class DestinationAddressIpv4(object):
@@ -1448,7 +1488,7 @@ class PolicyManager(object):
                     .. attribute:: flow_cache
                     
                     	Configure the flow\-cache parameters
-                    	**type**\:  :py:class:`FlowCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache>`
+                    	**type**\:   :py:class:`FlowCache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.Match.Flow.FlowCache>`
                     
                     .. attribute:: flow_key
                     
@@ -1838,6 +1878,11 @@ class PolicyManager(object):
                             if child is not None:
                                 return True
 
+                    if self.traffic_class is not None:
+                        for child in self.traffic_class:
+                            if child is not None:
+                                return True
+
                     if self.user_name is not None:
                         for child in self.user_name:
                             if child is not None:
@@ -1852,6 +1897,21 @@ class PolicyManager(object):
                         for child in self.vlan:
                             if child is not None:
                                 return True
+
+                    if self.vpls_broadcast is not None:
+                        return True
+
+                    if self.vpls_control is not None:
+                        return True
+
+                    if self.vpls_known is not None:
+                        return True
+
+                    if self.vpls_multicast is not None:
+                        return True
+
+                    if self.vpls_unknown is not None:
+                        return True
 
                     return False
 
@@ -1910,12 +1970,12 @@ class PolicyManager(object):
                 .. attribute:: destination_address_ipv4
                 
                 	Match destination IPv4 address
-                	**type**\: list of  :py:class:`DestinationAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4>`
+                	**type**\: list of    :py:class:`DestinationAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv4>`
                 
                 .. attribute:: destination_address_ipv6
                 
                 	Match destination IPv6 address
-                	**type**\: list of  :py:class:`DestinationAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6>`
+                	**type**\: list of    :py:class:`DestinationAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DestinationAddressIpv6>`
                 
                 .. attribute:: destination_mac
                 
@@ -1953,12 +2013,12 @@ class PolicyManager(object):
                 .. attribute:: domain_name
                 
                 	Match domain name
-                	**type**\: list of  :py:class:`DomainName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName>`
+                	**type**\: list of    :py:class:`DomainName <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainName>`
                 
                 .. attribute:: domain_name_regex
                 
                 	Match domain name
-                	**type**\: list of  :py:class:`DomainNameRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex>`
+                	**type**\: list of    :py:class:`DomainNameRegex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.DomainNameRegex>`
                 
                 .. attribute:: dscp
                 
@@ -1984,7 +2044,7 @@ class PolicyManager(object):
                 .. attribute:: flow
                 
                 	Match flow
-                	**type**\:  :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.Flow>`
+                	**type**\:   :py:class:`Flow <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.Flow>`
                 
                 .. attribute:: flow_tag
                 
@@ -2229,12 +2289,12 @@ class PolicyManager(object):
                 .. attribute:: source_address_ipv4
                 
                 	Match source IPv4 address
-                	**type**\: list of  :py:class:`SourceAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4>`
+                	**type**\: list of    :py:class:`SourceAddressIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv4>`
                 
                 .. attribute:: source_address_ipv6
                 
                 	Match source IPv6 address
-                	**type**\: list of  :py:class:`SourceAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6>`
+                	**type**\: list of    :py:class:`SourceAddressIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.ClassMaps.ClassMap.MatchNot.SourceAddressIpv6>`
                 
                 .. attribute:: source_mac
                 
@@ -2269,6 +2329,13 @@ class PolicyManager(object):
                 
                 	**range:** 1..32
                 
+                .. attribute:: traffic_class
+                
+                	Match Traffic Class. Should be value 0..7 or range
+                	**type**\:  list of str
+                
+                	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
                 .. attribute:: user_name
                 
                 	Match user name
@@ -2289,6 +2356,31 @@ class PolicyManager(object):
                 	**type**\:  list of str
                 
                 	**pattern:** (\\d+)\|(\\d+\\\-\\d+)
+                
+                .. attribute:: vpls_broadcast
+                
+                	Match VPLS Broadcast
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: vpls_control
+                
+                	Match VPLS control
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: vpls_known
+                
+                	Match VPLS Known
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: vpls_multicast
+                
+                	Match VPLS Multicast
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: vpls_unknown
+                
+                	Match VPLS Unknown
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -2442,6 +2534,9 @@ class PolicyManager(object):
                     self.timer_regex = YLeafList()
                     self.timer_regex.parent = self
                     self.timer_regex.name = 'timer_regex'
+                    self.traffic_class = YLeafList()
+                    self.traffic_class.parent = self
+                    self.traffic_class.name = 'traffic_class'
                     self.user_name = YLeafList()
                     self.user_name.parent = self
                     self.user_name.name = 'user_name'
@@ -2451,6 +2546,11 @@ class PolicyManager(object):
                     self.vlan = YLeafList()
                     self.vlan.parent = self
                     self.vlan.name = 'vlan'
+                    self.vpls_broadcast = None
+                    self.vpls_control = None
+                    self.vpls_known = None
+                    self.vpls_multicast = None
+                    self.vpls_unknown = None
 
 
                 class DestinationAddressIpv4(object):
@@ -3143,6 +3243,11 @@ class PolicyManager(object):
                             if child is not None:
                                 return True
 
+                    if self.traffic_class is not None:
+                        for child in self.traffic_class:
+                            if child is not None:
+                                return True
+
                     if self.user_name is not None:
                         for child in self.user_name:
                             if child is not None:
@@ -3157,6 +3262,21 @@ class PolicyManager(object):
                         for child in self.vlan:
                             if child is not None:
                                 return True
+
+                    if self.vpls_broadcast is not None:
+                        return True
+
+                    if self.vpls_control is not None:
+                        return True
+
+                    if self.vpls_known is not None:
+                        return True
+
+                    if self.vpls_multicast is not None:
+                        return True
+
+                    if self.vpls_unknown is not None:
+                        return True
 
                     return False
 
@@ -3241,7 +3361,7 @@ class PolicyManager(object):
         .. attribute:: policy_map
         
         	Policy\-map configuration
-        	**type**\: list of  :py:class:`PolicyMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap>`
+        	**type**\: list of    :py:class:`PolicyMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap>`
         
         
 
@@ -3271,7 +3391,7 @@ class PolicyManager(object):
             .. attribute:: type  <key>
             
             	Type of policy\-map
-            	**type**\:  :py:class:`PolicyMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyMapTypeEnum>`
+            	**type**\:   :py:class:`PolicyMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyMapTypeEnum>`
             
             .. attribute:: description
             
@@ -3281,12 +3401,12 @@ class PolicyManager(object):
             .. attribute:: event
             
             	Policy event
-            	**type**\: list of  :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event>`
+            	**type**\: list of    :py:class:`Event <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event>`
             
             .. attribute:: policy_map_rule
             
             	Class\-map rule
-            	**type**\: list of  :py:class:`PolicyMapRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule>`
+            	**type**\: list of    :py:class:`PolicyMapRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule>`
             
             
 
@@ -3315,22 +3435,22 @@ class PolicyManager(object):
                 .. attribute:: event_type  <key>
                 
                 	Event type
-                	**type**\:  :py:class:`EventTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.EventTypeEnum>`
+                	**type**\:   :py:class:`EventTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.EventTypeEnum>`
                 
                 .. attribute:: class_
                 
                 	Class\-map rule
-                	**type**\: list of  :py:class:`Class <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class>`
+                	**type**\: list of    :py:class:`Class_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_>`
                 
                 .. attribute:: event_mode_match_all
                 
                 	Execute all the matched classes
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: event_mode_match_first
                 
                 	Execute only the first matched class
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 
 
@@ -3349,7 +3469,7 @@ class PolicyManager(object):
                     self.event_mode_match_first = None
 
 
-                class Class(object):
+                class Class_(object):
                     """
                     Class\-map rule.
                     
@@ -3363,17 +3483,17 @@ class PolicyManager(object):
                     .. attribute:: class_type  <key>
                     
                     	Type of class
-                    	**type**\:  :py:class:`PmapClassMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapTypeEnum>`
+                    	**type**\:   :py:class:`PmapClassMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapTypeEnum>`
                     
                     .. attribute:: action_rule
                     
                     	Action rule
-                    	**type**\: list of  :py:class:`ActionRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule>`
+                    	**type**\: list of    :py:class:`ActionRule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule>`
                     
                     .. attribute:: class_execution_strategy
                     
                     	Class execution strategy
-                    	**type**\:  :py:class:`ExecutionStrategyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ExecutionStrategyEnum>`
+                    	**type**\:   :py:class:`ExecutionStrategyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.ExecutionStrategyEnum>`
                     
                     
 
@@ -3406,42 +3526,50 @@ class PolicyManager(object):
                         .. attribute:: activate_dynamic_template
                         
                         	Activate dynamic templates
-                        	**type**\:  :py:class:`ActivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate>`
+                        	**type**\:   :py:class:`ActivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: authenticate
                         
                         	Authentication related configuration
-                        	**type**\:  :py:class:`Authenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate>`
+                        	**type**\:   :py:class:`Authenticate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate>`
                         
                         .. attribute:: authorize
                         
                         	Authorize
-                        	**type**\:  :py:class:`Authorize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize>`
+                        	**type**\:   :py:class:`Authorize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: deactivate_dynamic_template
                         
                         	Deactivate dynamic templates
-                        	**type**\:  :py:class:`DeactivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate>`
+                        	**type**\:   :py:class:`DeactivateDynamicTemplate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: disconnect
                         
                         	Disconnect session
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: monitor
                         
                         	Monitor session
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: set_timer
                         
                         	Set a timer to execute a rule on its  expiry
-                        	**type**\:  :py:class:`SetTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer>`
+                        	**type**\:   :py:class:`SetTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: stop_timer
                         
                         	Disable timer before it expires
-                        	**type**\:  :py:class:`StopTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer>`
+                        	**type**\:   :py:class:`StopTimer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer>`
                         
                         
 
@@ -3454,14 +3582,14 @@ class PolicyManager(object):
                             self.parent = None
                             self.action_sequence_number = None
                             self.activate_dynamic_template = None
-                            self.authenticate = PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate()
+                            self.authenticate = PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate()
                             self.authenticate.parent = self
                             self.authorize = None
                             self.deactivate_dynamic_template = None
                             self.disconnect = None
                             self.monitor = None
                             self.set_timer = None
-                            self.stop_timer = PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer()
+                            self.stop_timer = PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer()
                             self.stop_timer.parent = self
 
 
@@ -3528,7 +3656,7 @@ class PolicyManager(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
-                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate']['meta_info']
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate']['meta_info']
 
 
                         class Authenticate(object):
@@ -3573,7 +3701,7 @@ class PolicyManager(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
-                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate']['meta_info']
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate']['meta_info']
 
 
                         class Authorize(object):
@@ -3595,7 +3723,7 @@ class PolicyManager(object):
                             .. attribute:: identifier
                             
                             	Specify an Authorize format name
-                            	**type**\:  :py:class:`AuthorizeIdentifierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.AuthorizeIdentifierEnum>`
+                            	**type**\:   :py:class:`AuthorizeIdentifierEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.AuthorizeIdentifierEnum>`
                             
                             .. attribute:: password
                             
@@ -3659,7 +3787,7 @@ class PolicyManager(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
-                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize']['meta_info']
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize']['meta_info']
 
 
                         class DeactivateDynamicTemplate(object):
@@ -3725,7 +3853,7 @@ class PolicyManager(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
-                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate']['meta_info']
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate']['meta_info']
 
 
                         class SetTimer(object):
@@ -3748,6 +3876,8 @@ class PolicyManager(object):
                             	**range:** 0..4294967295
                             
                             	**mandatory**\: True
+                            
+                            	**units**\: minutes
                             
                             .. attribute:: _is_presence
                             
@@ -3796,7 +3926,7 @@ class PolicyManager(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
-                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer']['meta_info']
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer']['meta_info']
 
 
                         class StopTimer(object):
@@ -3841,7 +3971,7 @@ class PolicyManager(object):
                             @staticmethod
                             def _meta_info():
                                 from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
-                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer']['meta_info']
+                                return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer']['meta_info']
 
                         @property
                         def _common_path(self):
@@ -3891,7 +4021,7 @@ class PolicyManager(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
-                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule']['meta_info']
+                            return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -3930,7 +4060,7 @@ class PolicyManager(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_infra_policymgr_cfg as meta
-                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class']['meta_info']
+                        return meta._meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -3984,37 +4114,37 @@ class PolicyManager(object):
                 .. attribute:: class_type  <key>
                 
                 	Type of class\-map
-                	**type**\:  :py:class:`PmapClassMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapTypeEnum>`
+                	**type**\:   :py:class:`PmapClassMapTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PmapClassMapTypeEnum>`
                 
                 .. attribute:: bandwidth_remaining
                 
                 	Policy action bandwidth remaining queue
-                	**type**\:  :py:class:`BandwidthRemaining <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining>`
+                	**type**\:   :py:class:`BandwidthRemaining <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.BandwidthRemaining>`
                 
                 .. attribute:: cac_local
                 
                 	Policy action CAC
-                	**type**\:  :py:class:`CacLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal>`
+                	**type**\:   :py:class:`CacLocal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal>`
                 
                 .. attribute:: decap_gre
                 
                 	Policy action DECAP GRE
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: default_red
                 
                 	Default random early detection
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: ecn_red
                 
                 	ECN based random early detection
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: flow_params
                 
                 	Policy flow monitoring action
-                	**type**\:  :py:class:`FlowParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams>`
+                	**type**\:   :py:class:`FlowParams <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.FlowParams>`
                 
                 .. attribute:: fragment
                 
@@ -4029,37 +4159,37 @@ class PolicyManager(object):
                 .. attribute:: metrics_ipcbr
                 
                 	Policy IP\-CBR metric action
-                	**type**\:  :py:class:`MetricsIpcbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr>`
+                	**type**\:   :py:class:`MetricsIpcbr <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr>`
                 
                 .. attribute:: min_bandwidth
                 
                 	Policy action minimum bandwidth queue
-                	**type**\:  :py:class:`MinBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth>`
+                	**type**\:   :py:class:`MinBandwidth <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MinBandwidth>`
                 
                 .. attribute:: pbr_drop
                 
                 	Policy action PBR drop
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: pbr_forward
                 
                 	Policy action PBR forward
-                	**type**\:  :py:class:`PbrForward <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward>`
+                	**type**\:   :py:class:`PbrForward <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward>`
                 
                 .. attribute:: pbr_transmit
                 
                 	Policy action PBR transmit
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: pfc
                 
                 	Policy action pfc
-                	**type**\:  :py:class:`Pfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc>`
+                	**type**\:   :py:class:`Pfc <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc>`
                 
                 .. attribute:: police
                 
                 	Configures traffic policing action
-                	**type**\:  :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police>`
+                	**type**\:   :py:class:`Police <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police>`
                 
                 .. attribute:: priority_level
                 
@@ -4071,17 +4201,17 @@ class PolicyManager(object):
                 .. attribute:: queue_limit
                 
                 	Policy action queue limit
-                	**type**\:  :py:class:`QueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit>`
+                	**type**\:   :py:class:`QueueLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.QueueLimit>`
                 
                 .. attribute:: random_detect
                 
                 	Random early detection. All RED profiles in a class must be based on the same field
-                	**type**\: list of  :py:class:`RandomDetect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect>`
+                	**type**\: list of    :py:class:`RandomDetect <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.RandomDetect>`
                 
                 .. attribute:: react
                 
                 	Policy action react
-                	**type**\:  :py:class:`React <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React>`
+                	**type**\:   :py:class:`React <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React>`
                 
                 .. attribute:: service_fragment
                 
@@ -4091,22 +4221,22 @@ class PolicyManager(object):
                 .. attribute:: service_function_path
                 
                 	Policy action service function path
-                	**type**\:  :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath>`
+                	**type**\:   :py:class:`ServiceFunctionPath <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServiceFunctionPath>`
                 
                 .. attribute:: service_policy
                 
                 	Configure a child service policy
-                	**type**\:  :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy>`
+                	**type**\:   :py:class:`ServicePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.ServicePolicy>`
                 
                 .. attribute:: set
                 
                 	Policy action packet marking
-                	**type**\:  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set>`
+                	**type**\:   :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Set>`
                 
                 .. attribute:: shape
                 
                 	Policy action shape
-                	**type**\:  :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape>`
+                	**type**\:   :py:class:`Shape <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape>`
                 
                 
 
@@ -4168,12 +4298,12 @@ class PolicyManager(object):
                     .. attribute:: burst
                     
                     	Burst size configuration
-                    	**type**\:  :py:class:`Burst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst>`
+                    	**type**\:   :py:class:`Burst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst>`
                     
                     .. attribute:: rate
                     
                     	Rate configuration
-                    	**type**\:  :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate>`
+                    	**type**\:   :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate>`
                     
                     
 
@@ -4458,7 +4588,7 @@ class PolicyManager(object):
                     	Remaining bandwidth units
                     	**type**\:  str
                     
-                    	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)
+                    	**pattern:** (bytes)\|(kbytes)\|(mbytes)\|(gbytes)\|(us)\|(ms)\|(packets)\|(cells)\|(percent)
                     
                     .. attribute:: value
                     
@@ -4514,22 +4644,22 @@ class PolicyManager(object):
                     .. attribute:: pfc_buffer_size
                     
                     	
-                    	**type**\:  :py:class:`PfcBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize>`
+                    	**type**\:   :py:class:`PfcBufferSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize>`
                     
                     .. attribute:: pfc_pause_set
                     
                     	Pfc Pause set value
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: pfc_pause_threshold
                     
                     	
-                    	**type**\:  :py:class:`PfcPauseThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold>`
+                    	**type**\:   :py:class:`PfcPauseThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcPauseThreshold>`
                     
                     .. attribute:: pfc_resume_threshold
                     
                     	
-                    	**type**\:  :py:class:`PfcResumeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold>`
+                    	**type**\:   :py:class:`PfcResumeThreshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcResumeThreshold>`
                     
                     
 
@@ -4821,7 +4951,7 @@ class PolicyManager(object):
                     .. attribute:: ecn
                     
                     	ECN based WRED
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: mpls_exp
                     
@@ -5094,6 +5224,13 @@ class PolicyManager(object):
                     
                     	**range:** 0..7
                     
+                    .. attribute:: traffic_class
+                    
+                    	Sets the Traffic class identifiers on IPv4 or MPLS packets
+                    	**type**\:  int
+                    
+                    	**range:** 0..7
+                    
                     
 
                     """
@@ -5120,6 +5257,7 @@ class PolicyManager(object):
                         self.qos_group = None
                         self.source_address = None
                         self.srp_priority = None
+                        self.traffic_class = None
 
                     @property
                     def _common_path(self):
@@ -5186,6 +5324,9 @@ class PolicyManager(object):
                         if self.srp_priority is not None:
                             return True
 
+                        if self.traffic_class is not None:
+                            return True
+
                         return False
 
                     @staticmethod
@@ -5201,37 +5342,37 @@ class PolicyManager(object):
                     .. attribute:: burst
                     
                     	Burst configuration
-                    	**type**\:  :py:class:`Burst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst>`
+                    	**type**\:   :py:class:`Burst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Burst>`
                     
                     .. attribute:: conform_action
                     
                     	Configures the action to take on packets that conform  to the rate limit
-                    	**type**\:  :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction>`
+                    	**type**\:   :py:class:`ConformAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction>`
                     
                     .. attribute:: exceed_action
                     
                     	Configures the action to take on packets that exceed  the rate limit
-                    	**type**\:  :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction>`
+                    	**type**\:   :py:class:`ExceedAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction>`
                     
                     .. attribute:: peak_burst
                     
                     	Peak burst configuration
-                    	**type**\:  :py:class:`PeakBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst>`
+                    	**type**\:   :py:class:`PeakBurst <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakBurst>`
                     
                     .. attribute:: peak_rate
                     
                     	Peak rate configuration
-                    	**type**\:  :py:class:`PeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate>`
+                    	**type**\:   :py:class:`PeakRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.PeakRate>`
                     
                     .. attribute:: rate
                     
                     	Rate configuration
-                    	**type**\:  :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate>`
+                    	**type**\:   :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.Rate>`
                     
                     .. attribute:: violate_action
                     
                     	Configures the action to take on packets that violate the rate limit
-                    	**type**\:  :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction>`
+                    	**type**\:   :py:class:`ViolateAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction>`
                     
                     
 
@@ -5498,17 +5639,17 @@ class PolicyManager(object):
                         .. attribute:: drop
                         
                         	Police action drop
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: set
                         
                         	Police action packet marking
-                        	**type**\:  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set>`
+                        	**type**\:   :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ConformAction.Set>`
                         
                         .. attribute:: transmit
                         
                         	Police action transmit
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -5668,6 +5809,13 @@ class PolicyManager(object):
                             
                             	**range:** 0..7
                             
+                            .. attribute:: traffic_class
+                            
+                            	Sets the Traffic class identifiers on IPv4 or MPLS packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..7
+                            
                             
 
                             """
@@ -5694,6 +5842,7 @@ class PolicyManager(object):
                                 self.qos_group = None
                                 self.source_address = None
                                 self.srp_priority = None
+                                self.traffic_class = None
 
                             @property
                             def _common_path(self):
@@ -5760,6 +5909,9 @@ class PolicyManager(object):
                                 if self.srp_priority is not None:
                                     return True
 
+                                if self.traffic_class is not None:
+                                    return True
+
                                 return False
 
                             @staticmethod
@@ -5806,17 +5958,17 @@ class PolicyManager(object):
                         .. attribute:: drop
                         
                         	Police action drop
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: set
                         
                         	Police action packet marking
-                        	**type**\:  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set>`
+                        	**type**\:   :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ExceedAction.Set>`
                         
                         .. attribute:: transmit
                         
                         	Police action transmit
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -5976,6 +6128,13 @@ class PolicyManager(object):
                             
                             	**range:** 0..7
                             
+                            .. attribute:: traffic_class
+                            
+                            	Sets the Traffic class identifiers on IPv4 or MPLS packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..7
+                            
                             
 
                             """
@@ -6002,6 +6161,7 @@ class PolicyManager(object):
                                 self.qos_group = None
                                 self.source_address = None
                                 self.srp_priority = None
+                                self.traffic_class = None
 
                             @property
                             def _common_path(self):
@@ -6068,6 +6228,9 @@ class PolicyManager(object):
                                 if self.srp_priority is not None:
                                     return True
 
+                                if self.traffic_class is not None:
+                                    return True
+
                                 return False
 
                             @staticmethod
@@ -6114,17 +6277,17 @@ class PolicyManager(object):
                         .. attribute:: drop
                         
                         	Police action drop
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: set
                         
                         	Police action packet marking
-                        	**type**\:  :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set>`
+                        	**type**\:   :py:class:`Set <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Police.ViolateAction.Set>`
                         
                         .. attribute:: transmit
                         
                         	Police action transmit
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -6284,6 +6447,13 @@ class PolicyManager(object):
                             
                             	**range:** 0..7
                             
+                            .. attribute:: traffic_class
+                            
+                            	Sets the Traffic class identifiers on IPv4 or MPLS packets
+                            	**type**\:  int
+                            
+                            	**range:** 0..7
+                            
                             
 
                             """
@@ -6310,6 +6480,7 @@ class PolicyManager(object):
                                 self.qos_group = None
                                 self.source_address = None
                                 self.srp_priority = None
+                                self.traffic_class = None
 
                             @property
                             def _common_path(self):
@@ -6374,6 +6545,9 @@ class PolicyManager(object):
                                     return True
 
                                 if self.srp_priority is not None:
+                                    return True
+
+                                if self.traffic_class is not None:
                                     return True
 
                                 return False
@@ -6538,12 +6712,12 @@ class PolicyManager(object):
                     .. attribute:: flow_rate
                     
                     	The rate allocated per flow
-                    	**type**\:  :py:class:`FlowRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate>`
+                    	**type**\:   :py:class:`FlowRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.FlowRate>`
                     
                     .. attribute:: rate
                     
                     	The rate allocated for all flows
-                    	**type**\:  :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate>`
+                    	**type**\:   :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.CacLocal.Rate>`
                     
                     
 
@@ -6725,6 +6899,8 @@ class PolicyManager(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: seconds
+                    
                     .. attribute:: max_flow
                     
                     	Max simultaneous flows monitored per policy class
@@ -6738,6 +6914,8 @@ class PolicyManager(object):
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: seconds
                     
                     
 
@@ -6794,12 +6972,12 @@ class PolicyManager(object):
                     .. attribute:: media_packet
                     
                     	Media\-packet structure
-                    	**type**\:  :py:class:`MediaPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket>`
+                    	**type**\:   :py:class:`MediaPacket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.MediaPacket>`
                     
                     .. attribute:: rate
                     
                     	Nominal per\-flow data rate
-                    	**type**\:  :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate>`
+                    	**type**\:   :py:class:`Rate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.MetricsIpcbr.Rate>`
                     
                     
 
@@ -6827,6 +7005,8 @@ class PolicyManager(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: bps
+                        
                         .. attribute:: media
                         
                         	Nominal data rate of the media flow (ip payload)
@@ -6834,12 +7014,16 @@ class PolicyManager(object):
                         
                         	**range:** 1..3000000000
                         
+                        	**units**\: bps
+                        
                         .. attribute:: packet
                         
                         	Nominal IP layer packet rate (in pps)
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: pps
                         
                         
 
@@ -6896,12 +7080,16 @@ class PolicyManager(object):
                         
                         	**range:** 1..64
                         
+                        	**units**\: packets
+                        
                         .. attribute:: size
                         
                         	Nominal size of the media\-packet
                         	**type**\:  int
                         
                         	**range:** 0..65535
+                        
+                        	**units**\: bytes
                         
                         
 
@@ -6977,37 +7165,37 @@ class PolicyManager(object):
                     .. attribute:: action
                     
                     	Action on alert
-                    	**type**\:  :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action>`
+                    	**type**\:   :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Action>`
                     
                     .. attribute:: alarm
                     
                     	Alaram settings
-                    	**type**\:  :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm>`
+                    	**type**\:   :py:class:`Alarm <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm>`
                     
                     .. attribute:: criterion_delay_factor
                     
                     	React criterion delay factor
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: criterion_flow_count
                     
                     	React criterion flow count
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: criterion_media_stop
                     
                     	React criterion media stop
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: criterion_mrv
                     
                     	React criterion mrv
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: criterion_packet_rate
                     
                     	React criterion packet rate
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: descrition
                     
@@ -7017,7 +7205,7 @@ class PolicyManager(object):
                     .. attribute:: threshold
                     
                     	Alarm threshold settings
-                    	**type**\:  :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold>`
+                    	**type**\:   :py:class:`Threshold <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold>`
                     
                     
 
@@ -7049,12 +7237,12 @@ class PolicyManager(object):
                         .. attribute:: snmp
                         
                         	SNMP
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: syslog
                         
                         	Syslog
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -7110,7 +7298,7 @@ class PolicyManager(object):
                         .. attribute:: type
                         
                         	Alarm type
-                        	**type**\:  :py:class:`Type <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type>`
+                        	**type**\:   :py:class:`Type <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Alarm.Type>`
                         
                         
 
@@ -7133,7 +7321,7 @@ class PolicyManager(object):
                             .. attribute:: discrete
                             
                             	Discrete alarm type
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             .. attribute:: group_count
                             
@@ -7142,12 +7330,16 @@ class PolicyManager(object):
                             
                             	**range:** 0..65535
                             
+                            	**units**\: number of flows
+                            
                             .. attribute:: group_percent
                             
                             	Percent to reach before triggering alarm
                             	**type**\:  int
                             
                             	**range:** 0..65535
+                            
+                            	**units**\: percentage
                             
                             
 
@@ -7227,12 +7419,12 @@ class PolicyManager(object):
                         .. attribute:: trigger_type
                         
                         	Alarm trigger type settings
-                        	**type**\:  :py:class:`TriggerType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType>`
+                        	**type**\:   :py:class:`TriggerType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerType>`
                         
                         .. attribute:: trigger_value
                         
                         	Alarm trigger value settings
-                        	**type**\:  :py:class:`TriggerValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue>`
+                        	**type**\:   :py:class:`TriggerValue <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.React.Threshold.TriggerValue>`
                         
                         
 
@@ -7344,7 +7536,7 @@ class PolicyManager(object):
                             .. attribute:: immediate
                             
                             	Immediate trigger
-                            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                             
                             
 
@@ -7468,12 +7660,12 @@ class PolicyManager(object):
                     .. attribute:: default
                     
                     	Use system default routing table
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     .. attribute:: next_hop
                     
                     	Use specific next\-hop. Here we present 5 different combination  for the pbf next\-hop.  1. vrf with v6 address  2. vrf with v4 address  3. vrf   4. v4 address  5. v6 address
-                    	**type**\:  :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop>`
+                    	**type**\:   :py:class:`NextHop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg.PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.PbrForward.NextHop>`
                     
                     
 

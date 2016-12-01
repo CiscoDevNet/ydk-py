@@ -16,7 +16,7 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'LinkUpDownStatusEnum' : _MetaInfoEnum('LinkUpDownStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_ifmib_oper',
         {
-            'enabled':'ENABLED',
-            'disabled':'DISABLED',
+            'enabled':'enabled',
+            'disabled':'disabled',
         }, 'Cisco-IOS-XR-snmp-ifmib-oper', _yang_ns._namespaces['Cisco-IOS-XR-snmp-ifmib-oper']),
 }

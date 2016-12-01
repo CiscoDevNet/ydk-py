@@ -31,61 +31,61 @@ class SystemMessageSeverityEnum(Enum):
 
     System message severity
 
-    .. data:: MESSAGE_SEVERITY_UNKNOWN = -1
+    .. data:: message_severity_unknown = -1
 
     	Unknown
 
-    .. data:: MESSAGE_SEVERITY_EMERGENCY = 0
+    .. data:: message_severity_emergency = 0
 
     	Emergency
 
-    .. data:: MESSAGE_SEVERITY_ALERT = 1
+    .. data:: message_severity_alert = 1
 
     	Alert
 
-    .. data:: MESSAGE_SEVERITY_CRITICAL = 2
+    .. data:: message_severity_critical = 2
 
     	Critical
 
-    .. data:: MESSAGE_SEVERITY_ERROR = 3
+    .. data:: message_severity_error = 3
 
     	Error
 
-    .. data:: MESSAGE_SEVERITY_WARNING = 4
+    .. data:: message_severity_warning = 4
 
     	Warning
 
-    .. data:: MESSAGE_SEVERITY_NOTICE = 5
+    .. data:: message_severity_notice = 5
 
     	Notice
 
-    .. data:: MESSAGE_SEVERITY_INFORMATIONAL = 6
+    .. data:: message_severity_informational = 6
 
     	Informational
 
-    .. data:: MESSAGE_SEVERITY_DEBUG = 7
+    .. data:: message_severity_debug = 7
 
     	Debug
 
     """
 
-    MESSAGE_SEVERITY_UNKNOWN = -1
+    message_severity_unknown = -1
 
-    MESSAGE_SEVERITY_EMERGENCY = 0
+    message_severity_emergency = 0
 
-    MESSAGE_SEVERITY_ALERT = 1
+    message_severity_alert = 1
 
-    MESSAGE_SEVERITY_CRITICAL = 2
+    message_severity_critical = 2
 
-    MESSAGE_SEVERITY_ERROR = 3
+    message_severity_error = 3
 
-    MESSAGE_SEVERITY_WARNING = 4
+    message_severity_warning = 4
 
-    MESSAGE_SEVERITY_NOTICE = 5
+    message_severity_notice = 5
 
-    MESSAGE_SEVERITY_INFORMATIONAL = 6
+    message_severity_informational = 6
 
-    MESSAGE_SEVERITY_DEBUG = 7
+    message_severity_debug = 7
 
 
     @staticmethod
@@ -102,7 +102,7 @@ class Logging(object):
     .. attribute:: history
     
     	Syslog Info 
-    	**type**\:  :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Logging.History>`
+    	**type**\:   :py:class:`History <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Logging.History>`
     
     
 
@@ -197,22 +197,22 @@ class Syslog(object):
     .. attribute:: an_remote_servers
     
     	Logging AN remote servers information
-    	**type**\:  :py:class:`AnRemoteServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers>`
+    	**type**\:   :py:class:`AnRemoteServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers>`
     
     .. attribute:: logging_files
     
     	Logging Files information
-    	**type**\:  :py:class:`LoggingFiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles>`
+    	**type**\:   :py:class:`LoggingFiles <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles>`
     
     .. attribute:: logging_statistics
     
     	Logging statistics information
-    	**type**\:  :py:class:`LoggingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics>`
+    	**type**\:   :py:class:`LoggingStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics>`
     
     .. attribute:: messages
     
     	Message table information
-    	**type**\:  :py:class:`Messages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages>`
+    	**type**\:   :py:class:`Messages <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages>`
     
     
 
@@ -239,7 +239,7 @@ class Syslog(object):
         .. attribute:: file_log_detail
         
         	Logging Files
-        	**type**\: list of  :py:class:`FileLogDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles.FileLogDetail>`
+        	**type**\: list of    :py:class:`FileLogDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingFiles.FileLogDetail>`
         
         
 
@@ -338,7 +338,7 @@ class Syslog(object):
         .. attribute:: an_remote_log_server
         
         	AN Remote Log Servers
-        	**type**\: list of  :py:class:`AnRemoteLogServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers.AnRemoteLogServer>`
+        	**type**\: list of    :py:class:`AnRemoteLogServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.AnRemoteServers.AnRemoteLogServer>`
         
         
 
@@ -455,7 +455,7 @@ class Syslog(object):
         .. attribute:: message
         
         	A system message
-        	**type**\: list of  :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages.Message>`
+        	**type**\: list of    :py:class:`Message <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.Messages.Message>`
         
         
 
@@ -517,7 +517,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Message severity
-            	**type**\:  :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
+            	**type**\:   :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             .. attribute:: text
             
@@ -535,6 +535,8 @@ class Syslog(object):
             	**type**\:  int
             
             	**range:** 0..18446744073709551615
+            
+            	**units**\: millisecond
             
             .. attribute:: time_zone
             
@@ -652,37 +654,37 @@ class Syslog(object):
         .. attribute:: buffer_logging_stats
         
         	Buffer logging statistics
-        	**type**\:  :py:class:`BufferLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.BufferLoggingStats>`
+        	**type**\:   :py:class:`BufferLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.BufferLoggingStats>`
         
         .. attribute:: console_logging_stats
         
         	Console logging statistics
-        	**type**\:  :py:class:`ConsoleLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.ConsoleLoggingStats>`
+        	**type**\:   :py:class:`ConsoleLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.ConsoleLoggingStats>`
         
         .. attribute:: file_logging_stat
         
         	File logging statistics
-        	**type**\: list of  :py:class:`FileLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.FileLoggingStat>`
+        	**type**\: list of    :py:class:`FileLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.FileLoggingStat>`
         
         .. attribute:: logging_stats
         
         	Logging statistics
-        	**type**\:  :py:class:`LoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.LoggingStats>`
+        	**type**\:   :py:class:`LoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.LoggingStats>`
         
         .. attribute:: monitor_logging_stats
         
         	Monitor loggingstatistics
-        	**type**\:  :py:class:`MonitorLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.MonitorLoggingStats>`
+        	**type**\:   :py:class:`MonitorLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.MonitorLoggingStats>`
         
         .. attribute:: remote_logging_stat
         
         	Remote logging statistics
-        	**type**\: list of  :py:class:`RemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.RemoteLoggingStat>`
+        	**type**\: list of    :py:class:`RemoteLoggingStat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.RemoteLoggingStat>`
         
         .. attribute:: trap_logging_stats
         
         	Trap logging statistics
-        	**type**\:  :py:class:`TrapLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TrapLoggingStats>`
+        	**type**\:   :py:class:`TrapLoggingStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.Syslog.LoggingStatistics.TrapLoggingStats>`
         
         
 
@@ -798,6 +800,8 @@ class Syslog(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: byte
+            
             .. attribute:: is_log_enabled
             
             	Is log enabled
@@ -813,7 +817,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Configured severity
-            	**type**\:  :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
+            	**type**\:   :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -872,6 +876,8 @@ class Syslog(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: byte
+            
             .. attribute:: is_log_enabled
             
             	Is log enabled
@@ -887,7 +893,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Configured severity
-            	**type**\:  :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
+            	**type**\:   :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -946,6 +952,8 @@ class Syslog(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: byte
+            
             .. attribute:: is_log_enabled
             
             	Is log enabled
@@ -961,7 +969,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Configured severity
-            	**type**\:  :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
+            	**type**\:   :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 
@@ -1020,6 +1028,8 @@ class Syslog(object):
             
             	**range:** 0..4294967295
             
+            	**units**\: byte
+            
             .. attribute:: is_log_enabled
             
             	Is log enabled
@@ -1035,7 +1045,7 @@ class Syslog(object):
             .. attribute:: severity
             
             	Configured severity
-            	**type**\:  :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
+            	**type**\:   :py:class:`SystemMessageSeverityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper.SystemMessageSeverityEnum>`
             
             
 

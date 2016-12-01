@@ -33,7 +33,7 @@ class Sla(object):
     .. attribute:: protocols
     
     	Table of all SLA protocols
-    	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols>`
+    	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols>`
     
     
 
@@ -54,7 +54,7 @@ class Sla(object):
         .. attribute:: ethernet
         
         	The Ethernet SLA protocol
-        	**type**\:  :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet>`
+        	**type**\:   :py:class:`Ethernet <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet>`
         
         
 
@@ -76,37 +76,37 @@ class Sla(object):
             .. attribute:: config_errors
             
             	Table of SLA configuration errors on configured operations
-            	**type**\:  :py:class:`ConfigErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors>`
+            	**type**\:   :py:class:`ConfigErrors <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors>`
             
             .. attribute:: on_demand_operations
             
             	Table of SLA on\-demand operations
-            	**type**\:  :py:class:`OnDemandOperations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations>`
+            	**type**\:   :py:class:`OnDemandOperations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations>`
             
             .. attribute:: operations
             
             	Table of SLA operations
-            	**type**\:  :py:class:`Operations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations>`
+            	**type**\:   :py:class:`Operations <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations>`
             
             .. attribute:: statistics_currents
             
             	Table of current statistics for SLA operations
-            	**type**\:  :py:class:`StatisticsCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents>`
+            	**type**\:   :py:class:`StatisticsCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents>`
             
             .. attribute:: statistics_historicals
             
             	Table of historical statistics for SLA operations
-            	**type**\:  :py:class:`StatisticsHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals>`
+            	**type**\:   :py:class:`StatisticsHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals>`
             
             .. attribute:: statistics_on_demand_currents
             
             	Table of current statistics for SLA on\-demand operations
-            	**type**\:  :py:class:`StatisticsOnDemandCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents>`
+            	**type**\:   :py:class:`StatisticsOnDemandCurrents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents>`
             
             .. attribute:: statistics_on_demand_historicals
             
             	Table of historical statistics for SLA on\-demand operations
-            	**type**\:  :py:class:`StatisticsOnDemandHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals>`
+            	**type**\:   :py:class:`StatisticsOnDemandHistoricals <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals>`
             
             
 
@@ -141,7 +141,7 @@ class Sla(object):
                 .. attribute:: statistics_on_demand_current
                 
                 	Current statistics data for an SLA on\-demand operation
-                	**type**\: list of  :py:class:`StatisticsOnDemandCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent>`
+                	**type**\: list of    :py:class:`StatisticsOnDemandCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent>`
                 
                 
 
@@ -184,6 +184,8 @@ class Sla(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: interface_name
                     
                     	Interface name
@@ -215,12 +217,12 @@ class Sla(object):
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
-                    	**type**\: list of  :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric>`
+                    	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric>`
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
-                    	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule>`
+                    	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationSchedule>`
                     
                     .. attribute:: probe_type
                     
@@ -230,7 +232,7 @@ class Sla(object):
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions>`
+                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions>`
                     
                     
 
@@ -266,17 +268,17 @@ class Sla(object):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:  :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
+                        	**type**\:   :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
                         
                         
 
@@ -432,6 +434,8 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: schedule_interval
                         
                         	Interval between the start times of consecutive probes,  in seconds
@@ -439,12 +443,16 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: start_time
                         
                         	Start time of the first probe, in seconds since the Unix Epoch
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: start_time_configured
                         
@@ -504,12 +512,12 @@ class Sla(object):
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
-                        	**type**\: list of  :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket>`
+                        	**type**\: list of    :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket>`
                         
                         .. attribute:: config
                         
                         	Configuration of the metric
-                        	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Config>`
                         
                         
 
@@ -555,7 +563,7 @@ class Sla(object):
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
-                            	**type**\:  :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
+                            	**type**\:   :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
                             
                             .. attribute:: buckets_archive
                             
@@ -567,7 +575,7 @@ class Sla(object):
                             .. attribute:: metric_type
                             
                             	Type of metric to which this configuration applies
-                            	**type**\:  :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
+                            	**type**\:   :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
                             
                             
 
@@ -637,7 +645,7 @@ class Sla(object):
                             .. attribute:: contents
                             
                             	The contents of the bucket; bins or samples
-                            	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents>`
+                            	**type**\:   :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents>`
                             
                             .. attribute:: corrupt
                             
@@ -674,6 +682,8 @@ class Sla(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: second
+                            
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
@@ -708,6 +718,8 @@ class Sla(object):
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: premature_reason
                             
@@ -874,17 +886,17 @@ class Sla(object):
                                 .. attribute:: aggregated
                                 
                                 	Result bins in an SLA metric bucket
-                                	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated>`
+                                	**type**\:   :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated>`
                                 
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
-                                	**type**\:  :py:class:`SlaOperBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucketEnum>`
+                                	**type**\:   :py:class:`SlaOperBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucketEnum>`
                                 
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
-                                	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
+                                	**type**\:   :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
                                 
 
@@ -909,7 +921,7 @@ class Sla(object):
                                     .. attribute:: bins
                                     
                                     	The bins of an SLA metric bucket
-                                    	**type**\: list of  :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    	**type**\: list of    :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
                                     
                                     
 
@@ -950,6 +962,8 @@ class Sla(object):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**units**\: percentage
+                                        
                                         .. attribute:: sum
                                         
                                         	The sum of the results in the bin, in microseconds or millionths of a percent
@@ -970,6 +984,8 @@ class Sla(object):
                                         	**type**\:  int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**units**\: percentage
                                         
                                         
 
@@ -1056,7 +1072,7 @@ class Sla(object):
                                     .. attribute:: sample
                                     
                                     	The samples of an SLA metric bucket
-                                    	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandCurrents.StatisticsOnDemandCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
                                     
                                     
 
@@ -1123,6 +1139,8 @@ class Sla(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: timed_out
                                         
@@ -1477,7 +1495,7 @@ class Sla(object):
                 .. attribute:: operation
                 
                 	SLA operation to get operation data for
-                	**type**\: list of  :py:class:`Operation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation>`
+                	**type**\: list of    :py:class:`Operation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation>`
                 
                 
 
@@ -1550,12 +1568,12 @@ class Sla(object):
                     .. attribute:: profile_options
                     
                     	Options that are only valid if the operation has a profile
-                    	**type**\:  :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions>`
+                    	**type**\:   :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions>`
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions>`
+                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions>`
                     
                     
 
@@ -1599,12 +1617,16 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: millisecond
+                        
                         .. attribute:: inter_burst_interval
                         
                         	Interval between bursts within a probe in milliseconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: inter_packet_interval
                         
@@ -1613,20 +1635,22 @@ class Sla(object):
                         
                         	**range:** 0..65535
                         
+                        	**units**\: millisecond
+                        
                         .. attribute:: operation_metric
                         
                         	Array of the metrics that are measured by the operation
-                        	**type**\: list of  :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric>`
+                        	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric>`
                         
                         .. attribute:: operation_schedule
                         
                         	Operation schedule
-                        	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule>`
+                        	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationSchedule>`
                         
                         .. attribute:: packet_padding
                         
                         	Configuration of the packet padding
-                        	**type**\:  :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding>`
+                        	**type**\:   :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.PacketPadding>`
                         
                         .. attribute:: packets_per_burst
                         
@@ -1638,7 +1662,7 @@ class Sla(object):
                         .. attribute:: priority
                         
                         	Priority at which to send the packet, if configured
-                        	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority>`
+                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.Priority>`
                         
                         .. attribute:: probe_type
                         
@@ -1692,7 +1716,7 @@ class Sla(object):
                             .. attribute:: test_pattern_pad_scheme
                             
                             	Test pattern scheme that is used in the packet padding
-                            	**type**\:  :py:class:`SlaOperTestPatternSchemeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternSchemeEnum>`
+                            	**type**\:   :py:class:`SlaOperTestPatternSchemeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternSchemeEnum>`
                             
                             
 
@@ -1751,7 +1775,7 @@ class Sla(object):
                             .. attribute:: priority_type
                             
                             	PriorityType
-                            	**type**\:  :py:class:`SlaOperPacketPriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriorityEnum>`
+                            	**type**\:   :py:class:`SlaOperPacketPriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriorityEnum>`
                             
                             
 
@@ -1802,6 +1826,8 @@ class Sla(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: second
+                            
                             .. attribute:: schedule_interval
                             
                             	Interval between the start times of consecutive probes,  in seconds
@@ -1809,12 +1835,16 @@ class Sla(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: second
+                            
                             .. attribute:: start_time
                             
                             	Start time of the first probe, in seconds since the Unix Epoch
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: second
                             
                             .. attribute:: start_time_configured
                             
@@ -1882,7 +1912,7 @@ class Sla(object):
                             .. attribute:: metric_config
                             
                             	Configuration of the metric
-                            	**type**\:  :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig>`
+                            	**type**\:   :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.ProfileOptions.OperationMetric.MetricConfig>`
                             
                             
 
@@ -1926,7 +1956,7 @@ class Sla(object):
                                 .. attribute:: bucket_size_unit
                                 
                                 	Whether bucket size is 'per\-probe' or 'probes'
-                                	**type**\:  :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
+                                	**type**\:   :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
                                 
                                 .. attribute:: buckets_archive
                                 
@@ -1938,7 +1968,7 @@ class Sla(object):
                                 .. attribute:: metric_type
                                 
                                 	Type of metric to which this configuration applies
-                                	**type**\:  :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
+                                	**type**\:   :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
                                 
                                 
 
@@ -2077,17 +2107,17 @@ class Sla(object):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.Operations.Operation.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:  :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
+                        	**type**\:   :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
                         
                         
 
@@ -2313,7 +2343,7 @@ class Sla(object):
                 .. attribute:: statistics_historical
                 
                 	Historical statistics data for an SLA configured operation
-                	**type**\: list of  :py:class:`StatisticsHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical>`
+                	**type**\: list of    :py:class:`StatisticsHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical>`
                 
                 
 
@@ -2356,6 +2386,8 @@ class Sla(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: interface_name
                     
                     	Interface name
@@ -2380,12 +2412,12 @@ class Sla(object):
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
-                    	**type**\: list of  :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric>`
+                    	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric>`
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
-                    	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule>`
+                    	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationSchedule>`
                     
                     .. attribute:: probe_type
                     
@@ -2402,7 +2434,7 @@ class Sla(object):
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions>`
+                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions>`
                     
                     
 
@@ -2438,17 +2470,17 @@ class Sla(object):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:  :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
+                        	**type**\:   :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
                         
                         
 
@@ -2604,6 +2636,8 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: schedule_interval
                         
                         	Interval between the start times of consecutive probes,  in seconds
@@ -2611,12 +2645,16 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: start_time
                         
                         	Start time of the first probe, in seconds since the Unix Epoch
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: start_time_configured
                         
@@ -2676,12 +2714,12 @@ class Sla(object):
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
-                        	**type**\: list of  :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket>`
+                        	**type**\: list of    :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket>`
                         
                         .. attribute:: config
                         
                         	Configuration of the metric
-                        	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Config>`
                         
                         
 
@@ -2727,7 +2765,7 @@ class Sla(object):
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
-                            	**type**\:  :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
+                            	**type**\:   :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
                             
                             .. attribute:: buckets_archive
                             
@@ -2739,7 +2777,7 @@ class Sla(object):
                             .. attribute:: metric_type
                             
                             	Type of metric to which this configuration applies
-                            	**type**\:  :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
+                            	**type**\:   :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
                             
                             
 
@@ -2809,7 +2847,7 @@ class Sla(object):
                             .. attribute:: contents
                             
                             	The contents of the bucket; bins or samples
-                            	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents>`
+                            	**type**\:   :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents>`
                             
                             .. attribute:: corrupt
                             
@@ -2846,6 +2884,8 @@ class Sla(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: second
+                            
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
@@ -2880,6 +2920,8 @@ class Sla(object):
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: premature_reason
                             
@@ -3046,17 +3088,17 @@ class Sla(object):
                                 .. attribute:: aggregated
                                 
                                 	Result bins in an SLA metric bucket
-                                	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated>`
+                                	**type**\:   :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated>`
                                 
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
-                                	**type**\:  :py:class:`SlaOperBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucketEnum>`
+                                	**type**\:   :py:class:`SlaOperBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucketEnum>`
                                 
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
-                                	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
+                                	**type**\:   :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
                                 
 
@@ -3081,7 +3123,7 @@ class Sla(object):
                                     .. attribute:: bins
                                     
                                     	The bins of an SLA metric bucket
-                                    	**type**\: list of  :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    	**type**\: list of    :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
                                     
                                     
 
@@ -3122,6 +3164,8 @@ class Sla(object):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**units**\: percentage
+                                        
                                         .. attribute:: sum
                                         
                                         	The sum of the results in the bin, in microseconds or millionths of a percent
@@ -3142,6 +3186,8 @@ class Sla(object):
                                         	**type**\:  int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**units**\: percentage
                                         
                                         
 
@@ -3228,7 +3274,7 @@ class Sla(object):
                                     .. attribute:: sample
                                     
                                     	The samples of an SLA metric bucket
-                                    	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsHistoricals.StatisticsHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
                                     
                                     
 
@@ -3295,6 +3341,8 @@ class Sla(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: timed_out
                                         
@@ -3650,7 +3698,7 @@ class Sla(object):
                 .. attribute:: statistics_on_demand_historical
                 
                 	Historical statistics data for an SLA on\-demand  operation
-                	**type**\: list of  :py:class:`StatisticsOnDemandHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical>`
+                	**type**\: list of    :py:class:`StatisticsOnDemandHistorical <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical>`
                 
                 
 
@@ -3693,6 +3741,8 @@ class Sla(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: interface_name
                     
                     	Interface name
@@ -3724,12 +3774,12 @@ class Sla(object):
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
-                    	**type**\: list of  :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric>`
+                    	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric>`
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
-                    	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule>`
+                    	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationSchedule>`
                     
                     .. attribute:: probe_type
                     
@@ -3739,7 +3789,7 @@ class Sla(object):
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions>`
+                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions>`
                     
                     
 
@@ -3775,17 +3825,17 @@ class Sla(object):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:  :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
+                        	**type**\:   :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
                         
                         
 
@@ -3941,6 +3991,8 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: schedule_interval
                         
                         	Interval between the start times of consecutive probes,  in seconds
@@ -3948,12 +4000,16 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: start_time
                         
                         	Start time of the first probe, in seconds since the Unix Epoch
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: start_time_configured
                         
@@ -4013,12 +4069,12 @@ class Sla(object):
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
-                        	**type**\: list of  :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket>`
+                        	**type**\: list of    :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket>`
                         
                         .. attribute:: config
                         
                         	Configuration of the metric
-                        	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Config>`
                         
                         
 
@@ -4064,7 +4120,7 @@ class Sla(object):
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
-                            	**type**\:  :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
+                            	**type**\:   :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
                             
                             .. attribute:: buckets_archive
                             
@@ -4076,7 +4132,7 @@ class Sla(object):
                             .. attribute:: metric_type
                             
                             	Type of metric to which this configuration applies
-                            	**type**\:  :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
+                            	**type**\:   :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
                             
                             
 
@@ -4146,7 +4202,7 @@ class Sla(object):
                             .. attribute:: contents
                             
                             	The contents of the bucket; bins or samples
-                            	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents>`
+                            	**type**\:   :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents>`
                             
                             .. attribute:: corrupt
                             
@@ -4183,6 +4239,8 @@ class Sla(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: second
+                            
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
@@ -4217,6 +4275,8 @@ class Sla(object):
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: premature_reason
                             
@@ -4383,17 +4443,17 @@ class Sla(object):
                                 .. attribute:: aggregated
                                 
                                 	Result bins in an SLA metric bucket
-                                	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated>`
+                                	**type**\:   :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated>`
                                 
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
-                                	**type**\:  :py:class:`SlaOperBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucketEnum>`
+                                	**type**\:   :py:class:`SlaOperBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucketEnum>`
                                 
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
-                                	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
+                                	**type**\:   :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
                                 
 
@@ -4418,7 +4478,7 @@ class Sla(object):
                                     .. attribute:: bins
                                     
                                     	The bins of an SLA metric bucket
-                                    	**type**\: list of  :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    	**type**\: list of    :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Aggregated.Bins>`
                                     
                                     
 
@@ -4459,6 +4519,8 @@ class Sla(object):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**units**\: percentage
+                                        
                                         .. attribute:: sum
                                         
                                         	The sum of the results in the bin, in microseconds or millionths of a percent
@@ -4479,6 +4541,8 @@ class Sla(object):
                                         	**type**\:  int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**units**\: percentage
                                         
                                         
 
@@ -4565,7 +4629,7 @@ class Sla(object):
                                     .. attribute:: sample
                                     
                                     	The samples of an SLA metric bucket
-                                    	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsOnDemandHistoricals.StatisticsOnDemandHistorical.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
                                     
                                     
 
@@ -4632,6 +4696,8 @@ class Sla(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: timed_out
                                         
@@ -4987,7 +5053,7 @@ class Sla(object):
                 .. attribute:: config_error
                 
                 	SLA operation to get configuration errors data for
-                	**type**\: list of  :py:class:`ConfigError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors.ConfigError>`
+                	**type**\: list of    :py:class:`ConfigError <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.ConfigErrors.ConfigError>`
                 
                 
 
@@ -5297,7 +5363,7 @@ class Sla(object):
                 .. attribute:: on_demand_operation
                 
                 	SLA on\-demand operation to get operation data for
-                	**type**\: list of  :py:class:`OnDemandOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation>`
+                	**type**\: list of    :py:class:`OnDemandOperation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation>`
                 
                 
 
@@ -5371,12 +5437,12 @@ class Sla(object):
                     .. attribute:: profile_options
                     
                     	Options that are only valid if the operation has a profile
-                    	**type**\:  :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions>`
+                    	**type**\:   :py:class:`ProfileOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions>`
                     
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions>`
+                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions>`
                     
                     
 
@@ -5420,12 +5486,16 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: millisecond
+                        
                         .. attribute:: inter_burst_interval
                         
                         	Interval between bursts within a probe in milliseconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: millisecond
                         
                         .. attribute:: inter_packet_interval
                         
@@ -5434,20 +5504,22 @@ class Sla(object):
                         
                         	**range:** 0..65535
                         
+                        	**units**\: millisecond
+                        
                         .. attribute:: operation_metric
                         
                         	Array of the metrics that are measured by the operation
-                        	**type**\: list of  :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric>`
+                        	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric>`
                         
                         .. attribute:: operation_schedule
                         
                         	Operation schedule
-                        	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule>`
+                        	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationSchedule>`
                         
                         .. attribute:: packet_padding
                         
                         	Configuration of the packet padding
-                        	**type**\:  :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding>`
+                        	**type**\:   :py:class:`PacketPadding <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.PacketPadding>`
                         
                         .. attribute:: packets_per_burst
                         
@@ -5459,7 +5531,7 @@ class Sla(object):
                         .. attribute:: priority
                         
                         	Priority at which to send the packet, if configured
-                        	**type**\:  :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority>`
+                        	**type**\:   :py:class:`Priority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.Priority>`
                         
                         .. attribute:: probe_type
                         
@@ -5513,7 +5585,7 @@ class Sla(object):
                             .. attribute:: test_pattern_pad_scheme
                             
                             	Test pattern scheme that is used in the packet padding
-                            	**type**\:  :py:class:`SlaOperTestPatternSchemeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternSchemeEnum>`
+                            	**type**\:   :py:class:`SlaOperTestPatternSchemeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperTestPatternSchemeEnum>`
                             
                             
 
@@ -5572,7 +5644,7 @@ class Sla(object):
                             .. attribute:: priority_type
                             
                             	PriorityType
-                            	**type**\:  :py:class:`SlaOperPacketPriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriorityEnum>`
+                            	**type**\:   :py:class:`SlaOperPacketPriorityEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperPacketPriorityEnum>`
                             
                             
 
@@ -5623,6 +5695,8 @@ class Sla(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: second
+                            
                             .. attribute:: schedule_interval
                             
                             	Interval between the start times of consecutive probes,  in seconds
@@ -5630,12 +5704,16 @@ class Sla(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: second
+                            
                             .. attribute:: start_time
                             
                             	Start time of the first probe, in seconds since the Unix Epoch
                             	**type**\:  int
                             
                             	**range:** 0..4294967295
+                            
+                            	**units**\: second
                             
                             .. attribute:: start_time_configured
                             
@@ -5703,7 +5781,7 @@ class Sla(object):
                             .. attribute:: metric_config
                             
                             	Configuration of the metric
-                            	**type**\:  :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig>`
+                            	**type**\:   :py:class:`MetricConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.ProfileOptions.OperationMetric.MetricConfig>`
                             
                             
 
@@ -5747,7 +5825,7 @@ class Sla(object):
                                 .. attribute:: bucket_size_unit
                                 
                                 	Whether bucket size is 'per\-probe' or 'probes'
-                                	**type**\:  :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
+                                	**type**\:   :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
                                 
                                 .. attribute:: buckets_archive
                                 
@@ -5759,7 +5837,7 @@ class Sla(object):
                                 .. attribute:: metric_type
                                 
                                 	Type of metric to which this configuration applies
-                                	**type**\:  :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
+                                	**type**\:   :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
                                 
                                 
 
@@ -5898,17 +5976,17 @@ class Sla(object):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.OnDemandOperations.OnDemandOperation.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:  :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
+                        	**type**\:   :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
                         
                         
 
@@ -6133,7 +6211,7 @@ class Sla(object):
                 .. attribute:: statistics_current
                 
                 	Current statistics data for an SLA configured operation
-                	**type**\: list of  :py:class:`StatisticsCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent>`
+                	**type**\: list of    :py:class:`StatisticsCurrent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent>`
                 
                 
 
@@ -6176,6 +6254,8 @@ class Sla(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: millisecond
+                    
                     .. attribute:: interface_name
                     
                     	Interface name
@@ -6200,12 +6280,12 @@ class Sla(object):
                     .. attribute:: operation_metric
                     
                     	Metrics gathered for the operation
-                    	**type**\: list of  :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric>`
+                    	**type**\: list of    :py:class:`OperationMetric <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric>`
                     
                     .. attribute:: operation_schedule
                     
                     	Operation schedule
-                    	**type**\:  :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule>`
+                    	**type**\:   :py:class:`OperationSchedule <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationSchedule>`
                     
                     .. attribute:: probe_type
                     
@@ -6222,7 +6302,7 @@ class Sla(object):
                     .. attribute:: specific_options
                     
                     	Options specific to the type of operation
-                    	**type**\:  :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions>`
+                    	**type**\:   :py:class:`SpecificOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions>`
                     
                     
 
@@ -6258,17 +6338,17 @@ class Sla(object):
                         .. attribute:: configured_operation_options
                         
                         	Parameters for a configured operation
-                        	**type**\:  :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions>`
+                        	**type**\:   :py:class:`ConfiguredOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.ConfiguredOperationOptions>`
                         
                         .. attribute:: ondemand_operation_options
                         
                         	Parameters for an ondemand operation
-                        	**type**\:  :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions>`
+                        	**type**\:   :py:class:`OndemandOperationOptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.SpecificOptions.OndemandOperationOptions>`
                         
                         .. attribute:: oper_type
                         
                         	OperType
-                        	**type**\:  :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
+                        	**type**\:   :py:class:`SlaOperOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperOperationEnum>`
                         
                         
 
@@ -6424,6 +6504,8 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: schedule_interval
                         
                         	Interval between the start times of consecutive probes,  in seconds
@@ -6431,12 +6513,16 @@ class Sla(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: start_time
                         
                         	Start time of the first probe, in seconds since the Unix Epoch
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: start_time_configured
                         
@@ -6496,12 +6582,12 @@ class Sla(object):
                         .. attribute:: bucket
                         
                         	Buckets stored for the metric
-                        	**type**\: list of  :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket>`
+                        	**type**\: list of    :py:class:`Bucket <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket>`
                         
                         .. attribute:: config
                         
                         	Configuration of the metric
-                        	**type**\:  :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config>`
+                        	**type**\:   :py:class:`Config <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Config>`
                         
                         
 
@@ -6547,7 +6633,7 @@ class Sla(object):
                             .. attribute:: bucket_size_unit
                             
                             	Whether bucket size is 'per\-probe' or 'probes'
-                            	**type**\:  :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
+                            	**type**\:   :py:class:`SlaBucketSizeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaBucketSizeEnum>`
                             
                             .. attribute:: buckets_archive
                             
@@ -6559,7 +6645,7 @@ class Sla(object):
                             .. attribute:: metric_type
                             
                             	Type of metric to which this configuration applies
-                            	**type**\:  :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
+                            	**type**\:   :py:class:`SlaRecordableMetricEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaRecordableMetricEnum>`
                             
                             
 
@@ -6629,7 +6715,7 @@ class Sla(object):
                             .. attribute:: contents
                             
                             	The contents of the bucket; bins or samples
-                            	**type**\:  :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents>`
+                            	**type**\:   :py:class:`Contents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents>`
                             
                             .. attribute:: corrupt
                             
@@ -6666,6 +6752,8 @@ class Sla(object):
                             
                             	**range:** 0..4294967295
                             
+                            	**units**\: second
+                            
                             .. attribute:: lost
                             
                             	Number of lost packets in the probe
@@ -6700,6 +6788,8 @@ class Sla(object):
                             	**type**\:  int
                             
                             	**range:** \-2147483648..2147483647
+                            
+                            	**units**\: percentage
                             
                             .. attribute:: premature_reason
                             
@@ -6866,17 +6956,17 @@ class Sla(object):
                                 .. attribute:: aggregated
                                 
                                 	Result bins in an SLA metric bucket
-                                	**type**\:  :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated>`
+                                	**type**\:   :py:class:`Aggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated>`
                                 
                                 .. attribute:: bucket_type
                                 
                                 	BucketType
-                                	**type**\:  :py:class:`SlaOperBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucketEnum>`
+                                	**type**\:   :py:class:`SlaOperBucketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper.SlaOperBucketEnum>`
                                 
                                 .. attribute:: unaggregated
                                 
                                 	Result samples in an SLA metric bucket
-                                	**type**\:  :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
+                                	**type**\:   :py:class:`Unaggregated <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated>`
                                 
                                 
 
@@ -6901,7 +6991,7 @@ class Sla(object):
                                     .. attribute:: bins
                                     
                                     	The bins of an SLA metric bucket
-                                    	**type**\: list of  :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
+                                    	**type**\: list of    :py:class:`Bins <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Aggregated.Bins>`
                                     
                                     
 
@@ -6942,6 +7032,8 @@ class Sla(object):
                                         
                                         	**range:** \-2147483648..2147483647
                                         
+                                        	**units**\: percentage
+                                        
                                         .. attribute:: sum
                                         
                                         	The sum of the results in the bin, in microseconds or millionths of a percent
@@ -6962,6 +7054,8 @@ class Sla(object):
                                         	**type**\:  int
                                         
                                         	**range:** \-2147483648..2147483647
+                                        
+                                        	**units**\: percentage
                                         
                                         
 
@@ -7048,7 +7142,7 @@ class Sla(object):
                                     .. attribute:: sample
                                     
                                     	The samples of an SLA metric bucket
-                                    	**type**\: list of  :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
+                                    	**type**\: list of    :py:class:`Sample <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper.Sla.Protocols.Ethernet.StatisticsCurrents.StatisticsCurrent.OperationMetric.Bucket.Contents.Unaggregated.Sample>`
                                     
                                     
 
@@ -7115,6 +7209,8 @@ class Sla(object):
                                         	**type**\:  int
                                         
                                         	**range:** 0..4294967295
+                                        
+                                        	**units**\: millisecond
                                         
                                         .. attribute:: timed_out
                                         

@@ -30,13 +30,13 @@ class Ipv6MaIfAddrStateEnum(Enum):
 
     Interface address states
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	This is an active address that can appear as
 
     	the destination or source address of a packet
 
-    .. data:: DEPRECATED = 2
+    .. data:: deprecated = 2
 
     	This is a valid but deprecated address that
 
@@ -44,13 +44,13 @@ class Ipv6MaIfAddrStateEnum(Enum):
 
     	new communications
 
-    .. data:: DUPLICATE = 3
+    .. data:: duplicate = 3
 
     	This is a duplicate (invalid) address because
 
     	of conflict
 
-    .. data:: INACCESSIBLE = 4
+    .. data:: inaccessible = 4
 
     	This is not accessible because the interface to
 
@@ -58,21 +58,21 @@ class Ipv6MaIfAddrStateEnum(Enum):
 
     	operational
 
-    .. data:: TENTATIVE = 5
+    .. data:: tentative = 5
 
     	Status can not be determined for some reason
 
     """
 
-    ACTIVE = 1
+    active = 1
 
-    DEPRECATED = 2
+    deprecated = 2
 
-    DUPLICATE = 3
+    duplicate = 3
 
-    INACCESSIBLE = 4
+    inaccessible = 4
 
-    TENTATIVE = 5
+    tentative = 5
 
 
     @staticmethod
@@ -87,31 +87,31 @@ class Ipv6MaIfLineStateEnum(Enum):
 
     Interface line states
 
-    .. data:: DOWN = 1
+    .. data:: down = 1
 
     	Interface state is down
 
-    .. data:: UP = 2
+    .. data:: up = 2
 
     	Interface state is up
 
-    .. data:: UNKNOWN = 3
+    .. data:: unknown = 3
 
     	Interface state is unknown
 
-    .. data:: ERROR = 4
+    .. data:: error = 4
 
     	Interface state is incorrect
 
     """
 
-    DOWN = 1
+    down = 1
 
-    UP = 2
+    up = 2
 
-    UNKNOWN = 3
+    unknown = 3
 
-    ERROR = 4
+    error = 4
 
 
     @staticmethod
@@ -126,19 +126,19 @@ class Ipv6MaOperStateEnum(Enum):
 
     Interface oper states
 
-    .. data:: OPER_UP = 1
+    .. data:: oper_up = 1
 
     	Interface oper state is up
 
-    .. data:: OPER_DOWN = 2
+    .. data:: oper_down = 2
 
     	Interface oper state is down
 
     """
 
-    OPER_UP = 1
+    oper_up = 1
 
-    OPER_DOWN = 2
+    oper_down = 2
 
 
     @staticmethod
@@ -155,7 +155,7 @@ class Ipv6Network(object):
     .. attribute:: nodes
     
     	Node\-specific IPv6 network operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes>`
     
     
 
@@ -176,7 +176,7 @@ class Ipv6Network(object):
         .. attribute:: node
         
         	IPv6 network operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node>`
         
         
 
@@ -207,7 +207,7 @@ class Ipv6Network(object):
             .. attribute:: interface_data
             
             	IPv6 network operational interface data
-            	**type**\:  :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData>`
+            	**type**\:   :py:class:`InterfaceData <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData>`
             
             
 
@@ -230,12 +230,12 @@ class Ipv6Network(object):
                 .. attribute:: summary
                 
                 	Summary of IPv6 network operational interface data on a node
-                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary>`
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary>`
                 
                 .. attribute:: vrfs
                 
                 	VRF specific IPv6 network operational interface data
-                	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs>`
+                	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs>`
                 
                 
 
@@ -260,7 +260,7 @@ class Ipv6Network(object):
                     .. attribute:: vrf
                     
                     	VRF ID of an interface belong to
-                    	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf>`
+                    	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf>`
                     
                     
 
@@ -290,22 +290,22 @@ class Ipv6Network(object):
                         .. attribute:: briefs
                         
                         	Brief interface IPv6 network operational data for a node
-                        	**type**\:  :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
+                        	**type**\:   :py:class:`Briefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs>`
                         
                         .. attribute:: details
                         
                         	Detail interface IPv4 network operational data for a node
-                        	**type**\:  :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
+                        	**type**\:   :py:class:`Details <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details>`
                         
                         .. attribute:: global_briefs
                         
                         	Brief interface IPv6 network operational data from global data
-                        	**type**\:  :py:class:`GlobalBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs>`
+                        	**type**\:   :py:class:`GlobalBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs>`
                         
                         .. attribute:: global_details
                         
                         	Detail interface IPv4 network operational data for global data
-                        	**type**\:  :py:class:`GlobalDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails>`
+                        	**type**\:   :py:class:`GlobalDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails>`
                         
                         
 
@@ -335,7 +335,7 @@ class Ipv6Network(object):
                             .. attribute:: brief
                             
                             	Brief interface IPv6 network operational data for an interface
-                            	**type**\: list of  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief>`
+                            	**type**\: list of    :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief>`
                             
                             
 
@@ -366,17 +366,17 @@ class Ipv6Network(object):
                                 .. attribute:: address
                                 
                                 	Address List
-                                	**type**\: list of  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address>`
+                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\:  :py:class:`Ipv6MaIfLineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
+                                	**type**\:   :py:class:`Ipv6MaIfLineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
-                                	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress>`
+                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress>`
                                 
                                 
 
@@ -410,7 +410,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:  :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -497,7 +497,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:  :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -641,7 +641,7 @@ class Ipv6Network(object):
                             .. attribute:: global_detail
                             
                             	Detail interface IPv6 network operational data for an interface
-                            	**type**\: list of  :py:class:`GlobalDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail>`
+                            	**type**\: list of    :py:class:`GlobalDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail>`
                             
                             
 
@@ -672,27 +672,27 @@ class Ipv6Network(object):
                                 .. attribute:: access_control_list
                                 
                                 	IPv6 Access Control List
-                                	**type**\:  :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList>`
+                                	**type**\:   :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList>`
                                 
                                 .. attribute:: address
                                 
                                 	Address List
-                                	**type**\: list of  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address>`
+                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address>`
                                 
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
-                                	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa>`
+                                	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa>`
                                 
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
-                                	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
+                                	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime>`
                                 
                                 .. attribute:: client_multicast_group
                                 
                                 	IPv6 Client Multicast Group
-                                	**type**\: list of  :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup>`
+                                	**type**\: list of    :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup>`
                                 
                                 .. attribute:: flow_tag_dst
                                 
@@ -707,17 +707,17 @@ class Ipv6Network(object):
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
-                                	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime>`
+                                	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime>`
                                 
                                 .. attribute:: fwd_en_utime
                                 
                                 	FWD ENABLE Time
-                                	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
+                                	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime>`
                                 
                                 .. attribute:: idb_utime
                                 
                                 	IDB Create Time
-                                	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime>`
+                                	**type**\:   :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime>`
                                 
                                 .. attribute:: is_icmp_unreach_enabled
                                 
@@ -727,12 +727,12 @@ class Ipv6Network(object):
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\:  :py:class:`Ipv6MaIfLineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
+                                	**type**\:   :py:class:`Ipv6MaIfLineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
-                                	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress>`
+                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress>`
                                 
                                 .. attribute:: mlacp_active
                                 
@@ -749,17 +749,17 @@ class Ipv6Network(object):
                                 .. attribute:: multi_access_control_list
                                 
                                 	Multi IPv6 Access Control List
-                                	**type**\:  :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList>`
+                                	**type**\:   :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList>`
                                 
                                 .. attribute:: multicast_group
                                 
                                 	IPv6 Multicast Group
-                                	**type**\: list of  :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup>`
+                                	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup>`
                                 
                                 .. attribute:: operation_state
                                 
                                 	IPv6 Operation State
-                                	**type**\:  :py:class:`Ipv6MaOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
+                                	**type**\:   :py:class:`Ipv6MaOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
                                 
                                 .. attribute:: rg_id_exists
                                 
@@ -769,12 +769,12 @@ class Ipv6Network(object):
                                 .. attribute:: rpf
                                 
                                 	RPF config on the interface
-                                	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf>`
+                                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf>`
                                 
                                 .. attribute:: utime
                                 
                                 	Address Publish Time
-                                	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
+                                	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime>`
                                 
                                 
 
@@ -839,7 +839,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:  :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -1140,12 +1140,12 @@ class Ipv6Network(object):
                                     .. attribute:: input
                                     
                                     	BGP PA input config
-                                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input>`
+                                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input>`
                                     
                                     .. attribute:: output
                                     
                                     	BGP PA output config
-                                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output>`
+                                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output>`
                                     
                                     
 
@@ -1560,7 +1560,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:  :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -1809,7 +1809,7 @@ class Ipv6Network(object):
                             .. attribute:: global_brief
                             
                             	Brief interface IPv6 network operational data for an interface
-                            	**type**\: list of  :py:class:`GlobalBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief>`
+                            	**type**\: list of    :py:class:`GlobalBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief>`
                             
                             
 
@@ -1840,17 +1840,17 @@ class Ipv6Network(object):
                                 .. attribute:: address
                                 
                                 	Address List
-                                	**type**\: list of  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address>`
+                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address>`
                                 
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\:  :py:class:`Ipv6MaIfLineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
+                                	**type**\:   :py:class:`Ipv6MaIfLineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
-                                	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress>`
+                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress>`
                                 
                                 
 
@@ -1884,7 +1884,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:  :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -1971,7 +1971,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:  :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -2115,7 +2115,7 @@ class Ipv6Network(object):
                             .. attribute:: detail
                             
                             	Detail interface IPv6 network operational data for an interface
-                            	**type**\: list of  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
+                            	**type**\: list of    :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail>`
                             
                             
 
@@ -2146,27 +2146,27 @@ class Ipv6Network(object):
                                 .. attribute:: access_control_list
                                 
                                 	IPv6 Access Control List
-                                	**type**\:  :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList>`
+                                	**type**\:   :py:class:`AccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList>`
                                 
                                 .. attribute:: address
                                 
                                 	Address List
-                                	**type**\: list of  :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address>`
+                                	**type**\: list of    :py:class:`Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address>`
                                 
                                 .. attribute:: bgp_pa
                                 
                                 	BGP PA config on the interface
-                                	**type**\:  :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
+                                	**type**\:   :py:class:`BgpPa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa>`
                                 
                                 .. attribute:: caps_utime
                                 
                                 	CAPS Add Time
-                                	**type**\:  :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
+                                	**type**\:   :py:class:`CapsUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime>`
                                 
                                 .. attribute:: client_multicast_group
                                 
                                 	IPv6 Client Multicast Group
-                                	**type**\: list of  :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup>`
+                                	**type**\: list of    :py:class:`ClientMulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup>`
                                 
                                 .. attribute:: flow_tag_dst
                                 
@@ -2181,17 +2181,17 @@ class Ipv6Network(object):
                                 .. attribute:: fwd_dis_utime
                                 
                                 	FWD DISABLE Time
-                                	**type**\:  :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
+                                	**type**\:   :py:class:`FwdDisUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime>`
                                 
                                 .. attribute:: fwd_en_utime
                                 
                                 	FWD ENABLE Time
-                                	**type**\:  :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
+                                	**type**\:   :py:class:`FwdEnUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime>`
                                 
                                 .. attribute:: idb_utime
                                 
                                 	IDB Create Time
-                                	**type**\:  :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
+                                	**type**\:   :py:class:`IdbUtime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime>`
                                 
                                 .. attribute:: is_icmp_unreach_enabled
                                 
@@ -2201,12 +2201,12 @@ class Ipv6Network(object):
                                 .. attribute:: line_state
                                 
                                 	State of Interface Line
-                                	**type**\:  :py:class:`Ipv6MaIfLineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
+                                	**type**\:   :py:class:`Ipv6MaIfLineStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfLineStateEnum>`
                                 
                                 .. attribute:: link_local_address
                                 
                                 	Link Local Address
-                                	**type**\:  :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress>`
+                                	**type**\:   :py:class:`LinkLocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress>`
                                 
                                 .. attribute:: mlacp_active
                                 
@@ -2223,17 +2223,17 @@ class Ipv6Network(object):
                                 .. attribute:: multi_access_control_list
                                 
                                 	Multi IPv6 Access Control List
-                                	**type**\:  :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList>`
+                                	**type**\:   :py:class:`MultiAccessControlList <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList>`
                                 
                                 .. attribute:: multicast_group
                                 
                                 	IPv6 Multicast Group
-                                	**type**\: list of  :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
+                                	**type**\: list of    :py:class:`MulticastGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup>`
                                 
                                 .. attribute:: operation_state
                                 
                                 	IPv6 Operation State
-                                	**type**\:  :py:class:`Ipv6MaOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
+                                	**type**\:   :py:class:`Ipv6MaOperStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaOperStateEnum>`
                                 
                                 .. attribute:: rg_id_exists
                                 
@@ -2243,12 +2243,12 @@ class Ipv6Network(object):
                                 .. attribute:: rpf
                                 
                                 	RPF config on the interface
-                                	**type**\:  :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
+                                	**type**\:   :py:class:`Rpf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf>`
                                 
                                 .. attribute:: utime
                                 
                                 	Address Publish Time
-                                	**type**\:  :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
+                                	**type**\:   :py:class:`Utime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime>`
                                 
                                 
 
@@ -2313,7 +2313,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:  :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -2614,12 +2614,12 @@ class Ipv6Network(object):
                                     .. attribute:: input
                                     
                                     	BGP PA input config
-                                    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
+                                    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input>`
                                     
                                     .. attribute:: output
                                     
                                     	BGP PA output config
-                                    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
+                                    	**type**\:   :py:class:`Output <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output>`
                                     
                                     
 
@@ -3034,7 +3034,7 @@ class Ipv6Network(object):
                                     .. attribute:: address_state
                                     
                                     	State of Address
-                                    	**type**\:  :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
+                                    	**type**\:   :py:class:`Ipv6MaIfAddrStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6MaIfAddrStateEnum>`
                                     
                                     .. attribute:: is_anycast
                                     
@@ -3347,17 +3347,17 @@ class Ipv6Network(object):
                     .. attribute:: if_down_down
                     
                     	Number of interfaces (down,down)
-                    	**type**\:  :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
+                    	**type**\:   :py:class:`IfDownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown>`
                     
                     .. attribute:: if_shutdown_down
                     
                     	Number of interfaces (shutdown,down)
-                    	**type**\:  :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
+                    	**type**\:   :py:class:`IfShutdownDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown>`
                     
                     .. attribute:: if_up_down
                     
                     	Number of interfaces (up,down)
-                    	**type**\:  :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
+                    	**type**\:   :py:class:`IfUpDown <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown>`
                     
                     .. attribute:: if_up_down_basecaps_up
                     
@@ -3369,7 +3369,7 @@ class Ipv6Network(object):
                     .. attribute:: if_up_up
                     
                     	Number of interfaces (up,up)
-                    	**type**\:  :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
+                    	**type**\:   :py:class:`IfUpUp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper.Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp>`
                     
                     
 

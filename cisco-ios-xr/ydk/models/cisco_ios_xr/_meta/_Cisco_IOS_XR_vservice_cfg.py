@@ -16,23 +16,23 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'SfcSfTransportEnum' : _MetaInfoEnum('SfcSfTransportEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
         {
-            'vxlan-gpe':'VXLAN_GPE',
+            'vxlan-gpe':'vxlan_gpe',
         }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
     'SfcMetadataDispositionMatchEnum' : _MetaInfoEnum('SfcMetadataDispositionMatchEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
         {
-            'type1-dcalloc-tenant-id':'TYPE1_DCALLOC_TENANT_ID',
+            'type1-dcalloc-tenant-id':'type1_dcalloc_tenant_id',
         }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
     'SfcMetadataAllocEnum' : _MetaInfoEnum('SfcMetadataAllocEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
         {
-            'type1':'TYPE1',
+            'type1':'type1',
         }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
     'SfcMetadataType1AllocFormatEnum' : _MetaInfoEnum('SfcMetadataType1AllocFormatEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
         {
-            'dc-allocation':'DC_ALLOCATION',
+            'dc-allocation':'dc_allocation',
         }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
     'SfcMetadataDispositionActionEnum' : _MetaInfoEnum('SfcMetadataDispositionActionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg',
         {
-            'redirect-nexthop':'REDIRECT_NEXTHOP',
+            'redirect-nexthop':'redirect_nexthop',
         }, 'Cisco-IOS-XR-vservice-cfg', _yang_ns._namespaces['Cisco-IOS-XR-vservice-cfg']),
     'Vservice.ServiceFunctionLocator.Names.Name.Node' : {
         'meta_info' : _MetaInfoClass('Vservice.ServiceFunctionLocator.Names.Name.Node',

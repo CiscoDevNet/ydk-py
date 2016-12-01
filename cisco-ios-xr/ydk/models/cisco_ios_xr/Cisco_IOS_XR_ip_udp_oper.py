@@ -31,259 +31,259 @@ class AddrFamilyEnum(Enum):
 
     Address Family Types
 
-    .. data:: UNSPECIFIED = 0
+    .. data:: unspecified = 0
 
     	Unspecified
 
-    .. data:: LOCAL = 1
+    .. data:: local = 1
 
     	Local to host (pipes, portals)
 
-    .. data:: INET = 2
+    .. data:: inet = 2
 
     	Internetwork: UDP, TCP, etc.
 
-    .. data:: IMPLINK = 3
+    .. data:: implink = 3
 
     	arpanet imp addresses
 
-    .. data:: PUP = 4
+    .. data:: pup = 4
 
     	Pup protocols: e.g. BSP
 
-    .. data:: CHAOS = 5
+    .. data:: chaos = 5
 
     	mit CHAOS protocols
 
-    .. data:: NS = 6
+    .. data:: ns = 6
 
     	XEROX NS protocols
 
-    .. data:: ISO = 7
+    .. data:: iso = 7
 
     	ISO protocols
 
-    .. data:: ECMA = 8
+    .. data:: ecma = 8
 
     	European computer manufacturers
 
-    .. data:: DATA_KIT = 9
+    .. data:: data_kit = 9
 
     	Datakit protocols
 
-    .. data:: CCITT = 10
+    .. data:: ccitt = 10
 
     	CCITT protocols, X.25 etc
 
-    .. data:: SNA = 11
+    .. data:: sna = 11
 
     	IBM SNA
 
-    .. data:: DE_CNET = 12
+    .. data:: de_cnet = 12
 
     	DECnet
 
-    .. data:: DLI = 13
+    .. data:: dli = 13
 
     	DEC Direct data link interface
 
-    .. data:: LAT = 14
+    .. data:: lat = 14
 
     	LAT
 
-    .. data:: HYLINK = 15
+    .. data:: hylink = 15
 
     	NSC Hyperchannel
 
-    .. data:: APPLETALK = 16
+    .. data:: appletalk = 16
 
     	Apple Talk
 
-    .. data:: ROUTE = 17
+    .. data:: route = 17
 
     	Internal Routing Protocol
 
-    .. data:: LINK = 18
+    .. data:: link = 18
 
     	Link layer interface
 
-    .. data:: PSEUDO_XTP = 19
+    .. data:: pseudo_xtp = 19
 
     	eXpress Transfer Protocol (no AF)
 
-    .. data:: COIP = 20
+    .. data:: coip = 20
 
     	Connection-oriented IP, aka ST II
 
-    .. data:: CNT = 21
+    .. data:: cnt = 21
 
     	Computer Network Technology
 
-    .. data:: PSEUDO_RTIP = 22
+    .. data:: pseudo_rtip = 22
 
     	Help Identify RTIP packets
 
-    .. data:: IPX = 23
+    .. data:: ipx = 23
 
     	Novell Internet Protocol
 
-    .. data:: SIP = 24
+    .. data:: sip = 24
 
     	Simple Internet Protocol
 
-    .. data:: PSEUDO_PIP = 25
+    .. data:: pseudo_pip = 25
 
     	Help Identify PIP packets
 
-    .. data:: INET6 = 26
+    .. data:: inet6 = 26
 
     	IP version 6
 
-    .. data:: SNAP = 27
+    .. data:: snap = 27
 
     	802.2 SNAP sockets
 
-    .. data:: CLNL = 28
+    .. data:: clnl = 28
 
     	SAP_CLNS + nlpid encaps
 
-    .. data:: CHDLC = 29
+    .. data:: chdlc = 29
 
     	cisco HDLC on serial
 
-    .. data:: PPP = 30
+    .. data:: ppp = 30
 
     	PPP sockets
 
-    .. data:: HOST_CAS = 31
+    .. data:: host_cas = 31
 
     	Host-based CAS signaling
 
-    .. data:: DSP = 32
+    .. data:: dsp = 32
 
     	DSP messaging
 
-    .. data:: SAP = 33
+    .. data:: sap = 33
 
     	SAP Sockets
 
-    .. data:: ATM = 34
+    .. data:: atm = 34
 
     	ATM Sockets
 
-    .. data:: FR = 35
+    .. data:: fr = 35
 
     	Frame Relay sockets
 
-    .. data:: MSO = 36
+    .. data:: mso = 36
 
     	Voice Media Stream Sockets
 
-    .. data:: DCHAN = 37
+    .. data:: dchan = 37
 
     	ISDN D Channel Sockets
 
-    .. data:: CAS = 38
+    .. data:: cas = 38
 
     	Trunk Framer media IF Sockets
 
-    .. data:: NAT = 39
+    .. data:: nat = 39
 
     	Network Address Translation Sockets
 
-    .. data:: ETHER = 40
+    .. data:: ether = 40
 
     	Generic Ethernet Sockets
 
-    .. data:: SRP = 41
+    .. data:: srp = 41
 
     	Spatial Reuse Protocol Sockets
 
     """
 
-    UNSPECIFIED = 0
+    unspecified = 0
 
-    LOCAL = 1
+    local = 1
 
-    INET = 2
+    inet = 2
 
-    IMPLINK = 3
+    implink = 3
 
-    PUP = 4
+    pup = 4
 
-    CHAOS = 5
+    chaos = 5
 
-    NS = 6
+    ns = 6
 
-    ISO = 7
+    iso = 7
 
-    ECMA = 8
+    ecma = 8
 
-    DATA_KIT = 9
+    data_kit = 9
 
-    CCITT = 10
+    ccitt = 10
 
-    SNA = 11
+    sna = 11
 
-    DE_CNET = 12
+    de_cnet = 12
 
-    DLI = 13
+    dli = 13
 
-    LAT = 14
+    lat = 14
 
-    HYLINK = 15
+    hylink = 15
 
-    APPLETALK = 16
+    appletalk = 16
 
-    ROUTE = 17
+    route = 17
 
-    LINK = 18
+    link = 18
 
-    PSEUDO_XTP = 19
+    pseudo_xtp = 19
 
-    COIP = 20
+    coip = 20
 
-    CNT = 21
+    cnt = 21
 
-    PSEUDO_RTIP = 22
+    pseudo_rtip = 22
 
-    IPX = 23
+    ipx = 23
 
-    SIP = 24
+    sip = 24
 
-    PSEUDO_PIP = 25
+    pseudo_pip = 25
 
-    INET6 = 26
+    inet6 = 26
 
-    SNAP = 27
+    snap = 27
 
-    CLNL = 28
+    clnl = 28
 
-    CHDLC = 29
+    chdlc = 29
 
-    PPP = 30
+    ppp = 30
 
-    HOST_CAS = 31
+    host_cas = 31
 
-    DSP = 32
+    dsp = 32
 
-    SAP = 33
+    sap = 33
 
-    ATM = 34
+    atm = 34
 
-    FR = 35
+    fr = 35
 
-    MSO = 36
+    mso = 36
 
-    DCHAN = 37
+    dchan = 37
 
-    CAS = 38
+    cas = 38
 
-    NAT = 39
+    nat = 39
 
-    ETHER = 40
+    ether = 40
 
-    SRP = 41
+    srp = 41
 
 
     @staticmethod
@@ -298,31 +298,31 @@ class LptsPcbQueryEnum(Enum):
 
     Lpts pcb query
 
-    .. data:: ALL = 0
+    .. data:: all = 0
 
     	No filter
 
-    .. data:: STATIC_POLICY = 1
+    .. data:: static_policy = 1
 
     	Static policy filter
 
-    .. data:: INTERFACE = 2
+    .. data:: interface = 2
 
     	Interface filter
 
-    .. data:: PACKET = 3
+    .. data:: packet = 3
 
     	Packet type filter
 
     """
 
-    ALL = 0
+    all = 0
 
-    STATIC_POLICY = 1
+    static_policy = 1
 
-    INTERFACE = 2
+    interface = 2
 
-    PACKET = 3
+    packet = 3
 
 
     @staticmethod
@@ -337,151 +337,151 @@ class MessageTypeIcmpEnum(Enum):
 
     LPTS ICMP message types
 
-    .. data:: ECHO_REPLY = 0
+    .. data:: echo_reply = 0
 
     	ICMP Packet type: Echo reply
 
-    .. data:: DESTINATION_UNREACHABLE = 3
+    .. data:: destination_unreachable = 3
 
     	ICMP Packet type: Destination unreachable
 
-    .. data:: SOURCE_QUENCH = 4
+    .. data:: source_quench = 4
 
     	ICMP Packet type: Source quench
 
-    .. data:: REDIRECT = 5
+    .. data:: redirect = 5
 
     	ICMP Packet type: Redirect
 
-    .. data:: ALTERNATE_HOST_ADDRESS = 6
+    .. data:: alternate_host_address = 6
 
     	ICMP Packet type: Alternate host address
 
-    .. data:: ECHO = 8
+    .. data:: echo = 8
 
     	ICMP Packet type: Echo
 
-    .. data:: ROUTER_ADVERTISEMENT = 9
+    .. data:: router_advertisement = 9
 
     	ICMP Packet type: Router advertisement
 
-    .. data:: ROUTER_SELECTION = 10
+    .. data:: router_selection = 10
 
     	ICMP Packet type: Router selection
 
-    .. data:: TIME_EXCEEDED = 11
+    .. data:: time_exceeded = 11
 
     	ICMP Packet type: Time exceeded
 
-    .. data:: PARAMETER_PROBLEM = 12
+    .. data:: parameter_problem = 12
 
     	ICMP Packet type: Parameter problem
 
-    .. data:: TIME_STAMP = 13
+    .. data:: time_stamp = 13
 
     	ICMP Packet type: Time stamp
 
-    .. data:: TIME_STAMP_REPLY = 14
+    .. data:: time_stamp_reply = 14
 
     	ICMP Packet type: Time stamp reply
 
-    .. data:: INFORMATION_REQUEST = 15
+    .. data:: information_request = 15
 
     	ICMP Packet type: Information request
 
-    .. data:: INFORMATION_REPLY = 16
+    .. data:: information_reply = 16
 
     	ICMP Packet type: Information reply
 
-    .. data:: ADDRESS_MASK_REQUEST = 17
+    .. data:: address_mask_request = 17
 
     	ICMP Packet type: Address mask request
 
-    .. data:: ADDRESS_MASK_REPLY = 18
+    .. data:: address_mask_reply = 18
 
     	ICMP Packet type: Address mask reply
 
-    .. data:: TRACE_ROUTE = 30
+    .. data:: trace_route = 30
 
     	ICMP Packet type: Trace route
 
-    .. data:: DATAGRAM_CONVERSION_ERROR = 31
+    .. data:: datagram_conversion_error = 31
 
     	ICMP Packet type: Datagram Conversion error
 
-    .. data:: MOBILE_HOST_REDIRECT = 32
+    .. data:: mobile_host_redirect = 32
 
     	ICMP Packet type: Mobile host redirect
 
-    .. data:: WHERE_ARE_YOU = 33
+    .. data:: where_are_you = 33
 
     	ICMP Packet type: IPv6 where-are-you
 
-    .. data:: IAM_HERE = 34
+    .. data:: iam_here = 34
 
     	ICMP Packet type: IPv6 i-am-here
 
-    .. data:: MOBILE_REGISTRATION_REQUEST = 35
+    .. data:: mobile_registration_request = 35
 
     	ICMP Packet type: Mobile registration request
 
-    .. data:: MOBILE_REGISTRATION_REPLY = 36
+    .. data:: mobile_registration_reply = 36
 
     	ICMP Packet type: Mobile registration reply
 
-    .. data:: DOMAIN_NAME_REQUEST = 37
+    .. data:: domain_name_request = 37
 
     	ICMP Packet type: Domain name request
 
     """
 
-    ECHO_REPLY = 0
+    echo_reply = 0
 
-    DESTINATION_UNREACHABLE = 3
+    destination_unreachable = 3
 
-    SOURCE_QUENCH = 4
+    source_quench = 4
 
-    REDIRECT = 5
+    redirect = 5
 
-    ALTERNATE_HOST_ADDRESS = 6
+    alternate_host_address = 6
 
-    ECHO = 8
+    echo = 8
 
-    ROUTER_ADVERTISEMENT = 9
+    router_advertisement = 9
 
-    ROUTER_SELECTION = 10
+    router_selection = 10
 
-    TIME_EXCEEDED = 11
+    time_exceeded = 11
 
-    PARAMETER_PROBLEM = 12
+    parameter_problem = 12
 
-    TIME_STAMP = 13
+    time_stamp = 13
 
-    TIME_STAMP_REPLY = 14
+    time_stamp_reply = 14
 
-    INFORMATION_REQUEST = 15
+    information_request = 15
 
-    INFORMATION_REPLY = 16
+    information_reply = 16
 
-    ADDRESS_MASK_REQUEST = 17
+    address_mask_request = 17
 
-    ADDRESS_MASK_REPLY = 18
+    address_mask_reply = 18
 
-    TRACE_ROUTE = 30
+    trace_route = 30
 
-    DATAGRAM_CONVERSION_ERROR = 31
+    datagram_conversion_error = 31
 
-    MOBILE_HOST_REDIRECT = 32
+    mobile_host_redirect = 32
 
-    WHERE_ARE_YOU = 33
+    where_are_you = 33
 
-    IAM_HERE = 34
+    iam_here = 34
 
-    MOBILE_REGISTRATION_REQUEST = 35
+    mobile_registration_request = 35
 
-    MOBILE_REGISTRATION_REPLY = 36
+    mobile_registration_reply = 36
 
-    DOMAIN_NAME_REQUEST = 37
+    domain_name_request = 37
 
 
     @staticmethod
@@ -496,151 +496,151 @@ class MessageTypeIcmpEnum(Enum):
 
     LPTS ICMP message types
 
-    .. data:: ECHO_REPLY = 0
+    .. data:: echo_reply = 0
 
     	ICMP Packet type: Echo reply
 
-    .. data:: DESTINATION_UNREACHABLE = 3
+    .. data:: destination_unreachable = 3
 
     	ICMP Packet type: Destination unreachable
 
-    .. data:: SOURCE_QUENCH = 4
+    .. data:: source_quench = 4
 
     	ICMP Packet type: Source quench
 
-    .. data:: REDIRECT = 5
+    .. data:: redirect = 5
 
     	ICMP Packet type: Redirect
 
-    .. data:: ALTERNATE_HOST_ADDRESS = 6
+    .. data:: alternate_host_address = 6
 
     	ICMP Packet type: Alternate host address
 
-    .. data:: ECHO = 8
+    .. data:: echo = 8
 
     	ICMP Packet type: Echo
 
-    .. data:: ROUTER_ADVERTISEMENT = 9
+    .. data:: router_advertisement = 9
 
     	ICMP Packet type: Router advertisement
 
-    .. data:: ROUTER_SELECTION = 10
+    .. data:: router_selection = 10
 
     	ICMP Packet type: Router selection
 
-    .. data:: TIME_EXCEEDED = 11
+    .. data:: time_exceeded = 11
 
     	ICMP Packet type: Time exceeded
 
-    .. data:: PARAMETER_PROBLEM = 12
+    .. data:: parameter_problem = 12
 
     	ICMP Packet type: Parameter problem
 
-    .. data:: TIME_STAMP = 13
+    .. data:: time_stamp = 13
 
     	ICMP Packet type: Time stamp
 
-    .. data:: TIME_STAMP_REPLY = 14
+    .. data:: time_stamp_reply = 14
 
     	ICMP Packet type: Time stamp reply
 
-    .. data:: INFORMATION_REQUEST = 15
+    .. data:: information_request = 15
 
     	ICMP Packet type: Information request
 
-    .. data:: INFORMATION_REPLY = 16
+    .. data:: information_reply = 16
 
     	ICMP Packet type: Information reply
 
-    .. data:: ADDRESS_MASK_REQUEST = 17
+    .. data:: address_mask_request = 17
 
     	ICMP Packet type: Address mask request
 
-    .. data:: ADDRESS_MASK_REPLY = 18
+    .. data:: address_mask_reply = 18
 
     	ICMP Packet type: Address mask reply
 
-    .. data:: TRACE_ROUTE = 30
+    .. data:: trace_route = 30
 
     	ICMP Packet type: Trace route
 
-    .. data:: DATAGRAM_CONVERSION_ERROR = 31
+    .. data:: datagram_conversion_error = 31
 
     	ICMP Packet type: Datagram Conversion error
 
-    .. data:: MOBILE_HOST_REDIRECT = 32
+    .. data:: mobile_host_redirect = 32
 
     	ICMP Packet type: Mobile host redirect
 
-    .. data:: WHERE_ARE_YOU = 33
+    .. data:: where_are_you = 33
 
     	ICMP Packet type: IPv6 where-are-you
 
-    .. data:: IAM_HERE = 34
+    .. data:: iam_here = 34
 
     	ICMP Packet type: IPv6 i-am-here
 
-    .. data:: MOBILE_REGISTRATION_REQUEST = 35
+    .. data:: mobile_registration_request = 35
 
     	ICMP Packet type: Mobile registration request
 
-    .. data:: MOBILE_REGISTRATION_REPLY = 36
+    .. data:: mobile_registration_reply = 36
 
     	ICMP Packet type: Mobile registration reply
 
-    .. data:: DOMAIN_NAME_REQUEST = 37
+    .. data:: domain_name_request = 37
 
     	ICMP Packet type: Domain name request
 
     """
 
-    ECHO_REPLY = 0
+    echo_reply = 0
 
-    DESTINATION_UNREACHABLE = 3
+    destination_unreachable = 3
 
-    SOURCE_QUENCH = 4
+    source_quench = 4
 
-    REDIRECT = 5
+    redirect = 5
 
-    ALTERNATE_HOST_ADDRESS = 6
+    alternate_host_address = 6
 
-    ECHO = 8
+    echo = 8
 
-    ROUTER_ADVERTISEMENT = 9
+    router_advertisement = 9
 
-    ROUTER_SELECTION = 10
+    router_selection = 10
 
-    TIME_EXCEEDED = 11
+    time_exceeded = 11
 
-    PARAMETER_PROBLEM = 12
+    parameter_problem = 12
 
-    TIME_STAMP = 13
+    time_stamp = 13
 
-    TIME_STAMP_REPLY = 14
+    time_stamp_reply = 14
 
-    INFORMATION_REQUEST = 15
+    information_request = 15
 
-    INFORMATION_REPLY = 16
+    information_reply = 16
 
-    ADDRESS_MASK_REQUEST = 17
+    address_mask_request = 17
 
-    ADDRESS_MASK_REPLY = 18
+    address_mask_reply = 18
 
-    TRACE_ROUTE = 30
+    trace_route = 30
 
-    DATAGRAM_CONVERSION_ERROR = 31
+    datagram_conversion_error = 31
 
-    MOBILE_HOST_REDIRECT = 32
+    mobile_host_redirect = 32
 
-    WHERE_ARE_YOU = 33
+    where_are_you = 33
 
-    IAM_HERE = 34
+    iam_here = 34
 
-    MOBILE_REGISTRATION_REQUEST = 35
+    mobile_registration_request = 35
 
-    MOBILE_REGISTRATION_REPLY = 36
+    mobile_registration_reply = 36
 
-    DOMAIN_NAME_REQUEST = 37
+    domain_name_request = 37
 
 
     @staticmethod
@@ -655,125 +655,125 @@ class MessageTypeIcmpv6Enum(Enum):
 
     LPTS ICMPv6 message types
 
-    .. data:: DESTINATION_UNREACHABLE = 1
+    .. data:: destination_unreachable = 1
 
     	ICMPv6 Packet type: Destination unreachable
 
-    .. data:: PACKET_TOO_BIG = 2
+    .. data:: packet_too_big = 2
 
     	ICMPv6 Packet type: packet too big
 
-    .. data:: TIME_EXCEEDED = 3
+    .. data:: time_exceeded = 3
 
     	ICMPv6 Packet type: Time exceeded
 
-    .. data:: PARAMETER_PROBLEM = 4
+    .. data:: parameter_problem = 4
 
     	ICMPv6 Packet type: Parameter problem
 
-    .. data:: ECHO_REQUEST = 128
+    .. data:: echo_request = 128
 
     	ICMPv6 Packet type: Echo request
 
-    .. data:: ECHO_REPLY = 129
+    .. data:: echo_reply = 129
 
     	ICMPv6 Packet type: Echo reply
 
-    .. data:: MULTICAST_LISTENER_QUERY = 130
+    .. data:: multicast_listener_query = 130
 
     	ICMPv6 Packet type: Multicast listener query
 
-    .. data:: MULTICAST_LISTENER_REPORT = 131
+    .. data:: multicast_listener_report = 131
 
     	ICMPv6 Packet type: Multicast listener report
 
-    .. data:: MULTICAST_LISTENER_DONE = 132
+    .. data:: multicast_listener_done = 132
 
     	ICMPv6 Packet type: Multicast listener done
 
-    .. data:: ROUTER_SOLICITATION = 133
+    .. data:: router_solicitation = 133
 
     	ICMPv6 Packet type: Router solicitation
 
-    .. data:: ROUTER_ADVERTISEMENT = 134
+    .. data:: router_advertisement = 134
 
     	ICMPv6 Packet type: Router advertisement
 
-    .. data:: NEIGHBOR_SOLICITATION = 135
+    .. data:: neighbor_solicitation = 135
 
     	ICMPv6 Packet type: Neighbor solicitation
 
-    .. data:: NEIGHBOR_ADVERTISEMENT = 136
+    .. data:: neighbor_advertisement = 136
 
     	ICMPv6 Packet type: Neighbor advertisement
 
-    .. data:: REDIRECT_MESSAGE = 137
+    .. data:: redirect_message = 137
 
     	ICMPv6 Packet type: Redirect message
 
-    .. data:: ROUTER_RENUMBERING = 138
+    .. data:: router_renumbering = 138
 
     	ICMPv6 Packet type: Router renumbering
 
-    .. data:: NODE_INFORMATION_QUERY = 139
+    .. data:: node_information_query = 139
 
     	ICMPv6 Packet type: Node information query
 
-    .. data:: NODE_INFORMATION_REPLY = 140
+    .. data:: node_information_reply = 140
 
     	ICMPv6 Packet type: Node information reply
 
-    .. data:: INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+    .. data:: inverse_neighbor_discovery_solicitaion = 141
 
     	ICMPv6 Packet type: Inverse neighbor discovery
 
     	solicitation message
 
-    .. data:: INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+    .. data:: inverse_neighbor_discover_advertisement = 142
 
     	ICMPv6 Packet type: Inverse neighbor discovery
 
     	advertisement message
 
-    .. data:: V2_MULTICAST_LISTENER_REPORT = 143
+    .. data:: v2_multicast_listener_report = 143
 
     	ICMPv6 Packet type: Version 2 multicast
 
     	listener report
 
-    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+    .. data:: home_agent_address_discovery_request = 144
 
     	ICMPv6 Packet type: Home agent address
 
     	discovery request message
 
-    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+    .. data:: home_agent_address_discovery_reply = 145
 
     	ICMPv6 Packet type: Home agent address
 
     	discovery reply message
 
-    .. data:: MOBILE_PREFIX_SOLICITATION = 146
+    .. data:: mobile_prefix_solicitation = 146
 
     	ICMPv6 Packet type: Mobile prefix solicitation
 
-    .. data:: MOBILE_PREFIX_ADVERTISEMENT = 147
+    .. data:: mobile_prefix_advertisement = 147
 
     	ICMPv6 Packet type: Mobile prefix advertisement
 
-    .. data:: CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+    .. data:: certification_path_solicitation_message = 148
 
     	ICMPv6 Packet type: Certification path
 
     	solicitation message
 
-    .. data:: CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+    .. data:: certification_path_advertisement_message = 149
 
     	ICMPv6 Packet type: Certification path
 
     	advertisement message
 
-    .. data:: EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+    .. data:: experimental_mobility_protocols = 150
 
     	ICMPv6 Packet type: ICMP messages utilized by
 
@@ -781,91 +781,91 @@ class MessageTypeIcmpv6Enum(Enum):
 
     	seamoby
 
-    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 151
+    .. data:: multicast_router_advertisement = 151
 
     	ICMPv6 Packet type: Multicast router
 
     	advertisement
 
-    .. data:: MULTICAST_ROUTER_SOLICITATION = 152
+    .. data:: multicast_router_solicitation = 152
 
     	ICMPv6 Packet type: Multicast router
 
     	solicitation
 
-    .. data:: MULTICAST_ROUTER_TERMINATION = 153
+    .. data:: multicast_router_termination = 153
 
     	ICMPv6 Packet type: Multicast router
 
     	termination
 
-    .. data:: FMIPV6_MESSAGES = 154
+    .. data:: fmipv6_messages = 154
 
     	ICMPv6 Packet type: FMIPv6 messages
 
     """
 
-    DESTINATION_UNREACHABLE = 1
+    destination_unreachable = 1
 
-    PACKET_TOO_BIG = 2
+    packet_too_big = 2
 
-    TIME_EXCEEDED = 3
+    time_exceeded = 3
 
-    PARAMETER_PROBLEM = 4
+    parameter_problem = 4
 
-    ECHO_REQUEST = 128
+    echo_request = 128
 
-    ECHO_REPLY = 129
+    echo_reply = 129
 
-    MULTICAST_LISTENER_QUERY = 130
+    multicast_listener_query = 130
 
-    MULTICAST_LISTENER_REPORT = 131
+    multicast_listener_report = 131
 
-    MULTICAST_LISTENER_DONE = 132
+    multicast_listener_done = 132
 
-    ROUTER_SOLICITATION = 133
+    router_solicitation = 133
 
-    ROUTER_ADVERTISEMENT = 134
+    router_advertisement = 134
 
-    NEIGHBOR_SOLICITATION = 135
+    neighbor_solicitation = 135
 
-    NEIGHBOR_ADVERTISEMENT = 136
+    neighbor_advertisement = 136
 
-    REDIRECT_MESSAGE = 137
+    redirect_message = 137
 
-    ROUTER_RENUMBERING = 138
+    router_renumbering = 138
 
-    NODE_INFORMATION_QUERY = 139
+    node_information_query = 139
 
-    NODE_INFORMATION_REPLY = 140
+    node_information_reply = 140
 
-    INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+    inverse_neighbor_discovery_solicitaion = 141
 
-    INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+    inverse_neighbor_discover_advertisement = 142
 
-    V2_MULTICAST_LISTENER_REPORT = 143
+    v2_multicast_listener_report = 143
 
-    HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+    home_agent_address_discovery_request = 144
 
-    HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+    home_agent_address_discovery_reply = 145
 
-    MOBILE_PREFIX_SOLICITATION = 146
+    mobile_prefix_solicitation = 146
 
-    MOBILE_PREFIX_ADVERTISEMENT = 147
+    mobile_prefix_advertisement = 147
 
-    CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+    certification_path_solicitation_message = 148
 
-    CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+    certification_path_advertisement_message = 149
 
-    EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+    experimental_mobility_protocols = 150
 
-    MULTICAST_ROUTER_ADVERTISEMENT = 151
+    multicast_router_advertisement = 151
 
-    MULTICAST_ROUTER_SOLICITATION = 152
+    multicast_router_solicitation = 152
 
-    MULTICAST_ROUTER_TERMINATION = 153
+    multicast_router_termination = 153
 
-    FMIPV6_MESSAGES = 154
+    fmipv6_messages = 154
 
 
     @staticmethod
@@ -880,125 +880,125 @@ class MessageTypeIcmpv6Enum(Enum):
 
     LPTS ICMPv6 message types
 
-    .. data:: DESTINATION_UNREACHABLE = 1
+    .. data:: destination_unreachable = 1
 
     	ICMPv6 Packet type: Destination unreachable
 
-    .. data:: PACKET_TOO_BIG = 2
+    .. data:: packet_too_big = 2
 
     	ICMPv6 Packet type: packet too big
 
-    .. data:: TIME_EXCEEDED = 3
+    .. data:: time_exceeded = 3
 
     	ICMPv6 Packet type: Time exceeded
 
-    .. data:: PARAMETER_PROBLEM = 4
+    .. data:: parameter_problem = 4
 
     	ICMPv6 Packet type: Parameter problem
 
-    .. data:: ECHO_REQUEST = 128
+    .. data:: echo_request = 128
 
     	ICMPv6 Packet type: Echo request
 
-    .. data:: ECHO_REPLY = 129
+    .. data:: echo_reply = 129
 
     	ICMPv6 Packet type: Echo reply
 
-    .. data:: MULTICAST_LISTENER_QUERY = 130
+    .. data:: multicast_listener_query = 130
 
     	ICMPv6 Packet type: Multicast listener query
 
-    .. data:: MULTICAST_LISTENER_REPORT = 131
+    .. data:: multicast_listener_report = 131
 
     	ICMPv6 Packet type: Multicast listener report
 
-    .. data:: MULTICAST_LISTENER_DONE = 132
+    .. data:: multicast_listener_done = 132
 
     	ICMPv6 Packet type: Multicast listener done
 
-    .. data:: ROUTER_SOLICITATION = 133
+    .. data:: router_solicitation = 133
 
     	ICMPv6 Packet type: Router solicitation
 
-    .. data:: ROUTER_ADVERTISEMENT = 134
+    .. data:: router_advertisement = 134
 
     	ICMPv6 Packet type: Router advertisement
 
-    .. data:: NEIGHBOR_SOLICITATION = 135
+    .. data:: neighbor_solicitation = 135
 
     	ICMPv6 Packet type: Neighbor solicitation
 
-    .. data:: NEIGHBOR_ADVERTISEMENT = 136
+    .. data:: neighbor_advertisement = 136
 
     	ICMPv6 Packet type: Neighbor advertisement
 
-    .. data:: REDIRECT_MESSAGE = 137
+    .. data:: redirect_message = 137
 
     	ICMPv6 Packet type: Redirect message
 
-    .. data:: ROUTER_RENUMBERING = 138
+    .. data:: router_renumbering = 138
 
     	ICMPv6 Packet type: Router renumbering
 
-    .. data:: NODE_INFORMATION_QUERY = 139
+    .. data:: node_information_query = 139
 
     	ICMPv6 Packet type: Node information query
 
-    .. data:: NODE_INFORMATION_REPLY = 140
+    .. data:: node_information_reply = 140
 
     	ICMPv6 Packet type: Node information reply
 
-    .. data:: INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+    .. data:: inverse_neighbor_discovery_solicitaion = 141
 
     	ICMPv6 Packet type: Inverse neighbor discovery
 
     	solicitation message
 
-    .. data:: INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+    .. data:: inverse_neighbor_discover_advertisement = 142
 
     	ICMPv6 Packet type: Inverse neighbor discovery
 
     	advertisement message
 
-    .. data:: V2_MULTICAST_LISTENER_REPORT = 143
+    .. data:: v2_multicast_listener_report = 143
 
     	ICMPv6 Packet type: Version 2 multicast
 
     	listener report
 
-    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+    .. data:: home_agent_address_discovery_request = 144
 
     	ICMPv6 Packet type: Home agent address
 
     	discovery request message
 
-    .. data:: HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+    .. data:: home_agent_address_discovery_reply = 145
 
     	ICMPv6 Packet type: Home agent address
 
     	discovery reply message
 
-    .. data:: MOBILE_PREFIX_SOLICITATION = 146
+    .. data:: mobile_prefix_solicitation = 146
 
     	ICMPv6 Packet type: Mobile prefix solicitation
 
-    .. data:: MOBILE_PREFIX_ADVERTISEMENT = 147
+    .. data:: mobile_prefix_advertisement = 147
 
     	ICMPv6 Packet type: Mobile prefix advertisement
 
-    .. data:: CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+    .. data:: certification_path_solicitation_message = 148
 
     	ICMPv6 Packet type: Certification path
 
     	solicitation message
 
-    .. data:: CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+    .. data:: certification_path_advertisement_message = 149
 
     	ICMPv6 Packet type: Certification path
 
     	advertisement message
 
-    .. data:: EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+    .. data:: experimental_mobility_protocols = 150
 
     	ICMPv6 Packet type: ICMP messages utilized by
 
@@ -1006,91 +1006,91 @@ class MessageTypeIcmpv6Enum(Enum):
 
     	seamoby
 
-    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 151
+    .. data:: multicast_router_advertisement = 151
 
     	ICMPv6 Packet type: Multicast router
 
     	advertisement
 
-    .. data:: MULTICAST_ROUTER_SOLICITATION = 152
+    .. data:: multicast_router_solicitation = 152
 
     	ICMPv6 Packet type: Multicast router
 
     	solicitation
 
-    .. data:: MULTICAST_ROUTER_TERMINATION = 153
+    .. data:: multicast_router_termination = 153
 
     	ICMPv6 Packet type: Multicast router
 
     	termination
 
-    .. data:: FMIPV6_MESSAGES = 154
+    .. data:: fmipv6_messages = 154
 
     	ICMPv6 Packet type: FMIPv6 messages
 
     """
 
-    DESTINATION_UNREACHABLE = 1
+    destination_unreachable = 1
 
-    PACKET_TOO_BIG = 2
+    packet_too_big = 2
 
-    TIME_EXCEEDED = 3
+    time_exceeded = 3
 
-    PARAMETER_PROBLEM = 4
+    parameter_problem = 4
 
-    ECHO_REQUEST = 128
+    echo_request = 128
 
-    ECHO_REPLY = 129
+    echo_reply = 129
 
-    MULTICAST_LISTENER_QUERY = 130
+    multicast_listener_query = 130
 
-    MULTICAST_LISTENER_REPORT = 131
+    multicast_listener_report = 131
 
-    MULTICAST_LISTENER_DONE = 132
+    multicast_listener_done = 132
 
-    ROUTER_SOLICITATION = 133
+    router_solicitation = 133
 
-    ROUTER_ADVERTISEMENT = 134
+    router_advertisement = 134
 
-    NEIGHBOR_SOLICITATION = 135
+    neighbor_solicitation = 135
 
-    NEIGHBOR_ADVERTISEMENT = 136
+    neighbor_advertisement = 136
 
-    REDIRECT_MESSAGE = 137
+    redirect_message = 137
 
-    ROUTER_RENUMBERING = 138
+    router_renumbering = 138
 
-    NODE_INFORMATION_QUERY = 139
+    node_information_query = 139
 
-    NODE_INFORMATION_REPLY = 140
+    node_information_reply = 140
 
-    INVERSE_NEIGHBOR_DISCOVERY_SOLICITAION = 141
+    inverse_neighbor_discovery_solicitaion = 141
 
-    INVERSE_NEIGHBOR_DISCOVER_ADVERTISEMENT = 142
+    inverse_neighbor_discover_advertisement = 142
 
-    V2_MULTICAST_LISTENER_REPORT = 143
+    v2_multicast_listener_report = 143
 
-    HOME_AGENT_ADDRESS_DISCOVERY_REQUEST = 144
+    home_agent_address_discovery_request = 144
 
-    HOME_AGENT_ADDRESS_DISCOVERY_REPLY = 145
+    home_agent_address_discovery_reply = 145
 
-    MOBILE_PREFIX_SOLICITATION = 146
+    mobile_prefix_solicitation = 146
 
-    MOBILE_PREFIX_ADVERTISEMENT = 147
+    mobile_prefix_advertisement = 147
 
-    CERTIFICATION_PATH_SOLICITATION_MESSAGE = 148
+    certification_path_solicitation_message = 148
 
-    CERTIFICATION_PATH_ADVERTISEMENT_MESSAGE = 149
+    certification_path_advertisement_message = 149
 
-    EXPERIMENTAL_MOBILITY_PROTOCOLS = 150
+    experimental_mobility_protocols = 150
 
-    MULTICAST_ROUTER_ADVERTISEMENT = 151
+    multicast_router_advertisement = 151
 
-    MULTICAST_ROUTER_SOLICITATION = 152
+    multicast_router_solicitation = 152
 
-    MULTICAST_ROUTER_TERMINATION = 153
+    multicast_router_termination = 153
 
-    FMIPV6_MESSAGES = 154
+    fmipv6_messages = 154
 
 
     @staticmethod
@@ -1105,87 +1105,87 @@ class MessageTypeIgmpEnum(Enum):
 
     LPTS IGMP message types
 
-    .. data:: MEMBERSHIP_QUERY = 17
+    .. data:: membership_query = 17
 
     	IGMP Packet type: Membership query
 
-    .. data:: V1_MEMBERSHIP_REPORT = 18
+    .. data:: v1_membership_report = 18
 
     	IGMP Packet type: V1 membership report
 
-    .. data:: DVMRP = 19
+    .. data:: dvmrp = 19
 
     	IGMP Packet type: DVMRP
 
-    .. data:: PI_MV1 = 20
+    .. data:: pi_mv1 = 20
 
     	IGMP Packet type: PIM version 1
 
-    .. data:: CISCO_TRACE_MESSAGES = 21
+    .. data:: cisco_trace_messages = 21
 
     	IGMP Packet type: Cisco Trace Messages
 
-    .. data:: V2_MEMBERSHIP_REPORT = 22
+    .. data:: v2_membership_report = 22
 
     	IGMP Packet type: V2 membership report
 
-    .. data:: V2_LEAVE_GROUP = 23
+    .. data:: v2_leave_group = 23
 
     	IGMP Packet type: V2 leave group
 
-    .. data:: MULTICAST_TRACEROUTE_RESPONSE = 30
+    .. data:: multicast_traceroute_response = 30
 
     	IGMP Packet type: Multicast traceroute response
 
-    .. data:: MULTICAST_TRACEROUTE = 31
+    .. data:: multicast_traceroute = 31
 
     	IGMP Packet type: MulticastTraceroute
 
-    .. data:: V3_MEMBERSHIP_REPORT = 34
+    .. data:: v3_membership_report = 34
 
     	IGMP Packet type: V3 membership report
 
-    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 48
+    .. data:: multicast_router_advertisement = 48
 
     	IGMP Packet type: Multicast router
 
     	advertisement
 
-    .. data:: MULTICAST_ROUTER_SOLICITATION = 49
+    .. data:: multicast_router_solicitation = 49
 
     	IGMP Packet type: Multicast router solicitation
 
-    .. data:: MULTICAST_ROUTER_TERMINATION = 50
+    .. data:: multicast_router_termination = 50
 
     	IGMP Packet type: Multicast router termination
 
     """
 
-    MEMBERSHIP_QUERY = 17
+    membership_query = 17
 
-    V1_MEMBERSHIP_REPORT = 18
+    v1_membership_report = 18
 
-    DVMRP = 19
+    dvmrp = 19
 
-    PI_MV1 = 20
+    pi_mv1 = 20
 
-    CISCO_TRACE_MESSAGES = 21
+    cisco_trace_messages = 21
 
-    V2_MEMBERSHIP_REPORT = 22
+    v2_membership_report = 22
 
-    V2_LEAVE_GROUP = 23
+    v2_leave_group = 23
 
-    MULTICAST_TRACEROUTE_RESPONSE = 30
+    multicast_traceroute_response = 30
 
-    MULTICAST_TRACEROUTE = 31
+    multicast_traceroute = 31
 
-    V3_MEMBERSHIP_REPORT = 34
+    v3_membership_report = 34
 
-    MULTICAST_ROUTER_ADVERTISEMENT = 48
+    multicast_router_advertisement = 48
 
-    MULTICAST_ROUTER_SOLICITATION = 49
+    multicast_router_solicitation = 49
 
-    MULTICAST_ROUTER_TERMINATION = 50
+    multicast_router_termination = 50
 
 
     @staticmethod
@@ -1200,87 +1200,87 @@ class MessageTypeIgmpEnum(Enum):
 
     LPTS IGMP message types
 
-    .. data:: MEMBERSHIP_QUERY = 17
+    .. data:: membership_query = 17
 
     	IGMP Packet type: Membership query
 
-    .. data:: V1_MEMBERSHIP_REPORT = 18
+    .. data:: v1_membership_report = 18
 
     	IGMP Packet type: V1 membership report
 
-    .. data:: DVMRP = 19
+    .. data:: dvmrp = 19
 
     	IGMP Packet type: DVMRP
 
-    .. data:: PI_MV1 = 20
+    .. data:: pi_mv1 = 20
 
     	IGMP Packet type: PIM version 1
 
-    .. data:: CISCO_TRACE_MESSAGES = 21
+    .. data:: cisco_trace_messages = 21
 
     	IGMP Packet type: Cisco Trace Messages
 
-    .. data:: V2_MEMBERSHIP_REPORT = 22
+    .. data:: v2_membership_report = 22
 
     	IGMP Packet type: V2 membership report
 
-    .. data:: V2_LEAVE_GROUP = 23
+    .. data:: v2_leave_group = 23
 
     	IGMP Packet type: V2 leave group
 
-    .. data:: MULTICAST_TRACEROUTE_RESPONSE = 30
+    .. data:: multicast_traceroute_response = 30
 
     	IGMP Packet type: Multicast traceroute response
 
-    .. data:: MULTICAST_TRACEROUTE = 31
+    .. data:: multicast_traceroute = 31
 
     	IGMP Packet type: MulticastTraceroute
 
-    .. data:: V3_MEMBERSHIP_REPORT = 34
+    .. data:: v3_membership_report = 34
 
     	IGMP Packet type: V3 membership report
 
-    .. data:: MULTICAST_ROUTER_ADVERTISEMENT = 48
+    .. data:: multicast_router_advertisement = 48
 
     	IGMP Packet type: Multicast router
 
     	advertisement
 
-    .. data:: MULTICAST_ROUTER_SOLICITATION = 49
+    .. data:: multicast_router_solicitation = 49
 
     	IGMP Packet type: Multicast router solicitation
 
-    .. data:: MULTICAST_ROUTER_TERMINATION = 50
+    .. data:: multicast_router_termination = 50
 
     	IGMP Packet type: Multicast router termination
 
     """
 
-    MEMBERSHIP_QUERY = 17
+    membership_query = 17
 
-    V1_MEMBERSHIP_REPORT = 18
+    v1_membership_report = 18
 
-    DVMRP = 19
+    dvmrp = 19
 
-    PI_MV1 = 20
+    pi_mv1 = 20
 
-    CISCO_TRACE_MESSAGES = 21
+    cisco_trace_messages = 21
 
-    V2_MEMBERSHIP_REPORT = 22
+    v2_membership_report = 22
 
-    V2_LEAVE_GROUP = 23
+    v2_leave_group = 23
 
-    MULTICAST_TRACEROUTE_RESPONSE = 30
+    multicast_traceroute_response = 30
 
-    MULTICAST_TRACEROUTE = 31
+    multicast_traceroute = 31
 
-    V3_MEMBERSHIP_REPORT = 34
+    v3_membership_report = 34
 
-    MULTICAST_ROUTER_ADVERTISEMENT = 48
+    multicast_router_advertisement = 48
 
-    MULTICAST_ROUTER_SOLICITATION = 49
+    multicast_router_solicitation = 49
 
-    MULTICAST_ROUTER_TERMINATION = 50
+    multicast_router_termination = 50
 
 
     @staticmethod
@@ -1295,31 +1295,31 @@ class PacketEnum(Enum):
 
     Packet type
 
-    .. data:: ICMP = 0
+    .. data:: icmp = 0
 
     	ICMP packet type
 
-    .. data:: ICM_PV6 = 1
+    .. data:: icm_pv6 = 1
 
     	ICMPv6 packet type
 
-    .. data:: IGMP = 2
+    .. data:: igmp = 2
 
     	IGMP packet type
 
-    .. data:: UNKNOWN = 3
+    .. data:: unknown = 3
 
     	Packet type unknown
 
     """
 
-    ICMP = 0
+    icmp = 0
 
-    ICM_PV6 = 1
+    icm_pv6 = 1
 
-    IGMP = 2
+    igmp = 2
 
-    UNKNOWN = 3
+    unknown = 3
 
 
     @staticmethod
@@ -1334,19 +1334,19 @@ class UdpAddressFamilyEnum(Enum):
 
     Address Family Type
 
-    .. data:: IPV4 = 2
+    .. data:: ipv4 = 2
 
     	IPv4
 
-    .. data:: IPV6 = 10
+    .. data:: ipv6 = 10
 
     	IPv6
 
     """
 
-    IPV4 = 2
+    ipv4 = 2
 
-    IPV6 = 10
+    ipv6 = 10
 
 
     @staticmethod
@@ -1363,7 +1363,7 @@ class Udp(object):
     .. attribute:: nodes
     
     	Node\-specific UDP operational data
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes>`
     
     
 
@@ -1384,7 +1384,7 @@ class Udp(object):
         .. attribute:: node
         
         	UDP operational data for a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node>`
         
         
 
@@ -1414,7 +1414,7 @@ class Udp(object):
             .. attribute:: statistics
             
             	Statistical UDP operational data for a node
-            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics>`
+            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics>`
             
             
 
@@ -1437,12 +1437,12 @@ class Udp(object):
                 .. attribute:: ipv4_traffic
                 
                 	UDP Traffic statistics for IPv4
-                	**type**\:  :py:class:`Ipv4Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv4Traffic>`
+                	**type**\:   :py:class:`Ipv4Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv4Traffic>`
                 
                 .. attribute:: ipv6_traffic
                 
                 	UDP Traffic statistics for IPv6
-                	**type**\:  :py:class:`Ipv6Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv6Traffic>`
+                	**type**\:   :py:class:`Ipv6Traffic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.Udp.Nodes.Node.Statistics.Ipv6Traffic>`
                 
                 
 
@@ -1770,7 +1770,7 @@ class UdpConnection(object):
     .. attribute:: nodes
     
     	List of UDP connections nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes>`
     
     
 
@@ -1791,7 +1791,7 @@ class UdpConnection(object):
         .. attribute:: node
         
         	Information about a particular node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node>`
         
         
 
@@ -1821,22 +1821,22 @@ class UdpConnection(object):
             .. attribute:: lpts
             
             	LPTS statistical data
-            	**type**\:  :py:class:`Lpts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts>`
+            	**type**\:   :py:class:`Lpts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts>`
             
             .. attribute:: pcb_briefs
             
             	Brief information for list of UDP connections
-            	**type**\:  :py:class:`PcbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs>`
+            	**type**\:   :py:class:`PcbBriefs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs>`
             
             .. attribute:: pcb_details
             
             	Detail information for list of UDP connections 
-            	**type**\:  :py:class:`PcbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails>`
+            	**type**\:   :py:class:`PcbDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails>`
             
             .. attribute:: statistics
             
             	Statistics of UDP connections
-            	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics>`
+            	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics>`
             
             
 
@@ -1865,17 +1865,17 @@ class UdpConnection(object):
                 .. attribute:: clients
                 
                 	Table listing clients
-                	**type**\:  :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients>`
+                	**type**\:   :py:class:`Clients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients>`
                 
                 .. attribute:: pcb_statistics
                 
                 	Table listing the UDP connections for which statistics are provided
-                	**type**\:  :py:class:`PcbStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics>`
+                	**type**\:   :py:class:`PcbStatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics>`
                 
                 .. attribute:: summary
                 
                 	Summary statistics across all UDP connections
-                	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Summary>`
+                	**type**\:   :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Summary>`
                 
                 
 
@@ -1901,7 +1901,7 @@ class UdpConnection(object):
                     .. attribute:: client
                     
                     	Describing Client ID
-                    	**type**\: list of  :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients.Client>`
+                    	**type**\: list of    :py:class:`Client <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.Clients.Client>`
                     
                     
 
@@ -2212,7 +2212,7 @@ class UdpConnection(object):
                     .. attribute:: pcb_statistic
                     
                     	Satistics associated with a particular PCB
-                    	**type**\: list of  :py:class:`PcbStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic>`
+                    	**type**\: list of    :py:class:`PcbStatistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic>`
                     
                     
 
@@ -2247,12 +2247,12 @@ class UdpConnection(object):
                         .. attribute:: receive
                         
                         	UDP receive statistics
-                        	**type**\:  :py:class:`Receive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive>`
+                        	**type**\:   :py:class:`Receive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Receive>`
                         
                         .. attribute:: send
                         
                         	UDP send statistics
-                        	**type**\:  :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
+                        	**type**\:   :py:class:`Send <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Statistics.PcbStatistics.PcbStatistic.Send>`
                         
                         .. attribute:: vrf_id
                         
@@ -2303,6 +2303,8 @@ class UdpConnection(object):
                             	**type**\:  int
                             
                             	**range:** 0..18446744073709551615
+                            
+                            	**units**\: byte
                             
                             .. attribute:: received_xipc_pulses
                             
@@ -2573,7 +2575,7 @@ class UdpConnection(object):
                 .. attribute:: queries
                 
                 	List of query options
-                	**type**\:  :py:class:`Queries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries>`
+                	**type**\:   :py:class:`Queries <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries>`
                 
                 
 
@@ -2595,7 +2597,7 @@ class UdpConnection(object):
                     .. attribute:: query
                     
                     	Query option
-                    	**type**\: list of  :py:class:`Query <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query>`
+                    	**type**\: list of    :py:class:`Query <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query>`
                     
                     
 
@@ -2618,12 +2620,12 @@ class UdpConnection(object):
                         .. attribute:: query_name  <key>
                         
                         	Query option
-                        	**type**\:  :py:class:`LptsPcbQueryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.LptsPcbQueryEnum>`
+                        	**type**\:   :py:class:`LptsPcbQueryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.LptsPcbQueryEnum>`
                         
                         .. attribute:: pcbs
                         
                         	List of PCBs
-                        	**type**\:  :py:class:`Pcbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs>`
+                        	**type**\:   :py:class:`Pcbs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs>`
                         
                         
 
@@ -2646,7 +2648,7 @@ class UdpConnection(object):
                             .. attribute:: pcb
                             
                             	A PCB information
-                            	**type**\: list of  :py:class:`Pcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb>`
+                            	**type**\: list of    :py:class:`Pcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb>`
                             
                             
 
@@ -2676,12 +2678,12 @@ class UdpConnection(object):
                                 .. attribute:: common
                                 
                                 	Common PCB information
-                                	**type**\:  :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common>`
+                                	**type**\:   :py:class:`Common <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common>`
                                 
                                 .. attribute:: foreign_address
                                 
                                 	Remote IP address
-                                	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress>`
+                                	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.ForeignAddress>`
                                 
                                 .. attribute:: foreign_port
                                 
@@ -2700,7 +2702,7 @@ class UdpConnection(object):
                                 .. attribute:: local_address
                                 
                                 	Local IP address
-                                	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress>`
+                                	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.LocalAddress>`
                                 
                                 .. attribute:: local_port
                                 
@@ -2737,7 +2739,7 @@ class UdpConnection(object):
                                     .. attribute:: af_name
                                     
                                     	AFName
-                                    	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                    	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                     
                                     .. attribute:: ipv4_address
                                     
@@ -2804,7 +2806,7 @@ class UdpConnection(object):
                                     .. attribute:: af_name
                                     
                                     	AFName
-                                    	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                    	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                     
                                     .. attribute:: ipv4_address
                                     
@@ -2871,12 +2873,12 @@ class UdpConnection(object):
                                     .. attribute:: af_name
                                     
                                     	Address Family
-                                    	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                    	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                     
                                     .. attribute:: lpts_pcb
                                     
                                     	LPTS PCB information
-                                    	**type**\:  :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb>`
+                                    	**type**\:   :py:class:`LptsPcb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb>`
                                     
                                     
 
@@ -2899,12 +2901,12 @@ class UdpConnection(object):
                                         .. attribute:: accept_mask
                                         
                                         	AcceptMask
-                                        	**type**\:  :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask>`
+                                        	**type**\:   :py:class:`AcceptMask <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.AcceptMask>`
                                         
                                         .. attribute:: filter
                                         
                                         	Interface Filters
-                                        	**type**\: list of  :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter>`
+                                        	**type**\: list of    :py:class:`Filter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter>`
                                         
                                         .. attribute:: flow_types_info
                                         
@@ -2916,12 +2918,12 @@ class UdpConnection(object):
                                         .. attribute:: lpts_flags
                                         
                                         	LPTS flags
-                                        	**type**\:  :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags>`
+                                        	**type**\:   :py:class:`LptsFlags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.LptsFlags>`
                                         
                                         .. attribute:: options
                                         
                                         	Receive options
-                                        	**type**\:  :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options>`
+                                        	**type**\:   :py:class:`Options <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Options>`
                                         
                                         .. attribute:: ttl
                                         
@@ -3180,7 +3182,7 @@ class UdpConnection(object):
                                             .. attribute:: local_address
                                             
                                             	Local address
-                                            	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress>`
+                                            	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.LocalAddress>`
                                             
                                             .. attribute:: local_length
                                             
@@ -3192,7 +3194,7 @@ class UdpConnection(object):
                                             .. attribute:: packet_type
                                             
                                             	Protocol\-specific packet type
-                                            	**type**\:  :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType>`
+                                            	**type**\:   :py:class:`PacketType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.PacketType>`
                                             
                                             .. attribute:: priority
                                             
@@ -3218,7 +3220,7 @@ class UdpConnection(object):
                                             .. attribute:: remote_address
                                             
                                             	Remote address
-                                            	**type**\:  :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress>`
+                                            	**type**\:   :py:class:`RemoteAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.Lpts.Queries.Query.Pcbs.Pcb.Common.LptsPcb.Filter.RemoteAddress>`
                                             
                                             .. attribute:: remote_length
                                             
@@ -3266,17 +3268,17 @@ class UdpConnection(object):
                                                 .. attribute:: icm_pv6_message_type
                                                 
                                                 	ICMPv6 message type
-                                                	**type**\:  :py:class:`MessageTypeIcmpv6Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6Enum>`
+                                                	**type**\:   :py:class:`MessageTypeIcmpv6Enum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpv6Enum>`
                                                 
                                                 .. attribute:: icmp_message_type
                                                 
                                                 	ICMP message type
-                                                	**type**\:  :py:class:`MessageTypeIcmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpEnum>`
+                                                	**type**\:   :py:class:`MessageTypeIcmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIcmpEnum>`
                                                 
                                                 .. attribute:: igmp_message_type
                                                 
                                                 	IGMP message type
-                                                	**type**\:  :py:class:`MessageTypeIgmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmpEnum>`
+                                                	**type**\:   :py:class:`MessageTypeIgmpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.MessageTypeIgmpEnum>`
                                                 
                                                 .. attribute:: message_id
                                                 
@@ -3288,7 +3290,7 @@ class UdpConnection(object):
                                                 .. attribute:: type
                                                 
                                                 	Type
-                                                	**type**\:  :py:class:`PacketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.PacketEnum>`
+                                                	**type**\:   :py:class:`PacketEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.PacketEnum>`
                                                 
                                                 
 
@@ -3349,7 +3351,7 @@ class UdpConnection(object):
                                                 .. attribute:: af_name
                                                 
                                                 	AFName
-                                                	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                                	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                                 
                                                 .. attribute:: ipv4_address
                                                 
@@ -3416,7 +3418,7 @@ class UdpConnection(object):
                                                 .. attribute:: af_name
                                                 
                                                 	AFName
-                                                	**type**\:  :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
+                                                	**type**\:   :py:class:`AddrFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.AddrFamilyEnum>`
                                                 
                                                 .. attribute:: ipv4_address
                                                 
@@ -3755,7 +3757,7 @@ class UdpConnection(object):
                 .. attribute:: pcb_detail
                 
                 	Detail information about a UDP connection
-                	**type**\: list of  :py:class:`PcbDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail>`
+                	**type**\: list of    :py:class:`PcbDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail>`
                 
                 
 
@@ -3785,12 +3787,12 @@ class UdpConnection(object):
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\:  :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                    	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress>`
+                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.ForeignAddress>`
                     
                     .. attribute:: foreign_port
                     
@@ -3802,7 +3804,7 @@ class UdpConnection(object):
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress>`
+                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbDetails.PcbDetail.LocalAddress>`
                     
                     .. attribute:: local_port
                     
@@ -3869,7 +3871,7 @@ class UdpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -3936,7 +3938,7 @@ class UdpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -4082,7 +4084,7 @@ class UdpConnection(object):
                 .. attribute:: pcb_brief
                 
                 	Brief information about a UDP connection
-                	**type**\: list of  :py:class:`PcbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief>`
+                	**type**\: list of    :py:class:`PcbBrief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief>`
                 
                 
 
@@ -4112,12 +4114,12 @@ class UdpConnection(object):
                     .. attribute:: af_name
                     
                     	Address family
-                    	**type**\:  :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                    	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                     
                     .. attribute:: foreign_address
                     
                     	Foreign address
-                    	**type**\:  :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress>`
+                    	**type**\:   :py:class:`ForeignAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.ForeignAddress>`
                     
                     .. attribute:: foreign_port
                     
@@ -4129,7 +4131,7 @@ class UdpConnection(object):
                     .. attribute:: local_address
                     
                     	Local address
-                    	**type**\:  :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress>`
+                    	**type**\:   :py:class:`LocalAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpConnection.Nodes.Node.PcbBriefs.PcbBrief.LocalAddress>`
                     
                     .. attribute:: local_port
                     
@@ -4188,7 +4190,7 @@ class UdpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         
@@ -4255,7 +4257,7 @@ class UdpConnection(object):
                         .. attribute:: af_name
                         
                         	AFName
-                        	**type**\:  :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
+                        	**type**\:   :py:class:`UdpAddressFamilyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_udp_oper.UdpAddressFamilyEnum>`
                         
                         .. attribute:: ipv4_address
                         

@@ -30,31 +30,31 @@ class TransportServiceEnum(Enum):
 
     Transport service protocol
 
-    .. data:: UNKNOWN = 0
+    .. data:: unknown = 0
 
     	Unknown service
 
-    .. data:: TELNET = 1
+    .. data:: telnet = 1
 
     	Telnet
 
-    .. data:: RLOGIN = 2
+    .. data:: rlogin = 2
 
     	Remote login
 
-    .. data:: SSH = 3
+    .. data:: ssh = 3
 
     	SSH
 
     """
 
-    UNKNOWN = 0
+    unknown = 0
 
-    TELNET = 1
+    telnet = 1
 
-    RLOGIN = 2
+    rlogin = 2
 
-    SSH = 3
+    ssh = 3
 
 
     @staticmethod

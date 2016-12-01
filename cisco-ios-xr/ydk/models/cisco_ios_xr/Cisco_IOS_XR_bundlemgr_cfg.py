@@ -34,25 +34,25 @@ class BfdModeEnum(Enum):
 
     Bfd mode
 
-    .. data:: NO_CFG = 0
+    .. data:: no_cfg = 0
 
     	BFD mode not configured on per-bundle basis
 
-    .. data:: CISCO = 1
+    .. data:: cisco = 1
 
     	BFD mode Cisco
 
-    .. data:: IETF = 2
+    .. data:: ietf = 2
 
     	BFD mode IETF
 
     """
 
-    NO_CFG = 0
+    no_cfg = 0
 
-    CISCO = 1
+    cisco = 1
 
-    IETF = 2
+    ietf = 2
 
 
     @staticmethod
@@ -67,19 +67,19 @@ class BundleCiscoExtTypesEnum(Enum):
 
     Bundle cisco ext types
 
-    .. data:: LON_SIGNALING_OFF = 0
+    .. data:: lon_signaling_off = 0
 
     	LON signaling disabled
 
-    .. data:: LON_SIGNALING_ON = 1
+    .. data:: lon_signaling_on = 1
 
     	LON signaling enabled
 
     """
 
-    LON_SIGNALING_OFF = 0
+    lon_signaling_off = 0
 
-    LON_SIGNALING_ON = 1
+    lon_signaling_on = 1
 
 
     @staticmethod
@@ -94,41 +94,41 @@ class BundleLoadBalanceEnum(Enum):
 
     Bundle load balance
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	Default hash function used
 
-    .. data:: EFP_AUTO = 1
+    .. data:: efp_auto = 1
 
     	Send all traffic for this EFP over an
 
     	automatically selected member
 
-    .. data:: EFP_VALUE = 2
+    .. data:: efp_value = 2
 
     	Send all traffic for this EFP over the member
 
     	corresponding to the specified hash function
 
-    .. data:: SOURCE_IP = 3
+    .. data:: source_ip = 3
 
     	Load balance according to source IP address
 
-    .. data:: DESTINATION_IP = 4
+    .. data:: destination_ip = 4
 
     	Load balance according to detination IP address
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    EFP_AUTO = 1
+    efp_auto = 1
 
-    EFP_VALUE = 2
+    efp_value = 2
 
-    SOURCE_IP = 3
+    source_ip = 3
 
-    DESTINATION_IP = 4
+    destination_ip = 4
 
 
     @staticmethod
@@ -143,19 +143,19 @@ class BundleMaximumActiveLinksModeEnum(Enum):
 
     Bundle maximum active links mode
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	Default
 
-    .. data:: HOT_STANDBY = 1
+    .. data:: hot_standby = 1
 
     	Hot standby
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    HOT_STANDBY = 1
+    hot_standby = 1
 
 
     @staticmethod
@@ -164,31 +164,91 @@ class BundleMaximumActiveLinksModeEnum(Enum):
         return meta._meta_table['BundleMaximumActiveLinksModeEnum']
 
 
+class BundleModeEnum(Enum):
+    """
+    BundleModeEnum
+
+    Bundle mode
+
+    .. data:: on = 0
+
+    	On
+
+    .. data:: active = 1
+
+    	Active
+
+    .. data:: passive = 2
+
+    	Passive
+
+    """
+
+    on = 0
+
+    active = 1
+
+    passive = 2
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundleModeEnum']
+
+
+class BundlePeriodEnum(Enum):
+    """
+    BundlePeriodEnum
+
+    Bundle period
+
+    .. data:: true = 1
+
+    	Use the standard LACP short period (1s)
+
+    """
+
+    true = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_bundlemgr_cfg as meta
+        return meta._meta_table['BundlePeriodEnum']
+
+
 class BundlePortActivityEnum(Enum):
     """
     BundlePortActivityEnum
 
     Bundle port activity
 
-    .. data:: ON = 1
+    .. data:: on = 1
 
     	On
 
-    .. data:: ACTIVE = 2
+    .. data:: active = 2
 
     	Active
 
-    .. data:: PASSIVE = 3
+    .. data:: passive = 3
 
     	Passive
 
+    .. data:: inherit = 4
+
+    	Inherit
+
     """
 
-    ON = 1
+    on = 1
 
-    ACTIVE = 2
+    active = 2
 
-    PASSIVE = 3
+    passive = 3
+
+    inherit = 4
 
 
     @staticmethod
@@ -203,25 +263,25 @@ class ChurnLoggingEnum(Enum):
 
     Churn logging
 
-    .. data:: ACTOR = 1
+    .. data:: actor = 1
 
     	Logging for actor churn only
 
-    .. data:: PARTNER = 2
+    .. data:: partner = 2
 
     	Logging for partner churn only
 
-    .. data:: BOTH = 3
+    .. data:: both = 3
 
     	Logging for actor and partner churn
 
     """
 
-    ACTOR = 1
+    actor = 1
 
-    PARTNER = 2
+    partner = 2
 
-    BOTH = 3
+    both = 3
 
 
     @staticmethod
@@ -236,19 +296,19 @@ class MlacpMaximizeParameterEnum(Enum):
 
     Mlacp maximize parameter
 
-    .. data:: LINKS = 1
+    .. data:: links = 1
 
     	Maximize the number of operational links
 
-    .. data:: BANDWIDTH = 2
+    .. data:: bandwidth = 2
 
     	Maximize the operational bandwidth
 
     """
 
-    LINKS = 1
+    links = 1
 
-    BANDWIDTH = 2
+    bandwidth = 2
 
 
     @staticmethod
@@ -263,19 +323,19 @@ class MlacpSwitchoverEnum(Enum):
 
     Mlacp switchover
 
-    .. data:: BRUTE_FORCE = 1
+    .. data:: brute_force = 1
 
     	Brute force shutdown
 
-    .. data:: REVERTIVE = 2
+    .. data:: revertive = 2
 
     	Revertive behavior
 
     """
 
-    BRUTE_FORCE = 1
+    brute_force = 1
 
-    REVERTIVE = 2
+    revertive = 2
 
 
     @staticmethod
@@ -290,13 +350,13 @@ class PeriodShortEnumEnum(Enum):
 
     Period short enum
 
-    .. data:: TRUE = 1
+    .. data:: true = 1
 
     	Use the standard LACP short period (1s)
 
     """
 
-    TRUE = 1
+    true = 1
 
 
     @staticmethod
@@ -323,6 +383,8 @@ class Lacp(object):
     	**type**\:  int
     
     	**range:** 1..65535
+    
+    	**default value**\: 32768
     
     
 

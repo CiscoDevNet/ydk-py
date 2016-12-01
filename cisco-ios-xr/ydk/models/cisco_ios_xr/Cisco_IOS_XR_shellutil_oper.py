@@ -30,37 +30,37 @@ class TimeSourceEnum(Enum):
 
     Time source
 
-    .. data:: ERROR = 0
+    .. data:: error = 0
 
     	Error
 
-    .. data:: NONE = 1
+    .. data:: none = 1
 
     	Unsynchronized time
 
-    .. data:: NTP = 2
+    .. data:: ntp = 2
 
     	Network time protocol
 
-    .. data:: MANUAL = 3
+    .. data:: manual = 3
 
     	User configured
 
-    .. data:: CALENDAR = 4
+    .. data:: calendar = 4
 
     	Hardware calendar
 
     """
 
-    ERROR = 0
+    error = 0
 
-    NONE = 1
+    none = 1
 
-    NTP = 2
+    ntp = 2
 
-    MANUAL = 3
+    manual = 3
 
-    CALENDAR = 4
+    calendar = 4
 
 
     @staticmethod
@@ -77,12 +77,12 @@ class SystemTime(object):
     .. attribute:: clock
     
     	System clock information
-    	**type**\:  :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Clock>`
+    	**type**\:   :py:class:`Clock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Clock>`
     
     .. attribute:: uptime
     
     	System uptime information
-    	**type**\:  :py:class:`Uptime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Uptime>`
+    	**type**\:   :py:class:`Uptime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.SystemTime.Uptime>`
     
     
 
@@ -147,7 +147,7 @@ class SystemTime(object):
         .. attribute:: time_source
         
         	Time source
-        	**type**\:  :py:class:`TimeSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.TimeSourceEnum>`
+        	**type**\:   :py:class:`TimeSourceEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper.TimeSourceEnum>`
         
         .. attribute:: time_zone
         
@@ -253,6 +253,8 @@ class SystemTime(object):
         	**type**\:  int
         
         	**range:** 0..4294967295
+        
+        	**units**\: second
         
         
 

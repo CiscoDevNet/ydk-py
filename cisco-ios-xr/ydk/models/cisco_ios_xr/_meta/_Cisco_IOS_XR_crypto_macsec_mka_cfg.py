@@ -16,21 +16,25 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MacsecMkaConfOffsetEnum' : _MetaInfoEnum('MacsecMkaConfOffsetEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg',
         {
-            'conf-off-set-0':'CONF_OFF_SET_0',
-            'conf-off-set-30':'CONF_OFF_SET_30',
-            'conf-off-set-50':'CONF_OFF_SET_50',
+            'conf-off-set-0':'conf_off_set_0',
+            'conf-off-set-30':'conf_off_set_30',
+            'conf-off-set-50':'conf_off_set_50',
         }, 'Cisco-IOS-XR-crypto-macsec-mka-cfg', _yang_ns._namespaces['Cisco-IOS-XR-crypto-macsec-mka-cfg']),
     'MacsecMkaSecurityPolicyEnum' : _MetaInfoEnum('MacsecMkaSecurityPolicyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg',
         {
-            'should-secure':'SHOULD_SECURE',
-            'must-secure':'MUST_SECURE',
+            'should-secure':'should_secure',
+            'must-secure':'must_secure',
+        }, 'Cisco-IOS-XR-crypto-macsec-mka-cfg', _yang_ns._namespaces['Cisco-IOS-XR-crypto-macsec-mka-cfg']),
+    'MacsecMkaPolicyExceptionEnum' : _MetaInfoEnum('MacsecMkaPolicyExceptionEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg',
+        {
+            'lacp-in-clear':'lacp_in_clear',
         }, 'Cisco-IOS-XR-crypto-macsec-mka-cfg', _yang_ns._namespaces['Cisco-IOS-XR-crypto-macsec-mka-cfg']),
     'MacsecMkaCipherSuiteEnum' : _MetaInfoEnum('MacsecMkaCipherSuiteEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg',
         {
-            'gcm-aes-128':'GCM_AES_128',
-            'gcm-aes-256':'GCM_AES_256',
-            'gcm-aes-xpn-128':'GCM_AES_XPN_128',
-            'gcm-aes-xpn-256':'GCM_AES_XPN_256',
+            'gcm-aes-128':'gcm_aes_128',
+            'gcm-aes-256':'gcm_aes_256',
+            'gcm-aes-xpn-128':'gcm_aes_xpn_128',
+            'gcm-aes-xpn-256':'gcm_aes_xpn_256',
         }, 'Cisco-IOS-XR-crypto-macsec-mka-cfg', _yang_ns._namespaces['Cisco-IOS-XR-crypto-macsec-mka-cfg']),
     'Macsec.Policy' : {
         'meta_info' : _MetaInfoClass('Macsec.Policy',
@@ -59,6 +63,13 @@ _meta_table = {
                 '''                Key-Server-Priority of Policy
                 ''',
                 'key_server_priority',
+                'Cisco-IOS-XR-crypto-macsec-mka-cfg', False),
+            _MetaInfoClassMember('policy-exception', REFERENCE_ENUM_CLASS, 'MacsecMkaPolicyExceptionEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg', 'MacsecMkaPolicyExceptionEnum', 
+                [], [], 
+                '''                Macsec policy exception for packets to be in
+                clear
+                ''',
+                'policy_exception',
                 'Cisco-IOS-XR-crypto-macsec-mka-cfg', False),
             _MetaInfoClassMember('security-policy', REFERENCE_ENUM_CLASS, 'MacsecMkaSecurityPolicyEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg', 'MacsecMkaSecurityPolicyEnum', 
                 [], [], 

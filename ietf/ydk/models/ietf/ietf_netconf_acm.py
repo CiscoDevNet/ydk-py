@@ -37,19 +37,19 @@ class ActionTypeEnum(Enum):
 
     rule matches.
 
-    .. data:: PERMIT = 0
+    .. data:: permit = 0
 
     	Requested action is permitted.
 
-    .. data:: DENY = 1
+    .. data:: deny = 1
 
     	Requested action is denied.
 
     """
 
-    PERMIT = 0
+    permit = 0
 
-    DENY = 1
+    deny = 1
 
 
     @staticmethod
@@ -58,9 +58,9 @@ class ActionTypeEnum(Enum):
         return meta._meta_table['ActionTypeEnum']
 
 
-class AccessOperationsType_Bits(FixedBitsDict):
+class AccessOperationsTypeBits(FixedBitsDict):
     """
-    AccessOperationsType_Bits
+    AccessOperationsTypeBits
 
     NETCONF Access Operation.
     Keys are:- read , create , exec , update , delete
@@ -115,35 +115,45 @@ class Nacm(object):
     	Controls whether the server uses the groups reported by the NETCONF transport layer when it assigns the user to a set of NACM groups.  If this leaf has the value 'false', any group names reported by the transport layer are ignored by the server
     	**type**\:  bool
     
+    	**default value**\: true
+    
     .. attribute:: enable_nacm
     
     	Enables or disables all NETCONF access control enforcement.  If 'true', then enforcement is enabled.  If 'false', then enforcement is disabled
     	**type**\:  bool
     
+    	**default value**\: true
+    
     .. attribute:: exec_default
     
     	Controls whether exec access is granted if no appropriate rule is found for a particular protocol operation request
-    	**type**\:  :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
+    	**type**\:   :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
+    
+    	**default value**\: permit
     
     .. attribute:: groups
     
     	NETCONF Access Control Groups
-    	**type**\:  :py:class:`Groups <ydk.models.ietf.ietf_netconf_acm.Nacm.Groups>`
+    	**type**\:   :py:class:`Groups <ydk.models.ietf.ietf_netconf_acm.Nacm.Groups>`
     
     .. attribute:: read_default
     
     	Controls whether read access is granted if no appropriate rule is found for a particular read request
-    	**type**\:  :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
+    	**type**\:   :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
+    
+    	**default value**\: permit
     
     .. attribute:: rule_list
     
     	An ordered collection of access control rules
-    	**type**\: list of  :py:class:`RuleList <ydk.models.ietf.ietf_netconf_acm.Nacm.RuleList>`
+    	**type**\: list of    :py:class:`RuleList <ydk.models.ietf.ietf_netconf_acm.Nacm.RuleList>`
     
     .. attribute:: write_default
     
     	Controls whether create, update, or delete access is granted if no appropriate rule is found for a particular write request
-    	**type**\:  :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
+    	**type**\:   :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
+    
+    	**default value**\: deny
     
     
 
@@ -175,7 +185,7 @@ class Nacm(object):
         .. attribute:: group
         
         	One NACM Group Entry.  This list will only contain configured entries, not any entries learned from any transport protocols
-        	**type**\: list of  :py:class:`Group <ydk.models.ietf.ietf_netconf_acm.Nacm.Groups.Group>`
+        	**type**\: list of    :py:class:`Group <ydk.models.ietf.ietf_netconf_acm.Nacm.Groups.Group>`
         
         
 
@@ -310,7 +320,7 @@ class Nacm(object):
         .. attribute:: rule
         
         	One access control rule.  Rules are processed in user\-defined order until a match is found.  A rule matches if 'module\-name', 'rule\-type', and 'access\-operations' match the request.  If a rule matches, the 'action' leaf determines if access is granted or not
-        	**type**\: list of  :py:class:`Rule <ydk.models.ietf.ietf_netconf_acm.Nacm.RuleList.Rule>`
+        	**type**\: list of    :py:class:`Rule <ydk.models.ietf.ietf_netconf_acm.Nacm.RuleList.Rule>`
         
         
 
@@ -356,16 +366,20 @@ class Nacm(object):
             
             	**pattern:** \\\*
             
+            	**default value**\: *
+            
             
             ----
-            	**type**\:  :py:class:`AccessOperationsType_Bits <ydk.models.ietf.ietf_netconf_acm.AccessOperationsType_Bits>`
+            	**type**\:   :py:class:`AccessOperationsTypeBits <ydk.models.ietf.ietf_netconf_acm.AccessOperationsTypeBits>`
+            
+            	**default value**\: *
             
             
             ----
             .. attribute:: action
             
             	The access control action associated with the rule.  If a rule is determined to match a particular request, then this object is used to determine whether to permit or deny the request
-            	**type**\:  :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
+            	**type**\:   :py:class:`ActionTypeEnum <ydk.models.ietf.ietf_netconf_acm.ActionTypeEnum>`
             
             	**mandatory**\: True
             
@@ -383,9 +397,13 @@ class Nacm(object):
             
             	**pattern:** \\\*
             
+            	**default value**\: *
+            
             
             ----
             	**type**\:  str
+            
+            	**default value**\: *
             
             
             ----

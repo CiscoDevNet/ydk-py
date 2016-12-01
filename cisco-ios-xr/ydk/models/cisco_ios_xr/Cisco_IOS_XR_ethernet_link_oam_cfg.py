@@ -32,19 +32,19 @@ class EtherLinkOamEventActionEnum1Enum(Enum):
 
     Ether link oam event action enum1
 
-    .. data:: ERROR_DISABLE = 2
+    .. data:: error_disable = 2
 
     	Disable the interface
 
-    .. data:: LOG = 3
+    .. data:: log = 3
 
     	Log the event
 
     """
 
-    ERROR_DISABLE = 2
+    error_disable = 2
 
-    LOG = 3
+    log = 3
 
 
     @staticmethod
@@ -59,19 +59,19 @@ class EtherLinkOamEventActionEnum2Enum(Enum):
 
     Ether link oam event action enum2
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Perform no action
 
-    .. data:: ERROR_DISABLE = 2
+    .. data:: error_disable = 2
 
     	Disable the interface
 
     """
 
-    DISABLE = 1
+    disable = 1
 
-    ERROR_DISABLE = 2
+    error_disable = 2
 
 
     @staticmethod
@@ -86,13 +86,13 @@ class EtherLinkOamEventActionEnum4Enum(Enum):
 
     Ether link oam event action enum4
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Perform no action
 
     """
 
-    DISABLE = 1
+    disable = 1
 
 
     @staticmethod
@@ -107,25 +107,25 @@ class EtherLinkOamEventActionEnum5Enum(Enum):
 
     Ether link oam event action enum5
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Perform no action
 
-    .. data:: ERROR_DISABLE = 2
+    .. data:: error_disable = 2
 
     	Disable the interface
 
-    .. data:: EFD = 4
+    .. data:: efd = 4
 
     	EFD the interface
 
     """
 
-    DISABLE = 1
+    disable = 1
 
-    ERROR_DISABLE = 2
+    error_disable = 2
 
-    EFD = 4
+    efd = 4
 
 
     @staticmethod
@@ -140,25 +140,25 @@ class EtherLinkOamEventActionEnum6Enum(Enum):
 
     Ether link oam event action enum6
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Perform no action
 
-    .. data:: LOG = 3
+    .. data:: log = 3
 
     	Log the event
 
-    .. data:: EFD = 4
+    .. data:: efd = 4
 
     	EFD the interface
 
     """
 
-    DISABLE = 1
+    disable = 1
 
-    LOG = 3
+    log = 3
 
-    EFD = 4
+    efd = 4
 
 
     @staticmethod
@@ -173,31 +173,31 @@ class EtherLinkOamEventActionEnumEfdEnum(Enum):
 
     Ether link oam event action enum efd
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Perform no action
 
-    .. data:: ERROR_DISABLE = 2
+    .. data:: error_disable = 2
 
     	Disable the interface
 
-    .. data:: LOG = 3
+    .. data:: log = 3
 
     	Log the event
 
-    .. data:: EFD = 4
+    .. data:: efd = 4
 
     	EFD the interface
 
     """
 
-    DISABLE = 1
+    disable = 1
 
-    ERROR_DISABLE = 2
+    error_disable = 2
 
-    LOG = 3
+    log = 3
 
-    EFD = 4
+    efd = 4
 
 
     @staticmethod
@@ -212,25 +212,25 @@ class EtherLinkOamEventActionEnumEnum(Enum):
 
     Ether link oam event action enum
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Perform no action
 
-    .. data:: ERROR_DISABLE = 2
+    .. data:: error_disable = 2
 
     	Disable the interface
 
-    .. data:: LOG = 3
+    .. data:: log = 3
 
     	Log the event
 
     """
 
-    DISABLE = 1
+    disable = 1
 
-    ERROR_DISABLE = 2
+    error_disable = 2
 
-    LOG = 3
+    log = 3
 
 
     @staticmethod
@@ -245,19 +245,19 @@ class EtherLinkOamEventActionPrimEnumEnum(Enum):
 
     Ether link oam event action prim enum
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Perform no action
 
-    .. data:: LOG = 3
+    .. data:: log = 3
 
     	Log the event
 
     """
 
-    DISABLE = 1
+    disable = 1
 
-    LOG = 3
+    log = 3
 
 
     @staticmethod
@@ -272,19 +272,19 @@ class EtherLinkOamInterfaceHelloIntervalEnumEnum(Enum):
 
     Ether link oam interface hello interval enum
 
-    .. data:: Y_1S = 0
+    .. data:: Y_1s = 0
 
     	1 s OAM hello interval
 
-    .. data:: Y_100MS = 1
+    .. data:: Y_100ms = 1
 
     	100 ms OAM hello interval
 
     """
 
-    Y_1S = 0
+    Y_1s = 0
 
-    Y_100MS = 1
+    Y_100ms = 1
 
 
     @staticmethod
@@ -299,19 +299,19 @@ class EtherLinkOamInterfaceModeEnumEnum(Enum):
 
     Ether link oam interface mode enum
 
-    .. data:: PASSIVE = 0
+    .. data:: passive = 0
 
     	Ethernet Link OAM Passive mode
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	Ethernet Link OAM Active mode
 
     """
 
-    PASSIVE = 0
+    passive = 0
 
-    ACTIVE = 1
+    active = 1
 
 
     @staticmethod
@@ -326,25 +326,25 @@ class EtherLinkOamInterfaceRequireModeEnumEnum(Enum):
 
     Ether link oam interface require mode enum
 
-    .. data:: PASSIVE = 0
+    .. data:: passive = 0
 
     	Ethernet Link OAM Passive mode
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	Ethernet Link OAM Active mode
 
-    .. data:: DONT_CARE = 2
+    .. data:: dont_care = 2
 
     	Ethernet Link OAM mode not required
 
     """
 
-    PASSIVE = 0
+    passive = 0
 
-    ACTIVE = 1
+    active = 1
 
-    DONT_CARE = 2
+    dont_care = 2
 
 
     @staticmethod
@@ -359,13 +359,13 @@ class EtherLinkOamProfileHelloIntervalEnumEnum(Enum):
 
     Ether link oam profile hello interval enum
 
-    .. data:: Y_100MS = 1
+    .. data:: Y_100ms = 1
 
     	100 ms OAM hello interval
 
     """
 
-    Y_100MS = 1
+    Y_100ms = 1
 
 
     @staticmethod
@@ -380,13 +380,13 @@ class EtherLinkOamProfileModeEnumEnum(Enum):
 
     Ether link oam profile mode enum
 
-    .. data:: PASSIVE = 0
+    .. data:: passive = 0
 
     	Ethernet Link OAM Passive mode
 
     """
 
-    PASSIVE = 0
+    passive = 0
 
 
     @staticmethod
@@ -401,19 +401,19 @@ class EtherLinkOamProfileRequireModeEnumEnum(Enum):
 
     Ether link oam profile require mode enum
 
-    .. data:: PASSIVE = 0
+    .. data:: passive = 0
 
     	Ethernet Link OAM Passive mode
 
-    .. data:: ACTIVE = 1
+    .. data:: active = 1
 
     	Ethernet Link OAM Active mode
 
     """
 
-    PASSIVE = 0
+    passive = 0
 
-    ACTIVE = 1
+    active = 1
 
 
     @staticmethod

@@ -106,12 +106,12 @@ class RoutingPolicy(object):
     .. attribute:: defined_sets
     
     	Predefined sets of attributes used in policy match statements
-    	**type**\:  :py:class:`DefinedSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets>`
+    	**type**\:   :py:class:`DefinedSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets>`
     
     .. attribute:: policy_definitions
     
     	Enclosing container for the list of top\-level policy definitions
-    	**type**\:  :py:class:`PolicyDefinitions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions>`
+    	**type**\:   :py:class:`PolicyDefinitions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions>`
     
     
 
@@ -135,22 +135,22 @@ class RoutingPolicy(object):
         .. attribute:: bgp_defined_sets
         
         	BGP\-related set definitions for policy match conditions
-        	**type**\:  :py:class:`BgpDefinedSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets>`
+        	**type**\:   :py:class:`BgpDefinedSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets>`
         
         .. attribute:: neighbor_sets
         
         	Enclosing container for defined neighbor sets for matching
-        	**type**\:  :py:class:`NeighborSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets>`
+        	**type**\:   :py:class:`NeighborSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets>`
         
         .. attribute:: prefix_sets
         
         	Enclosing container for defined prefix sets for matching
-        	**type**\:  :py:class:`PrefixSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets>`
+        	**type**\:   :py:class:`PrefixSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets>`
         
         .. attribute:: tag_sets
         
         	Enclosing container for defined tag sets for matching
-        	**type**\:  :py:class:`TagSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets>`
+        	**type**\:   :py:class:`TagSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets>`
         
         
 
@@ -178,7 +178,7 @@ class RoutingPolicy(object):
             .. attribute:: prefix_set
             
             	List of the defined prefix sets
-            	**type**\: list of  :py:class:`PrefixSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
+            	**type**\: list of    :py:class:`PrefixSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
             
             
 
@@ -206,7 +206,7 @@ class RoutingPolicy(object):
                 .. attribute:: prefix
                 
                 	List of prefix expressions that are part of the set
-                	**type**\: list of  :py:class:`Prefix <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefix>`
+                	**type**\: list of    :py:class:`Prefix <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet.Prefix>`
                 
                 
 
@@ -359,7 +359,7 @@ class RoutingPolicy(object):
             .. attribute:: neighbor_set
             
             	Definitions for neighbor sets
-            	**type**\: list of  :py:class:`NeighborSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
+            	**type**\: list of    :py:class:`NeighborSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
             
             
 
@@ -387,7 +387,7 @@ class RoutingPolicy(object):
                 .. attribute:: neighbor
                 
                 	list of addresses that are part of the neighbor set
-                	**type**\: list of  :py:class:`Neighbor <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor>`
+                	**type**\: list of    :py:class:`Neighbor <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet.Neighbor>`
                 
                 
 
@@ -523,7 +523,7 @@ class RoutingPolicy(object):
             .. attribute:: tag_set
             
             	Definitions for tag sets
-            	**type**\: list of  :py:class:`TagSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
+            	**type**\: list of    :py:class:`TagSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
             
             
 
@@ -551,7 +551,7 @@ class RoutingPolicy(object):
                 .. attribute:: tag
                 
                 	list of tags that are part of the tag set
-                	**type**\: list of  :py:class:`Tag <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet.Tag>`
+                	**type**\: list of    :py:class:`Tag <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet.Tag>`
                 
                 
 
@@ -687,17 +687,17 @@ class RoutingPolicy(object):
             .. attribute:: as_path_sets
             
             	Enclosing container for AS path sets
-            	**type**\:  :py:class:`AsPathSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets>`
+            	**type**\:   :py:class:`AsPathSets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets>`
             
             .. attribute:: community_sets
             
             	Enclosing container for community sets
-            	**type**\:  :py:class:`CommunitySets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets>`
+            	**type**\:   :py:class:`CommunitySets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets>`
             
             .. attribute:: ext_community_sets
             
             	Enclosing container for extended community sets
-            	**type**\:  :py:class:`ExtCommunitySets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets>`
+            	**type**\:   :py:class:`ExtCommunitySets <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets>`
             
             
 
@@ -723,7 +723,7 @@ class RoutingPolicy(object):
                 .. attribute:: community_set
                 
                 	Definitions for community sets
-                	**type**\: list of  :py:class:`CommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
+                	**type**\: list of    :py:class:`CommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
                 
                 
 
@@ -773,7 +773,8 @@ class RoutingPolicy(object):
                     
                     
                     ----
-                    	**type**\:  list of :py:class:`BgpWellKnownStdCommunityIdentity <ydk.models.openconfig.openconfig_bgp_types.BgpWellKnownStdCommunityIdentity>`
+                    	**type**\:  
+                    		list of  
                     
                     
                     ----
@@ -852,7 +853,7 @@ class RoutingPolicy(object):
                 .. attribute:: ext_community_set
                 
                 	Definitions for extended community sets
-                	**type**\: list of  :py:class:`ExtCommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
+                	**type**\: list of    :py:class:`ExtCommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
                 
                 
 
@@ -999,7 +1000,7 @@ class RoutingPolicy(object):
                 .. attribute:: as_path_set
                 
                 	Definitions for AS path sets
-                	**type**\: list of  :py:class:`AsPathSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
+                	**type**\: list of    :py:class:`AsPathSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
                 
                 
 
@@ -1164,7 +1165,7 @@ class RoutingPolicy(object):
         .. attribute:: policy_definition
         
         	List of top\-level policy definitions, keyed by unique name.  These policy definitions are expected to be referenced (by name) in policy chains specified in import or export configuration statements
-        	**type**\: list of  :py:class:`PolicyDefinition <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+        	**type**\: list of    :py:class:`PolicyDefinition <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
         
         
 
@@ -1195,7 +1196,7 @@ class RoutingPolicy(object):
             .. attribute:: statements
             
             	Enclosing container for policy statements
-            	**type**\:  :py:class:`Statements <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements>`
+            	**type**\:   :py:class:`Statements <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements>`
             
             
 
@@ -1218,7 +1219,7 @@ class RoutingPolicy(object):
                 .. attribute:: statement
                 
                 	Policy statements group conditions and actions within a policy definition.  They are evaluated in the order specified (see the description of policy evaluation at the top of this module
-                	**type**\: list of  :py:class:`Statement <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement>`
+                	**type**\: list of    :py:class:`Statement <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement>`
                 
                 
 
@@ -1249,12 +1250,12 @@ class RoutingPolicy(object):
                     .. attribute:: actions
                     
                     	Action statements for this policy statement
-                    	**type**\:  :py:class:`Actions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions>`
+                    	**type**\:   :py:class:`Actions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions>`
                     
                     .. attribute:: conditions
                     
                     	Condition statements for this policy statement
-                    	**type**\:  :py:class:`Conditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions>`
+                    	**type**\:   :py:class:`Conditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions>`
                     
                     
 
@@ -1280,39 +1281,45 @@ class RoutingPolicy(object):
                         .. attribute:: bgp_conditions
                         
                         	Policy conditions for matching BGP\-specific defined sets or comparing BGP\-specific attributes
-                        	**type**\:  :py:class:`BgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions>`
+                        	**type**\:   :py:class:`BgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions>`
                         
                         .. attribute:: call_policy
                         
                         	Applies the statements from the specified policy definition and then returns control the current policy statement. Note that the called policy may itself call other policies (subject to implementation limitations). This is intended to provide a policy 'subroutine' capability.  The called policy should contain an explicit or a default route disposition that returns an effective true (accept\-route) or false (reject\-route), otherwise the behavior may be ambiguous and implementation dependent
                         	**type**\:  str
                         
-                        	**refers to**\: :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
+                        	**refers to**\:  :py:class:`name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition>`
                         
                         .. attribute:: igp_conditions
                         
                         	Policy conditions for IGP attributes
-                        	**type**\:  :py:class:`IgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions>`
+                        	**type**\:   :py:class:`IgpConditions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.IgpConditions>`
                         
                         .. attribute:: install_protocol_eq
                         
                         	Condition to check the protocol / method used to install which installed the route into the local routing table
-                        	**type**\:  :py:class:`InstallProtocolTypeIdentity <ydk.models.openconfig.openconfig_policy_types.InstallProtocolTypeIdentity>`
+                        	**type**\:   :py:class:`InstallProtocolTypeIdentity <ydk.models.openconfig.openconfig_policy_types.InstallProtocolTypeIdentity>`
                         
                         .. attribute:: match_neighbor_set
                         
                         	Match a referenced neighbor set according to the logic defined in the match\-set\-options\-leaf
-                        	**type**\:  :py:class:`MatchNeighborSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet>`
+                        	**type**\:   :py:class:`MatchNeighborSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchNeighborSet>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: match_prefix_set
                         
                         	Match a referenced prefix\-set according to the logic defined in the match\-set\-options leaf
-                        	**type**\:  :py:class:`MatchPrefixSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet>`
+                        	**type**\:   :py:class:`MatchPrefixSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchPrefixSet>`
+                        
+                        	**presence node**\: True
                         
                         .. attribute:: match_tag_set
                         
                         	Match a referenced tag set according to the logic defined in the match\-options\-set leaf
-                        	**type**\:  :py:class:`MatchTagSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet>`
+                        	**type**\:   :py:class:`MatchTagSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.MatchTagSet>`
+                        
+                        	**presence node**\: True
                         
                         
 
@@ -1342,14 +1349,14 @@ class RoutingPolicy(object):
                             .. attribute:: match_set_options
                             
                             	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                            	**type**\:  :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            	**type**\:   :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedTypeEnum>`
                             
                             .. attribute:: prefix_set
                             
                             	References a defined prefix set
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
+                            	**refers to**\:  :py:class:`prefix_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.PrefixSets.PrefixSet>`
                             
                             .. attribute:: _is_presence
                             
@@ -1409,14 +1416,14 @@ class RoutingPolicy(object):
                             .. attribute:: match_set_options
                             
                             	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                            	**type**\:  :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            	**type**\:   :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedTypeEnum>`
                             
                             .. attribute:: neighbor_set
                             
                             	References a defined neighbor set
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`neighbor_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
+                            	**refers to**\:  :py:class:`neighbor_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.NeighborSets.NeighborSet>`
                             
                             .. attribute:: _is_presence
                             
@@ -1476,14 +1483,14 @@ class RoutingPolicy(object):
                             .. attribute:: match_set_options
                             
                             	Optional parameter that governs the behaviour of the match operation.  This leaf only supports matching on ANY member of the set or inverting the match.  Matching on ALL is not supported)
-                            	**type**\:  :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedTypeEnum>`
+                            	**type**\:   :py:class:`MatchSetOptionsRestrictedTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsRestrictedTypeEnum>`
                             
                             .. attribute:: tag_set
                             
                             	References a defined tag set
                             	**type**\:  str
                             
-                            	**refers to**\: :py:class:`tag_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
+                            	**refers to**\:  :py:class:`tag_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.TagSets.TagSet>`
                             
                             .. attribute:: _is_presence
                             
@@ -1580,17 +1587,22 @@ class RoutingPolicy(object):
                             .. attribute:: afi_safi_in
                             
                             	List of address families which the NLRI may be within
-                            	**type**\:  list of :py:class:`AfiSafiTypeIdentity <ydk.models.openconfig.openconfig_bgp_types.AfiSafiTypeIdentity>`
+                            	**type**\:  
+                            		list of  
                             
                             .. attribute:: as_path_length
                             
                             	Value and comparison operations for conditions based on the length of the AS path in the route update
-                            	**type**\:  :py:class:`AsPathLength <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength>`
+                            	**type**\:   :py:class:`AsPathLength <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.AsPathLength>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: community_count
                             
                             	Value and comparison operations for conditions based on the number of communities in the route update
-                            	**type**\:  :py:class:`CommunityCount <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount>`
+                            	**type**\:   :py:class:`CommunityCount <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.CommunityCount>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: local_pref_eq
                             
@@ -1602,17 +1614,23 @@ class RoutingPolicy(object):
                             .. attribute:: match_as_path_set
                             
                             	Match a referenced as\-path set according to the logic defined in the match\-set\-options leaf
-                            	**type**\:  :py:class:`MatchAsPathSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet>`
+                            	**type**\:   :py:class:`MatchAsPathSet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchAsPathSet>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: match_community_set
                             
                             	Match a referenced community\-set according to the logic defined in the match\-set\-options leaf
-                            	**type**\:  :py:class:`MatchCommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet>`
+                            	**type**\:   :py:class:`MatchCommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchCommunitySet>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: match_ext_community_set
                             
                             	Match a referenced extended community\-set according to the logic defined in the match\-set\-options leaf
-                            	**type**\:  :py:class:`MatchExtCommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet>`
+                            	**type**\:   :py:class:`MatchExtCommunitySet <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.MatchExtCommunitySet>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: med_eq
                             
@@ -1641,12 +1659,12 @@ class RoutingPolicy(object):
                             .. attribute:: origin_eq
                             
                             	Condition to check if the route origin is equal to the specified value
-                            	**type**\:  :py:class:`BgpOriginAttrTypeEnum <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrTypeEnum>`
+                            	**type**\:   :py:class:`BgpOriginAttrTypeEnum <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrTypeEnum>`
                             
                             .. attribute:: route_type
                             
                             	Condition to check the route type in the route update
-                            	**type**\:  :py:class:`RouteTypeEnum <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.RouteTypeEnum>`
+                            	**type**\:   :py:class:`RouteTypeEnum <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Conditions.BgpConditions.RouteTypeEnum>`
                             
                             
 
@@ -1711,12 +1729,12 @@ class RoutingPolicy(object):
                                 	References a defined community set
                                 	**type**\:  str
                                 
-                                	**refers to**\: :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
+                                	**refers to**\:  :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
                                 
                                 .. attribute:: match_set_options
                                 
                                 	Optional parameter that governs the behaviour of the match operation
-                                	**type**\:  :py:class:`MatchSetOptionsTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsTypeEnum>`
+                                	**type**\:   :py:class:`MatchSetOptionsTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsTypeEnum>`
                                 
                                 .. attribute:: _is_presence
                                 
@@ -1778,12 +1796,12 @@ class RoutingPolicy(object):
                                 	References a defined extended community set
                                 	**type**\:  str
                                 
-                                	**refers to**\: :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
+                                	**refers to**\:  :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
                                 
                                 .. attribute:: match_set_options
                                 
                                 	Optional parameter that governs the behaviour of the match operation
-                                	**type**\:  :py:class:`MatchSetOptionsTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsTypeEnum>`
+                                	**type**\:   :py:class:`MatchSetOptionsTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsTypeEnum>`
                                 
                                 .. attribute:: _is_presence
                                 
@@ -1845,12 +1863,12 @@ class RoutingPolicy(object):
                                 	References a defined AS path set
                                 	**type**\:  str
                                 
-                                	**refers to**\: :py:class:`as_path_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
+                                	**refers to**\:  :py:class:`as_path_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.AsPathSets.AsPathSet>`
                                 
                                 .. attribute:: match_set_options
                                 
                                 	Optional parameter that governs the behaviour of the match operation
-                                	**type**\:  :py:class:`MatchSetOptionsTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsTypeEnum>`
+                                	**type**\:   :py:class:`MatchSetOptionsTypeEnum <ydk.models.openconfig.openconfig_policy_types.MatchSetOptionsTypeEnum>`
                                 
                                 .. attribute:: _is_presence
                                 
@@ -1907,10 +1925,10 @@ class RoutingPolicy(object):
                                 Value and comparison operations for conditions based on the
                                 number of communities in the route update
                                 
-                                .. attribute:: operator_
+                                .. attribute:: operator
                                 
                                 	type of comparison to be performed
-                                	**type**\:  :py:class:`AttributeComparisonIdentity <ydk.models.openconfig.openconfig_policy_types.AttributeComparisonIdentity>`
+                                	**type**\:   :py:class:`AttributeComparisonIdentity <ydk.models.openconfig.openconfig_policy_types.AttributeComparisonIdentity>`
                                 
                                 .. attribute:: value
                                 
@@ -1936,7 +1954,7 @@ class RoutingPolicy(object):
                                 def __init__(self):
                                     self.parent = None
                                     self._is_presence = True
-                                    self.operator_ = None
+                                    self.operator = None
                                     self.value = None
 
                                 @property
@@ -1955,7 +1973,7 @@ class RoutingPolicy(object):
                                         return False
                                     if self._is_presence:
                                         return True
-                                    if self.operator_ is not None:
+                                    if self.operator is not None:
                                         return True
 
                                     if self.value is not None:
@@ -1974,10 +1992,10 @@ class RoutingPolicy(object):
                                 Value and comparison operations for conditions based on the
                                 length of the AS path in the route update
                                 
-                                .. attribute:: operator_
+                                .. attribute:: operator
                                 
                                 	type of comparison to be performed
-                                	**type**\:  :py:class:`AttributeComparisonIdentity <ydk.models.openconfig.openconfig_policy_types.AttributeComparisonIdentity>`
+                                	**type**\:   :py:class:`AttributeComparisonIdentity <ydk.models.openconfig.openconfig_policy_types.AttributeComparisonIdentity>`
                                 
                                 .. attribute:: value
                                 
@@ -2003,7 +2021,7 @@ class RoutingPolicy(object):
                                 def __init__(self):
                                     self.parent = None
                                     self._is_presence = True
-                                    self.operator_ = None
+                                    self.operator = None
                                     self.value = None
 
                                 @property
@@ -2022,7 +2040,7 @@ class RoutingPolicy(object):
                                         return False
                                     if self._is_presence:
                                         return True
-                                    if self.operator_ is not None:
+                                    if self.operator is not None:
                                         return True
 
                                     if self.value is not None:
@@ -2144,22 +2162,22 @@ class RoutingPolicy(object):
                         .. attribute:: accept_route
                         
                         	accepts the route into the routing table
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: bgp_actions
                         
                         	Definitions for policy action statements that change BGP\-specific attributes of the route
-                        	**type**\:  :py:class:`BgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions>`
+                        	**type**\:   :py:class:`BgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions>`
                         
                         .. attribute:: igp_actions
                         
                         	Actions to set IGP route attributes; these actions apply to multiple IGPs
-                        	**type**\:  :py:class:`IgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions>`
+                        	**type**\:   :py:class:`IgpActions <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.IgpActions>`
                         
                         .. attribute:: reject_route
                         
                         	rejects the route
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         
 
@@ -2244,17 +2262,23 @@ class RoutingPolicy(object):
                             .. attribute:: set_as_path_prepend
                             
                             	action to prepend local AS number to the AS\-path a specified number of times
-                            	**type**\:  :py:class:`SetAsPathPrepend <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend>`
+                            	**type**\:   :py:class:`SetAsPathPrepend <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetAsPathPrepend>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: set_community
                             
                             	action to set the community attributes of the route, along with options to modify how the community is modified
-                            	**type**\:  :py:class:`SetCommunity <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity>`
+                            	**type**\:   :py:class:`SetCommunity <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetCommunity>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: set_ext_community
                             
                             	Action to set the extended community attributes of the route, along with options to modify how the community is modified
-                            	**type**\:  :py:class:`SetExtCommunity <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity>`
+                            	**type**\:   :py:class:`SetExtCommunity <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.PolicyDefinitions.PolicyDefinition.Statements.Statement.Actions.BgpActions.SetExtCommunity>`
+                            
+                            	**presence node**\: True
                             
                             .. attribute:: set_local_pref
                             
@@ -2280,7 +2304,7 @@ class RoutingPolicy(object):
                             
                             
                             ----
-                            	**type**\:  :py:class:`BgpSetMedTypeEnum <ydk.models.openconfig.openconfig_bgp_policy.BgpSetMedTypeEnum>`
+                            	**type**\:   :py:class:`BgpSetMedTypeEnum <ydk.models.openconfig.openconfig_bgp_policy.BgpSetMedTypeEnum>`
                             
                             
                             ----
@@ -2303,14 +2327,14 @@ class RoutingPolicy(object):
                             ----
                             
                             ----
-                            	**type**\:  :py:class:`BgpNextHopTypeEnum <ydk.models.openconfig.openconfig_bgp_policy.BgpNextHopTypeEnum>`
+                            	**type**\:   :py:class:`BgpNextHopTypeEnum <ydk.models.openconfig.openconfig_bgp_policy.BgpNextHopTypeEnum>`
                             
                             
                             ----
                             .. attribute:: set_route_origin
                             
                             	set the origin attribute to the specified value
-                            	**type**\:  :py:class:`BgpOriginAttrTypeEnum <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrTypeEnum>`
+                            	**type**\:   :py:class:`BgpOriginAttrTypeEnum <ydk.models.openconfig.openconfig_bgp_types.BgpOriginAttrTypeEnum>`
                             
                             
 
@@ -2412,7 +2436,8 @@ class RoutingPolicy(object):
                                 ----
                                 
                                 ----
-                                	**type**\:  list of :py:class:`BgpWellKnownStdCommunityIdentity <ydk.models.openconfig.openconfig_bgp_types.BgpWellKnownStdCommunityIdentity>`
+                                	**type**\:  
+                                		list of  
                                 
                                 
                                 ----
@@ -2421,12 +2446,12 @@ class RoutingPolicy(object):
                                 	References a defined community set by name
                                 	**type**\:  str
                                 
-                                	**refers to**\: :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
+                                	**refers to**\:  :py:class:`community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.CommunitySets.CommunitySet>`
                                 
                                 .. attribute:: options
                                 
                                 	Options for modifying the community attribute with the specified values.  These options apply to both methods of setting the community attribute
-                                	**type**\:  :py:class:`BgpSetCommunityOptionTypeEnum <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionTypeEnum>`
+                                	**type**\:   :py:class:`BgpSetCommunityOptionTypeEnum <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionTypeEnum>`
                                 
                                 .. attribute:: _is_presence
                                 
@@ -2535,7 +2560,8 @@ class RoutingPolicy(object):
                                 ----
                                 
                                 ----
-                                	**type**\:  list of :py:class:`BgpWellKnownStdCommunityIdentity <ydk.models.openconfig.openconfig_bgp_types.BgpWellKnownStdCommunityIdentity>`
+                                	**type**\:  
+                                		list of  
                                 
                                 
                                 ----
@@ -2544,12 +2570,12 @@ class RoutingPolicy(object):
                                 	References a defined extended community set by name
                                 	**type**\:  str
                                 
-                                	**refers to**\: :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
+                                	**refers to**\:  :py:class:`ext_community_set_name <ydk.models.openconfig.openconfig_routing_policy.RoutingPolicy.DefinedSets.BgpDefinedSets.ExtCommunitySets.ExtCommunitySet>`
                                 
                                 .. attribute:: options
                                 
                                 	options for modifying the extended community attribute with the specified values. These options apply to both methods of setting the community attribute
-                                	**type**\:  :py:class:`BgpSetCommunityOptionTypeEnum <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionTypeEnum>`
+                                	**type**\:   :py:class:`BgpSetCommunityOptionTypeEnum <ydk.models.openconfig.openconfig_bgp_policy.BgpSetCommunityOptionTypeEnum>`
                                 
                                 .. attribute:: _is_presence
                                 

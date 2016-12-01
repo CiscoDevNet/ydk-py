@@ -31,25 +31,25 @@ class LogicalAdminStateEnum(Enum):
 
     Logical admin state
 
-    .. data:: ENABLE = 1
+    .. data:: enable = 1
 
     	Enable
 
-    .. data:: DISABLE = 2
+    .. data:: disable = 2
 
     	Disable
 
-    .. data:: MAINTENANCE = 3
+    .. data:: maintenance = 3
 
     	Maintenance
 
     """
 
-    ENABLE = 1
+    enable = 1
 
-    DISABLE = 2
+    disable = 2
 
-    MAINTENANCE = 3
+    maintenance = 3
 
 
     @staticmethod
@@ -64,19 +64,19 @@ class LogicalChannelAssignmentEnum(Enum):
 
     Logical channel assignment
 
-    .. data:: TYPE_LOGICAL_CHANNEL = 1
+    .. data:: type_logical_channel = 1
 
     	Type Logical channel
 
-    .. data:: TYPE_OPTICAL_CHANNEL = 2
+    .. data:: type_optical_channel = 2
 
     	Type Optical channel
 
     """
 
-    TYPE_LOGICAL_CHANNEL = 1
+    type_logical_channel = 1
 
-    TYPE_OPTICAL_CHANNEL = 2
+    type_optical_channel = 2
 
 
     @staticmethod
@@ -91,19 +91,19 @@ class LogicalChannelOtnTtiAutoEnum(Enum):
 
     Logical channel otn tti auto
 
-    .. data:: FALSE = 0
+    .. data:: false = 0
 
     	Otn tti auto mode false
 
-    .. data:: TRUE = 1
+    .. data:: true = 1
 
     	Otn tti auto mode true
 
     """
 
-    FALSE = 0
+    false = 0
 
-    TRUE = 1
+    true = 1
 
 
     @staticmethod
@@ -118,25 +118,25 @@ class LogicalLoopbackModeEnum(Enum):
 
     Logical loopback mode
 
-    .. data:: NONE = 1
+    .. data:: none = 1
 
     	None
 
-    .. data:: FACILITY = 2
+    .. data:: facility = 2
 
     	Facility
 
-    .. data:: TERMINAL = 3
+    .. data:: terminal = 3
 
     	Terminal
 
     """
 
-    NONE = 1
+    none = 1
 
-    FACILITY = 2
+    facility = 2
 
-    TERMINAL = 3
+    terminal = 3
 
 
     @staticmethod
@@ -151,19 +151,19 @@ class LogicalProtocolEnum(Enum):
 
     Logical protocol
 
-    .. data:: TYPE_ETHERNET = 1
+    .. data:: type_ethernet = 1
 
     	Type Ethernet
 
-    .. data:: TYPE_OTN = 2
+    .. data:: type_otn = 2
 
     	Type OTN
 
     """
 
-    TYPE_ETHERNET = 1
+    type_ethernet = 1
 
-    TYPE_OTN = 2
+    type_otn = 2
 
 
     @staticmethod
@@ -178,141 +178,141 @@ class LogicalTribProtocolEnum(Enum):
 
     Logical trib protocol
 
-    .. data:: TRIB_PROTO_TYPE1GE = 1
+    .. data:: trib_proto_type1ge = 1
 
     	1G Ethernet protocol
 
-    .. data:: TRIB_PROTO_TYPE_OC48 = 2
+    .. data:: trib_proto_type_oc48 = 2
 
     	OC48 protocol
 
-    .. data:: TRIB_PROTO_TYPE_STM16 = 3
+    .. data:: trib_proto_type_stm16 = 3
 
     	STM 16 protocol
 
-    .. data:: TRIB_PROTO_TYPE10GELAN = 4
+    .. data:: trib_proto_type10gelan = 4
 
     	10G Ethernet LAN protocol
 
-    .. data:: TRIB_PROTO_TYPE10GEWAN = 5
+    .. data:: trib_proto_type10gewan = 5
 
     	10G Ethernet WAN protocol
 
-    .. data:: TRIB_PROTO_TYPE_OC192 = 6
+    .. data:: trib_proto_type_oc192 = 6
 
     	OC 192 (9.6GB) port protocol
 
-    .. data:: TRIB_PROTO_TYPE_STM64 = 7
+    .. data:: trib_proto_type_stm64 = 7
 
     	STM 64 protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU2 = 8
+    .. data:: trib_proto_type_otu2 = 8
 
     	OTU 2 protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU2E = 9
+    .. data:: trib_proto_type_otu2e = 9
 
     	OTU 2e protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU1E = 10
+    .. data:: trib_proto_type_otu1e = 10
 
     	OTU 1e protocol
 
-    .. data:: TRIB_PROTO_TYPE_ODU2 = 11
+    .. data:: trib_proto_type_odu2 = 11
 
     	ODU 2 protocol
 
-    .. data:: TRIB_PROTO_TYPE_ODU2E = 12
+    .. data:: trib_proto_type_odu2e = 12
 
     	ODU 2e protocol
 
-    .. data:: TRIB_PROTO_TYPE40GE = 13
+    .. data:: trib_proto_type40ge = 13
 
     	40G Ethernet port protocol
 
-    .. data:: TRIB_PROTO_TYPE_OC768 = 14
+    .. data:: trib_proto_type_oc768 = 14
 
     	OC 768 protocol
 
-    .. data:: TRIB_PROTO_TYPE_STM256 = 15
+    .. data:: trib_proto_type_stm256 = 15
 
     	STM 256 protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU3 = 16
+    .. data:: trib_proto_type_otu3 = 16
 
     	OTU 3 protocol
 
-    .. data:: TRIB_PROTO_TYPE_ODU3 = 17
+    .. data:: trib_proto_type_odu3 = 17
 
     	ODU 3 protocol
 
-    .. data:: TRIB_PROTO_TYPE100GE = 18
+    .. data:: trib_proto_type100ge = 18
 
     	100G Ethernet protocol
 
-    .. data:: TRIB_PROTO_TYPE100G_MLG = 19
+    .. data:: trib_proto_type100g_mlg = 19
 
     	100G MLG protocol
 
-    .. data:: TRIB_PROTO_TYPE_OTU4 = 20
+    .. data:: trib_proto_type_otu4 = 20
 
     	OTU4 signal protocol (112G) for transporting
 
     	100GE signal
 
-    .. data:: TRIB_PROTO_TYPE_OTU_CN = 21
+    .. data:: trib_proto_type_otu_cn = 21
 
     	OTU Cn protocol
 
-    .. data:: TRIB_PROTO_TYPE_ODU4 = 22
+    .. data:: trib_proto_type_odu4 = 22
 
     	ODU 4 protocol
 
     """
 
-    TRIB_PROTO_TYPE1GE = 1
+    trib_proto_type1ge = 1
 
-    TRIB_PROTO_TYPE_OC48 = 2
+    trib_proto_type_oc48 = 2
 
-    TRIB_PROTO_TYPE_STM16 = 3
+    trib_proto_type_stm16 = 3
 
-    TRIB_PROTO_TYPE10GELAN = 4
+    trib_proto_type10gelan = 4
 
-    TRIB_PROTO_TYPE10GEWAN = 5
+    trib_proto_type10gewan = 5
 
-    TRIB_PROTO_TYPE_OC192 = 6
+    trib_proto_type_oc192 = 6
 
-    TRIB_PROTO_TYPE_STM64 = 7
+    trib_proto_type_stm64 = 7
 
-    TRIB_PROTO_TYPE_OTU2 = 8
+    trib_proto_type_otu2 = 8
 
-    TRIB_PROTO_TYPE_OTU2E = 9
+    trib_proto_type_otu2e = 9
 
-    TRIB_PROTO_TYPE_OTU1E = 10
+    trib_proto_type_otu1e = 10
 
-    TRIB_PROTO_TYPE_ODU2 = 11
+    trib_proto_type_odu2 = 11
 
-    TRIB_PROTO_TYPE_ODU2E = 12
+    trib_proto_type_odu2e = 12
 
-    TRIB_PROTO_TYPE40GE = 13
+    trib_proto_type40ge = 13
 
-    TRIB_PROTO_TYPE_OC768 = 14
+    trib_proto_type_oc768 = 14
 
-    TRIB_PROTO_TYPE_STM256 = 15
+    trib_proto_type_stm256 = 15
 
-    TRIB_PROTO_TYPE_OTU3 = 16
+    trib_proto_type_otu3 = 16
 
-    TRIB_PROTO_TYPE_ODU3 = 17
+    trib_proto_type_odu3 = 17
 
-    TRIB_PROTO_TYPE100GE = 18
+    trib_proto_type100ge = 18
 
-    TRIB_PROTO_TYPE100G_MLG = 19
+    trib_proto_type100g_mlg = 19
 
-    TRIB_PROTO_TYPE_OTU4 = 20
+    trib_proto_type_otu4 = 20
 
-    TRIB_PROTO_TYPE_OTU_CN = 21
+    trib_proto_type_otu_cn = 21
 
-    TRIB_PROTO_TYPE_ODU4 = 22
+    trib_proto_type_odu4 = 22
 
 
     @staticmethod
@@ -327,37 +327,37 @@ class LogicalTribRateEnum(Enum):
 
     Logical trib rate
 
-    .. data:: TRIB_RATE1G = 0
+    .. data:: trib_rate1g = 0
 
     	TribRate1G
 
-    .. data:: TRIB_RATE2_5G = 1
+    .. data:: trib_rate2_5g = 1
 
     	TribRate25G
 
-    .. data:: TRIB_RATE10G = 2
+    .. data:: trib_rate10g = 2
 
     	TribRate10G
 
-    .. data:: TRIB_RATE40G = 3
+    .. data:: trib_rate40g = 3
 
     	TribRate40G
 
-    .. data:: TRIB_RATE100G = 4
+    .. data:: trib_rate100g = 4
 
     	TribRate100G
 
     """
 
-    TRIB_RATE1G = 0
+    trib_rate1g = 0
 
-    TRIB_RATE2_5G = 1
+    trib_rate2_5g = 1
 
-    TRIB_RATE10G = 2
+    trib_rate10g = 2
 
-    TRIB_RATE40G = 3
+    trib_rate40g = 3
 
-    TRIB_RATE100G = 4
+    trib_rate100g = 4
 
 
     @staticmethod
@@ -374,7 +374,7 @@ class LogicalChannels(object):
     .. attribute:: channel
     
     	Logical channel index
-    	**type**\: list of  :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannels.Channel>`
+    	**type**\: list of    :py:class:`Channel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannels.Channel>`
     
     
 
@@ -403,7 +403,7 @@ class LogicalChannels(object):
         .. attribute:: admin_state
         
         	Configure the admin\-state 
-        	**type**\:  :py:class:`LogicalAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalAdminStateEnum>`
+        	**type**\:   :py:class:`LogicalAdminStateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalAdminStateEnum>`
         
         .. attribute:: description
         
@@ -429,32 +429,32 @@ class LogicalChannels(object):
         .. attribute:: logical_channel_assignments
         
         	Logical channel assignment for logical channel
-        	**type**\:  :py:class:`LogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments>`
+        	**type**\:   :py:class:`LogicalChannelAssignments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments>`
         
         .. attribute:: logical_channel_type
         
         	Configure the logical\-channel\-type 
-        	**type**\:  :py:class:`LogicalProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalProtocolEnum>`
+        	**type**\:   :py:class:`LogicalProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalProtocolEnum>`
         
         .. attribute:: loopback_mode
         
         	Configure the loopback mode 
-        	**type**\:  :py:class:`LogicalLoopbackModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalLoopbackModeEnum>`
+        	**type**\:   :py:class:`LogicalLoopbackModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalLoopbackModeEnum>`
         
         .. attribute:: otn
         
         	Otn Related configs for Logical channel
-        	**type**\:  :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannels.Channel.Otn>`
+        	**type**\:   :py:class:`Otn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannels.Channel.Otn>`
         
         .. attribute:: rate_class
         
         	Rounded bit rate of the tributary signal
-        	**type**\:  :py:class:`LogicalTribRateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalTribRateEnum>`
+        	**type**\:   :py:class:`LogicalTribRateEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalTribRateEnum>`
         
         .. attribute:: trib_protocol
         
         	Protocol framing of the tributary signal
-        	**type**\:  :py:class:`LogicalTribProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalTribProtocolEnum>`
+        	**type**\:   :py:class:`LogicalTribProtocolEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalTribProtocolEnum>`
         
         
 
@@ -487,7 +487,7 @@ class LogicalChannels(object):
             .. attribute:: logical_channel_assignment
             
             	Logical Channel Assignment id
-            	**type**\: list of  :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment>`
+            	**type**\: list of    :py:class:`LogicalChannelAssignment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannels.Channel.LogicalChannelAssignments.LogicalChannelAssignment>`
             
             
 
@@ -524,7 +524,7 @@ class LogicalChannels(object):
                 .. attribute:: assignment_type
                 
                 	Type of assignment for logical channel
-                	**type**\:  :py:class:`LogicalChannelAssignmentEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannelAssignmentEnum>`
+                	**type**\:   :py:class:`LogicalChannelAssignmentEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannelAssignmentEnum>`
                 
                 .. attribute:: description
                 
@@ -636,7 +636,7 @@ class LogicalChannels(object):
             .. attribute:: tti_msg_auto
             
             	Trail trace identifier (TTI) transmit message automatically created. If True, then setting a custom transmit message would be invalid. Trail trace identifier (TTI) transmit message automatically created
-            	**type**\:  :py:class:`LogicalChannelOtnTtiAutoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannelOtnTtiAutoEnum>`
+            	**type**\:   :py:class:`LogicalChannelOtnTtiAutoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.LogicalChannelOtnTtiAutoEnum>`
             
             .. attribute:: tti_msg_expected
             
@@ -781,7 +781,7 @@ class OpticalChannels(object):
     .. attribute:: optical_channel
     
     	Optical Channel index
-    	**type**\: list of  :py:class:`OpticalChannel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.OpticalChannels.OpticalChannel>`
+    	**type**\: list of    :py:class:`OpticalChannel <ydk.models.cisco_ios_xr.Cisco_IOS_XR_openconfig_terminal_device_cfg.OpticalChannels.OpticalChannel>`
     
     
 

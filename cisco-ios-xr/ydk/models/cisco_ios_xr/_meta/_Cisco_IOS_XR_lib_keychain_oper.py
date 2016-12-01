@@ -16,15 +16,15 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'CrytoAlgoEnum' : _MetaInfoEnum('CrytoAlgoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper',
         {
-            'not-configured':'NOT_CONFIGURED',
-            'hmac-sha1-12':'HMAC_SHA1_12',
-            'md5':'MD5',
-            'sha1':'SHA1',
-            'hmac-md5':'HMAC_MD5',
-            'hmac-sha1-20':'HMAC_SHA1_20',
+            'not-configured':'not_configured',
+            'hmac-sha1-12':'hmac_sha1_12',
+            'md5':'md5',
+            'sha1':'sha1',
+            'hmac-md5':'hmac_md5',
+            'hmac-sha1-20':'hmac_sha1_20',
         }, 'Cisco-IOS-XR-lib-keychain-oper', _yang_ns._namespaces['Cisco-IOS-XR-lib-keychain-oper']),
-    'Keychain.Keies.Key.Key.KeyId.SendLifetime' : {
-        'meta_info' : _MetaInfoClass('Keychain.Keies.Key.Key.KeyId.SendLifetime',
+    'Keychain.Keies.Key.Key_.KeyId.SendLifetime' : {
+        'meta_info' : _MetaInfoClass('Keychain.Keies.Key.Key_.KeyId.SendLifetime',
             False, 
             [
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
@@ -70,8 +70,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper'
         ),
     },
-    'Keychain.Keies.Key.Key.KeyId.AcceptLifetime' : {
-        'meta_info' : _MetaInfoClass('Keychain.Keies.Key.Key.KeyId.AcceptLifetime',
+    'Keychain.Keies.Key.Key_.KeyId.AcceptLifetime' : {
+        'meta_info' : _MetaInfoClass('Keychain.Keies.Key.Key_.KeyId.AcceptLifetime',
             False, 
             [
             _MetaInfoClassMember('duration', ATTRIBUTE, 'int' , None, None, 
@@ -117,11 +117,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper'
         ),
     },
-    'Keychain.Keies.Key.Key.KeyId' : {
-        'meta_info' : _MetaInfoClass('Keychain.Keies.Key.Key.KeyId',
+    'Keychain.Keies.Key.Key_.KeyId' : {
+        'meta_info' : _MetaInfoClass('Keychain.Keies.Key.Key_.KeyId',
             False, 
             [
-            _MetaInfoClassMember('accept-lifetime', REFERENCE_CLASS, 'AcceptLifetime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper', 'Keychain.Keies.Key.Key.KeyId.AcceptLifetime', 
+            _MetaInfoClassMember('accept-lifetime', REFERENCE_CLASS, 'AcceptLifetime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper', 'Keychain.Keies.Key.Key_.KeyId.AcceptLifetime', 
                 [], [], 
                 '''                Accept Lifetime of the key
                 ''',
@@ -145,7 +145,7 @@ _meta_table = {
                 ''',
                 'key_string',
                 'Cisco-IOS-XR-lib-keychain-oper', False),
-            _MetaInfoClassMember('send-lifetime', REFERENCE_CLASS, 'SendLifetime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper', 'Keychain.Keies.Key.Key.KeyId.SendLifetime', 
+            _MetaInfoClassMember('send-lifetime', REFERENCE_CLASS, 'SendLifetime' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper', 'Keychain.Keies.Key.Key_.KeyId.SendLifetime', 
                 [], [], 
                 '''                Lifetime of the key
                 ''',
@@ -158,11 +158,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper'
         ),
     },
-    'Keychain.Keies.Key.Key' : {
-        'meta_info' : _MetaInfoClass('Keychain.Keies.Key.Key',
+    'Keychain.Keies.Key.Key_' : {
+        'meta_info' : _MetaInfoClass('Keychain.Keies.Key.Key_',
             False, 
             [
-            _MetaInfoClassMember('key-id', REFERENCE_LIST, 'KeyId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper', 'Keychain.Keies.Key.Key.KeyId', 
+            _MetaInfoClassMember('key-id', REFERENCE_LIST, 'KeyId' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper', 'Keychain.Keies.Key.Key_.KeyId', 
                 [], [], 
                 '''                key id
                 ''',
@@ -192,7 +192,7 @@ _meta_table = {
                 ''',
                 'accept_tolerance',
                 'Cisco-IOS-XR-lib-keychain-oper', False),
-            _MetaInfoClassMember('key', REFERENCE_CLASS, 'Key' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper', 'Keychain.Keies.Key.Key', 
+            _MetaInfoClassMember('key', REFERENCE_CLASS, 'Key_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper', 'Keychain.Keies.Key.Key_', 
                 [], [], 
                 '''                Key properties
                 ''',
@@ -240,9 +240,9 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Keychain.Keies.Key.Key.KeyId.SendLifetime']['meta_info'].parent =_meta_table['Keychain.Keies.Key.Key.KeyId']['meta_info']
-_meta_table['Keychain.Keies.Key.Key.KeyId.AcceptLifetime']['meta_info'].parent =_meta_table['Keychain.Keies.Key.Key.KeyId']['meta_info']
-_meta_table['Keychain.Keies.Key.Key.KeyId']['meta_info'].parent =_meta_table['Keychain.Keies.Key.Key']['meta_info']
-_meta_table['Keychain.Keies.Key.Key']['meta_info'].parent =_meta_table['Keychain.Keies.Key']['meta_info']
+_meta_table['Keychain.Keies.Key.Key_.KeyId.SendLifetime']['meta_info'].parent =_meta_table['Keychain.Keies.Key.Key_.KeyId']['meta_info']
+_meta_table['Keychain.Keies.Key.Key_.KeyId.AcceptLifetime']['meta_info'].parent =_meta_table['Keychain.Keies.Key.Key_.KeyId']['meta_info']
+_meta_table['Keychain.Keies.Key.Key_.KeyId']['meta_info'].parent =_meta_table['Keychain.Keies.Key.Key_']['meta_info']
+_meta_table['Keychain.Keies.Key.Key_']['meta_info'].parent =_meta_table['Keychain.Keies.Key']['meta_info']
 _meta_table['Keychain.Keies.Key']['meta_info'].parent =_meta_table['Keychain.Keies']['meta_info']
 _meta_table['Keychain.Keies']['meta_info'].parent =_meta_table['Keychain']['meta_info']

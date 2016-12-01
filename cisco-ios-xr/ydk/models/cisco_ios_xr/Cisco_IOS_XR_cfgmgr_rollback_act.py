@@ -28,7 +28,7 @@ class RollBackConfigurationLastRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationLastRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationLastRpc.Input>`
     
     
 
@@ -53,6 +53,8 @@ class RollBackConfigurationLastRpc(object):
         	Rollback via best\-effort operation
         	**type**\:  bool
         
+        	**default value**\: false
+        
         .. attribute:: comment
         
         	Assign a comment to this rollback
@@ -71,6 +73,8 @@ class RollBackConfigurationLastRpc(object):
         
         	Override commit blocks
         	**type**\:  bool
+        
+        	**default value**\: false
         
         .. attribute:: label
         
@@ -158,7 +162,7 @@ class RollBackConfigurationToRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationToRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationToRpc.Input>`
     
     
 
@@ -183,6 +187,8 @@ class RollBackConfigurationToRpc(object):
         	Rollback via best\-effort operation
         	**type**\:  bool
         
+        	**default value**\: false
+        
         .. attribute:: comment
         
         	Assign a comment to this rollback
@@ -199,6 +205,8 @@ class RollBackConfigurationToRpc(object):
         
         	Override commit blocks
         	**type**\:  bool
+        
+        	**default value**\: false
         
         .. attribute:: label
         
@@ -286,7 +294,7 @@ class RollBackConfigurationToExcludeRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationToExcludeRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationToExcludeRpc.Input>`
     
     
 
@@ -311,6 +319,8 @@ class RollBackConfigurationToExcludeRpc(object):
         	Rollback via best\-effort operation
         	**type**\:  bool
         
+        	**default value**\: false
+        
         .. attribute:: comment
         
         	Assign a comment to this rollback
@@ -327,6 +337,8 @@ class RollBackConfigurationToExcludeRpc(object):
         
         	Override commit blocks
         	**type**\:  bool
+        
+        	**default value**\: false
         
         .. attribute:: label
         
@@ -414,7 +426,7 @@ class RollBackConfigurationRpc(object):
     .. attribute:: input
     
     	
-    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationRpc.Input>`
+    	**type**\:   :py:class:`Input <ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act.RollBackConfigurationRpc.Input>`
     
     
 
@@ -439,6 +451,8 @@ class RollBackConfigurationRpc(object):
         	Rollback via best\-effort operation
         	**type**\:  bool
         
+        	**default value**\: false
+        
         .. attribute:: comment
         
         	Assign a comment to this rollback
@@ -455,6 +469,8 @@ class RollBackConfigurationRpc(object):
         
         	Override commit blocks
         	**type**\:  bool
+        
+        	**default value**\: false
         
         .. attribute:: label
         

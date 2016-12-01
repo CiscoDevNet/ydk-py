@@ -16,24 +16,25 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MdtEncodingEnumEnum' : _MetaInfoEnum('MdtEncodingEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
         {
-            'not-set':'NOT_SET',
-            'gpb':'GPB',
-            'self-describing-gpb':'SELF_DESCRIBING_GPB',
-            'json':'JSON',
+            'not-set':'not_set',
+            'gpb':'gpb',
+            'self-describing-gpb':'self_describing_gpb',
+            'json':'json',
         }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
     'MdtIpEnum' : _MetaInfoEnum('MdtIpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
     'MdtTransportEnumEnum' : _MetaInfoEnum('MdtTransportEnumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper',
         {
-            'not-set':'NOT_SET',
-            'grpc':'GRPC',
-            'tcp':'TCP',
+            'not-set':'not_set',
+            'grpc':'grpc',
+            'tcp':'tcp',
+            'dialin':'dialin',
         }, 'Cisco-IOS-XR-telemetry-model-driven-oper', _yang_ns._namespaces['Cisco-IOS-XR-telemetry-model-driven-oper']),
-    'TelemetryModelDriven.Destinations.Destination.Destination.Destination.DestIpAddress' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination.Destination.DestIpAddress',
+    'TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress',
             False, 
             [
             _MetaInfoClassMember('ip-type', REFERENCE_ENUM_CLASS, 'MdtIpEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtIpEnum', 
@@ -61,11 +62,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Destinations.Destination.Destination.Destination' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination.Destination',
+    'TelemetryModelDriven.Destinations.Destination.Destination_.Destination__' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination_.Destination__',
             False, 
             [
-            _MetaInfoClassMember('dest-ip-address', REFERENCE_CLASS, 'DestIpAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination.Destination.DestIpAddress', 
+            _MetaInfoClassMember('dest-ip-address', REFERENCE_CLASS, 'DestIpAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress', 
                 [], [], 
                 '''                Destination IP Address
                 ''',
@@ -139,8 +140,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.CollectionPath' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.CollectionPath',
+    'TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
@@ -169,8 +170,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.InternalCollectionGroup' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.InternalCollectionGroup',
+    'TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup',
             False, 
             [
             _MetaInfoClassMember('avg-collection-time', ATTRIBUTE, 'int' , None, None, 
@@ -336,8 +337,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup',
+    'TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup',
             False, 
             [
             _MetaInfoClassMember('avg-total-time', ATTRIBUTE, 'int' , None, None, 
@@ -352,7 +353,7 @@ _meta_table = {
                 ''',
                 'cadence',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('collection-path', REFERENCE_LIST, 'CollectionPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.CollectionPath', 
+            _MetaInfoClassMember('collection-path', REFERENCE_LIST, 'CollectionPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath', 
                 [], [], 
                 '''                Array of information for sensor paths within
                 collection group
@@ -371,7 +372,7 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('internal-collection-group', REFERENCE_LIST, 'InternalCollectionGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.InternalCollectionGroup', 
+            _MetaInfoClassMember('internal-collection-group', REFERENCE_LIST, 'InternalCollectionGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup', 
                 [], [], 
                 '''                Array of information for sysdb paths within
                 collection group
@@ -451,18 +452,18 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Destinations.Destination.Destination' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination',
+    'TelemetryModelDriven.Destinations.Destination.Destination_' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Destinations.Destination.Destination_',
             False, 
             [
-            _MetaInfoClassMember('collection-group', REFERENCE_LIST, 'CollectionGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup', 
+            _MetaInfoClassMember('collection-group', REFERENCE_LIST, 'CollectionGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup', 
                 [], [], 
                 '''                List of collection groups for this destination
                 group
                 ''',
                 'collection_group',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('destination', REFERENCE_CLASS, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination.Destination', 
+            _MetaInfoClassMember('destination', REFERENCE_CLASS, 'Destination__' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination_.Destination__', 
                 [], [], 
                 '''                Destination
                 ''',
@@ -491,7 +492,7 @@ _meta_table = {
                 ''',
                 'configured',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('destination', REFERENCE_LIST, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination', 
+            _MetaInfoClassMember('destination', REFERENCE_LIST, 'Destination_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Destinations.Destination.Destination_', 
                 [], [], 
                 '''                list of destinations defined in this group
                 ''',
@@ -527,8 +528,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup.SensorPath' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup.SensorPath',
+    'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath',
             False, 
             [
             _MetaInfoClassMember('path', ATTRIBUTE, 'str' , None, None, 
@@ -557,8 +558,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup',
+    'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup',
             False, 
             [
             _MetaInfoClassMember('configured', ATTRIBUTE, 'int' , None, None, 
@@ -573,7 +574,7 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('sensor-path', REFERENCE_LIST, 'SensorPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup.SensorPath', 
+            _MetaInfoClassMember('sensor-path', REFERENCE_LIST, 'SensorPath' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath', 
                 [], [], 
                 '''                Array of information for sensor paths within
                 sensor group
@@ -587,8 +588,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile',
+    'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile',
             False, 
             [
             _MetaInfoClassMember('heartbeat-interval', ATTRIBUTE, 'int' , None, None, 
@@ -603,7 +604,7 @@ _meta_table = {
                 ''',
                 'sample_interval',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('sensor-group', REFERENCE_CLASS, 'SensorGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup', 
+            _MetaInfoClassMember('sensor-group', REFERENCE_CLASS, 'SensorGroup' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup', 
                 [], [], 
                 '''                sensor group
                 ''',
@@ -622,8 +623,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination.DestIpAddress' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination.DestIpAddress',
+    'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress',
             False, 
             [
             _MetaInfoClassMember('ip-type', REFERENCE_ENUM_CLASS, 'MdtIpEnum' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtIpEnum', 
@@ -651,11 +652,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination',
+    'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination',
             False, 
             [
-            _MetaInfoClassMember('dest-ip-address', REFERENCE_CLASS, 'DestIpAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination.DestIpAddress', 
+            _MetaInfoClassMember('dest-ip-address', REFERENCE_CLASS, 'DestIpAddress' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress', 
                 [], [], 
                 '''                Destination IP Address
                 ''',
@@ -729,8 +730,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp',
+    'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp',
             False, 
             [
             _MetaInfoClassMember('configured', ATTRIBUTE, 'int' , None, None, 
@@ -739,7 +740,7 @@ _meta_table = {
                 ''',
                 'configured',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('destination', REFERENCE_LIST, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination', 
+            _MetaInfoClassMember('destination', REFERENCE_LIST, 'Destination' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination', 
                 [], [], 
                 '''                list of destinations defined in this group
                 ''',
@@ -758,11 +759,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper'
         ),
     },
-    'TelemetryModelDriven.Subscriptions.Subscription.Subscription' : {
-        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription',
+    'TelemetryModelDriven.Subscriptions.Subscription.Subscription_' : {
+        'meta_info' : _MetaInfoClass('TelemetryModelDriven.Subscriptions.Subscription.Subscription_',
             False, 
             [
-            _MetaInfoClassMember('destination-grp', REFERENCE_LIST, 'DestinationGrp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp', 
+            _MetaInfoClassMember('destination-grp', REFERENCE_LIST, 'DestinationGrp' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp', 
                 [], [], 
                 '''                Array of destinations within a subscription
                 ''',
@@ -774,7 +775,7 @@ _meta_table = {
                 ''',
                 'id',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('sensor-profile', REFERENCE_LIST, 'SensorProfile' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile', 
+            _MetaInfoClassMember('sensor-profile', REFERENCE_LIST, 'SensorProfile' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile', 
                 [], [], 
                 '''                List of sensor groups within a subscription
                 ''',
@@ -1122,7 +1123,7 @@ _meta_table = {
                 ''',
                 'collection_group',
                 'Cisco-IOS-XR-telemetry-model-driven-oper', False),
-            _MetaInfoClassMember('subscription', REFERENCE_CLASS, 'Subscription' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription', 
+            _MetaInfoClassMember('subscription', REFERENCE_CLASS, 'Subscription_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'TelemetryModelDriven.Subscriptions.Subscription.Subscription_', 
                 [], [], 
                 '''                Subscription
                 ''',
@@ -1278,22 +1279,22 @@ _meta_table = {
         ),
     },
 }
-_meta_table['TelemetryModelDriven.Destinations.Destination.Destination.Destination.DestIpAddress']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination.Destination']['meta_info']
-_meta_table['TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.CollectionPath']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup']['meta_info']
-_meta_table['TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup.InternalCollectionGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup']['meta_info']
-_meta_table['TelemetryModelDriven.Destinations.Destination.Destination.Destination']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination']['meta_info']
-_meta_table['TelemetryModelDriven.Destinations.Destination.Destination.CollectionGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination']['meta_info']
-_meta_table['TelemetryModelDriven.Destinations.Destination.Destination']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination']['meta_info']
+_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.Destination__.DestIpAddress']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.Destination__']['meta_info']
+_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup']['meta_info']
+_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup']['meta_info']
+_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.Destination__']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_']['meta_info']
+_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_']['meta_info']
+_meta_table['TelemetryModelDriven.Destinations.Destination.Destination_']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations.Destination']['meta_info']
 _meta_table['TelemetryModelDriven.Destinations.Destination']['meta_info'].parent =_meta_table['TelemetryModelDriven.Destinations']['meta_info']
-_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup.SensorPath']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup']['meta_info']
-_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile.SensorGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile']['meta_info']
-_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination.DestIpAddress']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination']['meta_info']
-_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp.Destination']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp']['meta_info']
-_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.SensorProfile']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription']['meta_info']
-_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription.DestinationGrp']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription']['meta_info']
+_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup']['meta_info']
+_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile']['meta_info']
+_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination']['meta_info']
+_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp']['meta_info']
+_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_']['meta_info']
+_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup']['meta_info']
-_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info']
+_meta_table['TelemetryModelDriven.Subscriptions.Subscription.Subscription_']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info']
 _meta_table['TelemetryModelDriven.Subscriptions.Subscription']['meta_info'].parent =_meta_table['TelemetryModelDriven.Subscriptions']['meta_info']
 _meta_table['TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath']['meta_info'].parent =_meta_table['TelemetryModelDriven.SensorGroups.SensorGroup']['meta_info']

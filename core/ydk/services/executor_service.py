@@ -28,7 +28,7 @@ import logging
 class ExecutorService(Service):
     """ Executor Service class for executing RPCs containing entities """
     def __init__(self):
-        self.service_logger = logging.getLogger('ydk.services.NetconfService')
+        self.service_logger = logging.getLogger(__name__)
 
     def execute_rpc(self, provider, rpc):
         """ Execute the RPC
@@ -52,9 +52,10 @@ class ExecutorService(Service):
             raise YPYServiceError(error_msg=err_msg)
         try:
             rpc = MetaService.normalize_meta(provider._get_capabilities(), rpc)
+            self.service_logger.info('Executor operation initiated')
             return provider.execute(
                                     provider.sp_instance.encode_rpc(rpc),
                                     ''
                                     )
         finally:
-            self.service_logger.info('Netconf operation completed')
+            self.service_logger.info('Executor operation completed')

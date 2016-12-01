@@ -31,19 +31,19 @@ class Ipv4QppbEnum(Enum):
 
     Ipv4 qppb
 
-    .. data:: NONE = 0
+    .. data:: none = 0
 
     	No QPPB configuration
 
-    .. data:: IP_PREC = 1
+    .. data:: ip_prec = 1
 
     	Enable ip-precedence based QPPB
 
-    .. data:: QOS_GRP = 2
+    .. data:: qos_grp = 2
 
     	Enable qos-group based QPPB
 
-    .. data:: BOTH = 3
+    .. data:: both = 3
 
     	Enable both ip-precedence and qos-group based
 
@@ -51,13 +51,13 @@ class Ipv4QppbEnum(Enum):
 
     """
 
-    NONE = 0
+    none = 0
 
-    IP_PREC = 1
+    ip_prec = 1
 
-    QOS_GRP = 2
+    qos_grp = 2
 
-    BOTH = 3
+    both = 3
 
 
     @staticmethod
@@ -74,7 +74,7 @@ class Ipv4NetworkGlobal(object):
     .. attribute:: qppb
     
     	QPPB
-    	**type**\:  :py:class:`Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Qppb>`
+    	**type**\:   :py:class:`Qppb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Qppb>`
     
     .. attribute:: reassemble_max_packets
     
@@ -83,6 +83,8 @@ class Ipv4NetworkGlobal(object):
     
     	**range:** 1..50
     
+    	**units**\: percentage
+    
     .. attribute:: reassemble_time_out
     
     	Number of seconds a reassembly queue will hold before timeout
@@ -90,15 +92,19 @@ class Ipv4NetworkGlobal(object):
     
     	**range:** 1..120
     
+    	**units**\: second
+    
     .. attribute:: source_route
     
     	The flag for enabling whether to process packets with source routing header options
     	**type**\:  bool
     
+    	**default value**\: true
+    
     .. attribute:: unnumbered
     
     	Enable IPv4 processing without an explicit address
-    	**type**\:  :py:class:`Unnumbered <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered>`
+    	**type**\:   :py:class:`Unnumbered <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered>`
     
     
 
@@ -125,7 +131,7 @@ class Ipv4NetworkGlobal(object):
         .. attribute:: mpls
         
         	Configure MPLS routing protocol parameters
-        	**type**\:  :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls>`
+        	**type**\:   :py:class:`Mpls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls>`
         
         
 
@@ -147,7 +153,7 @@ class Ipv4NetworkGlobal(object):
             .. attribute:: te
             
             	IPv4 commands for MPLS Traffic Engineering
-            	**type**\:  :py:class:`Te <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls.Te>`
+            	**type**\:   :py:class:`Te <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4NetworkGlobal.Unnumbered.Mpls.Te>`
             
             
 
@@ -256,12 +262,12 @@ class Ipv4NetworkGlobal(object):
         .. attribute:: destination
         
         	QPPB configuration on destination
-        	**type**\:  :py:class:`Ipv4QppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
+        	**type**\:   :py:class:`Ipv4QppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
         
         .. attribute:: source
         
         	QPPB configuration on source
-        	**type**\:  :py:class:`Ipv4QppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
+        	**type**\:   :py:class:`Ipv4QppbEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg.Ipv4QppbEnum>`
         
         
 
@@ -345,6 +351,8 @@ class SubscriberPta(object):
     	**type**\:  int
     
     	**range:** 1280..1536
+    
+    	**units**\: byte
     
     
 

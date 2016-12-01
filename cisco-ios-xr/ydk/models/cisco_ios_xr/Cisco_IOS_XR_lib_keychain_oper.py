@@ -30,43 +30,43 @@ class CrytoAlgoEnum(Enum):
 
     Cryptographic algorithm type
 
-    .. data:: NOT_CONFIGURED = 0
+    .. data:: not_configured = 0
 
     	Not configured
 
-    .. data:: HMAC_SHA1_12 = 2
+    .. data:: hmac_sha1_12 = 2
 
     	HMAC SHA1 12 bytes
 
-    .. data:: MD5 = 3
+    .. data:: md5 = 3
 
     	MD5 16 bytes
 
-    .. data:: SHA1 = 4
+    .. data:: sha1 = 4
 
     	SHA1 20 bytes
 
-    .. data:: HMAC_MD5 = 5
+    .. data:: hmac_md5 = 5
 
     	HMAC MD5 16 bytes
 
-    .. data:: HMAC_SHA1_20 = 6
+    .. data:: hmac_sha1_20 = 6
 
     	HMAC SHA1 20 bytes
 
     """
 
-    NOT_CONFIGURED = 0
+    not_configured = 0
 
-    HMAC_SHA1_12 = 2
+    hmac_sha1_12 = 2
 
-    MD5 = 3
+    md5 = 3
 
-    SHA1 = 4
+    sha1 = 4
 
-    HMAC_MD5 = 5
+    hmac_md5 = 5
 
-    HMAC_SHA1_20 = 6
+    hmac_sha1_20 = 6
 
 
     @staticmethod
@@ -83,7 +83,7 @@ class Keychain(object):
     .. attribute:: keies
     
     	List of configured key names
-    	**type**\:  :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies>`
+    	**type**\:   :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies>`
     
     
 
@@ -104,7 +104,7 @@ class Keychain(object):
         .. attribute:: key
         
         	Configured key name
-        	**type**\: list of  :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key>`
+        	**type**\: list of    :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key>`
         
         
 
@@ -141,7 +141,7 @@ class Keychain(object):
             .. attribute:: key
             
             	Key properties
-            	**type**\:  :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key>`
+            	**type**\:   :py:class:`Key_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key_>`
             
             
 
@@ -154,18 +154,18 @@ class Keychain(object):
                 self.parent = None
                 self.key_name = None
                 self.accept_tolerance = None
-                self.key = Keychain.Keies.Key.Key()
+                self.key = Keychain.Keies.Key.Key_()
                 self.key.parent = self
 
 
-            class Key(object):
+            class Key_(object):
                 """
                 Key properties
                 
                 .. attribute:: key_id
                 
                 	key id
-                	**type**\: list of  :py:class:`KeyId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId>`
+                	**type**\: list of    :py:class:`KeyId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key_.KeyId>`
                 
                 
 
@@ -188,12 +188,12 @@ class Keychain(object):
                     .. attribute:: accept_lifetime
                     
                     	Accept Lifetime of the key
-                    	**type**\:  :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.AcceptLifetime>`
+                    	**type**\:   :py:class:`AcceptLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key_.KeyId.AcceptLifetime>`
                     
                     .. attribute:: cryptographic_algorithm
                     
                     	Cryptographic algorithm
-                    	**type**\:  :py:class:`CrytoAlgoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.CrytoAlgoEnum>`
+                    	**type**\:   :py:class:`CrytoAlgoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.CrytoAlgoEnum>`
                     
                     .. attribute:: key_id
                     
@@ -210,7 +210,7 @@ class Keychain(object):
                     .. attribute:: send_lifetime
                     
                     	Lifetime of the key
-                    	**type**\:  :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key.KeyId.SendLifetime>`
+                    	**type**\:   :py:class:`SendLifetime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_oper.Keychain.Keies.Key.Key_.KeyId.SendLifetime>`
                     
                     
 
@@ -221,12 +221,12 @@ class Keychain(object):
 
                     def __init__(self):
                         self.parent = None
-                        self.accept_lifetime = Keychain.Keies.Key.Key.KeyId.AcceptLifetime()
+                        self.accept_lifetime = Keychain.Keies.Key.Key_.KeyId.AcceptLifetime()
                         self.accept_lifetime.parent = self
                         self.cryptographic_algorithm = None
                         self.key_id = None
                         self.key_string = None
-                        self.send_lifetime = Keychain.Keies.Key.Key.KeyId.SendLifetime()
+                        self.send_lifetime = Keychain.Keies.Key.Key_.KeyId.SendLifetime()
                         self.send_lifetime.parent = self
 
 
@@ -240,6 +240,8 @@ class Keychain(object):
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**units**\: second
                         
                         .. attribute:: end
                         
@@ -310,7 +312,7 @@ class Keychain(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
-                            return meta._meta_table['Keychain.Keies.Key.Key.KeyId.SendLifetime']['meta_info']
+                            return meta._meta_table['Keychain.Keies.Key.Key_.KeyId.SendLifetime']['meta_info']
 
 
                     class AcceptLifetime(object):
@@ -323,6 +325,8 @@ class Keychain(object):
                         	**type**\:  int
                         
                         	**range:** \-2147483648..2147483647
+                        
+                        	**units**\: second
                         
                         .. attribute:: end
                         
@@ -393,7 +397,7 @@ class Keychain(object):
                         @staticmethod
                         def _meta_info():
                             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
-                            return meta._meta_table['Keychain.Keies.Key.Key.KeyId.AcceptLifetime']['meta_info']
+                            return meta._meta_table['Keychain.Keies.Key.Key_.KeyId.AcceptLifetime']['meta_info']
 
                     @property
                     def _common_path(self):
@@ -429,7 +433,7 @@ class Keychain(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
-                        return meta._meta_table['Keychain.Keies.Key.Key.KeyId']['meta_info']
+                        return meta._meta_table['Keychain.Keies.Key.Key_.KeyId']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -455,7 +459,7 @@ class Keychain(object):
                 @staticmethod
                 def _meta_info():
                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_lib_keychain_oper as meta
-                    return meta._meta_table['Keychain.Keies.Key.Key']['meta_info']
+                    return meta._meta_table['Keychain.Keies.Key.Key_']['meta_info']
 
             @property
             def _common_path(self):

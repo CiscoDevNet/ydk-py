@@ -30,67 +30,67 @@ class LptsPuntFlowtrapProtoIdEnum(Enum):
 
     Lpts punt flowtrap proto id
 
-    .. data:: DEFAULT = 0
+    .. data:: default = 0
 
     	All protocols
 
-    .. data:: ARP = 1
+    .. data:: arp = 1
 
     	ARP
 
-    .. data:: ICMP = 2
+    .. data:: icmp = 2
 
     	Internet Control Message Protocol
 
-    .. data:: DHCP = 3
+    .. data:: dhcp = 3
 
     	Dynamic Host Configuration Protocol
 
-    .. data:: PPPOE = 4
+    .. data:: pppoe = 4
 
     	PPP over Ethernet
 
-    .. data:: PPP = 5
+    .. data:: ppp = 5
 
     	Point to point Protocol
 
-    .. data:: IGMP = 6
+    .. data:: igmp = 6
 
     	Internet Gateway Message Protocol
 
-    .. data:: IPV4 = 7
+    .. data:: ipv4 = 7
 
     	IPv4
 
-    .. data:: L2TP = 8
+    .. data:: l2tp = 8
 
     	Layer2 Tunneling Protocol
 
-    .. data:: UNCLASSIFIED = 9
+    .. data:: unclassified = 9
 
     	Unclassified Source
 
     """
 
-    DEFAULT = 0
+    default = 0
 
-    ARP = 1
+    arp = 1
 
-    ICMP = 2
+    icmp = 2
 
-    DHCP = 3
+    dhcp = 3
 
-    PPPOE = 4
+    pppoe = 4
 
-    PPP = 5
+    ppp = 5
 
-    IGMP = 6
+    igmp = 6
 
-    IPV4 = 7
+    ipv4 = 7
 
-    L2TP = 8
+    l2tp = 8
 
-    UNCLASSIFIED = 9
+    unclassified = 9
 
 
     @staticmethod

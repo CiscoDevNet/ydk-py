@@ -16,9 +16,9 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'NetconfDatastoreTypeEnum' : _MetaInfoEnum('NetconfDatastoreTypeEnum', 'ydk.models.ietf.ietf_netconf_monitoring',
         {
-            'running':'RUNNING',
-            'candidate':'CANDIDATE',
-            'startup':'STARTUP',
+            'running':'running',
+            'candidate':'candidate',
+            'startup':'startup',
         }, 'ietf-netconf-monitoring', _yang_ns._namespaces['ietf-netconf-monitoring']),
     'SchemaFormatIdentity' : {
         'meta_info' : _MetaInfoClass('SchemaFormatIdentity',

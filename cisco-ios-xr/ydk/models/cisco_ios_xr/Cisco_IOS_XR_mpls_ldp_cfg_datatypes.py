@@ -26,13 +26,13 @@ class MplsLdpDownstreamOnDemandEnum(Enum):
 
     Mpls ldp downstream on demand
 
-    .. data:: PEER_ACL = 1
+    .. data:: peer_acl = 1
 
     	Downstream on Demand peers permitted by ACL
 
     """
 
-    PEER_ACL = 1
+    peer_acl = 1
 
 
     @staticmethod
@@ -47,21 +47,21 @@ class MplsLdpNbrPasswordEnum(Enum):
 
     Mpls ldp nbr password
 
-    .. data:: DISABLE = 1
+    .. data:: disable = 1
 
     	Disable the global default password for this
 
     	neighbor
 
-    .. data:: SPECIFIED = 2
+    .. data:: specified = 2
 
     	Specify a password for this neighbor
 
     """
 
-    DISABLE = 1
+    disable = 1
 
-    SPECIFIED = 2
+    specified = 2
 
 
     @staticmethod
@@ -76,13 +76,13 @@ class MplsLdpRouterIdEnum(Enum):
 
     Mpls ldp router id
 
-    .. data:: ADDRESS = 1
+    .. data:: address = 1
 
     	Use given IP address as LDP Router ID
 
     """
 
-    ADDRESS = 1
+    address = 1
 
 
     @staticmethod
@@ -97,33 +97,33 @@ class MplsLdpSessionProtectionEnum(Enum):
 
     Mpls ldp session protection
 
-    .. data:: ALL = 1
+    .. data:: all = 1
 
     	Protect all peer sessions
 
-    .. data:: FOR = 2
+    .. data:: for_ = 2
 
     	Protect peer session(s) permitted by peer ACL
 
-    .. data:: ALL_WITH_DURATION = 3
+    .. data:: all_with_duration = 3
 
     	Protect all peer sessions and holdup protection
 
     	for given duration
 
-    .. data:: FOR_WITH_DURATION = 4
+    .. data:: for_with_duration = 4
 
     	Protect peer session(s) permitted by peer ACL
 
     	and holdup protection for given duration
 
-    .. data:: ALL_WITH_FOREVER = 5
+    .. data:: all_with_forever = 5
 
     	Protect all peer sessions and holdup protection
 
     	forever
 
-    .. data:: FOR_WITH_FOREVER = 6
+    .. data:: for_with_forever = 6
 
     	Protect peer session(s) permitted by peer ACL
 
@@ -131,17 +131,17 @@ class MplsLdpSessionProtectionEnum(Enum):
 
     """
 
-    ALL = 1
+    all = 1
 
-    FOR = 2
+    for_ = 2
 
-    ALL_WITH_DURATION = 3
+    all_with_duration = 3
 
-    FOR_WITH_DURATION = 4
+    for_with_duration = 4
 
-    ALL_WITH_FOREVER = 5
+    all_with_forever = 5
 
-    FOR_WITH_FOREVER = 6
+    for_with_forever = 6
 
 
     @staticmethod
@@ -156,19 +156,19 @@ class MplsLdpafNameEnum(Enum):
 
     Mpls ldpaf name
 
-    .. data:: IPV4 = 4
+    .. data:: ipv4 = 4
 
     	IPv4
 
-    .. data:: IPV6 = 6
+    .. data:: ipv6 = 6
 
     	IPv6
 
     """
 
-    IPV4 = 4
+    ipv4 = 4
 
-    IPV6 = 6
+    ipv6 = 6
 
 
     @staticmethod

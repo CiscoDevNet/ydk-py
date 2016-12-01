@@ -34,19 +34,19 @@ class Asr9KEfdModeEnum(Enum):
 
     Asr9k efd mode
 
-    .. data:: ONLY_OUTER_ENCAP = 0
+    .. data:: only_outer_encap = 0
 
     	Only check outer encap
 
-    .. data:: INCLUDE_INNER_ENCAP = 1
+    .. data:: include_inner_encap = 1
 
     	Check outer and inner encap
 
     """
 
-    ONLY_OUTER_ENCAP = 0
+    only_outer_encap = 0
 
-    INCLUDE_INNER_ENCAP = 1
+    include_inner_encap = 1
 
 
     @staticmethod
@@ -61,19 +61,19 @@ class Asr9KEfdOperationEnum(Enum):
 
     Asr9k efd operation
 
-    .. data:: LESS_THAN = 2
+    .. data:: less_than = 2
 
     	Less than
 
-    .. data:: GREATER_THAN_OR_EQUAL = 3
+    .. data:: greater_than_or_equal = 3
 
     	Greater than or equal
 
     """
 
-    LESS_THAN = 2
+    less_than = 2
 
-    GREATER_THAN_OR_EQUAL = 3
+    greater_than_or_equal = 3
 
 
     @staticmethod
@@ -88,25 +88,25 @@ class PrmTcamProfileEnum(Enum):
 
     Prm tcam profile
 
-    .. data:: PROFILE0 = 0
+    .. data:: profile0 = 0
 
     	Profile 0
 
-    .. data:: PROFILE1 = 1
+    .. data:: profile1 = 1
 
     	Profile 1
 
-    .. data:: PROFILE2 = 2
+    .. data:: profile2 = 2
 
     	Profile 2
 
     """
 
-    PROFILE0 = 0
+    profile0 = 0
 
-    PROFILE1 = 1
+    profile1 = 1
 
-    PROFILE2 = 2
+    profile2 = 2
 
 
     @staticmethod
@@ -123,7 +123,7 @@ class HardwareModuleQosMode(object):
     .. attribute:: nodes
     
     	QoS applicable nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleQosMode.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleQosMode.Nodes>`
     
     
 
@@ -144,7 +144,7 @@ class HardwareModuleQosMode(object):
         .. attribute:: node
         
         	A node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleQosMode.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleQosMode.Nodes.Node>`
         
         
 
@@ -174,12 +174,12 @@ class HardwareModuleQosMode(object):
             .. attribute:: child_shaping_disable
             
             	Disable child level/flat policy shaping
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: lowburst_enable
             
             	Enable low burst mode for TM entity
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -278,7 +278,7 @@ class HardwareModuleTcpMssAdjust(object):
     .. attribute:: nodes
     
     	TCP MSS Adjust applicable nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes>`
     
     
 
@@ -299,7 +299,7 @@ class HardwareModuleTcpMssAdjust(object):
         .. attribute:: node
         
         	A node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node>`
         
         
 
@@ -329,7 +329,7 @@ class HardwareModuleTcpMssAdjust(object):
             .. attribute:: nps
             
             	TCP MSS Adjust NPs
-            	**type**\:  :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node.Nps>`
+            	**type**\:   :py:class:`Nps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node.Nps>`
             
             
 
@@ -352,7 +352,7 @@ class HardwareModuleTcpMssAdjust(object):
                 .. attribute:: np
                 
                 	NP number
-                	**type**\: list of  :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np>`
+                	**type**\: list of    :py:class:`Np <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcpMssAdjust.Nodes.Node.Nps.Np>`
                 
                 
 
@@ -385,6 +385,8 @@ class HardwareModuleTcpMssAdjust(object):
                     	**type**\:  int
                     
                     	**range:** 1280..1535
+                    
+                    	**units**\: byte
                     
                     
 
@@ -534,7 +536,7 @@ class HardwareModuleLoadBalance(object):
     .. attribute:: bundle
     
     	Bundle load balance options
-    	**type**\:  :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle>`
+    	**type**\:   :py:class:`Bundle <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle>`
     
     
 
@@ -555,7 +557,7 @@ class HardwareModuleLoadBalance(object):
         .. attribute:: l2_service
         
         	Load balance for L2 services
-        	**type**\:  :py:class:`L2Service <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle.L2Service>`
+        	**type**\:   :py:class:`L2Service <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleLoadBalance.Bundle.L2Service>`
         
         
 
@@ -577,7 +579,7 @@ class HardwareModuleLoadBalance(object):
             .. attribute:: l3_parameters
             
             	Load balance L2 services over bundle with L3 parameters
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             
 
@@ -664,12 +666,14 @@ class HardwareModuleTcam(object):
     .. attribute:: global_profile
     
     	Global TCAM partition profile for all TCAM applicable nodes
-    	**type**\:  :py:class:`PrmTcamProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.PrmTcamProfileEnum>`
+    	**type**\:   :py:class:`PrmTcamProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.PrmTcamProfileEnum>`
+    
+    	**default value**\: profile0
     
     .. attribute:: nodes
     
     	TCAM applicable nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcam.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcam.Nodes>`
     
     
 
@@ -691,7 +695,7 @@ class HardwareModuleTcam(object):
         .. attribute:: node
         
         	A TCAM applicable node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcam.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleTcam.Nodes.Node>`
         
         
 
@@ -721,7 +725,9 @@ class HardwareModuleTcam(object):
             .. attribute:: profile
             
             	A TCAM partition profile
-            	**type**\:  :py:class:`PrmTcamProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.PrmTcamProfileEnum>`
+            	**type**\:   :py:class:`PrmTcamProfileEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.PrmTcamProfileEnum>`
+            
+            	**default value**\: profile0
             
             
 
@@ -819,7 +825,7 @@ class HardwareModuleEfd(object):
     .. attribute:: nodes
     
     	EFD applicable nodes
-    	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes>`
+    	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes>`
     
     
 
@@ -840,7 +846,7 @@ class HardwareModuleEfd(object):
         .. attribute:: node
         
         	A node
-        	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node>`
+        	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node>`
         
         
 
@@ -870,27 +876,33 @@ class HardwareModuleEfd(object):
             .. attribute:: enable
             
             	Enable EFD for this node
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: ip_precedence
             
             	EFD IP parameters
-            	**type**\:  :py:class:`IpPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.IpPrecedence>`
+            	**type**\:   :py:class:`IpPrecedence <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.IpPrecedence>`
+            
+            	**presence node**\: True
             
             .. attribute:: mode
             
             	EFD mode parameter
-            	**type**\:  :py:class:`Asr9KEfdModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdModeEnum>`
+            	**type**\:   :py:class:`Asr9KEfdModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdModeEnum>`
             
             .. attribute:: mpls_exp
             
             	EFD MPLS parameters
-            	**type**\:  :py:class:`MplsExp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.MplsExp>`
+            	**type**\:   :py:class:`MplsExp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.MplsExp>`
+            
+            	**presence node**\: True
             
             .. attribute:: vlan_cos
             
             	EFD VLAN parameters
-            	**type**\:  :py:class:`VlanCos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.VlanCos>`
+            	**type**\:   :py:class:`VlanCos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.HardwareModuleEfd.Nodes.Node.VlanCos>`
+            
+            	**presence node**\: True
             
             
 
@@ -916,7 +928,9 @@ class HardwareModuleEfd(object):
                 .. attribute:: operation
                 
                 	IP operation
-                	**type**\:  :py:class:`Asr9KEfdOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdOperationEnum>`
+                	**type**\:   :py:class:`Asr9KEfdOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdOperationEnum>`
+                
+                	**default value**\: greater-than-or-equal
                 
                 .. attribute:: precedence
                 
@@ -993,7 +1007,9 @@ class HardwareModuleEfd(object):
                 .. attribute:: operation
                 
                 	VLAN operation
-                	**type**\:  :py:class:`Asr9KEfdOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdOperationEnum>`
+                	**type**\:   :py:class:`Asr9KEfdOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdOperationEnum>`
+                
+                	**default value**\: greater-than-or-equal
                 
                 .. attribute:: _is_presence
                 
@@ -1061,7 +1077,9 @@ class HardwareModuleEfd(object):
                 .. attribute:: operation
                 
                 	MPLS operation
-                	**type**\:  :py:class:`Asr9KEfdOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdOperationEnum>`
+                	**type**\:   :py:class:`Asr9KEfdOperationEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg.Asr9KEfdOperationEnum>`
+                
+                	**default value**\: greater-than-or-equal
                 
                 .. attribute:: _is_presence
                 

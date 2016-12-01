@@ -115,9 +115,9 @@ _meta_table = {
     },
     'System.Ntp.Server.AssociationTypeEnum' : _MetaInfoEnum('AssociationTypeEnum', 'ydk.models.ietf.ietf_system',
         {
-            'server':'SERVER',
-            'peer':'PEER',
-            'pool':'POOL',
+            'server':'server',
+            'peer':'peer',
+            'pool':'pool',
         }, 'ietf-system', _yang_ns._namespaces['ietf-system']),
     'System.Ntp.Server' : {
         'meta_info' : _MetaInfoClass('System.Ntp.Server',

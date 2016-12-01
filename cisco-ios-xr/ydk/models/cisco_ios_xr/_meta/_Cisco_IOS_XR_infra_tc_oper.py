@@ -16,8 +16,8 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'TcOperAfNameEnum' : _MetaInfoEnum('TcOperAfNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_oper',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-infra-tc-oper', _yang_ns._namespaces['Cisco-IOS-XR-infra-tc-oper']),
     'TrafficCollector.ExternalInterfaces.ExternalInterface' : {
         'meta_info' : _MetaInfoClass('TrafficCollector.ExternalInterfaces.ExternalInterface',

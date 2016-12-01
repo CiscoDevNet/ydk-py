@@ -29,20 +29,10 @@ class IpDomain(object):
     """
     IP domain configuration
     
-    .. attribute:: ipv4_host_table
-    
-    	IPv4 host
-    	**type**\:  :py:class:`Ipv4HostTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Ipv4HostTable>`
-    
-    .. attribute:: ipv6_host_table
-    
-    	IPv6 host
-    	**type**\:  :py:class:`Ipv6HostTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Ipv6HostTable>`
-    
     .. attribute:: vrfs
     
     	VRF table
-    	**type**\:  :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs>`
+    	**type**\:   :py:class:`Vrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs>`
     
     
 
@@ -52,10 +42,6 @@ class IpDomain(object):
     _revision = '2015-05-13'
 
     def __init__(self):
-        self.ipv4_host_table = IpDomain.Ipv4HostTable()
-        self.ipv4_host_table.parent = self
-        self.ipv6_host_table = IpDomain.Ipv6HostTable()
-        self.ipv6_host_table.parent = self
         self.vrfs = IpDomain.Vrfs()
         self.vrfs.parent = self
 
@@ -67,7 +53,7 @@ class IpDomain(object):
         .. attribute:: vrf
         
         	VRF specific data
-        	**type**\: list of  :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf>`
+        	**type**\: list of    :py:class:`Vrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf>`
         
         
 
@@ -97,22 +83,22 @@ class IpDomain(object):
             .. attribute:: ipv4_hosts
             
             	IPv4 host
-            	**type**\:  :py:class:`Ipv4Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts>`
+            	**type**\:   :py:class:`Ipv4Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts>`
             
             .. attribute:: ipv6_hosts
             
             	IPv6 host
-            	**type**\:  :py:class:`Ipv6Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv6Hosts>`
+            	**type**\:   :py:class:`Ipv6Hosts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv6Hosts>`
             
             .. attribute:: lists
             
             	Domain names to complete unqualified host names
-            	**type**\:  :py:class:`Lists <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists>`
+            	**type**\:   :py:class:`Lists <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists>`
             
             .. attribute:: lookup
             
             	Disable Domain Name System hostname translation
-            	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+            	**type**\:  :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: multicast_domain
             
@@ -127,7 +113,7 @@ class IpDomain(object):
             .. attribute:: servers
             
             	Name server addresses
-            	**type**\:  :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers>`
+            	**type**\:   :py:class:`Servers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers>`
             
             .. attribute:: source_interface
             
@@ -167,7 +153,7 @@ class IpDomain(object):
                 .. attribute:: ipv6_host
                 
                 	Host name and up to 4 host IPv6 addresses
-                	**type**\: list of  :py:class:`Ipv6Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host>`
+                	**type**\: list of    :py:class:`Ipv6Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host>`
                 
                 
 
@@ -278,7 +264,7 @@ class IpDomain(object):
                 .. attribute:: server
                 
                 	Name server address
-                	**type**\: list of  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers.Server>`
+                	**type**\: list of    :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Servers.Server>`
                 
                 
 
@@ -400,7 +386,7 @@ class IpDomain(object):
                 .. attribute:: list
                 
                 	Domain name to complete unqualified host names
-                	**type**\: list of  :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists.List>`
+                	**type**\: list of    :py:class:`List <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Lists.List>`
                 
                 
 
@@ -512,7 +498,7 @@ class IpDomain(object):
                 .. attribute:: ipv4_host
                 
                 	Host name and up to 8 host IPv4 addresses
-                	**type**\: list of  :py:class:`Ipv4Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host>`
+                	**type**\: list of    :py:class:`Ipv4Host <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_cfg.IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host>`
                 
                 
 
@@ -687,74 +673,6 @@ class IpDomain(object):
             from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
             return meta._meta_table['IpDomain.Vrfs']['meta_info']
 
-
-    class Ipv6HostTable(object):
-        """
-        IPv6 host
-        
-        
-
-        """
-
-        _prefix = 'ip-domain-cfg'
-        _revision = '2015-05-13'
-
-        def __init__(self):
-            self.parent = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-domain-cfg:ip-domain/Cisco-IOS-XR-ip-domain-cfg:ipv6-host-table'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
-            return meta._meta_table['IpDomain.Ipv6HostTable']['meta_info']
-
-
-    class Ipv4HostTable(object):
-        """
-        IPv4 host
-        
-        
-
-        """
-
-        _prefix = 'ip-domain-cfg'
-        _revision = '2015-05-13'
-
-        def __init__(self):
-            self.parent = None
-
-        @property
-        def _common_path(self):
-
-            return '/Cisco-IOS-XR-ip-domain-cfg:ip-domain/Cisco-IOS-XR-ip-domain-cfg:ipv4-host-table'
-
-        def is_config(self):
-            ''' Returns True if this instance represents config data else returns False '''
-            return True
-
-        def _has_data(self):
-            if not self.is_config():
-                return False
-            return False
-
-        @staticmethod
-        def _meta_info():
-            from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_ip_domain_cfg as meta
-            return meta._meta_table['IpDomain.Ipv4HostTable']['meta_info']
-
     @property
     def _common_path(self):
 
@@ -767,12 +685,6 @@ class IpDomain(object):
     def _has_data(self):
         if not self.is_config():
             return False
-        if self.ipv4_host_table is not None and self.ipv4_host_table._has_data():
-            return True
-
-        if self.ipv6_host_table is not None and self.ipv6_host_table._has_data():
-            return True
-
         if self.vrfs is not None and self.vrfs._has_data():
             return True
 

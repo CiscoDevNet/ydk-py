@@ -32,7 +32,7 @@ class InfraStatistics(object):
     .. attribute:: interfaces
     
     	List of interfaces
-    	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces>`
+    	**type**\:   :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces>`
     
     
 
@@ -53,7 +53,7 @@ class InfraStatistics(object):
         .. attribute:: interface
         
         	Statistics of an interface
-        	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface>`
+        	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface>`
         
         
 
@@ -83,37 +83,37 @@ class InfraStatistics(object):
             .. attribute:: cache
             
             	Cached stats data of interfaces
-            	**type**\:  :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache>`
+            	**type**\:   :py:class:`Cache <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache>`
             
             .. attribute:: data_rate
             
             	Datarate information
-            	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.DataRate>`
+            	**type**\:   :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.DataRate>`
             
             .. attribute:: generic_counters
             
             	Generic set of interface counters
-            	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.GenericCounters>`
+            	**type**\:   :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.GenericCounters>`
             
             .. attribute:: interfaces_mib_counters
             
             	Set of interface counters as displayed by the InterfacesMIB
-            	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.InterfacesMibCounters>`
+            	**type**\:   :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.InterfacesMibCounters>`
             
             .. attribute:: latest
             
             	Latest stats data of interfaces
-            	**type**\:  :py:class:`Latest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest>`
+            	**type**\:   :py:class:`Latest <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest>`
             
             .. attribute:: protocols
             
             	List of protocols
-            	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols>`
+            	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols>`
             
             .. attribute:: total
             
             	Total stats data of interfaces
-            	**type**\:  :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total>`
+            	**type**\:   :py:class:`Total <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total>`
             
             
 
@@ -148,22 +148,22 @@ class InfraStatistics(object):
                 .. attribute:: data_rate
                 
                 	Datarate information
-                	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.DataRate>`
+                	**type**\:   :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.DataRate>`
                 
                 .. attribute:: generic_counters
                 
                 	Generic set of interface counters
-                	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.GenericCounters>`
+                	**type**\:   :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.GenericCounters>`
                 
                 .. attribute:: interfaces_mib_counters
                 
                 	Set of interface counters as displayed by the InterfacesMIB
-                	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters>`
+                	**type**\:   :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters>`
                 
                 .. attribute:: protocols
                 
                 	List of protocols
-                	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols>`
+                	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols>`
                 
                 
 
@@ -191,7 +191,7 @@ class InfraStatistics(object):
                     .. attribute:: protocol
                     
                     	Interface counters per protocol
-                    	**type**\: list of  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol>`
+                    	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol>`
                     
                     
 
@@ -225,12 +225,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte
+                        
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
                         
                         .. attribute:: input_data_rate
                         
@@ -239,12 +243,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: bit/s
+                        
                         .. attribute:: input_packet_rate
                         
                         	Input packets per second
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: packet/s
                         
                         .. attribute:: last_data_time
                         
@@ -253,6 +261,8 @@ class InfraStatistics(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: output_data_rate
                         
                         	Output data rate in 1000's of bps
@@ -260,12 +270,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: bit/s
+                        
                         .. attribute:: output_packet_rate
                         
                         	Output packets per second
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: packet/s
                         
                         .. attribute:: packets_received
                         
@@ -432,12 +446,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
                     
                     .. attribute:: carrier_transitions
                     
@@ -516,12 +534,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: multicast_packets_received
                     
@@ -621,6 +643,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
@@ -628,12 +652,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: throttled_packets_received
                     
@@ -836,12 +864,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: input_load
                     
@@ -857,6 +889,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: packet/s
+                    
                     .. attribute:: load_interval
                     
                     	Number of 30\-sec intervals less one
@@ -871,6 +905,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: output_load
                     
                     	Output load as fraction of 255
@@ -884,6 +920,8 @@ class InfraStatistics(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: packet/s
                     
                     .. attribute:: peak_input_data_rate
                     
@@ -1043,12 +1081,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
                     
                     .. attribute:: carrier_transitions
                     
@@ -1127,12 +1169,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: multicast_packets_received
                     
@@ -1232,6 +1278,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
@@ -1239,12 +1287,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: throttled_packets_received
                     
@@ -1476,22 +1528,22 @@ class InfraStatistics(object):
                 .. attribute:: data_rate
                 
                 	Datarate information
-                	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.DataRate>`
+                	**type**\:   :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.DataRate>`
                 
                 .. attribute:: generic_counters
                 
                 	Generic set of interface counters
-                	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.GenericCounters>`
+                	**type**\:   :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.GenericCounters>`
                 
                 .. attribute:: interfaces_mib_counters
                 
                 	Set of interface counters as displayed by the InterfacesMIB
-                	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters>`
+                	**type**\:   :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters>`
                 
                 .. attribute:: protocols
                 
                 	List of protocols
-                	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols>`
+                	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols>`
                 
                 
 
@@ -1519,7 +1571,7 @@ class InfraStatistics(object):
                     .. attribute:: protocol
                     
                     	Interface counters per protocol
-                    	**type**\: list of  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol>`
+                    	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol>`
                     
                     
 
@@ -1553,12 +1605,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte
+                        
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
                         
                         .. attribute:: input_data_rate
                         
@@ -1567,12 +1623,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: bit/s
+                        
                         .. attribute:: input_packet_rate
                         
                         	Input packets per second
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: packet/s
                         
                         .. attribute:: last_data_time
                         
@@ -1581,6 +1641,8 @@ class InfraStatistics(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: output_data_rate
                         
                         	Output data rate in 1000's of bps
@@ -1588,12 +1650,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: bit/s
+                        
                         .. attribute:: output_packet_rate
                         
                         	Output packets per second
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: packet/s
                         
                         .. attribute:: packets_received
                         
@@ -1760,12 +1826,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
                     
                     .. attribute:: carrier_transitions
                     
@@ -1844,12 +1914,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: multicast_packets_received
                     
@@ -1949,6 +2023,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
@@ -1956,12 +2032,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: throttled_packets_received
                     
@@ -2164,12 +2244,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: input_load
                     
@@ -2185,6 +2269,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: packet/s
+                    
                     .. attribute:: load_interval
                     
                     	Number of 30\-sec intervals less one
@@ -2199,6 +2285,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: output_load
                     
                     	Output load as fraction of 255
@@ -2212,6 +2300,8 @@ class InfraStatistics(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: packet/s
                     
                     .. attribute:: peak_input_data_rate
                     
@@ -2371,12 +2461,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
                     
                     .. attribute:: carrier_transitions
                     
@@ -2455,12 +2549,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: multicast_packets_received
                     
@@ -2560,6 +2658,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
@@ -2567,12 +2667,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: throttled_packets_received
                     
@@ -2804,22 +2908,22 @@ class InfraStatistics(object):
                 .. attribute:: data_rate
                 
                 	Datarate information
-                	**type**\:  :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.DataRate>`
+                	**type**\:   :py:class:`DataRate <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.DataRate>`
                 
                 .. attribute:: generic_counters
                 
                 	Generic set of interface counters
-                	**type**\:  :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.GenericCounters>`
+                	**type**\:   :py:class:`GenericCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.GenericCounters>`
                 
                 .. attribute:: interfaces_mib_counters
                 
                 	Set of interface counters as displayed by the InterfacesMIB
-                	**type**\:  :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters>`
+                	**type**\:   :py:class:`InterfacesMibCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters>`
                 
                 .. attribute:: protocols
                 
                 	List of protocols
-                	**type**\:  :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols>`
+                	**type**\:   :py:class:`Protocols <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols>`
                 
                 
 
@@ -2847,7 +2951,7 @@ class InfraStatistics(object):
                     .. attribute:: protocol
                     
                     	Interface counters per protocol
-                    	**type**\: list of  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol>`
+                    	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol>`
                     
                     
 
@@ -2881,12 +2985,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: byte
+                        
                         .. attribute:: bytes_sent
                         
                         	Bytes sent
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: byte
                         
                         .. attribute:: input_data_rate
                         
@@ -2895,12 +3003,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: bit/s
+                        
                         .. attribute:: input_packet_rate
                         
                         	Input packets per second
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: packet/s
                         
                         .. attribute:: last_data_time
                         
@@ -2909,6 +3021,8 @@ class InfraStatistics(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: output_data_rate
                         
                         	Output data rate in 1000's of bps
@@ -2916,12 +3030,16 @@ class InfraStatistics(object):
                         
                         	**range:** 0..18446744073709551615
                         
+                        	**units**\: bit/s
+                        
                         .. attribute:: output_packet_rate
                         
                         	Output packets per second
                         	**type**\:  int
                         
                         	**range:** 0..18446744073709551615
+                        
+                        	**units**\: packet/s
                         
                         .. attribute:: packets_received
                         
@@ -3088,12 +3206,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
                     
                     .. attribute:: carrier_transitions
                     
@@ -3172,12 +3294,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: multicast_packets_received
                     
@@ -3277,6 +3403,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
@@ -3284,12 +3412,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: throttled_packets_received
                     
@@ -3492,12 +3624,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: kbit/s
+                    
                     .. attribute:: input_data_rate
                     
                     	Input data rate in 1000's of bps
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: bit/s
                     
                     .. attribute:: input_load
                     
@@ -3513,6 +3649,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: packet/s
+                    
                     .. attribute:: load_interval
                     
                     	Number of 30\-sec intervals less one
@@ -3527,6 +3665,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: output_load
                     
                     	Output load as fraction of 255
@@ -3540,6 +3680,8 @@ class InfraStatistics(object):
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: packet/s
                     
                     .. attribute:: peak_input_data_rate
                     
@@ -3699,12 +3841,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
                     
                     .. attribute:: carrier_transitions
                     
@@ -3783,12 +3929,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: last_discontinuity_time
                     
                     	SysUpTime when counters were last reset (in seconds)
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: multicast_packets_received
                     
@@ -3888,6 +4038,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_received
                     
                     	Seconds since packet received
@@ -3895,12 +4047,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: seconds_since_packet_sent
                     
                     	Seconds since packet sent
                     	**type**\:  int
                     
                     	**range:** 0..4294967295
+                    
+                    	**units**\: second
                     
                     .. attribute:: throttled_packets_received
                     
@@ -4132,7 +4288,7 @@ class InfraStatistics(object):
                 .. attribute:: protocol
                 
                 	Interface counters per protocol
-                	**type**\: list of  :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols.Protocol>`
+                	**type**\: list of    :py:class:`Protocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_oper.InfraStatistics.Interfaces.Interface.Protocols.Protocol>`
                 
                 
 
@@ -4166,12 +4322,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: byte
+                    
                     .. attribute:: bytes_sent
                     
                     	Bytes sent
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: byte
                     
                     .. attribute:: input_data_rate
                     
@@ -4180,12 +4340,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: input_packet_rate
                     
                     	Input packets per second
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: packet/s
                     
                     .. attribute:: last_data_time
                     
@@ -4194,6 +4358,8 @@ class InfraStatistics(object):
                     
                     	**range:** 0..4294967295
                     
+                    	**units**\: second
+                    
                     .. attribute:: output_data_rate
                     
                     	Output data rate in 1000's of bps
@@ -4201,12 +4367,16 @@ class InfraStatistics(object):
                     
                     	**range:** 0..18446744073709551615
                     
+                    	**units**\: bit/s
+                    
                     .. attribute:: output_packet_rate
                     
                     	Output packets per second
                     	**type**\:  int
                     
                     	**range:** 0..18446744073709551615
+                    
+                    	**units**\: packet/s
                     
                     .. attribute:: packets_received
                     
@@ -4373,12 +4543,16 @@ class InfraStatistics(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte
+                
                 .. attribute:: bytes_sent
                 
                 	Bytes sent
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte
                 
                 .. attribute:: carrier_transitions
                 
@@ -4457,12 +4631,16 @@ class InfraStatistics(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: last_discontinuity_time
                 
                 	SysUpTime when counters were last reset (in seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: multicast_packets_received
                 
@@ -4562,6 +4740,8 @@ class InfraStatistics(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: seconds_since_packet_received
                 
                 	Seconds since packet received
@@ -4569,12 +4749,16 @@ class InfraStatistics(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: seconds_since_packet_sent
                 
                 	Seconds since packet sent
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: throttled_packets_received
                 
@@ -4777,12 +4961,16 @@ class InfraStatistics(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: kbit/s
+                
                 .. attribute:: input_data_rate
                 
                 	Input data rate in 1000's of bps
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: bit/s
                 
                 .. attribute:: input_load
                 
@@ -4798,6 +4986,8 @@ class InfraStatistics(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: packet/s
+                
                 .. attribute:: load_interval
                 
                 	Number of 30\-sec intervals less one
@@ -4812,6 +5002,8 @@ class InfraStatistics(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: bit/s
+                
                 .. attribute:: output_load
                 
                 	Output load as fraction of 255
@@ -4825,6 +5017,8 @@ class InfraStatistics(object):
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: packet/s
                 
                 .. attribute:: peak_input_data_rate
                 
@@ -4984,12 +5178,16 @@ class InfraStatistics(object):
                 
                 	**range:** 0..18446744073709551615
                 
+                	**units**\: byte
+                
                 .. attribute:: bytes_sent
                 
                 	Bytes sent
                 	**type**\:  int
                 
                 	**range:** 0..18446744073709551615
+                
+                	**units**\: byte
                 
                 .. attribute:: carrier_transitions
                 
@@ -5068,12 +5266,16 @@ class InfraStatistics(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: last_discontinuity_time
                 
                 	SysUpTime when counters were last reset (in seconds)
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: multicast_packets_received
                 
@@ -5173,6 +5375,8 @@ class InfraStatistics(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: seconds_since_packet_received
                 
                 	Seconds since packet received
@@ -5180,12 +5384,16 @@ class InfraStatistics(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: seconds_since_packet_sent
                 
                 	Seconds since packet sent
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: throttled_packets_received
                 

@@ -16,59 +16,59 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'EventTypeEnum' : _MetaInfoEnum('EventTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
-            'account-logoff':'ACCOUNT_LOGOFF',
-            'account-logon':'ACCOUNT_LOGON',
-            'authentication-failure':'AUTHENTICATION_FAILURE',
-            'authentication-no-response':'AUTHENTICATION_NO_RESPONSE',
-            'authorization-failure':'AUTHORIZATION_FAILURE',
-            'authorization-no-response':'AUTHORIZATION_NO_RESPONSE',
-            'credit-exhausted':'CREDIT_EXHAUSTED',
-            'exception':'EXCEPTION',
-            'idle-timeout':'IDLE_TIMEOUT',
-            'quota-depleted':'QUOTA_DEPLETED',
-            'service-start':'SERVICE_START',
-            'service-stop':'SERVICE_STOP',
-            'session-activate':'SESSION_ACTIVATE',
-            'session-start':'SESSION_START',
-            'session-stop':'SESSION_STOP',
-            'timer-expiry':'TIMER_EXPIRY',
+            'account-logoff':'account_logoff',
+            'account-logon':'account_logon',
+            'authentication-failure':'authentication_failure',
+            'authentication-no-response':'authentication_no_response',
+            'authorization-failure':'authorization_failure',
+            'authorization-no-response':'authorization_no_response',
+            'credit-exhausted':'credit_exhausted',
+            'exception':'exception',
+            'idle-timeout':'idle_timeout',
+            'quota-depleted':'quota_depleted',
+            'service-start':'service_start',
+            'service-stop':'service_stop',
+            'session-activate':'session_activate',
+            'session-start':'session_start',
+            'session-stop':'session_stop',
+            'timer-expiry':'timer_expiry',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
     'ClassMapTypeEnum' : _MetaInfoEnum('ClassMapTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
-            'qos':'QOS',
-            'traffic':'TRAFFIC',
-            'control':'CONTROL',
+            'qos':'qos',
+            'traffic':'traffic',
+            'control':'control',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
     'ExecutionStrategyEnum' : _MetaInfoEnum('ExecutionStrategyEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
-            'do-all':'DO_ALL',
-            'do-until-failure':'DO_UNTIL_FAILURE',
-            'do-until-success':'DO_UNTIL_SUCCESS',
+            'do-all':'do_all',
+            'do-until-failure':'do_until_failure',
+            'do-until-success':'do_until_success',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
     'AuthorizeIdentifierEnum' : _MetaInfoEnum('AuthorizeIdentifierEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
-            'circuit-id':'CIRCUIT_ID',
-            'dhcp-client-id':'DHCP_CLIENT_ID',
-            'remote-id':'REMOTE_ID',
-            'source-address-ipv4':'SOURCE_ADDRESS_IPV4',
-            'source-address-ipv6':'SOURCE_ADDRESS_IPV6',
-            'source-address-mac':'SOURCE_ADDRESS_MAC',
-            'username':'USERNAME',
+            'circuit-id':'circuit_id',
+            'dhcp-client-id':'dhcp_client_id',
+            'remote-id':'remote_id',
+            'source-address-ipv4':'source_address_ipv4',
+            'source-address-ipv6':'source_address_ipv6',
+            'source-address-mac':'source_address_mac',
+            'username':'username',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
     'PmapClassMapTypeEnum' : _MetaInfoEnum('PmapClassMapTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
-            'qos':'QOS',
-            'traffic':'TRAFFIC',
-            'subscriber-control':'SUBSCRIBER_CONTROL',
+            'qos':'qos',
+            'traffic':'traffic',
+            'subscriber-control':'subscriber_control',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
     'PolicyMapTypeEnum' : _MetaInfoEnum('PolicyMapTypeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg',
         {
-            'qos':'QOS',
-            'pbr':'PBR',
-            'traffic':'TRAFFIC',
-            'subscriber-control':'SUBSCRIBER_CONTROL',
-            'redirect':'REDIRECT',
-            'flow-monitor':'FLOW_MONITOR',
+            'qos':'qos',
+            'pbr':'pbr',
+            'traffic':'traffic',
+            'subscriber-control':'subscriber_control',
+            'redirect':'redirect',
+            'flow-monitor':'flow_monitor',
         }, 'Cisco-IOS-XR-infra-policymgr-cfg', _yang_ns._namespaces['Cisco-IOS-XR-infra-policymgr-cfg']),
     'PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4' : {
         'meta_info' : _MetaInfoClass('PolicyManager.ClassMaps.ClassMap.Match.DestinationAddressIpv4',
@@ -675,6 +675,13 @@ _meta_table = {
                 ''',
                 'timer_regex',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('traffic-class', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match Traffic Class.
+                Should be value 0..7 or range.
+                ''',
+                'traffic_class',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('user-name', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Match user name.
@@ -693,6 +700,36 @@ _meta_table = {
                 ''',
                 'vlan',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('vpls-broadcast', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS Broadcast
+                ''',
+                'vpls_broadcast',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('vpls-control', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS control
+                ''',
+                'vpls_control',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('vpls-known', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS Known
+                ''',
+                'vpls_known',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('vpls-multicast', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS Multicast
+                ''',
+                'vpls_multicast',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('vpls-unknown', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS Unknown
+                ''',
+                'vpls_unknown',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
             'match',
@@ -1245,6 +1282,13 @@ _meta_table = {
                 ''',
                 'timer_regex',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('traffic-class', REFERENCE_LEAFLIST, 'str' , None, None, 
+                [], ['(\\d+)|(\\d+\\-\\d+)'], 
+                '''                Match Traffic Class.
+                Should be value 0..7 or range.
+                ''',
+                'traffic_class',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
             _MetaInfoClassMember('user-name', REFERENCE_LEAFLIST, 'str' , None, None, 
                 [(1, 32)], [], 
                 '''                Match user name.
@@ -1263,6 +1307,36 @@ _meta_table = {
                 ''',
                 'vlan',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False, max_elements=8),
+            _MetaInfoClassMember('vpls-broadcast', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS Broadcast
+                ''',
+                'vpls_broadcast',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('vpls-control', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS control
+                ''',
+                'vpls_control',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('vpls-known', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS Known
+                ''',
+                'vpls_known',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('vpls-multicast', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS Multicast
+                ''',
+                'vpls_multicast',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('vpls-unknown', ATTRIBUTE, 'Empty' , None, None, 
+                [], [], 
+                '''                Match VPLS Unknown
+                ''',
+                'vpls_unknown',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
             'match-not',
@@ -1340,8 +1414,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg'
         ),
     },
-    'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate' : {
-        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate',
+    'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate' : {
+        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate',
             False, 
             [
             _MetaInfoClassMember('aaa-list', ATTRIBUTE, 'str' , None, None, 
@@ -1363,8 +1437,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg'
         ),
     },
-    'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate' : {
-        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate',
+    'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate' : {
+        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate',
             False, 
             [
             _MetaInfoClassMember('aaa-list', ATTRIBUTE, 'str' , None, None, 
@@ -1380,8 +1454,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg'
         ),
     },
-    'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize' : {
-        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize',
+    'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize' : {
+        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize',
             False, 
             [
             _MetaInfoClassMember('aaa-list', ATTRIBUTE, 'str' , None, None, 
@@ -1416,8 +1490,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg'
         ),
     },
-    'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate' : {
-        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate',
+    'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate' : {
+        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate',
             False, 
             [
             _MetaInfoClassMember('aaa-list', ATTRIBUTE, 'str' , None, None, 
@@ -1439,8 +1513,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg'
         ),
     },
-    'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer' : {
-        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer',
+    'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer' : {
+        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer',
             False, 
             [
             _MetaInfoClassMember('timer-name', ATTRIBUTE, 'str' , None, None, 
@@ -1462,8 +1536,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg'
         ),
     },
-    'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer' : {
-        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer',
+    'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer' : {
+        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer',
             False, 
             [
             _MetaInfoClassMember('timer-name', ATTRIBUTE, 'str' , None, None, 
@@ -1479,8 +1553,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg'
         ),
     },
-    'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule' : {
-        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule',
+    'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule' : {
+        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule',
             False, 
             [
             _MetaInfoClassMember('action-sequence-number', ATTRIBUTE, 'int' , None, None, 
@@ -1489,25 +1563,25 @@ _meta_table = {
                 ''',
                 'action_sequence_number',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
-            _MetaInfoClassMember('activate-dynamic-template', REFERENCE_CLASS, 'ActivateDynamicTemplate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate', 
+            _MetaInfoClassMember('activate-dynamic-template', REFERENCE_CLASS, 'ActivateDynamicTemplate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate', 
                 [], [], 
                 '''                Activate dynamic templates.
                 ''',
                 'activate_dynamic_template',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
-            _MetaInfoClassMember('authenticate', REFERENCE_CLASS, 'Authenticate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate', 
+            _MetaInfoClassMember('authenticate', REFERENCE_CLASS, 'Authenticate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate', 
                 [], [], 
                 '''                Authentication related configuration.
                 ''',
                 'authenticate',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
-            _MetaInfoClassMember('authorize', REFERENCE_CLASS, 'Authorize' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize', 
+            _MetaInfoClassMember('authorize', REFERENCE_CLASS, 'Authorize' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize', 
                 [], [], 
                 '''                Authorize.
                 ''',
                 'authorize',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
-            _MetaInfoClassMember('deactivate-dynamic-template', REFERENCE_CLASS, 'DeactivateDynamicTemplate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate', 
+            _MetaInfoClassMember('deactivate-dynamic-template', REFERENCE_CLASS, 'DeactivateDynamicTemplate' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate', 
                 [], [], 
                 '''                Deactivate dynamic templates.
                 ''',
@@ -1525,14 +1599,14 @@ _meta_table = {
                 ''',
                 'monitor',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
-            _MetaInfoClassMember('set-timer', REFERENCE_CLASS, 'SetTimer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer', 
+            _MetaInfoClassMember('set-timer', REFERENCE_CLASS, 'SetTimer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer', 
                 [], [], 
                 '''                Set a timer to execute a rule on its 
                 expiry
                 ''',
                 'set_timer',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
-            _MetaInfoClassMember('stop-timer', REFERENCE_CLASS, 'StopTimer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer', 
+            _MetaInfoClassMember('stop-timer', REFERENCE_CLASS, 'StopTimer' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer', 
                 [], [], 
                 '''                Disable timer before it expires.
                 ''',
@@ -1545,8 +1619,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg'
         ),
     },
-    'PolicyManager.PolicyMaps.PolicyMap.Event.Class' : {
-        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class',
+    'PolicyManager.PolicyMaps.PolicyMap.Event.Class_' : {
+        'meta_info' : _MetaInfoClass('PolicyManager.PolicyMaps.PolicyMap.Event.Class_',
             False, 
             [
             _MetaInfoClassMember('class-name', ATTRIBUTE, 'str' , None, None, 
@@ -1561,7 +1635,7 @@ _meta_table = {
                 ''',
                 'class_type',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
-            _MetaInfoClassMember('action-rule', REFERENCE_LIST, 'ActionRule' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule', 
+            _MetaInfoClassMember('action-rule', REFERENCE_LIST, 'ActionRule' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule', 
                 [], [], 
                 '''                Action rule.
                 ''',
@@ -1590,7 +1664,7 @@ _meta_table = {
                 ''',
                 'event_type',
                 'Cisco-IOS-XR-infra-policymgr-cfg', True),
-            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class', 
+            _MetaInfoClassMember('class', REFERENCE_LIST, 'Class_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_policymgr_cfg', 'PolicyManager.PolicyMaps.PolicyMap.Event.Class_', 
                 [], [], 
                 '''                Class-map rule.
                 ''',
@@ -1735,7 +1809,7 @@ _meta_table = {
             False, 
             [
             _MetaInfoClassMember('unit', ATTRIBUTE, 'str' , None, None, 
-                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)'], 
+                [], ['(bytes)|(kbytes)|(mbytes)|(gbytes)|(us)|(ms)|(packets)|(cells)|(percent)'], 
                 '''                Remaining bandwidth units.
                 ''',
                 'unit',
@@ -2090,6 +2164,12 @@ _meta_table = {
                 ''',
                 'srp_priority',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('traffic-class', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                Sets the Traffic class identifiers on IPv4 or MPLS packets.
+                ''',
+                'traffic_class',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
             'set',
@@ -2335,6 +2415,12 @@ _meta_table = {
                 ''',
                 'srp_priority',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('traffic-class', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                Sets the Traffic class identifiers on IPv4 or MPLS packets.
+                ''',
+                'traffic_class',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
             'set',
@@ -2517,6 +2603,12 @@ _meta_table = {
                 ''',
                 'srp_priority',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('traffic-class', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                Sets the Traffic class identifiers on IPv4 or MPLS packets.
+                ''',
+                'traffic_class',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
             'set',
@@ -2698,6 +2790,12 @@ _meta_table = {
                 outgoing packet.
                 ''',
                 'srp_priority',
+                'Cisco-IOS-XR-infra-policymgr-cfg', False),
+            _MetaInfoClassMember('traffic-class', ATTRIBUTE, 'int' , None, None, 
+                [('0', '7')], [], 
+                '''                Sets the Traffic class identifiers on IPv4 or MPLS packets.
+                ''',
+                'traffic_class',
                 'Cisco-IOS-XR-infra-policymgr-cfg', False),
             ],
             'Cisco-IOS-XR-infra-policymgr-cfg',
@@ -3606,14 +3704,14 @@ _meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot.Flow']['meta_info'].paren
 _meta_table['PolicyManager.ClassMaps.ClassMap.Match']['meta_info'].parent =_meta_table['PolicyManager.ClassMaps.ClassMap']['meta_info']
 _meta_table['PolicyManager.ClassMaps.ClassMap.MatchNot']['meta_info'].parent =_meta_table['PolicyManager.ClassMaps.ClassMap']['meta_info']
 _meta_table['PolicyManager.ClassMaps.ClassMap']['meta_info'].parent =_meta_table['PolicyManager.ClassMaps']['meta_info']
-_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.ActivateDynamicTemplate']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule']['meta_info']
-_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authenticate']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule']['meta_info']
-_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.Authorize']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule']['meta_info']
-_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.DeactivateDynamicTemplate']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule']['meta_info']
-_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.SetTimer']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule']['meta_info']
-_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule.StopTimer']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule']['meta_info']
-_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class.ActionRule']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class']['meta_info']
-_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event']['meta_info']
+_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.ActivateDynamicTemplate']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule']['meta_info']
+_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authenticate']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule']['meta_info']
+_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.Authorize']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule']['meta_info']
+_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.DeactivateDynamicTemplate']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule']['meta_info']
+_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.SetTimer']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule']['meta_info']
+_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule.StopTimer']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule']['meta_info']
+_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_.ActionRule']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_']['meta_info']
+_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event.Class_']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.Event']['meta_info']
 _meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Rate']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape']['meta_info']
 _meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape.Burst']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Shape']['meta_info']
 _meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc.PfcBufferSize']['meta_info'].parent =_meta_table['PolicyManager.PolicyMaps.PolicyMap.PolicyMapRule.Pfc']['meta_info']

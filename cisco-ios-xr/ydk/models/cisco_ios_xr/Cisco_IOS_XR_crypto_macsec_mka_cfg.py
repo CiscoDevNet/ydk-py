@@ -30,31 +30,31 @@ class MacsecMkaCipherSuiteEnum(Enum):
 
     Macsec mka cipher suite
 
-    .. data:: GCM_AES_128 = 1
+    .. data:: gcm_aes_128 = 1
 
     	GCM AES 128
 
-    .. data:: GCM_AES_256 = 2
+    .. data:: gcm_aes_256 = 2
 
     	GCM AES 256
 
-    .. data:: GCM_AES_XPN_128 = 3
+    .. data:: gcm_aes_xpn_128 = 3
 
     	GCM AES XPN 128
 
-    .. data:: GCM_AES_XPN_256 = 4
+    .. data:: gcm_aes_xpn_256 = 4
 
     	GCM AES XPN 256
 
     """
 
-    GCM_AES_128 = 1
+    gcm_aes_128 = 1
 
-    GCM_AES_256 = 2
+    gcm_aes_256 = 2
 
-    GCM_AES_XPN_128 = 3
+    gcm_aes_xpn_128 = 3
 
-    GCM_AES_XPN_256 = 4
+    gcm_aes_xpn_256 = 4
 
 
     @staticmethod
@@ -69,25 +69,25 @@ class MacsecMkaConfOffsetEnum(Enum):
 
     Macsec mka conf offset
 
-    .. data:: CONF_OFF_SET_0 = 0
+    .. data:: conf_off_set_0 = 0
 
     	CONF OFFSET 0
 
-    .. data:: CONF_OFF_SET_30 = 30
+    .. data:: conf_off_set_30 = 30
 
     	CONF OFFSET 30
 
-    .. data:: CONF_OFF_SET_50 = 50
+    .. data:: conf_off_set_50 = 50
 
     	CONF OFFSET 50
 
     """
 
-    CONF_OFF_SET_0 = 0
+    conf_off_set_0 = 0
 
-    CONF_OFF_SET_30 = 30
+    conf_off_set_30 = 30
 
-    CONF_OFF_SET_50 = 50
+    conf_off_set_50 = 50
 
 
     @staticmethod
@@ -96,25 +96,46 @@ class MacsecMkaConfOffsetEnum(Enum):
         return meta._meta_table['MacsecMkaConfOffsetEnum']
 
 
+class MacsecMkaPolicyExceptionEnum(Enum):
+    """
+    MacsecMkaPolicyExceptionEnum
+
+    Macsec mka policy exception
+
+    .. data:: lacp_in_clear = 1
+
+    	lacp in clear
+
+    """
+
+    lacp_in_clear = 1
+
+
+    @staticmethod
+    def _meta_info():
+        from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_crypto_macsec_mka_cfg as meta
+        return meta._meta_table['MacsecMkaPolicyExceptionEnum']
+
+
 class MacsecMkaSecurityPolicyEnum(Enum):
     """
     MacsecMkaSecurityPolicyEnum
 
     Macsec mka security policy
 
-    .. data:: SHOULD_SECURE = 0
+    .. data:: should_secure = 0
 
     	should secure
 
-    .. data:: MUST_SECURE = 1
+    .. data:: must_secure = 1
 
     	must secure
 
     """
 
-    SHOULD_SECURE = 0
+    should_secure = 0
 
-    MUST_SECURE = 1
+    must_secure = 1
 
 
     @staticmethod
@@ -131,7 +152,7 @@ class Macsec(object):
     .. attribute:: policy
     
     	MACSec Policy
-    	**type**\: list of  :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.Macsec.Policy>`
+    	**type**\: list of    :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.Macsec.Policy>`
     
     
 
@@ -160,12 +181,12 @@ class Macsec(object):
         .. attribute:: cipher_suite
         
         	Cipher\-suite of Policy
-        	**type**\:  :py:class:`MacsecMkaCipherSuiteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaCipherSuiteEnum>`
+        	**type**\:   :py:class:`MacsecMkaCipherSuiteEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaCipherSuiteEnum>`
         
         .. attribute:: conf_offset
         
         	Conf\-Offset of Policy
-        	**type**\:  :py:class:`MacsecMkaConfOffsetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaConfOffsetEnum>`
+        	**type**\:   :py:class:`MacsecMkaConfOffsetEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaConfOffsetEnum>`
         
         .. attribute:: key_server_priority
         
@@ -174,10 +195,15 @@ class Macsec(object):
         
         	**range:** 0..255
         
+        .. attribute:: policy_exception
+        
+        	Macsec policy exception for packets to be in clear
+        	**type**\:   :py:class:`MacsecMkaPolicyExceptionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaPolicyExceptionEnum>`
+        
         .. attribute:: security_policy
         
         	Security\-Policy of Policy
-        	**type**\:  :py:class:`MacsecMkaSecurityPolicyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaSecurityPolicyEnum>`
+        	**type**\:   :py:class:`MacsecMkaSecurityPolicyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg.MacsecMkaSecurityPolicyEnum>`
         
         .. attribute:: vlan_tags_in_clear
         
@@ -206,6 +232,7 @@ class Macsec(object):
             self.cipher_suite = None
             self.conf_offset = None
             self.key_server_priority = None
+            self.policy_exception = None
             self.security_policy = None
             self.vlan_tags_in_clear = None
             self.window_size = None
@@ -234,6 +261,9 @@ class Macsec(object):
                 return True
 
             if self.key_server_priority is not None:
+                return True
+
+            if self.policy_exception is not None:
                 return True
 
             if self.security_policy is not None:

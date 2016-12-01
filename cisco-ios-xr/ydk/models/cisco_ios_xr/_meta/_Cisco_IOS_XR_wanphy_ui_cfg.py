@@ -16,10 +16,10 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'WanphyLanModeEnum' : _MetaInfoEnum('WanphyLanModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg',
         {
-            'on':'ON',
+            'on':'on',
         }, 'Cisco-IOS-XR-wanphy-ui-cfg', _yang_ns._namespaces['Cisco-IOS-XR-wanphy-ui-cfg']),
     'WanphyWanModeEnum' : _MetaInfoEnum('WanphyWanModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_wanphy_ui_cfg',
         {
-            'on':'ON',
+            'on':'on',
         }, 'Cisco-IOS-XR-wanphy-ui-cfg', _yang_ns._namespaces['Cisco-IOS-XR-wanphy-ui-cfg']),
 }

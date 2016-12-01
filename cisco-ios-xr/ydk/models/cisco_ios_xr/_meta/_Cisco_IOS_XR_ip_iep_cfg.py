@@ -16,21 +16,21 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'IpIepPathEnum' : _MetaInfoEnum('IpIepPathEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg',
         {
-            'identifier':'IDENTIFIER',
-            'name':'NAME',
+            'identifier':'identifier',
+            'name':'name',
         }, 'Cisco-IOS-XR-ip-iep-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-cfg']),
     'IpIepHopEnum' : _MetaInfoEnum('IpIepHopEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg',
         {
-            'next-strict':'NEXT_STRICT',
-            'next-loose':'NEXT_LOOSE',
-            'exclude':'EXCLUDE',
-            'exclude-srlg':'EXCLUDE_SRLG',
-            'next-label':'NEXT_LABEL',
+            'next-strict':'next_strict',
+            'next-loose':'next_loose',
+            'exclude':'exclude',
+            'exclude-srlg':'exclude_srlg',
+            'next-label':'next_label',
         }, 'Cisco-IOS-XR-ip-iep-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-cfg']),
     'IpIepNumEnum' : _MetaInfoEnum('IpIepNumEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg',
         {
-            'unnumbered':'UNNUMBERED',
-            'numbered':'NUMBERED',
+            'unnumbered':'unnumbered',
+            'numbered':'numbered',
         }, 'Cisco-IOS-XR-ip-iep-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ip-iep-cfg']),
     'IpExplicitPaths.Paths.Path.Name.Hops.Hop' : {
         'meta_info' : _MetaInfoClass('IpExplicitPaths.Paths.Path.Name.Hops.Hop',

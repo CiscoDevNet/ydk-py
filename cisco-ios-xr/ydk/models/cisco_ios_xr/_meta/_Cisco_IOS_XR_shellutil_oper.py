@@ -16,11 +16,11 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'TimeSourceEnum' : _MetaInfoEnum('TimeSourceEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper',
         {
-            'error':'ERROR',
-            'none':'NONE',
-            'ntp':'NTP',
-            'manual':'MANUAL',
-            'calendar':'CALENDAR',
+            'error':'error',
+            'none':'none',
+            'ntp':'ntp',
+            'manual':'manual',
+            'calendar':'calendar',
         }, 'Cisco-IOS-XR-shellutil-oper', _yang_ns._namespaces['Cisco-IOS-XR-shellutil-oper']),
     'SystemTime.Clock' : {
         'meta_info' : _MetaInfoClass('SystemTime.Clock',

@@ -16,15 +16,15 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'ArpEntryEnum' : _MetaInfoEnum('ArpEntryEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg',
         {
-            'static':'STATIC',
-            'alias':'ALIAS',
+            'static':'static',
+            'alias':'alias',
         }, 'Cisco-IOS-XR-ipv4-arp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg']),
     'ArpEncapEnum' : _MetaInfoEnum('ArpEncapEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg',
         {
-            'arpa':'ARPA',
-            'srp':'SRP',
-            'srpa':'SRPA',
-            'srpb':'SRPB',
+            'arpa':'arpa',
+            'srp':'srp',
+            'srpa':'srpa',
+            'srpb':'srpb',
         }, 'Cisco-IOS-XR-ipv4-arp-cfg', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-arp-cfg']),
     'Arp' : {
         'meta_info' : _MetaInfoClass('Arp',

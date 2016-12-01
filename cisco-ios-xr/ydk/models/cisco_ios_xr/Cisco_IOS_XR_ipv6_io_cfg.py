@@ -32,7 +32,7 @@ class Ipv6Configuration(object):
     .. attribute:: ipv6_assembler
     
     	IPv6 fragmented packet assembler
-    	**type**\:  :py:class:`Ipv6Assembler <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6Assembler>`
+    	**type**\:   :py:class:`Ipv6Assembler <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6Assembler>`
     
     .. attribute:: ipv6_hop_limit
     
@@ -46,6 +46,8 @@ class Ipv6Configuration(object):
     	TRUE if enabled, FALSE if disabled
     	**type**\:  bool
     
+    	**default value**\: false
+    
     .. attribute:: ipv6_pmtu_time_out
     
     	Configure IPv6 Path MTU timeout value in minutes
@@ -53,15 +55,21 @@ class Ipv6Configuration(object):
     
     	**range:** 1..15
     
+    	**units**\: minute
+    
     .. attribute:: ipv6_source_route
     
     	TRUE if enabled, FALSE if disabled
     	**type**\:  bool
     
+    	**default value**\: true
+    
     .. attribute:: ipv6icmp
     
     	Configure IPv6 ICMP parameters
-    	**type**\:  :py:class:`Ipv6Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6Icmp>`
+    	**type**\:   :py:class:`Ipv6Icmp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_io_cfg.Ipv6Configuration.Ipv6Icmp>`
+    
+    	**presence node**\: True
     
     
 
@@ -91,12 +99,16 @@ class Ipv6Configuration(object):
         
         	**range:** 1..50
         
+        	**units**\: percentage
+        
         .. attribute:: timeout
         
         	Number of seconds an assembly queue will hold before timeout
         	**type**\:  int
         
         	**range:** 1..120
+        
+        	**units**\: second
         
         
 
@@ -147,6 +159,8 @@ class Ipv6Configuration(object):
         
         	**range:** 1..200
         
+        	**default value**\: 10
+        
         .. attribute:: error_interval
         
         	Interval between tokens in milliseconds
@@ -155,6 +169,8 @@ class Ipv6Configuration(object):
         	**range:** 0..2147483647
         
         	**mandatory**\: True
+        
+        	**units**\: millisecond
         
         .. attribute:: _is_presence
         

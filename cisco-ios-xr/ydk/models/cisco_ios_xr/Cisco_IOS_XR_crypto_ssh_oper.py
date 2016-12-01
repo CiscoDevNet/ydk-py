@@ -31,25 +31,25 @@ class AuthenEnum(Enum):
 
     SSH session authentication types
 
-    .. data:: PASSWORD = 0
+    .. data:: password = 0
 
     	Password
 
-    .. data:: RSA_PUBLIC_KEY = 1
+    .. data:: rsa_public_key = 1
 
     	RSA public key encryption type
 
-    .. data:: KEYBOARD_INTERACTIVE = 2
+    .. data:: keyboard_interactive = 2
 
     	Keyboard interactive
 
     """
 
-    PASSWORD = 0
+    password = 0
 
-    RSA_PUBLIC_KEY = 1
+    rsa_public_key = 1
 
-    KEYBOARD_INTERACTIVE = 2
+    keyboard_interactive = 2
 
 
     @staticmethod
@@ -64,39 +64,63 @@ class CipherEnum(Enum):
 
     SSH session in and out cipher standards
 
-    .. data:: AES128_CBC = 0
+    .. data:: aes128_cbc = 0
 
     	Advanced Encryption Standard(AES) 128 bits
 
     	cipher block chaining(CBC)
 
-    .. data:: AES192_CBC = 1
+    .. data:: aes192_cbc = 1
 
     	Advanced Encryption Standard(AES) 192 bits
 
     	cipher block chaining(CBC)
 
-    .. data:: AES256_CBC = 2
+    .. data:: aes256_cbc = 2
 
     	Advanced Encryption Standard(AES) 256 bits
 
     	cipher block chaining(CBC)
 
-    .. data:: TRIPLE_DES_CBC = 3
+    .. data:: triple_des_cbc = 3
 
     	Triple Data Encryption Standard(DES) cipher
 
     	block chaining(CBC)
 
+    .. data:: aes128_ctr = 4
+
+    	Advanced Encryption Standard(AES) 128 bits
+
+    	counter (CTR)
+
+    .. data:: aes192_ctr = 5
+
+    	Advanced Encryption Standard(AES) 192 bits
+
+    	counter (CTR)
+
+    .. data:: aes256_ctr = 6
+
+    	Advanced Encryption Standard(AES) 256 bits
+
+    	counter (CTR)
+
     """
 
-    AES128_CBC = 0
+    aes128_cbc = 0
 
-    AES192_CBC = 1
+    aes192_cbc = 1
 
-    AES256_CBC = 2
+    aes256_cbc = 2
 
-    TRIPLE_DES_CBC = 3
+    triple_des_cbc = 3
+
+    aes128_ctr = 4
+
+    aes192_ctr = 5
+
+    aes256_ctr = 6
 
 
     @staticmethod
@@ -111,43 +135,43 @@ class ConnectionEnum(Enum):
 
     SSH channel connection types
 
-    .. data:: UNDEFINED = 0
+    .. data:: undefined = 0
 
     	connection type not yet known
 
-    .. data:: SHELL = 1
+    .. data:: shell = 1
 
     	Interactive Shell
 
-    .. data:: EXEC = 2
+    .. data:: exec_ = 2
 
     	Remote Command Execution
 
-    .. data:: SCP = 3
+    .. data:: scp = 3
 
     	Secure Copy
 
-    .. data:: SFTP_SUBSYSTEM = 4
+    .. data:: sftp_subsystem = 4
 
     	Secure File Transfer
 
-    .. data:: NETCONF_SUBSYSTEM = 5
+    .. data:: netconf_subsystem = 5
 
     	Netconf Subsystem
 
     """
 
-    UNDEFINED = 0
+    undefined = 0
 
-    SHELL = 1
+    shell = 1
 
-    EXEC = 2
+    exec_ = 2
 
-    SCP = 3
+    scp = 3
 
-    SFTP_SUBSYSTEM = 4
+    sftp_subsystem = 4
 
-    NETCONF_SUBSYSTEM = 5
+    netconf_subsystem = 5
 
 
     @staticmethod
@@ -162,19 +186,19 @@ class HostkeyEnum(Enum):
 
     SSH session authentication types
 
-    .. data:: SSH_DSS = 0
+    .. data:: ssh_dss = 0
 
     	Algorithm type DSS
 
-    .. data:: SSH_RSA = 1
+    .. data:: ssh_rsa = 1
 
     	Algorithm type RSA
 
     """
 
-    SSH_DSS = 0
+    ssh_dss = 0
 
-    SSH_RSA = 1
+    ssh_rsa = 1
 
 
     @staticmethod
@@ -189,19 +213,19 @@ class KexNameEnum(Enum):
 
     Different key\-exchange(kex) algorithms
 
-    .. data:: DIFFIE_HELLMAN = 0
+    .. data:: diffie_hellman = 0
 
     	Diffie-Hellman key exchange algorithm
 
-    .. data:: PASSWORD_AUTHENTICATED = 1
+    .. data:: password_authenticated = 1
 
     	Password authenticated key agreement algorithm
 
     """
 
-    DIFFIE_HELLMAN = 0
+    diffie_hellman = 0
 
-    PASSWORD_AUTHENTICATED = 1
+    password_authenticated = 1
 
 
     @staticmethod
@@ -218,13 +242,13 @@ class MacEnum(Enum):
 
     functions
 
-    .. data:: HMAC_MD5 = 0
+    .. data:: hmac_md5 = 0
 
     	Hash-based Message Authentication Code(HMAC)
 
     	MD5 algorithm
 
-    .. data:: HMAC_SHA1 = 1
+    .. data:: hmac_sha1 = 1
 
     	Hash-based Message Authentication Code(HMAC)
 
@@ -232,9 +256,9 @@ class MacEnum(Enum):
 
     """
 
-    HMAC_MD5 = 0
+    hmac_md5 = 0
 
-    HMAC_SHA1 = 1
+    hmac_sha1 = 1
 
 
     @staticmethod
@@ -249,85 +273,85 @@ class StatesEnum(Enum):
 
     SSH session states
 
-    .. data:: OPEN = 1
+    .. data:: open = 1
 
     	SSH Open
 
-    .. data:: VERSION_OK = 2
+    .. data:: version_ok = 2
 
     	SSH version OK
 
-    .. data:: KEY_EXCHANGE_INITIALIZE = 3
+    .. data:: key_exchange_initialize = 3
 
     	Key exchange(KEX) init message exchanged
 
-    .. data:: KEY_EXCHANGE_DH = 4
+    .. data:: key_exchange_dh = 4
 
     	Diffie-Hellman(DH) secret is generated
 
-    .. data:: NEW_KEYS = 5
+    .. data:: new_keys = 5
 
     	New keys are received
 
-    .. data:: AUTHENTICATE_INFORMATION = 6
+    .. data:: authenticate_information = 6
 
     	Need more information to authenticate
 
-    .. data:: AUTHENTICATED = 7
+    .. data:: authenticated = 7
 
     	The client successfully authenticated
 
-    .. data:: CHANNEL_OPEN = 8
+    .. data:: channel_open = 8
 
     	Channel has been successfully opened
 
-    .. data:: PTY_OPEN = 9
+    .. data:: pty_open = 9
 
     	Allocated PTY
 
-    .. data:: SESSION_OPEN = 10
+    .. data:: session_open = 10
 
     	Opened an exec shell
 
-    .. data:: REKEY = 11
+    .. data:: rekey = 11
 
     	Received rekey request
 
-    .. data:: SUSPENDED = 12
+    .. data:: suspended = 12
 
     	Session is suspended
 
-    .. data:: SESSION_CLOSED = 13
+    .. data:: session_closed = 13
 
     	Session has been closed
 
     """
 
-    OPEN = 1
+    open = 1
 
-    VERSION_OK = 2
+    version_ok = 2
 
-    KEY_EXCHANGE_INITIALIZE = 3
+    key_exchange_initialize = 3
 
-    KEY_EXCHANGE_DH = 4
+    key_exchange_dh = 4
 
-    NEW_KEYS = 5
+    new_keys = 5
 
-    AUTHENTICATE_INFORMATION = 6
+    authenticate_information = 6
 
-    AUTHENTICATED = 7
+    authenticated = 7
 
-    CHANNEL_OPEN = 8
+    channel_open = 8
 
-    PTY_OPEN = 9
+    pty_open = 9
 
-    SESSION_OPEN = 10
+    session_open = 10
 
-    REKEY = 11
+    rekey = 11
 
-    SUSPENDED = 12
+    suspended = 12
 
-    SESSION_CLOSED = 13
+    session_closed = 13
 
 
     @staticmethod
@@ -342,19 +366,19 @@ class VersionEnum(Enum):
 
     SSH state versions
 
-    .. data:: V2 = 0
+    .. data:: v2 = 0
 
     	Version V2
 
-    .. data:: V1 = 1
+    .. data:: v1 = 1
 
     	Version V1
 
     """
 
-    V2 = 0
+    v2 = 0
 
-    V1 = 1
+    v1 = 1
 
 
     @staticmethod
@@ -371,7 +395,7 @@ class Ssh1(object):
     .. attribute:: kex
     
     	key exchange method data
-    	**type**\:  :py:class:`Kex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex>`
+    	**type**\:   :py:class:`Kex <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex>`
     
     
 
@@ -392,7 +416,7 @@ class Ssh1(object):
         .. attribute:: nodes
         
         	Node\-specific ssh session details
-        	**type**\:  :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes>`
+        	**type**\:   :py:class:`Nodes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes>`
         
         
 
@@ -414,7 +438,7 @@ class Ssh1(object):
             .. attribute:: node
             
             	SSH session details for a particular node
-            	**type**\: list of  :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node>`
+            	**type**\: list of    :py:class:`Node <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node>`
             
             
 
@@ -444,12 +468,12 @@ class Ssh1(object):
                 .. attribute:: incoming_sessions
                 
                 	List of incoming sessions
-                	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions>`
+                	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions>`
                 
                 .. attribute:: outgoing_connections
                 
                 	List of outgoing connections
-                	**type**\:  :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections>`
+                	**type**\:   :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections>`
                 
                 
 
@@ -474,7 +498,7 @@ class Ssh1(object):
                     .. attribute:: session_detail_info
                     
                     	session detail info
-                    	**type**\: list of  :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo>`
+                    	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo>`
                     
                     
 
@@ -497,32 +521,32 @@ class Ssh1(object):
                         .. attribute:: in_cipher
                         
                         	In cipher algorithm
-                        	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                         
                         .. attribute:: in_mac
                         
                         	In MAC
-                        	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                         
                         .. attribute:: key_exchange
                         
                         	Key exchange name
-                        	**type**\:  :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                        	**type**\:   :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
                         
                         .. attribute:: out_cipher
                         
                         	Out cipher algorithm
-                        	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                         
                         .. attribute:: out_mac
                         
                         	Out MAC
-                        	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                         
                         .. attribute:: public_key
                         
                         	Host key algorithm
-                        	**type**\:  :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                        	**type**\:   :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
                         
                         .. attribute:: session_id
                         
@@ -624,7 +648,7 @@ class Ssh1(object):
                     .. attribute:: session_detail_info
                     
                     	session detail info
-                    	**type**\: list of  :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo>`
+                    	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo>`
                     
                     
 
@@ -647,32 +671,32 @@ class Ssh1(object):
                         .. attribute:: in_cipher
                         
                         	In cipher algorithm
-                        	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                         
                         .. attribute:: in_mac
                         
                         	In MAC
-                        	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                         
                         .. attribute:: key_exchange
                         
                         	Key exchange name
-                        	**type**\:  :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                        	**type**\:   :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
                         
                         .. attribute:: out_cipher
                         
                         	Out cipher algorithm
-                        	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                        	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                         
                         .. attribute:: out_mac
                         
                         	Out MAC
-                        	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                        	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                         
                         .. attribute:: public_key
                         
                         	Host key algorithm
-                        	**type**\:  :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                        	**type**\:   :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
                         
                         .. attribute:: session_id
                         
@@ -872,7 +896,7 @@ class Ssh(object):
     .. attribute:: session
     
     	Crypto SSH session
-    	**type**\:  :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session>`
+    	**type**\:   :py:class:`Session <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session>`
     
     
 
@@ -893,12 +917,12 @@ class Ssh(object):
         .. attribute:: brief
         
         	SSH session brief information
-        	**type**\:  :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief>`
+        	**type**\:   :py:class:`Brief <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief>`
         
         .. attribute:: detail
         
         	SSH session detail information
-        	**type**\:  :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail>`
+        	**type**\:   :py:class:`Detail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail>`
         
         
 
@@ -922,12 +946,12 @@ class Ssh(object):
             .. attribute:: incoming_sessions
             
             	List of incoming sessions
-            	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions>`
+            	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions>`
             
             .. attribute:: outgoing_sessions
             
             	List of outgoing sessions
-            	**type**\:  :py:class:`OutgoingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions>`
+            	**type**\:   :py:class:`OutgoingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions>`
             
             
 
@@ -951,7 +975,7 @@ class Ssh(object):
                 .. attribute:: session_brief_info
                 
                 	session brief info
-                	**type**\: list of  :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions.SessionBriefInfo>`
+                	**type**\: list of    :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.IncomingSessions.SessionBriefInfo>`
                 
                 
 
@@ -974,7 +998,7 @@ class Ssh(object):
                     .. attribute:: authentication_type
                     
                     	Authentication method
-                    	**type**\:  :py:class:`AuthenEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
+                    	**type**\:   :py:class:`AuthenEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
                     
                     .. attribute:: channel_id
                     
@@ -986,7 +1010,7 @@ class Ssh(object):
                     .. attribute:: connection_type
                     
                     	Channel Connection Type
-                    	**type**\:  :py:class:`ConnectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
+                    	**type**\:   :py:class:`ConnectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
                     
                     .. attribute:: host_address
                     
@@ -1010,7 +1034,7 @@ class Ssh(object):
                     .. attribute:: session_state
                     
                     	SSH session state
-                    	**type**\:  :py:class:`StatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
+                    	**type**\:   :py:class:`StatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
                     
                     .. attribute:: user_id
                     
@@ -1020,7 +1044,7 @@ class Ssh(object):
                     .. attribute:: version
                     
                     	SSH state version
-                    	**type**\:  :py:class:`VersionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
+                    	**type**\:   :py:class:`VersionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
                     
                     .. attribute:: vty_assigned
                     
@@ -1139,7 +1163,7 @@ class Ssh(object):
                 .. attribute:: session_brief_info
                 
                 	session brief info
-                	**type**\: list of  :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo>`
+                	**type**\: list of    :py:class:`SessionBriefInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo>`
                 
                 
 
@@ -1162,7 +1186,7 @@ class Ssh(object):
                     .. attribute:: authentication_type
                     
                     	Authentication method
-                    	**type**\:  :py:class:`AuthenEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
+                    	**type**\:   :py:class:`AuthenEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.AuthenEnum>`
                     
                     .. attribute:: channel_id
                     
@@ -1174,7 +1198,7 @@ class Ssh(object):
                     .. attribute:: connection_type
                     
                     	Channel Connection Type
-                    	**type**\:  :py:class:`ConnectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
+                    	**type**\:   :py:class:`ConnectionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.ConnectionEnum>`
                     
                     .. attribute:: host_address
                     
@@ -1198,7 +1222,7 @@ class Ssh(object):
                     .. attribute:: session_state
                     
                     	SSH session state
-                    	**type**\:  :py:class:`StatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
+                    	**type**\:   :py:class:`StatesEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.StatesEnum>`
                     
                     .. attribute:: user_id
                     
@@ -1208,7 +1232,7 @@ class Ssh(object):
                     .. attribute:: version
                     
                     	SSH state version
-                    	**type**\:  :py:class:`VersionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
+                    	**type**\:   :py:class:`VersionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.VersionEnum>`
                     
                     .. attribute:: vty_assigned
                     
@@ -1352,12 +1376,12 @@ class Ssh(object):
             .. attribute:: incoming_sessions
             
             	List of incoming sessions
-            	**type**\:  :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions>`
+            	**type**\:   :py:class:`IncomingSessions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions>`
             
             .. attribute:: outgoing_connections
             
             	List of outgoing connections
-            	**type**\:  :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections>`
+            	**type**\:   :py:class:`OutgoingConnections <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections>`
             
             
 
@@ -1381,7 +1405,7 @@ class Ssh(object):
                 .. attribute:: session_detail_info
                 
                 	session detail info
-                	**type**\: list of  :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions.SessionDetailInfo>`
+                	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.IncomingSessions.SessionDetailInfo>`
                 
                 
 
@@ -1404,32 +1428,32 @@ class Ssh(object):
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
-                    	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: in_mac
                     
                     	In MAC
-                    	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
                     .. attribute:: key_exchange
                     
                     	Key exchange name
-                    	**type**\:  :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                    	**type**\:   :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
-                    	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
-                    	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
-                    	**type**\:  :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                    	**type**\:   :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
                     
                     .. attribute:: session_id
                     
@@ -1527,7 +1551,7 @@ class Ssh(object):
                 .. attribute:: session_detail_info
                 
                 	session detail info
-                	**type**\: list of  :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo>`
+                	**type**\: list of    :py:class:`SessionDetailInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo>`
                 
                 
 
@@ -1550,32 +1574,32 @@ class Ssh(object):
                     .. attribute:: in_cipher
                     
                     	In cipher algorithm
-                    	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: in_mac
                     
                     	In MAC
-                    	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
                     .. attribute:: key_exchange
                     
                     	Key exchange name
-                    	**type**\:  :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
+                    	**type**\:   :py:class:`KexNameEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.KexNameEnum>`
                     
                     .. attribute:: out_cipher
                     
                     	Out cipher algorithm
-                    	**type**\:  :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
+                    	**type**\:   :py:class:`CipherEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.CipherEnum>`
                     
                     .. attribute:: out_mac
                     
                     	Out MAC
-                    	**type**\:  :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
+                    	**type**\:   :py:class:`MacEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.MacEnum>`
                     
                     .. attribute:: public_key
                     
                     	Host key algorithm
-                    	**type**\:  :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
+                    	**type**\:   :py:class:`HostkeyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper.HostkeyEnum>`
                     
                     .. attribute:: session_id
                     

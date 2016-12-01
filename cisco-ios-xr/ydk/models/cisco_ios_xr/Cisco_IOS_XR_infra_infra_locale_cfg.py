@@ -30,1435 +30,1435 @@ class LocaleCountryEnum(Enum):
 
     Locale country
 
-    .. data:: AD = 1
+    .. data:: ad = 1
 
     	Andorra
 
-    .. data:: AE = 2
+    .. data:: ae = 2
 
     	United Arab Emirates
 
-    .. data:: AF = 3
+    .. data:: af = 3
 
     	Afghanistan
 
-    .. data:: AG = 4
+    .. data:: ag = 4
 
     	Antigua and Barbuda
 
-    .. data:: AI = 5
+    .. data:: ai = 5
 
     	Anguilla
 
-    .. data:: AL = 6
+    .. data:: al = 6
 
     	Albania
 
-    .. data:: AM = 7
+    .. data:: am = 7
 
     	Armenia
 
-    .. data:: AN = 8
+    .. data:: an = 8
 
     	Netherlands Antilles
 
-    .. data:: AO = 9
+    .. data:: ao = 9
 
     	Angola
 
-    .. data:: AQ = 10
+    .. data:: aq = 10
 
     	Antarctica
 
-    .. data:: AR = 11
+    .. data:: ar = 11
 
     	Argentina
 
-    .. data:: AS = 12
+    .. data:: as_ = 12
 
     	American Samoa
 
-    .. data:: AT = 13
+    .. data:: at = 13
 
     	Austria
 
-    .. data:: AU = 14
+    .. data:: au = 14
 
     	Australia
 
-    .. data:: AW = 15
+    .. data:: aw = 15
 
     	Aruba
 
-    .. data:: AZ = 16
+    .. data:: az = 16
 
     	Azerbaijan
 
-    .. data:: BA = 17
+    .. data:: ba = 17
 
     	Bosnia and Herzegovina
 
-    .. data:: BB = 18
+    .. data:: bb = 18
 
     	Barbados
 
-    .. data:: BD = 19
+    .. data:: bd = 19
 
     	Bangladesh
 
-    .. data:: BE = 20
+    .. data:: be = 20
 
     	Belgium
 
-    .. data:: BF = 21
+    .. data:: bf = 21
 
     	Burkina Faso
 
-    .. data:: BG = 22
+    .. data:: bg = 22
 
     	Bulgaria
 
-    .. data:: BH = 23
+    .. data:: bh = 23
 
     	Bahrain
 
-    .. data:: BI = 24
+    .. data:: bi = 24
 
     	Burundi
 
-    .. data:: BJ = 25
+    .. data:: bj = 25
 
     	Benin
 
-    .. data:: BM = 26
+    .. data:: bm = 26
 
     	Bermuda
 
-    .. data:: BN = 27
+    .. data:: bn = 27
 
     	Brunei Darussalam
 
-    .. data:: BO = 28
+    .. data:: bo = 28
 
     	Bolivia
 
-    .. data:: BR = 29
+    .. data:: br = 29
 
     	Brazil
 
-    .. data:: BS = 30
+    .. data:: bs = 30
 
     	Bahamas
 
-    .. data:: BT = 31
+    .. data:: bt = 31
 
     	Bhutan
 
-    .. data:: BV = 32
+    .. data:: bv = 32
 
     	Bouvet Island
 
-    .. data:: BW = 33
+    .. data:: bw = 33
 
     	Botswana
 
-    .. data:: BY = 34
+    .. data:: by = 34
 
     	Belarus
 
-    .. data:: BZ = 35
+    .. data:: bz = 35
 
     	Belize
 
-    .. data:: CA = 36
+    .. data:: ca = 36
 
     	Canada
 
-    .. data:: CC = 37
+    .. data:: cc = 37
 
     	Cocos (Keeling) Islands
 
-    .. data:: CD = 38
+    .. data:: cd = 38
 
     	Congo, The Democratic Republic of the (Zaire)
 
-    .. data:: CF = 39
+    .. data:: cf = 39
 
     	Central African Republic
 
-    .. data:: CG = 40
+    .. data:: cg = 40
 
     	Congo
 
-    .. data:: CH = 41
+    .. data:: ch = 41
 
     	Switzerland
 
-    .. data:: CI = 42
+    .. data:: ci = 42
 
     	Cote D'Ivoire
 
-    .. data:: CK = 43
+    .. data:: ck = 43
 
     	Cook Islands
 
-    .. data:: CL = 44
+    .. data:: cl = 44
 
     	Chile
 
-    .. data:: CM = 45
+    .. data:: cm = 45
 
     	Cameroon
 
-    .. data:: CN = 46
+    .. data:: cn = 46
 
     	China
 
-    .. data:: CO = 47
+    .. data:: co = 47
 
     	Colombia
 
-    .. data:: CR = 48
+    .. data:: cr = 48
 
     	Costa Rica
 
-    .. data:: CU = 49
+    .. data:: cu = 49
 
     	Cuba
 
-    .. data:: CV = 50
+    .. data:: cv = 50
 
     	Cape Verde
 
-    .. data:: CX = 51
+    .. data:: cx = 51
 
     	Christmas Island
 
-    .. data:: CY = 52
+    .. data:: cy = 52
 
     	Cyprus
 
-    .. data:: CZ = 53
+    .. data:: cz = 53
 
     	Czech Republic
 
-    .. data:: DE = 54
+    .. data:: de = 54
 
     	Germany
 
-    .. data:: DJ = 55
+    .. data:: dj = 55
 
     	Djibouti
 
-    .. data:: DK = 56
+    .. data:: dk = 56
 
     	Denmark
 
-    .. data:: DM = 57
+    .. data:: dm = 57
 
     	Dominica
 
-    .. data:: DO = 58
+    .. data:: do = 58
 
     	Dominican Republic
 
-    .. data:: DZ = 59
+    .. data:: dz = 59
 
     	Algeria
 
-    .. data:: EC = 60
+    .. data:: ec = 60
 
     	Ecuador
 
-    .. data:: EE = 61
+    .. data:: ee = 61
 
     	Estonia
 
-    .. data:: EG = 62
+    .. data:: eg = 62
 
     	Egypt
 
-    .. data:: EH = 63
+    .. data:: eh = 63
 
     	Western Sahara
 
-    .. data:: ER = 64
+    .. data:: er = 64
 
     	Eritrea
 
-    .. data:: ES = 65
+    .. data:: es = 65
 
     	Spain
 
-    .. data:: ET = 66
+    .. data:: et = 66
 
     	Ethiopia
 
-    .. data:: FI = 67
+    .. data:: fi = 67
 
     	Finland
 
-    .. data:: FJ = 68
+    .. data:: fj = 68
 
     	Fiji
 
-    .. data:: FK = 69
+    .. data:: fk = 69
 
     	Falkland Islands (Malvinas)
 
-    .. data:: FM = 70
+    .. data:: fm = 70
 
     	Micronesia, Federated States of
 
-    .. data:: FO = 71
+    .. data:: fo = 71
 
     	Faroe Islands
 
-    .. data:: FR = 72
+    .. data:: fr = 72
 
     	France
 
-    .. data:: GA = 73
+    .. data:: ga = 73
 
     	Gabon
 
-    .. data:: GB = 74
+    .. data:: gb = 74
 
     	United Kingdom
 
-    .. data:: GD = 75
+    .. data:: gd = 75
 
     	Grenada
 
-    .. data:: GE = 76
+    .. data:: ge = 76
 
     	Georgia
 
-    .. data:: GF = 77
+    .. data:: gf = 77
 
     	French Guiana
 
-    .. data:: GH = 78
+    .. data:: gh = 78
 
     	Ghana
 
-    .. data:: GI = 79
+    .. data:: gi = 79
 
     	Gibraltar
 
-    .. data:: GL = 80
+    .. data:: gl = 80
 
     	Greenland
 
-    .. data:: GM = 81
+    .. data:: gm = 81
 
     	Gambia
 
-    .. data:: GN = 82
+    .. data:: gn = 82
 
     	Guinea
 
-    .. data:: GP = 83
+    .. data:: gp = 83
 
     	Guadeloupe
 
-    .. data:: GQ = 84
+    .. data:: gq = 84
 
     	Equatorial Guinea
 
-    .. data:: GR = 85
+    .. data:: gr = 85
 
     	Greece
 
-    .. data:: GS = 86
+    .. data:: gs = 86
 
     	South Georgia and the South Sandwich Islands
 
-    .. data:: GT = 87
+    .. data:: gt = 87
 
     	Guatemala
 
-    .. data:: GU = 88
+    .. data:: gu = 88
 
     	Guam
 
-    .. data:: GW = 89
+    .. data:: gw = 89
 
     	Guinea Bissau
 
-    .. data:: GY = 90
+    .. data:: gy = 90
 
     	Guyana
 
-    .. data:: HK = 91
+    .. data:: hk = 91
 
     	Hong Kong
 
-    .. data:: HM = 92
+    .. data:: hm = 92
 
     	Heard Island and McDonald Islands
 
-    .. data:: HN = 93
+    .. data:: hn = 93
 
     	Honduras
 
-    .. data:: HR = 94
+    .. data:: hr = 94
 
     	Croatia
 
-    .. data:: HT = 95
+    .. data:: ht = 95
 
     	Haiti
 
-    .. data:: HU = 96
+    .. data:: hu = 96
 
     	Hungary
 
-    .. data:: ID = 97
+    .. data:: id = 97
 
     	Indonesia
 
-    .. data:: IE = 98
+    .. data:: ie = 98
 
     	Ireland
 
-    .. data:: IL = 99
+    .. data:: il = 99
 
     	Israel
 
-    .. data:: IN = 100
+    .. data:: in_ = 100
 
     	India
 
-    .. data:: IO = 101
+    .. data:: io = 101
 
     	British Indian Ocean Territory
 
-    .. data:: IQ = 102
+    .. data:: iq = 102
 
     	Iraq
 
-    .. data:: IR = 103
+    .. data:: ir = 103
 
     	Iran, Islamic Republic of
 
-    .. data:: IS = 104
+    .. data:: is_ = 104
 
     	Iceland
 
-    .. data:: IT = 105
+    .. data:: it = 105
 
     	Italy
 
-    .. data:: JM = 106
+    .. data:: jm = 106
 
     	Jamaica
 
-    .. data:: JO = 107
+    .. data:: jo = 107
 
     	Jordan
 
-    .. data:: JP = 108
+    .. data:: jp = 108
 
     	Japan
 
-    .. data:: KE = 109
+    .. data:: ke = 109
 
     	Kenya
 
-    .. data:: KG = 110
+    .. data:: kg = 110
 
     	Kyrgyzstan
 
-    .. data:: KH = 111
+    .. data:: kh = 111
 
     	Cambodia
 
-    .. data:: KI = 112
+    .. data:: ki = 112
 
     	Kiribati
 
-    .. data:: KM = 113
+    .. data:: km = 113
 
     	Comoros
 
-    .. data:: KN = 114
+    .. data:: kn = 114
 
     	Saint Kitts and Nevis
 
-    .. data:: KP = 115
+    .. data:: kp = 115
 
     	Korea, Democratic People's Republic of
 
-    .. data:: KR = 116
+    .. data:: kr = 116
 
     	Korea, Republic of
 
-    .. data:: KW = 117
+    .. data:: kw = 117
 
     	Kuwait
 
-    .. data:: KY = 118
+    .. data:: ky = 118
 
     	Cayman Islands
 
-    .. data:: KZ = 119
+    .. data:: kz = 119
 
     	Kazakstan
 
-    .. data:: LA = 120
+    .. data:: la = 120
 
     	Lao People's Democratic Republic
 
-    .. data:: LB = 121
+    .. data:: lb = 121
 
     	Lebanon
 
-    .. data:: LC = 122
+    .. data:: lc = 122
 
     	Saint Lucia
 
-    .. data:: LI = 123
+    .. data:: li = 123
 
     	Liechtenstein
 
-    .. data:: LK = 124
+    .. data:: lk = 124
 
     	Sri Lanka
 
-    .. data:: LR = 125
+    .. data:: lr = 125
 
     	Liberia
 
-    .. data:: LS = 126
+    .. data:: ls = 126
 
     	Lesotho
 
-    .. data:: LT = 127
+    .. data:: lt = 127
 
     	Lithuania
 
-    .. data:: LU = 128
+    .. data:: lu = 128
 
     	Luxembourg
 
-    .. data:: LV = 129
+    .. data:: lv = 129
 
     	Latvia
 
-    .. data:: LY = 130
+    .. data:: ly = 130
 
     	Libyan Arab Jamahiriya
 
-    .. data:: MA = 131
+    .. data:: ma = 131
 
     	Morocco
 
-    .. data:: MC = 132
+    .. data:: mc = 132
 
     	Monaco
 
-    .. data:: MD = 133
+    .. data:: md = 133
 
     	Moldova, Republic of
 
-    .. data:: MG = 134
+    .. data:: mg = 134
 
     	Madagascar
 
-    .. data:: MH = 135
+    .. data:: mh = 135
 
     	Marshall Islands
 
-    .. data:: MK = 136
+    .. data:: mk = 136
 
     	Macedonia, The Former Yugoslav Republic of
 
-    .. data:: ML = 137
+    .. data:: ml = 137
 
     	Mali
 
-    .. data:: MM = 138
+    .. data:: mm = 138
 
     	Myanmar
 
-    .. data:: MN = 139
+    .. data:: mn = 139
 
     	Mongolia
 
-    .. data:: MO = 140
+    .. data:: mo = 140
 
     	Macau
 
-    .. data:: MP = 141
+    .. data:: mp = 141
 
     	Northern Mariana Islands
 
-    .. data:: MQ = 142
+    .. data:: mq = 142
 
     	Martinique
 
-    .. data:: MR = 143
+    .. data:: mr = 143
 
     	Mauritania
 
-    .. data:: MS = 144
+    .. data:: ms = 144
 
     	Montserrat
 
-    .. data:: MT = 145
+    .. data:: mt = 145
 
     	Malta
 
-    .. data:: MU = 146
+    .. data:: mu = 146
 
     	Mauritius
 
-    .. data:: MV = 147
+    .. data:: mv = 147
 
     	Maldives
 
-    .. data:: MW = 148
+    .. data:: mw = 148
 
     	Malawi
 
-    .. data:: MX = 149
+    .. data:: mx = 149
 
     	Mexico
 
-    .. data:: MY = 150
+    .. data:: my = 150
 
     	Malaysia
 
-    .. data:: MZ = 151
+    .. data:: mz = 151
 
     	Mozambique
 
-    .. data:: NA = 152
+    .. data:: na = 152
 
     	Namibia
 
-    .. data:: NC = 153
+    .. data:: nc = 153
 
     	New Caledonia
 
-    .. data:: NE = 154
+    .. data:: ne = 154
 
     	Niger
 
-    .. data:: NF = 155
+    .. data:: nf = 155
 
     	Norfolk Island
 
-    .. data:: NG = 156
+    .. data:: ng = 156
 
     	Nigeria
 
-    .. data:: NI = 157
+    .. data:: ni = 157
 
     	Nicaragua
 
-    .. data:: NL = 158
+    .. data:: nl = 158
 
     	Netherlands
 
-    .. data:: NO = 159
+    .. data:: no = 159
 
     	Norway
 
-    .. data:: NP = 160
+    .. data:: np = 160
 
     	Nepal
 
-    .. data:: NR = 161
+    .. data:: nr = 161
 
     	Nauru
 
-    .. data:: NU = 162
+    .. data:: nu = 162
 
     	Niue
 
-    .. data:: NZ = 163
+    .. data:: nz = 163
 
     	New Zealand
 
-    .. data:: OM = 164
+    .. data:: om = 164
 
     	Oman
 
-    .. data:: PA = 165
+    .. data:: pa = 165
 
     	Panama
 
-    .. data:: PE = 166
+    .. data:: pe = 166
 
     	Peru
 
-    .. data:: PF = 167
+    .. data:: pf = 167
 
     	French Polynesia
 
-    .. data:: PG = 168
+    .. data:: pg = 168
 
     	Papua New Guinea
 
-    .. data:: PH = 169
+    .. data:: ph = 169
 
     	Philippines
 
-    .. data:: PK = 170
+    .. data:: pk = 170
 
     	Pakistan
 
-    .. data:: PL = 171
+    .. data:: pl = 171
 
     	Poland
 
-    .. data:: PM = 172
+    .. data:: pm = 172
 
     	Saint Pierre and Miquelon
 
-    .. data:: PN = 173
+    .. data:: pn = 173
 
     	Pitcairn
 
-    .. data:: PR = 174
+    .. data:: pr = 174
 
     	Puerto Rico
 
-    .. data:: PT = 175
+    .. data:: pt = 175
 
     	Portugal
 
-    .. data:: PW = 176
+    .. data:: pw = 176
 
     	Palau
 
-    .. data:: PY = 177
+    .. data:: py = 177
 
     	Paraguay
 
-    .. data:: QA = 178
+    .. data:: qa = 178
 
     	Qatar
 
-    .. data:: RE = 179
+    .. data:: re = 179
 
     	Reunion
 
-    .. data:: RO = 180
+    .. data:: ro = 180
 
     	Romania
 
-    .. data:: RU = 181
+    .. data:: ru = 181
 
     	Russian Federation
 
-    .. data:: RW = 182
+    .. data:: rw = 182
 
     	Rwanda
 
-    .. data:: SA = 183
+    .. data:: sa = 183
 
     	Saudi Arabia
 
-    .. data:: SB = 184
+    .. data:: sb = 184
 
     	Solomon Islands
 
-    .. data:: SC = 185
+    .. data:: sc = 185
 
     	Seychelles
 
-    .. data:: SD = 186
+    .. data:: sd = 186
 
     	Sudan
 
-    .. data:: SE = 187
+    .. data:: se = 187
 
     	Sweden
 
-    .. data:: SG = 188
+    .. data:: sg = 188
 
     	Singapore
 
-    .. data:: SH = 189
+    .. data:: sh = 189
 
     	Saint Helena
 
-    .. data:: SI = 190
+    .. data:: si = 190
 
     	Slovenia
 
-    .. data:: SJ = 191
+    .. data:: sj = 191
 
     	Svalbard and Jan Mayen
 
-    .. data:: SK = 192
+    .. data:: sk = 192
 
     	Slovakia
 
-    .. data:: SL = 193
+    .. data:: sl = 193
 
     	Sierra Leone
 
-    .. data:: SM = 194
+    .. data:: sm = 194
 
     	San Marino
 
-    .. data:: SN = 195
+    .. data:: sn = 195
 
     	Senegal
 
-    .. data:: SO = 196
+    .. data:: so = 196
 
     	Somalia
 
-    .. data:: SR = 197
+    .. data:: sr = 197
 
     	Suriname
 
-    .. data:: ST = 198
+    .. data:: st = 198
 
     	Sao Tome and Principe
 
-    .. data:: SV = 199
+    .. data:: sv = 199
 
     	El Salvador
 
-    .. data:: SY = 200
+    .. data:: sy = 200
 
     	Syrian Arab Republic
 
-    .. data:: SZ = 201
+    .. data:: sz = 201
 
     	Swaziland
 
-    .. data:: TC = 202
+    .. data:: tc = 202
 
     	Turks and Caicos Islands
 
-    .. data:: TD = 203
+    .. data:: td = 203
 
     	Chad
 
-    .. data:: TF = 204
+    .. data:: tf = 204
 
     	French Southern Territories
 
-    .. data:: TG = 205
+    .. data:: tg = 205
 
     	Togo
 
-    .. data:: TH = 206
+    .. data:: th = 206
 
     	Thailand
 
-    .. data:: TJ = 207
+    .. data:: tj = 207
 
     	Tajikistan
 
-    .. data:: TK = 208
+    .. data:: tk = 208
 
     	Tokelau
 
-    .. data:: TM = 209
+    .. data:: tm = 209
 
     	Turkmenistan
 
-    .. data:: TN = 210
+    .. data:: tn = 210
 
     	Tunisia
 
-    .. data:: TO = 211
+    .. data:: to = 211
 
     	Tonga
 
-    .. data:: TP = 212
+    .. data:: tp = 212
 
     	East Timor
 
-    .. data:: TR = 213
+    .. data:: tr = 213
 
     	Turkey
 
-    .. data:: TT = 214
+    .. data:: tt = 214
 
     	Trinidad and Tobago
 
-    .. data:: TV = 215
+    .. data:: tv = 215
 
     	Tuvalu
 
-    .. data:: TW = 216
+    .. data:: tw = 216
 
     	Taiwan, Province of China
 
-    .. data:: TZ = 217
+    .. data:: tz = 217
 
     	Tanzania, United Republic of
 
-    .. data:: UA = 218
+    .. data:: ua = 218
 
     	Ukraine
 
-    .. data:: UG = 219
+    .. data:: ug = 219
 
     	Uganda
 
-    .. data:: UM = 220
+    .. data:: um = 220
 
     	United States Minor Outlying Islands
 
-    .. data:: US = 221
+    .. data:: us = 221
 
     	United States
 
-    .. data:: UY = 222
+    .. data:: uy = 222
 
     	Uruguay
 
-    .. data:: UZ = 223
+    .. data:: uz = 223
 
     	Uzbekistan
 
-    .. data:: VA = 224
+    .. data:: va = 224
 
     	Holy See (Vatican City State)
 
-    .. data:: VC = 225
+    .. data:: vc = 225
 
     	Saint Vincent and The Grenadines
 
-    .. data:: VE = 226
+    .. data:: ve = 226
 
     	Venezuela
 
-    .. data:: VG = 227
+    .. data:: vg = 227
 
     	Virgin Islands, British
 
-    .. data:: VI = 228
+    .. data:: vi = 228
 
     	Virgin Islands, U.S.
 
-    .. data:: VN = 229
+    .. data:: vn = 229
 
     	Vietnam
 
-    .. data:: VU = 230
+    .. data:: vu = 230
 
     	Vanuatu
 
-    .. data:: WF = 231
+    .. data:: wf = 231
 
     	Wallis and Futuna
 
-    .. data:: WS = 232
+    .. data:: ws = 232
 
     	Samoa
 
-    .. data:: YE = 233
+    .. data:: ye = 233
 
     	Yemen
 
-    .. data:: YT = 234
+    .. data:: yt = 234
 
     	Mayotte
 
-    .. data:: YU = 235
+    .. data:: yu = 235
 
     	Yugoslavia
 
-    .. data:: ZA = 236
+    .. data:: za = 236
 
     	South Africa
 
-    .. data:: ZM = 237
+    .. data:: zm = 237
 
     	Zambia
 
-    .. data:: ZW = 238
+    .. data:: zw = 238
 
     	Zimbabwe
 
     """
 
-    AD = 1
+    ad = 1
 
-    AE = 2
+    ae = 2
 
-    AF = 3
+    af = 3
 
-    AG = 4
+    ag = 4
 
-    AI = 5
+    ai = 5
 
-    AL = 6
+    al = 6
 
-    AM = 7
+    am = 7
 
-    AN = 8
+    an = 8
 
-    AO = 9
+    ao = 9
 
-    AQ = 10
+    aq = 10
 
-    AR = 11
+    ar = 11
 
-    AS = 12
+    as_ = 12
 
-    AT = 13
+    at = 13
 
-    AU = 14
+    au = 14
 
-    AW = 15
+    aw = 15
 
-    AZ = 16
+    az = 16
 
-    BA = 17
+    ba = 17
 
-    BB = 18
+    bb = 18
 
-    BD = 19
+    bd = 19
 
-    BE = 20
+    be = 20
 
-    BF = 21
+    bf = 21
 
-    BG = 22
+    bg = 22
 
-    BH = 23
+    bh = 23
 
-    BI = 24
+    bi = 24
 
-    BJ = 25
+    bj = 25
 
-    BM = 26
+    bm = 26
 
-    BN = 27
+    bn = 27
 
-    BO = 28
+    bo = 28
 
-    BR = 29
+    br = 29
 
-    BS = 30
+    bs = 30
 
-    BT = 31
+    bt = 31
 
-    BV = 32
+    bv = 32
 
-    BW = 33
+    bw = 33
 
-    BY = 34
+    by = 34
 
-    BZ = 35
+    bz = 35
 
-    CA = 36
+    ca = 36
 
-    CC = 37
+    cc = 37
 
-    CD = 38
+    cd = 38
 
-    CF = 39
+    cf = 39
 
-    CG = 40
+    cg = 40
 
-    CH = 41
+    ch = 41
 
-    CI = 42
+    ci = 42
 
-    CK = 43
+    ck = 43
 
-    CL = 44
+    cl = 44
 
-    CM = 45
+    cm = 45
 
-    CN = 46
+    cn = 46
 
-    CO = 47
+    co = 47
 
-    CR = 48
+    cr = 48
 
-    CU = 49
+    cu = 49
 
-    CV = 50
+    cv = 50
 
-    CX = 51
+    cx = 51
 
-    CY = 52
+    cy = 52
 
-    CZ = 53
+    cz = 53
 
-    DE = 54
+    de = 54
 
-    DJ = 55
+    dj = 55
 
-    DK = 56
+    dk = 56
 
-    DM = 57
+    dm = 57
 
-    DO = 58
+    do = 58
 
-    DZ = 59
+    dz = 59
 
-    EC = 60
+    ec = 60
 
-    EE = 61
+    ee = 61
 
-    EG = 62
+    eg = 62
 
-    EH = 63
+    eh = 63
 
-    ER = 64
+    er = 64
 
-    ES = 65
+    es = 65
 
-    ET = 66
+    et = 66
 
-    FI = 67
+    fi = 67
 
-    FJ = 68
+    fj = 68
 
-    FK = 69
+    fk = 69
 
-    FM = 70
+    fm = 70
 
-    FO = 71
+    fo = 71
 
-    FR = 72
+    fr = 72
 
-    GA = 73
+    ga = 73
 
-    GB = 74
+    gb = 74
 
-    GD = 75
+    gd = 75
 
-    GE = 76
+    ge = 76
 
-    GF = 77
+    gf = 77
 
-    GH = 78
+    gh = 78
 
-    GI = 79
+    gi = 79
 
-    GL = 80
+    gl = 80
 
-    GM = 81
+    gm = 81
 
-    GN = 82
+    gn = 82
 
-    GP = 83
+    gp = 83
 
-    GQ = 84
+    gq = 84
 
-    GR = 85
+    gr = 85
 
-    GS = 86
+    gs = 86
 
-    GT = 87
+    gt = 87
 
-    GU = 88
+    gu = 88
 
-    GW = 89
+    gw = 89
 
-    GY = 90
+    gy = 90
 
-    HK = 91
+    hk = 91
 
-    HM = 92
+    hm = 92
 
-    HN = 93
+    hn = 93
 
-    HR = 94
+    hr = 94
 
-    HT = 95
+    ht = 95
 
-    HU = 96
+    hu = 96
 
-    ID = 97
+    id = 97
 
-    IE = 98
+    ie = 98
 
-    IL = 99
+    il = 99
 
-    IN = 100
+    in_ = 100
 
-    IO = 101
+    io = 101
 
-    IQ = 102
+    iq = 102
 
-    IR = 103
+    ir = 103
 
-    IS = 104
+    is_ = 104
 
-    IT = 105
+    it = 105
 
-    JM = 106
+    jm = 106
 
-    JO = 107
+    jo = 107
 
-    JP = 108
+    jp = 108
 
-    KE = 109
+    ke = 109
 
-    KG = 110
+    kg = 110
 
-    KH = 111
+    kh = 111
 
-    KI = 112
+    ki = 112
 
-    KM = 113
+    km = 113
 
-    KN = 114
+    kn = 114
 
-    KP = 115
+    kp = 115
 
-    KR = 116
+    kr = 116
 
-    KW = 117
+    kw = 117
 
-    KY = 118
+    ky = 118
 
-    KZ = 119
+    kz = 119
 
-    LA = 120
+    la = 120
 
-    LB = 121
+    lb = 121
 
-    LC = 122
+    lc = 122
 
-    LI = 123
+    li = 123
 
-    LK = 124
+    lk = 124
 
-    LR = 125
+    lr = 125
 
-    LS = 126
+    ls = 126
 
-    LT = 127
+    lt = 127
 
-    LU = 128
+    lu = 128
 
-    LV = 129
+    lv = 129
 
-    LY = 130
+    ly = 130
 
-    MA = 131
+    ma = 131
 
-    MC = 132
+    mc = 132
 
-    MD = 133
+    md = 133
 
-    MG = 134
+    mg = 134
 
-    MH = 135
+    mh = 135
 
-    MK = 136
+    mk = 136
 
-    ML = 137
+    ml = 137
 
-    MM = 138
+    mm = 138
 
-    MN = 139
+    mn = 139
 
-    MO = 140
+    mo = 140
 
-    MP = 141
+    mp = 141
 
-    MQ = 142
+    mq = 142
 
-    MR = 143
+    mr = 143
 
-    MS = 144
+    ms = 144
 
-    MT = 145
+    mt = 145
 
-    MU = 146
+    mu = 146
 
-    MV = 147
+    mv = 147
 
-    MW = 148
+    mw = 148
 
-    MX = 149
+    mx = 149
 
-    MY = 150
+    my = 150
 
-    MZ = 151
+    mz = 151
 
-    NA = 152
+    na = 152
 
-    NC = 153
+    nc = 153
 
-    NE = 154
+    ne = 154
 
-    NF = 155
+    nf = 155
 
-    NG = 156
+    ng = 156
 
-    NI = 157
+    ni = 157
 
-    NL = 158
+    nl = 158
 
-    NO = 159
+    no = 159
 
-    NP = 160
+    np = 160
 
-    NR = 161
+    nr = 161
 
-    NU = 162
+    nu = 162
 
-    NZ = 163
+    nz = 163
 
-    OM = 164
+    om = 164
 
-    PA = 165
+    pa = 165
 
-    PE = 166
+    pe = 166
 
-    PF = 167
+    pf = 167
 
-    PG = 168
+    pg = 168
 
-    PH = 169
+    ph = 169
 
-    PK = 170
+    pk = 170
 
-    PL = 171
+    pl = 171
 
-    PM = 172
+    pm = 172
 
-    PN = 173
+    pn = 173
 
-    PR = 174
+    pr = 174
 
-    PT = 175
+    pt = 175
 
-    PW = 176
+    pw = 176
 
-    PY = 177
+    py = 177
 
-    QA = 178
+    qa = 178
 
-    RE = 179
+    re = 179
 
-    RO = 180
+    ro = 180
 
-    RU = 181
+    ru = 181
 
-    RW = 182
+    rw = 182
 
-    SA = 183
+    sa = 183
 
-    SB = 184
+    sb = 184
 
-    SC = 185
+    sc = 185
 
-    SD = 186
+    sd = 186
 
-    SE = 187
+    se = 187
 
-    SG = 188
+    sg = 188
 
-    SH = 189
+    sh = 189
 
-    SI = 190
+    si = 190
 
-    SJ = 191
+    sj = 191
 
-    SK = 192
+    sk = 192
 
-    SL = 193
+    sl = 193
 
-    SM = 194
+    sm = 194
 
-    SN = 195
+    sn = 195
 
-    SO = 196
+    so = 196
 
-    SR = 197
+    sr = 197
 
-    ST = 198
+    st = 198
 
-    SV = 199
+    sv = 199
 
-    SY = 200
+    sy = 200
 
-    SZ = 201
+    sz = 201
 
-    TC = 202
+    tc = 202
 
-    TD = 203
+    td = 203
 
-    TF = 204
+    tf = 204
 
-    TG = 205
+    tg = 205
 
-    TH = 206
+    th = 206
 
-    TJ = 207
+    tj = 207
 
-    TK = 208
+    tk = 208
 
-    TM = 209
+    tm = 209
 
-    TN = 210
+    tn = 210
 
-    TO = 211
+    to = 211
 
-    TP = 212
+    tp = 212
 
-    TR = 213
+    tr = 213
 
-    TT = 214
+    tt = 214
 
-    TV = 215
+    tv = 215
 
-    TW = 216
+    tw = 216
 
-    TZ = 217
+    tz = 217
 
-    UA = 218
+    ua = 218
 
-    UG = 219
+    ug = 219
 
-    UM = 220
+    um = 220
 
-    US = 221
+    us = 221
 
-    UY = 222
+    uy = 222
 
-    UZ = 223
+    uz = 223
 
-    VA = 224
+    va = 224
 
-    VC = 225
+    vc = 225
 
-    VE = 226
+    ve = 226
 
-    VG = 227
+    vg = 227
 
-    VI = 228
+    vi = 228
 
-    VN = 229
+    vn = 229
 
-    VU = 230
+    vu = 230
 
-    WF = 231
+    wf = 231
 
-    WS = 232
+    ws = 232
 
-    YE = 233
+    ye = 233
 
-    YT = 234
+    yt = 234
 
-    YU = 235
+    yu = 235
 
-    ZA = 236
+    za = 236
 
-    ZM = 237
+    zm = 237
 
-    ZW = 238
+    zw = 238
 
 
     @staticmethod
@@ -1473,841 +1473,841 @@ class LocaleLanguageEnum(Enum):
 
     Locale language
 
-    .. data:: AA = 1
+    .. data:: aa = 1
 
     	Afar
 
-    .. data:: AB = 2
+    .. data:: ab = 2
 
     	Abkhazian
 
-    .. data:: AF = 3
+    .. data:: af = 3
 
     	Afrikaans
 
-    .. data:: AM = 4
+    .. data:: am = 4
 
     	Amharic
 
-    .. data:: AR = 5
+    .. data:: ar = 5
 
     	Arabic
 
-    .. data:: AS = 6
+    .. data:: as_ = 6
 
     	Assamese
 
-    .. data:: AY = 7
+    .. data:: ay = 7
 
     	Aymara
 
-    .. data:: AZ = 8
+    .. data:: az = 8
 
     	Azerbaijani
 
-    .. data:: BA = 9
+    .. data:: ba = 9
 
     	Bashkir
 
-    .. data:: BE = 10
+    .. data:: be = 10
 
     	Byelorussian
 
-    .. data:: BG = 11
+    .. data:: bg = 11
 
     	Bulgarian
 
-    .. data:: BH = 12
+    .. data:: bh = 12
 
     	Bihari
 
-    .. data:: BI = 13
+    .. data:: bi = 13
 
     	Bislama
 
-    .. data:: BN = 14
+    .. data:: bn = 14
 
     	Bengali
 
-    .. data:: BO = 15
+    .. data:: bo = 15
 
     	Tibetan
 
-    .. data:: BR = 16
+    .. data:: br = 16
 
     	Breton
 
-    .. data:: CA = 17
+    .. data:: ca = 17
 
     	Catalan
 
-    .. data:: CO = 18
+    .. data:: co = 18
 
     	Corsican
 
-    .. data:: CS = 19
+    .. data:: cs = 19
 
     	Czech
 
-    .. data:: CY = 20
+    .. data:: cy = 20
 
     	Welsh
 
-    .. data:: DA = 21
+    .. data:: da = 21
 
     	Danish
 
-    .. data:: DE = 22
+    .. data:: de = 22
 
     	German
 
-    .. data:: DZ = 23
+    .. data:: dz = 23
 
     	Bhutani
 
-    .. data:: EL = 24
+    .. data:: el = 24
 
     	Greek
 
-    .. data:: EN = 25
+    .. data:: en = 25
 
     	English
 
-    .. data:: EO = 26
+    .. data:: eo = 26
 
     	Esperanto
 
-    .. data:: ES = 27
+    .. data:: es = 27
 
     	Spanish
 
-    .. data:: ET = 28
+    .. data:: et = 28
 
     	Estonian
 
-    .. data:: EU = 29
+    .. data:: eu = 29
 
     	Basque
 
-    .. data:: FA = 30
+    .. data:: fa = 30
 
     	Persian
 
-    .. data:: FI = 31
+    .. data:: fi = 31
 
     	Finnish
 
-    .. data:: FJ = 32
+    .. data:: fj = 32
 
     	Fiji
 
-    .. data:: FO = 33
+    .. data:: fo = 33
 
     	Faroese
 
-    .. data:: FR = 34
+    .. data:: fr = 34
 
     	French
 
-    .. data:: FY = 35
+    .. data:: fy = 35
 
     	Frisian
 
-    .. data:: GA = 36
+    .. data:: ga = 36
 
     	Irish
 
-    .. data:: GD = 37
+    .. data:: gd = 37
 
     	Scots Gaelic
 
-    .. data:: GL = 38
+    .. data:: gl = 38
 
     	Galician
 
-    .. data:: GN = 39
+    .. data:: gn = 39
 
     	Guarani
 
-    .. data:: GU = 40
+    .. data:: gu = 40
 
     	Gujarati
 
-    .. data:: HA = 41
+    .. data:: ha = 41
 
     	Hausa
 
-    .. data:: HE = 42
+    .. data:: he = 42
 
     	Hebrew
 
-    .. data:: HI = 43
+    .. data:: hi = 43
 
     	Hindi
 
-    .. data:: HR = 44
+    .. data:: hr = 44
 
     	Croatian
 
-    .. data:: HU = 45
+    .. data:: hu = 45
 
     	Hungarian
 
-    .. data:: HY = 46
+    .. data:: hy = 46
 
     	Armenian
 
-    .. data:: IA = 47
+    .. data:: ia = 47
 
     	Interlingua
 
-    .. data:: ID = 48
+    .. data:: id = 48
 
     	Indonesian
 
-    .. data:: IE = 49
+    .. data:: ie = 49
 
     	Interlingue
 
-    .. data:: IK = 50
+    .. data:: ik = 50
 
     	Inupiak
 
-    .. data:: IS = 51
+    .. data:: is_ = 51
 
     	Icelandic
 
-    .. data:: IT = 52
+    .. data:: it = 52
 
     	Italian
 
-    .. data:: IU = 53
+    .. data:: iu = 53
 
     	Inuktitut
 
-    .. data:: JA = 54
+    .. data:: ja = 54
 
     	Japanese
 
-    .. data:: JW = 55
+    .. data:: jw = 55
 
     	Javanese
 
-    .. data:: KA = 56
+    .. data:: ka = 56
 
     	Georgian
 
-    .. data:: KK = 57
+    .. data:: kk = 57
 
     	Kazakh
 
-    .. data:: KL = 58
+    .. data:: kl = 58
 
     	Greenlandic
 
-    .. data:: KM = 59
+    .. data:: km = 59
 
     	Cambodian
 
-    .. data:: KN = 60
+    .. data:: kn = 60
 
     	Kannada
 
-    .. data:: KO = 61
+    .. data:: ko = 61
 
     	Korean
 
-    .. data:: KS = 62
+    .. data:: ks = 62
 
     	Kashmiri
 
-    .. data:: KU = 63
+    .. data:: ku = 63
 
     	Kurdish
 
-    .. data:: KY = 64
+    .. data:: ky = 64
 
     	Kirghiz
 
-    .. data:: LA = 65
+    .. data:: la = 65
 
     	Latin
 
-    .. data:: LN = 66
+    .. data:: ln = 66
 
     	Lingala
 
-    .. data:: LO = 67
+    .. data:: lo = 67
 
     	Laothian
 
-    .. data:: LT = 68
+    .. data:: lt = 68
 
     	Lithuanian
 
-    .. data:: LV = 69
+    .. data:: lv = 69
 
     	Latvian, Lettish
 
-    .. data:: MG = 70
+    .. data:: mg = 70
 
     	Malagasy
 
-    .. data:: MI = 71
+    .. data:: mi = 71
 
     	Maori
 
-    .. data:: MK = 72
+    .. data:: mk = 72
 
     	Macedonian
 
-    .. data:: ML = 73
+    .. data:: ml = 73
 
     	Malayalam
 
-    .. data:: MN = 74
+    .. data:: mn = 74
 
     	Mongolian
 
-    .. data:: MO = 75
+    .. data:: mo = 75
 
     	Moldavian
 
-    .. data:: MR = 76
+    .. data:: mr = 76
 
     	Marathi
 
-    .. data:: MS = 77
+    .. data:: ms = 77
 
     	Malay
 
-    .. data:: MT = 78
+    .. data:: mt = 78
 
     	Maltese
 
-    .. data:: MY = 79
+    .. data:: my = 79
 
     	Burmese
 
-    .. data:: NA = 80
+    .. data:: na = 80
 
     	Nauru
 
-    .. data:: NE = 81
+    .. data:: ne = 81
 
     	Nepali
 
-    .. data:: NL = 82
+    .. data:: nl = 82
 
     	Dutch
 
-    .. data:: NO = 83
+    .. data:: no = 83
 
     	Norwegian
 
-    .. data:: OC = 84
+    .. data:: oc = 84
 
     	Occitan
 
-    .. data:: OM = 85
+    .. data:: om = 85
 
     	(Afan) Oromo
 
-    .. data:: OR = 86
+    .. data:: or_ = 86
 
     	Oriya
 
-    .. data:: PA = 87
+    .. data:: pa = 87
 
     	Punjabi
 
-    .. data:: PL = 88
+    .. data:: pl = 88
 
     	Polish
 
-    .. data:: PS = 89
+    .. data:: ps = 89
 
     	Pashto, Pushto
 
-    .. data:: PT = 90
+    .. data:: pt = 90
 
     	Portuguese
 
-    .. data:: QU = 91
+    .. data:: qu = 91
 
     	Quechua
 
-    .. data:: RM = 92
+    .. data:: rm = 92
 
     	Rhaeto Romance
 
-    .. data:: RN = 93
+    .. data:: rn = 93
 
     	Kirundi
 
-    .. data:: RO = 94
+    .. data:: ro = 94
 
     	Romanian
 
-    .. data:: RU = 95
+    .. data:: ru = 95
 
     	Russian
 
-    .. data:: RW = 96
+    .. data:: rw = 96
 
     	Kinyarwanda
 
-    .. data:: SA = 97
+    .. data:: sa = 97
 
     	Sanskrit
 
-    .. data:: SD = 98
+    .. data:: sd = 98
 
     	Sindhi
 
-    .. data:: SG = 99
+    .. data:: sg = 99
 
     	Sangho
 
-    .. data:: SH = 100
+    .. data:: sh = 100
 
     	Serbo Croatian
 
-    .. data:: SI = 101
+    .. data:: si = 101
 
     	Sinhalese
 
-    .. data:: SK = 102
+    .. data:: sk = 102
 
     	Slovak
 
-    .. data:: SL = 103
+    .. data:: sl = 103
 
     	Slovenian
 
-    .. data:: SM = 104
+    .. data:: sm = 104
 
     	Samoan
 
-    .. data:: SN = 105
+    .. data:: sn = 105
 
     	Shona
 
-    .. data:: SO = 106
+    .. data:: so = 106
 
     	Somali
 
-    .. data:: SQ = 107
+    .. data:: sq = 107
 
     	Albanian
 
-    .. data:: SR = 108
+    .. data:: sr = 108
 
     	Serbian
 
-    .. data:: SS = 109
+    .. data:: ss = 109
 
     	Siswati
 
-    .. data:: ST = 110
+    .. data:: st = 110
 
     	Sesotho
 
-    .. data:: SU = 111
+    .. data:: su = 111
 
     	Sundanese
 
-    .. data:: SV = 112
+    .. data:: sv = 112
 
     	Swedish
 
-    .. data:: SW = 113
+    .. data:: sw = 113
 
     	Swahili
 
-    .. data:: TA = 114
+    .. data:: ta = 114
 
     	Tamil
 
-    .. data:: TE = 115
+    .. data:: te = 115
 
     	Telugu
 
-    .. data:: TG = 116
+    .. data:: tg = 116
 
     	Tajik
 
-    .. data:: TH = 117
+    .. data:: th = 117
 
     	Thai
 
-    .. data:: TI = 118
+    .. data:: ti = 118
 
     	Tigrinya
 
-    .. data:: TK = 119
+    .. data:: tk = 119
 
     	Turkmen
 
-    .. data:: TL = 120
+    .. data:: tl = 120
 
     	Tagalog
 
-    .. data:: TN = 121
+    .. data:: tn = 121
 
     	Setswana
 
-    .. data:: TO = 122
+    .. data:: to = 122
 
     	Tonga
 
-    .. data:: TR = 123
+    .. data:: tr = 123
 
     	Turkish
 
-    .. data:: TS = 124
+    .. data:: ts = 124
 
     	Tsonga
 
-    .. data:: TT = 125
+    .. data:: tt = 125
 
     	Tatar
 
-    .. data:: TW = 126
+    .. data:: tw = 126
 
     	Twi
 
-    .. data:: UG = 127
+    .. data:: ug = 127
 
     	Uighur
 
-    .. data:: UK = 128
+    .. data:: uk = 128
 
     	Ukrainian
 
-    .. data:: UR = 129
+    .. data:: ur = 129
 
     	Urdu
 
-    .. data:: UZ = 130
+    .. data:: uz = 130
 
     	Uzbek
 
-    .. data:: VI = 131
+    .. data:: vi = 131
 
     	Vietnamese
 
-    .. data:: VO = 132
+    .. data:: vo = 132
 
     	Volapuk
 
-    .. data:: WO = 133
+    .. data:: wo = 133
 
     	Wolof
 
-    .. data:: XH = 134
+    .. data:: xh = 134
 
     	Xhosa
 
-    .. data:: YI = 135
+    .. data:: yi = 135
 
     	Yiddish
 
-    .. data:: YO = 136
+    .. data:: yo = 136
 
     	Yoruba
 
-    .. data:: ZA = 137
+    .. data:: za = 137
 
     	Zhuang
 
-    .. data:: ZH = 138
+    .. data:: zh = 138
 
     	Chinese
 
-    .. data:: ZU = 139
+    .. data:: zu = 139
 
     	Zulu
 
     """
 
-    AA = 1
+    aa = 1
 
-    AB = 2
+    ab = 2
 
-    AF = 3
+    af = 3
 
-    AM = 4
+    am = 4
 
-    AR = 5
+    ar = 5
 
-    AS = 6
+    as_ = 6
 
-    AY = 7
+    ay = 7
 
-    AZ = 8
+    az = 8
 
-    BA = 9
+    ba = 9
 
-    BE = 10
+    be = 10
 
-    BG = 11
+    bg = 11
 
-    BH = 12
+    bh = 12
 
-    BI = 13
+    bi = 13
 
-    BN = 14
+    bn = 14
 
-    BO = 15
+    bo = 15
 
-    BR = 16
+    br = 16
 
-    CA = 17
+    ca = 17
 
-    CO = 18
+    co = 18
 
-    CS = 19
+    cs = 19
 
-    CY = 20
+    cy = 20
 
-    DA = 21
+    da = 21
 
-    DE = 22
+    de = 22
 
-    DZ = 23
+    dz = 23
 
-    EL = 24
+    el = 24
 
-    EN = 25
+    en = 25
 
-    EO = 26
+    eo = 26
 
-    ES = 27
+    es = 27
 
-    ET = 28
+    et = 28
 
-    EU = 29
+    eu = 29
 
-    FA = 30
+    fa = 30
 
-    FI = 31
+    fi = 31
 
-    FJ = 32
+    fj = 32
 
-    FO = 33
+    fo = 33
 
-    FR = 34
+    fr = 34
 
-    FY = 35
+    fy = 35
 
-    GA = 36
+    ga = 36
 
-    GD = 37
+    gd = 37
 
-    GL = 38
+    gl = 38
 
-    GN = 39
+    gn = 39
 
-    GU = 40
+    gu = 40
 
-    HA = 41
+    ha = 41
 
-    HE = 42
+    he = 42
 
-    HI = 43
+    hi = 43
 
-    HR = 44
+    hr = 44
 
-    HU = 45
+    hu = 45
 
-    HY = 46
+    hy = 46
 
-    IA = 47
+    ia = 47
 
-    ID = 48
+    id = 48
 
-    IE = 49
+    ie = 49
 
-    IK = 50
+    ik = 50
 
-    IS = 51
+    is_ = 51
 
-    IT = 52
+    it = 52
 
-    IU = 53
+    iu = 53
 
-    JA = 54
+    ja = 54
 
-    JW = 55
+    jw = 55
 
-    KA = 56
+    ka = 56
 
-    KK = 57
+    kk = 57
 
-    KL = 58
+    kl = 58
 
-    KM = 59
+    km = 59
 
-    KN = 60
+    kn = 60
 
-    KO = 61
+    ko = 61
 
-    KS = 62
+    ks = 62
 
-    KU = 63
+    ku = 63
 
-    KY = 64
+    ky = 64
 
-    LA = 65
+    la = 65
 
-    LN = 66
+    ln = 66
 
-    LO = 67
+    lo = 67
 
-    LT = 68
+    lt = 68
 
-    LV = 69
+    lv = 69
 
-    MG = 70
+    mg = 70
 
-    MI = 71
+    mi = 71
 
-    MK = 72
+    mk = 72
 
-    ML = 73
+    ml = 73
 
-    MN = 74
+    mn = 74
 
-    MO = 75
+    mo = 75
 
-    MR = 76
+    mr = 76
 
-    MS = 77
+    ms = 77
 
-    MT = 78
+    mt = 78
 
-    MY = 79
+    my = 79
 
-    NA = 80
+    na = 80
 
-    NE = 81
+    ne = 81
 
-    NL = 82
+    nl = 82
 
-    NO = 83
+    no = 83
 
-    OC = 84
+    oc = 84
 
-    OM = 85
+    om = 85
 
-    OR = 86
+    or_ = 86
 
-    PA = 87
+    pa = 87
 
-    PL = 88
+    pl = 88
 
-    PS = 89
+    ps = 89
 
-    PT = 90
+    pt = 90
 
-    QU = 91
+    qu = 91
 
-    RM = 92
+    rm = 92
 
-    RN = 93
+    rn = 93
 
-    RO = 94
+    ro = 94
 
-    RU = 95
+    ru = 95
 
-    RW = 96
+    rw = 96
 
-    SA = 97
+    sa = 97
 
-    SD = 98
+    sd = 98
 
-    SG = 99
+    sg = 99
 
-    SH = 100
+    sh = 100
 
-    SI = 101
+    si = 101
 
-    SK = 102
+    sk = 102
 
-    SL = 103
+    sl = 103
 
-    SM = 104
+    sm = 104
 
-    SN = 105
+    sn = 105
 
-    SO = 106
+    so = 106
 
-    SQ = 107
+    sq = 107
 
-    SR = 108
+    sr = 108
 
-    SS = 109
+    ss = 109
 
-    ST = 110
+    st = 110
 
-    SU = 111
+    su = 111
 
-    SV = 112
+    sv = 112
 
-    SW = 113
+    sw = 113
 
-    TA = 114
+    ta = 114
 
-    TE = 115
+    te = 115
 
-    TG = 116
+    tg = 116
 
-    TH = 117
+    th = 117
 
-    TI = 118
+    ti = 118
 
-    TK = 119
+    tk = 119
 
-    TL = 120
+    tl = 120
 
-    TN = 121
+    tn = 121
 
-    TO = 122
+    to = 122
 
-    TR = 123
+    tr = 123
 
-    TS = 124
+    ts = 124
 
-    TT = 125
+    tt = 125
 
-    TW = 126
+    tw = 126
 
-    UG = 127
+    ug = 127
 
-    UK = 128
+    uk = 128
 
-    UR = 129
+    ur = 129
 
-    UZ = 130
+    uz = 130
 
-    VI = 131
+    vi = 131
 
-    VO = 132
+    vo = 132
 
-    WO = 133
+    wo = 133
 
-    XH = 134
+    xh = 134
 
-    YI = 135
+    yi = 135
 
-    YO = 136
+    yo = 136
 
-    ZA = 137
+    za = 137
 
-    ZH = 138
+    zh = 138
 
-    ZU = 139
+    zu = 139
 
 
     @staticmethod
@@ -2324,12 +2324,12 @@ class Locale(object):
     .. attribute:: country
     
     	Name of country locale
-    	**type**\:  :py:class:`LocaleCountryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleCountryEnum>`
+    	**type**\:   :py:class:`LocaleCountryEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleCountryEnum>`
     
     .. attribute:: language
     
     	Name of language locale
-    	**type**\:  :py:class:`LocaleLanguageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleLanguageEnum>`
+    	**type**\:   :py:class:`LocaleLanguageEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg.LocaleLanguageEnum>`
     
     
 

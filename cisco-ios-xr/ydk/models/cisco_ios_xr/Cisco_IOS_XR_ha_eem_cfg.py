@@ -30,19 +30,19 @@ class EventManagerChecksumEnum(Enum):
 
     Event manager checksum
 
-    .. data:: SHA_1 = 1
+    .. data:: sha_1 = 1
 
     	Use SHA-1 checksum
 
-    .. data:: MD5 = 2
+    .. data:: md5 = 2
 
     	Use MD5 checksum
 
     """
 
-    SHA_1 = 1
+    sha_1 = 1
 
-    MD5 = 2
+    md5 = 2
 
 
     @staticmethod
@@ -57,19 +57,19 @@ class EventManagerPolicyEnum(Enum):
 
     Event manager policy
 
-    .. data:: SYSTEM = 0
+    .. data:: system = 0
 
     	Event manager system policy
 
-    .. data:: USER = 1
+    .. data:: user = 1
 
     	Event manager user policy
 
     """
 
-    SYSTEM = 0
+    system = 0
 
-    USER = 1
+    user = 1
 
 
     @staticmethod
@@ -84,19 +84,19 @@ class EventManagerPolicyModeEnum(Enum):
 
     Event manager policy mode
 
-    .. data:: CISCO = 1
+    .. data:: cisco = 1
 
     	Cisco Signature
 
-    .. data:: TRUST = 2
+    .. data:: trust = 2
 
     	Trust Signature
 
     """
 
-    CISCO = 1
+    cisco = 1
 
-    TRUST = 2
+    trust = 2
 
 
     @staticmethod
@@ -111,19 +111,19 @@ class EventManagerPolicySecEnum(Enum):
 
     Event manager policy sec
 
-    .. data:: RSA_2048 = 2
+    .. data:: rsa_2048 = 2
 
     	Cisco Signature
 
-    .. data:: TRUST = 3
+    .. data:: trust = 3
 
     	Trust Signature
 
     """
 
-    RSA_2048 = 2
+    rsa_2048 = 2
 
-    TRUST = 3
+    trust = 3
 
 
     @staticmethod
@@ -150,12 +150,12 @@ class EventManager(object):
     .. attribute:: environments
     
     	Set an event manager global variable for event manager policies
-    	**type**\:  :py:class:`Environments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments>`
+    	**type**\:   :py:class:`Environments <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments>`
     
     .. attribute:: policies
     
     	Register an event manager policy
-    	**type**\:  :py:class:`Policies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Policies>`
+    	**type**\:   :py:class:`Policies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Policies>`
     
     .. attribute:: refresh_time
     
@@ -163,6 +163,10 @@ class EventManager(object):
     	**type**\:  int
     
     	**range:** 10..4294967295
+    
+    	**units**\: second
+    
+    	**default value**\: 1800
     
     .. attribute:: schedule_suspend
     
@@ -172,7 +176,7 @@ class EventManager(object):
     .. attribute:: scheduler_script
     
     	scheduler classs type
-    	**type**\:  :py:class:`SchedulerScript <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript>`
+    	**type**\:   :py:class:`SchedulerScript <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript>`
     
     
 
@@ -201,7 +205,7 @@ class EventManager(object):
         .. attribute:: policy
         
         	Name of the policy file
-        	**type**\: list of  :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Policies.Policy>`
+        	**type**\: list of    :py:class:`Policy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Policies.Policy>`
         
         
 
@@ -236,7 +240,7 @@ class EventManager(object):
             .. attribute:: checksum_type
             
             	Specify Embedded Event Manager policy checksum
-            	**type**\:  :py:class:`EventManagerChecksumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerChecksumEnum>`
+            	**type**\:   :py:class:`EventManagerChecksumEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerChecksumEnum>`
             
             .. attribute:: persist_time
             
@@ -247,20 +251,22 @@ class EventManager(object):
             
             	**mandatory**\: True
             
+            	**units**\: second
+            
             .. attribute:: policy_security_level
             
             	Event Manager policy security Level
-            	**type**\:  :py:class:`EventManagerPolicySecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicySecEnum>`
+            	**type**\:   :py:class:`EventManagerPolicySecEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicySecEnum>`
             
             .. attribute:: policy_security_mode
             
             	Specify Embedded Event Manager policy security mode
-            	**type**\:  :py:class:`EventManagerPolicyModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyModeEnum>`
+            	**type**\:   :py:class:`EventManagerPolicyModeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyModeEnum>`
             
             .. attribute:: policy_type
             
             	Event manager type of this policy
-            	**type**\:  :py:class:`EventManagerPolicyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyEnum>`
+            	**type**\:   :py:class:`EventManagerPolicyEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManagerPolicyEnum>`
             
             .. attribute:: username
             
@@ -364,7 +370,7 @@ class EventManager(object):
         .. attribute:: thread_classes
         
         	scheduler thread classs 
-        	**type**\:  :py:class:`ThreadClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript.ThreadClasses>`
+        	**type**\:   :py:class:`ThreadClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript.ThreadClasses>`
         
         
 
@@ -386,7 +392,7 @@ class EventManager(object):
             .. attribute:: thread_class
             
             	scheduler classs type argument
-            	**type**\: list of  :py:class:`ThreadClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript.ThreadClasses.ThreadClass>`
+            	**type**\: list of    :py:class:`ThreadClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.SchedulerScript.ThreadClasses.ThreadClass>`
             
             
 
@@ -516,7 +522,7 @@ class EventManager(object):
         .. attribute:: environment
         
         	Name of the global variable
-        	**type**\: list of  :py:class:`Environment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments.Environment>`
+        	**type**\: list of    :py:class:`Environment <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg.EventManager.Environments.Environment>`
         
         
 

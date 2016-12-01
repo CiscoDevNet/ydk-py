@@ -30,43 +30,43 @@ class HwModuleSliceStatusEnum(Enum):
 
     Hw module slice status
 
-    .. data:: NOT_PROVISIONED = 0
+    .. data:: not_provisioned = 0
 
     	Not Provisioned
 
-    .. data:: PROVISIONING_IN_PROGRESS = 1
+    .. data:: provisioning_in_progress = 1
 
     	Provisioning In-Progress
 
-    .. data:: PROVISIONED = 2
+    .. data:: provisioned = 2
 
     	Provisioned
 
-    .. data:: PROVISIONING_FAILED = 3
+    .. data:: provisioning_failed = 3
 
     	Provisioning Failed
 
-    .. data:: PROVISIONING_SCHEDULED = 4
+    .. data:: provisioning_scheduled = 4
 
     	Provisioning Scheduled
 
-    .. data:: REPROVISIONING_ABORTED = 5
+    .. data:: reprovisioning_aborted = 5
 
     	Reprovisioning Aborted
 
     """
 
-    NOT_PROVISIONED = 0
+    not_provisioned = 0
 
-    PROVISIONING_IN_PROGRESS = 1
+    provisioning_in_progress = 1
 
-    PROVISIONED = 2
+    provisioned = 2
 
-    PROVISIONING_FAILED = 3
+    provisioning_failed = 3
 
-    PROVISIONING_SCHEDULED = 4
+    provisioning_scheduled = 4
 
-    REPROVISIONING_ABORTED = 5
+    reprovisioning_aborted = 5
 
 
     @staticmethod
@@ -83,12 +83,12 @@ class HwModule(object):
     .. attribute:: slice_all
     
     	Information for all slices
-    	**type**\:  :py:class:`SliceAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll>`
+    	**type**\:   :py:class:`SliceAll <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll>`
     
     .. attribute:: slice_ids
     
     	Slice information
-    	**type**\:  :py:class:`SliceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds>`
+    	**type**\:   :py:class:`SliceIds <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds>`
     
     
 
@@ -111,7 +111,7 @@ class HwModule(object):
         .. attribute:: slice_id
         
         	Per slice num data
-        	**type**\: list of  :py:class:`SliceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId>`
+        	**type**\: list of    :py:class:`SliceId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId>`
         
         
 
@@ -141,7 +141,7 @@ class HwModule(object):
             .. attribute:: slice_info
             
             	slice info
-            	**type**\: list of  :py:class:`SliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo>`
+            	**type**\: list of    :py:class:`SliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo>`
             
             
 
@@ -165,7 +165,7 @@ class HwModule(object):
                 .. attribute:: client_port
                 
                 	client port
-                	**type**\: list of  :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort>`
+                	**type**\: list of    :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort>`
                 
                 .. attribute:: client_rate
                 
@@ -196,7 +196,12 @@ class HwModule(object):
                 .. attribute:: hardware_status
                 
                 	HardwareStatus
-                	**type**\:  :py:class:`HwModuleSliceStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+                	**type**\:   :py:class:`HwModuleSliceStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+                
+                .. attribute:: lldp_drop_status
+                
+                	LldpDropStatus
+                	**type**\:  bool
                 
                 .. attribute:: need_upg
                 
@@ -236,6 +241,7 @@ class HwModule(object):
                     self.dp_fpga_fw_ver = None
                     self.encryption_supported = None
                     self.hardware_status = None
+                    self.lldp_drop_status = None
                     self.need_upg = None
                     self.slice_id = None
                     self.trunk_rate = None
@@ -262,7 +268,7 @@ class HwModule(object):
                     .. attribute:: trunk_port
                     
                     	trunk port
-                    	**type**\: list of  :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort>`
+                    	**type**\: list of    :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort>`
                     
                     
 
@@ -414,6 +420,9 @@ class HwModule(object):
                     if self.hardware_status is not None:
                         return True
 
+                    if self.lldp_drop_status is not None:
+                        return True
+
                     if self.need_upg is not None:
                         return True
 
@@ -491,7 +500,7 @@ class HwModule(object):
         .. attribute:: slice_info
         
         	slice info
-        	**type**\: list of  :py:class:`SliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo>`
+        	**type**\: list of    :py:class:`SliceInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo>`
         
         
 
@@ -514,7 +523,7 @@ class HwModule(object):
             .. attribute:: client_port
             
             	client port
-            	**type**\: list of  :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort>`
+            	**type**\: list of    :py:class:`ClientPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort>`
             
             .. attribute:: client_rate
             
@@ -545,7 +554,12 @@ class HwModule(object):
             .. attribute:: hardware_status
             
             	HardwareStatus
-            	**type**\:  :py:class:`HwModuleSliceStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+            	**type**\:   :py:class:`HwModuleSliceStatusEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModuleSliceStatusEnum>`
+            
+            .. attribute:: lldp_drop_status
+            
+            	LldpDropStatus
+            	**type**\:  bool
             
             .. attribute:: need_upg
             
@@ -585,6 +599,7 @@ class HwModule(object):
                 self.dp_fpga_fw_ver = None
                 self.encryption_supported = None
                 self.hardware_status = None
+                self.lldp_drop_status = None
                 self.need_upg = None
                 self.slice_id = None
                 self.trunk_rate = None
@@ -611,7 +626,7 @@ class HwModule(object):
                 .. attribute:: trunk_port
                 
                 	trunk port
-                	**type**\: list of  :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort>`
+                	**type**\: list of    :py:class:`TrunkPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper.HwModule.SliceAll.SliceInfo.ClientPort.TrunkPort>`
                 
                 
 
@@ -755,6 +770,9 @@ class HwModule(object):
                     return True
 
                 if self.hardware_status is not None:
+                    return True
+
+                if self.lldp_drop_status is not None:
                     return True
 
                 if self.need_upg is not None:

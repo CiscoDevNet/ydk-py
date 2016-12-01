@@ -32,7 +32,9 @@ class Clock(object):
     .. attribute:: time_zone
     
     	Configure time zone
-    	**type**\:  :py:class:`TimeZone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_linux_cfg.Clock.TimeZone>`
+    	**type**\:   :py:class:`TimeZone <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_linux_cfg.Clock.TimeZone>`
+    
+    	**presence node**\: True
     
     
 

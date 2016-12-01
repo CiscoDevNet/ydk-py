@@ -16,19 +16,19 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'PmThresholdOpEnum' : _MetaInfoEnum('PmThresholdOpEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg',
         {
-            'eq':'EQ',
-            'ne':'NE',
-            'lt':'LT',
-            'le':'LE',
-            'gt':'GT',
-            'ge':'GE',
-            'rg':'RG',
+            'eq':'eq',
+            'ne':'ne',
+            'lt':'lt',
+            'le':'le',
+            'gt':'gt',
+            'ge':'ge',
+            'rg':'rg',
         }, 'Cisco-IOS-XR-manageability-perfmgmt-cfg', _yang_ns._namespaces['Cisco-IOS-XR-manageability-perfmgmt-cfg']),
     'PmThresholdRearmEnum' : _MetaInfoEnum('PmThresholdRearmEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg',
         {
-            'always':'ALWAYS',
-            'window':'WINDOW',
-            'toggle':'TOGGLE',
+            'always':'always',
+            'window':'window',
+            'toggle':'toggle',
         }, 'Cisco-IOS-XR-manageability-perfmgmt-cfg', _yang_ns._namespaces['Cisco-IOS-XR-manageability-perfmgmt-cfg']),
     'PerfMgmt.Resources.TftpResources' : {
         'meta_info' : _MetaInfoClass('PerfMgmt.Resources.TftpResources',
@@ -2704,7 +2704,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2755,7 +2755,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2806,7 +2806,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2857,7 +2857,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2908,7 +2908,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -2959,7 +2959,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3010,7 +3010,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3061,7 +3061,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3112,7 +3112,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3163,7 +3163,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3214,7 +3214,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3265,7 +3265,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3316,7 +3316,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3367,7 +3367,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3418,7 +3418,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3469,7 +3469,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3520,7 +3520,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3571,7 +3571,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3622,7 +3622,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3673,7 +3673,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3922,7 +3922,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -3973,7 +3973,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4024,7 +4024,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4075,7 +4075,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4126,7 +4126,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4177,7 +4177,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4228,7 +4228,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4279,7 +4279,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4330,7 +4330,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4381,7 +4381,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4432,7 +4432,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4483,7 +4483,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4534,7 +4534,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4585,7 +4585,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4636,7 +4636,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4687,7 +4687,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4738,7 +4738,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -4789,7 +4789,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5005,7 +5005,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5056,7 +5056,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5107,7 +5107,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5158,7 +5158,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5209,7 +5209,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5260,7 +5260,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5311,7 +5311,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5362,7 +5362,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5413,7 +5413,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5464,7 +5464,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5648,7 +5648,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5699,7 +5699,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5750,7 +5750,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5801,7 +5801,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5852,7 +5852,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5903,7 +5903,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -5954,7 +5954,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6005,7 +6005,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6162,7 +6162,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6213,7 +6213,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6264,7 +6264,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6315,7 +6315,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6366,7 +6366,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6417,7 +6417,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6468,7 +6468,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6519,7 +6519,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6570,7 +6570,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6621,7 +6621,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6672,7 +6672,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6723,7 +6723,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6774,7 +6774,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6825,7 +6825,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6876,7 +6876,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6927,7 +6927,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -6978,7 +6978,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7029,7 +7029,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7080,7 +7080,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7131,7 +7131,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7182,7 +7182,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7417,7 +7417,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7468,7 +7468,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7589,7 +7589,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7640,7 +7640,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7691,7 +7691,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7742,7 +7742,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7793,7 +7793,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7844,7 +7844,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7895,7 +7895,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7946,7 +7946,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -7997,7 +7997,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8173,7 +8173,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8224,7 +8224,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8275,7 +8275,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8401,7 +8401,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8452,7 +8452,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8573,7 +8573,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8624,7 +8624,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8675,7 +8675,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8726,7 +8726,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8777,7 +8777,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8828,7 +8828,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8879,7 +8879,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8930,7 +8930,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -8981,7 +8981,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9032,7 +9032,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9083,7 +9083,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9134,7 +9134,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9185,7 +9185,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9236,7 +9236,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9287,7 +9287,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9338,7 +9338,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9389,7 +9389,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9440,7 +9440,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9491,7 +9491,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 
@@ -9542,7 +9542,7 @@ _meta_table = {
                 [], [], 
                 '''                Operator
                 ''',
-                'operator_',
+                'operator',
                 'Cisco-IOS-XR-manageability-perfmgmt-cfg', False),
             _MetaInfoClassMember('percent', ATTRIBUTE, 'bool' , None, None, 
                 [], [], 

@@ -34,19 +34,19 @@ class NtpAccessAfEnum(Enum):
 
     Ntp access af
 
-    .. data:: IPV4 = 0
+    .. data:: ipv4 = 0
 
     	IPv4
 
-    .. data:: IPV6 = 1
+    .. data:: ipv6 = 1
 
     	IPv6
 
     """
 
-    IPV4 = 0
+    ipv4 = 0
 
-    IPV6 = 1
+    ipv6 = 1
 
 
     @staticmethod
@@ -61,31 +61,31 @@ class NtpAccessEnum(Enum):
 
     Ntp access
 
-    .. data:: PEER = 0
+    .. data:: peer = 0
 
     	Peer
 
-    .. data:: SERVE = 1
+    .. data:: serve = 1
 
     	Serve
 
-    .. data:: SERVE_ONLY = 2
+    .. data:: serve_only = 2
 
     	Serve Only
 
-    .. data:: QUERY_ONLY = 3
+    .. data:: query_only = 3
 
     	Query Only
 
     """
 
-    PEER = 0
+    peer = 0
 
-    SERVE = 1
+    serve = 1
 
-    SERVE_ONLY = 2
+    serve_only = 2
 
-    QUERY_ONLY = 3
+    query_only = 3
 
 
     @staticmethod
@@ -100,19 +100,19 @@ class NtpPeerEnum(Enum):
 
     Ntp peer
 
-    .. data:: PEER = 0
+    .. data:: peer = 0
 
     	Peer
 
-    .. data:: SERVER = 1
+    .. data:: server = 1
 
     	Server
 
     """
 
-    PEER = 0
+    peer = 0
 
-    SERVER = 1
+    server = 1
 
 
     @staticmethod
@@ -127,19 +127,19 @@ class NtpdscpEnum(Enum):
 
     Ntpdscp
 
-    .. data:: NTP_PRECEDENCE = 0
+    .. data:: ntp_precedence = 0
 
     	Precedence Value
 
-    .. data:: NTPDSCP = 1
+    .. data:: ntpdscp = 1
 
     	DSCP Value
 
     """
 
-    NTP_PRECEDENCE = 0
+    ntp_precedence = 0
 
-    NTPDSCP = 1
+    ntpdscp = 1
 
 
     @staticmethod
@@ -156,12 +156,12 @@ class Ntp(object):
     .. attribute:: access_group_tables
     
     	Control NTP access
-    	**type**\:  :py:class:`AccessGroupTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables>`
+    	**type**\:   :py:class:`AccessGroupTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables>`
     
     .. attribute:: authentication
     
     	Configure NTP Authentication keys
-    	**type**\:  :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication>`
+    	**type**\:   :py:class:`Authentication <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication>`
     
     .. attribute:: broadcast_delay
     
@@ -173,22 +173,26 @@ class Ntp(object):
     .. attribute:: dscp_ipv4
     
     	 Set IP DSCP value for outgoing NTP IPV4 packets
-    	**type**\:  :py:class:`DscpIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.DscpIpv4>`
+    	**type**\:   :py:class:`DscpIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.DscpIpv4>`
+    
+    	**presence node**\: True
     
     .. attribute:: dscp_ipv6
     
     	 Set IP DSCP value for outgoing NTP IPV6 packets
-    	**type**\:  :py:class:`DscpIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.DscpIpv6>`
+    	**type**\:   :py:class:`DscpIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.DscpIpv6>`
+    
+    	**presence node**\: True
     
     .. attribute:: interface_tables
     
     	NTP per interface configuration
-    	**type**\:  :py:class:`InterfaceTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables>`
+    	**type**\:   :py:class:`InterfaceTables <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables>`
     
     .. attribute:: log_internal_sync
     
     	To enable logging internal sync conflicts
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: master
     
@@ -196,6 +200,8 @@ class Ntp(object):
     	**type**\:  int
     
     	**range:** 1..15
+    
+    	**default value**\: 8
     
     .. attribute:: max_associations
     
@@ -207,22 +213,22 @@ class Ntp(object):
     .. attribute:: passive
     
     	Configure NTP passive associations
-    	**type**\:  :py:class:`Passive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Passive>`
+    	**type**\:   :py:class:`Passive <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Passive>`
     
     .. attribute:: peer_vrfs
     
     	Configures NTP Peers or Servers
-    	**type**\:  :py:class:`PeerVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs>`
+    	**type**\:   :py:class:`PeerVrfs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs>`
     
     .. attribute:: sources
     
     	Configure  NTP source interface
-    	**type**\:  :py:class:`Sources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources>`
+    	**type**\:   :py:class:`Sources <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources>`
     
     .. attribute:: update_calendar
     
     	To enable calendar update with NTP time
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: _is_presence
     
@@ -268,7 +274,7 @@ class Ntp(object):
         .. attribute:: peer_vrf
         
         	Configures NTP Peers or Servers for a single VRF. The 'default' must also be specified for default VRF
-        	**type**\: list of  :py:class:`PeerVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf>`
+        	**type**\: list of    :py:class:`PeerVrf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf>`
         
         
 
@@ -300,12 +306,12 @@ class Ntp(object):
             .. attribute:: peer_ipv4s
             
             	Configures IPv4 NTP Peers or Servers
-            	**type**\:  :py:class:`PeerIpv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S>`
+            	**type**\:   :py:class:`PeerIpv4S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S>`
             
             .. attribute:: peer_ipv6s
             
             	Configuration NTP Peers or Servers of IPV6
-            	**type**\:  :py:class:`PeerIpv6S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S>`
+            	**type**\:   :py:class:`PeerIpv6S <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S>`
             
             
 
@@ -330,7 +336,7 @@ class Ntp(object):
                 .. attribute:: peer_ipv4
                 
                 	Configure an IPv4 NTP server or peer
-                	**type**\: list of  :py:class:`PeerIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4>`
+                	**type**\: list of    :py:class:`PeerIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4>`
                 
                 
 
@@ -360,7 +366,7 @@ class Ntp(object):
                     .. attribute:: peer_type_ipv4
                     
                     	Configure an IPv4 NTP server or peer
-                    	**type**\: list of  :py:class:`PeerTypeIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4>`
+                    	**type**\: list of    :py:class:`PeerTypeIpv4 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv4S.PeerIpv4.PeerTypeIpv4>`
                     
                     
 
@@ -384,7 +390,7 @@ class Ntp(object):
                         .. attribute:: peer_type  <key>
                         
                         	Peer or Server
-                        	**type**\:  :py:class:`NtpPeerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpPeerEnum>`
+                        	**type**\:   :py:class:`NtpPeerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpPeerEnum>`
                         
                         .. attribute:: authentication_key
                         
@@ -396,12 +402,12 @@ class Ntp(object):
                         .. attribute:: burst
                         
                         	Use burst mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: iburst
                         
                         	Use iburst mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: max_poll
                         
@@ -427,7 +433,7 @@ class Ntp(object):
                         .. attribute:: preferred_peer
                         
                         	Preferred peer
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: source_interface
                         
@@ -570,7 +576,7 @@ class Ntp(object):
                 .. attribute:: peer_ipv6
                 
                 	Configure a NTP server or peer
-                	**type**\: list of  :py:class:`PeerIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6>`
+                	**type**\: list of    :py:class:`PeerIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6>`
                 
                 
 
@@ -600,7 +606,7 @@ class Ntp(object):
                     .. attribute:: peer_type_ipv6
                     
                     	Configure a NTP server or peer
-                    	**type**\: list of  :py:class:`PeerTypeIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6>`
+                    	**type**\: list of    :py:class:`PeerTypeIpv6 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.PeerVrfs.PeerVrf.PeerIpv6S.PeerIpv6.PeerTypeIpv6>`
                     
                     
 
@@ -624,7 +630,7 @@ class Ntp(object):
                         .. attribute:: peer_type  <key>
                         
                         	Peer or Server
-                        	**type**\:  :py:class:`NtpPeerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpPeerEnum>`
+                        	**type**\:   :py:class:`NtpPeerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpPeerEnum>`
                         
                         .. attribute:: address_ipv6
                         
@@ -645,12 +651,12 @@ class Ntp(object):
                         .. attribute:: burst
                         
                         	Use burst mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: iburst
                         
                         	Use iburst mode
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: max_poll
                         
@@ -676,7 +682,7 @@ class Ntp(object):
                         .. attribute:: preferred_peer
                         
                         	Preferred peer
-                        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                         
                         .. attribute:: source_interface
                         
@@ -886,7 +892,7 @@ class Ntp(object):
         .. attribute:: mode
         
         	NTPPRECEDENCE (0) to specify Precedence value  NTPDSCP (1) to specify DSCP value
-        	**type**\:  :py:class:`NtpdscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpdscpEnum>`
+        	**type**\:   :py:class:`NtpdscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpdscpEnum>`
         
         	**mandatory**\: True
         
@@ -954,7 +960,7 @@ class Ntp(object):
         .. attribute:: mode
         
         	NTPPRECEDENCE(0) to specify Precedence value NTPDSCP(1) to specify DSCP value
-        	**type**\:  :py:class:`NtpdscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpdscpEnum>`
+        	**type**\:   :py:class:`NtpdscpEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpdscpEnum>`
         
         	**mandatory**\: True
         
@@ -1013,7 +1019,7 @@ class Ntp(object):
         .. attribute:: source
         
         	Configure  NTP source interface
-        	**type**\: list of  :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources.Source>`
+        	**type**\: list of    :py:class:`Source <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Sources.Source>`
         
         
 
@@ -1120,17 +1126,17 @@ class Ntp(object):
         .. attribute:: enable
         
         	Enable NTP authentication keys
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         .. attribute:: keies
         
         	Authentication Key Table
-        	**type**\:  :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies>`
+        	**type**\:   :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies>`
         
         .. attribute:: trusted_keies
         
         	Key numbers for trusted time sources
-        	**type**\:  :py:class:`TrustedKeies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies>`
+        	**type**\:   :py:class:`TrustedKeies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies>`
         
         
 
@@ -1155,7 +1161,7 @@ class Ntp(object):
             .. attribute:: key
             
             	Authentication key for trusted time sources
-            	**type**\: list of  :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies.Key>`
+            	**type**\: list of    :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies.Key>`
             
             
 
@@ -1260,7 +1266,7 @@ class Ntp(object):
             .. attribute:: trusted_key
             
             	Configure NTP trusted key
-            	**type**\: list of  :py:class:`TrustedKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies.TrustedKey>`
+            	**type**\: list of    :py:class:`TrustedKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies.TrustedKey>`
             
             
 
@@ -1382,7 +1388,7 @@ class Ntp(object):
         .. attribute:: enable
         
         	Enable NTP Passive associations
-        	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+        	**type**\:  :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -1425,7 +1431,7 @@ class Ntp(object):
         .. attribute:: interface_table
         
         	NTP per interface configuration
-        	**type**\: list of  :py:class:`InterfaceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable>`
+        	**type**\: list of    :py:class:`InterfaceTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable>`
         
         
 
@@ -1455,7 +1461,7 @@ class Ntp(object):
             .. attribute:: interface
             
             	Name of the interface
-            	**type**\: list of  :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface>`
+            	**type**\: list of    :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface>`
             
             
 
@@ -1486,17 +1492,17 @@ class Ntp(object):
                 .. attribute:: disable
                 
                 	Disable NTP
-                	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: interface_broadcast
                 
                 	Configure NTP broadcast service
-                	**type**\:  :py:class:`InterfaceBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast>`
+                	**type**\:   :py:class:`InterfaceBroadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast>`
                 
                 .. attribute:: interface_multicast
                 
                 	Configure NTP multicast service
-                	**type**\:  :py:class:`InterfaceMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast>`
+                	**type**\:   :py:class:`InterfaceMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast>`
                 
                 
 
@@ -1522,12 +1528,12 @@ class Ntp(object):
                     .. attribute:: multicast_clients
                     
                     	Configures multicast client peers
-                    	**type**\:  :py:class:`MulticastClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients>`
+                    	**type**\:   :py:class:`MulticastClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients>`
                     
                     .. attribute:: multicast_servers
                     
                     	Configures multicast server peers
-                    	**type**\:  :py:class:`MulticastServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers>`
+                    	**type**\:   :py:class:`MulticastServers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers>`
                     
                     
 
@@ -1551,7 +1557,7 @@ class Ntp(object):
                         .. attribute:: multicast_client
                         
                         	Listen to NTP multicasts
-                        	**type**\: list of  :py:class:`MulticastClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient>`
+                        	**type**\: list of    :py:class:`MulticastClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient>`
                         
                         
 
@@ -1659,7 +1665,7 @@ class Ntp(object):
                         .. attribute:: multicast_server
                         
                         	Configure NTP multicast group server peer
-                        	**type**\: list of  :py:class:`MulticastServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer>`
+                        	**type**\: list of    :py:class:`MulticastServer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer>`
                         
                         
 
@@ -1827,12 +1833,12 @@ class Ntp(object):
                     .. attribute:: broadcast
                     
                     	Configure NTP broadcast
-                    	**type**\:  :py:class:`Broadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.Broadcast>`
+                    	**type**\:   :py:class:`Broadcast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.Broadcast>`
                     
                     .. attribute:: broadcast_client
                     
                     	Listen to NTP broadcasts
-                    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+                    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
                     
                     
 
@@ -2039,7 +2045,7 @@ class Ntp(object):
         .. attribute:: access_group_table
         
         	Control NTP access
-        	**type**\: list of  :py:class:`AccessGroupTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable>`
+        	**type**\: list of    :py:class:`AccessGroupTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable>`
         
         
 
@@ -2069,7 +2075,7 @@ class Ntp(object):
             .. attribute:: access_group_af_table
             
             	Configure NTP access address family
-            	**type**\: list of  :py:class:`AccessGroupAfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable>`
+            	**type**\: list of    :py:class:`AccessGroupAfTable <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable>`
             
             
 
@@ -2093,12 +2099,12 @@ class Ntp(object):
                 .. attribute:: af  <key>
                 
                 	Address family
-                	**type**\:  :py:class:`NtpAccessAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpAccessAfEnum>`
+                	**type**\:   :py:class:`NtpAccessAfEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpAccessAfEnum>`
                 
                 .. attribute:: access_group
                 
                 	Configure NTP access group
-                	**type**\: list of  :py:class:`AccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup>`
+                	**type**\: list of    :py:class:`AccessGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup>`
                 
                 
 
@@ -2122,7 +2128,7 @@ class Ntp(object):
                     .. attribute:: access_group_type  <key>
                     
                     	Access group type
-                    	**type**\:  :py:class:`NtpAccessEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpAccessEnum>`
+                    	**type**\:   :py:class:`NtpAccessEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.NtpAccessEnum>`
                     
                     .. attribute:: access_list_name
                     

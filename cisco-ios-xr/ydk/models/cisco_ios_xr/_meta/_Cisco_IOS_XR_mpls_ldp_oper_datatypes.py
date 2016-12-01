@@ -16,7 +16,7 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'MplsLdpOperAfNameEnum' : _MetaInfoEnum('MplsLdpOperAfNameEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_ldp_oper_datatypes',
         {
-            'ipv4':'IPV4',
-            'ipv6':'IPV6',
+            'ipv4':'ipv4',
+            'ipv6':'ipv6',
         }, 'Cisco-IOS-XR-mpls-ldp-oper-datatypes', _yang_ns._namespaces['Cisco-IOS-XR-mpls-ldp-oper-datatypes']),
 }

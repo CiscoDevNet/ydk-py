@@ -169,7 +169,7 @@ YDK uses common Python logging.  All modules are based on the "ydk" log::
 
 Release Notes
 --------------
-The current YDK release version is 0.5.0 (beta). YDK-Py is licensed under the Apache 2.0 License.
+The current YDK release version is 0.5.2 (beta). YDK-Py is licensed under the Apache 2.0 License.
 
 Documentation and Support
 --------------------------

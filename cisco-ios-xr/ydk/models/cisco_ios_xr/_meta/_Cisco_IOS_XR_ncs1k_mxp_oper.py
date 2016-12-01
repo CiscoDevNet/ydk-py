@@ -16,12 +16,12 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'HwModuleSliceStatusEnum' : _MetaInfoEnum('HwModuleSliceStatusEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper',
         {
-            'not-provisioned':'NOT_PROVISIONED',
-            'provisioning-in-progress':'PROVISIONING_IN_PROGRESS',
-            'provisioned':'PROVISIONED',
-            'provisioning-failed':'PROVISIONING_FAILED',
-            'provisioning-scheduled':'PROVISIONING_SCHEDULED',
-            'reprovisioning-aborted':'REPROVISIONING_ABORTED',
+            'not-provisioned':'not_provisioned',
+            'provisioning-in-progress':'provisioning_in_progress',
+            'provisioned':'provisioned',
+            'provisioning-failed':'provisioning_failed',
+            'provisioning-scheduled':'provisioning_scheduled',
+            'reprovisioning-aborted':'reprovisioning_aborted',
         }, 'Cisco-IOS-XR-ncs1k-mxp-oper', _yang_ns._namespaces['Cisco-IOS-XR-ncs1k-mxp-oper']),
     'HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort' : {
         'meta_info' : _MetaInfoClass('HwModule.SliceIds.SliceId.SliceInfo.ClientPort.TrunkPort',
@@ -120,6 +120,12 @@ _meta_table = {
                 '''                HardwareStatus
                 ''',
                 'hardware_status',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('lldp-drop-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                LldpDropStatus
+                ''',
+                'lldp_drop_status',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('need-upg', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 
@@ -284,6 +290,12 @@ _meta_table = {
                 '''                HardwareStatus
                 ''',
                 'hardware_status',
+                'Cisco-IOS-XR-ncs1k-mxp-oper', False),
+            _MetaInfoClassMember('lldp-drop-status', ATTRIBUTE, 'bool' , None, None, 
+                [], [], 
+                '''                LldpDropStatus
+                ''',
+                'lldp_drop_status',
                 'Cisco-IOS-XR-ncs1k-mxp-oper', False),
             _MetaInfoClassMember('need-upg', ATTRIBUTE, 'int' , None, None, 
                 [('0', '4294967295')], [], 

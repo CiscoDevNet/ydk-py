@@ -30,457 +30,457 @@ class EtherReportEnum(Enum):
 
     Ether report
 
-    .. data:: REPORT_RX_PKT = 524288
+    .. data:: report_rx_pkt = 524288
 
     	PM Ether rx pkt report
 
-    .. data:: REPORT_RX_UTIL = 524289
+    .. data:: report_rx_util = 524289
 
     	PM Ether rx util report
 
-    .. data:: REPORT_TX_UTIL = 524290
+    .. data:: report_tx_util = 524290
 
     	PM Ether tx util report
 
-    .. data:: REPORT_STAT_PKT = 524291
+    .. data:: report_stat_pkt = 524291
 
     	PM ether stat pkt threshold
 
-    .. data:: REPORT_OCTET_STAT = 524292
+    .. data:: report_octet_stat = 524292
 
     	PM Ether octet stat report
 
-    .. data:: REPORT_OVER_SIZE_PKT = 524293
+    .. data:: report_over_size_pkt = 524293
 
     	PM Ether oversize pkt report
 
-    .. data:: REPORT_FCS_ERR = 524294
+    .. data:: report_fcs_err = 524294
 
     	PM Ether fcs error report
 
-    .. data:: REPORT_LONG_FRAME_S = 524295
+    .. data:: report_long_frame_s = 524295
 
     	PM Ether long frames report
 
-    .. data:: REPORT_JABBER_STATS = 524296
+    .. data:: report_jabber_stats = 524296
 
     	PM Ether jabber stats report
 
-    .. data:: REPORT_64_OCTET = 524297
+    .. data:: report_64_octet = 524297
 
     	PM Ether 64 octet report
 
-    .. data:: REPORT_65_127_OCTET = 524298
+    .. data:: report_65_127_octet = 524298
 
     	PM Ether 65 to 127 octet report
 
-    .. data:: REPORT_128_255_OCTET = 524299
+    .. data:: report_128_255_octet = 524299
 
     	PM Ether 128 to 255 octet report
 
-    .. data:: REPORT_256_511_OCTET = 524300
+    .. data:: report_256_511_octet = 524300
 
     	PM Ether 256 to 511 octet report
 
-    .. data:: REPORT_512_1023_OCTET = 524301
+    .. data:: report_512_1023_octet = 524301
 
     	PM Ether 512 to 1023 octet report
 
-    .. data:: REPORT_1024_1518_OCTET = 524302
+    .. data:: report_1024_1518_octet = 524302
 
     	PM Ether 1024 to 1518 report
 
-    .. data:: REPORT_IN_UCAST = 524303
+    .. data:: report_in_ucast = 524303
 
     	PM Ether rx ucast report
 
-    .. data:: REPORT_IN_MCAST = 524304
+    .. data:: report_in_mcast = 524304
 
     	PM Ether rx mcast report
 
-    .. data:: REPORT_IN_BCAST = 524305
+    .. data:: report_in_bcast = 524305
 
     	PM Ether rx bcast report
 
-    .. data:: REPORT_OUT_UCAST = 524306
+    .. data:: report_out_ucast = 524306
 
     	PM Ether tx ucast report
 
-    .. data:: REPORT_OUT_MCAST = 524307
+    .. data:: report_out_mcast = 524307
 
     	PM Ether tx mcast report
 
-    .. data:: REPORT_OUT_BCAST = 524308
+    .. data:: report_out_bcast = 524308
 
     	PM Ether tx bcast report
 
-    .. data:: REPORT_TX_PKT = 524309
+    .. data:: report_tx_pkt = 524309
 
     	PM Ether tx pkt threshold
 
-    .. data:: REPORT_IFIN_ERROR_S = 524310
+    .. data:: report_ifin_error_s = 524310
 
     	PM ether ifIn errors threshold
 
-    .. data:: REPORT_IFIN_OCTETS = 524311
+    .. data:: report_ifin_octets = 524311
 
     	PM ether ifInOctets threshold
 
-    .. data:: REPORT_ETHER_STAT_MULTICAST_PKT = 524312
+    .. data:: report_ether_stat_multicast_pkt = 524312
 
     	PM ether stat multicast pkt threshold
 
-    .. data:: REPORT_ETHER_STAT_BROADCAST_PKT = 524313
+    .. data:: report_ether_stat_broadcast_pkt = 524313
 
     	PM ether stat broadcast pkt threshold
 
-    .. data:: REPORT_ETHER_STAT_UNDER_SIZE_D_PKT = 524314
+    .. data:: report_ether_stat_under_size_d_pkt = 524314
 
     	PM ether stat undersized pkt threshold
 
-    .. data:: REPORT_OUT_OCTET = 524315
+    .. data:: report_out_octet = 524315
 
     	PM ether out octets threshold
 
-    .. data:: REPORT_IN_PAUSE_FRAME = 524316
+    .. data:: report_in_pause_frame = 524316
 
     	PM ether in pause frame report
 
-    .. data:: REPORT_IN_GO_OD_BYTES = 524317
+    .. data:: report_in_go_od_bytes = 524317
 
     	PM in good bytes report
 
-    .. data:: REPORT_IN_802_1Q_FRAME_S = 524318
+    .. data:: report_in_802_1q_frame_s = 524318
 
     	PM in 802_1 Q report
 
-    .. data:: REPORT_IN_PKTS_1519_MAX_OCTETS = 524319
+    .. data:: report_in_pkts_1519_max_octets = 524319
 
     	PM in pkts 1519 max octets report
 
-    .. data:: REPORT_IN_GO_OD_PKTS = 524320
+    .. data:: report_in_go_od_pkts = 524320
 
     	PM in good pkts report
 
-    .. data:: REPORT_IN_DROP_OVERRUN = 524321
+    .. data:: report_in_drop_overrun = 524321
 
     	PM in drop overrun report
 
-    .. data:: REPORT_IN_DROP_ABORT = 524322
+    .. data:: report_in_drop_abort = 524322
 
     	PM in drop abort report
 
-    .. data:: REPORT_IN_DROP_INVALID_VLAN = 524323
+    .. data:: report_in_drop_invalid_vlan = 524323
 
     	PM in drop invalid vlan report
 
-    .. data:: REPORT_IN_DROP_INVALID_DMAC = 524324
+    .. data:: report_in_drop_invalid_dmac = 524324
 
     	PM in drop invalid DMAC report
 
-    .. data:: REPORT_IN_DROP_INVALID_ENCAP = 524325
+    .. data:: report_in_drop_invalid_encap = 524325
 
     	PM in drop invalid encap report
 
-    .. data:: REPORT_IN_DROP_OTHER = 524326
+    .. data:: report_in_drop_other = 524326
 
     	PM in drop other report
 
-    .. data:: REPORT_IN_MIB_GIANT = 524327
+    .. data:: report_in_mib_giant = 524327
 
     	PM in MIB giant report
 
-    .. data:: REPORT_IN_MIB_JABBER = 524328
+    .. data:: report_in_mib_jabber = 524328
 
     	PM in MIB jabber report
 
-    .. data:: REPORT_IN_MIB_CRC = 524329
+    .. data:: report_in_mib_crc = 524329
 
     	PM in MIB CRC report
 
-    .. data:: REPORT_IN_ERROR_COLLISION_S = 524330
+    .. data:: report_in_error_collision_s = 524330
 
     	PM in error collisions report
 
-    .. data:: REPORT_IN_ERROR_SYMBOL = 524331
+    .. data:: report_in_error_symbol = 524331
 
     	PM in error symbol report
 
-    .. data:: REPORT_OUT_GO_OD_BYTES = 524332
+    .. data:: report_out_go_od_bytes = 524332
 
     	PM out good bytes report
 
-    .. data:: REPORT_OUT_802_1Q_FRAME_S = 524333
+    .. data:: report_out_802_1q_frame_s = 524333
 
     	PM out 802_1 Q report
 
-    .. data:: REPORT_OUT_PAUSE_FRAME_S = 524334
+    .. data:: report_out_pause_frame_s = 524334
 
     	PM out pause frame report
 
-    .. data:: REPORT_OUT_PKTS_1519_MAX_OCTETS = 524335
+    .. data:: report_out_pkts_1519_max_octets = 524335
 
     	PM out pkts 1519 max octets report
 
-    .. data:: REPORT_OUT_GO_OD_PKTS = 524336
+    .. data:: report_out_go_od_pkts = 524336
 
     	PM out good pkts report
 
-    .. data:: REPORT_OUT_DROP_UNDER_RUN = 524337
+    .. data:: report_out_drop_under_run = 524337
 
     	PM out drop underrun report
 
-    .. data:: REPORT_OUT_DROP_ABORT = 524338
+    .. data:: report_out_drop_abort = 524338
 
     	PM out drop abort report
 
-    .. data:: REPORT_OUT_DROP_OTHER = 524339
+    .. data:: report_out_drop_other = 524339
 
     	PM out drop other report
 
-    .. data:: REPORT_OUT_ERROR_OTHER = 524340
+    .. data:: report_out_error_other = 524340
 
     	PM out error other report
 
-    .. data:: REPORT_IN_ERROR_GIANT = 524341
+    .. data:: report_in_error_giant = 524341
 
     	PM in error giant report
 
-    .. data:: REPORT_IN_ERROR_RUNT = 524342
+    .. data:: report_in_error_runt = 524342
 
     	PM in error runt report
 
-    .. data:: REPORT_IN_ERROR_JABBERS = 524343
+    .. data:: report_in_error_jabbers = 524343
 
     	PM in error jabber report
 
-    .. data:: REPORT_IN_ERROR_FRAGMENTS = 524344
+    .. data:: report_in_error_fragments = 524344
 
     	PM in error fragments report
 
-    .. data:: REPORT_IN_ERROR_OTHER = 524345
+    .. data:: report_in_error_other = 524345
 
     	PM in error other report
 
-    .. data:: REPORT_IN_PKT_64_OCTET = 524346
+    .. data:: report_in_pkt_64_octet = 524346
 
     	PM in pkt 64 octet report
 
-    .. data:: REPORT_IN_PKTS_65_127OCTETS = 524347
+    .. data:: report_in_pkts_65_127octets = 524347
 
     	PM in pkts 65_127 octets report
 
-    .. data:: REPORT_IN_PKTS_128_255_OCTETS = 524348
+    .. data:: report_in_pkts_128_255_octets = 524348
 
     	PM in pkts 128_255 octets report
 
-    .. data:: REPORT_IN_PKTS_256_511_OCTETS = 524349
+    .. data:: report_in_pkts_256_511_octets = 524349
 
     	PM in pkts 256_511 octets report
 
-    .. data:: REPORT_IN_PKTS_512_1023_OCTETS = 524350
+    .. data:: report_in_pkts_512_1023_octets = 524350
 
     	PM in pkts 512_1023 octets report
 
-    .. data:: REPORT_IN_PKTS_1024_1518_OCTETS = 524351
+    .. data:: report_in_pkts_1024_1518_octets = 524351
 
     	PM in pkts 1024_1058 octets report
 
-    .. data:: REPORT_OUT_PKT_64_OCTET = 524352
+    .. data:: report_out_pkt_64_octet = 524352
 
     	PM out pkt 64 octet report
 
-    .. data:: REPORT_OUT_PKTS_65_127OCTETS = 524353
+    .. data:: report_out_pkts_65_127octets = 524353
 
     	PM out pkts 65_127 octets report
 
-    .. data:: REPORT_OUT_PKTS_128_255_OCTETS = 524354
+    .. data:: report_out_pkts_128_255_octets = 524354
 
     	PM out pkts 128_255 octets report
 
-    .. data:: REPORT_OUT_PKTS_256_511_OCTETS = 524355
+    .. data:: report_out_pkts_256_511_octets = 524355
 
     	PM out pkts 256_511 octets report
 
-    .. data:: REPORT_OUT_PKTS_512_1023_OCTETS = 524356
+    .. data:: report_out_pkts_512_1023_octets = 524356
 
     	PM out pkts 512_1023 octets report
 
-    .. data:: REPORT_OUT_PKTS_1024_1518_OCTETS = 524357
+    .. data:: report_out_pkts_1024_1518_octets = 524357
 
     	PM out pkts 1024_1058 octets report
 
-    .. data:: REPORT_TX_UNDER_SIZE_D_PKT = 524358
+    .. data:: report_tx_under_size_d_pkt = 524358
 
     	PM tx undersized pkt report
 
-    .. data:: REPORT_TX_OVER_SIZE_D_PKT = 524359
+    .. data:: report_tx_over_size_d_pkt = 524359
 
     	PM tx oversized pkt report
 
-    .. data:: REPORT_TX_FRAGMENTS = 524360
+    .. data:: report_tx_fragments = 524360
 
     	PM tx fragments report
 
-    .. data:: REPORT_TX_JABBER = 524361
+    .. data:: report_tx_jabber = 524361
 
     	PM tx jabber report
 
-    .. data:: REPORT_TX_BAD_FCS = 524362
+    .. data:: report_tx_bad_fcs = 524362
 
     	PM tx bad fcs report
 
     """
 
-    REPORT_RX_PKT = 524288
+    report_rx_pkt = 524288
 
-    REPORT_RX_UTIL = 524289
+    report_rx_util = 524289
 
-    REPORT_TX_UTIL = 524290
+    report_tx_util = 524290
 
-    REPORT_STAT_PKT = 524291
+    report_stat_pkt = 524291
 
-    REPORT_OCTET_STAT = 524292
+    report_octet_stat = 524292
 
-    REPORT_OVER_SIZE_PKT = 524293
+    report_over_size_pkt = 524293
 
-    REPORT_FCS_ERR = 524294
+    report_fcs_err = 524294
 
-    REPORT_LONG_FRAME_S = 524295
+    report_long_frame_s = 524295
 
-    REPORT_JABBER_STATS = 524296
+    report_jabber_stats = 524296
 
-    REPORT_64_OCTET = 524297
+    report_64_octet = 524297
 
-    REPORT_65_127_OCTET = 524298
+    report_65_127_octet = 524298
 
-    REPORT_128_255_OCTET = 524299
+    report_128_255_octet = 524299
 
-    REPORT_256_511_OCTET = 524300
+    report_256_511_octet = 524300
 
-    REPORT_512_1023_OCTET = 524301
+    report_512_1023_octet = 524301
 
-    REPORT_1024_1518_OCTET = 524302
+    report_1024_1518_octet = 524302
 
-    REPORT_IN_UCAST = 524303
+    report_in_ucast = 524303
 
-    REPORT_IN_MCAST = 524304
+    report_in_mcast = 524304
 
-    REPORT_IN_BCAST = 524305
+    report_in_bcast = 524305
 
-    REPORT_OUT_UCAST = 524306
+    report_out_ucast = 524306
 
-    REPORT_OUT_MCAST = 524307
+    report_out_mcast = 524307
 
-    REPORT_OUT_BCAST = 524308
+    report_out_bcast = 524308
 
-    REPORT_TX_PKT = 524309
+    report_tx_pkt = 524309
 
-    REPORT_IFIN_ERROR_S = 524310
+    report_ifin_error_s = 524310
 
-    REPORT_IFIN_OCTETS = 524311
+    report_ifin_octets = 524311
 
-    REPORT_ETHER_STAT_MULTICAST_PKT = 524312
+    report_ether_stat_multicast_pkt = 524312
 
-    REPORT_ETHER_STAT_BROADCAST_PKT = 524313
+    report_ether_stat_broadcast_pkt = 524313
 
-    REPORT_ETHER_STAT_UNDER_SIZE_D_PKT = 524314
+    report_ether_stat_under_size_d_pkt = 524314
 
-    REPORT_OUT_OCTET = 524315
+    report_out_octet = 524315
 
-    REPORT_IN_PAUSE_FRAME = 524316
+    report_in_pause_frame = 524316
 
-    REPORT_IN_GO_OD_BYTES = 524317
+    report_in_go_od_bytes = 524317
 
-    REPORT_IN_802_1Q_FRAME_S = 524318
+    report_in_802_1q_frame_s = 524318
 
-    REPORT_IN_PKTS_1519_MAX_OCTETS = 524319
+    report_in_pkts_1519_max_octets = 524319
 
-    REPORT_IN_GO_OD_PKTS = 524320
+    report_in_go_od_pkts = 524320
 
-    REPORT_IN_DROP_OVERRUN = 524321
+    report_in_drop_overrun = 524321
 
-    REPORT_IN_DROP_ABORT = 524322
+    report_in_drop_abort = 524322
 
-    REPORT_IN_DROP_INVALID_VLAN = 524323
+    report_in_drop_invalid_vlan = 524323
 
-    REPORT_IN_DROP_INVALID_DMAC = 524324
+    report_in_drop_invalid_dmac = 524324
 
-    REPORT_IN_DROP_INVALID_ENCAP = 524325
+    report_in_drop_invalid_encap = 524325
 
-    REPORT_IN_DROP_OTHER = 524326
+    report_in_drop_other = 524326
 
-    REPORT_IN_MIB_GIANT = 524327
+    report_in_mib_giant = 524327
 
-    REPORT_IN_MIB_JABBER = 524328
+    report_in_mib_jabber = 524328
 
-    REPORT_IN_MIB_CRC = 524329
+    report_in_mib_crc = 524329
 
-    REPORT_IN_ERROR_COLLISION_S = 524330
+    report_in_error_collision_s = 524330
 
-    REPORT_IN_ERROR_SYMBOL = 524331
+    report_in_error_symbol = 524331
 
-    REPORT_OUT_GO_OD_BYTES = 524332
+    report_out_go_od_bytes = 524332
 
-    REPORT_OUT_802_1Q_FRAME_S = 524333
+    report_out_802_1q_frame_s = 524333
 
-    REPORT_OUT_PAUSE_FRAME_S = 524334
+    report_out_pause_frame_s = 524334
 
-    REPORT_OUT_PKTS_1519_MAX_OCTETS = 524335
+    report_out_pkts_1519_max_octets = 524335
 
-    REPORT_OUT_GO_OD_PKTS = 524336
+    report_out_go_od_pkts = 524336
 
-    REPORT_OUT_DROP_UNDER_RUN = 524337
+    report_out_drop_under_run = 524337
 
-    REPORT_OUT_DROP_ABORT = 524338
+    report_out_drop_abort = 524338
 
-    REPORT_OUT_DROP_OTHER = 524339
+    report_out_drop_other = 524339
 
-    REPORT_OUT_ERROR_OTHER = 524340
+    report_out_error_other = 524340
 
-    REPORT_IN_ERROR_GIANT = 524341
+    report_in_error_giant = 524341
 
-    REPORT_IN_ERROR_RUNT = 524342
+    report_in_error_runt = 524342
 
-    REPORT_IN_ERROR_JABBERS = 524343
+    report_in_error_jabbers = 524343
 
-    REPORT_IN_ERROR_FRAGMENTS = 524344
+    report_in_error_fragments = 524344
 
-    REPORT_IN_ERROR_OTHER = 524345
+    report_in_error_other = 524345
 
-    REPORT_IN_PKT_64_OCTET = 524346
+    report_in_pkt_64_octet = 524346
 
-    REPORT_IN_PKTS_65_127OCTETS = 524347
+    report_in_pkts_65_127octets = 524347
 
-    REPORT_IN_PKTS_128_255_OCTETS = 524348
+    report_in_pkts_128_255_octets = 524348
 
-    REPORT_IN_PKTS_256_511_OCTETS = 524349
+    report_in_pkts_256_511_octets = 524349
 
-    REPORT_IN_PKTS_512_1023_OCTETS = 524350
+    report_in_pkts_512_1023_octets = 524350
 
-    REPORT_IN_PKTS_1024_1518_OCTETS = 524351
+    report_in_pkts_1024_1518_octets = 524351
 
-    REPORT_OUT_PKT_64_OCTET = 524352
+    report_out_pkt_64_octet = 524352
 
-    REPORT_OUT_PKTS_65_127OCTETS = 524353
+    report_out_pkts_65_127octets = 524353
 
-    REPORT_OUT_PKTS_128_255_OCTETS = 524354
+    report_out_pkts_128_255_octets = 524354
 
-    REPORT_OUT_PKTS_256_511_OCTETS = 524355
+    report_out_pkts_256_511_octets = 524355
 
-    REPORT_OUT_PKTS_512_1023_OCTETS = 524356
+    report_out_pkts_512_1023_octets = 524356
 
-    REPORT_OUT_PKTS_1024_1518_OCTETS = 524357
+    report_out_pkts_1024_1518_octets = 524357
 
-    REPORT_TX_UNDER_SIZE_D_PKT = 524358
+    report_tx_under_size_d_pkt = 524358
 
-    REPORT_TX_OVER_SIZE_D_PKT = 524359
+    report_tx_over_size_d_pkt = 524359
 
-    REPORT_TX_FRAGMENTS = 524360
+    report_tx_fragments = 524360
 
-    REPORT_TX_JABBER = 524361
+    report_tx_jabber = 524361
 
-    REPORT_TX_BAD_FCS = 524362
+    report_tx_bad_fcs = 524362
 
 
     @staticmethod
@@ -495,457 +495,457 @@ class EtherThresholdEnum(Enum):
 
     Ether threshold
 
-    .. data:: THRESH_RX_PKT = 8388608
+    .. data:: thresh_rx_pkt = 8388608
 
     	PM Ether rx pkt threshold
 
-    .. data:: THRESH_RX_UTIL = 8388609
+    .. data:: thresh_rx_util = 8388609
 
     	PM Ether rx util threshold
 
-    .. data:: THRESH_TX_UTIL = 8388610
+    .. data:: thresh_tx_util = 8388610
 
     	PM Ether tx util threshold
 
-    .. data:: THRESH_STAT_PKT = 8388611
+    .. data:: thresh_stat_pkt = 8388611
 
     	PM ether stat pkt threshold
 
-    .. data:: THRESH_OCTET_STAT = 8388612
+    .. data:: thresh_octet_stat = 8388612
 
     	PM Ether octet stat threshold
 
-    .. data:: THRESH_OVER_SIZE_PKT = 8388613
+    .. data:: thresh_over_size_pkt = 8388613
 
     	PM Ether oversize pkt threshold
 
-    .. data:: THRESH_FCS_ERR = 8388614
+    .. data:: thresh_fcs_err = 8388614
 
     	PMEther fcs error threshold
 
-    .. data:: THRESH_LONG_FRAME_S = 8388615
+    .. data:: thresh_long_frame_s = 8388615
 
     	PM Ether long frames threshold
 
-    .. data:: THRESH_JABBER_STATS = 8388616
+    .. data:: thresh_jabber_stats = 8388616
 
     	PM Ether jabber stats threshold
 
-    .. data:: THRESH_64_OCTET = 8388617
+    .. data:: thresh_64_octet = 8388617
 
     	PM Ether 64 octet threshold
 
-    .. data:: THRESH_65_127_OCTET = 8388618
+    .. data:: thresh_65_127_octet = 8388618
 
     	PM Ether 65 to 127 octet threshold
 
-    .. data:: THRESH_128_255_OCTET = 8388619
+    .. data:: thresh_128_255_octet = 8388619
 
     	PM Ether 128 to 255 octet threshold
 
-    .. data:: THRESH_256_511_OCTET = 8388620
+    .. data:: thresh_256_511_octet = 8388620
 
     	PM Ether 256 to 511 octet threshold
 
-    .. data:: THRESH_512_1023_OCTET = 8388621
+    .. data:: thresh_512_1023_octet = 8388621
 
     	PM Ether 512 to 1023 octet threshold
 
-    .. data:: THRESH_1024_1518_OCTET = 8388622
+    .. data:: thresh_1024_1518_octet = 8388622
 
     	PM Ether 1024 to 1518 threshold
 
-    .. data:: THRESH_IN_UCAST = 8388623
+    .. data:: thresh_in_ucast = 8388623
 
     	PM Ether rx ucast threshold
 
-    .. data:: THRESH_IN_MCAST = 8388624
+    .. data:: thresh_in_mcast = 8388624
 
     	PM Ether rx mcast threshold
 
-    .. data:: THRESH_IN_BCAST = 8388625
+    .. data:: thresh_in_bcast = 8388625
 
     	PM Ether rx bcast threshold
 
-    .. data:: THRESH_OUT_UCAST = 8388626
+    .. data:: thresh_out_ucast = 8388626
 
     	PM Ether tx ucast threshold
 
-    .. data:: THRESH_OUT_MCAST = 8388627
+    .. data:: thresh_out_mcast = 8388627
 
     	PM Ether tx mcast threshold
 
-    .. data:: THRESH_OUT_BCAST = 8388628
+    .. data:: thresh_out_bcast = 8388628
 
     	PM Ether tx bcast threshold
 
-    .. data:: THRESH_TX_PKT = 8388629
+    .. data:: thresh_tx_pkt = 8388629
 
     	PM Ether tx pkt threshold
 
-    .. data:: THRESH_IFIN_ERROR_S = 8388630
+    .. data:: thresh_ifin_error_s = 8388630
 
     	PM ether ifIn errors threshold
 
-    .. data:: THRESH_IFIN_OCTETS = 8388631
+    .. data:: thresh_ifin_octets = 8388631
 
     	PM ether ifInOctets threshold
 
-    .. data:: THRESH_ETHER_STAT_MULTICAST_PKT = 8388632
+    .. data:: thresh_ether_stat_multicast_pkt = 8388632
 
     	PM ether stat multicast pkt threshold
 
-    .. data:: THRESH_ETHER_STAT_BROADCAST_PKT = 8388633
+    .. data:: thresh_ether_stat_broadcast_pkt = 8388633
 
     	PM ether stat broadcast pkt threshold
 
-    .. data:: THRESH_ETHER_STAT_UNDER_SIZE_D_PKT = 8388634
+    .. data:: thresh_ether_stat_under_size_d_pkt = 8388634
 
     	PM ether stat undersized pkt threshold
 
-    .. data:: THRESH_OUT_OCTET = 8388635
+    .. data:: thresh_out_octet = 8388635
 
     	PM ether out octets threshold
 
-    .. data:: THRESH_IN_PAUSE_FRAME = 8388636
+    .. data:: thresh_in_pause_frame = 8388636
 
     	PM in pause frame threshold
 
-    .. data:: THRESH_IN_GO_OD_BYTES = 8388637
+    .. data:: thresh_in_go_od_bytes = 8388637
 
     	PM in good bytes threshold
 
-    .. data:: THRESH_IN_802_1Q_FRAME_S = 8388638
+    .. data:: thresh_in_802_1q_frame_s = 8388638
 
     	PM in 802_1 Q threshold
 
-    .. data:: THRESH_IN_PKTS_1519_MAX_OCTETS = 8388639
+    .. data:: thresh_in_pkts_1519_max_octets = 8388639
 
     	PM in pkts 1519 max octets threshold
 
-    .. data:: THRESH_IN_GO_OD_PKTS = 8388640
+    .. data:: thresh_in_go_od_pkts = 8388640
 
     	PM in good pkts threshold
 
-    .. data:: THRESH_IN_DROP_OVERRUN = 8388641
+    .. data:: thresh_in_drop_overrun = 8388641
 
     	PM in drop overrun threshold
 
-    .. data:: THRESH_IN_DROP_ABORT = 8388642
+    .. data:: thresh_in_drop_abort = 8388642
 
     	PM in drop abort threshold
 
-    .. data:: THRESH_IN_DROP_INVALID_VLAN = 8388643
+    .. data:: thresh_in_drop_invalid_vlan = 8388643
 
     	PM in drop invalid vlan threshold
 
-    .. data:: THRESH_IN_DROP_INVALID_DMAC = 8388644
+    .. data:: thresh_in_drop_invalid_dmac = 8388644
 
     	PM in drop invalid DMAC threshold
 
-    .. data:: THRESH_IN_DROP_INVALID_ENCAP = 8388645
+    .. data:: thresh_in_drop_invalid_encap = 8388645
 
     	PM in drop invalid encap threshold
 
-    .. data:: THRESH_IN_DROP_OTHER = 8388646
+    .. data:: thresh_in_drop_other = 8388646
 
     	PM in drop other threshold
 
-    .. data:: THRESH_IN_MIB_GIANT = 8388647
+    .. data:: thresh_in_mib_giant = 8388647
 
     	PM in MIB giant threshold
 
-    .. data:: THRESH_IN_MIB_JABBER = 8388648
+    .. data:: thresh_in_mib_jabber = 8388648
 
     	PM in MIB jabber threshold
 
-    .. data:: THRESH_IN_MIB_CRC = 8388649
+    .. data:: thresh_in_mib_crc = 8388649
 
     	PM in MIB CRC threshold
 
-    .. data:: THRESH_IN_ERROR_COLLISION_S = 8388650
+    .. data:: thresh_in_error_collision_s = 8388650
 
     	PM in error collisions threshold
 
-    .. data:: THRESH_IN_ERROR_SYMBOL = 8388651
+    .. data:: thresh_in_error_symbol = 8388651
 
     	PM in error symbol threshold
 
-    .. data:: THRESH_OUT_GO_OD_BYTES = 8388652
+    .. data:: thresh_out_go_od_bytes = 8388652
 
     	PM out good bytes threshold
 
-    .. data:: THRESH_OUT_802_1Q_FRAME_S = 8388653
+    .. data:: thresh_out_802_1q_frame_s = 8388653
 
     	PM out 802_1 Q threshold
 
-    .. data:: THRESH_OUT_PAUSE_FRAME_S = 8388654
+    .. data:: thresh_out_pause_frame_s = 8388654
 
     	PM out pause frame threshold
 
-    .. data:: THRESH_OUT_PKTS_1519_MAX_OCTETS = 8388655
+    .. data:: thresh_out_pkts_1519_max_octets = 8388655
 
     	PM out pkts 1519 max octets threshold
 
-    .. data:: THRESH_OUT_GO_OD_PKTS = 8388656
+    .. data:: thresh_out_go_od_pkts = 8388656
 
     	PM out good pkts threshold
 
-    .. data:: THRESH_OUT_DROP_UNDER_RUN = 8388657
+    .. data:: thresh_out_drop_under_run = 8388657
 
     	PM out drop underrun threshold
 
-    .. data:: THRESH_OUT_DROP_ABORT = 8388658
+    .. data:: thresh_out_drop_abort = 8388658
 
     	PM out drop abort threshold
 
-    .. data:: THRESH_OUT_DROP_OTHER = 8388659
+    .. data:: thresh_out_drop_other = 8388659
 
     	PM out drop other threshold
 
-    .. data:: THRESH_OUT_ERROR_OTHER = 8388660
+    .. data:: thresh_out_error_other = 8388660
 
     	PM out error other threshold
 
-    .. data:: THRESH_IN_ERROR_GIANT = 8388661
+    .. data:: thresh_in_error_giant = 8388661
 
     	PM in error giant threshold
 
-    .. data:: THRESH_IN_ERROR_RUNT = 8388662
+    .. data:: thresh_in_error_runt = 8388662
 
     	PM in error runt threshold
 
-    .. data:: THRESH_IN_ERROR_JABBERS = 8388663
+    .. data:: thresh_in_error_jabbers = 8388663
 
     	PM in error jabber threshold
 
-    .. data:: THRESH_IN_ERROR_FRAGMENTS = 8388664
+    .. data:: thresh_in_error_fragments = 8388664
 
     	PM in error fragments threshold
 
-    .. data:: THRESH_IN_ERROR_OTHER = 8388665
+    .. data:: thresh_in_error_other = 8388665
 
     	PM in error other threshold
 
-    .. data:: THRESH_IN_PKT_64_OCTET = 8388666
+    .. data:: thresh_in_pkt_64_octet = 8388666
 
     	PM in pkt 64 octet threshold
 
-    .. data:: THRESH_IN_PKTS_65_127OCTETS = 8388667
+    .. data:: thresh_in_pkts_65_127octets = 8388667
 
     	PM in pkts 65_127 octets threshold
 
-    .. data:: THRESH_IN_PKTS_128_255_OCTETS = 8388668
+    .. data:: thresh_in_pkts_128_255_octets = 8388668
 
     	PM in pkts 128_255 octets threshold
 
-    .. data:: THRESH_IN_PKTS_256_511_OCTETS = 8388669
+    .. data:: thresh_in_pkts_256_511_octets = 8388669
 
     	PM in pkts 256_511 octets threshold
 
-    .. data:: THRESH_IN_PKTS_512_1023_OCTETS = 8388670
+    .. data:: thresh_in_pkts_512_1023_octets = 8388670
 
     	PM in pkts 512_1023 octets threshold
 
-    .. data:: THRESH_IN_PKTS_1024_1518_OCTETS = 8388671
+    .. data:: thresh_in_pkts_1024_1518_octets = 8388671
 
     	PM in pkts 1024_1058 octets threshold
 
-    .. data:: THRESH_OUT_PKT_64_OCTET = 8388672
+    .. data:: thresh_out_pkt_64_octet = 8388672
 
     	PM out pkt 64 octet threshold
 
-    .. data:: THRESH_OUT_PKTS_65_127OCTETS = 8388673
+    .. data:: thresh_out_pkts_65_127octets = 8388673
 
     	PM out pkts 65_127 octets threshold
 
-    .. data:: THRESH_OUT_PKTS_128_255_OCTETS = 8388674
+    .. data:: thresh_out_pkts_128_255_octets = 8388674
 
     	PM out pkts 128_255 octets threshold
 
-    .. data:: THRESH_OUT_PKTS_256_511_OCTETS = 8388675
+    .. data:: thresh_out_pkts_256_511_octets = 8388675
 
     	PM out pkts 256_511 octets threshold
 
-    .. data:: THRESH_OUT_PKTS_512_1023_OCTETS = 8388676
+    .. data:: thresh_out_pkts_512_1023_octets = 8388676
 
     	PM out pkts 512_1023 octets threshold
 
-    .. data:: THRESH_OUT_PKTS_1024_1518_OCTETS = 8388677
+    .. data:: thresh_out_pkts_1024_1518_octets = 8388677
 
     	PM out pkts 1024_1058 octets threshold
 
-    .. data:: THRESH_TX_UNDER_SIZE_D_PKT = 8388678
+    .. data:: thresh_tx_under_size_d_pkt = 8388678
 
     	PM tx undersized pkt threshold
 
-    .. data:: THRESH_TX_OVER_SIZE_D_PKT = 8388679
+    .. data:: thresh_tx_over_size_d_pkt = 8388679
 
     	PM tx oversized pkt threshold
 
-    .. data:: THRESH_TX_FRAGMENTS = 8388680
+    .. data:: thresh_tx_fragments = 8388680
 
     	PM tx fragments threshold
 
-    .. data:: THRESH_TX_JABBER = 8388681
+    .. data:: thresh_tx_jabber = 8388681
 
     	PM tx jabber threshold
 
-    .. data:: THRESH_TX_BAD_FCS = 8388682
+    .. data:: thresh_tx_bad_fcs = 8388682
 
     	PM tx bad fcs threshold
 
     """
 
-    THRESH_RX_PKT = 8388608
+    thresh_rx_pkt = 8388608
 
-    THRESH_RX_UTIL = 8388609
+    thresh_rx_util = 8388609
 
-    THRESH_TX_UTIL = 8388610
+    thresh_tx_util = 8388610
 
-    THRESH_STAT_PKT = 8388611
+    thresh_stat_pkt = 8388611
 
-    THRESH_OCTET_STAT = 8388612
+    thresh_octet_stat = 8388612
 
-    THRESH_OVER_SIZE_PKT = 8388613
+    thresh_over_size_pkt = 8388613
 
-    THRESH_FCS_ERR = 8388614
+    thresh_fcs_err = 8388614
 
-    THRESH_LONG_FRAME_S = 8388615
+    thresh_long_frame_s = 8388615
 
-    THRESH_JABBER_STATS = 8388616
+    thresh_jabber_stats = 8388616
 
-    THRESH_64_OCTET = 8388617
+    thresh_64_octet = 8388617
 
-    THRESH_65_127_OCTET = 8388618
+    thresh_65_127_octet = 8388618
 
-    THRESH_128_255_OCTET = 8388619
+    thresh_128_255_octet = 8388619
 
-    THRESH_256_511_OCTET = 8388620
+    thresh_256_511_octet = 8388620
 
-    THRESH_512_1023_OCTET = 8388621
+    thresh_512_1023_octet = 8388621
 
-    THRESH_1024_1518_OCTET = 8388622
+    thresh_1024_1518_octet = 8388622
 
-    THRESH_IN_UCAST = 8388623
+    thresh_in_ucast = 8388623
 
-    THRESH_IN_MCAST = 8388624
+    thresh_in_mcast = 8388624
 
-    THRESH_IN_BCAST = 8388625
+    thresh_in_bcast = 8388625
 
-    THRESH_OUT_UCAST = 8388626
+    thresh_out_ucast = 8388626
 
-    THRESH_OUT_MCAST = 8388627
+    thresh_out_mcast = 8388627
 
-    THRESH_OUT_BCAST = 8388628
+    thresh_out_bcast = 8388628
 
-    THRESH_TX_PKT = 8388629
+    thresh_tx_pkt = 8388629
 
-    THRESH_IFIN_ERROR_S = 8388630
+    thresh_ifin_error_s = 8388630
 
-    THRESH_IFIN_OCTETS = 8388631
+    thresh_ifin_octets = 8388631
 
-    THRESH_ETHER_STAT_MULTICAST_PKT = 8388632
+    thresh_ether_stat_multicast_pkt = 8388632
 
-    THRESH_ETHER_STAT_BROADCAST_PKT = 8388633
+    thresh_ether_stat_broadcast_pkt = 8388633
 
-    THRESH_ETHER_STAT_UNDER_SIZE_D_PKT = 8388634
+    thresh_ether_stat_under_size_d_pkt = 8388634
 
-    THRESH_OUT_OCTET = 8388635
+    thresh_out_octet = 8388635
 
-    THRESH_IN_PAUSE_FRAME = 8388636
+    thresh_in_pause_frame = 8388636
 
-    THRESH_IN_GO_OD_BYTES = 8388637
+    thresh_in_go_od_bytes = 8388637
 
-    THRESH_IN_802_1Q_FRAME_S = 8388638
+    thresh_in_802_1q_frame_s = 8388638
 
-    THRESH_IN_PKTS_1519_MAX_OCTETS = 8388639
+    thresh_in_pkts_1519_max_octets = 8388639
 
-    THRESH_IN_GO_OD_PKTS = 8388640
+    thresh_in_go_od_pkts = 8388640
 
-    THRESH_IN_DROP_OVERRUN = 8388641
+    thresh_in_drop_overrun = 8388641
 
-    THRESH_IN_DROP_ABORT = 8388642
+    thresh_in_drop_abort = 8388642
 
-    THRESH_IN_DROP_INVALID_VLAN = 8388643
+    thresh_in_drop_invalid_vlan = 8388643
 
-    THRESH_IN_DROP_INVALID_DMAC = 8388644
+    thresh_in_drop_invalid_dmac = 8388644
 
-    THRESH_IN_DROP_INVALID_ENCAP = 8388645
+    thresh_in_drop_invalid_encap = 8388645
 
-    THRESH_IN_DROP_OTHER = 8388646
+    thresh_in_drop_other = 8388646
 
-    THRESH_IN_MIB_GIANT = 8388647
+    thresh_in_mib_giant = 8388647
 
-    THRESH_IN_MIB_JABBER = 8388648
+    thresh_in_mib_jabber = 8388648
 
-    THRESH_IN_MIB_CRC = 8388649
+    thresh_in_mib_crc = 8388649
 
-    THRESH_IN_ERROR_COLLISION_S = 8388650
+    thresh_in_error_collision_s = 8388650
 
-    THRESH_IN_ERROR_SYMBOL = 8388651
+    thresh_in_error_symbol = 8388651
 
-    THRESH_OUT_GO_OD_BYTES = 8388652
+    thresh_out_go_od_bytes = 8388652
 
-    THRESH_OUT_802_1Q_FRAME_S = 8388653
+    thresh_out_802_1q_frame_s = 8388653
 
-    THRESH_OUT_PAUSE_FRAME_S = 8388654
+    thresh_out_pause_frame_s = 8388654
 
-    THRESH_OUT_PKTS_1519_MAX_OCTETS = 8388655
+    thresh_out_pkts_1519_max_octets = 8388655
 
-    THRESH_OUT_GO_OD_PKTS = 8388656
+    thresh_out_go_od_pkts = 8388656
 
-    THRESH_OUT_DROP_UNDER_RUN = 8388657
+    thresh_out_drop_under_run = 8388657
 
-    THRESH_OUT_DROP_ABORT = 8388658
+    thresh_out_drop_abort = 8388658
 
-    THRESH_OUT_DROP_OTHER = 8388659
+    thresh_out_drop_other = 8388659
 
-    THRESH_OUT_ERROR_OTHER = 8388660
+    thresh_out_error_other = 8388660
 
-    THRESH_IN_ERROR_GIANT = 8388661
+    thresh_in_error_giant = 8388661
 
-    THRESH_IN_ERROR_RUNT = 8388662
+    thresh_in_error_runt = 8388662
 
-    THRESH_IN_ERROR_JABBERS = 8388663
+    thresh_in_error_jabbers = 8388663
 
-    THRESH_IN_ERROR_FRAGMENTS = 8388664
+    thresh_in_error_fragments = 8388664
 
-    THRESH_IN_ERROR_OTHER = 8388665
+    thresh_in_error_other = 8388665
 
-    THRESH_IN_PKT_64_OCTET = 8388666
+    thresh_in_pkt_64_octet = 8388666
 
-    THRESH_IN_PKTS_65_127OCTETS = 8388667
+    thresh_in_pkts_65_127octets = 8388667
 
-    THRESH_IN_PKTS_128_255_OCTETS = 8388668
+    thresh_in_pkts_128_255_octets = 8388668
 
-    THRESH_IN_PKTS_256_511_OCTETS = 8388669
+    thresh_in_pkts_256_511_octets = 8388669
 
-    THRESH_IN_PKTS_512_1023_OCTETS = 8388670
+    thresh_in_pkts_512_1023_octets = 8388670
 
-    THRESH_IN_PKTS_1024_1518_OCTETS = 8388671
+    thresh_in_pkts_1024_1518_octets = 8388671
 
-    THRESH_OUT_PKT_64_OCTET = 8388672
+    thresh_out_pkt_64_octet = 8388672
 
-    THRESH_OUT_PKTS_65_127OCTETS = 8388673
+    thresh_out_pkts_65_127octets = 8388673
 
-    THRESH_OUT_PKTS_128_255_OCTETS = 8388674
+    thresh_out_pkts_128_255_octets = 8388674
 
-    THRESH_OUT_PKTS_256_511_OCTETS = 8388675
+    thresh_out_pkts_256_511_octets = 8388675
 
-    THRESH_OUT_PKTS_512_1023_OCTETS = 8388676
+    thresh_out_pkts_512_1023_octets = 8388676
 
-    THRESH_OUT_PKTS_1024_1518_OCTETS = 8388677
+    thresh_out_pkts_1024_1518_octets = 8388677
 
-    THRESH_TX_UNDER_SIZE_D_PKT = 8388678
+    thresh_tx_under_size_d_pkt = 8388678
 
-    THRESH_TX_OVER_SIZE_D_PKT = 8388679
+    thresh_tx_over_size_d_pkt = 8388679
 
-    THRESH_TX_FRAGMENTS = 8388680
+    thresh_tx_fragments = 8388680
 
-    THRESH_TX_JABBER = 8388681
+    thresh_tx_jabber = 8388681
 
-    THRESH_TX_BAD_FCS = 8388682
+    thresh_tx_bad_fcs = 8388682
 
 
     @staticmethod
@@ -960,67 +960,67 @@ class FecReportEnum(Enum):
 
     Fec report
 
-    .. data:: REPORT_EC_BITS = 131072
+    .. data:: report_ec_bits = 131072
 
     	PM Fec ec bits report
 
-    .. data:: REPORT_UC_WORDS = 131076
+    .. data:: report_uc_words = 131076
 
     	PM Fec uc words report
 
-    .. data:: REPORT_PRE_FEC_BER_MAX = 131081
+    .. data:: report_pre_fec_ber_max = 131081
 
     	PM Fec pre fec ber max report
 
-    .. data:: REPORT_POST_FEC_BER_MAX = 131082
+    .. data:: report_post_fec_ber_max = 131082
 
     	PM Fec post fec ber max report
 
-    .. data:: REPORT_Q_MAX = 131083
+    .. data:: report_q_max = 131083
 
     	PM Fec Q max report
 
-    .. data:: REPORT_Q_MARGIN_MAX = 131084
+    .. data:: report_q_margin_max = 131084
 
     	PM Fec Q_margin max report
 
-    .. data:: REPORT_PRE_FEC_BER_MIN = 131085
+    .. data:: report_pre_fec_ber_min = 131085
 
     	PM Fec pre fec ber min report
 
-    .. data:: REPORT_POST_FEC_BER_MIN = 131086
+    .. data:: report_post_fec_ber_min = 131086
 
     	PM Fec post fec ber min report
 
-    .. data:: REPORT_Q_MIN = 131087
+    .. data:: report_q_min = 131087
 
     	PM Fec Q min report
 
-    .. data:: REPORT_Q_MARGIN_MIN = 131088
+    .. data:: report_q_margin_min = 131088
 
     	PM Fec Q_margin min report
 
     """
 
-    REPORT_EC_BITS = 131072
+    report_ec_bits = 131072
 
-    REPORT_UC_WORDS = 131076
+    report_uc_words = 131076
 
-    REPORT_PRE_FEC_BER_MAX = 131081
+    report_pre_fec_ber_max = 131081
 
-    REPORT_POST_FEC_BER_MAX = 131082
+    report_post_fec_ber_max = 131082
 
-    REPORT_Q_MAX = 131083
+    report_q_max = 131083
 
-    REPORT_Q_MARGIN_MAX = 131084
+    report_q_margin_max = 131084
 
-    REPORT_PRE_FEC_BER_MIN = 131085
+    report_pre_fec_ber_min = 131085
 
-    REPORT_POST_FEC_BER_MIN = 131086
+    report_post_fec_ber_min = 131086
 
-    REPORT_Q_MIN = 131087
+    report_q_min = 131087
 
-    REPORT_Q_MARGIN_MIN = 131088
+    report_q_margin_min = 131088
 
 
     @staticmethod
@@ -1035,67 +1035,67 @@ class FecThresholdEnum(Enum):
 
     Fec threshold
 
-    .. data:: THRESH_EC_BITS = 131072
+    .. data:: thresh_ec_bits = 131072
 
     	PM Fec ec bits threshold
 
-    .. data:: THRESH_UC_WORDS = 131076
+    .. data:: thresh_uc_words = 131076
 
     	PM Fec uc words threshold
 
-    .. data:: THRESH_PRE_FEC_BER_MAX = 131081
+    .. data:: thresh_pre_fec_ber_max = 131081
 
     	PM Fec pre-fe-ber max threshold
 
-    .. data:: THRESH_POST_FEC_BER_MAX = 131082
+    .. data:: thresh_post_fec_ber_max = 131082
 
     	PM Fec post-fec-ber max threshold
 
-    .. data:: THRESH_Q_MAX = 131083
+    .. data:: thresh_q_max = 131083
 
     	PM Fec Q max threshold
 
-    .. data:: THRESH_Q_MARGIN_MAX = 131084
+    .. data:: thresh_q_margin_max = 131084
 
     	PM Fec uc words max threshold
 
-    .. data:: THRESH_PRE_FEC_BER_MIN = 131085
+    .. data:: thresh_pre_fec_ber_min = 131085
 
     	PM Fec pre-fe-ber min threshold
 
-    .. data:: THRESH_POST_FEC_BER_MIN = 131086
+    .. data:: thresh_post_fec_ber_min = 131086
 
     	PM Fec post-fec-ber min threshold
 
-    .. data:: THRESH_Q_MIN = 131087
+    .. data:: thresh_q_min = 131087
 
     	PM Fec Q min threshold
 
-    .. data:: THRESH_Q_MARGIN_MIN = 131088
+    .. data:: thresh_q_margin_min = 131088
 
     	PM Fec uc words min threshold
 
     """
 
-    THRESH_EC_BITS = 131072
+    thresh_ec_bits = 131072
 
-    THRESH_UC_WORDS = 131076
+    thresh_uc_words = 131076
 
-    THRESH_PRE_FEC_BER_MAX = 131081
+    thresh_pre_fec_ber_max = 131081
 
-    THRESH_POST_FEC_BER_MAX = 131082
+    thresh_post_fec_ber_max = 131082
 
-    THRESH_Q_MAX = 131083
+    thresh_q_max = 131083
 
-    THRESH_Q_MARGIN_MAX = 131084
+    thresh_q_margin_max = 131084
 
-    THRESH_PRE_FEC_BER_MIN = 131085
+    thresh_pre_fec_ber_min = 131085
 
-    THRESH_POST_FEC_BER_MIN = 131086
+    thresh_post_fec_ber_min = 131086
 
-    THRESH_Q_MIN = 131087
+    thresh_q_min = 131087
 
-    THRESH_Q_MARGIN_MIN = 131088
+    thresh_q_margin_min = 131088
 
 
     @staticmethod
@@ -1110,37 +1110,37 @@ class GfpReportEnum(Enum):
 
     Gfp report
 
-    .. data:: REPORT_RX_BIT_ERR = 6291456
+    .. data:: report_rx_bit_err = 6291456
 
     	PM GFP rx bit err report
 
-    .. data:: REPORT_RX_INV_TYP = 6291457
+    .. data:: report_rx_inv_typ = 6291457
 
     	PM GFP rx inv type report
 
-    .. data:: REPORT_RX_CRC = 6291458
+    .. data:: report_rx_crc = 6291458
 
     	PM GFP rx crc report
 
-    .. data:: REPORT_RX_LFD = 6291459
+    .. data:: report_rx_lfd = 6291459
 
     	PM GFP rx lfd report
 
-    .. data:: REPORT_RX_CSF = 6291460
+    .. data:: report_rx_csf = 6291460
 
     	PM GFP rx csf report
 
     """
 
-    REPORT_RX_BIT_ERR = 6291456
+    report_rx_bit_err = 6291456
 
-    REPORT_RX_INV_TYP = 6291457
+    report_rx_inv_typ = 6291457
 
-    REPORT_RX_CRC = 6291458
+    report_rx_crc = 6291458
 
-    REPORT_RX_LFD = 6291459
+    report_rx_lfd = 6291459
 
-    REPORT_RX_CSF = 6291460
+    report_rx_csf = 6291460
 
 
     @staticmethod
@@ -1155,37 +1155,37 @@ class GfpThresholdEnum(Enum):
 
     Gfp threshold
 
-    .. data:: THRESH_RX_BIT_ERR = 67108864
+    .. data:: thresh_rx_bit_err = 67108864
 
     	PM GFP rx bit err threshold
 
-    .. data:: THRESH_RX_INV_TYP = 67108865
+    .. data:: thresh_rx_inv_typ = 67108865
 
     	PM GFP rx inv type threshold
 
-    .. data:: THRESH_RX_CRC = 67108866
+    .. data:: thresh_rx_crc = 67108866
 
     	PM GFP rx crc threshold
 
-    .. data:: THRESH_RX_LFD = 67108867
+    .. data:: thresh_rx_lfd = 67108867
 
     	PM GFP rx lfd threshold
 
-    .. data:: THRESH_RX_CSF = 67108868
+    .. data:: thresh_rx_csf = 67108868
 
     	PM GFP rx csf threshold
 
     """
 
-    THRESH_RX_BIT_ERR = 67108864
+    thresh_rx_bit_err = 67108864
 
-    THRESH_RX_INV_TYP = 67108865
+    thresh_rx_inv_typ = 67108865
 
-    THRESH_RX_CRC = 67108866
+    thresh_rx_crc = 67108866
 
-    THRESH_RX_LFD = 67108867
+    thresh_rx_lfd = 67108867
 
-    THRESH_RX_CSF = 67108868
+    thresh_rx_csf = 67108868
 
 
     @staticmethod
@@ -1200,55 +1200,55 @@ class HoVcReportEnum(Enum):
 
     Ho vc report
 
-    .. data:: REPORT_EB = 33554432
+    .. data:: report_eb = 33554432
 
     	PM EB report
 
-    .. data:: REPORT_ES = 33554433
+    .. data:: report_es = 33554433
 
     	PM ES report
 
-    .. data:: REPORT_ESR = 33554434
+    .. data:: report_esr = 33554434
 
     	PM ESR report
 
-    .. data:: REPORT_SES = 33554435
+    .. data:: report_ses = 33554435
 
     	PM SES report
 
-    .. data:: REPORT_SESR = 33554436
+    .. data:: report_sesr = 33554436
 
     	PM SESR report
 
-    .. data:: REPORT_BBE = 33554437
+    .. data:: report_bbe = 33554437
 
     	PM BBE report
 
-    .. data:: REPORT_BBER = 33554438
+    .. data:: report_bber = 33554438
 
     	PM BBER report
 
-    .. data:: REPORT_UASS = 33554439
+    .. data:: report_uass = 33554439
 
     	PM UASS report
 
     """
 
-    REPORT_EB = 33554432
+    report_eb = 33554432
 
-    REPORT_ES = 33554433
+    report_es = 33554433
 
-    REPORT_ESR = 33554434
+    report_esr = 33554434
 
-    REPORT_SES = 33554435
+    report_ses = 33554435
 
-    REPORT_SESR = 33554436
+    report_sesr = 33554436
 
-    REPORT_BBE = 33554437
+    report_bbe = 33554437
 
-    REPORT_BBER = 33554438
+    report_bber = 33554438
 
-    REPORT_UASS = 33554439
+    report_uass = 33554439
 
 
     @staticmethod
@@ -1263,55 +1263,55 @@ class HoVcThresholdEnum(Enum):
 
     Ho vc threshold
 
-    .. data:: THRESH_EB = 33554432
+    .. data:: thresh_eb = 33554432
 
     	PM EB threshold
 
-    .. data:: THRESH_ES = 33554433
+    .. data:: thresh_es = 33554433
 
     	PM ES threshold
 
-    .. data:: THRESH_ESR = 33554434
+    .. data:: thresh_esr = 33554434
 
     	PM ESR threshold
 
-    .. data:: THRESH_SES = 33554435
+    .. data:: thresh_ses = 33554435
 
     	PM SES threshold
 
-    .. data:: THRESH_SESR = 33554436
+    .. data:: thresh_sesr = 33554436
 
     	PM SESR threshold
 
-    .. data:: THRESH_BBE = 33554437
+    .. data:: thresh_bbe = 33554437
 
     	PM BBE threshold
 
-    .. data:: THRESH_BBER = 33554438
+    .. data:: thresh_bber = 33554438
 
     	PM BBER threshold
 
-    .. data:: THRESH_UASS = 33554439
+    .. data:: thresh_uass = 33554439
 
     	PM UASS threshold
 
     """
 
-    THRESH_EB = 33554432
+    thresh_eb = 33554432
 
-    THRESH_ES = 33554433
+    thresh_es = 33554433
 
-    THRESH_ESR = 33554434
+    thresh_esr = 33554434
 
-    THRESH_SES = 33554435
+    thresh_ses = 33554435
 
-    THRESH_SESR = 33554436
+    thresh_sesr = 33554436
 
-    THRESH_BBE = 33554437
+    thresh_bbe = 33554437
 
-    THRESH_BBER = 33554438
+    thresh_bber = 33554438
 
-    THRESH_UASS = 33554439
+    thresh_uass = 33554439
 
 
     @staticmethod
@@ -1326,91 +1326,91 @@ class OcnReportEnum(Enum):
 
     Ocn report
 
-    .. data:: REPORT_SEFSS = 3145728
+    .. data:: report_sefss = 3145728
 
     	PM SEFSS threshold
 
-    .. data:: REPORT_CVS = 3145729
+    .. data:: report_cvs = 3145729
 
     	PM CVS threshold
 
-    .. data:: REPORT_ESS = 3145730
+    .. data:: report_ess = 3145730
 
     	PM ESS threshold
 
-    .. data:: REPORT_SESS = 3145731
+    .. data:: report_sess = 3145731
 
     	PM SESS threshold
 
-    .. data:: REPORT_CVL_NE = 3145734
+    .. data:: report_cvl_ne = 3145734
 
     	PM CVL-NE threshold
 
-    .. data:: REPORT_ESL_NE = 3145735
+    .. data:: report_esl_ne = 3145735
 
     	PM ESL-NE threshold
 
-    .. data:: REPORT_SESL_NE = 3145736
+    .. data:: report_sesl_ne = 3145736
 
     	PM SESL-NE threshold
 
-    .. data:: REPORT_UASL_NE = 3145738
+    .. data:: report_uasl_ne = 3145738
 
     	PM UASL-NE threshold
 
-    .. data:: REPORT_FCL_NE = 3145739
+    .. data:: report_fcl_ne = 3145739
 
     	PM FCL-NE threshold
 
-    .. data:: REPORT_FCL_FE = 3145751
+    .. data:: report_fcl_fe = 3145751
 
     	PM FCL_FE threshold
 
-    .. data:: REPORT_CVL_FE = 3145752
+    .. data:: report_cvl_fe = 3145752
 
     	PM CVL-FE threshold
 
-    .. data:: REPORT_ESL_FE = 3145753
+    .. data:: report_esl_fe = 3145753
 
     	PM ESL_FE threshold
 
-    .. data:: REPORT_SESL_FE = 3145754
+    .. data:: report_sesl_fe = 3145754
 
     	PM SESL_FE threshold
 
-    .. data:: REPORT_UASL_FE = 3145756
+    .. data:: report_uasl_fe = 3145756
 
     	PM UASL_FEthreshold
 
     """
 
-    REPORT_SEFSS = 3145728
+    report_sefss = 3145728
 
-    REPORT_CVS = 3145729
+    report_cvs = 3145729
 
-    REPORT_ESS = 3145730
+    report_ess = 3145730
 
-    REPORT_SESS = 3145731
+    report_sess = 3145731
 
-    REPORT_CVL_NE = 3145734
+    report_cvl_ne = 3145734
 
-    REPORT_ESL_NE = 3145735
+    report_esl_ne = 3145735
 
-    REPORT_SESL_NE = 3145736
+    report_sesl_ne = 3145736
 
-    REPORT_UASL_NE = 3145738
+    report_uasl_ne = 3145738
 
-    REPORT_FCL_NE = 3145739
+    report_fcl_ne = 3145739
 
-    REPORT_FCL_FE = 3145751
+    report_fcl_fe = 3145751
 
-    REPORT_CVL_FE = 3145752
+    report_cvl_fe = 3145752
 
-    REPORT_ESL_FE = 3145753
+    report_esl_fe = 3145753
 
-    REPORT_SESL_FE = 3145754
+    report_sesl_fe = 3145754
 
-    REPORT_UASL_FE = 3145756
+    report_uasl_fe = 3145756
 
 
     @staticmethod
@@ -1425,91 +1425,91 @@ class OcnThresholdEnum(Enum):
 
     Ocn threshold
 
-    .. data:: THRESH_SEFSS = 3145728
+    .. data:: thresh_sefss = 3145728
 
     	PM SEFSS threshold
 
-    .. data:: THRESH_CVS = 3145729
+    .. data:: thresh_cvs = 3145729
 
     	PM CVS threshold
 
-    .. data:: THRESH_ESS = 3145730
+    .. data:: thresh_ess = 3145730
 
     	PM ESS threshold
 
-    .. data:: THRESH_SESS = 3145731
+    .. data:: thresh_sess = 3145731
 
     	PM SESS threshold
 
-    .. data:: THRESH_CVL_NE = 3145734
+    .. data:: thresh_cvl_ne = 3145734
 
     	PM CVL-NE threshold
 
-    .. data:: THRESH_ESL_NE = 3145735
+    .. data:: thresh_esl_ne = 3145735
 
     	PM ESL-NE threshold
 
-    .. data:: THRESH_SESL_NE = 3145736
+    .. data:: thresh_sesl_ne = 3145736
 
     	PM SESL-NE threshold
 
-    .. data:: THRESH_UASL_NE = 3145738
+    .. data:: thresh_uasl_ne = 3145738
 
     	PM UASL-NE threshold
 
-    .. data:: THRESH_FCL_NE = 3145739
+    .. data:: thresh_fcl_ne = 3145739
 
     	PM FCL-NE threshold
 
-    .. data:: THRESH_FCL_FE = 3145751
+    .. data:: thresh_fcl_fe = 3145751
 
     	PM FCL_FE threshold
 
-    .. data:: THRESH_CVL_FE = 3145752
+    .. data:: thresh_cvl_fe = 3145752
 
     	PM CVL-FE threshold
 
-    .. data:: THRESH_ESL_FE = 3145753
+    .. data:: thresh_esl_fe = 3145753
 
     	PM ESL_FE threshold
 
-    .. data:: THRESH_SESL_FE = 3145754
+    .. data:: thresh_sesl_fe = 3145754
 
     	PM SESL_FE threshold
 
-    .. data:: THRESH_UASL_FE = 3145756
+    .. data:: thresh_uasl_fe = 3145756
 
     	PM UASL_FEthreshold
 
     """
 
-    THRESH_SEFSS = 3145728
+    thresh_sefss = 3145728
 
-    THRESH_CVS = 3145729
+    thresh_cvs = 3145729
 
-    THRESH_ESS = 3145730
+    thresh_ess = 3145730
 
-    THRESH_SESS = 3145731
+    thresh_sess = 3145731
 
-    THRESH_CVL_NE = 3145734
+    thresh_cvl_ne = 3145734
 
-    THRESH_ESL_NE = 3145735
+    thresh_esl_ne = 3145735
 
-    THRESH_SESL_NE = 3145736
+    thresh_sesl_ne = 3145736
 
-    THRESH_UASL_NE = 3145738
+    thresh_uasl_ne = 3145738
 
-    THRESH_FCL_NE = 3145739
+    thresh_fcl_ne = 3145739
 
-    THRESH_FCL_FE = 3145751
+    thresh_fcl_fe = 3145751
 
-    THRESH_CVL_FE = 3145752
+    thresh_cvl_fe = 3145752
 
-    THRESH_ESL_FE = 3145753
+    thresh_esl_fe = 3145753
 
-    THRESH_SESL_FE = 3145754
+    thresh_sesl_fe = 3145754
 
-    THRESH_UASL_FE = 3145756
+    thresh_uasl_fe = 3145756
 
 
     @staticmethod
@@ -1524,139 +1524,139 @@ class OpticsReportEnum(Enum):
 
     Optics report
 
-    .. data:: REPORT_OPT_MIN = 65550
+    .. data:: report_opt_min = 65550
 
     	PM Optics opt min report
 
-    .. data:: REPORT_OPR_MIN = 65551
+    .. data:: report_opr_min = 65551
 
     	PM Optics opr min report
 
-    .. data:: REPORT_LBC_MIN = 65552
+    .. data:: report_lbc_min = 65552
 
     	PM Optics lbc min report
 
-    .. data:: REPORT_LBC_PC_MIN = 65553
+    .. data:: report_lbc_pc_min = 65553
 
     	PM Optics lbcpc min report
 
-    .. data:: REPORT_CD_MIN = 65557
+    .. data:: report_cd_min = 65557
 
     	PM Optics cd min report
 
-    .. data:: REPORT_DGD_MIN = 65558
+    .. data:: report_dgd_min = 65558
 
     	PM Optics dgd min report
 
-    .. data:: REPORT_PMD_MIN = 65559
+    .. data:: report_pmd_min = 65559
 
     	PM Optics sopmd min report
 
-    .. data:: REPORT_OSNR_MIN = 65560
+    .. data:: report_osnr_min = 65560
 
     	PM Optics osnr min report
 
-    .. data:: REPORT_PDL_MIN = 65561
+    .. data:: report_pdl_min = 65561
 
     	PM Optics pdl min report
 
-    .. data:: REPORT_PCR_MIN = 65562
+    .. data:: report_pcr_min = 65562
 
     	PM Optics pcr min report
 
-    .. data:: REPORT_PN_MIN = 65563
+    .. data:: report_pn_min = 65563
 
     	PM Optics pn min report
 
-    .. data:: REPORT_OPT_MAX = 65564
+    .. data:: report_opt_max = 65564
 
     	PM Optics opt max report
 
-    .. data:: REPORT_OPR_MAX = 65565
+    .. data:: report_opr_max = 65565
 
     	PM Optics opr max report
 
-    .. data:: REPORT_LBC_MAX = 65566
+    .. data:: report_lbc_max = 65566
 
     	PM Optics lbc max report
 
-    .. data:: REPORT_LBC_PC_MAX = 65567
+    .. data:: report_lbc_pc_max = 65567
 
     	PM Optics lbcpc max report
 
-    .. data:: REPORT_CD_MAX = 65571
+    .. data:: report_cd_max = 65571
 
     	PM Optics cd max report
 
-    .. data:: REPORT_DGD_MAX = 65572
+    .. data:: report_dgd_max = 65572
 
     	PM Optics dgd max report
 
-    .. data:: REPORT_PMD_MAX = 65573
+    .. data:: report_pmd_max = 65573
 
     	PM Optics sopmd max report
 
-    .. data:: REPORT_OSNR_MAX = 65574
+    .. data:: report_osnr_max = 65574
 
     	PM Optics osnr max report
 
-    .. data:: REPORT_PDL_MAX = 65575
+    .. data:: report_pdl_max = 65575
 
     	PM Optics pdl max report
 
-    .. data:: REPORT_PCR_MAX = 65576
+    .. data:: report_pcr_max = 65576
 
     	PM Optics pcr max report
 
-    .. data:: REPORT_PN_MAX = 65577
+    .. data:: report_pn_max = 65577
 
     	PM Optics pn max report
 
     """
 
-    REPORT_OPT_MIN = 65550
+    report_opt_min = 65550
 
-    REPORT_OPR_MIN = 65551
+    report_opr_min = 65551
 
-    REPORT_LBC_MIN = 65552
+    report_lbc_min = 65552
 
-    REPORT_LBC_PC_MIN = 65553
+    report_lbc_pc_min = 65553
 
-    REPORT_CD_MIN = 65557
+    report_cd_min = 65557
 
-    REPORT_DGD_MIN = 65558
+    report_dgd_min = 65558
 
-    REPORT_PMD_MIN = 65559
+    report_pmd_min = 65559
 
-    REPORT_OSNR_MIN = 65560
+    report_osnr_min = 65560
 
-    REPORT_PDL_MIN = 65561
+    report_pdl_min = 65561
 
-    REPORT_PCR_MIN = 65562
+    report_pcr_min = 65562
 
-    REPORT_PN_MIN = 65563
+    report_pn_min = 65563
 
-    REPORT_OPT_MAX = 65564
+    report_opt_max = 65564
 
-    REPORT_OPR_MAX = 65565
+    report_opr_max = 65565
 
-    REPORT_LBC_MAX = 65566
+    report_lbc_max = 65566
 
-    REPORT_LBC_PC_MAX = 65567
+    report_lbc_pc_max = 65567
 
-    REPORT_CD_MAX = 65571
+    report_cd_max = 65571
 
-    REPORT_DGD_MAX = 65572
+    report_dgd_max = 65572
 
-    REPORT_PMD_MAX = 65573
+    report_pmd_max = 65573
 
-    REPORT_OSNR_MAX = 65574
+    report_osnr_max = 65574
 
-    REPORT_PDL_MAX = 65575
+    report_pdl_max = 65575
 
-    REPORT_PCR_MAX = 65576
+    report_pcr_max = 65576
 
-    REPORT_PN_MAX = 65577
+    report_pn_max = 65577
 
 
     @staticmethod
@@ -1671,139 +1671,139 @@ class OpticsThresholdEnum(Enum):
 
     Optics threshold
 
-    .. data:: THRESH_OPT_MIN = 65550
+    .. data:: thresh_opt_min = 65550
 
     	PM Optics opt min threshold in dbm or uW
 
-    .. data:: THRESH_OPR_MIN = 65551
+    .. data:: thresh_opr_min = 65551
 
     	PM Optics opr min threshold in dbm or uW
 
-    .. data:: THRESH_LBC_MIN = 65552
+    .. data:: thresh_lbc_min = 65552
 
     	PM Optics lbc min threshold
 
-    .. data:: THRESH_LBC_PC_MIN = 65553
+    .. data:: thresh_lbc_pc_min = 65553
 
     	PM Optics lbcpc min threshold
 
-    .. data:: THRESH_CD_MIN = 65557
+    .. data:: thresh_cd_min = 65557
 
     	PM Optics cd min threshold
 
-    .. data:: THRESH_DGD_MIN = 65558
+    .. data:: thresh_dgd_min = 65558
 
     	PM Optics dgd min threshold
 
-    .. data:: THRESH_PMD_MIN = 65559
+    .. data:: thresh_pmd_min = 65559
 
     	PM Optics sopmd min threshold
 
-    .. data:: THRESH_OSNR_MIN = 65560
+    .. data:: thresh_osnr_min = 65560
 
     	PM Optics osnr min threshold
 
-    .. data:: THRESH_PDL_MIN = 65561
+    .. data:: thresh_pdl_min = 65561
 
     	PM Optics pdl min threshold
 
-    .. data:: THRESH_PCR_MIN = 65562
+    .. data:: thresh_pcr_min = 65562
 
     	PM Optics pcr min threshold
 
-    .. data:: THRESH_PN_MIN = 65563
+    .. data:: thresh_pn_min = 65563
 
     	PM Optics pn min threshold
 
-    .. data:: THRESH_OPT_MAX = 65564
+    .. data:: thresh_opt_max = 65564
 
     	PM Optics opt max threshold in dbm or uW
 
-    .. data:: THRESH_OPR_MAX = 65565
+    .. data:: thresh_opr_max = 65565
 
     	PM Optics opr max threshold in dbm or uW
 
-    .. data:: THRESH_LBC_MAX = 65566
+    .. data:: thresh_lbc_max = 65566
 
     	PM Optics lbc max threshold
 
-    .. data:: THRESH_LBC_PC_MAX = 65567
+    .. data:: thresh_lbc_pc_max = 65567
 
     	PM Optics lbcpc max threshold
 
-    .. data:: THRESH_CD_MAX = 65571
+    .. data:: thresh_cd_max = 65571
 
     	PM Optics cd max threshold
 
-    .. data:: THRESH_DGD_MAX = 65572
+    .. data:: thresh_dgd_max = 65572
 
     	PM Optics dgd max threshold
 
-    .. data:: THRESH_PMD_MAX = 65573
+    .. data:: thresh_pmd_max = 65573
 
     	PM Optics sopmd max threshold
 
-    .. data:: THRESH_OSNR_MAX = 65574
+    .. data:: thresh_osnr_max = 65574
 
     	PM Optics osnr max threshold
 
-    .. data:: THRESH_PDL_MAX = 65575
+    .. data:: thresh_pdl_max = 65575
 
     	PM Optics pdl max threshold
 
-    .. data:: THRESH_PCR_MAX = 65576
+    .. data:: thresh_pcr_max = 65576
 
     	PM Optics pcr max threshold
 
-    .. data:: THRESH_PN_MAX = 65577
+    .. data:: thresh_pn_max = 65577
 
     	PM Optics pn max threshold
 
     """
 
-    THRESH_OPT_MIN = 65550
+    thresh_opt_min = 65550
 
-    THRESH_OPR_MIN = 65551
+    thresh_opr_min = 65551
 
-    THRESH_LBC_MIN = 65552
+    thresh_lbc_min = 65552
 
-    THRESH_LBC_PC_MIN = 65553
+    thresh_lbc_pc_min = 65553
 
-    THRESH_CD_MIN = 65557
+    thresh_cd_min = 65557
 
-    THRESH_DGD_MIN = 65558
+    thresh_dgd_min = 65558
 
-    THRESH_PMD_MIN = 65559
+    thresh_pmd_min = 65559
 
-    THRESH_OSNR_MIN = 65560
+    thresh_osnr_min = 65560
 
-    THRESH_PDL_MIN = 65561
+    thresh_pdl_min = 65561
 
-    THRESH_PCR_MIN = 65562
+    thresh_pcr_min = 65562
 
-    THRESH_PN_MIN = 65563
+    thresh_pn_min = 65563
 
-    THRESH_OPT_MAX = 65564
+    thresh_opt_max = 65564
 
-    THRESH_OPR_MAX = 65565
+    thresh_opr_max = 65565
 
-    THRESH_LBC_MAX = 65566
+    thresh_lbc_max = 65566
 
-    THRESH_LBC_PC_MAX = 65567
+    thresh_lbc_pc_max = 65567
 
-    THRESH_CD_MAX = 65571
+    thresh_cd_max = 65571
 
-    THRESH_DGD_MAX = 65572
+    thresh_dgd_max = 65572
 
-    THRESH_PMD_MAX = 65573
+    thresh_pmd_max = 65573
 
-    THRESH_OSNR_MAX = 65574
+    thresh_osnr_max = 65574
 
-    THRESH_PDL_MAX = 65575
+    thresh_pdl_max = 65575
 
-    THRESH_PCR_MAX = 65576
+    thresh_pcr_max = 65576
 
-    THRESH_PN_MAX = 65577
+    thresh_pn_max = 65577
 
 
     @staticmethod
@@ -1818,199 +1818,199 @@ class OtnReportEnum(Enum):
 
     Otn report
 
-    .. data:: REPORT_ES_SM_NE = 262144
+    .. data:: report_es_sm_ne = 262144
 
     	PM Otn es sm ne report
 
-    .. data:: REPORT_SES_SM_NE = 262145
+    .. data:: report_ses_sm_ne = 262145
 
     	PM Otn ses sm ne report
 
-    .. data:: REPORT_UAS_SM_NE = 262146
+    .. data:: report_uas_sm_ne = 262146
 
     	PM Otn uas sm ne report
 
-    .. data:: REPORT_BBE_SM_NE = 262147
+    .. data:: report_bbe_sm_ne = 262147
 
     	PM Otn bbe sm ne report
 
-    .. data:: REPORT_FC_SM_NE = 262148
+    .. data:: report_fc_sm_ne = 262148
 
     	PM Otn fc sm ne report
 
-    .. data:: REPORT_ESR_SM_NE = 262149
+    .. data:: report_esr_sm_ne = 262149
 
     	PM Otn esr sm ne report
 
-    .. data:: REPORT_SESR_SM_NE = 262150
+    .. data:: report_sesr_sm_ne = 262150
 
     	PM Otn sesr sm ne report
 
-    .. data:: REPORT_BBER_SM_NE = 262151
+    .. data:: report_bber_sm_ne = 262151
 
     	PM Otn bber sm ne report
 
-    .. data:: REPORT_ES_PM_NE = 524288
+    .. data:: report_es_pm_ne = 524288
 
     	PM Otn es pm ne report
 
-    .. data:: REPORT_SES_PM_NE = 524289
+    .. data:: report_ses_pm_ne = 524289
 
     	PM Otn ses pm ne report
 
-    .. data:: REPORT_UAS_PM_NE = 524290
+    .. data:: report_uas_pm_ne = 524290
 
     	PM Otn uas pm ne report
 
-    .. data:: REPORT_BBE_PM_NE = 524291
+    .. data:: report_bbe_pm_ne = 524291
 
     	PM Otn bbe pm ne report
 
-    .. data:: REPORT_FC_PM_NE = 524292
+    .. data:: report_fc_pm_ne = 524292
 
     	PM Otn fc pm ne report
 
-    .. data:: REPORT_ESR_PM_NE = 524293
+    .. data:: report_esr_pm_ne = 524293
 
     	PM Otn esr pm ne report
 
-    .. data:: REPORT_SESR_PM_NE = 524294
+    .. data:: report_sesr_pm_ne = 524294
 
     	PM Otn sesr pm ne report
 
-    .. data:: REPORT_BBER_PM_NE = 524295
+    .. data:: report_bber_pm_ne = 524295
 
     	PM Otn bber pm ne report
 
-    .. data:: REPORT_ES_SM_FE = 1048584
+    .. data:: report_es_sm_fe = 1048584
 
     	PM Otn es sm fe report
 
-    .. data:: REPORT_SES_SM_FE = 1048585
+    .. data:: report_ses_sm_fe = 1048585
 
     	PM Otn ses sm fe report
 
-    .. data:: REPORT_UAS_SM_FE = 1048586
+    .. data:: report_uas_sm_fe = 1048586
 
     	PM Otn uas sm fe report
 
-    .. data:: REPORT_BBE_SM_FE = 1048587
+    .. data:: report_bbe_sm_fe = 1048587
 
     	PM Otn bbe sm fe report
 
-    .. data:: REPORT_FC_SM_FE = 1048588
+    .. data:: report_fc_sm_fe = 1048588
 
     	PM Otn fc sm fe report
 
-    .. data:: REPORT_ESR_SM_FE = 1048589
+    .. data:: report_esr_sm_fe = 1048589
 
     	PM Otn esr sm fe report
 
-    .. data:: REPORT_SESR_SM_FE = 1048590
+    .. data:: report_sesr_sm_fe = 1048590
 
     	PM Otn sesr sm fe report
 
-    .. data:: REPORT_BBER_SM_FE = 1048591
+    .. data:: report_bber_sm_fe = 1048591
 
     	PM Otn bber sm fe report
 
-    .. data:: REPORT_ES_PM_FE = 2097160
+    .. data:: report_es_pm_fe = 2097160
 
     	PM Otn es pm fe report
 
-    .. data:: REPORT_SES_PM_FE = 2097161
+    .. data:: report_ses_pm_fe = 2097161
 
     	PM Otn ses pm fe report
 
-    .. data:: REPORT_UAS_PM_FE = 2097162
+    .. data:: report_uas_pm_fe = 2097162
 
     	PM Otn uas pm fe report
 
-    .. data:: REPORT_BBE_PM_FE = 2097163
+    .. data:: report_bbe_pm_fe = 2097163
 
     	PM Otn bbe pm fe report
 
-    .. data:: REPORT_FC_PM_FE = 2097164
+    .. data:: report_fc_pm_fe = 2097164
 
     	PM Otn fc pm fe report
 
-    .. data:: REPORT_ESR_PM_FE = 2097165
+    .. data:: report_esr_pm_fe = 2097165
 
     	PM Otn esr pm fe report
 
-    .. data:: REPORT_SESR_PM_FE = 2097166
+    .. data:: report_sesr_pm_fe = 2097166
 
     	PM Otn sesr pm fe report
 
-    .. data:: REPORT_BBER_PM_FE = 2097167
+    .. data:: report_bber_pm_fe = 2097167
 
     	PM Otn bber pm fe report
 
     """
 
-    REPORT_ES_SM_NE = 262144
+    report_es_sm_ne = 262144
 
-    REPORT_SES_SM_NE = 262145
+    report_ses_sm_ne = 262145
 
-    REPORT_UAS_SM_NE = 262146
+    report_uas_sm_ne = 262146
 
-    REPORT_BBE_SM_NE = 262147
+    report_bbe_sm_ne = 262147
 
-    REPORT_FC_SM_NE = 262148
+    report_fc_sm_ne = 262148
 
-    REPORT_ESR_SM_NE = 262149
+    report_esr_sm_ne = 262149
 
-    REPORT_SESR_SM_NE = 262150
+    report_sesr_sm_ne = 262150
 
-    REPORT_BBER_SM_NE = 262151
+    report_bber_sm_ne = 262151
 
-    REPORT_ES_PM_NE = 524288
+    report_es_pm_ne = 524288
 
-    REPORT_SES_PM_NE = 524289
+    report_ses_pm_ne = 524289
 
-    REPORT_UAS_PM_NE = 524290
+    report_uas_pm_ne = 524290
 
-    REPORT_BBE_PM_NE = 524291
+    report_bbe_pm_ne = 524291
 
-    REPORT_FC_PM_NE = 524292
+    report_fc_pm_ne = 524292
 
-    REPORT_ESR_PM_NE = 524293
+    report_esr_pm_ne = 524293
 
-    REPORT_SESR_PM_NE = 524294
+    report_sesr_pm_ne = 524294
 
-    REPORT_BBER_PM_NE = 524295
+    report_bber_pm_ne = 524295
 
-    REPORT_ES_SM_FE = 1048584
+    report_es_sm_fe = 1048584
 
-    REPORT_SES_SM_FE = 1048585
+    report_ses_sm_fe = 1048585
 
-    REPORT_UAS_SM_FE = 1048586
+    report_uas_sm_fe = 1048586
 
-    REPORT_BBE_SM_FE = 1048587
+    report_bbe_sm_fe = 1048587
 
-    REPORT_FC_SM_FE = 1048588
+    report_fc_sm_fe = 1048588
 
-    REPORT_ESR_SM_FE = 1048589
+    report_esr_sm_fe = 1048589
 
-    REPORT_SESR_SM_FE = 1048590
+    report_sesr_sm_fe = 1048590
 
-    REPORT_BBER_SM_FE = 1048591
+    report_bber_sm_fe = 1048591
 
-    REPORT_ES_PM_FE = 2097160
+    report_es_pm_fe = 2097160
 
-    REPORT_SES_PM_FE = 2097161
+    report_ses_pm_fe = 2097161
 
-    REPORT_UAS_PM_FE = 2097162
+    report_uas_pm_fe = 2097162
 
-    REPORT_BBE_PM_FE = 2097163
+    report_bbe_pm_fe = 2097163
 
-    REPORT_FC_PM_FE = 2097164
+    report_fc_pm_fe = 2097164
 
-    REPORT_ESR_PM_FE = 2097165
+    report_esr_pm_fe = 2097165
 
-    REPORT_SESR_PM_FE = 2097166
+    report_sesr_pm_fe = 2097166
 
-    REPORT_BBER_PM_FE = 2097167
+    report_bber_pm_fe = 2097167
 
 
     @staticmethod
@@ -2025,103 +2025,103 @@ class OtnTcmReportEnum(Enum):
 
     Otn tcm report
 
-    .. data:: REPORT_ES_TCM_FE = 16777224
+    .. data:: report_es_tcm_fe = 16777224
 
     	PM Otn es TCM fe report
 
-    .. data:: REPORT_SES_TCM_FE = 16777225
+    .. data:: report_ses_tcm_fe = 16777225
 
     	PM Otn ses TCM fe report
 
-    .. data:: REPORT_UAS_TCM_FE = 16777226
+    .. data:: report_uas_tcm_fe = 16777226
 
     	PM Otn uas TCM fe report
 
-    .. data:: REPORT_BBE_TCM_FE = 16777227
+    .. data:: report_bbe_tcm_fe = 16777227
 
     	PM Otn bbe TCM fe report
 
-    .. data:: REPORT_FC_TCM_FE = 16777228
+    .. data:: report_fc_tcm_fe = 16777228
 
     	PM Otn fc TCM fe report
 
-    .. data:: REPORT_ESR_TCM_FE = 16777229
+    .. data:: report_esr_tcm_fe = 16777229
 
     	PM Otn esr TCM fe report
 
-    .. data:: REPORT_SESR_TCM_FE = 16777230
+    .. data:: report_sesr_tcm_fe = 16777230
 
     	PM Otn sesr TCM fe report
 
-    .. data:: REPORT_BBER_TCM_FE = 16777231
+    .. data:: report_bber_tcm_fe = 16777231
 
     	PM Otn bber TCM fe report
 
-    .. data:: REPORT_ES_TCM_NE = 33554432
+    .. data:: report_es_tcm_ne = 33554432
 
     	PM Otn es TCM ne report
 
-    .. data:: REPORT_SES_TCM_NE = 33554433
+    .. data:: report_ses_tcm_ne = 33554433
 
     	PM Otn ses TCM ne report
 
-    .. data:: REPORT_UAS_TCM_NE = 33554434
+    .. data:: report_uas_tcm_ne = 33554434
 
     	PM Otn uas TCM ne report
 
-    .. data:: REPORT_BBE_TCM_NE = 33554435
+    .. data:: report_bbe_tcm_ne = 33554435
 
     	PM Otn bbe TCM ne report
 
-    .. data:: REPORT_FC_TCM_NE = 33554436
+    .. data:: report_fc_tcm_ne = 33554436
 
     	PM Otn fc TCM ne report
 
-    .. data:: REPORT_ESR_TCM_NE = 33554437
+    .. data:: report_esr_tcm_ne = 33554437
 
     	PM Otn esr TCM ne report
 
-    .. data:: REPORT_SESR_TCM_NE = 33554438
+    .. data:: report_sesr_tcm_ne = 33554438
 
     	PM Otn sesr TCM ne report
 
-    .. data:: REPORT_BBER_TCM_NE = 33554439
+    .. data:: report_bber_tcm_ne = 33554439
 
     	PM Otn bber TCM ne report
 
     """
 
-    REPORT_ES_TCM_FE = 16777224
+    report_es_tcm_fe = 16777224
 
-    REPORT_SES_TCM_FE = 16777225
+    report_ses_tcm_fe = 16777225
 
-    REPORT_UAS_TCM_FE = 16777226
+    report_uas_tcm_fe = 16777226
 
-    REPORT_BBE_TCM_FE = 16777227
+    report_bbe_tcm_fe = 16777227
 
-    REPORT_FC_TCM_FE = 16777228
+    report_fc_tcm_fe = 16777228
 
-    REPORT_ESR_TCM_FE = 16777229
+    report_esr_tcm_fe = 16777229
 
-    REPORT_SESR_TCM_FE = 16777230
+    report_sesr_tcm_fe = 16777230
 
-    REPORT_BBER_TCM_FE = 16777231
+    report_bber_tcm_fe = 16777231
 
-    REPORT_ES_TCM_NE = 33554432
+    report_es_tcm_ne = 33554432
 
-    REPORT_SES_TCM_NE = 33554433
+    report_ses_tcm_ne = 33554433
 
-    REPORT_UAS_TCM_NE = 33554434
+    report_uas_tcm_ne = 33554434
 
-    REPORT_BBE_TCM_NE = 33554435
+    report_bbe_tcm_ne = 33554435
 
-    REPORT_FC_TCM_NE = 33554436
+    report_fc_tcm_ne = 33554436
 
-    REPORT_ESR_TCM_NE = 33554437
+    report_esr_tcm_ne = 33554437
 
-    REPORT_SESR_TCM_NE = 33554438
+    report_sesr_tcm_ne = 33554438
 
-    REPORT_BBER_TCM_NE = 33554439
+    report_bber_tcm_ne = 33554439
 
 
     @staticmethod
@@ -2136,103 +2136,103 @@ class OtnTcmThresholdEnum(Enum):
 
     Otn tcm threshold
 
-    .. data:: THRESH_ES_TCM_FE = 16777224
+    .. data:: thresh_es_tcm_fe = 16777224
 
     	PM Otn es TCM fe threshold
 
-    .. data:: THRESH_SES_TCM_FE = 16777225
+    .. data:: thresh_ses_tcm_fe = 16777225
 
     	PM Otn ses TCM fe threshold
 
-    .. data:: THRESH_UAS_TCM_FE = 16777226
+    .. data:: thresh_uas_tcm_fe = 16777226
 
     	PM Otn uas TCM fe threshold
 
-    .. data:: THRESH_BBE_TCM_FE = 16777227
+    .. data:: thresh_bbe_tcm_fe = 16777227
 
     	PM Otn bbe TCM fe threshold
 
-    .. data:: THRESH_FC_TCM_FE = 16777228
+    .. data:: thresh_fc_tcm_fe = 16777228
 
     	PM Otn fc TCM fe threshold
 
-    .. data:: THRESH_ESR_TCM_FE = 16777229
+    .. data:: thresh_esr_tcm_fe = 16777229
 
     	PM Otn esr TCM fe threshold
 
-    .. data:: THRESH_SESR_TCM_FE = 16777230
+    .. data:: thresh_sesr_tcm_fe = 16777230
 
     	PM Otn sesr TCM fe threshold
 
-    .. data:: THRESH_BBER_TCM_FE = 16777231
+    .. data:: thresh_bber_tcm_fe = 16777231
 
     	PM Otn bber TCM fe threshold
 
-    .. data:: THRESH_ES_TCM_NE = 33554432
+    .. data:: thresh_es_tcm_ne = 33554432
 
     	PM Otn es TCM ne threshold
 
-    .. data:: THRESH_SES_TCM_NE = 33554433
+    .. data:: thresh_ses_tcm_ne = 33554433
 
     	PM Otn ses TCM ne threshold
 
-    .. data:: THRESH_UAS_TCM_NE = 33554434
+    .. data:: thresh_uas_tcm_ne = 33554434
 
     	PM Otn uas TCM ne threshold
 
-    .. data:: THRESH_BBE_TCM_NE = 33554435
+    .. data:: thresh_bbe_tcm_ne = 33554435
 
     	PM Otn bbe TCM ne threshold
 
-    .. data:: THRESH_FC_TCM_NE = 33554436
+    .. data:: thresh_fc_tcm_ne = 33554436
 
     	PM Otn fc TCM ne threshold
 
-    .. data:: THRESH_ESR_TCM_NE = 33554437
+    .. data:: thresh_esr_tcm_ne = 33554437
 
     	PM Otn esr TCM ne threshold
 
-    .. data:: THRESH_SESR_TCM_NE = 33554438
+    .. data:: thresh_sesr_tcm_ne = 33554438
 
     	PM Otn sesr TCM ne threshold
 
-    .. data:: THRESH_BBER_TCM_NE = 33554439
+    .. data:: thresh_bber_tcm_ne = 33554439
 
     	PM Otn bber TCM ne threshold
 
     """
 
-    THRESH_ES_TCM_FE = 16777224
+    thresh_es_tcm_fe = 16777224
 
-    THRESH_SES_TCM_FE = 16777225
+    thresh_ses_tcm_fe = 16777225
 
-    THRESH_UAS_TCM_FE = 16777226
+    thresh_uas_tcm_fe = 16777226
 
-    THRESH_BBE_TCM_FE = 16777227
+    thresh_bbe_tcm_fe = 16777227
 
-    THRESH_FC_TCM_FE = 16777228
+    thresh_fc_tcm_fe = 16777228
 
-    THRESH_ESR_TCM_FE = 16777229
+    thresh_esr_tcm_fe = 16777229
 
-    THRESH_SESR_TCM_FE = 16777230
+    thresh_sesr_tcm_fe = 16777230
 
-    THRESH_BBER_TCM_FE = 16777231
+    thresh_bber_tcm_fe = 16777231
 
-    THRESH_ES_TCM_NE = 33554432
+    thresh_es_tcm_ne = 33554432
 
-    THRESH_SES_TCM_NE = 33554433
+    thresh_ses_tcm_ne = 33554433
 
-    THRESH_UAS_TCM_NE = 33554434
+    thresh_uas_tcm_ne = 33554434
 
-    THRESH_BBE_TCM_NE = 33554435
+    thresh_bbe_tcm_ne = 33554435
 
-    THRESH_FC_TCM_NE = 33554436
+    thresh_fc_tcm_ne = 33554436
 
-    THRESH_ESR_TCM_NE = 33554437
+    thresh_esr_tcm_ne = 33554437
 
-    THRESH_SESR_TCM_NE = 33554438
+    thresh_sesr_tcm_ne = 33554438
 
-    THRESH_BBER_TCM_NE = 33554439
+    thresh_bber_tcm_ne = 33554439
 
 
     @staticmethod
@@ -2247,199 +2247,199 @@ class OtnThresholdEnum(Enum):
 
     Otn threshold
 
-    .. data:: THRESH_ES_SM_NE = 262144
+    .. data:: thresh_es_sm_ne = 262144
 
     	PM Otn es sm ne threshold
 
-    .. data:: THRESH_SES_SM_NE = 262145
+    .. data:: thresh_ses_sm_ne = 262145
 
     	PM Otn ses sm ne threshold
 
-    .. data:: THRESH_UAS_SM_NE = 262146
+    .. data:: thresh_uas_sm_ne = 262146
 
     	PM Otn uas sm ne threshold
 
-    .. data:: THRESH_BBE_SM_NE = 262147
+    .. data:: thresh_bbe_sm_ne = 262147
 
     	PM Otn bbe sm ne threshold
 
-    .. data:: THRESH_FC_SM_NE = 262148
+    .. data:: thresh_fc_sm_ne = 262148
 
     	PM Otn fc sm ne threshold
 
-    .. data:: THRESH_ESR_SM_NE = 262149
+    .. data:: thresh_esr_sm_ne = 262149
 
     	PM Otn esr sm ne threshold
 
-    .. data:: THRESH_SESR_SM_NE = 262150
+    .. data:: thresh_sesr_sm_ne = 262150
 
     	PM Otn sesr sm ne threshold
 
-    .. data:: THRESH_BBER_SM_NE = 262151
+    .. data:: thresh_bber_sm_ne = 262151
 
     	PM Otn bber sm ne threshold
 
-    .. data:: THRESH_ES_PM_NE = 524288
+    .. data:: thresh_es_pm_ne = 524288
 
     	PM Otn es pm ne threshold
 
-    .. data:: THRESH_SES_PM_NE = 524289
+    .. data:: thresh_ses_pm_ne = 524289
 
     	PM Otn ses pm ne threshold
 
-    .. data:: THRESH_UAS_PM_NE = 524290
+    .. data:: thresh_uas_pm_ne = 524290
 
     	PM Otn uas pm ne threshold
 
-    .. data:: THRESH_BBE_PM_NE = 524291
+    .. data:: thresh_bbe_pm_ne = 524291
 
     	PM Otn bbe pm ne threshold
 
-    .. data:: THRESH_FC_PM_NE = 524292
+    .. data:: thresh_fc_pm_ne = 524292
 
     	PM Otn fc pm ne threshold
 
-    .. data:: THRESH_ESR_PM_NE = 524293
+    .. data:: thresh_esr_pm_ne = 524293
 
     	PM Otn esr pm ne threshold
 
-    .. data:: THRESH_SESR_PM_NE = 524294
+    .. data:: thresh_sesr_pm_ne = 524294
 
     	PM Otn sesr pm ne threshold
 
-    .. data:: THRESH_BBER_PM_NE = 524295
+    .. data:: thresh_bber_pm_ne = 524295
 
     	PM Otn bber pm ne threshold
 
-    .. data:: THRESH_ES_SM_FE = 1048584
+    .. data:: thresh_es_sm_fe = 1048584
 
     	PM Otn es sm fe threshold
 
-    .. data:: THRESH_SES_SM_FE = 1048585
+    .. data:: thresh_ses_sm_fe = 1048585
 
     	PM Otn ses sm fe threshold
 
-    .. data:: THRESH_UAS_SM_FE = 1048586
+    .. data:: thresh_uas_sm_fe = 1048586
 
     	PM Otn uas sm fe threshold
 
-    .. data:: THRESH_BBE_SM_FE = 1048587
+    .. data:: thresh_bbe_sm_fe = 1048587
 
     	PM Otn bbe sm fe threshold
 
-    .. data:: THRESH_FC_SM_FE = 1048588
+    .. data:: thresh_fc_sm_fe = 1048588
 
     	PM Otn fc sm fe threshold
 
-    .. data:: THRESH_ESR_SM_FE = 1048589
+    .. data:: thresh_esr_sm_fe = 1048589
 
     	PM Otn esr sm fe threshold
 
-    .. data:: THRESH_SESR_SM_FE = 1048590
+    .. data:: thresh_sesr_sm_fe = 1048590
 
     	PM Otn sesr sm fe threshold
 
-    .. data:: THRESH_BBER_SM_FE = 1048591
+    .. data:: thresh_bber_sm_fe = 1048591
 
     	PM Otn bber sm fe threshold
 
-    .. data:: THRESH_ES_PM_FE = 2097160
+    .. data:: thresh_es_pm_fe = 2097160
 
     	PM Otn es pm fe threshold
 
-    .. data:: THRESH_SES_PM_FE = 2097161
+    .. data:: thresh_ses_pm_fe = 2097161
 
     	PM Otn ses pm fe threshold
 
-    .. data:: THRESH_UAS_PM_FE = 2097162
+    .. data:: thresh_uas_pm_fe = 2097162
 
     	PM Otn uas pm fe threshold
 
-    .. data:: THRESH_BBE_PM_FE = 2097163
+    .. data:: thresh_bbe_pm_fe = 2097163
 
     	PM Otn bbe pm fe threshold
 
-    .. data:: THRESH_FC_PM_FE = 2097164
+    .. data:: thresh_fc_pm_fe = 2097164
 
     	PM Otn fc pm fe threshold
 
-    .. data:: THRESH_ESR_PM_FE = 2097165
+    .. data:: thresh_esr_pm_fe = 2097165
 
     	PM Otn esr pm fe threshold
 
-    .. data:: THRESH_SESR_PM_FE = 2097166
+    .. data:: thresh_sesr_pm_fe = 2097166
 
     	PM Otn sesr pm fe threshold
 
-    .. data:: THRESH_BBER_PM_FE = 2097167
+    .. data:: thresh_bber_pm_fe = 2097167
 
     	PM Otn bber pm fe threshold
 
     """
 
-    THRESH_ES_SM_NE = 262144
+    thresh_es_sm_ne = 262144
 
-    THRESH_SES_SM_NE = 262145
+    thresh_ses_sm_ne = 262145
 
-    THRESH_UAS_SM_NE = 262146
+    thresh_uas_sm_ne = 262146
 
-    THRESH_BBE_SM_NE = 262147
+    thresh_bbe_sm_ne = 262147
 
-    THRESH_FC_SM_NE = 262148
+    thresh_fc_sm_ne = 262148
 
-    THRESH_ESR_SM_NE = 262149
+    thresh_esr_sm_ne = 262149
 
-    THRESH_SESR_SM_NE = 262150
+    thresh_sesr_sm_ne = 262150
 
-    THRESH_BBER_SM_NE = 262151
+    thresh_bber_sm_ne = 262151
 
-    THRESH_ES_PM_NE = 524288
+    thresh_es_pm_ne = 524288
 
-    THRESH_SES_PM_NE = 524289
+    thresh_ses_pm_ne = 524289
 
-    THRESH_UAS_PM_NE = 524290
+    thresh_uas_pm_ne = 524290
 
-    THRESH_BBE_PM_NE = 524291
+    thresh_bbe_pm_ne = 524291
 
-    THRESH_FC_PM_NE = 524292
+    thresh_fc_pm_ne = 524292
 
-    THRESH_ESR_PM_NE = 524293
+    thresh_esr_pm_ne = 524293
 
-    THRESH_SESR_PM_NE = 524294
+    thresh_sesr_pm_ne = 524294
 
-    THRESH_BBER_PM_NE = 524295
+    thresh_bber_pm_ne = 524295
 
-    THRESH_ES_SM_FE = 1048584
+    thresh_es_sm_fe = 1048584
 
-    THRESH_SES_SM_FE = 1048585
+    thresh_ses_sm_fe = 1048585
 
-    THRESH_UAS_SM_FE = 1048586
+    thresh_uas_sm_fe = 1048586
 
-    THRESH_BBE_SM_FE = 1048587
+    thresh_bbe_sm_fe = 1048587
 
-    THRESH_FC_SM_FE = 1048588
+    thresh_fc_sm_fe = 1048588
 
-    THRESH_ESR_SM_FE = 1048589
+    thresh_esr_sm_fe = 1048589
 
-    THRESH_SESR_SM_FE = 1048590
+    thresh_sesr_sm_fe = 1048590
 
-    THRESH_BBER_SM_FE = 1048591
+    thresh_bber_sm_fe = 1048591
 
-    THRESH_ES_PM_FE = 2097160
+    thresh_es_pm_fe = 2097160
 
-    THRESH_SES_PM_FE = 2097161
+    thresh_ses_pm_fe = 2097161
 
-    THRESH_UAS_PM_FE = 2097162
+    thresh_uas_pm_fe = 2097162
 
-    THRESH_BBE_PM_FE = 2097163
+    thresh_bbe_pm_fe = 2097163
 
-    THRESH_FC_PM_FE = 2097164
+    thresh_fc_pm_fe = 2097164
 
-    THRESH_ESR_PM_FE = 2097165
+    thresh_esr_pm_fe = 2097165
 
-    THRESH_SESR_PM_FE = 2097166
+    thresh_sesr_pm_fe = 2097166
 
-    THRESH_BBER_PM_FE = 2097167
+    thresh_bber_pm_fe = 2097167
 
 
     @staticmethod
@@ -2454,31 +2454,31 @@ class PathReportEnum(Enum):
 
     Path report
 
-    .. data:: REPORT_CV = 5242880
+    .. data:: report_cv = 5242880
 
     	PM CV threshold
 
-    .. data:: REPORT_ES = 5242881
+    .. data:: report_es = 5242881
 
     	PM ES threshold
 
-    .. data:: REPORT_SES = 5242882
+    .. data:: report_ses = 5242882
 
     	PM SES threshold
 
-    .. data:: REPORT_UAS = 5242883
+    .. data:: report_uas = 5242883
 
     	PM UAS threshold
 
     """
 
-    REPORT_CV = 5242880
+    report_cv = 5242880
 
-    REPORT_ES = 5242881
+    report_es = 5242881
 
-    REPORT_SES = 5242882
+    report_ses = 5242882
 
-    REPORT_UAS = 5242883
+    report_uas = 5242883
 
 
     @staticmethod
@@ -2493,31 +2493,31 @@ class PathThresholdEnum(Enum):
 
     Path threshold
 
-    .. data:: THRESH_CV = 5242880
+    .. data:: thresh_cv = 5242880
 
     	PM CV threshold
 
-    .. data:: THRESH_ES = 5242881
+    .. data:: thresh_es = 5242881
 
     	PM ES threshold
 
-    .. data:: THRESH_SES = 5242882
+    .. data:: thresh_ses = 5242882
 
     	PM SES threshold
 
-    .. data:: THRESH_UAS = 5242883
+    .. data:: thresh_uas = 5242883
 
     	PM UAS threshold
 
     """
 
-    THRESH_CV = 5242880
+    thresh_cv = 5242880
 
-    THRESH_ES = 5242881
+    thresh_es = 5242881
 
-    THRESH_SES = 5242882
+    thresh_ses = 5242882
 
-    THRESH_UAS = 5242883
+    thresh_uas = 5242883
 
 
     @staticmethod
@@ -2532,19 +2532,19 @@ class ReportEnum(Enum):
 
     Report
 
-    .. data:: FALSE = 0
+    .. data:: false = 0
 
     	Performance Monitoring Disabled
 
-    .. data:: TRUE = 1
+    .. data:: true = 1
 
     	Performance Monitoring Enabled
 
     """
 
-    FALSE = 0
+    false = 0
 
-    TRUE = 1
+    true = 1
 
 
     @staticmethod
@@ -2559,151 +2559,151 @@ class StmReportEnum(Enum):
 
     Stm report
 
-    .. data:: REPORT_EBS = 16777217
+    .. data:: report_ebs = 16777217
 
     	PM EBS REPORT
 
-    .. data:: REPORT_ESS = 16777218
+    .. data:: report_ess = 16777218
 
     	PM ESS REPORT
 
-    .. data:: REPORT_ESRS = 16777219
+    .. data:: report_esrs = 16777219
 
     	PM ESRS REPORT
 
-    .. data:: REPORT_SESS = 16777220
+    .. data:: report_sess = 16777220
 
     	PM SES REPORT
 
-    .. data:: REPORT_SESRS = 16777221
+    .. data:: report_sesrs = 16777221
 
     	PM SESR REPORT
 
-    .. data:: REPORT_BBES = 16777222
+    .. data:: report_bbes = 16777222
 
     	PM BBES REPORT
 
-    .. data:: REPORT_BBESR = 16777223
+    .. data:: report_bbesr = 16777223
 
     	PM BBESR REPORT
 
-    .. data:: REPORT_UASS = 16777224
+    .. data:: report_uass = 16777224
 
     	PM UASS REPORT
 
-    .. data:: REPORT_EBL_NE = 16777225
+    .. data:: report_ebl_ne = 16777225
 
     	PM EBLNE REPORT
 
-    .. data:: REPORT_ESL_NE = 16777226
+    .. data:: report_esl_ne = 16777226
 
     	PM ESLNE REPORT
 
-    .. data:: REPORT_ESLR_NE = 16777227
+    .. data:: report_eslr_ne = 16777227
 
     	PM ESLRNE REPORT
 
-    .. data:: REPORT_SESL_NE = 16777228
+    .. data:: report_sesl_ne = 16777228
 
     	PM SESL REPORT
 
-    .. data:: REPORT_SESRL_NE = 16777229
+    .. data:: report_sesrl_ne = 16777229
 
     	PM SESRL REPORT
 
-    .. data:: REPORT_BBEL_NE = 16777230
+    .. data:: report_bbel_ne = 16777230
 
     	PM BBELNE REPORT
 
-    .. data:: REPORT_BBERL_NE = 16777231
+    .. data:: report_bberl_ne = 16777231
 
     	PM BBERLNE REPORT
 
-    .. data:: REPORT_UASL_NE = 16777232
+    .. data:: report_uasl_ne = 16777232
 
     	PM UASNE REPORT
 
-    .. data:: REPORT_EBL_FE = 16777245
+    .. data:: report_ebl_fe = 16777245
 
     	PM EBFE REPORT
 
-    .. data:: REPORT_ESL_FE = 16777246
+    .. data:: report_esl_fe = 16777246
 
     	PM ESFE REPORT
 
-    .. data:: REPORT_ESRL_FE = 16777247
+    .. data:: report_esrl_fe = 16777247
 
     	PM EBFE REPORT
 
-    .. data:: REPORT_SESL_FE = 16777248
+    .. data:: report_sesl_fe = 16777248
 
     	PM SESFE REPORT
 
-    .. data:: REPORT_SESRL_FE = 16777249
+    .. data:: report_sesrl_fe = 16777249
 
     	PM SESRLFE REPORT
 
-    .. data:: REPORT_BBEL_FE = 16777250
+    .. data:: report_bbel_fe = 16777250
 
     	PM BBELFE REPORT
 
-    .. data:: REPORT_BBERL_FE = 16777251
+    .. data:: report_bberl_fe = 16777251
 
     	PM ESFE REPORT
 
-    .. data:: REPORT_UASL_FE = 16777252
+    .. data:: report_uasl_fe = 16777252
 
     	PM UASLFE REPORT
 
     """
 
-    REPORT_EBS = 16777217
+    report_ebs = 16777217
 
-    REPORT_ESS = 16777218
+    report_ess = 16777218
 
-    REPORT_ESRS = 16777219
+    report_esrs = 16777219
 
-    REPORT_SESS = 16777220
+    report_sess = 16777220
 
-    REPORT_SESRS = 16777221
+    report_sesrs = 16777221
 
-    REPORT_BBES = 16777222
+    report_bbes = 16777222
 
-    REPORT_BBESR = 16777223
+    report_bbesr = 16777223
 
-    REPORT_UASS = 16777224
+    report_uass = 16777224
 
-    REPORT_EBL_NE = 16777225
+    report_ebl_ne = 16777225
 
-    REPORT_ESL_NE = 16777226
+    report_esl_ne = 16777226
 
-    REPORT_ESLR_NE = 16777227
+    report_eslr_ne = 16777227
 
-    REPORT_SESL_NE = 16777228
+    report_sesl_ne = 16777228
 
-    REPORT_SESRL_NE = 16777229
+    report_sesrl_ne = 16777229
 
-    REPORT_BBEL_NE = 16777230
+    report_bbel_ne = 16777230
 
-    REPORT_BBERL_NE = 16777231
+    report_bberl_ne = 16777231
 
-    REPORT_UASL_NE = 16777232
+    report_uasl_ne = 16777232
 
-    REPORT_EBL_FE = 16777245
+    report_ebl_fe = 16777245
 
-    REPORT_ESL_FE = 16777246
+    report_esl_fe = 16777246
 
-    REPORT_ESRL_FE = 16777247
+    report_esrl_fe = 16777247
 
-    REPORT_SESL_FE = 16777248
+    report_sesl_fe = 16777248
 
-    REPORT_SESRL_FE = 16777249
+    report_sesrl_fe = 16777249
 
-    REPORT_BBEL_FE = 16777250
+    report_bbel_fe = 16777250
 
-    REPORT_BBERL_FE = 16777251
+    report_bberl_fe = 16777251
 
-    REPORT_UASL_FE = 16777252
+    report_uasl_fe = 16777252
 
 
     @staticmethod
@@ -2718,151 +2718,151 @@ class StmThresholdEnum(Enum):
 
     Stm threshold
 
-    .. data:: THRESH_EBS = 16777217
+    .. data:: thresh_ebs = 16777217
 
     	PM EBS threshold
 
-    .. data:: THRESH_ESS = 16777218
+    .. data:: thresh_ess = 16777218
 
     	PM ESS threshold
 
-    .. data:: THRESH_ESRS = 16777219
+    .. data:: thresh_esrs = 16777219
 
     	PM ESRS threshold
 
-    .. data:: THRESH_SESS = 16777220
+    .. data:: thresh_sess = 16777220
 
     	PM SES threshold
 
-    .. data:: THRESH_SESRS = 16777221
+    .. data:: thresh_sesrs = 16777221
 
     	PM SESR threshold
 
-    .. data:: THRESH_BBES = 16777222
+    .. data:: thresh_bbes = 16777222
 
     	PM BBES threshold
 
-    .. data:: THRESH_BBESR = 16777223
+    .. data:: thresh_bbesr = 16777223
 
     	PM BBESR threshold
 
-    .. data:: THRESH_UASS = 16777224
+    .. data:: thresh_uass = 16777224
 
     	PM UASS threshold
 
-    .. data:: THRESH_EBL_NE = 16777225
+    .. data:: thresh_ebl_ne = 16777225
 
     	PM EBLNE threshold
 
-    .. data:: THRESH_ESL_NE = 16777226
+    .. data:: thresh_esl_ne = 16777226
 
     	PM ESLNE threshold
 
-    .. data:: THRESH_ESLR_NE = 16777227
+    .. data:: thresh_eslr_ne = 16777227
 
     	PM ESLRNE threshold
 
-    .. data:: THRESH_SESL_NE = 16777228
+    .. data:: thresh_sesl_ne = 16777228
 
     	PM SESL threshold
 
-    .. data:: THRESH_SESRL_NE = 16777229
+    .. data:: thresh_sesrl_ne = 16777229
 
     	PM SESRL threshold
 
-    .. data:: THRESH_BBEL_NE = 16777230
+    .. data:: thresh_bbel_ne = 16777230
 
     	PM BBERLNE threshold
 
-    .. data:: THRESH_BBERL_NE = 16777231
+    .. data:: thresh_bberl_ne = 16777231
 
     	PM BBERLNE threshold
 
-    .. data:: THRESH_UASL_NE = 16777232
+    .. data:: thresh_uasl_ne = 16777232
 
     	PM UASNE threshold
 
-    .. data:: THRESH_EBL_FE = 16777245
+    .. data:: thresh_ebl_fe = 16777245
 
     	PM EBFE threshold
 
-    .. data:: THRESH_ESL_FE = 16777246
+    .. data:: thresh_esl_fe = 16777246
 
     	PM ESFE threshold
 
-    .. data:: THRESH_ESRL_FE = 16777247
+    .. data:: thresh_esrl_fe = 16777247
 
     	PM EBFE threshold
 
-    .. data:: THRESH_SESL_FE = 16777248
+    .. data:: thresh_sesl_fe = 16777248
 
     	PM SESFE threshold
 
-    .. data:: THRESH_SESRL_FE = 16777249
+    .. data:: thresh_sesrl_fe = 16777249
 
     	PM SESRLFE threshold
 
-    .. data:: THRESH_BBEL_FE = 16777250
+    .. data:: thresh_bbel_fe = 16777250
 
     	PM BBEL threshold
 
-    .. data:: THRESH_BBERL_FE = 16777251
+    .. data:: thresh_bberl_fe = 16777251
 
     	PM BBELFE threshold
 
-    .. data:: THRESH_UASL_FE = 16777252
+    .. data:: thresh_uasl_fe = 16777252
 
     	PM UASLFE threshold
 
     """
 
-    THRESH_EBS = 16777217
+    thresh_ebs = 16777217
 
-    THRESH_ESS = 16777218
+    thresh_ess = 16777218
 
-    THRESH_ESRS = 16777219
+    thresh_esrs = 16777219
 
-    THRESH_SESS = 16777220
+    thresh_sess = 16777220
 
-    THRESH_SESRS = 16777221
+    thresh_sesrs = 16777221
 
-    THRESH_BBES = 16777222
+    thresh_bbes = 16777222
 
-    THRESH_BBESR = 16777223
+    thresh_bbesr = 16777223
 
-    THRESH_UASS = 16777224
+    thresh_uass = 16777224
 
-    THRESH_EBL_NE = 16777225
+    thresh_ebl_ne = 16777225
 
-    THRESH_ESL_NE = 16777226
+    thresh_esl_ne = 16777226
 
-    THRESH_ESLR_NE = 16777227
+    thresh_eslr_ne = 16777227
 
-    THRESH_SESL_NE = 16777228
+    thresh_sesl_ne = 16777228
 
-    THRESH_SESRL_NE = 16777229
+    thresh_sesrl_ne = 16777229
 
-    THRESH_BBEL_NE = 16777230
+    thresh_bbel_ne = 16777230
 
-    THRESH_BBERL_NE = 16777231
+    thresh_bberl_ne = 16777231
 
-    THRESH_UASL_NE = 16777232
+    thresh_uasl_ne = 16777232
 
-    THRESH_EBL_FE = 16777245
+    thresh_ebl_fe = 16777245
 
-    THRESH_ESL_FE = 16777246
+    thresh_esl_fe = 16777246
 
-    THRESH_ESRL_FE = 16777247
+    thresh_esrl_fe = 16777247
 
-    THRESH_SESL_FE = 16777248
+    thresh_sesl_fe = 16777248
 
-    THRESH_SESRL_FE = 16777249
+    thresh_sesrl_fe = 16777249
 
-    THRESH_BBEL_FE = 16777250
+    thresh_bbel_fe = 16777250
 
-    THRESH_BBERL_FE = 16777251
+    thresh_bberl_fe = 16777251
 
-    THRESH_UASL_FE = 16777252
+    thresh_uasl_fe = 16777252
 
 
     @staticmethod
@@ -2877,31 +2877,31 @@ class StsReportEnum(Enum):
 
     Sts report
 
-    .. data:: REPORT_CV = 4194304
+    .. data:: report_cv = 4194304
 
     	PM CV threshold
 
-    .. data:: REPORT_ES = 4194305
+    .. data:: report_es = 4194305
 
     	PM ES threshold
 
-    .. data:: REPORT_SES = 4194306
+    .. data:: report_ses = 4194306
 
     	PM SES threshold
 
-    .. data:: REPORT_UAS = 4194307
+    .. data:: report_uas = 4194307
 
     	PM UAS threshold
 
     """
 
-    REPORT_CV = 4194304
+    report_cv = 4194304
 
-    REPORT_ES = 4194305
+    report_es = 4194305
 
-    REPORT_SES = 4194306
+    report_ses = 4194306
 
-    REPORT_UAS = 4194307
+    report_uas = 4194307
 
 
     @staticmethod
@@ -2916,31 +2916,31 @@ class StsThresholdEnum(Enum):
 
     Sts threshold
 
-    .. data:: THRESH_CV = 4194304
+    .. data:: thresh_cv = 4194304
 
     	PM CV threshold
 
-    .. data:: THRESH_ES = 4194305
+    .. data:: thresh_es = 4194305
 
     	PM ES threshold
 
-    .. data:: THRESH_SES = 4194306
+    .. data:: thresh_ses = 4194306
 
     	PM SES threshold
 
-    .. data:: THRESH_UAS = 4194307
+    .. data:: thresh_uas = 4194307
 
     	PM UAS threshold
 
     """
 
-    THRESH_CV = 4194304
+    thresh_cv = 4194304
 
-    THRESH_ES = 4194305
+    thresh_es = 4194305
 
-    THRESH_SES = 4194306
+    thresh_ses = 4194306
 
-    THRESH_UAS = 4194307
+    thresh_uas = 4194307
 
 
     @staticmethod

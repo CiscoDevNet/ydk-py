@@ -30,19 +30,19 @@ class NfmgrFemEdmExpVerEnum(Enum):
 
     Netflow export version
 
-    .. data:: V9 = 0
+    .. data:: v9 = 0
 
     	Version 9 export format
 
-    .. data:: IP_FIX = 1
+    .. data:: ip_fix = 1
 
     	IPFIX export format
 
     """
 
-    V9 = 0
+    v9 = 0
 
-    IP_FIX = 1
+    ip_fix = 1
 
 
     @staticmethod
@@ -57,19 +57,19 @@ class NfmgrFemEdmTransProtoEnum(Enum):
 
     Netflow export transport protocol
 
-    .. data:: UNSPECIFIED = 0
+    .. data:: unspecified = 0
 
     	Unspecified transport protocol
 
-    .. data:: UDP = 1
+    .. data:: udp = 1
 
     	UDP transport protocol
 
     """
 
-    UNSPECIFIED = 0
+    unspecified = 0
 
-    UDP = 1
+    udp = 1
 
 
     @staticmethod
@@ -86,12 +86,12 @@ class NetFlow(object):
     .. attribute:: configuration
     
     	NetFlow configuration information
-    	**type**\:  :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration>`
+    	**type**\:   :py:class:`Configuration <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration>`
     
     .. attribute:: statistics
     
     	Node\-specific NetFlow statistics information
-    	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics>`
+    	**type**\:   :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics>`
     
     
 
@@ -114,17 +114,17 @@ class NetFlow(object):
         .. attribute:: flow_exporter_maps
         
         	Flow exporter map configuration information
-        	**type**\:  :py:class:`FlowExporterMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps>`
+        	**type**\:   :py:class:`FlowExporterMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps>`
         
         .. attribute:: flow_monitor_maps
         
         	Flow monitor map configuration information
-        	**type**\:  :py:class:`FlowMonitorMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowMonitorMaps>`
+        	**type**\:   :py:class:`FlowMonitorMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowMonitorMaps>`
         
         .. attribute:: flow_sampler_maps
         
         	Flow sampler map configuration information
-        	**type**\:  :py:class:`FlowSamplerMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowSamplerMaps>`
+        	**type**\:   :py:class:`FlowSamplerMaps <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowSamplerMaps>`
         
         
 
@@ -150,7 +150,7 @@ class NetFlow(object):
             .. attribute:: flow_exporter_map
             
             	Flow exporter map information
-            	**type**\: list of  :py:class:`FlowExporterMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap>`
+            	**type**\: list of    :py:class:`FlowExporterMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap>`
             
             
 
@@ -180,7 +180,7 @@ class NetFlow(object):
                 .. attribute:: collector
                 
                 	Export collector array
-                	**type**\: list of  :py:class:`Collector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector>`
+                	**type**\: list of    :py:class:`Collector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Collector>`
                 
                 .. attribute:: id
                 
@@ -197,7 +197,7 @@ class NetFlow(object):
                 .. attribute:: version
                 
                 	Export version data
-                	**type**\:  :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version>`
+                	**type**\:   :py:class:`Version <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version>`
                 
                 
 
@@ -225,17 +225,17 @@ class NetFlow(object):
                     .. attribute:: ipfix
                     
                     	ipfix
-                    	**type**\:  :py:class:`Ipfix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix>`
+                    	**type**\:   :py:class:`Ipfix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Ipfix>`
                     
                     .. attribute:: version
                     
                     	version
-                    	**type**\:  :py:class:`NfmgrFemEdmExpVerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmExpVerEnum>`
+                    	**type**\:   :py:class:`NfmgrFemEdmExpVerEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmExpVerEnum>`
                     
                     .. attribute:: version9
                     
                     	version9
-                    	**type**\:  :py:class:`Version9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9>`
+                    	**type**\:   :py:class:`Version9 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9>`
                     
                     
 
@@ -264,12 +264,16 @@ class NetFlow(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: data_template_export_timeout
                         
                         	Data template export timeout in seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: interface_table_export_timeout
                         
@@ -278,12 +282,16 @@ class NetFlow(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: options_template_export_timeout
                         
                         	Options template export timeout in seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: sampler_table_export_timeout
                         
@@ -292,12 +300,16 @@ class NetFlow(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: vrf_table_export_timeout
                         
                         	VRF table export timeout in seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -366,12 +378,16 @@ class NetFlow(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: data_template_export_timeout
                         
                         	Data template export timeout in seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: interface_table_export_timeout
                         
@@ -380,12 +396,16 @@ class NetFlow(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: options_template_export_timeout
                         
                         	Options template export timeout in seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         .. attribute:: sampler_table_export_timeout
                         
@@ -394,12 +414,16 @@ class NetFlow(object):
                         
                         	**range:** 0..4294967295
                         
+                        	**units**\: second
+                        
                         .. attribute:: vrf_table_export_timeout
                         
                         	VRF table export timeout in seconds
                         	**type**\:  int
                         
                         	**range:** 0..4294967295
+                        
+                        	**units**\: second
                         
                         
 
@@ -523,7 +547,7 @@ class NetFlow(object):
                     .. attribute:: transport_protocol
                     
                     	Transport protocol
-                    	**type**\:  :py:class:`NfmgrFemEdmTransProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmTransProtoEnum>`
+                    	**type**\:   :py:class:`NfmgrFemEdmTransProtoEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NfmgrFemEdmTransProtoEnum>`
                     
                     .. attribute:: vrf_name
                     
@@ -659,7 +683,7 @@ class NetFlow(object):
             .. attribute:: flow_monitor_map
             
             	Flow monitor map information
-            	**type**\: list of  :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap>`
+            	**type**\: list of    :py:class:`FlowMonitorMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap>`
             
             
 
@@ -693,6 +717,8 @@ class NetFlow(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: cache_aging_mode
                 
                 	Aging mode for flow cache
@@ -704,6 +730,8 @@ class NetFlow(object):
                 	**type**\:  int
                 
                 	**range:** 0..4294967295
+                
+                	**units**\: second
                 
                 .. attribute:: cache_max_entry
                 
@@ -726,10 +754,12 @@ class NetFlow(object):
                 
                 	**range:** 0..4294967295
                 
+                	**units**\: second
+                
                 .. attribute:: exporter
                 
                 	Name of the flow exporters used by the flow monitor
-                	**type**\: list of  :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap.Exporter>`
+                	**type**\: list of    :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowMonitorMaps.FlowMonitorMap.Exporter>`
                 
                 .. attribute:: id
                 
@@ -927,7 +957,7 @@ class NetFlow(object):
             .. attribute:: flow_sampler_map
             
             	Flow sampler map information
-            	**type**\: list of  :py:class:`FlowSamplerMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowSamplerMaps.FlowSamplerMap>`
+            	**type**\: list of    :py:class:`FlowSamplerMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Configuration.FlowSamplerMaps.FlowSamplerMap>`
             
             
 
@@ -1078,7 +1108,7 @@ class NetFlow(object):
         .. attribute:: statistic
         
         	NetFlow statistics information for a particular node
-        	**type**\: list of  :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic>`
+        	**type**\: list of    :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic>`
         
         
 
@@ -1109,12 +1139,12 @@ class NetFlow(object):
             .. attribute:: producer
             
             	NetFlow producer statistics
-            	**type**\:  :py:class:`Producer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Producer>`
+            	**type**\:   :py:class:`Producer <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Producer>`
             
             .. attribute:: server
             
             	NetFlow server statistics
-            	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server>`
+            	**type**\:   :py:class:`Server <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server>`
             
             
 
@@ -1139,7 +1169,7 @@ class NetFlow(object):
                 .. attribute:: statistics
                 
                 	Statistics information
-                	**type**\:  :py:class:`Statistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Producer.Statistics>`
+                	**type**\:   :py:class:`Statistics_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Producer.Statistics_>`
                 
                 
 
@@ -1150,11 +1180,11 @@ class NetFlow(object):
 
                 def __init__(self):
                     self.parent = None
-                    self.statistics = NetFlow.Statistics.Statistic.Producer.Statistics()
+                    self.statistics = NetFlow.Statistics.Statistic.Producer.Statistics_()
                     self.statistics.parent = self
 
 
-                class Statistics(object):
+                class Statistics_(object):
                     """
                     Statistics information
                     
@@ -1339,7 +1369,7 @@ class NetFlow(object):
                     @staticmethod
                     def _meta_info():
                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
-                        return meta._meta_table['NetFlow.Statistics.Statistic.Producer.Statistics']['meta_info']
+                        return meta._meta_table['NetFlow.Statistics.Statistic.Producer.Statistics_']['meta_info']
 
                 @property
                 def _common_path(self):
@@ -1373,7 +1403,7 @@ class NetFlow(object):
                 .. attribute:: flow_exporters
                 
                 	Flow exporter information
-                	**type**\:  :py:class:`FlowExporters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters>`
+                	**type**\:   :py:class:`FlowExporters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters>`
                 
                 
 
@@ -1395,7 +1425,7 @@ class NetFlow(object):
                     .. attribute:: flow_exporter
                     
                     	Exporter information
-                    	**type**\: list of  :py:class:`FlowExporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter>`
+                    	**type**\: list of    :py:class:`FlowExporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter>`
                     
                     
 
@@ -1425,7 +1455,7 @@ class NetFlow(object):
                         .. attribute:: exporter
                         
                         	Statistics information for the exporter
-                        	**type**\:  :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter>`
+                        	**type**\:   :py:class:`Exporter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter>`
                         
                         
 
@@ -1448,7 +1478,7 @@ class NetFlow(object):
                             .. attribute:: statistic
                             
                             	Array of flow exporters
-                            	**type**\: list of  :py:class:`Statistic <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic>`
+                            	**type**\: list of    :py:class:`Statistic_ <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_>`
                             
                             
 
@@ -1464,14 +1494,14 @@ class NetFlow(object):
                                 self.statistic.name = 'statistic'
 
 
-                            class Statistic(object):
+                            class Statistic_(object):
                                 """
                                 Array of flow exporters
                                 
                                 .. attribute:: collector
                                 
                                 	Statistics of all collectors
-                                	**type**\: list of  :py:class:`Collector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector>`
+                                	**type**\: list of    :py:class:`Collector <ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper.NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector>`
                                 
                                 .. attribute:: memory_usage
                                 
@@ -1520,12 +1550,16 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: bytes_sent
                                     
                                     	Bytes sent
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: destination_address
                                     
@@ -1551,12 +1585,16 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: flow_bytes_sent
                                     
                                     	Flow bytes sent
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: flows_dropped
                                     
@@ -1579,6 +1617,8 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: last_hour_flows_sent
                                     
                                     	Total flows exported over the of last one hour
@@ -1600,6 +1640,8 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: last_minute_flows_sent
                                     
                                     	Total flows exported over the last one minute
@@ -1620,6 +1662,8 @@ class NetFlow(object):
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: last_second_flows_sent
                                     
@@ -1649,6 +1693,8 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: option_data_dropped
                                     
                                     	Option data dropped
@@ -1670,12 +1716,16 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: option_template_bytes_sent
                                     
                                     	Option template bytes sent
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: option_templates_dropped
                                     
@@ -1724,12 +1774,16 @@ class NetFlow(object):
                                     
                                     	**range:** 0..18446744073709551615
                                     
+                                    	**units**\: byte
+                                    
                                     .. attribute:: template_bytes_sent
                                     
                                     	Template bytes sent
                                     	**type**\:  int
                                     
                                     	**range:** 0..18446744073709551615
+                                    
+                                    	**units**\: byte
                                     
                                     .. attribute:: templates_dropped
                                     
@@ -1928,7 +1982,7 @@ class NetFlow(object):
                                     @staticmethod
                                     def _meta_info():
                                         from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
-                                        return meta._meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector']['meta_info']
+                                        return meta._meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector']['meta_info']
 
                                 @property
                                 def _common_path(self):
@@ -1965,7 +2019,7 @@ class NetFlow(object):
                                 @staticmethod
                                 def _meta_info():
                                     from ydk.models.cisco_ios_xr._meta import _Cisco_IOS_XR_asr9k_netflow_oper as meta
-                                    return meta._meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic']['meta_info']
+                                    return meta._meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_']['meta_info']
 
                             @property
                             def _common_path(self):

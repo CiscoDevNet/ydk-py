@@ -31,8 +31,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg'
         ),
     },
-    'Parser.Alias.Execs.Exec' : {
-        'meta_info' : _MetaInfoClass('Parser.Alias.Execs.Exec',
+    'Parser.Alias.Execs.Exec_' : {
+        'meta_info' : _MetaInfoClass('Parser.Alias.Execs.Exec_',
             False, 
             [
             _MetaInfoClassMember('identifier', ATTRIBUTE, 'str' , None, None, 
@@ -58,7 +58,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('Parser.Alias.Execs',
             False, 
             [
-            _MetaInfoClassMember('exec', REFERENCE_LIST, 'Exec' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Execs.Exec', 
+            _MetaInfoClassMember('exec', REFERENCE_LIST, 'Exec_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg', 'Parser.Alias.Execs.Exec_', 
                 [], [], 
                 '''                Exec alias name
                 ''',
@@ -337,7 +337,7 @@ _meta_table = {
         ),
     },
 }
-_meta_table['Parser.Alias.Execs.Exec']['meta_info'].parent =_meta_table['Parser.Alias.Execs']['meta_info']
+_meta_table['Parser.Alias.Execs.Exec_']['meta_info'].parent =_meta_table['Parser.Alias.Execs']['meta_info']
 _meta_table['Parser.Alias.Configurations.Configuration']['meta_info'].parent =_meta_table['Parser.Alias.Configurations']['meta_info']
 _meta_table['Parser.Alias.Alls.All']['meta_info'].parent =_meta_table['Parser.Alias.Alls']['meta_info']
 _meta_table['Parser.Alias.Execs']['meta_info'].parent =_meta_table['Parser.Alias']['meta_info']

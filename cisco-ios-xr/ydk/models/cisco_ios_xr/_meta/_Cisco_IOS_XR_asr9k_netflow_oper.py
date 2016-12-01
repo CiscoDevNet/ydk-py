@@ -16,13 +16,13 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'NfmgrFemEdmExpVerEnum' : _MetaInfoEnum('NfmgrFemEdmExpVerEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper',
         {
-            'v9':'V9',
-            'ip-fix':'IP_FIX',
+            'v9':'v9',
+            'ip-fix':'ip_fix',
         }, 'Cisco-IOS-XR-asr9k-netflow-oper', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-netflow-oper']),
     'NfmgrFemEdmTransProtoEnum' : _MetaInfoEnum('NfmgrFemEdmTransProtoEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper',
         {
-            'unspecified':'UNSPECIFIED',
-            'udp':'UDP',
+            'unspecified':'unspecified',
+            'udp':'udp',
         }, 'Cisco-IOS-XR-asr9k-netflow-oper', _yang_ns._namespaces['Cisco-IOS-XR-asr9k-netflow-oper']),
     'NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9' : {
         'meta_info' : _MetaInfoClass('NetFlow.Configuration.FlowExporterMaps.FlowExporterMap.Version.Version9',
@@ -464,8 +464,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper'
         ),
     },
-    'NetFlow.Statistics.Statistic.Producer.Statistics' : {
-        'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Producer.Statistics',
+    'NetFlow.Statistics.Statistic.Producer.Statistics_' : {
+        'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Producer.Statistics_',
             False, 
             [
             _MetaInfoClassMember('drops-no-space', ATTRIBUTE, 'int' , None, None, 
@@ -564,7 +564,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Producer',
             False, 
             [
-            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Producer.Statistics', 
+            _MetaInfoClassMember('statistics', REFERENCE_CLASS, 'Statistics_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Producer.Statistics_', 
                 [], [], 
                 '''                Statistics information
                 ''',
@@ -577,8 +577,8 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper'
         ),
     },
-    'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector' : {
-        'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector',
+    'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector' : {
+        'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector',
             False, 
             [
             _MetaInfoClassMember('bytes-dropped', ATTRIBUTE, 'int' , None, None, 
@@ -805,11 +805,11 @@ _meta_table = {
         'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper'
         ),
     },
-    'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic' : {
-        'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic',
+    'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_' : {
+        'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_',
             False, 
             [
-            _MetaInfoClassMember('collector', REFERENCE_LIST, 'Collector' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector', 
+            _MetaInfoClassMember('collector', REFERENCE_LIST, 'Collector' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector', 
                 [], [], 
                 '''                Statistics of all collectors
                 ''',
@@ -844,7 +844,7 @@ _meta_table = {
         'meta_info' : _MetaInfoClass('NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter',
             False, 
             [
-            _MetaInfoClassMember('statistic', REFERENCE_LIST, 'Statistic' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic', 
+            _MetaInfoClassMember('statistic', REFERENCE_LIST, 'Statistic_' , 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper', 'NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_', 
                 [], [], 
                 '''                Array of flow exporters
                 ''',
@@ -996,9 +996,9 @@ _meta_table['NetFlow.Configuration.FlowSamplerMaps.FlowSamplerMap']['meta_info']
 _meta_table['NetFlow.Configuration.FlowExporterMaps']['meta_info'].parent =_meta_table['NetFlow.Configuration']['meta_info']
 _meta_table['NetFlow.Configuration.FlowMonitorMaps']['meta_info'].parent =_meta_table['NetFlow.Configuration']['meta_info']
 _meta_table['NetFlow.Configuration.FlowSamplerMaps']['meta_info'].parent =_meta_table['NetFlow.Configuration']['meta_info']
-_meta_table['NetFlow.Statistics.Statistic.Producer.Statistics']['meta_info'].parent =_meta_table['NetFlow.Statistics.Statistic.Producer']['meta_info']
-_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic.Collector']['meta_info'].parent =_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic']['meta_info']
-_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic']['meta_info'].parent =_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter']['meta_info']
+_meta_table['NetFlow.Statistics.Statistic.Producer.Statistics_']['meta_info'].parent =_meta_table['NetFlow.Statistics.Statistic.Producer']['meta_info']
+_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector']['meta_info'].parent =_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_']['meta_info']
+_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_']['meta_info'].parent =_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter']['meta_info']
 _meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter']['meta_info'].parent =_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter']['meta_info']
 _meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter']['meta_info'].parent =_meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters']['meta_info']
 _meta_table['NetFlow.Statistics.Statistic.Server.FlowExporters']['meta_info'].parent =_meta_table['NetFlow.Statistics.Statistic.Server']['meta_info']

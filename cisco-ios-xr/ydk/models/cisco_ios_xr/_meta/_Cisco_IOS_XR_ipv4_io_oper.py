@@ -16,15 +16,15 @@ from ydk.providers._importer import _yang_ns
 _meta_table = {
     'RpfModeEnum' : _MetaInfoEnum('RpfModeEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper',
         {
-            'strict':'STRICT',
-            'loose':'LOOSE',
+            'strict':'strict',
+            'loose':'loose',
         }, 'Cisco-IOS-XR-ipv4-io-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-io-oper']),
     'Ipv4MaOperLineStateEnum' : _MetaInfoEnum('Ipv4MaOperLineStateEnum', 'ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper',
         {
-            'unknown':'UNKNOWN',
-            'shutdown':'SHUTDOWN',
-            'down':'DOWN',
-            'up':'UP',
+            'unknown':'unknown',
+            'shutdown':'shutdown',
+            'down':'down',
+            'up':'up',
         }, 'Cisco-IOS-XR-ipv4-io-oper', _yang_ns._namespaces['Cisco-IOS-XR-ipv4-io-oper']),
     'Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief' : {
         'meta_info' : _MetaInfoClass('Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief',

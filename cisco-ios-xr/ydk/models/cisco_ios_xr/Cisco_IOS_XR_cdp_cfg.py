@@ -36,12 +36,14 @@ class Cdp(object):
     .. attribute:: advertise_v1_only
     
     	Enable CDPv1 only advertisements
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: enable
     
     	Enable or disable CDP globally
     	**type**\:  bool
+    
+    	**default value**\: true
     
     .. attribute:: hold_time
     
@@ -50,10 +52,12 @@ class Cdp(object):
     
     	**range:** 10..255
     
+    	**default value**\: 180
+    
     .. attribute:: log_adjacency
     
     	Enable logging of adjacency changes
-    	**type**\:  :py:class:`Empty <ydk.types.Empty>`
+    	**type**\:  :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: timer
     
@@ -61,6 +65,8 @@ class Cdp(object):
     	**type**\:  int
     
     	**range:** 5..255
+    
+    	**default value**\: 60
     
     
 
